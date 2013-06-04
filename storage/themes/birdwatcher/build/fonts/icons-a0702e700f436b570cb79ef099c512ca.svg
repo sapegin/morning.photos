@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-6-2: Created.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Sun Jun  2 18:43:55 2013
+ By Artem Sapegin
+Created by Artem Sapegin with FontForge 2.0 (http://fontforge.sf.net)
+</metadata>
+<defs>
+<font id="icons" horiz-adv-x="490" >
+  <font-face 
+    font-family="icons"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="800"
+    descent="-200"
+    bbox="15 -200 1015 800"
+    underline-thickness="50"
+    underline-position="-100"
+    unicode-range="U+F100-F101"
+  />
+    <missing-glyph />
+    <glyph glyph-name="uniF100" unicode="&#xf100;" 
+d="M367 800c32 0 56.667 -9 74 -27s26 -41 26 -69c0 -33.333 -13 -62.667 -39 -88s-57.667 -38 -95 -38c-32 0 -56.667 8.66699 -74 26s-25.333 41.333 -24 72c0 30.667 11.667 59 35 85s55.667 39 97 39zM161 -200c-66.667 0 -84.667 59.333 -54 178l60 254
+c9.33301 37.333 9.33301 56 0 56c-8 0 -26 -6 -54 -18s-52 -24.667 -72 -38l-26 44c60 52 123 94 189 126s116.333 48 151 48c52 0 64 -54 36 -162l-70 -266c-10.667 -42.667 -8.66699 -64 6 -64c29.333 0 68.667 20 118 60l30 -40c-56 -57.333 -114.333 -101.333 -175 -132
+s-107 -46 -139 -46z" />
+    <glyph glyph-name="uniF101" unicode="&#xf101;" horiz-adv-x="1030" 
+d="M765 120v56l100 82v-188c0 -13.333 -5 -25 -15 -35s-21.667 -15 -35 -15h-750c-13.333 0 -25 5 -35 15s-15 21.667 -15 35v550c0 14.667 4.66699 26.667 14 36s21.333 14 36 14h288c-21.333 -16 -41 -32.333 -59 -49s-31 -29.667 -39 -39l-10 -12h-130v-450h650zM683 468
+c-110.667 0 -191.333 -13.667 -242 -41s-104 -87.667 -160 -181c0 5.33301 0.333008 12.667 1 22s3.66699 28 9 56s12.667 54.333 22 79s24 52.333 44 83s43.333 57 70 79s62.333 40.667 107 56s94.333 23 149 23v156l332 -250l-332 -260v178z" />
+  </font>
+</defs></svg>

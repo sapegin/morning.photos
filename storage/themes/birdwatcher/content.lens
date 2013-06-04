@@ -1,0 +1,109 @@
+<koken:include file="inc/header.html" />
+<body class="page page_content">
+<koken:include file="inc/page-header.html" />
+
+<!-- Load this template's source data (content) -->
+<koken:load>
+
+	<!-- Add Facebook open graph metadata for nicer sharing -->
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ content.title|content.filename strip_html="true" }}" />
+		<meta property="og:description" content="{{ content.caption strip_html="true" }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		<meta property="og:url" content="{{ content.url }}" />
+		<koken:content_image>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="photo" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			</koken:not>
+		</koken:content_image>
+	</koken:head>
+
+	<div class="lightbox" data-component="photo-album">
+
+		<div class="lightbox__gallery js-gallery" style="background-image:url({{ content.presets.xlarge.url }})"></div>
+
+		<div class="lightbox__controls">
+			<div class="lightbox__control lightbox-pane">
+				<div class="lightbox-pane__button">
+					<i class="icon icon_share"></i>
+				</div>
+				<div class="lightbox-pane__popup js-share">Share...</div>
+			</div>
+			<div class="lightbox__control lightbox-pane">
+				<div class="lightbox-pane__button">
+					<i class="icon icon_info"></i>
+				</div>
+				<div class="lightbox-pane__popup photo-info js-info"></div>
+			</div>
+		</div>
+
+		<div class="lightbox__meta">
+			<img src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>" class="lightbox__img">
+
+			<h1>{{ content.title | '***' }}</h1>
+
+			<koken:parent>
+				<p class="js-album-link">
+					<koken:link>
+						{{ album.title }}
+					</koken:link>
+				</p>
+			</koken:parent>
+
+			<!-- TODO: где -->
+
+			{{ content.caption paragraphs="true" }}
+
+			<p><time datetime="{{ content.captured_on date_format='c' }}">{{ content.captured_on }}</time></p>
+
+			<koken:tags>
+				<p>
+					<koken:loop separator=", ">{{ tag.title }}</koken:loop>
+				</p>
+			</koken:tags>
+
+			<koken:exif>
+				<p>
+					<koken:not empty="exif.exposure">
+						{{ exif.exposure }},
+					</koken:not>
+					<koken:not empty="exif.aperture">
+						{{ exif.aperture }},
+					</koken:not>
+					<koken:not empty="exif.focal_length">
+						{{ exif.focal_length }},
+					</koken:not>
+					<koken:not empty="exif.iso_speed_ratings">
+						{{ exif.iso_speed_ratings }}
+					</koken:not>
+				</p>
+			</koken:exif>
+
+		</div>
+
+	</div>
+
+<script>
+var __photos_current_id = '{{ content.id }}';
+<koken:parent>
+var __photos = [<koken:loop separator=",">{
+	id: '{{ id }}', img: '{{ presets.xlarge.url }}', title: '{{ title }}', description: '{{ content.caption paragraphs="true" url_encode="true" }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
+	exif: '<koken:exif><koken:not empty="exif.exposure">{{ exif.exposure }},</koken:not> <koken:not empty="exif.aperture">{{ exif.aperture }},</koken:not> <koken:not empty="exif.focal_length">{{ exif.focal_length }},</koken:not> <koken:not empty="exif.iso_speed_ratings">{{ exif.iso_speed_ratings }}</koken:not></koken:exif>'
+}</koken:loop>];
+</koken:parent>
+</script>
+
+	<!-- Fallback content if no data was loaded by koken:load -->
+	<koken:else>
+
+		Nothing loaded
+
+</koken:load>
+
+<koken:include file="inc/footer.html" />

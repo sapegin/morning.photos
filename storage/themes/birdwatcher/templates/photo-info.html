@@ -1,0 +1,9 @@
+<h1 class="photo-info__title">{{=it.title}}</h1>
+
+<div class="photo-info__album"><a href="{{=it.albumHref}}" class="photo-info__album-link">⇧ <u>{{=it.album}}</u></a></div>
+
+{{? it.description}}
+<div class="photo-info__caption">{{=it.description}}</div>
+{{?}}
+
+<div class="photo-info__meta">{{=it.pubdate}}, {{=it.exif}}</div>

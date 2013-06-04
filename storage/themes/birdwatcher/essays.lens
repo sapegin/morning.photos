@@ -1,0 +1,122 @@
+<koken:include file="inc/header.html" />
+
+<div id="content">
+
+     <!-- Load this template's source data (essays) and limit for pagination -->
+     <koken:load limit="20">
+
+          <div class="lcol">
+
+                <!-- Loop over and display each essay -->
+                <koken:loop>
+
+                    <article>
+
+                        <header>
+
+                          <h2><koken:link>{{ essay.title }}</koken:link></h2>
+
+                          <p>
+                              <strong>Published:</strong> <koken:time />
+                          </p>
+
+                        </header>
+
+                        {{ essay.content }}
+
+                        <footer>
+
+                           <!-- Link to any albums assigned as the essay's topic -->
+                            <koken:topics>
+                              <p>
+                                   <strong>Topics:</strong>
+                                   <koken:loop separator=", ">
+                                        <koken:link>
+                                             {{ album.title }}
+                                        </koken:link>
+                                   </koken:loop>
+                              </p>
+                            </koken:topics>
+
+                            <!-- Publish the essay's categories. Links to archive.essays.lens -->
+                            <koken:categories>
+                            <p>
+                                 <strong>Category:</strong>
+                                 <koken:loop separator=", ">
+                                      <koken:link>
+                                           {{ category.title }}
+                                      </koken:link>
+                                 </koken:loop>
+                            </p>
+                            </koken:categories>
+
+                            <!-- Publish the essays' tags. Links to archive.essays.lens -->
+                            <koken:tags>
+                              <p>
+                                   <strong>Tags:</strong>
+                                   <koken:loop separator=", ">
+                                        <koken:link>
+                                             {{ tag.title }}
+                                        </koken:link>
+                                   </koken:loop>
+                              </p>
+                            </koken:tags>
+
+                        </footer>
+
+                    </article>
+
+               </koken:loop>
+
+               <br>
+
+                <!-- Display pagination links -->
+                <p>
+                    <koken:include file="inc/pagination.html" />
+                </p>
+
+          </div> <!-- close .lcol -->
+
+          <div class="rcol">
+
+               <!-- Links to essays archived by date, categories and tags -->
+               <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
+                 <h3>View essays by date</h3>
+                 <koken:loop>
+                      <koken:link to="archive_essays">
+                           {{ title }}&nbsp;({{ counts.essays }})
+                      </koken:link>
+                      <br>
+                 </koken:loop>
+               </koken:load>
+               <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
+                 <h3>View essays by category</h3>
+                 <koken:loop>
+                      <koken:link to="archive_essays">
+                           {{ title }}&nbsp;({{ counts.essays }})
+                      </koken:link>
+                      <br>
+                 </koken:loop>
+               </koken:load>
+               <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
+                 <h3>View essays by tag</h3>
+                 <koken:loop>
+                      <koken:link to="archive_essays">
+                           {{ title }}&nbsp;({{ counts.essays }})
+                      </koken:link>
+                      <br>
+                 </koken:loop>
+               </koken:load>
+
+          </div> <!-- close .rcol -->
+
+          <!-- Fallback content if no data was loaded by koken:load -->
+          <koken:else>
+
+               No essays published
+
+     </koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />

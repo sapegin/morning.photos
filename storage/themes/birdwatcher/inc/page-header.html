@@ -1,0 +1,13 @@
+<header class="header">
+
+	<koken:if data="location.here" equals="/">
+		<h1 class="logo js-site-title">{{ site.title }}</h1>
+	<koken:else>
+		<div class="logo"><koken:link to="front" class="logo__link js-site-title">{{ site.title }}</koken:link></div>
+	</koken:if>
+
+	<nav class="nav">
+		<koken:navigation group="menu" />
+	</nav>
+
+</header>

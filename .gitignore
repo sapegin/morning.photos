@@ -1,0 +1,13 @@
+admin
+app
+storage/cache
+storage/configuration
+storage/originals
+storage/tmp
+storage/wallpaper
+api.php
+dl.php
+i.php
+index.php
+preview.php
+.htaccess

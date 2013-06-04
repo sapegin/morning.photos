@@ -1,0 +1,152 @@
+<koken:include file="inc/header.html" />
+
+<div id="content">
+
+	<!-- Load this template's source data (set) and limit for pagination -->
+	<koken:load limit="20">
+
+		<!-- Add Facebook Open Graph and Twitter Cards metadata for nicer sharing -->
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ album.title strip_html="true" }}" />
+			<meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ album.url }}" />
+			<koken:covers><koken:shift>
+			<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+			</koken:shift></koken:covers>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="gallery" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+				<koken:covers minimum="4" limit="4">
+					<koken:loop>
+						<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+					</koken:loop>
+				</koken:covers>
+			</koken:not>
+		</koken:head>
+
+		<div class="lcol nofloat">
+
+			<!-- Displays links to neighbouring albums plus link to albums.lens to view all -->
+			<div id="content-pag">
+
+				<koken:previous>
+					<koken:link title="View {{ album.title }}">&larr; {{ album.title }}</koken:link>&nbsp;&nbsp;
+				</koken:previous>
+
+				<koken:link to="albums">View all</koken:link>
+
+				<koken:next>
+					&nbsp;&nbsp;<koken:link title="View {{ album.title }}">{{ album.title }} &rarr;</koken:link>
+				</koken:next>
+
+			</div>
+
+			<!-- Display the set's title -->
+			<h2>
+				{{ album.title }}
+			</h2>
+
+		</div>
+
+		<!-- Display the set's description -->
+		{{ album.description paragraphs="true" }}
+
+		<div class="lcol">
+
+			<!-- Loop over all the albums the set contains. Dislay cover image, title and caption and link each to albums.detail.lens -->
+			<koken:loop>
+
+				<h3>
+					<koken:link>{{ album.title }}</koken:link>
+				</h3>
+
+				<koken:link>
+					<koken:img size="8:5" />
+				</koken:link>
+
+				<p>{{ album.summary }}</p>
+
+				<!-- Display the set's categories -->
+				<koken:categories>
+					<p>
+						<strong>Categories:</strong>
+						<koken:loop separator=", ">
+							<koken:link>
+								{{ category.title }}
+							</koken:link>
+						</koken:loop>
+					</p>
+				</koken:categories>
+
+				<!-- Display the set's tags -->
+				<koken:tags>
+					<p>
+						<strong>Tags:</strong>
+						<koken:loop separator=", ">
+							<koken:link>
+								{{ title }}
+							</koken:link>
+						</koken:loop>
+					</p>
+				</koken:tags>
+
+			</koken:loop>
+
+			<!-- Display pagination links -->
+			<p>
+				<koken:include file="inc/pagination.html" />
+			</p>
+
+		</div> <!-- close .lcol -->
+
+		<div class="rcol">
+
+			<!-- Links to albums archived by date, categories and tags -->
+			<h3>Archives</h3>
+			<koken:load source="archives" summary="true" limit_to="albums">
+				<h4>Date</h4>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+			<koken:load source="categories" summary="true" limit_to="albums" order_by="album_count">
+				<h4>Categories</h4>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+			<koken:load source="tags" summary="true" limit_to="albums" order_by="album_count">
+				<h4>Tags</h4>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+		</div> <!-- close .rcol -->
+
+		<!-- Fallback content if no data was loaded by koken:load -->
+		<koken:else>
+
+			Nothing loaded
+
+	</koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />

@@ -1,0 +1,108 @@
+<koken:include file="inc/header.html" />
+
+<div id="content">
+
+	<!-- Load this template's source data (albums) and limit for pagination -->
+	<koken:load limit="20">
+
+		<h3>
+			<!-- Displays the type of archive (Tag, Date, Category) plus the archive's title and a link to view all albums -->
+			<koken:link to="albums">Albums</koken:link> / View by {{ archive.type.plural }} / {{ archive.title }}
+		</h3>
+
+		<div class="lcol">
+
+			<!-- Loop over loaded archival data and execute with each pass -->
+			<koken:loop>
+
+				<!-- Display each album's title, link to album.lens -->
+				<h2>
+					<koken:link>{{ album.title }}</koken:link>
+				</h2>
+
+				<!-- Load the most recently assigned album cover, link to album.lens -->
+				<koken:link>
+					<koken:img size="8:5" />
+				</koken:link>
+
+				<!-- Display the album's (shorter) summary -->
+				{{ album.summary paragraphs="true" }}
+
+				<!-- Display album categories, link each to this template to change criteria -->
+				<koken:categories>
+					<p>
+						<strong>Categories:</strong>
+						<koken:loop separator=", ">
+							<koken:link>
+								{{ category.title }}
+							</koken:link>
+						</koken:loop>
+					</p>
+				</koken:categories>
+
+				<!-- Display album tags, link each to this template to change criteria -->
+				<koken:tags>
+					<p>
+						<strong>Tags:</strong>
+						<koken:loop separator=", ">
+							<koken:link>
+								{{ title }}
+							</koken:link>
+						</koken:loop>
+					</p>
+				</koken:tags>
+
+			</koken:loop>
+
+			<!-- Display pagination links -->
+			<p>
+				<koken:include file="inc/pagination.html" />
+			</p>
+
+		</div> <!-- close .lcol -->
+
+		<div class="rcol">
+
+			<!-- Links to albums archived by date, categories and tags -->
+			<koken:load source="archives" summary="true" limit_to="albums">
+				<h3>View albums by date</h3>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+			<koken:load source="categories" summary="true" limit_to="albums" order_by="album_count">
+				<h3>View albums by category</h3>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+			<koken:load source="tags" summary="true" limit_to="albums" order_by="album_count">
+				<h3>View albums by tag</h3>
+				<koken:loop>
+					<koken:link to="archive_albums">
+						{{ title }}&nbsp;({{ counts.albums }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:load>
+
+		</div> <!-- close .rcol -->
+
+	<!-- Fallback content if no data was loaded by koken:load -->
+	<koken:else>
+
+		Nothing loaded
+
+	</koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />
