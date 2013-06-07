@@ -1,18 +1,20 @@
 <koken:include file="inc/header.html" />
+<body class="page page_thepage">
+<koken:include file="inc/page-header.html" />
 
-<div id="content">
+<!-- Load this template's source data (page) -->
+<koken:load>
 
-	<!-- Load this template's source data (page) -->
-	<koken:load>
+	<h1 class="page-title">
+		{{ page.title }}
+	</h1>
 
-		<!-- Displays the custom page title -->
-		<h1>{{ page.title }}</h1>
-
-		<!-- Displays the custom page content -->
+	<div class="thepage text">
+	<!-- bw-travel -->
 		{{ page.content }}
+	<!-- /bw-travel -->
+	</div>
 
-	</koken:load>
-
-</div> <!-- close #content -->
+</koken:load>
 
 <koken:include file="inc/footer.html" />
