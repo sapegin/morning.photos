@@ -6,7 +6,7 @@ from fabric.contrib.files import exists
 env.use_ssh_config = True
 env.hosts = ['seal']
 REPO = 'git@bitbucket.org:sapegin/birdwatcher.git'
-DEST = 'sites/birdwatcher.info/htdocs'
+DEST = 'sites/beta.birdwatcher.ru/htdocs'
 
 
 @task(default=True)

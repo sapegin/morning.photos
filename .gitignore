@@ -5,6 +5,7 @@ storage/configuration
 storage/originals
 storage/tmp
 storage/wallpaper
+storage/custom
 api.php
 dl.php
 i.php

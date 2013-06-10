@@ -1,9 +1,0 @@
-{ 
-  "name": "Birdwatcher.ru Travel",
-  "version": "0.1",
-  "description": "Travel reports preprocessor for Birdwatcher.ru.",
-  "author": {
-    "name": "Artem Sapegin",
-    "link": "http://sapegin.me"
-  }
-}

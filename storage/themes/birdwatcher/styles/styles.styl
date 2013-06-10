@@ -1,10 +1,10 @@
-// Author: <%= authorName %>, <%= authorUrl %>, <%= (new Date).getFullYear() %>
+// Author: Artem Sapegin, http://sapegin.me, 2013
 
 body {
 	background:bg-color;
 	color:base-color;
 	line-height:1.5;
-	padding:spacer;
+	padding:spacer 2*spacer;
 	font-size:16px;
 	if (max-width) {
 		max-width:max-width;
@@ -148,7 +148,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		width:50px;
 		height:50px;
 		line-height:50px;
-		color:#fff;
+		color:#ccc;
 		text-align:center;
 		cursor:default;
 		text-shadow:2px 2px 4px black(.5);
@@ -162,12 +162,16 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		absolute:left 50px bottom 0;
 		padding:spacer;
 		background:#fff;
+		// box-shadow:inset 0 0 10px 2px black(.75);
 	}
 
 	&:hover &__button {
-		color:#000;
-		background:#fff;
-		text-shadow:none;
+		// color:#000;
+		color:#fff;
+		// background:#fff;
+		// text-shadow:none;
+		text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
+		// text-shadow:0 0 10px hsla(0, 100%, 100%, 1)//, 0 0 10px hsla(0, 100%, 100%, 1);
 	}
 	&:hover &__popup {
 		display:block;
@@ -228,22 +232,47 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .thepage {
 	max-width:1024px;
-}
 
-// 1023px!!!
-.travel-instagrams {
-	space(2);
-	margin-left:-7px;
-	margin-right:-7px;
+	p {
+		font-size:16px;
+		space(2);
+	}
 
-	&__photo {
-		max-width:330px;
-		height:auto;
-		margin:0 7px 14px;
+	div + p {
+		margin-top:4*spacer;
 	}
 }
 
-.travel-photo {
+.page-header {
+	space(4);
+}
+
+.page-title {
+	font-size:48px;
+	font-weight:normal;
+}
+
+.page-excerpt {
+	font-size:14px;
+}
+
+.page-instagrams {
+	layout-row();
+	margin-top:(-(spacer));
+	margin-bottom:(-(spacer));
+
+	&__item {
+		layout-nth(3);
+		margin-top:spacer;
+		margin-bottom:spacer;
+	}
+
+	&__photo {
+		max-width:100%;
+	}
+}
+
+.page-photo {
 	space(2);
 
 	&__photo {

@@ -1,6 +1,6 @@
 <?php
 
-class BirdwatcherTravel extends KokenPlugin {
+class Birdwatcher extends KokenPlugin {
 
 	function __construct()
 	{
@@ -9,10 +9,10 @@ class BirdwatcherTravel extends KokenPlugin {
 
 	function awesomize($html)
 	{
-		if (strpos($html, 'bw-travel') === false) return $html;
+		if (strpos($html, 'bw-content') === false) return $html;
 
 		$content = null;
-		preg_match('%<!-- bw-travel -->(.*?)<!-- /bw-travel -->%s', $html, $content);
+		preg_match('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', $html, $content);
 		$content = $content[1];
 
 		// Some cleanup
@@ -30,8 +30,8 @@ class BirdwatcherTravel extends KokenPlugin {
 				if (strpos($chunk, '<div class="k-content-embed">') === 0) {
 					if (strpos($chunk, '<a href="/photos/') !== false) {
 						// Normal photo
-						$chunk = str_replace('k-content-embed', 'travel-photo', $chunk);
-						$chunk = str_replace('<img width="100%"', '<img class="travel-photo__photo"', $chunk);
+						$chunk = str_replace('k-content-embed', 'page-photo', $chunk);
+						$chunk = str_replace('<img width="100%"', '<img class="page-photo__photo"', $chunk);
 						$chunk = str_replace('/lightbox/', '/', $chunk);
 						$chunk = str_replace(' lightbox="true"', '', $chunk);
 						$inside = 'photo';
@@ -39,15 +39,14 @@ class BirdwatcherTravel extends KokenPlugin {
 					else {
 						// Instagram
 						if ($inside !== 'instagram') {
-							$chunk = str_replace('k-content-embed', 'travel-instagrams', $chunk);
+							$chunk = str_replace('k-content-embed', 'page-instagrams', $chunk);
 							$inside = 'instagram';
 						}
 						else {
 							$chunk = str_replace('<div class="k-content-embed">', '', $chunk);
 						}
-						$chunk = str_replace('<img width="100%"', '<img class="travel-instagrams__photo"', $chunk);
+						$chunk = str_replace('<img width="100%"', '<div class="page-instagrams__item"><img class="page-instagrams__photo"', $chunk);
 						$chunk = str_replace(',large.', ',medium.', $chunk);
-						$chunk = str_replace('</div>', '', $chunk);
 						$chunk = preg_replace("%[\n\r\t]+%s", '', $chunk);
 					}
 				}
@@ -62,7 +61,7 @@ class BirdwatcherTravel extends KokenPlugin {
 			}
 		}
 
-		$html = preg_replace('%<!-- bw-travel -->(.*?)<!-- /bw-travel -->%s', implode('', $chunks), $html);
+		$html = preg_replace('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', implode('', $chunks), $html);
 
 		return $html;
 	}

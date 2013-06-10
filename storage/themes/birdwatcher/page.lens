@@ -2,17 +2,24 @@
 <body class="page page_thepage">
 <koken:include file="inc/page-header.html" />
 
-<!-- Load this template's source data (page) -->
 <koken:load>
 
-	<h1 class="page-title">
-		{{ page.title }}
-	</h1>
+	<div class="page-header">
+		<h1 class="page-title">
+			{{ page.title }}
+		</h1>
 
-	<div class="thepage text">
-	<!-- bw-travel -->
+		<koken:not empty="page.excerpt">
+			<div class="page-excerpt">
+				{{ page.excerpt }}
+			</div>
+		</koken:not>
+	</div>
+
+	<div class="thepage">
+	<!-- bw-content -->
 		{{ page.content }}
-	<!-- /bw-travel -->
+	<!-- /bw-content -->
 	</div>
 
 </koken:load>
