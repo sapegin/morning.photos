@@ -28,26 +28,33 @@ class Birdwatcher extends KokenPlugin {
 			for ($chunkIdx = 0; $chunkIdx < count($chunks); $chunkIdx++) {
 				$chunk = $chunks[$chunkIdx];
 				if (strpos($chunk, '<div class="k-content-embed">') === 0) {
-					if (strpos($chunk, '<a href="/photos/') !== false) {
-						// Normal photo
+					if (strpos($chunk, 'class="k-media-img"') !== false) {
+						// Uploaded photo
 						$chunk = str_replace('k-content-embed', 'page-photo', $chunk);
-						$chunk = str_replace('<img width="100%"', '<img class="page-photo__photo"', $chunk);
-						$chunk = str_replace('/lightbox/', '/', $chunk);
-						$chunk = str_replace(' lightbox="true"', '', $chunk);
-						$inside = 'photo';
+						$chunk = str_replace('k-media-img', 'page-photo__photo', $chunk);
 					}
 					else {
-						// Instagram
-						if ($inside !== 'instagram') {
-							$chunk = str_replace('k-content-embed', 'page-instagrams', $chunk);
-							$inside = 'instagram';
+						if (strpos($chunk, '<a href="/photos/') !== false) {
+							// Normal photo
+							$chunk = str_replace('k-content-embed', 'page-photo', $chunk);
+							$chunk = str_replace('<img width="100%"', '<img class="page-photo__photo"', $chunk);
+							$chunk = str_replace('/lightbox/', '/', $chunk);
+							$chunk = str_replace(' lightbox="true"', '', $chunk);
+							$inside = 'photo';
 						}
 						else {
-							$chunk = str_replace('<div class="k-content-embed">', '', $chunk);
+							// Instagram
+							if ($inside !== 'instagram') {
+								$chunk = str_replace('k-content-embed', 'page-instagrams', $chunk);
+								$inside = 'instagram';
+							}
+							else {
+								$chunk = str_replace('<div class="k-content-embed">', '', $chunk);
+							}
+							$chunk = str_replace('<img width="100%"', '<div class="page-instagrams__item"><img class="page-instagrams__photo"', $chunk);
+							$chunk = str_replace(',large.', ',medium.', $chunk);
+							$chunk = preg_replace("%[\n\r\t]+%s", '', $chunk);
 						}
-						$chunk = str_replace('<img width="100%"', '<div class="page-instagrams__item"><img class="page-instagrams__photo"', $chunk);
-						$chunk = str_replace(',large.', ',medium.', $chunk);
-						$chunk = preg_replace("%[\n\r\t]+%s", '', $chunk);
 					}
 				}
 				else {
