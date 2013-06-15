@@ -743,8 +743,16 @@ body {
 .essay_photo {
   margin-left: -20px;
   margin-right: -20px;
-  padding: 40px 0;
+  padding: 40px 0 20px;
   background: #1a1a1a;
+  color: #fff;
+}
+.essay_photo a,
+.essay_photo a:link,
+.essay_photo a:visited,
+.essay_photo a:hover,
+.essay_photo a:active,
+.essay_photo a:focus {
   color: #fff;
 }
 .essay__content {

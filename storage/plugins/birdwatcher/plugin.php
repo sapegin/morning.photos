@@ -81,7 +81,7 @@ class Birdwatcher extends KokenPlugin {
 		preg_match('%<div class="entry-photo">(.*?)</div>%s', $html, $first);
 		$first = $first[1];
 		$html = preg_replace('%<div class="entry-photo">.*?</div>%s', '', $html);
-		$html = "<div class=\"entry-photo entry-photo_featured\">$first</div>\n$html";
+		$html = "<div class=\"entry-photo entry-photo_featured\">$first</div>\n<div class=\"essay__content text\">$html</div>";
 
 		return $html;
 	}

@@ -334,9 +334,20 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&_photo {
 		margin-left:(-(2*spacer));
 		margin-right:(-(2*spacer));
-		padding:4*spacer 0;
+		padding:4*spacer 0 2*spacer;
 		background:base-color;
 		color:bg-color;
+
+		a {
+			&,
+			&:link,
+			&:visited,
+			&:hover,
+			&:active,
+			&:focus {
+				color:bg-color;
+			}
+		}
 	}
 
 	&__content {
