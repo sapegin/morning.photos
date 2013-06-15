@@ -9,20 +9,92 @@ class Birdwatcher extends KokenPlugin {
 
 	function awesomize($html)
 	{
+		$html = $this->process_page($html);
+		$html = $this->process_essays($html);
+		return $html;
+	}
+
+	function process_page($html)
+	{
 		if (strpos($html, 'bw-content') === false) return $html;
 
 		$content = null;
 		preg_match('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', $html, $content);
 		$content = $content[1];
 
-		// Some cleanup
-		$content = preg_replace('%</?noscript>%', '', $content);
-		$content = preg_replace('%<img data-alt=[^>]+/>%', '', $content);
-		$content = preg_replace('%<div class="k-content">(.*?)</div>%s', '\1', $content);
+		$content = $this->process_photos($content);
 
-		// 
+		$html = preg_replace('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', $content, $html);
+
+		return $html;
+	}
+
+	function process_essays($html)
+	{
+		if (strpos($html, 'bw-essay') === false) return $html;
+
+		$html = preg_replace_callback('%<!-- bw-essay -->(.*?)<!-- /bw-essay -->%s', array($this, 'process_essay'), $html);
+		$html = preg_replace_callback('%<!-- bw-essay-excerpt url="([^"]*)" -->(.*?)<!-- /bw-essay-excerpt -->%s', array($this, 'process_essay_excerpt'), $html);
+		$html = preg_replace_callback('%<!-- bw-essay-photo-excerpt url="([^"]*)" -->(.*?)<!-- /bw-essay-photo-excerpt -->%s', array($this, 'process_essay_photo_excerpt'), $html);
+
+		return $html;
+	}
+
+	function process_essay($data)
+	{
+		$html = $data[1];
+
+		return $html;
+	}
+
+	// More tag
+	function process_more($html)
+	{
+		$parts = explode('<!--more-->', $html);
+		$html = $parts[0];
+		if (count($parts) > 1) {
+			$html .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
+		}
+		return $html;
+	}
+
+	function process_essay_excerpt($data)
+	{
+		$url = $data[1];
+		$html = $data[2];
+
+		$html = $this->process_more($html);
+		$html = $this->process_photos($html);
+
+		return $html;
+	}
+
+	function process_essay_photo_excerpt($data)
+	{
+		$html = $this->process_essay_excerpt($data);
+
+		// Enlarge photos
+		// $html = str_replace(',large.', ',xlarge.', $html);
+
+		// Move first photo before header
+		$first = null;
+		preg_match('%<div class="entry-photo">(.*?)</div>%s', $html, $first);
+		$first = $first[1];
+		$html = preg_replace('%<div class="entry-photo">.*?</div>%s', '', $html);
+		$html = "<div class=\"entry-photo entry-photo_featured\">$first</div>\n$html";
+
+		return $html;
+	}
+
+	function process_photos($html)
+	{
+		// Some cleanup
+		$html = preg_replace('%</?noscript>%', '', $html);
+		$html = preg_replace('%<img data-alt=[^>]+/>%', '', $html);
+		$html = preg_replace('%<div class="k-content">(.*?)</div>%s', '\1', $html);
+
 		$chunks = null;
-		if (preg_match_all('%(<div class="k-content-embed">.*?</div>|<p.*?</p>)%s', $content, $chunks)) {
+		if (preg_match_all('%(<div class="k-content-embed">.*?</div>|<p.*?</p>|<h2.*?</h2>)%s', $html, $chunks)) {
 			$chunks = $chunks[0];
 			$inside = 'text';
 			for ($chunkIdx = 0; $chunkIdx < count($chunks); $chunkIdx++) {
@@ -30,14 +102,14 @@ class Birdwatcher extends KokenPlugin {
 				if (strpos($chunk, '<div class="k-content-embed">') === 0) {
 					if (strpos($chunk, 'class="k-media-img"') !== false) {
 						// Uploaded photo
-						$chunk = str_replace('k-content-embed', 'page-photo', $chunk);
-						$chunk = str_replace('k-media-img', 'page-photo__photo', $chunk);
+						$chunk = str_replace('k-content-embed', 'entry-photo', $chunk);
+						$chunk = str_replace('k-media-img', 'entry-photo__photo', $chunk);
 					}
 					else {
 						if (strpos($chunk, '<a href="/photos/') !== false) {
 							// Normal photo
-							$chunk = str_replace('k-content-embed', 'page-photo', $chunk);
-							$chunk = str_replace('<img width="100%"', '<img class="page-photo__photo"', $chunk);
+							$chunk = str_replace('k-content-embed', 'entry-photo', $chunk);
+							$chunk = str_replace('<img width="100%"', '<img class="entry-photo__photo"', $chunk);
 							$chunk = str_replace('/lightbox/', '/', $chunk);
 							$chunk = str_replace(' lightbox="true"', '', $chunk);
 							$inside = 'photo';
@@ -45,13 +117,13 @@ class Birdwatcher extends KokenPlugin {
 						else {
 							// Instagram
 							if ($inside !== 'instagram') {
-								$chunk = str_replace('k-content-embed', 'page-instagrams', $chunk);
+								$chunk = str_replace('k-content-embed', 'entry-instagrams', $chunk);
 								$inside = 'instagram';
 							}
 							else {
 								$chunk = str_replace('<div class="k-content-embed">', '', $chunk);
 							}
-							$chunk = str_replace('<img width="100%"', '<div class="page-instagrams__item"><img class="page-instagrams__photo"', $chunk);
+							$chunk = str_replace('<img width="100%"', '<div class="entry-instagrams__item"><img class="entry-instagrams__photo"', $chunk);
 							$chunk = str_replace(',large.', ',medium.', $chunk);
 							$chunk = preg_replace("%[\n\r\t]+%s", '', $chunk);
 						}
@@ -66,10 +138,9 @@ class Birdwatcher extends KokenPlugin {
 				}
 				$chunks[$chunkIdx] = $chunk;
 			}
+
+			return implode('', $chunks);
 		}
 
-		$html = preg_replace('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', implode('', $chunks), $html);
-
-		return $html;
 	}
 }

@@ -2,10 +2,8 @@
 <body class="page page_content">
 <koken:include file="inc/page-header.html" />
 
-<!-- Load this template's source data (content) -->
 <koken:load>
 
-	<!-- Add Facebook open graph metadata for nicer sharing -->
 	<koken:head>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ content.title|content.filename strip_html="true" }}" />

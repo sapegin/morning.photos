@@ -30,11 +30,11 @@
 	</koken:head>
 
 	<!-- Display the album's title -->
-	<h1 class="page-title">
+	<h1 class="entry-title">
 		{{ album.title }}
 	</h1>
 
-	<div class="album-description">
+	<div class="page-excerpt">
 		{{ album.description paragraphs="true" }}
 	</div>
 
