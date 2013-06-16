@@ -69,7 +69,7 @@
 
    </koken:loop>
 
-	<div class="pager">
+	<div class="content">
 		<koken:include file="inc/pagination.html" />
 	</div>
 

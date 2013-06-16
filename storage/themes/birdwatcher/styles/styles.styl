@@ -276,7 +276,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 	.essay_photo & {
 		space(2);
-		font-size:22px;
+		font-size:28px;
 
 		&__link {
 			&,
@@ -325,6 +325,10 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&__photo {
 		max-width:100%;
 	}
+
+	&__title {
+		font-size:small-font;
+	}
 }
 
 
@@ -332,6 +336,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	space(4);
 
 	&_photo {
+		tweak-inverted-text();
 		margin-left:(-(2*spacer));
 		margin-right:(-(2*spacer));
 		padding:4*spacer 0 2*spacer;
@@ -358,18 +363,18 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 	&__content {
 		space(2);
-
-		p,
-		ul,
-		ol {
-			max-width:70em;
-			line-height:1.7;
-		}
+		font-size:19px;
 	}
 
 	&__pubdate {
 		display:inline-block;
 		margin-right:1em;
+	}
+
+	p,
+	ul,
+	ol {
+		line-height:1.7;
 	}
 }
 
@@ -385,5 +390,13 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&__counter {
 		margin-left:.25em;
 		font-size:small-font;
+	}
+}
+
+.pagination {
+	space(4);
+
+	&__link {
+		font-size:19px;
 	}
 }

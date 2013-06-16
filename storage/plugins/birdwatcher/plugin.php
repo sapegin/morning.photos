@@ -39,14 +39,11 @@ class Birdwatcher extends KokenPlugin {
 		return $html;
 	}
 
-	function process_essay($data)
+	function process_essay($essay)
 	{
-		$html = $data[1];
-
 		$essay = $this->process_photos($essay);
 
-		$essay->removeClass('bw-essay-excerpt');
-		$essay->deleteAttribute('url');
+		$essay->removeClass('bw-essay');
 
 		return $html;
 	}

@@ -1,32 +1,13 @@
 <!-- Paginates data for index page this is included in -->
 <koken:pagination>
 
-<div id="pagination">
-
-	<koken:if condition="{{ page }} > 1">
-
-		<koken:link data="previous_page" title="View page {{ previous_page.number }}">
-			&larr; Previous&nbsp;&nbsp;
-		</koken:link>
-
-
-	</koken:if>
-
-	<koken:loop>
-
-		<koken:link class="{{ is_current }}" title="View page {{ number }}">
-			{{ number }}
-		</koken:link>
-		&nbsp;
-
-	</koken:loop>
+<div class="pagination">
 
 	<koken:if condition="{{ page }} < {{ pages }}">
 
-		<koken:link data="next_page" title="View page {{ next_page.number }}">
-			&nbsp;&nbsp;Next &rarr;
+		<koken:link data="next_page" class="pagination__link link link_quoted">
+			&darr; <u>Ранее</u>
 		</koken:link>
-
 
 	</koken:if>
 
