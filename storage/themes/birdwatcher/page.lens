@@ -4,22 +4,24 @@
 
 <koken:load>
 
-	<div class="entry-header">
-		<h1 class="entry-title">
-			{{ page.title }}
-		</h1>
+	<div class="content">
 
-		<koken:not empty="page.excerpt">
-			<div class="entry-excerpt">
-				{{ page.excerpt }}
-			</div>
-		</koken:not>
-	</div>
+		<div class="entry-header">
+			<h1 class="entry-title">
+				{{ page.title }}
+			</h1>
 
-	<div class="thepage">
-	<!-- bw-content -->
-		{{ page.content }}
-	<!-- /bw-content -->
+			<koken:not empty="page.excerpt">
+				<div class="entry-excerpt">
+					{{ page.excerpt }}
+				</div>
+			</koken:not>
+		</div>
+
+		<div class="thepage bw-page">
+			{{ page.content }}
+		</div>
+
 	</div>
 
 </koken:load>

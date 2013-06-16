@@ -22,17 +22,17 @@
 		<koken:has_category title="Photos">
 
 			<article class="essay essay_photo">
-				<div class="content">
+				<div class="content bw-essay-excerpt" url="{{ essay.url }}" type="photo">
 
-					<!-- bw-essay-photo-excerpt url="{{ essay.url }}" -->
-						<h2 class="entry-title entry-title_photo">
-							<a class="entry-title__link" href="{{ essay.url }}">{{ essay.title }}</a>
-						</h2>
+					<div class="essay__featured"></div>
 
-						<div class="essay__content text">
-							{{ essay.content }}
-						</div>
-					<!-- /bw-essay-photo-excerpt -->
+					<h2 class="entry-title entry-title_photo">
+						<a class="entry-title__link" href="{{ essay.url }}">{{ essay.title }}</a>
+					</h2>
+
+					<div class="essay__content text">
+						{{ essay.content }}
+					</div>
 
 				</div>
 			</article>
@@ -41,16 +41,14 @@
 
 			<article class="essay content">
 
-				<header class="essay__header entry-header">
+				<header class="essay__header">
 					<h2 class="entry-title">
 						<a class="entry-title__link" href="{{ essay.url }}">{{ essay.title }}</a>
 					</h2>
-				<header>
+				</header>
 
-				<div class="essay__content text">
-					<!-- bw-essay-excerpt url="{{ essay.url }}" -->
-						{{ essay.content }}
-					<!-- /bw-essay-excerpt -->
+				<div class="essay__content text bw-essay-excerpt" url="{{ essay.url }}">
+					{{ essay.content }}
 				</div>
 
 				<footer class="essay__meta">

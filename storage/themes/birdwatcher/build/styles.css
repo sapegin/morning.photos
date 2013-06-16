@@ -609,7 +609,7 @@ body {
 }
 .photo-info__album {
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 13px;
 }
 .photo-info__album-link:link,
 .photo-info__album-link:visited,
@@ -631,7 +631,7 @@ body {
   font-size: 16px;
 }
 .photo-info__meta {
-  font-size: 14px;
+  font-size: 13px;
   color: #999;
 }
 .thumbnails {
@@ -689,13 +689,13 @@ body {
   color: #fff;
 }
 .entry-excerpt {
-  font-size: 14px;
+  font-size: 13px;
 }
 .entry-pubdate {
-  font-size: 14px;
+  font-size: 13px;
 }
 .entry-tags {
-  font-size: 14px;
+  font-size: 13px;
 }
 .entry-instagrams {
   margin-left: -10px;
@@ -749,11 +749,16 @@ body {
 }
 .essay_photo a,
 .essay_photo a:link,
-.essay_photo a:visited,
+.essay_photo a:visited {
+  color: #ccc;
+}
 .essay_photo a:hover,
 .essay_photo a:active,
 .essay_photo a:focus {
   color: #fff;
+}
+.essay__header {
+  margin-bottom: 20px;
 }
 .essay__content {
   margin-bottom: 20px;
@@ -778,7 +783,7 @@ body {
 }
 .blog-tags__counter {
   margin-left: 0.25em;
-  font-size: 14px;
+  font-size: 13px;
 }
 @media print {
   @page {

@@ -7,35 +7,34 @@ class Birdwatcher extends KokenPlugin {
 		$this->register_filter('site.output', 'awesomize');
 	}
 
-	function awesomize($html)
+	function awesomize($html_str)
 	{
+		require_once 'lib/ganon.php';
+		$html = str_get_dom($html_str);
 		$html = $this->process_page($html);
 		$html = $this->process_essays($html);
-		return $html;
+		return (string)$html;
 	}
 
 	function process_page($html)
 	{
-		if (strpos($html, 'bw-content') === false) return $html;
-
-		$content = null;
-		preg_match('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', $html, $content);
-		$content = $content[1];
-
-		$content = $this->process_photos($content);
-
-		$html = preg_replace('%<!-- bw-content -->(.*?)<!-- /bw-content -->%s', $content, $html);
+		foreach ($html('.bw-page') as $page) {
+			$page = $this->process_photos($page);
+			$page->removeClass('bw-page');
+		}
 
 		return $html;
 	}
 
 	function process_essays($html)
 	{
-		if (strpos($html, 'bw-essay') === false) return $html;
+		foreach ($html('.bw-essay-excerpt') as $essay) {
+			$essay = $this->process_essay_excerpt($essay);
+		}
 
-		$html = preg_replace_callback('%<!-- bw-essay -->(.*?)<!-- /bw-essay -->%s', array($this, 'process_essay'), $html);
-		$html = preg_replace_callback('%<!-- bw-essay-excerpt url="([^"]*)" -->(.*?)<!-- /bw-essay-excerpt -->%s', array($this, 'process_essay_excerpt'), $html);
-		$html = preg_replace_callback('%<!-- bw-essay-photo-excerpt url="([^"]*)" -->(.*?)<!-- /bw-essay-photo-excerpt -->%s', array($this, 'process_essay_photo_excerpt'), $html);
+		foreach ($html('.bw-essay') as $essay) {
+			$essay = $this->process_essay($essay);
+		}
 
 		return $html;
 	}
@@ -44,103 +43,151 @@ class Birdwatcher extends KokenPlugin {
 	{
 		$html = $data[1];
 
+		$essay = $this->process_photos($essay);
+
+		$essay->removeClass('bw-essay-excerpt');
+		$essay->deleteAttribute('url');
+
 		return $html;
+	}
+
+	function process_essay_excerpt($essay)
+	{
+		$essay = $this->process_more($essay);
+		$essay = $this->process_photos($essay);
+
+		$type = $essay->type;
+		if ($type === 'photo') {
+			// Move first photo before header
+			$first = $essay('.entry-photo', 0);
+			$first->changeParent($essay('.essay__featured', 0));
+		}
+
+		$essay->removeClass('bw-essay-excerpt');
+		$essay->deleteAttribute('url');
+		$essay->deleteAttribute('type');
+
+		return $essay;
 	}
 
 	// More tag
-	function process_more($html)
+	function process_more($entry)
 	{
-		$parts = explode('<!--more-->', $html);
-		$html = $parts[0];
+		$url = $entry->url;
+		$html_str = $entry->html();
+
+		$parts = explode('<!--more-->', $html_str);
+		$html_str = $parts[0];
 		if (count($parts) > 1) {
-			$html .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
+			$html_str .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
 		}
-		return $html;
+
+		// It probably should be setOuterText, but it don't work
+		$entry->setInnerText($html_str);
+		$first = $entry->firstChild(true)->detach(true);
+
+		return $entry;
 	}
 
-	function process_essay_excerpt($data)
+	function process_photos($content)
 	{
-		$url = $data[1];
-		$html = $data[2];
+		$ig_wrapper = null;
 
-		$html = $this->process_more($html);
-		$html = $this->process_photos($html);
-
-		return $html;
-	}
-
-	function process_essay_photo_excerpt($data)
-	{
-		$html = $this->process_essay_excerpt($data);
-
-		// Enlarge photos
-		// $html = str_replace(',large.', ',xlarge.', $html);
-
-		// Move first photo before header
-		$first = null;
-		preg_match('%<div class="entry-photo">(.*?)</div>%s', $html, $first);
-		$first = $first[1];
-		$html = preg_replace('%<div class="entry-photo">.*?</div>%s', '', $html);
-		$html = "<div class=\"entry-photo entry-photo_featured\">$first</div>\n<div class=\"essay__content text\">$html</div>";
-
-		return $html;
-	}
-
-	function process_photos($html)
-	{
-		// Some cleanup
-		$html = preg_replace('%</?noscript>%', '', $html);
-		$html = preg_replace('%<img data-alt=[^>]+/>%', '', $html);
-		$html = preg_replace('%<div class="k-content">(.*?)</div>%s', '\1', $html);
-
-		$chunks = null;
-		if (preg_match_all('%(<div class="k-content-embed">.*?</div>|<p.*?</p>|<h2.*?</h2>)%s', $html, $chunks)) {
-			$chunks = $chunks[0];
-			$inside = 'text';
-			for ($chunkIdx = 0; $chunkIdx < count($chunks); $chunkIdx++) {
-				$chunk = $chunks[$chunkIdx];
-				if (strpos($chunk, '<div class="k-content-embed">') === 0) {
-					if (strpos($chunk, 'class="k-media-img"') !== false) {
-						// Uploaded photo
-						$chunk = str_replace('k-content-embed', 'entry-photo', $chunk);
-						$chunk = str_replace('k-media-img', 'entry-photo__photo', $chunk);
-					}
-					else {
-						if (strpos($chunk, '<a href="/photos/') !== false) {
-							// Normal photo
-							$chunk = str_replace('k-content-embed', 'entry-photo', $chunk);
-							$chunk = str_replace('<img width="100%"', '<img class="entry-photo__photo"', $chunk);
-							$chunk = str_replace('/lightbox/', '/', $chunk);
-							$chunk = str_replace(' lightbox="true"', '', $chunk);
-							$inside = 'photo';
-						}
-						else {
-							// Instagram
-							if ($inside !== 'instagram') {
-								$chunk = str_replace('k-content-embed', 'entry-instagrams', $chunk);
-								$inside = 'instagram';
-							}
-							else {
-								$chunk = str_replace('<div class="k-content-embed">', '', $chunk);
-							}
-							$chunk = str_replace('<img width="100%"', '<div class="entry-instagrams__item"><img class="entry-instagrams__photo"', $chunk);
-							$chunk = str_replace(',large.', ',medium.', $chunk);
-							$chunk = preg_replace("%[\n\r\t]+%s", '', $chunk);
-						}
-					}
-				}
-				else {
-					// Text
-					if ($inside === 'instagram') {
-						$chunk = "</div>\n$chunk";
-					}
-					$inside = 'text';
-				}
-				$chunks[$chunkIdx] = $chunk;
+		foreach ($content('.k-content-embed') as $embed) {
+			$embed->class = 'entry-photo';
+			
+			$content_div = $embed('.k-content', 0);
+			if ($content_div) {
+				$content_div->detach(true);
+			}
+			
+			$noscript = $embed('noscript', 0);
+			if ($noscript) {
+				$noscript->delete();
 			}
 
-			return implode('', $chunks);
+			// Uploaded photo
+			$img = $embed('.k-media-img', 0);
+			if ($img) {
+				$img->class = 'entry-photo__photo';
+				$img->deleteAttribute('style');
+
+				$text = $embed('.k-content-text', 0);
+				if ($text) {
+					$text->class = 'entry-photo__text';
+				}
+
+				$title = $embed('.k-content-title', 0);
+				if ($title) {
+					$title->class = 'entry-photo__title';
+				}
+
+				continue;
+			}
+
+			// Normal photo
+			$link = $embed('a[href*="/photos/"]', 0);
+			if ($link) {
+				$link->href = str_replace('/lightbox/', '/', $link->href);
+				$link->class = 'entry-photo__link';
+				$link->deleteAttribute('lightbox');
+
+				$this->process_img($embed('img', 0), 'entry-photo', 'large');
+
+				continue;
+			}
+
+			// Instagram
+			$embed->class = 'entry-instagrams__item';
+			$this->process_img($embed('img', 0), 'entry-instagrams', 'medium');
+
+			// Instagram wrapper
+			if ($this->prev($embed)->class !== 'entry-instagrams') {
+				// First Instargam image in set
+				$ig_wrapper = $embed->wrap('div');
+				$ig_wrapper->class = 'entry-instagrams';
+			}
+			else {
+				$embed->changeParent($ig_wrapper);
+			}
 		}
 
+		return $content;
+	}
+
+	function process_img($img, $block, $size)
+	{
+		$base = '';
+		$extension = '';
+		foreach($img->attributes as $attr => $value) {
+			switch ($attr) {
+				case 'data-alt':
+					$img->alt = $value;
+					break;
+				case 'data-base':
+					$base = $value;
+					break;
+				case 'data-extension':
+					$extension = $value;
+					break;
+			}
+			$img->deleteAttribute($attr);
+		}
+		$img->src = "$base,$size.$extension";
+		$img->class = "{$block}__photo";
+
+		return $img;
+	}
+
+	function prev($node)
+	{
+		$sibling = $node;
+		while (true) {
+			$sibling = $sibling->getSibling(-1);
+			if (!$sibling || $sibling->getTag() !== '~text~') {
+				return $sibling;
+			}
+		}
+		return null;
 	}
 }
