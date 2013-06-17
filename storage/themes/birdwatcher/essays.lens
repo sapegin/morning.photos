@@ -19,7 +19,7 @@
 
 	<koken:loop>
 
-		<koken:has_category title="Photos">
+		<koken:has_category title="Photos,Фотографии">
 
 			<article class="essay essay_photo">
 				<div class="content bw-essay-excerpt" url="{{ essay.url }}" type="photo">
