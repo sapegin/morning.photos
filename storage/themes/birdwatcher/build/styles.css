@@ -661,6 +661,7 @@ body {
 .entry-title {
   font-size: 48px;
   font-weight: normal;
+  line-height: 1.3;
 }
 .entry-title__link,
 .entry-title__link:link,
