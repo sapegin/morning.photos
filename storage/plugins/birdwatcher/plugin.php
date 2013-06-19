@@ -41,6 +41,7 @@ class Birdwatcher extends KokenPlugin {
 
 	function process_essay($essay)
 	{
+		$essay = $this->process_html($essay, 'process_html_essay');
 		$essay = $this->process_photos($essay);
 
 		$essay->removeClass('bw-essay');
@@ -50,16 +51,18 @@ class Birdwatcher extends KokenPlugin {
 
 	function process_essay_excerpt($essay)
 	{
-		$essay = $this->process_more($essay);
+		$essay = $this->process_html($essay, 'process_html_essay_excerpt');
 		$essay = $this->process_photos($essay);
 
 		$type = $essay->type;
 		if ($type === 'photo') {
 			// Move first photo before header
 			$first = $essay('.entry-photo', 0);
-			$first->changeParent($essay('.essay__featured', 0));
+			if ($first) {
+				$first->changeParent($essay('.essay__featured', 0));
+			}
 		}
-
+		
 		$essay->removeClass('bw-essay-excerpt');
 		$essay->deleteAttribute('url');
 		$essay->deleteAttribute('type');
@@ -67,11 +70,36 @@ class Birdwatcher extends KokenPlugin {
 		return $essay;
 	}
 
+	function process_html($entry, $callback)
+	{
+		$html_str = $entry->html();
+
+		$html_str = call_user_func(array($this, $callback), $html_str, $entry);
+
+		// It probably should be setOuterText, but it don't work
+		$entry->setInnerText($html_str);
+		$first = $entry->firstChild(true)->detach(true);
+
+		return $entry;
+	}
+
+	function process_html_essay($html_str, $entry)
+	{
+		$html_str = $this->process_lj($html_str, $entry);
+		return $html_str;
+	}
+
+	function process_html_essay_excerpt($html_str, $entry)
+	{
+		$html_str = $this->process_more($html_str, $entry);
+		$html_str = $this->process_lj($html_str, $entry);
+		return $html_str;
+	}
+
 	// More tag
-	function process_more($entry)
+	function process_more($html_str, $entry)
 	{
 		$url = $entry->url;
-		$html_str = $entry->html();
 
 		$parts = explode('<!--more-->', $html_str);
 		$html_str = $parts[0];
@@ -79,11 +107,25 @@ class Birdwatcher extends KokenPlugin {
 			$html_str .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
 		}
 
-		// It probably should be setOuterText, but it don't work
-		$entry->setInnerText($html_str);
-		$first = $entry->firstChild(true)->detach(true);
+		return $html_str;
+	}
 
-		return $entry;
+	// LJ tags
+	// <lj user="pavel_kosenko">
+	// <lj comm="hamster_photo">
+	function process_lj($html_str, $entry)
+	{
+		// <lj user="">: short links
+		$html_str = preg_replace('%\[lj user="([a-z0-9](?:[_a-z0-9]*[a-z0-9]))"\]%e', "'<a href=\"http://'.str_replace('_','-','\\1').'.livejournal.com/\" class=\"lj-link\">\\1</a>'", $html_str);
+
+		// <lj user="">, <lj comm=""> и <lj syn="">
+		$html_str = preg_replace('%\[lj (user|comm|syn)="([_a-z0-9]+)"\]%', '<a href=\"http://\\1s.livejournal.com/\\2/\" class=\"lj-link\">\\2</a>', $html_str);
+		
+		// Fix links
+		$html_str = str_replace('comms.livejournal.com', 'community.livejournal.com', $html_str);
+		$html_str = str_replace('syns.livejournal.com', 'syndicated.livejournal.com', $html_str);
+
+		return $html_str;
 	}
 
 	function process_photos($content)

@@ -37,6 +37,12 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	ol {
 		space(2);
 	}
+
+	h3 {
+		font-size:22px;
+		font-weight:normal;
+		space();
+	}
 }
 
 
@@ -104,6 +110,8 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	.page_content & {
 		display:none;
 	}
+
+	font-size:small-font;
 }
 
 .page {
@@ -275,11 +283,15 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		}
 	}
 
-	.essay_photo & {
-		space(2);
-		font-size:28px;
+	&_excerpt,
+	&_excerpt-photo {
+		font-size:32px;
+	}
 
-		&__link {
+	&_excerpt-photo {
+		space(2);
+
+		.entry-title__link {
 			&,
 			&:link,
 			&:visited,
@@ -334,17 +346,18 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 
 .essay {
-	space(4);
+	space(6);
 
 	&_photo {
 		tweak-inverted-text();
 		margin-left:(-(2*spacer));
 		margin-right:(-(2*spacer));
-		padding:4*spacer 0 2*spacer;
+		padding:8*spacer 2*spacer;
 		background:base-color;
 		color:bg-color;
 
-		a {
+		.essay__content a,
+		.essay__meta a {
 			&,
 			&:link,
 			&:visited {
@@ -356,6 +369,10 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 				color:bg-color;
 			}
 		}
+	}
+	
+	&_photo + &_photo {
+		margin-top:(-(14*spacer));
 	}
 
 	&__header {

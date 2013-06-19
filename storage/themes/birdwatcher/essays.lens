@@ -2,19 +2,6 @@
 <body class="page page_essays">
 <koken:include file="inc/page-header.html" />
 
-<koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
-	<ul class="blog-tags text content">
-	<koken:loop>
-		<li class="blog-tags__item">
-			<koken:link to="archive_essays">
-				{{ title }}
-			</koken:link>
-			<span class="blog-tags__counter">{{ counts.essays }}</span>
-		</li>
-	</koken:loop>
-	</ul>
-</koken:load>
-
 <koken:load limit="10">
 
 	<koken:loop>
@@ -26,13 +13,25 @@
 
 					<div class="essay__featured"></div>
 
-					<h2 class="entry-title entry-title_photo">
+					<h2 class="entry-title entry-title_excerpt-photo">
 						<a class="entry-title__link" href="{{ essay.url }}">{{ essay.title }}</a>
 					</h2>
 
 					<div class="essay__content text">
 						{{ essay.content }}
 					</div>
+
+					<footer class="essay__meta">
+						<time class="essay__pubdate entry-pubdate" datetime="{{ essay.published_on date_format='c' }}">{{ essay.published_on date_format='j.m.Y' }}</time>
+
+						<koken:categories>
+							<span class="entry-tags text">
+								<koken:loop separator=", ">
+									<koken:link>{{ category.title }}</koken:link>
+								</koken:loop>
+							</span>
+						</koken:categories>
+					</footer>
 
 				</div>
 			</article>
@@ -42,7 +41,7 @@
 			<article class="essay content">
 
 				<header class="essay__header">
-					<h2 class="entry-title">
+					<h2 class="entry-title entry-title_excerpt">
 						<a class="entry-title__link" href="{{ essay.url }}">{{ essay.title }}</a>
 					</h2>
 				</header>
@@ -77,6 +76,19 @@
 
 	   No essays published
 
+</koken:load>
+
+<koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
+	<ul class="blog-tags text content">
+	<koken:loop>
+		<li class="blog-tags__item">
+			<koken:link to="archive_essays">
+				{{ title }}
+			</koken:link>
+			<span class="blog-tags__counter">{{ counts.essays }}</span>
+		</li>
+	</koken:loop>
+	</ul>
 </koken:load>
 
 <koken:include file="inc/footer.html" />
