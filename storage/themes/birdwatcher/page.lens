@@ -18,7 +18,7 @@
 			</koken:not>
 		</div>
 
-		<div class="thepage bw-page">
+		<div class="entry bw-page">
 			{{ page.content }}
 		</div>
 

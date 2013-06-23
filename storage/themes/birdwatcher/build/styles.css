@@ -68,10 +68,21 @@ a:link{-webkit-tap-highlight-color:rgba(102,102,102,0.25)}
 .link_fake:hover,.link u_fake:hover,.text a_fake:hover,.link_fake:active,.link u_fake:active,.text a_fake:active,.link_fake:focus,.link u_fake:focus,.text a_fake:focus{background-image:-webkit-gradient(linear, left top, right top, color-stop(0, rgba(22,148,236,0.4)), color-stop(0.5, rgba(22,148,236,0.4)), color-stop(0.5, transparent));background-image:-webkit-linear-gradient(left, rgba(22,148,236,0.4) 0%, rgba(22,148,236,0.4) 50%, transparent 50%);background-image:-moz-linear-gradient(left, rgba(22,148,236,0.4) 0%, rgba(22,148,236,0.4) 50%, transparent 50%);background-image:-o-linear-gradient(left, rgba(22,148,236,0.4) 0%, rgba(22,148,236,0.4) 50%, transparent 50%);background-image:-ms-linear-gradient(left, rgba(22,148,236,0.4) 0%, rgba(22,148,236,0.4) 50%, transparent 50%);background-image:linear-gradient(left, rgba(22,148,236,0.4) 0%, rgba(22,148,236,0.4) 50%, transparent 50%)}
 .no-cssgradients .link{text-decoration:underline}
 .no-cssgradients .link_fake{text-decoration:none;border-bottom:1px dotted}
+.list > li,.text ul > li{position:relative;padding-left:1.3em;margin-left:-1.3em}
+.list > li:before,.text ul > li:before{position:absolute;left:0;content:"\2014\a0"}
+.list ul,.text ul ul{margin-left:1.3em}
+.list li > ul,.text ul li > ul,.list li > ol,.text ul li > ol{margin-bottom:0}
+@media (max-width:){.list > li,.text ul > li{margin-left:0}
+}.abbr,.text abbr{letter-spacing:.1em;margin-right:-.1em}
+.amp{font-family:Baskerville,Constantia,Palatino,"Palatino Linotype","Book Antiqua",serif;font-style:italic}
+.sbrace{margin-right:.3em}
+.hbrace{margin-left:-.3em}
+.slaquo{margin-right:.42em}
+.hlaquo{margin-left:-.42em}
+.text h1,.alpha,.text h2,.beta,.text h3,.gamma,.text h4,.delta,.text h5,.epsilon,.text h6,.zeta{text-rendering:optimizeLegibility;-webkit-font-feature-settings:"liga","dlig";-moz-font-feature-settings:"liga=1, dlig=1";font-feature-settings:"liga","dlig"}
 body{background:#fff;color:#1a1a1a;line-height:1.5;padding:10px 20px;font-size:16px;}
 body{font-family:"Helvetica Neue",Arial,sans-serif}
 .text p,.text ul,.text ol{margin-bottom:20px}
-.text h3{font-size:22px;font-weight:normal;margin-bottom:10px}
 .header{margin-bottom:20px}
 .header:before,.header:after{content:"";display:table}
 .header:after{clear:both}
@@ -110,9 +121,12 @@ body{font-family:"Helvetica Neue",Arial,sans-serif}
 .thumbnails{margin:0 -5px 20px;}
 .thumbnails__item{display:inline-block;margin:10px 5px;}
 .thumbnails__item img{height:200px;width:auto}
-.thepage{max-width:1024px;}
-.thepage p{font-size:16px;margin-bottom:20px}
-.thepage div + p{margin-top:40px}
+.entry{font-size:19px;}
+.entry div + p{margin-top:40px}
+.entry p,.entry ul,.entry ol{margin-bottom:30px;max-width:40em;line-height:1.6}
+.entry h3{margin-bottom:10px;font-size:19px;font-weight:bold}
+.entry blockquote{margin-left:40px;margin-right:40px;font-size:16px;}
+.entry blockquote cite{font-style:italic}
 .entry-header{margin-bottom:40px}
 .entry-title{font-size:48px;font-weight:normal;line-height:1.3;}
 .entry-title__link,.entry-title__link:link,.entry-title__link:visited,.entry-title__link:hover,.entry-title__link:active,.entry-title__link:focus{color:#1a1a1a;text-decoration:none}
@@ -128,7 +142,7 @@ body{font-family:"Helvetica Neue",Arial,sans-serif}
 .entry-instagrams__item{padding-left:10px;padding-right:10px;width:33.333333333333336%;margin-top:10px;margin-bottom:10px}
 .no-flexbox .entry-instagrams__item{display:inline-block;vertical-align:top;letter-spacing:normal}
 .entry-instagrams__photo{max-width:100%}
-.entry-photo{margin-bottom:20px;}
+.entry-photo{margin-bottom:30px;}
 .entry-photo__photo{max-width:100%}
 .entry-photo__title{font-size:13px}
 .essay{margin-bottom:60px;}
@@ -137,9 +151,8 @@ body{font-family:"Helvetica Neue",Arial,sans-serif}
 .essay_photo .essay__content a:hover,.essay_photo .essay__meta a:hover,.essay_photo .essay__content a:active,.essay_photo .essay__meta a:active,.essay_photo .essay__content a:focus,.essay_photo .essay__meta a:focus{color:#fff}
 .essay_photo + .essay_photo{margin-top:-140px}
 .essay__header{margin-bottom:20px}
-.essay__content{margin-bottom:20px;font-size:19px}
+.essay__content{margin-bottom:20px}
 .essay__pubdate{display:inline-block;margin-right:1em}
-.essay p,.essay ul,.essay ol{line-height:1.7}
 .blog-tags{margin-bottom:40px;}
 .blog-tags__item{display:inline-block;margin-right:1em;font-size:16px}
 .blog-tags__counter{margin-left:.25em;font-size:13px}

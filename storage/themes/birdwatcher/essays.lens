@@ -8,7 +8,7 @@
 
 		<koken:has_category title="Фотографии">
 
-			<article class="essay essay_photo">
+			<article class="essay essay_photo entry">
 				<div class="content bw-essay-excerpt" url="{{ essay.url }}" type="photo">
 
 					<div class="essay__featured"></div>
@@ -38,7 +38,7 @@
 
 		<koken:else>
 
-			<article class="essay content">
+			<article class="essay entry content">
 
 				<header class="essay__header">
 					<h2 class="entry-title entry-title_excerpt">
