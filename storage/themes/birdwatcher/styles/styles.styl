@@ -244,7 +244,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	div + p {
 		margin-top:4*spacer;
 	}
-	
+
 	p,
 	ul,
 	ol {
@@ -263,7 +263,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		margin-left:4*spacer;
 		margin-right:4*spacer;
 		font-size:16px;
-		
+
 		cite {
 			font-style:italic;
 		}
@@ -331,8 +331,9 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .entry-instagrams {
 	layout-row();
+	space(2);
 	margin-top:(-(spacer));
-	margin-bottom:(-(spacer));
+	// margin-bottom:(-(spacer));
 
 	&__item {
 		layout-nth(3);
@@ -383,7 +384,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 			}
 		}
 	}
-	
+
 	&_photo + &_photo {
 		margin-top:(-(14*spacer));
 	}
@@ -422,5 +423,21 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 	&__link {
 		font-size:19px;
+	}
+}
+
+
+.albums {
+	layout-row();
+	space(4);
+}
+
+.album {
+	layout-nth(4);
+	space(2);
+
+	&__title {
+		font-size:19px;
+		font-weight:normal;
 	}
 }

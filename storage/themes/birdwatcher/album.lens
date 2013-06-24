@@ -39,6 +39,7 @@
 	</div>
 
 	<!-- Display essays/pages written about this album -->
+	<!--
 	<koken:topics>
 		<p>
 			<strong>Related content:</strong>
@@ -49,6 +50,7 @@
 			</koken:loop>
 		</p>
 	</koken:topics>
+	-->
 
 	<div class="thumbnails">
 		<koken:loop>
