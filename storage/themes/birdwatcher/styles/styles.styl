@@ -348,6 +348,15 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .entry-photo {
 	space(3);
+	
+	& + &,
+	.l-row + &,
+	& + .l-row {
+		margin-top:(-(spacer));
+	}
+	.l-row & {
+		margin-top:0;
+	}
 
 	&__photo {
 		max-width:100%;
