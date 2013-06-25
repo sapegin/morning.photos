@@ -165,32 +165,34 @@ class Birdwatcher extends KokenPlugin {
 			}
 
 			$img = $embed('img', 0);
+			$base = $img->getAttribute('data-base');
 
-			// Library photo
-			$link = $embed('a[href*="/photos/"]', 0);
-			if ($link) {
-				$link->href = str_replace('/lightbox/', '/', $link->href);
-				$link->class = 'entry-photo__link';
-				$link->deleteAttribute('lightbox');
+			if ($base) {
+				if (strpos($base, 'IG-') !== false) {
+					// Instagram
+					$embed->class = 'entry-instagrams__item';
+					$this->process_img($embed('img', 0), 'entry-instagrams', 'medium');
 
-				$this->process_img($img, 'entry-photo', 'large');
-
-				continue;
-			}
-
-			// Instagram
-			if (strpos($img->getAttribute('data-base'), 'IG-') !== false) {
-				$embed->class = 'entry-instagrams__item';
-				$this->process_img($embed('img', 0), 'entry-instagrams', 'medium');
-
-				// Instagram wrapper
-				if ($this->prev($embed)->class !== 'entry-instagrams') {
-					// First Instargam image in set
-					$ig_wrapper = $embed->wrap('div');
-					$ig_wrapper->class = 'entry-instagrams';
+					// Instagram wrapper
+					if ($this->prev($embed)->class !== 'entry-instagrams') {
+						// First Instargam image in set
+						$ig_wrapper = $embed->wrap('div');
+						$ig_wrapper->class = 'entry-instagrams';
+					}
+					else {
+						$embed->changeParent($ig_wrapper);
+					}
 				}
-				else {
-					$embed->changeParent($ig_wrapper);
+				else { 
+					// Library photo
+					$this->process_img($img, 'entry-photo', 'large');
+
+					$link = $embed('a[href*="/photos/"]', 0);
+					if ($link) {
+						$link->href = str_replace('/lightbox/', '/', $link->href);
+						$link->class = 'entry-photo__link';
+						$link->deleteAttribute('lightbox');
+					}
 				}
 			}
 		}
