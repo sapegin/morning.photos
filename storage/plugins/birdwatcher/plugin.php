@@ -9,6 +9,7 @@ class Birdwatcher extends KokenPlugin {
 	function awesomize($html_str)
 	{
 		$html_str = $this->clean_koken($html_str);
+		$html_str = $this->common_typo($html_str);
 
 		require_once 'lib/ganon.php';
 		$html = str_get_dom($html_str);
@@ -24,6 +25,18 @@ class Birdwatcher extends KokenPlugin {
 		$html_str = preg_replace('%<script src="/app/site/themes/common/js/pulse.js[^"]*"></script>%sm', '', $html_str);
 		
 		return $html_str;
+	}
+
+	function common_typo($html_str)
+	{
+		$html_str = preg_replace_callback('%(<h[1-6] class="entry-title">)(.*?)(</h[1-6]>)%sm', array($this, 'typo_title'), $html_str);
+		
+		return $html_str;
+	}
+
+	function typo_title($m)
+	{
+		return $m[1] . $this->typo_process($m[2]) . $m[3];
 	}
 
 	function process_page($html)
@@ -103,12 +116,14 @@ class Birdwatcher extends KokenPlugin {
 	function process_html_essay($html_str, $entry)
 	{
 		$html_str = $this->process_lj($html_str, $entry);
+		$html_str = $this->typo_process($html_str);
 		return $html_str;
 	}
 
 	function process_html_essay_excerpt($html_str, $entry)
 	{
 		$html_str = $this->process_more($html_str, $entry);
+		$html_str = $this->typo_process($html_str);
 		$html_str = $this->process_lj($html_str, $entry);
 		return $html_str;
 	}
@@ -150,18 +165,25 @@ class Birdwatcher extends KokenPlugin {
 		$ig_wrapper = null;
 
 		foreach ($content('.k-content-embed') as $embed) {
-			$embed->class = 'entry-photo';
-			
-			$content_div = $embed('.k-content', 0);
-			if ($content_div) {
-				$content_div->detach(true);
+			$img = $embed('img', 0);
+			if (!$img) {
+				$embed->class = 'entry-embed';
+				continue;
 			}
+
+			$embed->class = 'entry-photo';
+			$base = $img->getAttribute('data-base');
 			
 			$noscript = $embed('noscript', 0);
 			if ($noscript) {
 				$noscript->delete();
 			}
 
+			$content_div = $embed('.k-content', 0);
+			if ($content_div) {
+				$content_div->detach(true);
+			}
+			
 			$text = $embed('.k-content-text', 0);
 			if ($text) {
 				$text->class = 'entry-photo__text';
@@ -171,9 +193,6 @@ class Birdwatcher extends KokenPlugin {
 			if ($title) {
 				$title->class = 'entry-photo__title';
 			}
-
-			$img = $embed('img', 0);
-			$base = $img->getAttribute('data-base');
 
 			if ($base) {
 				if (strpos($base, 'IG-') !== false) {
