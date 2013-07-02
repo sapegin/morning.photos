@@ -9,11 +9,22 @@ class Birdwatcher extends KokenPlugin {
 
 	function awesomize($html_str)
 	{
+		$html_str = $this->clean_koken($html_str);
+
 		require_once 'lib/ganon.php';
 		$html = str_get_dom($html_str);
 		$html = $this->process_page($html);
 		$html = $this->process_essays($html);
 		return (string)$html;
+	}
+
+	function clean_koken($html_str)
+	{
+		// Remove Koken shit from page header
+		$html_str = preg_replace('%<!--\[if IE\]>.*?mediaelement-and-player.min.js[^"]*"></script>%sm', '', $html_str);
+		$html_str = preg_replace('%<script src="/app/site/themes/common/js/pulse.js[^"]*"></script>%sm', '', $html_str);
+		
+		return $html_str;
 	}
 
 	function process_page($html)
@@ -145,23 +156,14 @@ class Birdwatcher extends KokenPlugin {
 				$noscript->delete();
 			}
 
-			// Uploaded photo
-			$img = $embed('.k-media-img', 0);
-			if ($img) {
-				$img->class = 'entry-photo__photo';
-				$img->deleteAttribute('style');
+			$text = $embed('.k-content-text', 0);
+			if ($text) {
+				$text->class = 'entry-photo__text';
+			}
 
-				$text = $embed('.k-content-text', 0);
-				if ($text) {
-					$text->class = 'entry-photo__text';
-				}
-
-				$title = $embed('.k-content-title', 0);
-				if ($title) {
-					$title->class = 'entry-photo__title';
-				}
-
-				continue;
+			$title = $embed('.k-content-title', 0);
+			if ($title) {
+				$title->class = 'entry-photo__title';
 			}
 
 			$img = $embed('img', 0);
@@ -218,7 +220,7 @@ class Birdwatcher extends KokenPlugin {
 			}
 			$img->deleteAttribute($attr);
 		}
-		$img->src = "$base,$size.$extension";
+		$img->src = "$base$size.$extension";
 		$img->class = "{$block}__photo";
 
 		return $img;
