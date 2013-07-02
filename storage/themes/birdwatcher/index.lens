@@ -15,7 +15,7 @@ var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</kok
 
 	</koken:load>
 
-	<koken:load source="essays" featured="true">
+	<koken:load source="essays" featured="true" limit="5">
 
 		<h3>Блог</h3>
 
