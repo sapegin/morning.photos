@@ -9,11 +9,28 @@
 	};
 
 	utils.initComponents({
+		'featured-album': function(elem) {
+			var container = $(elem);
+			var photos = window.__photos;
+
+			container.fotorama({
+				nav: false,
+				transition: 'crossfade',
+				loop: true,
+				autoplay: 15000,
+				width: '100%',
+				ratio: '3/2'
+			});
+
+			var fotorama = container.data('api');
+			fotorama.load(photos);
+
+		},
 		'photo-album': function(elem) {
 			function update() {
 				gallery.addClass('is-activated');
 				var frame = fotorama.activeFrame;
-				frame.title = frame.title || '***';
+				frame.title = frame.info.title || '***';
 				frame.permalink = location.href.replace(/\/photos\/\d+\/$/, '/photos/' + frame.id + '/');
 				frame.albumHref = albumHref;
 				frame.album = albumName;
@@ -59,7 +76,6 @@
 
 			gallery.fotorama({
 				nav: false,
-				arrows: true,
 				keyboard: true,
 				transition: 'crossfade',
 				width: gallery.width(),

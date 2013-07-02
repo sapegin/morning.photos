@@ -2,8 +2,12 @@
 
 <div class="photo-info__album"><a href="{{=it.albumHref}}" class="photo-info__album-link">⇧ <u>{{=it.album}}</u></a></div>
 
-{{? it.description}}
-<div class="photo-info__caption">{{=it.description}}</div>
+{{? it.info.caption}}
+<div class="photo-info__caption">{{=it.info.caption}}</div>
+{{?}}
+
+{{? it.location}}
+<div class="photo-info__location">{{=it.location}}</div>
 {{?}}
 
 <div class="photo-info__meta">{{=it.pubdate}}, {{=it.exif}}</div>

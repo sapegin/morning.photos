@@ -54,7 +54,16 @@
 				</p>
 			</koken:parent>
 
-			<!-- TODO: где -->
+			<koken:iptc>
+				<p>
+					<koken:not empty="iptc.city">
+						{{ iptc.city }}<koken:not empty="iptc.country">,</koken:not>
+					</koken:not>
+					<koken:not empty="iptc.country">
+						{{ iptc.country }}
+					</koken:not>
+				</p>
+			</koken:iptc>
 
 			{{ content.caption paragraphs="true" }}
 
@@ -90,17 +99,14 @@
 <script>
 var __photos_current_id = '{{ content.id }}';
 <koken:parent>
-var __photos = [<koken:loop separator=",">{
-	id: '{{ id }}', img: '{{ presets.xlarge.url }}', title: '{{ title }}', description: '{{ content.caption paragraphs="true" url_encode="true" }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
+var __photos = [<koken:loop separator=", ">{
+	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
+	info: {{ content.to_json fields="title, caption" }},
+	location: '<koken:iptc><koken:not empty="iptc.city">{{ iptc.city }}<koken:not empty="iptc.country">, </koken:not></koken:not><koken:not empty="iptc.country">{{ iptc.country }}</koken:not></koken:iptc>',
 	exif: '<koken:exif><koken:not empty="exif.exposure">{{ exif.exposure }},</koken:not> <koken:not empty="exif.aperture">{{ exif.aperture }},</koken:not> <koken:not empty="exif.focal_length">{{ exif.focal_length }},</koken:not> <koken:not empty="exif.iso_speed_ratings">{{ exif.iso_speed_ratings }}</koken:not></koken:exif>'
 }</koken:loop>];
 </koken:parent>
 </script>
-
-	<!-- Fallback content if no data was loaded by koken:load -->
-	<koken:else>
-
-		Nothing loaded
 
 </koken:load>
 
