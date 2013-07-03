@@ -57,7 +57,7 @@
 			<div class="thumbnails__item">
 				<koken:content_image>
 					<koken:link>
-						<koken:img preset="medium" height="200" />
+						<img src="{{ content.presets.medium.url }}" alt="{{ content.title }}" height="200">
 					</koken:link>
 				</koken:content_image>
 			</div>
