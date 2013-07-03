@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 class Birdwatcher extends KokenPlugin {
 	function __construct()
 	{
@@ -165,6 +167,11 @@ class Birdwatcher extends KokenPlugin {
 		$ig_wrapper = null;
 
 		foreach ($content('.k-content-embed') as $embed) {
+			$noscript = $embed('noscript', 0);
+			if ($noscript) {
+				$noscript->delete();
+			}
+
 			$img = $embed('img', 0);
 			if (!$img) {
 				$embed->class = 'entry-embed';
@@ -174,11 +181,6 @@ class Birdwatcher extends KokenPlugin {
 			$embed->class = 'entry-photo';
 			$base = $img->getAttribute('data-base');
 			
-			$noscript = $embed('noscript', 0);
-			if ($noscript) {
-				$noscript->delete();
-			}
-
 			$content_div = $embed('.k-content', 0);
 			if ($content_div) {
 				$content_div->detach(true);
@@ -280,6 +282,7 @@ class Birdwatcher extends KokenPlugin {
 	 */
 	function typo_process($s)
 	{
+
 		// Убиваем табуляцию
 		$s = str_replace("\t", '', $s);
 		
@@ -287,14 +290,10 @@ class Birdwatcher extends KokenPlugin {
 		$s = preg_replace('% +%', ' ', $s);
 
 		// Исправляем неразрывные пробелы
-		$s = str_replace("\xA9", '&nbsp;', $s);
-		
+		$s = str_replace(" ", '&nbsp;', $s);
+	
 		// Сохраняем теги
 		$s = preg_replace_callback('%(<[^>]*>)%ums', array($this, 'typo_backup_tags'), $s);
-
-		// if (defined('WP_TYPOHELPER_DUMMY') && WP_TYPOHELPER_DUMMY) {
-			// $s = typo_process_lite($s);
-		// }
 
 		$search = array(
 			'№ ',			// Номер
@@ -342,58 +341,8 @@ class Birdwatcher extends KokenPlugin {
 		// Последнее слово в абзаце
 		$s = preg_replace('%\s([а-яё]+[.!?\)]</p>)%ui', '&nbsp;\\1', $s);
 
+		$s = str_replace('&nbsp;', " ", $s);
+
 		return trim($s);
 	}
-
-	/*
-	 * Типографика в стиле Ворда. Для комментариев и прочего неконтролируемого текста.
-	 */
-	function typo_lite($s)
-	{
-		// Убиваем табуляцию
-		$s = str_replace("\t", '', $s);
-		
-		// Убиваем повторяющиеся пробелы
-		$s = preg_replace('% +%', ' ', $s);
-		
-		// Сохраняем теги
-		$s = preg_replace_callback('%(<[^>]*>)%ums', array($this, 'typo_backup_tags'), $s);
-
-		$s = $this->typo_process_lite($s);
-		
-		// Исправляем неразрывные пробелы
-		$s = str_replace("\xA9", '&nbsp;', $s);	
-
-		// Восстанавливаем теги
-		$s = preg_replace_callback("/<≈>/u", array($this, 'typo_restore_tags'), $s);
-		
-		return $s;
-	}
-
-	/*
-	 * Типографика в стиле Ворда: обработка
-	 */
-	function typo_process_lite($s)
-	{
-		// Кавычки
-		$s = preg_replace('%"([а-яёa-z<])%ui', '«\\1', $s);
-		$s = preg_replace('%([а-яёa-z>])"%ui', '\\1»', $s);
-		
-		// Тире
-		$s = str_replace('--', '—', $s);
-		$s = preg_replace('%(^|[> \xA0])-|—($| )%u', '\\1—\\2', $s);
-		
-		// Апостроф
-		$s = str_replace("'", '’', $s);
-
-		// Многоточие
-		$s = str_replace('...', '…', $s);
-
-		// Копирайт
-		$s = str_replace('(C)', '©', $s);
-		$s = str_replace('(c)', '©', $s);
-		
-		return $s;
-	}
-
 }
