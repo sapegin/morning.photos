@@ -701,6 +701,10 @@ body {
   margin-bottom: 20px;
   font-size: 16px;
 }
+.photo-info__location {
+  margin-bottom: 20px;
+  font-size: 13px;
+}
 .photo-info__meta {
   font-size: 13px;
   color: #999;

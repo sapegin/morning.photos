@@ -37,61 +37,63 @@
 				<div class="lightbox-pane__button">
 					<i class="icon icon_info"></i>
 				</div>
-				<div class="lightbox-pane__popup photo-info js-info"></div>
+				<div class="lightbox-pane__popup photo-info js-info">
+
+					<h1 class="photo-info__title">{{ content.title | '***' }}</h1>
+
+					<koken:parent>
+						<div class="photo-info__album">
+							<koken:link class="photo-info__album-link js-album-link">
+								⇧ <u></u>
+							</koken:link>
+						</div>
+					</koken:parent>
+
+					<div class="photo-info__caption">
+						{{ content.caption paragraphs="true" }}
+					</div>
+
+					<koken:iptc>
+						<div class="photo-info__location">
+							<koken:not empty="iptc.city">
+								{{ iptc.city }}<koken:not empty="iptc.country">,</koken:not>
+							</koken:not>
+							<koken:not empty="iptc.country">
+								{{ iptc.country }}
+							</koken:not>
+						</div>
+					</koken:iptc>
+
+					<div class="photo-info__meta">
+						<time datetime="{{ content.captured_on date_format='c' }}">{{ content.captured_on date_format="j.m.Y" }}</time>,
+						<koken:exif>
+							<koken:not empty="exif.exposure">
+								{{ exif.exposure }},
+							</koken:not>
+							<koken:not empty="exif.aperture">
+								{{ exif.aperture }},
+							</koken:not>
+							<koken:not empty="exif.focal_length">
+								{{ exif.focal_length }},
+							</koken:not>
+							<koken:not empty="exif.iso_speed_ratings">
+								{{ exif.iso_speed_ratings }}
+							</koken:not>
+						</koken:exif>
+					</div>
+
+				</div>
 			</div>
 		</div>
 
 		<div class="lightbox__meta">
 			<img src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>" class="lightbox__img">
 
-			<h1>{{ content.title | '***' }}</h1>
-
-			<koken:parent>
-				<p class="js-album-link">
-					<koken:link>
-						{{ album.title }}
-					</koken:link>
-				</p>
-			</koken:parent>
-
-			<koken:iptc>
-				<p>
-					<koken:not empty="iptc.city">
-						{{ iptc.city }}<koken:not empty="iptc.country">,</koken:not>
-					</koken:not>
-					<koken:not empty="iptc.country">
-						{{ iptc.country }}
-					</koken:not>
-				</p>
-			</koken:iptc>
-
-			{{ content.caption paragraphs="true" }}
-
-			<p><time datetime="{{ content.captured_on date_format='c' }}">{{ content.captured_on }}</time></p>
-
 			<koken:tags>
 				<p>
 					<koken:loop separator=", ">{{ tag.title }}</koken:loop>
 				</p>
 			</koken:tags>
-
-			<koken:exif>
-				<p>
-					<koken:not empty="exif.exposure">
-						{{ exif.exposure }},
-					</koken:not>
-					<koken:not empty="exif.aperture">
-						{{ exif.aperture }},
-					</koken:not>
-					<koken:not empty="exif.focal_length">
-						{{ exif.focal_length }},
-					</koken:not>
-					<koken:not empty="exif.iso_speed_ratings">
-						{{ exif.iso_speed_ratings }}
-					</koken:not>
-				</p>
-			</koken:exif>
-
 		</div>
 
 	</div>
