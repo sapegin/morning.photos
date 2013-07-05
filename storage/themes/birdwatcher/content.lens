@@ -22,7 +22,7 @@
 		</koken:content_image>
 	</koken:head>
 
-	<div class="lightbox" data-component="photo-album">
+	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
 		<div class="lightbox__gallery js-gallery" style="background-image:url({{ content.presets.xlarge.url }})"></div>
 
@@ -99,8 +99,8 @@
 	</div>
 
 <script>
-var __photos_current_id = '{{ content.id }}';
 <koken:parent>
+var __photos_current_id = '{{ content.id }}';
 var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},
