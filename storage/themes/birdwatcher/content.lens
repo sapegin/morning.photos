@@ -22,8 +22,6 @@
 		</koken:content_image>
 	</koken:head>
 
-	[{{ id }}]
-
 	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
 		<div class="lightbox__gallery">

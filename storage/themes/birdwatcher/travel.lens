@@ -2,25 +2,29 @@
 <body class="page page_travel">
 <koken:include file="inc/page-header.html" />
 
+<koken:load source="page" filter:id="7">
+
+	<!-- <koken:loop> -->
+		[<div>{{ page.title }}</div>]
+	<!-- </koken:loop> -->
+
+</koken:load>
+
 <div class="content">
 	<div class="albums">
 
-		<koken:load source="albums" filter:tags="travel" order_by="created_on">
+		<koken:load source="albums" filter:tags="old_travel" order_by="created_on" order_direction="desc">
 
 			<koken:loop>
 
-				<div class="album">
-					<koken:link class="album__link">
-						<koken:img preset="medium" class="album__img" />
-						<h2 class="album__title"><koken:link>{{ album.title }}</koken:link></h2>
+				<div class="album-thumbnail">
+					<koken:link class="album-thumbnail__link link">
+						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
+						<h2 class="album-thumbnail__title"><koken:link>{{ album.title }}</koken:link></h2>
 					</koken:link>
 				</div>
 
 			</koken:loop>
-
-		<koken:else>
-
-			No public albums found
 
 		</koken:load>
 
