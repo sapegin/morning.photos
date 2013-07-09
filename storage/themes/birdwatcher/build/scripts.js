@@ -190,7 +190,7 @@ return __templates;})()
 			var sharePane = container.find('.js-share');
 			var infoPane = container.find('.js-info');
 			var siteTitle = $('.js-site-title').text();
-			var albumLinkElem = $('.js-album-link a');
+			var albumLinkElem = $('.js-album-link');
 			var albumHref = albumLinkElem.attr('href');
 			var albumName = albumLinkElem.text();
 
@@ -199,13 +199,16 @@ return __templates;})()
 				keyboard: true,
 				transition: 'crossfade',
 				width: gallery.width(),
-				height: gallery.height(),
-				startIndex: startIndex
+				height: gallery.height()//,
+				// startIndex: startIndex
 			});
 
+			console.log('si', startIndex);
+
 			var fotorama = gallery.data('api');
-			gallery.on('fotorama:show', update);
 			fotorama.load(photos);
+			fotorama.show({index: startIndex, time: 0});
+			gallery.on('fotorama:show', update);
 
 			$(window).resize(resize);
 		}

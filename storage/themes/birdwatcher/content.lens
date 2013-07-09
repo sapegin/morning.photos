@@ -22,9 +22,15 @@
 		</koken:content_image>
 	</koken:head>
 
+	[{{ id }}]
+
 	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
-		<div class="lightbox__gallery js-gallery" style="background-image:url({{ content.presets.xlarge.url }})"></div>
+		<div class="lightbox__gallery">
+			<div class="lightbox__image js-gallery" style="background-image:url({{ content.presets.xlarge.url }})">
+				<img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
+			</div>
+		</div>
 
 		<div class="lightbox__controls">
 			<div class="lightbox__control lightbox-pane">
@@ -44,7 +50,7 @@
 					<koken:parent>
 						<div class="photo-info__album">
 							<koken:link class="photo-info__album-link js-album-link">
-								⇧ <u></u>
+								{{ album.title }}
 							</koken:link>
 						</div>
 					</koken:parent>
@@ -87,8 +93,6 @@
 		</div>
 
 		<div class="lightbox__meta">
-			<img src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>" class="lightbox__img">
-
 			<koken:tags>
 				<p>
 					<koken:loop separator=", ">{{ tag.title }}</koken:loop>
@@ -99,8 +103,8 @@
 	</div>
 
 <script>
-<koken:parent>
 var __photos_current_id = '{{ content.id }}';
+<koken:parent>
 var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},

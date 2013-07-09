@@ -39,6 +39,10 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	}
 }
 
+// Fotorama tweaks.
+.fotorama__arr {
+	display:none !important;
+}
 
 .header {
 	clearfix();
@@ -125,12 +129,23 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 .lightbox {
 	position:relative;
 
-	&__gallery {
+	&__gallery,
+	&__saver {
 		position:absolute;
 		top:40px;
 		bottom:spacer;
 		left:spacer;
 		right:spacer;
+	}
+
+	&__saver {
+		opacity:0;
+	}
+
+	&__image {
+		max-width:1600px;
+		height:100%;
+		margin:0 auto;
 		background-repeat:no-repeat;
 		background-position:center center;
 		background-size:contain;
@@ -150,7 +165,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		opacity:1;
 	}
 
-	.js &__meta {
+	&__meta {
 		display:none;
 	}
 }
@@ -460,8 +475,3 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	}
 }
 
-.featured-album {
-	.fotorama__arr {
-		display:none !important;
-	}
-}
