@@ -12,7 +12,7 @@
 					<%= book.translation.author %>. <a href="<%= @buyLink book.translation.link %>"><%= book.translation.title %></a>
 				<% end %>
 			</p>
-			<%- @md book.text %>
+			<%- @absolutizeLinks @md book.text %>
 		</td>
 	</tr>
 </table>

@@ -37,6 +37,9 @@ docpadConfig = {
 			return '' unless list
 			("#{prefix}_#{tag}" for tag in list).join ' '
 
+		absolutizeLinks: (s) ->
+			s and (s.replace /href="#/g, 'href="http://birdwatcher.ru/reading/#')
+
 		# Typography
 		rt: (s) ->
 			s and (richtypo.rich s)
