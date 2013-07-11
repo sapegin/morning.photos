@@ -1,0 +1,65 @@
+<div class="tag_all" data-component="tag-filter">
+
+	<div class="l-triple-space">
+
+		<%- @rt @content %>
+
+		<p>Последнее обновление: <%= @pubDate() %></p>
+
+	</div>
+
+	<div class="filter js-filter">
+		<span class="filter__tag link js-filter-tag is-default is-active" data-tag-id="all">Все</span>
+		<% for id, name of @tags: %>
+			<span class="filter__tag link js-filter-tag" data-tag-id="<%= id %>"><%= name %></span>
+		<% end %>
+	</div>
+	<script>
+	(function() {
+	/*	if (location.hash && document.querySelectorAll && document.body.classList) {
+			var container = document.querySelectorAll('.portfolio')[0];
+			if (!container) return;
+
+			var defaultItem = document.querySelectorAll('.tags li.is-active')[0];
+			if (!defaultItem) return;
+			container.classList.remove('tag_' + defaultItem.getAttribute('data-tag-id'));
+			defaultItem.classList.remove('is-active');
+
+			var tag = location.hash.slice(1),
+				activeItem = document.querySelectorAll('.tags li[data-tag-id="' + tag + '"]')[0];
+			if (!activeItem) return;
+			container.classList.add('tag_' + tag);
+			activeItem.classList.add('is-active');
+		}*/
+	})();
+	</script>
+
+
+	<div class="book-reviews">
+		<% for book in @books: %>
+			<% (book.tags.push 'good') if book.rating >= 4 %>
+			<% (book.tags.push 'best') if book.rating is 5 %>
+			<div class="media book-review <%= @tags_classes book.tags, 'book-review_tag' %>" id="<%= book.id %>">
+				<h2 class="book-review__title">
+					<%= book.author %> «<% if book.link: %><a href="<%= @buyLink book.link %>"><% end %><%= book.title %><% if book.link: %></a><% end %>»
+					(<span class="book-review__year"><%= book.year %></span>)
+				</h2>
+				<% if book.translation: %>
+					<h3 class="book-review__translation">
+						<%= book.translation.author %> «<a href="<%= @buyLink book.translation.link %>"><%= book.translation.title %></a>»
+					</h3>
+				<% end %>
+				<div class="media">
+					<img src="/images/books/<%= book.id %>.jpg" alt="<%= book.author %>. <%= book.title %>" class="book-review__img media__img">
+					<div class="media__body">
+						<div class="book-review__text">
+							<%- @rt @md book.text %>
+						</div>
+						<div class="book-review__review book-review__review_<%= (book.rating+'').replace '.', '-' %>"></div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+</div>

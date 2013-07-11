@@ -25,6 +25,8 @@ module.exports = (grunt) ->
 			main:
 				src: [
 					'js/libs/fotorama/fotorama.js'
+					'js/libs/hashnav.js'
+					'js/mylibs/jquery.tagfilter.js'
 					'tamia/tamia/tamia.js'
 					'<%= dot.main.dest %>'
 					'js/main.js'

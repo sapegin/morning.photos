@@ -88,7 +88,12 @@
 			gallery.on('fotorama:show', update);
 
 			$(window).resize(resize);
-		}
+		},
+
+		'tag-filter': {tagFilter: {
+			barSelector: '.js-filter',
+			linkSelector: '.js-filter-tag'
+		}}
 	});
 
 }(jQuery));

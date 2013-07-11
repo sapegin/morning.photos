@@ -37,6 +37,17 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	ol {
 		space(2);
 	}
+
+	blockquote {
+		margin-left:4*spacer;
+		margin-right:4*spacer;
+		font-size:90%;
+
+		cite {
+			font-style:italic;
+		}
+	}
+
 }
 
 // Fotorama tweaks.
@@ -282,16 +293,6 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		font-size:19px;
 		font-weight:bold;
 	}
-
-	blockquote {
-		margin-left:4*spacer;
-		margin-right:4*spacer;
-		font-size:16px;
-
-		cite {
-			font-style:italic;
-		}
-	}
 }
 
 .entry-header {
@@ -475,3 +476,61 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	}
 }
 
+
+.book-review {
+	space(4);
+
+	&__title {
+		margin-bottom:7px;
+		font-size:24px;
+		font-weight:normal;
+	}
+
+	&__translation {
+		margin-bottom:14px;
+		font-size:normal-font;
+		font-weight:normal;
+		font-style:italic;
+	}
+
+	&__img {
+		max-width:120px;
+		margin-top:7px;
+	}
+}
+
+
+.book-review {
+	display:none;
+}
+.tag_all .book-review {
+	display:block;
+}
+for tag in "best" "russian" {
+	.tag_{tag} .book-review_tag_{tag} {
+		display:block;
+	}
+}
+
+
+.filter {
+	space(3);
+
+	&__tag {
+		margin-right:.5em;
+
+		&.is-active {
+			&,
+			&:link,
+			&:visited,
+			&:hover,
+			&:active,
+			&:focus {
+				font-weight:bold;
+				color:base-color;
+				text-decoration:none;
+				cursor:default;
+			}
+		}
+	}
+}
