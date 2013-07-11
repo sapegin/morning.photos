@@ -973,9 +973,14 @@ body {
   margin-bottom: 40px;
 }
 .book-review__title {
-  margin-bottom: 7px;
+  margin-bottom: 10px;
+  line-height: 1.3;
   font-size: 24px;
   font-weight: normal;
+}
+.book-review__year {
+  margin-left: 0.5em;
+  font-size: 16px;
 }
 .book-review__translation {
   margin-bottom: 14px;
@@ -986,6 +991,56 @@ body {
 .book-review__img {
   max-width: 120px;
   margin-top: 7px;
+  margin-bottom: 7px;
+}
+.book-review__rating {
+  position: relative;
+  line-height: 1;
+}
+.book-review__rating:before,
+.book-review__rating i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 13px;
+  font-style: normal;
+}
+.book-review__rating:before {
+  color: #ccc;
+  color: rgba(26,26,26,0.25);
+}
+.book-review__rating i {
+  color: #1a1a1a;
+}
+.book-review__rating:before,
+.book-review__rating_5 i:before {
+  content: "★★★★★";
+}
+.book-review__rating_4 i:before,
+.book-review__rating_4-5 i:before {
+  content: "★★★★";
+}
+.book-review__rating_3 i:before,
+.book-review__rating_3-5 i:before {
+  content: "★★★";
+}
+.book-review__rating_2 i:before,
+.book-review__rating_2-5 i:before {
+  content: "★★";
+}
+.book-review__rating_1 i:before,
+.book-review__rating_1-5 i:before {
+  content: "★";
+}
+.book-review__rating_4-5 i:after,
+.book-review__rating_3-5 i:after,
+.book-review__rating_2-5 i:after,
+.book-review__rating_1-5 i:after,
+.book-review__rating_0-5 i:after {
+  content: "★";
+  display: inline-block;
+  overflow: hidden;
+  width: 1.1ex;
 }
 .book-review {
   display: none;
@@ -996,7 +1051,13 @@ body {
 .tag_best .book-review_tag_best {
   display: block;
 }
+.tag_good .book-review_tag_good {
+  display: block;
+}
 .tag_russian .book-review_tag_russian {
+  display: block;
+}
+.tag_english .book-review_tag_english {
   display: block;
 }
 .filter {
