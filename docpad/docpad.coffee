@@ -1,6 +1,7 @@
 # DocPad Configuration File
 # http://docpad.org/docs/config
 
+fs = require 'fs'
 YAML = require 'yamljs'
 moment = require 'moment'
 marked = require 'marked'
@@ -46,7 +47,10 @@ docpadConfig = {
 
 	events:
 		generateBefore: (opts) ->
-			@docpad.getConfig().templateData.books = (YAML.load 'src/books.yml')
+			filename = 'src/books.yml'
+			config = @docpad.getConfig().templateData
+			config.books = (YAML.load filename)
+			config.booksPubDate = (fs.statSync filename).mtime
 			moment.lang 'ru'
 
 }
