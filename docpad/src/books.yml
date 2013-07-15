@@ -277,12 +277,13 @@
   link: http://www.ozon.ru/context/detail/id/4018413/
   rating: 3
   tags: [russian]
-  text: Эта книга продолжает «[Фотографию как](#lapin)» и рассказывает о восприятии плоских изображений. Про белые и чёрные квадраты и их положение в пространстве картины и тому подобные вещи. Еле осилил, читать не советую.
+  text: Эта книга продолжает «[Фотографию как](#kak)» и рассказывает о восприятии плоских изображений. Про белые и чёрные квадраты и их положение в пространстве картины и тому подобные вещи. Еле осилил, читать не советую.
 
 - id: subjektiv
   author: Александр Китаев
   title: Субъектив: фотограф о фотографии
   year: 2008
+  link: http://www.ozon.ru/context/detail/id/3046204/
   rating: 5
   tags: [russian]
   text: Это самая лучшая книга о фотографии из всех, что я читал.
@@ -291,6 +292,7 @@
   author: Том Маки и Даниэль Лезано
   title: Секреты пейзажной съёмки Тома Маки
   year: 2008
+  link: http://www.ozon.ru/context/detail/id/2861113/
   rating: 3.5
   tags: [english, russian]
   translation:
@@ -338,7 +340,7 @@
   author: Ли Фрост
   title: Светофильтры в фотографии
   year: 0
-  link: http://www.amazon.com/gp/product/B003YCQE9W/
+  link: http://www.ozon.ru/context/detail/id/2579209/
   rating: 4
   tags: [english, russian]
   translation:
@@ -438,7 +440,7 @@
 - id: istoria
   author: Кантен Бажак
   title: История фотографии. Возникновение изображения
-  year: 0
+  year: 2002
   link: http://www.ozon.ru/context/detail/id/1540249/
   rating: 4
   tags: [english, russian]
@@ -451,7 +453,7 @@
 - id: newton
   author: Хельмут Ньютон
   title: Автобиография
-  year: 0
+  year: 2003
   link: http://www.ozon.ru/context/detail/id/2468692/
   rating: 4
   tags: [english, russian]
@@ -473,8 +475,8 @@
 - id: fotoapparaty
   author: А. Ф. Пешков
   title: Современные фотоаппараты
-  year: 0
-  link: http://www.ozon.ru/context/detail/id1656079/
+  year: 2004
+  link: http://www.ozon.ru/context/detail/id/1656079/
   rating: 3.5
   tags: [russian]
   text: Книга о внутренностях фотоаппаратов и другой фототехники. Описываются устройство автофокуса, экспозамера, матрицы, вспышек и многое другое.
@@ -482,7 +484,7 @@
 - id: korablev
   author: Дмитрий Кораблёв
   title: Фотосъёмка. Универсальный самоучитель
-  year: 0
+  year: 2003
   link: http://www.ozon.ru/context/detail/id/1500089/
   rating: 0
   tags: [russian]
@@ -491,8 +493,8 @@
 - id: hedzhkou
   author: Джон Хеджкоу
   title: Фотография. Энциклопедия
-  year: 0
-  link: http://www.ozon.ru/context/detail/id/1550990/
+  year: 2004, 2009
+  link: http://www.ozon.ru/context/detail/id/2428981/
   rating: 3.5
   tags: [english, russian]
   translation:

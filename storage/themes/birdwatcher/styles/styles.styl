@@ -508,7 +508,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&__rating {
 		position:relative;
 		line-height:1;
-		
+
 		&:before,
 		i {
 			position:absolute;
@@ -591,5 +591,18 @@ for tag in "best" "good" "russian" "english" {
 				cursor:default;
 			}
 		}
+	}
+}
+
+.quote {
+	space(4);
+
+	&__text {
+		space(2);
+		font-style:normal-font;
+	}
+
+	&__meta {
+		font-size:small-font;
 	}
 }

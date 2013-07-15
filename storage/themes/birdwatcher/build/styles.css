@@ -89,6 +89,9 @@
 .l-triple-space {
   margin-bottom: 30px;
 }
+.l-quad-space {
+  margin-bottom: 40px;
+}
 .g-debug-col {
   padding-left: 10px;
   padding-right: 10px;
@@ -1076,6 +1079,16 @@ body {
   color: #1a1a1a;
   text-decoration: none;
   cursor: default;
+}
+.quote {
+  margin-bottom: 40px;
+}
+.quote__text {
+  margin-bottom: 20px;
+  font-style: 16px;
+}
+.quote__meta {
+  font-size: 13px;
 }
 @media print {
   @page {

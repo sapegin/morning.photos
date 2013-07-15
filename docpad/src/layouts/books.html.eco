@@ -1,6 +1,6 @@
 <div class="tag_all" data-component="tag-filter">
 
-	<div class="l-triple-space">
+	<div class="l-quad-space">
 
 		<%- @rt @content %>
 

@@ -48,12 +48,19 @@ docpadConfig = {
 		md: (s) ->
 			s and (marked s)
 
+		# Markdown string
+		mds: (s) ->
+			s and (marked s)
+				.replace(/^\s*<p>/, '')
+				.replace(/<\/p>\s*$/, '')
+
 	events:
 		generateBefore: (opts) ->
 			filename = 'src/books.yml'
 			config = @docpad.getConfig().templateData
 			config.books = (YAML.load filename)
 			config.booksPubDate = (fs.statSync filename).mtime
+			config.quotes = (YAML.load 'src/quotes.yml')
 			moment.lang 'ru'
 
 }
