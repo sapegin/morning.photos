@@ -5,10 +5,10 @@
 <div class="content text">
 
 	<div class="entry-header">
-		<h1 class="entry-title">Книги о фотографии</h1>
+		<h1 class="entry-title">Цитаты о фотографии и искусстве</h1>
 	</div>
 
-	<koken:include file="../../../docpad/out/books.html" />
+	<koken:include file="../../../../docpad/out/quotes.html" />
 
 </div>
 
