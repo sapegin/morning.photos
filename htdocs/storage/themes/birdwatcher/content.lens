@@ -30,15 +30,22 @@
 			</div>
 		</div>
 
+		<div class="lightbox__arrow lightbox__arrow_left lightbox-button js-prev">
+			<i class="icon icon_left"></i>
+		</div>
+		<div class="lightbox__arrow lightbox__arrow_right lightbox-button js-next">
+			<i class="icon icon_right"></i>
+		</div>
+
 		<div class="lightbox__controls">
 			<div class="lightbox__control lightbox-pane">
-				<div class="lightbox-pane__button">
+				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_share"></i>
 				</div>
 				<div class="lightbox-pane__popup js-share">Share...</div>
 			</div>
 			<div class="lightbox__control lightbox-pane">
-				<div class="lightbox-pane__button">
+				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_info"></i>
 				</div>
 				<div class="lightbox-pane__popup photo-info js-info">

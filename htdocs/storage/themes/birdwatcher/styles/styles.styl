@@ -165,14 +165,34 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		}
 	}
 
-	&__controls {
-		absolute:left 0 bottom 0;
+	&__controls,
+	&__arrow {
 		z-index:9999;
 		opacity:0;
-		transition:opacity 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
 	}
 
-	&:hover &__controls {
+	&__controls {
+		absolute:left 0 bottom 0;
+		transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+	}
+
+	&__arrow {
+		absolute:top 50%;
+		margin-top:-25px;
+
+		&_left {
+			left:0;
+		}
+		&_right {
+			right:0;
+		}
+		.icon {
+			font-size:22px;
+		}
+	}
+
+	&:hover &__controls,
+	&:hover &__arrow {
 		opacity:1;
 	}
 
@@ -181,17 +201,35 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	}
 }
 
+.lightbox-button {
+	width:50px;
+	height:50px;
+	line-height:50px;
+	color:light-color;
+	text-align:center;
+	cursor:pointer;
+	text-shadow:2px 2px 4px black(.5);
+	transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+
+	&:hover {
+		color:#fff;
+		text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
+	}
+
+	&.is-disabled,
+	&.is-disabled:hover {
+		color:white(.2);
+		text-shadow:2px 2px 4px black(.25);
+		cursor:default;
+	}
+}
+
 .lightbox-pane {
 	&__button {
-		width:50px;
-		height:50px;
-		line-height:50px;
-		color:light-color;
-		text-align:center;
 		cursor:default;
-		text-shadow:2px 2px 4px black(.5);
+
 		.icon {
-			font-size:20px;
+			font-size:10px;
 		}
 	}
 
@@ -200,16 +238,11 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		absolute:left 50px bottom 0;
 		padding:spacer;
 		background:#fff;
-		// box-shadow:inset 0 0 10px 2px black(.75);
 	}
 
 	&:hover &__button {
-		// color:#000;
 		color:#fff;
-		// background:#fff;
-		// text-shadow:none;
 		text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
-		// text-shadow:0 0 10px hsla(0, 100%, 100%, 1)//, 0 0 10px hsla(0, 100%, 100%, 1);
 	}
 	&:hover &__popup {
 		display:block;

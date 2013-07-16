@@ -1,11 +1,11 @@
 admin
 app
-storage/cache
-storage/configuration
-storage/originals
-storage/tmp
-storage/wallpaper
-storage/custom
+htdocs/storage/cache
+htdocs/storage/configuration
+htdocs/storage/originals
+htdocs/storage/tmp
+htdocs/storage/wallpaper
+htdocs/storage/custom
 api.php
 dl.php
 i.php

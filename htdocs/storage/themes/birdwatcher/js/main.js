@@ -46,6 +46,13 @@
 
 				// Update info and share
 				infoPane.tmpl('photo-info', frame);
+
+				updateNav();
+			}
+
+			function updateNav() {
+				prevButton.toggleClass('is-disabled', fotorama.activeIndex === 0);
+				nextButton.toggleClass('is-disabled', fotorama.activeIndex === fotorama.data.length-1);
 			}
 
 			function resize() {
@@ -69,6 +76,8 @@
 			var gallery = container.find('.js-gallery');
 			var sharePane = container.find('.js-share');
 			var infoPane = container.find('.js-info');
+			var prevButton = container.find('.js-prev');
+			var nextButton = container.find('.js-next');
 			var siteTitle = $('.js-site-title').text();
 			var albumLinkElem = $('.js-album-link');
 			var albumHref = albumLinkElem.attr('href');
@@ -86,6 +95,17 @@
 			fotorama.load(photos);
 			fotorama.show({index: startIndex, time: 0});
 			gallery.on('fotorama:show', update);
+
+			container.on('click', '.js-prev', function() {
+				fotorama.show('<');
+				updateNav();
+			});
+			container.on('click', '.js-next', function() {
+				fotorama.show('>');
+				updateNav();
+			});
+
+			updateNav();
 
 			$(window).resize(resize);
 		},
