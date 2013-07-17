@@ -124,6 +124,10 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	font-size:small-font;
 }
 
+.is-fullscreen {
+	overflow:hidden;
+}
+
 .page {
 	&_content {
 		background:#1a1a1a;
@@ -135,6 +139,19 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 			max-width:100%;
 		}
 	}
+}
+
+
+lightbox-button-width = 60px;
+lightbox-button-height = 40px;
+
+lightbox-button-transition() {
+	transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+}
+
+lightbox-button-glow() {
+	color:#fff;
+	text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
 }
 
 .lightbox {
@@ -176,19 +193,19 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	}
 
 	&__controls {
-		absolute:left 0 bottom 0;
-		transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+		lightbox-button-transition();
+		absolute:left (-(spacer)) bottom (spacer/2);
 	}
 
 	&__arrow {
 		absolute:top 50%;
-		margin-top:-25px;
+		margin-top:(-(lightbox-button-height/2));
 
 		&_left {
-			left:0;
+			left:(-(spacer));
 		}
 		&_right {
-			right:0;
+			right:(-(spacer));
 		}
 		.icon {
 			font-size:22px;
@@ -206,18 +223,17 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 .lightbox-button {
-	width:50px;
-	height:50px;
-	line-height:50px;
+	lightbox-button-transition();
+	width:lightbox-button-width;
+	height:lightbox-button-height;
+	line-height:lightbox-button-height;
 	color:light-color;
 	text-align:center;
 	cursor:pointer;
 	text-shadow:2px 2px 4px black(.5);
-	transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
 
 	&:hover {
-		color:#fff;
-		text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
+		lightbox-button-glow()
 	}
 
 	&.is-disabled,
@@ -239,14 +255,13 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 	&__popup {
 		display:none;
-		absolute:left 50px bottom 0;
+		absolute:left lightbox-button-width bottom (-(spacer));
 		padding:spacer;
 		background:#fff;
 	}
 
 	&:hover &__button {
-		color:#fff;
-		text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
+		lightbox-button-glow();
 	}
 	&:hover &__popup {
 		display:block;
@@ -257,7 +272,6 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	width:800px;
 
 	&__title {
-		// space();
 		font-size:32px;
 		font-weight:normal;
 	}

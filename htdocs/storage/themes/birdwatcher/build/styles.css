@@ -644,6 +644,9 @@ body {
 .page_content .footer {
   display: none;
 }
+.is-fullscreen {
+  overflow: hidden;
+}
 .page_content {
   background: #1a1a1a;
 }
@@ -688,26 +691,26 @@ body {
   opacity: 0;
 }
 .lightbox__controls {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   -webkit-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -moz-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -o-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -ms-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+  position: absolute;
+  left: -10px;
+  bottom: 5px;
 }
 .lightbox__arrow {
   position: absolute;
   top: 50%;
   ((null)): 0;
-  margin-top: -25px;
+  margin-top: -20px;
 }
 .lightbox__arrow_left {
-  left: 0;
+  left: -10px;
 }
 .lightbox__arrow_right {
-  right: 0;
+  right: -10px;
 }
 .lightbox__arrow .icon {
   font-size: 22px;
@@ -720,18 +723,18 @@ body {
   display: none;
 }
 .lightbox-button {
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  color: #ccc;
-  text-align: center;
-  cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   -webkit-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -moz-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -o-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   -ms-transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
   transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  color: #ccc;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 .lightbox-button:hover {
   color: #fff;
@@ -752,8 +755,8 @@ body {
 .lightbox-pane__popup {
   display: none;
   position: absolute;
-  left: 50px;
-  bottom: 0;
+  left: 60px;
+  bottom: -10px;
   padding: 10px;
   background: #fff;
 }

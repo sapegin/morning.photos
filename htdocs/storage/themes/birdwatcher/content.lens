@@ -22,6 +22,10 @@
 		</koken:content_image>
 	</koken:head>
 
+	<script>
+	document.documentElement.className += ' is-fullscreen';
+	</script>
+
 	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
 		<div class="lightbox__gallery">
