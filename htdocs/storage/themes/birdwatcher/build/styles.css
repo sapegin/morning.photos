@@ -654,8 +654,7 @@ body {
 .lightbox {
   position: relative;
 }
-.lightbox__gallery,
-.lightbox__saver {
+.lightbox__gallery {
   position: absolute;
   top: 40px;
   bottom: 10px;
@@ -663,6 +662,11 @@ body {
   right: 10px;
 }
 .lightbox__saver {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
 }
 .lightbox__image {

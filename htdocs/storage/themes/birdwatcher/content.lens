@@ -30,12 +30,14 @@
 			</div>
 		</div>
 
-		<div class="lightbox__arrow lightbox__arrow_left lightbox-button js-prev">
-			<i class="icon icon_left"></i>
-		</div>
-		<div class="lightbox__arrow lightbox__arrow_right lightbox-button js-next">
-			<i class="icon icon_right"></i>
-		</div>
+		<koken:parent>
+			<div class="lightbox__arrow lightbox__arrow_left lightbox-button js-prev">
+				<i class="icon icon_left"></i>
+			</div>
+			<div class="lightbox__arrow lightbox__arrow_right lightbox-button js-next">
+				<i class="icon icon_right"></i>
+			</div>
+		</koken:parent>
 
 		<div class="lightbox__controls">
 			<div class="lightbox__control lightbox-pane">
