@@ -138,22 +138,22 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 .lightbox {
-	position:relative;
+	position:absolute;
+	top:40px;
+	bottom:spacer;
+	left:spacer;
+	right:spacer;
 
-	&__gallery {
-		position:absolute;
-		top:40px;
-		bottom:spacer;
-		left:spacer;
-		right:spacer;
-	}
-
+	&__gallery,
 	&__saver {
 		position:absolute;
 		top:0;
 		left:0;
 		width:100%;
 		height:100%;
+	}
+
+	&__saver {
 		opacity:0;
 	}
 

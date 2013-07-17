@@ -91,7 +91,7 @@
 				height: gallery.height()
 			});
 
-			var fotorama = gallery.data('api');
+			var fotorama = gallery.data('fotorama');
 			fotorama.load(photos);
 			fotorama.show({index: startIndex, time: 0});
 			gallery.on('fotorama:show', update);

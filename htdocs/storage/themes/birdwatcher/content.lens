@@ -26,7 +26,7 @@
 
 		<div class="lightbox__gallery">
 			<div class="lightbox__image js-gallery" style="background-image:url({{ content.presets.xlarge.url }})">
-				<img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
+				<!-- <img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>"> -->
 			</div>
 		</div>
 
