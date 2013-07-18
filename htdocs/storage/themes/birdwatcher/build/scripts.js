@@ -333,12 +333,14 @@ return __templates;})()
 				loop: true,
 				autoplay: 15000,
 				width: '100%',
-				ratio: '3/2'
+				minHeight: 500,
+				maxHeight: '100%',
+				fit: 'cover',
+				ratio: '1.5'
 			});
 
 			var fotorama = container.data('fotorama');
-			fotorama.load(photos);
-
+			fotorama.load(shuffle(photos));
 		},
 		'photo-album': function(elem) {
 			function update() {
@@ -429,5 +431,23 @@ return __templates;})()
 			linkSelector: '.js-filter-tag'
 		}}
 	});
+
+	// Fisher–Yates Shuffle
+	// http://bost.ocks.org/mike/shuffle/
+	function shuffle(array) {
+		// While there remain elements to shuffle
+		var m = array.length;
+		while (m) {
+			// Pick a remaining element
+			var i = Math.floor(Math.random() * m--);
+
+			// And swap it with the current element
+			var t = array[m];
+			array[m] = array[i];
+			array[i] = t;
+		}
+
+		return array;
+	}
 
 }(jQuery));

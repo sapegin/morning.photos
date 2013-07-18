@@ -1110,30 +1110,45 @@ body {
   margin: 0;
   max-width: none;
   z-index: 999999;
-  background: rgba(0,0,0,0.3);
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+.index .header .logo,
+.index .header a,
+.index .header a:link,
+.index .header a:visited,
+.index .header a:hover,
+.index .header a:active,
+.index .header a:focus {
+  color: #fff;
 }
 .featured-album {
-  margin-bottom: 30px;
   margin-top: -10px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.index-content {
+  position: relative;
+  margin-top: -32px;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 15px;
+  background: #fff;
+  z-index: 999999;
+}
+.index-content:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  z-index: 999990;
+  -webkit-box-shadow: 0 -5px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 -5px 6px rgba(0,0,0,0.25);
 }
 .index-list__title {
   margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: normal;
-}
-.index-list__title-link,
-.index-list__title-link:link,
-.index-list__title-link:visited,
-.index-list__title-link:hover,
-.index-list__title-link:active,
-.index-list__title-link:focus {
-  color: #1a1a1a;
-  text-decoration: none;
-}
-.index-list__title-link:hover,
-.index-list__title-link:active,
-.index-list__title-link:focus {
-  text-decoration: underline;
+  font-size: 16px;
 }
 .index-list__item {
   margin-bottom: 5px;

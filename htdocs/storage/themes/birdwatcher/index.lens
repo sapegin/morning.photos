@@ -1,15 +1,16 @@
 <koken:include file="inc/header.html" />
 <body class="page page_index page_inverted-head">
 
-<div class="index content">
+<div>
 
-	<koken:include file="inc/page-header.html" />
-
+	<div class="index content">
+		<koken:include file="inc/page-header.html" />
+	</div>
 
 	<koken:load>
 
 <script>
-var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</koken:loop>];
+var __photos = [<koken:loop separator=", ">{img: '{{ presets.xlarge.url }}'}</koken:loop>];
 </script>
 
 		<div class="featured-album">
@@ -18,78 +19,83 @@ var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</kok
 
 	</koken:load>
 
-	<div class="l-row l-triple-space">
+	<div class="content">
 
-		<div class="l-third index-list">
+		<div class="index-content">
 
-			<koken:load source="essays" featured="true" limit="5">
+			<div class="l-row l-triple-space">
 
-				<h3 class="index-list__title"><a href="/blog/" class="index-list__title-link">Блог</a></h3>
+				<div class="l-third index-list">
 
-				<ul class="index-list__list">
+					<koken:load source="essays" featured="true" limit="5">
 
-				<koken:loop>
+						<div class="index-list__title">Интересное в <a href="/blog/">блоге</a>:</div>
 
-					<li class="index-list__item">
-						<koken:link class="link">{{ essay.title }}</koken:link>
-					</li>
+						<ul class="index-list__list">
 
-				</koken:loop>
+						<koken:loop>
 
-				</ul>
+							<li class="index-list__item">
+								<koken:link class="link">{{ essay.title }}</koken:link>
+							</li>
 
-			</koken:load>
+						</koken:loop>
 
-		</div>
+						</ul>
 
-		<div class="l-third">
+					</koken:load>
 
-			<!-- <h3 class="index-list__title"><a href="/learn/" class="index-list__title-link">Статьи</a></h3> -->
-
-			<ul class="index-list__list">
-
-				<li class="index-list__item">
-					<a href="/reading/" class="link">Книги о фотографии</a>
-					<div class="index-list__description">Мои рецензии</div>
-				</li>
-				<li class="index-list__item">
-					<a href="#" class="link">Продажа фотографий через фотобанки</a>
-					<div class="index-list__description">Статьи о фотостоках</div>
-				</li>
-				<li class="index-list__item">
-					<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-					<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
-				</li>
-				<li class="index-list__item">
-					<a href="#" class="link">Фотография где</a>
-					<div class="index-list__description">Смешные цитаты с фотофорумов</div>
-				</li>
-
-			</ul>
-
-		</div>
-
-		<div class="l-third">
-
-			<div class="media index-about">
-				<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
-				<div class="media__body">
-					<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
 				</div>
+
+				<div class="l-third">
+
+					<ul class="index-list__list">
+
+						<li class="index-list__item">
+							<a href="/reading/" class="link">Книги о фотографии</a>
+							<div class="index-list__description">Мои рецензии</div>
+						</li>
+						<li class="index-list__item">
+							<a href="#" class="link">Продажа фотографий через фотобанки</a>
+							<div class="index-list__description">Статьи о фотостоках</div>
+						</li>
+						<li class="index-list__item">
+							<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
+							<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
+						</li>
+						<li class="index-list__item">
+							<a href="#" class="link">Фотография где</a>
+							<div class="index-list__description">Смешные цитаты с фотофорумов</div>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="l-third">
+
+					<div class="media index-about">
+						<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
+						<div class="media__body">
+							<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+						</div>
+					</div>
+
+					<ul class="index-list__list">
+
+						<li class="index-list__item"><a href="#" class="link">Обо мне</a></li>
+						<li class="index-list__item"><a href="#" class="link">Чем я снимаю</a></li>
+						<li class="index-list__item"><a href="#" class="link">Как купить мои фотографии</a></li>
+
+					</ul>
+
+				</div>
+
 			</div>
-
-			<ul class="index-list__list">
-
-				<li class="index-list__item"><a href="#" class="link">Обо мне</a></li>
-				<li class="index-list__item"><a href="#" class="link">Чем я снимаю</a></li>
-				<li class="index-list__item"><a href="#" class="link">Как купить мои фотографии</a></li>
-
-			</ul>
 
 		</div>
 
 	</div>
-
 
 </div>
 

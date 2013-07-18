@@ -675,37 +675,52 @@ for tag in "best" "good" "russian" "english" {
 		margin:0;
 		max-width:none;
 		z-index:999999;
-		background:black(0.3);
+		text-shadow:0 0 3px black(.5);
+
+		.logo,
+		a,
+		a:link,
+		a:visited,
+		a:hover,
+		a:active,
+		a:focus {
+			color:#fff;
+		}
+
 	}
 }
 
 .featured-album {
-	space(3);
 	margin-top:(-(spacer));
+	margin-left:(-(spacer*2));
+	margin-right:(-(spacer*2));
+}
+
+.index-content {
+	position:relative;
+	margin-top:(-(normal-font*2));
+	margin-left:(-(spacer*1.5));
+	margin-right:(-(spacer*1.5));
+	padding:spacer*1.5;
+	background:bg-color;
+	z-index:999999;
+
+	&:before {
+		content:"";
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:normal-font*1.5;
+		z-index:999990;
+		box-shadow:0 -5px 6px black(.25);
+	}
 }
 
 .index-list {
 	&__title {
 		space();
-		font-size:24px;
-		font-weight:normal;
-	}
-
-	&__title-link {
-		&,
-		&:link,
-		&:visited,
-		&:hover,
-		&:active,
-		&:focus {
-			color:base-color;
-			text-decoration:none;
-		}
-		&:hover,
-		&:active,
-		&:focus {
-			text-decoration:underline;
-		}
+		font-size:normal-font;
 	}
 
 	&__item {
