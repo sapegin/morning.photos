@@ -389,12 +389,12 @@ a:link {
 .link u_fake:visited,
 .text a_fake:visited {
   color: #1978c8;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(25,120,200,0.4)), color-stop(0.5, rgba(25,120,200,0.4)), color-stop(0.5, transparent));
-  background-image: -webkit-linear-gradient(left, rgba(25,120,200,0.4) 0, rgba(25,120,200,0.4) 50%, transparent 50%);
-  background-image: -moz-linear-gradient(left, rgba(25,120,200,0.4) 0, rgba(25,120,200,0.4) 50%, transparent 50%);
-  background-image: -o-linear-gradient(left, rgba(25,120,200,0.4) 0, rgba(25,120,200,0.4) 50%, transparent 50%);
-  background-image: -ms-linear-gradient(left, rgba(25,120,200,0.4) 0, rgba(25,120,200,0.4) 50%, transparent 50%);
-  background-image: linear-gradient(left, rgba(25,120,200,0.4) 0, rgba(25,120,200,0.4) 50%, transparent 50%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1978c8), color-stop(0.5, #1978c8), color-stop(0.5, transparent));
+  background-image: -webkit-linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
+  background-image: -moz-linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
+  background-image: -o-linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
+  background-image: -ms-linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
+  background-image: linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
 }
 .link_fake:hover,
 .link u_fake:hover,
@@ -405,12 +405,12 @@ a:link {
 .link_fake:focus,
 .link u_fake:focus,
 .text a_fake:focus {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(22,148,236,0.4)), color-stop(0.5, rgba(22,148,236,0.4)), color-stop(0.5, transparent));
-  background-image: -webkit-linear-gradient(left, rgba(22,148,236,0.4) 0, rgba(22,148,236,0.4) 50%, transparent 50%);
-  background-image: -moz-linear-gradient(left, rgba(22,148,236,0.4) 0, rgba(22,148,236,0.4) 50%, transparent 50%);
-  background-image: -o-linear-gradient(left, rgba(22,148,236,0.4) 0, rgba(22,148,236,0.4) 50%, transparent 50%);
-  background-image: -ms-linear-gradient(left, rgba(22,148,236,0.4) 0, rgba(22,148,236,0.4) 50%, transparent 50%);
-  background-image: linear-gradient(left, rgba(22,148,236,0.4) 0, rgba(22,148,236,0.4) 50%, transparent 50%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1694ec), color-stop(0.5, #1694ec), color-stop(0.5, transparent));
+  background-image: -webkit-linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
+  background-image: -moz-linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
+  background-image: -o-linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
+  background-image: -ms-linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
+  background-image: linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
 }
 .no-cssgradients .link {
   text-decoration: underline;
@@ -1122,9 +1122,11 @@ body {
   color: #fff;
 }
 .featured-album {
+  min-height: 500px;
   margin-top: -10px;
   margin-left: -20px;
   margin-right: -20px;
+  background: #1a1a1a;
 }
 .index-content {
   position: relative;
