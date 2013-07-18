@@ -213,7 +213,8 @@ lightbox-button-glow() {
 			right:(-(spacer));
 		}
 		.icon {
-			font-size:22px;
+			margin-top:.5em;
+			font-size:34px;
 		}
 	}
 
@@ -235,7 +236,7 @@ lightbox-button-glow() {
 	color:light-color;
 	text-align:center;
 	cursor:pointer;
-	text-shadow:2px 2px 4px black(.5);
+	text-shadow:0 0 4px black(.5);
 
 	&:hover {
 		lightbox-button-glow()
@@ -243,8 +244,8 @@ lightbox-button-glow() {
 
 	&.is-disabled,
 	&.is-disabled:hover {
-		color:white(.2);
-		text-shadow:2px 2px 4px black(.25);
+		color:white(.25);
+		text-shadow:0 0 4px black(.25);
 		cursor:default;
 	}
 }
