@@ -783,7 +783,6 @@ body {
 .thumbnail {
   display: block;
   overflow: hidden;
-  min-width: 300px;
 }
 .thumbnail__img {
   max-width: none;
