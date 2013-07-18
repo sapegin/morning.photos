@@ -17,7 +17,7 @@
 				nav: false,
 				transition: 'dissolve',
 				loop: true,
-				autoplay: 15000,
+				autoplay: 7000,
 				width: '100%',
 				minHeight: 500,
 				maxHeight: '100%',
