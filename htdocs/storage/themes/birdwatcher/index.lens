@@ -44,12 +44,25 @@ var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</kok
 
 		<div class="l-third">
 
-			<h3 class="index-list__title"><a href="/learn/" class="index-list__title-link">Статьи</a></h3>
+			<!-- <h3 class="index-list__title"><a href="/learn/" class="index-list__title-link">Статьи</a></h3> -->
 
 			<ul class="index-list__list">
 
 				<li class="index-list__item">
-					<a href="#" class="link">#</a>
+					<a href="/reading/" class="link">Книги о фотографии</a>
+					<div class="index-list__description">Мои рецензии</div>
+				</li>
+				<li class="index-list__item">
+					<a href="#" class="link">Продажа фотографий через фотобанки</a>
+					<div class="index-list__description">Статьи о фотостоках</div>
+				</li>
+				<li class="index-list__item">
+					<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
+					<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
+				</li>
+				<li class="index-list__item">
+					<a href="#" class="link">Фотография где</a>
+					<div class="index-list__description">Смешные цитаты с фотофорумов</div>
 				</li>
 
 			</ul>
@@ -58,13 +71,18 @@ var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</kok
 
 		<div class="l-third">
 
-			<h3 class="index-list__title">Всякое</h3>
+			<div class="media index-about">
+				<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
+				<div class="media__body">
+					<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+				</div>
+			</div>
 
 			<ul class="index-list__list">
 
-				<li class="index-list__item">
-					<a href="#" class="link">#</a>
-				</li>
+				<li class="index-list__item"><a href="#" class="link">Обо мне</a></li>
+				<li class="index-list__item"><a href="#" class="link">Чем я снимаю</a></li>
+				<li class="index-list__item"><a href="#" class="link">Как купить мои фотографии</a></li>
 
 			</ul>
 

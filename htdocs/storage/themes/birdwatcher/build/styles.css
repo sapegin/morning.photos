@@ -1104,8 +1104,8 @@ body {
 }
 .index .header {
   position: absolute;
-  left: -10px;
-  right: -10px;
+  left: 0;
+  right: 0;
   padding: 10px;
   margin: 0;
   max-width: none;
@@ -1115,8 +1115,6 @@ body {
 .featured-album {
   margin-bottom: 30px;
   margin-top: -10px;
-  margin-left: -10px;
-  margin-right: -10px;
 }
 .index-list__title {
   margin-bottom: 10px;
@@ -1139,6 +1137,14 @@ body {
 }
 .index-list__item {
   margin-bottom: 5px;
+  font-size: 16px;
+}
+.index-list__description {
+  font-size: 13px;
+}
+.index-about {
+  margin-bottom: 10px;
+  font-size: 13px;
 }
 @media print {
   @page {

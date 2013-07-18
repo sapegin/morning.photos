@@ -669,8 +669,8 @@ for tag in "best" "good" "russian" "english" {
 
 	.header {
 		position:absolute;
-		left:(-(spacer));
-		right:(-(spacer));
+		left:0;
+		right:0;
 		padding:spacer;
 		margin:0;
 		max-width:none;
@@ -682,8 +682,6 @@ for tag in "best" "good" "russian" "english" {
 .featured-album {
 	space(3);
 	margin-top:(-(spacer));
-	margin-left:(-(spacer));
-	margin-right:(-(spacer));
 }
 
 .index-list {
@@ -712,5 +710,15 @@ for tag in "best" "good" "russian" "english" {
 
 	&__item {
 		margin-bottom:(spacer/2);
+		font-size:normal-font;
 	}
+
+	&__description {
+		font-size:small-font;
+	}
+}
+
+.index-about {
+	space();
+	font-size:small-font;
 }
