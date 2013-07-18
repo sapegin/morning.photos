@@ -559,36 +559,14 @@ body {
   font-size: 16px;
   color: #1a1a1a;
 }
-.page_content .logo,
-.page_content .logo__link,
-.page_content .logo__link:link,
-.page_content .logo__link:visited,
-.page_content .logo__link:hover,
-.page_content .logo__link:active,
-.page_content .logo__link:focus {
+.page_inverted-head .logo,
+.page_inverted-head .logo__link {
+  -webkit-font-smoothing: antialiased;
   color: #ccc;
 }
-.page_content .logo:hover,
-.page_content .logo__link:hover,
-.page_content .logo__link:link:hover,
-.page_content .logo__link:visited:hover,
-.page_content .logo__link:hover:hover,
-.page_content .logo__link:active:hover,
-.page_content .logo__link:focus:hover,
-.page_content .logo:active,
-.page_content .logo__link:active,
-.page_content .logo__link:link:active,
-.page_content .logo__link:visited:active,
-.page_content .logo__link:hover:active,
-.page_content .logo__link:active:active,
-.page_content .logo__link:focus:active,
-.page_content .logo:focus,
-.page_content .logo__link:focus,
-.page_content .logo__link:link:focus,
-.page_content .logo__link:visited:focus,
-.page_content .logo__link:hover:focus,
-.page_content .logo__link:active:focus,
-.page_content .logo__link:focus:focus {
+.page_inverted-head .logo__link:hover,
+.page_inverted-head .logo__link:active,
+.page_inverted-head .logo__link:focus {
   color: #fff;
 }
 .nav {
@@ -610,32 +588,13 @@ body {
   font-size: 16px;
   color: #1a1a1a;
 }
-.page_content .nav a,
-.page_content .nav a:link,
-.page_content .nav a:visited,
-.page_content .nav a:hover,
-.page_content .nav a:active,
-.page_content .nav a:focus {
+.page_inverted-head .nav a {
+  -webkit-font-smoothing: antialiased;
   color: #ccc;
 }
-.page_content .nav a:hover,
-.page_content .nav a:link:hover,
-.page_content .nav a:visited:hover,
-.page_content .nav a:hover:hover,
-.page_content .nav a:active:hover,
-.page_content .nav a:focus:hover,
-.page_content .nav a:active,
-.page_content .nav a:link:active,
-.page_content .nav a:visited:active,
-.page_content .nav a:hover:active,
-.page_content .nav a:active:active,
-.page_content .nav a:focus:active,
-.page_content .nav a:focus,
-.page_content .nav a:link:focus,
-.page_content .nav a:visited:focus,
-.page_content .nav a:hover:focus,
-.page_content .nav a:active:focus,
-.page_content .nav a:focus:focus {
+.page_inverted-head .nav a:hover,
+.page_inverted-head .nav a:active,
+.page_inverted-head .nav a:focus {
   color: #fff;
 }
 .footer {
@@ -1139,6 +1098,47 @@ body {
 }
 .quote__meta {
   font-size: 13px;
+}
+.index {
+  position: relative;
+}
+.index .header {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  padding: 10px;
+  margin: 0;
+  max-width: none;
+  z-index: 999999;
+  background: rgba(0,0,0,0.3);
+}
+.featured-album {
+  margin-bottom: 30px;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.index-list__title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: normal;
+}
+.index-list__title-link,
+.index-list__title-link:link,
+.index-list__title-link:visited,
+.index-list__title-link:hover,
+.index-list__title-link:active,
+.index-list__title-link:focus {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+.index-list__title-link:hover,
+.index-list__title-link:active,
+.index-list__title-link:focus {
+  text-decoration: underline;
+}
+.index-list__item {
+  margin-bottom: 5px;
 }
 @media print {
   @page {

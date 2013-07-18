@@ -1,8 +1,10 @@
 <koken:include file="inc/header.html" />
-<body class="page page_index">
-<koken:include file="inc/page-header.html" />
+<body class="page page_index page_inverted-head">
 
-<div class="content">
+<div class="index content">
+
+	<koken:include file="inc/page-header.html" />
+
 
 	<koken:load>
 
@@ -10,28 +12,66 @@
 var __photos = [<koken:loop separator=", ">{img: '{{ presets.large.url }}'}</koken:loop>];
 </script>
 
-		<div class="featured-album" data-component="featured-album">
+		<div class="featured-album">
+			<div class="featured-album-i" data-component="featured-album"></div>
 		</div>
 
 	</koken:load>
 
-	<koken:load source="essays" featured="true" limit="5">
+	<div class="l-row l-triple-space">
 
-		<h3>Блог</h3>
+		<div class="l-third index-list">
 
-		<ul class="">
+			<koken:load source="essays" featured="true" limit="5">
 
-		<koken:loop>
+				<h3 class="index-list__title"><a href="/blog/" class="index-list__title-link">Блог</a></h3>
 
-			<li>
-				<koken:link title="Read {{ essay.title }}">{{ essay.title }}</koken:link>
-			</li>
+				<ul class="index-list__list">
 
-		</koken:loop>
+				<koken:loop>
 
-		</ul>
+					<li class="index-list__item">
+						<koken:link class="link">{{ essay.title }}</koken:link>
+					</li>
 
-	</koken:load>
+				</koken:loop>
+
+				</ul>
+
+			</koken:load>
+
+		</div>
+
+		<div class="l-third">
+
+			<h3 class="index-list__title"><a href="/learn/" class="index-list__title-link">Статьи</a></h3>
+
+			<ul class="index-list__list">
+
+				<li class="index-list__item">
+					<a href="#" class="link">#</a>
+				</li>
+
+			</ul>
+
+		</div>
+
+		<div class="l-third">
+
+			<h3 class="index-list__title">Всякое</h3>
+
+			<ul class="index-list__list">
+
+				<li class="index-list__item">
+					<a href="#" class="link">#</a>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
 
 </div>
 

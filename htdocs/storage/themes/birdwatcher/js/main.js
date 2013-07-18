@@ -15,14 +15,14 @@
 
 			container.fotorama({
 				nav: false,
-				transition: 'crossfade',
+				transition: 'dissolve',
 				loop: true,
 				autoplay: 15000,
 				width: '100%',
 				ratio: '3/2'
 			});
 
-			var fotorama = container.data('api');
+			var fotorama = container.data('fotorama');
 			fotorama.load(photos);
 
 		},

@@ -62,7 +62,6 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .logo {
 	float:left;
-	// margin-right:2em;
 	font-weight:normal;
 
 	&,
@@ -74,20 +73,23 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&__link:focus {
 		font-size:normal-font;
 		color:base-color;
-		.page_content & {
-			color:light-color;
-		}
-		.page_content &:hover,
-		.page_content &:active,
-		.page_content &:focus {
-			color:#fff;
-		}
+	}
+}
+.page_inverted-head {
+	.logo,
+	.logo__link {
+		tweak-inverted-text();
+		color:light-color;
+	}
+	.logo__link:hover,
+	.logo__link:active,
+	.logo__link:focus {
+		color:#fff;
 	}
 }
 
 .nav {
 	float:right;
-	// float:left;
 
 	li {
 		display:inline-block;
@@ -105,14 +107,17 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	a:focus {
 		font-size:normal-font;
 		color:base-color;
-		.page_content & {
-			color:light-color;
-		}
-		.page_content &:hover,
-		.page_content &:active,
-		.page_content &:focus {
-			color:#fff;
-		}
+	}
+}
+.page_inverted-head .nav a {
+	& {
+		tweak-inverted-text();
+		color:light-color;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color:#fff;
 	}
 }
 
@@ -655,5 +660,57 @@ for tag in "best" "good" "russian" "english" {
 
 	&__meta {
 		font-size:small-font;
+	}
+}
+
+
+.index {
+	position:relative;
+
+	.header {
+		position:absolute;
+		left:(-(spacer));
+		right:(-(spacer));
+		padding:spacer;
+		margin:0;
+		max-width:none;
+		z-index:999999;
+		background:black(0.3);
+	}
+}
+
+.featured-album {
+	space(3);
+	margin-top:(-(spacer));
+	margin-left:(-(spacer));
+	margin-right:(-(spacer));
+}
+
+.index-list {
+	&__title {
+		space();
+		font-size:24px;
+		font-weight:normal;
+	}
+
+	&__title-link {
+		&,
+		&:link,
+		&:visited,
+		&:hover,
+		&:active,
+		&:focus {
+			color:base-color;
+			text-decoration:none;
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration:underline;
+		}
+	}
+
+	&__item {
+		margin-bottom:(spacer/2);
 	}
 }

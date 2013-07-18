@@ -1,5 +1,5 @@
 <koken:include file="inc/header.html" />
-<body class="page page_content">
+<body class="page page_content page_inverted-head">
 <koken:include file="inc/page-header.html" />
 
 <koken:load>
@@ -22,15 +22,15 @@
 		</koken:content_image>
 	</koken:head>
 
-	<script>
-	document.documentElement.className += ' is-fullscreen';
-	</script>
+<script>
+document.documentElement.className += ' is-fullscreen';
+</script>
 
 	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
 		<div class="lightbox__gallery">
 			<div class="lightbox__image js-gallery" style="background-image:url({{ content.presets.xlarge.url }})">
-				<!-- <img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>"> -->
+				<img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
 			</div>
 		</div>
 
