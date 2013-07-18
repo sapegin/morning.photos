@@ -768,13 +768,26 @@ body {
 .thumbnails {
   margin: 0 -5px 20px;
 }
-.thumbnails__item {
-  display: inline-block;
-  margin: 10px 5px;
+.thumbnails:before,
+.thumbnails:after {
+  content: "";
+  display: table;
 }
-.thumbnails__item img {
+.thumbnails:after {
+  clear: both;
+}
+.thumbnails__item {
+  float: left;
+  margin: 0 5px 10px;
+}
+.thumbnail {
+  display: block;
+  overflow: hidden;
+  min-width: 300px;
+}
+.thumbnail__img {
+  max-width: none;
   height: 200px;
-  width: auto;
 }
 .entry {
   font-size: 19px;
@@ -795,7 +808,7 @@ body {
   font-weight: bold;
 }
 .entry-header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .entry-title {
   font-size: 48px;

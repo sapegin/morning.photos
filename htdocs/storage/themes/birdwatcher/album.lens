@@ -2,10 +2,8 @@
 <body class="page page_album">
 <koken:include file="inc/page-header.html" />
 
-<!-- Load this template's source data (album) and limit for pagination -->
 <koken:load limit="50">
 
-	<!-- Add Facebook Open Graph and Twitter Cards metadata for nicer sharing -->
 	<koken:head>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ album.title strip_html="true" }}" />
@@ -29,13 +27,14 @@
 		</koken:not>
 	</koken:head>
 
-	<!-- Display the album's title -->
-	<h1 class="entry-title">
-		{{ album.title }}
-	</h1>
+	<div class="entry-header">
+		<h1 class="entry-title">
+			{{ album.title }}
+		</h1>
 
-	<div class="page-excerpt">
-		{{ album.description paragraphs="true" }}
+		<div class="page-excerpt">
+			{{ album.description paragraphs="true" }}
+		</div>
 	</div>
 
 	<!-- Display essays/pages written about this album -->
@@ -52,12 +51,25 @@
 	</koken:topics>
 	-->
 
+<script>
+function ui(img) {
+	var tempImg = new Image;
+	tempImg.onload = function() {
+		if (this.height < 200) {
+			img.width = img.width;
+			img.src = img.src.replace(',medium.jpg', ',large.jpg');
+		}
+	};
+	tempImg.src = img.src;
+}
+</script>
+
 	<div class="thumbnails">
 		<koken:loop>
 			<div class="thumbnails__item">
 				<koken:content_image>
-					<koken:link>
-						<img src="{{ content.presets.medium.url }}" alt="{{ content.title }}" height="200">
+					<koken:link class="thumbnail">
+						<img class="thumbnail__img" src="{{ content.presets.medium.url }}" alt="{{ content.title }}" height="200" onload="ui(this)">
 					</koken:link>
 				</koken:content_image>
 			</div>
@@ -68,11 +80,6 @@
 	<p>
 		<koken:include file="inc/pagination.html" />
 	</p>
-
-	<!-- Fallback content if no data was loaded by koken:load -->
-	<koken:else>
-
-		Nothing loaded
 
 </koken:load>
 

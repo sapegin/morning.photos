@@ -317,16 +317,23 @@ lightbox-button-glow() {
 }
 
 .thumbnails {
+	clearfix();
 	margin:0 (-(spacer / 2)) spacer*2;
 
 	&__item {
-		display:inline-block;
-		margin:spacer (spacer / 2);
+		float:left;
+		margin:0 (spacer / 2) spacer;
+	}
+}
 
-		img {
-			height:200px;
-			width:auto;
-		}
+.thumbnail {
+	display:block;
+	overflow:hidden;
+	min-width:300px;
+
+	&__img {
+		max-width:none;
+		height:200px;
 	}
 }
 
@@ -353,7 +360,7 @@ lightbox-button-glow() {
 }
 
 .entry-header {
-	space(4);
+	space(2);
 }
 
 .entry-title {
