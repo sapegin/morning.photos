@@ -6,14 +6,6 @@
 <title>Путешествия — {{ site.title }}</title>
 </koken:head>
 
-<koken:load source="page" filter:id="7">
-
-	<!-- <koken:loop> -->
-		[<div>{{ page.title }}</div>]
-	<!-- </koken:loop> -->
-
-</koken:load>
-
 <div class="content">
 	<div class="albums">
 
