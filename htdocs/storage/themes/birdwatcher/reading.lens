@@ -2,6 +2,10 @@
 <body class="page page_page">
 <koken:include file="inc/page-header.html" />
 
+<koken:head>
+<title>Книги о фотографии и обработке фотографий — {{ site.title }}</title>
+</koken:head>
+
 <div class="content text">
 
 	<div class="entry-header">

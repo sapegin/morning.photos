@@ -2,6 +2,10 @@
 <body class="page page_travel">
 <koken:include file="inc/page-header.html" />
 
+<koken:head>
+<title>Путешествия — {{ site.title }}</title>
+</koken:head>
+
 <koken:load source="page" filter:id="7">
 
 	<!-- <koken:loop> -->
