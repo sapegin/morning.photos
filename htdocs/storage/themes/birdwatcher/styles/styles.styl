@@ -122,6 +122,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 .footer {
+	.page_index &,
 	.page_content & {
 		display:none;
 	}
@@ -143,6 +144,15 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		.content {
 			max-width:100%;
 		}
+	}
+
+	&_index {
+		padding:0;
+	}
+}
+@media (min-width:1025px) {
+	.page_index {
+		background:photo-bg-color;
 	}
 }
 
@@ -347,7 +357,7 @@ lightbox-button-glow() {
 	ul,
 	ol {
 		space(3);
-		max-width:40em;
+		// max-width:40em;
 		line-height:1.6;
 	}
 
@@ -672,7 +682,15 @@ for tag in "best" "good" "russian" "english" {
 
 
 .index {
-	position:relative;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+
+	.header-i {
+		position:relative;
+		z-index:9999999;
+	}
 
 	.header {
 		position:absolute;
@@ -681,7 +699,6 @@ for tag in "best" "good" "russian" "english" {
 		padding:spacer;
 		margin:0;
 		max-width:none;
-		z-index:999999;
 		text-shadow:0 0 3px black(.5);
 
 		.logo,
@@ -698,31 +715,22 @@ for tag in "best" "good" "russian" "english" {
 }
 
 .featured-album {
-	min-height:500px;
-	margin-top:(-(spacer));
-	margin-left:(-(spacer*2));
-	margin-right:(-(spacer*2));
-	background:photo-bg-color;
 }
 
 .index-content {
-	position:relative;
-	margin-top:(-(normal-font*2));
-	margin-left:(-(spacer*1.5));
-	margin-right:(-(spacer*1.5));
-	padding:spacer*1.5;
-	background:bg-color;
-	z-index:999999;
 
-	&:before {
-		content:"";
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		height:normal-font*1.5;
-		z-index:999990;
-		box-shadow:0 -5px 6px black(.25);
+	&-i {
+		margin-top:100vh;
+	}
+
+	&-i-i {
+		position:relative;
+		margin-top:(-(normal-font*2.5));
+		margin-left:(-(spacer*0.5));
+		margin-right:(-(spacer*0.5));
+		padding:spacer*1.5;
+		background:bg-color;
+		box-shadow:0 0 6px black(.25);
 	}
 }
 
@@ -746,3 +754,19 @@ for tag in "best" "good" "russian" "english" {
 	space();
 	font-size:small-font;
 }
+
+@media (max-width:1024px) {
+	.index {
+		position:static;
+	}
+	.index-content {
+
+		&-i {
+			margin-top:0 !important;  // important to overwrite value set by JS
+		}
+		&-i-i {
+			box-shadow:none;
+		}
+	}
+}
+

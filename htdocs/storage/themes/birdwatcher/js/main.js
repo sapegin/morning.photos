@@ -10,7 +10,12 @@
 
 	utils.initComponents({
 		'featured-album': function(elem) {
+			function resize() {
+				contentContainer.css('margin-top', container.height());
+			}
+
 			var container = $(elem);
+			var contentContainer = $('.js-content');
 			var photos = window.__photos;
 
 			container.fotorama({
@@ -19,14 +24,16 @@
 				loop: true,
 				autoplay: 7000,
 				width: '100%',
-				minHeight: 500,
+				minHeight: 300,
 				maxHeight: '100%',
-				fit: 'cover',
-				ratio: '1.5'
+				fit: 'cover'
 			});
+			container.on('fotorama:load', resize);
 
 			var fotorama = container.data('fotorama');
 			fotorama.load(shuffle(photos));
+
+			$(window).resize(resize);
 		},
 		'photo-album': function(elem) {
 			function update() {

@@ -1,93 +1,98 @@
 <koken:include file="inc/header.html" />
 <body class="page page_index page_inverted-head">
 
-<div>
+	<div class="index">
 
-	<div class="index content">
-		<koken:include file="inc/page-header.html" />
-	</div>
+		<div class="header-i content">
+			<koken:include file="inc/page-header.html" />
+		</div>
 
-	<koken:load>
+		<koken:load>
 
 <script>
 var __photos = [<koken:loop separator=", ">{img: '{{ presets.xlarge.url }}'}</koken:loop>];
 </script>
 
-		<div class="featured-album">
-			<div class="featured-album-i" data-component="featured-album"></div>
-		</div>
+			<div class="featured-album">
+				<div class="featured-album-i" data-component="featured-album"></div>
+			</div>
 
-	</koken:load>
+		</koken:load>
 
-	<div class="content">
+	</div>
 
-		<div class="index-content">
+	<div class="index-content">
 
-			<div class="l-row l-triple-space">
+		<div class="index-content-i content js-content">
 
-				<div class="l-third index-list">
+			<div class="index-content-i-i">
 
-					<koken:load source="essays" featured="true" limit="5">
+				<div class="l-row l-triple-space">
 
-						<div class="index-list__title">Интересное в <a href="/blog/">блоге</a>:</div>
+					<div class="l-third index-list">
+
+						<koken:load source="essays" featured="true" limit="5">
+
+							<div class="index-list__title">Интересное в <a href="/blog/" class="link">блоге</a>:</div>
+
+							<ul class="index-list__list">
+
+							<koken:loop>
+
+								<li class="index-list__item">
+									<koken:link class="link">{{ essay.title }}</koken:link>
+								</li>
+
+							</koken:loop>
+
+							</ul>
+
+						</koken:load>
+
+					</div>
+
+					<div class="l-third">
 
 						<ul class="index-list__list">
 
-						<koken:loop>
-
 							<li class="index-list__item">
-								<koken:link class="link">{{ essay.title }}</koken:link>
+								<a href="/reading/" class="link">Книги о фотографии</a>
+								<div class="index-list__description">Мои рецензии</div>
 							</li>
-
-						</koken:loop>
+							<li class="index-list__item">
+								<a href="#" class="link">Продажа фотографий через фотобанки</a>
+								<div class="index-list__description">Статьи о фотостоках</div>
+							</li>
+							<li class="index-list__item">
+								<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
+								<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
+							</li>
+							<li class="index-list__item">
+								<a href="#" class="link">Фотография где</a>
+								<div class="index-list__description">Смешные цитаты с фотофорумов</div>
+							</li>
 
 						</ul>
 
-					</koken:load>
-
-				</div>
-
-				<div class="l-third">
-
-					<ul class="index-list__list">
-
-						<li class="index-list__item">
-							<a href="/reading/" class="link">Книги о фотографии</a>
-							<div class="index-list__description">Мои рецензии</div>
-						</li>
-						<li class="index-list__item">
-							<a href="#" class="link">Продажа фотографий через фотобанки</a>
-							<div class="index-list__description">Статьи о фотостоках</div>
-						</li>
-						<li class="index-list__item">
-							<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-							<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
-						</li>
-						<li class="index-list__item">
-							<a href="#" class="link">Фотография где</a>
-							<div class="index-list__description">Смешные цитаты с фотофорумов</div>
-						</li>
-
-					</ul>
-
-				</div>
-
-				<div class="l-third">
-
-					<div class="media index-about">
-						<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
-						<div class="media__body">
-							<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
-						</div>
 					</div>
 
-					<ul class="index-list__list">
+					<div class="l-third">
 
-						<li class="index-list__item"><a href="#" class="link">Обо мне</a></li>
-						<li class="index-list__item"><a href="#" class="link">Чем я снимаю</a></li>
-						<li class="index-list__item"><a href="#" class="link">Как купить мои фотографии</a></li>
+						<div class="media index-about">
+							<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
+							<div class="media__body">
+								<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+							</div>
+						</div>
 
-					</ul>
+						<ul class="index-list__list">
+
+							<li class="index-list__item"><a href="/about/" class="link">Обо мне</a></li>
+							<li class="index-list__item"><a href="/buy/" class="link">Как купить мои фотографии</a></li>
+
+						</ul>
+
+					</div>
 
 				</div>
 
