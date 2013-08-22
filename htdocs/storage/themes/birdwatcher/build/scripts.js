@@ -436,7 +436,16 @@ return tmpl;})()
 		'tag-filter': {tagFilter: {
 			barSelector: '.js-filter',
 			linkSelector: '.js-filter-tag'
-		}}
+		}},
+
+		'parallax': function(container) {
+			if (!('pageYOffset' in window)) return;
+			container = $(container);
+			var speed = container.data('speed') || 0.5;
+			$(document).scroll(function() {
+				container.css('transform', 'translateY(' + (-window.pageYOffset * speed) + 'px)');
+			});
+		}
 	});
 
 	// Fisher–Yates Shuffle

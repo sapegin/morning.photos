@@ -770,3 +770,45 @@ for tag in "best" "good" "russian" "english" {
 	}
 }
 
+
+// About page
+
+.page_about {
+
+}
+
+.about-splash {
+	height:(500px - 55px);  // Photo height - header height
+
+	&-i {
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		height:500px;
+		overflow:hidden;
+		z-index:-1;
+	}
+
+	&__img {
+		height:inherit;
+		background:url("/images/about/splash.jpg") center center;
+	}
+}
+@media (min-width:1601px) {
+	.about-splash {
+		&__img {
+			background-size:cover;
+		}
+	}
+}
+
+.about-content {
+	margin-left:(-(2*spacer));
+	margin-right:(-(2*spacer));
+	background:bg-color;
+
+	&-i {
+		padding:4*spacer 2*spacer spacer;
+	}
+}
