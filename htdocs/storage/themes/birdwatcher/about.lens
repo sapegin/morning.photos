@@ -113,7 +113,7 @@
 		</div>
 
 
-		<div class="l-row l-triple-space">
+		<div class="l-row l-quad-space">
 
 			<div class="l-third">
 				<ul class="about-list">
@@ -155,7 +155,7 @@
 			<div class="l-third"><img src="/images/about/iphone.jpg" alt="" width="100%"></div>
 		</div>
 
-		<div class="l-row">
+		<div class="l-row l-quad-space">
 
 			<div class="l-third">
 				<ul class="about-list">
