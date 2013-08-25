@@ -12,153 +12,177 @@
 	</div>
 </div>
 
-<div class="about-content">
-	<div class="about-content-i content text">
+<koken:include file="inc/shuffle.html" />
+<script>
+(function(){
+	var count = 34;
+		visible = 6,
+		interval = 3000,
+		urlTpl = '/images/about/me{num}.jpg',
+		imgTpl = '<img src="{url}" alt="" class="entry-triptych__photo js-img">',
+		photos = [],
+		imgs = [],
+		placeholders = null,
+		lastPhoto = null;
 
-		<div class="l-row">
+	for (var photoIdx = 1; photoIdx <= count; photoIdx++) {
+		photos.push(urlTpl.replace('{num}', photoIdx));
+	}
+	photos = shuffle(photos);
+
+	for (var photoIdx = 1; photoIdx <= visible + 1; photoIdx++) {
+		var img = (new Image);
+		img.src = photos[photoIdx];
+		imgs.push(img);
+	}
+
+	function tick() {
+		randomImg().src = nextUrl();
+		(new Image).src = photos[0];
+		setTimeout(tick, interval);
+	}
+
+	function randomImg() {
+		var num;
+		do {
+			num = Math.floor(Math.random() * visible);
+		} while (num === lastPhoto)
+		lastPhoto = num;
+		return placeholders[num].getElementsByClassName('js-img')[0];
+	}
+
+	function nextUrl() {
+		var url = photos.shift();
+		photos.push(url);
+		return url;
+	}
+
+	window.initPhotos = function() {
+		placeholders = document.getElementsByClassName('instagram-placeholder');
+		for (var placeholderIdx = 0; placeholderIdx < placeholders.length; placeholderIdx++) {
+			placeholders[placeholderIdx].innerHTML = imgTpl.replace('{url}', nextUrl());
+		}
+		setTimeout(tick, interval);
+	}
+})();
+</script>
+
+<div class="about-content">
+	<div class="content text">
+
+		<div class="l-row l-quad-space">
 
 			<div class="l-two-thirds">
 
-				<p>В&nbsp;свободное от&nbsp;работы программистом время я&nbsp;занимаюсь фотографией. Больше всего люблю снимать природу и&nbsp;животных. Бывает, что и&nbsp;людей тоже снимаю, если удаётся это сделать в&nbsp;естественной среде их&nbsp;обитания. Постановочную съёмку недолюбливаю.</p>
+				<p>Моё увлечение фотографией началось совершенно случайно в 2004 году с покупки простой плёночной зеркалки. Почему-то я тогда захотел купить камеру и даже чуть не купил цифровую мыльницу, но решил, что зеркалка всё-таки круче. С тех пор не отпускает.</p>
 
-				<p>Моё увлечение фотографией началось совершенно случайно в&nbsp;2004 году с&nbsp;покупки простой плёночной зеркалки. Просто <span class="nobr">где-то</span> в&nbsp;глубине души захотелось фотографировать. С&nbsp;тех пор не&nbsp;отпускает.</p>
+				<p>Я фотографирую в свободное от работы веб-программистом время. Люблю снимать природу, города и собак.</p>
 
 			</div>
 
 			<div class="l-third">
 
-				<h3 class="gamma">Как связаться</h3>
-				<ul>
-					<li><em>Эл. почта</em>: <a id="mail" href="mailto:artem@sapegin.ru">artem@sapegin.ru</a></li>
-					<li><em>Скайп:</em> <a href="skype:artemsapegin">artemsapegin</a></li>
-					<li><em>Телефон:</em> <nobr><a href="tel:+79265563433">+7 926 556-34-33</a></nobr></li>
+				<ul class="about-links">
+					<li class="about-links__item"><a href="mailto:artem@sapegin.ru">artem@sapegin.ru</a></li>
+					<li class="about-links__item"><a href="skype:artemsapegin">artemsapegin</a> (скайп)</li>
+					<li class="about-links__item"><a href="tel:+79265563433">+7 926 556-34-33</a></li>
 				</ul>
 
-				<h3 class="gamma">Я в интернете</h3>
-				<ul>
-					<li><a href="http://500px.com/sapegin">500px</a></li>
-					<li><a href="http://instagram.com/sapegin">Инстаграм</a></li>
-					<li><a href="http://twitter.com/sapegin">Твитер</a></li>
+				<ul class="about-links">
+					<li class="about-links__item"><a href="http://500px.com/sapegin">500px</a></li>
+					<li class="about-links__item"><a href="http://instagram.com/sapegin">Инстаграм</a></li>
+					<li class="about-links__item"><a href="http://twitter.com/sapegin">Твитер</a></li>
 				</ul>
 
-				<ul>
-					<li><a href="/buy/">Как купить мои фотографии</a></li>
-				</ul>
+				<!--ul class="about-links">
+					<li class="about-links__item"><a href="/buy/">Купить мои фотографии</a></li>
+				</ul-->
 
 			</div>
 
 		</div>
 
+		<div class="entry-triptych entry-triptych_no-space">
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+		</div>
+
+		<div class="l-double-space">
+			<img src="/images/about/equipment.jpg" alt="" width="100%">
+		</div>
+
+
 		<div class="l-row l-triple-space">
 
-			<div class="l-quarter">
-				<h2 class="gamma">Камеры</h2>
-				<ul>
-					<li>Canon EOS&nbsp;6D</li>
-					<li class="l-double-space">iPhone 4</li>
-					<li><del>Canon EOS&nbsp;5D<del></li>
-					<li><del>Canon <a href="http://birdwatcher.ru/blog/248/" title="Обзор камеры Canon EOS 20D и объектива EF 17-40/4L у меня в блоге">EOS&nbsp;20D</a></del></li>
-					<li><del>Canon EOS&nbsp;300V</del></li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item">Canon EOS&nbsp;6D, iPhone 4</li>
+					<li class="about-list__item about-list__item_obsolete"><del>Canon EOS&nbsp;5D</del>, <del>Canon EOS&nbsp;20D</del>, <del>Canon EOS&nbsp;300V</del></li>
+				</ul>
+				<ul class="about-list">
+					<li class="about-list__item">Canon <nobr>EF 17-40/4L</nobr>, Canon <a href="http://birdwatcher.ru/blog/419/" title="Обзор объектива Canon EF 70-200/4L у меня в блоге"><nobr>EF 70-200/4L</nobr></a>, Canon <nobr>EF 50/1.4</nobr></li>
+					<li class="about-list__item about-list__item_obsolete"><del>Sigma <nobr>70-300/4-5.6</nobr></del>, <del>Canon <nobr>EF 28-90/4-5.6</nobr></del></li>
 				</ul>
 			</div>
 
-			<div class="l-quarter">
-				<h2 class="gamma">Объективы</h2>
-				<ul>
-					<li>Canon <a href="http://birdwatcher.ru/blog/248/" title="Обзор камеры Canon EOS 20D и объектива EF 17-40/4L у меня в блоге"><nobr>EF 17-40/4L</nobr></a></li>
-					<li>Canon <a href="http://birdwatcher.ru/blog/419/" title="Обзор объектива Canon EF 70-200/4L у меня в блоге"><nobr>EF 70-200/4L</nobr></a></li>
-					<li class="l-double-space">Canon <nobr>EF 50/1.4</nobr></li>
-					<li><del>Sigma <nobr>70-300/4-5.6</nobr></del></li>
-					<li><del>Canon <nobr>EF 28-90/4-5.6</nobr></del></li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item"><a href="http://birdwatcher.ru/blog/3976/" title="Обзор штатива Benro A-197 и головки KB-2 у меня в блоге">Штатив Benro <nobr>A-197</nobr> +&nbsp;голова <nobr>KB-2</nobr></a>, поляризационный фильтр, пульт</li>
+					<li class="about-list__item about-list__item_obsolete"><del>Фотоальбом <a href="http://birdwatcher.ru/blog/567/" title="Обзор фотоальбома Epson P-2000 у меня в блоге">Epson P-2000</a></del>, <del>штатив Manfrotto 728B со&nbsp;сломанными ножками</del>, <del>детский шатив Slik U&nbsp;7700</del></li>
 				</ul>
 			</div>
 
-			<div class="l-quarter">
-				<h2 class="gamma">Штуки</h2>
-				<ul>
-					<li><a href="http://birdwatcher.ru/blog/3976/" title="Обзор штатива Benro A-197 и головки KB-2 у меня в блоге">Штатив Benro <nobr>A-197</nobr> +&nbsp;голова <nobr>KB-2</nobr></a></li>
-					<li>Полусамодельная штативная лапка для <nobr>70-200</nobr></li>
-					<li>Ленспен, <a href="http://birdwatcher.ru/blog/1031/" title="Груша Giottos Rocket Air у меня в блоге">груша</a>, тряпочка</li>
-					<li>Пульт</li>
-					<li>Поляризационный фильтр, защитные фильтры</li>
-					<li>Переходные кольца для фильтров: <nobr>77→67 мм</nobr> <nobr>и 77→58 мм</nobr></li>
-					<li class="l-double-space">Целофановые пакеты (для лежания и&nbsp;защиты камеры от&nbsp;дождя)</li>
-					<li><del>Уровень в&nbsp;горячий башмак</del></li>
-					<li><del>Фотоальбом <a href="http://birdwatcher.ru/blog/567/" title="Обзор фотоальбома Epson P-2000 у меня в блоге">Epson P-2000</a></del></li>
-					<li><del>Штатив Manfrotto 728B со&nbsp;сломанными ножками</del></li>
-					<li><del>Детский шатив Slik U&nbsp;7700</del></li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item">Рюкзак <a href="http://birdwatcher.ru/blog/2117/" title="Обзор фоторюкзака Dakine Sequence у меня в блоге">Dakine Sequence</a>, сумка National Geographic 2345, ремень для камеры <a href="http://store.lowepro.com/transporter-camera-strap" title="Ремень Transporter на сайте Lowepro">Lowepro Transporter</a></li>
+					<li class="about-list__item about-list__item_obsolete"><del>Рюкзак <a href="http://birdwatcher.ru/blog/1669/" title="Пара фотографий фоторюкзака CompuTrekker Plus AW у меня в блоге">Lowepro CompuTrekker Plus&nbsp;AW</a></del>, <del>рюкзак Lowepro Mini Trekker Classic</del>, <del>рюкзак Lowepro Rover&nbsp;AW&nbsp;II</del></li>
 				</ul>
 			</div>
 
-			<div class="l-quarter">
-				<h2 class="gamma">Сумки и рюкзаки</h2>
-				<ul>
-					<li>Рюкзак <a href="http://birdwatcher.ru/blog/2117/" title="Обзор фоторюкзака Dakine Sequence у меня в блоге">Dakine Sequence</a></li>
-					<li>Сумка National Geographic 2345</li>
-					<li>Ремень для камеры <a href="http://store.lowepro.com/transporter-camera-strap" title="Ремень Transporter на сайте Lowepro">Lowepro Transporter</a></li>
-					<li class="l-double-space">Мешочек для пульта, прицепленный к штативу :)</li>
-					<li><del>Рюкзак <a href="http://birdwatcher.ru/blog/1669/" title="Пара фотографий фоторюкзака CompuTrekker Plus AW у меня в блоге">Lowepro CompuTrekker Plus&nbsp;AW</a></del></li>
-					<li><del>Lowepro Mini Trekker Classic</del></li>
-					<li><del>Lowepro Rover&nbsp;AW&nbsp;II</del></li>
-				</ul>
-			</div>
+		</div>
 
+		<div class="entry-triptych entry-triptych_no-space">
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+			<div class="entry-triptych__item"><div class="instagram-placeholder"></div></div>
+		</div>
+
+		<script>window.initPhotos()</script>
+
+		<div class="l-row l-double-space">
+			<div class="l-two-thirds"><img src="/images/about/workplace.jpg" alt="" width="100%"></div>
+			<div class="l-third"><img src="/images/about/iphone.jpg" alt="" width="100%"></div>
 		</div>
 
 		<div class="l-row">
 
-			<div class="l-quarter">
-				<h2 class="gamma">Обработка</h2>
-				<ul>
-					<li>MacBook Pro 15"</li>
-					<li>Adobe Lightroom 5
-						<ul>
-							<li><a href="http://500px.com/lightroom" title="Публикация фотографий на 500px из Лайтрума">500px</a>, <a href="http://help.koken.me/customer/portal/articles/828699-lightroom-publish-services-plugin" title="Загрузка фотографий на мой сайт из Лайтрума">Koken</a></li>
-							<li><del><a href="http://www.photographers-toolbox.com/products/lrmogrify2.php" title="Нормальные рамки и подписи для Лайтрума">LR/Mogrify 2</a></del></li>
-						</ul>
-					</li>
-					<li>Adobe Photoshop CS6
-						<ul>
-							<li><a href="http://sapegin.ru/pew" title="Автоматизация экспорта фотографий из Photoshop">Photoshop Export Workflow</a> (очень редко)</li>
-							<li><del>Imagenomic Noiseware</del></li>
-							<li><del>Imagenomic Realgrain</del></li>
-							<li><del>PTLens</del></li>
-							<li><del>Genuine Fractals</del></li>
-						</ul>
-					</li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item">MacBook Pro 15",</li>
+					<li class="about-list__item">Adobe Lightroom 5 + <a href="http://500px.com/lightroom" title="Публикация фотографий на 500px из Лайтрума">500px</a>, <a href="http://help.koken.me/customer/portal/articles/828699-lightroom-publish-services-plugin" title="Загрузка фотографий на мой сайт из Лайтрума">Koken</a>,</li>
+					<li class="about-list__item">Adobe Photoshop CS6 + <a href="http://sapegin.ru/pew" title="Автоматизация экспорта фотографий из Photoshop">PEW</a></li>
 				</ul>
 			</div>
 
-			<div class="l-quarter">
-				<h2 class="gamma"></h2>
-				<ul>
-					<li><del><a href="http://www.oloneo.com/en/page/products/photoengine.html" title="Склейка HDR, снимков с разными источниками света">Oloneo PhotoEngine</a></del></li>
-					<li><del><a href="http://www.geosetter.de/en" title="Хорошая программа для геотаггинга">GeoSetter</a></del></li>
-					<li><del>Adobe Bridge</del> (ну очень редко пользуюсь)</li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item">На айфоне: <a href="http://instagram.com/sapegin">Instagram</a>, <a href="http://vsco.co/vscocam">VSCO CAM</a>, <a href="http://www.snapseed.com/home/mobile/features/">Snapseed</a>, <a href="http://www.photopills.com/" title="Направление солнца и время закатов и рассветов и многое друге">PhotoPills</a>, <a href="http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app" title="Съёмка и просмотр фотографий на айфоне">EOS Remote</a>, <a href="http://mapswith.me/" title="Офлайновая карта с возможностью отмечать интересные места">MapsWithMe</a></li>
 				</ul>
 			</div>
 
-			<div class="l-quarter">
-				<h2 class="gamma">Обработка (iPhone)</h2>
-				<ul>
-					<li><a href="http://instagram.com/sapegin">Instagram</a></li>
-					<li><a href="http://vsco.co/vscocam">VSCO CAM</a> (90% обработки)</li>
-					<li><a href="http://www.snapseed.com/home/mobile/features/">Snapseed</a> (очень редко)</li>
-				</ul>
-			</div>
-
-			<div class="l-quarter">
-				<h2 class="gamma">iPhone</h2>
-				<ul>
-					<li><a href="http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app" title="Съёмка и просмотр фотографий на айфоне">EOS Remote</a></li>
-					<li><a href="http://photoephemeris.com/tpe-for-ios" title="Направление солнца и время закатов и рассветов">The Photographer’s Ephemeris</a></li>
-					<li><a href="http://mapswith.me/" title="Офлайновая карта с возможностью отмечать интересные места">MapsWithMe</a></li>
+			<div class="l-third">
+				<ul class="about-list">
+					<li class="about-list__item about-list__item_obsolete-first"><del>Adobe Bridge</del>, <del><a href="http://www.photographers-toolbox.com/products/lrmogrify2.php" title="Нормальные рамки и подписи для Лайтрума">LR/Mogrify 2</a></del>, <del>Imagenomic Noiseware</del>, <del>Imagenomic Realgrain</del>, <del>PTLens</del>, <del><a href="http://www.geosetter.de/en" title="Хорошая программа для геотаггинга">GeoSetter</a></del>, <del><a href="http://photoephemeris.com/tpe-for-ios">The Photographer’s Ephemeris</a></del></li>
 				</ul>
 			</div>
 
 		</div>
 
+		<div class="about-copyrights">Фотографии на этой странице: Ольга Флегонтова, Света Глазырина, Сергей Кубасов, Александр Артёменко, Юля Титовец, Дима Зудочкин.</div>
+
 	</div>
 </div>
+
 
 <koken:include file="inc/footer.html" />

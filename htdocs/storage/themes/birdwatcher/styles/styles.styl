@@ -22,6 +22,27 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 // Headers: alpha, beta, gamma, delta, epsilon, epsilon
 
 .alpha {
+	font-size:48px;
+	font-weight:normal;
+	line-height:1.3;
+}
+
+.beta {
+	font-size:32px;
+	font-weight:normal;
+	line-height:1.3;
+}
+
+.gamma {
+	font-size:24px;
+	font-weight:normal;
+	line-height:1.3;
+}
+
+.delta {
+	font-size:content-font;
+	font-weight:bold;
+	line-height:1.3;
 }
 
 
@@ -288,8 +309,7 @@ lightbox-button-glow() {
 	width:800px;
 
 	&__title {
-		font-size:32px;
-		font-weight:normal;
+		@extend .beta;
 	}
 
 	&__album {
@@ -347,7 +367,7 @@ lightbox-button-glow() {
 }
 
 .entry {
-	font-size:19px;
+	font-size:content-font;
 
 	div + p {
 		margin-top:4*spacer;
@@ -362,9 +382,8 @@ lightbox-button-glow() {
 	}
 
 	h3 {
+		@extend .delta;
 		space();
-		font-size:19px;
-		font-weight:bold;
 	}
 }
 
@@ -373,9 +392,7 @@ lightbox-button-glow() {
 }
 
 .entry-title {
-	font-size:48px;
-	font-weight:normal;
-	line-height:1.3;
+	@extend .alpha;
 
 	&__link {
 		&,
@@ -396,7 +413,7 @@ lightbox-button-glow() {
 
 	&_excerpt,
 	&_excerpt-photo {
-		font-size:32px;
+		@extend .beta;
 	}
 
 	&_excerpt-photo {
@@ -432,6 +449,10 @@ lightbox-button-glow() {
 	layout-row();
 	space(2);
 	margin-top:(-(spacer));
+
+	&_no-space {
+		space();
+	}
 
 	&__item {
 		layout-nth(3);
@@ -529,7 +550,7 @@ lightbox-button-glow() {
 	space(4);
 
 	&__link {
-		font-size:19px;
+		font-size:content-font;
 	}
 }
 
@@ -544,8 +565,7 @@ lightbox-button-glow() {
 	space(2);
 
 	&__title {
-		font-size:19px;
-		font-weight:normal;
+		@extend .delta;
 	}
 }
 
@@ -554,10 +574,8 @@ lightbox-button-glow() {
 	space(4);
 
 	&__title {
+		@extend .gamma;
 		margin-bottom:10px;
-		line-height:1.3;
-		font-size:24px;
-		font-weight:normal;
 	}
 
 	&__year {
@@ -806,9 +824,51 @@ for tag in "best" "good" "russian" "english" {
 .about-content {
 	margin-left:(-(2*spacer));
 	margin-right:(-(2*spacer));
+	padding:4*spacer 2*spacer spacer;
 	background:bg-color;
+}
 
-	&-i {
-		padding:4*spacer 2*spacer spacer;
+.about-subtitle {
+	@extend .delta;
+	space();
+}
+
+.about-links {
+	space(2);
+
+	&__item {
+		&:before {
+			display:none;
+		}
 	}
+}
+
+.about-list {
+	space(2);
+
+	&__item {
+		font-size:normal-font;
+
+		&_obsolete,
+		&_obsolete-first {
+			font-size:small-font;
+		}
+
+		&_obsolete {
+			margin-top:spacer;
+		}
+
+		&:before {
+			display:none;
+		}
+	}
+}
+
+.about-copyrights {
+	font-size:small-font;
+}
+
+.instagram-placeholder {
+	width:328px;
+	height:328px;
 }

@@ -502,7 +502,15 @@ a:link {
 .text h5,
 .epsilon,
 .text h6,
-.zeta {
+.zeta,
+.photo-info__title,
+.entry h3,
+.entry-title,
+.entry-title_excerpt,
+.entry-title_excerpt-photo,
+.album-thumbnail__title,
+.book-review__title,
+.about-subtitle {
   text-rendering: optimizeLegibility;
   -webkit-font-feature-settings: "liga", "dlig";
   -moz-font-feature-settings: "liga=1, dlig=1";
@@ -517,6 +525,34 @@ body {
 }
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.alpha,
+.entry-title {
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+.beta,
+.photo-info__title,
+.entry-title_excerpt,
+.entry-title_excerpt-photo {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+.gamma,
+.book-review__title {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+.delta,
+.entry h3,
+.album-thumbnail__title,
+.about-subtitle {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.3;
 }
 .text p,
 .text ul,
@@ -739,10 +775,6 @@ body {
 .photo-info {
   width: 800px;
 }
-.photo-info__title {
-  font-size: 32px;
-  font-weight: normal;
-}
 .photo-info__album {
   margin-bottom: 20px;
   font-size: 13px;
@@ -811,16 +843,9 @@ body {
 }
 .entry h3 {
   margin-bottom: 10px;
-  font-size: 19px;
-  font-weight: bold;
 }
 .entry-header {
   margin-bottom: 20px;
-}
-.entry-title {
-  font-size: 48px;
-  font-weight: normal;
-  line-height: 1.3;
 }
 .entry-title__link,
 .entry-title__link:link,
@@ -835,10 +860,6 @@ body {
 .entry-title__link:active,
 .entry-title__link:focus {
   border-bottom: 2px solid;
-}
-.entry-title_excerpt,
-.entry-title_excerpt-photo {
-  font-size: 32px;
 }
 .entry-title_excerpt-photo {
   margin-bottom: 20px;
@@ -880,6 +901,10 @@ body {
 .no-flexbox .entry-instagrams,
 .no-flexbox .entry-triptych {
   letter-spacing: -0.31em;
+}
+.entry-instagrams_no-space,
+.entry-triptych_no-space {
+  margin-bottom: 10px;
 }
 .entry-instagrams__item,
 .entry-triptych__item {
@@ -1003,18 +1028,11 @@ body {
   vertical-align: top;
   letter-spacing: normal;
 }
-.album-thumbnail__title {
-  font-size: 19px;
-  font-weight: normal;
-}
 .book-review {
   margin-bottom: 40px;
 }
 .book-review__title {
   margin-bottom: 10px;
-  line-height: 1.3;
-  font-size: 24px;
-  font-weight: normal;
 }
 .book-review__year {
   margin-left: 0.5em;
@@ -1219,10 +1237,40 @@ body {
 .about-content {
   margin-left: -20px;
   margin-right: -20px;
+  padding: 40px 20px 10px;
   background: #fff;
 }
-.about-content-i {
-  padding: 40px 20px 10px;
+.about-subtitle {
+  margin-bottom: 10px;
+}
+.about-links {
+  margin-bottom: 20px;
+}
+.about-links__item:before {
+  display: none;
+}
+.about-list {
+  margin-bottom: 20px;
+}
+.about-list__item {
+  font-size: 16px;
+}
+.about-list__item_obsolete,
+.about-list__item_obsolete-first {
+  font-size: 13px;
+}
+.about-list__item_obsolete {
+  margin-top: 10px;
+}
+.about-list__item:before {
+  display: none;
+}
+.about-copyrights {
+  font-size: 13px;
+}
+.instagram-placeholder {
+  width: 328px;
+  height: 328px;
 }
 @media print {
   @page {

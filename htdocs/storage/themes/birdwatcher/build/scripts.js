@@ -345,7 +345,7 @@ return tmpl;})()
 			container.on('fotorama:load', resize);
 
 			var fotorama = container.data('fotorama');
-			fotorama.load(shuffle(photos));
+			fotorama.load(photos);
 
 			$(window).resize(resize);
 		},
@@ -442,28 +442,14 @@ return tmpl;})()
 			if (!('pageYOffset' in window)) return;
 			container = $(container);
 			var speed = container.data('speed') || 0.5;
+			var screenHeight = screen.height;
 			$(document).scroll(function() {
-				container.css('transform', 'translateY(' + (-window.pageYOffset * speed) + 'px)');
+				var pageY = window.pageYOffset;
+				if (pageY < screenHeight) {
+					container.css('transform', 'translateY(' + (-pageY * speed) + 'px)');
+				}
 			});
 		}
 	});
-
-	// Fisher–Yates Shuffle
-	// http://bost.ocks.org/mike/shuffle/
-	function shuffle(array) {
-		// While there remain elements to shuffle
-		var m = array.length;
-		while (m) {
-			// Pick a remaining element
-			var i = Math.floor(Math.random() * m--);
-
-			// And swap it with the current element
-			var t = array[m];
-			array[m] = array[i];
-			array[i] = t;
-		}
-
-		return array;
-	}
 
 }(jQuery));
