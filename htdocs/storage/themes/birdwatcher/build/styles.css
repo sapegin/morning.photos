@@ -882,7 +882,8 @@ body {
   font-size: 13px;
 }
 .entry-instagrams,
-.entry-triptych {
+.entry-triptych,
+.about-triptych {
   margin-left: -10px;
   margin-right: -10px;
   display: -ms-flexbox;
@@ -899,15 +900,13 @@ body {
   margin-top: -10px;
 }
 .no-flexbox .entry-instagrams,
-.no-flexbox .entry-triptych {
+.no-flexbox .entry-triptych,
+.no-flexbox .about-triptych {
   letter-spacing: -0.31em;
 }
-.entry-instagrams_no-space,
-.entry-triptych_no-space {
-  margin-bottom: 10px;
-}
 .entry-instagrams__item,
-.entry-triptych__item {
+.entry-triptych__item,
+.about-triptych__item {
   padding-left: 10px;
   padding-right: 10px;
   width: 33.333333333333336%;
@@ -915,14 +914,36 @@ body {
   margin-bottom: 10px;
 }
 .no-flexbox .entry-instagrams__item,
-.no-flexbox .entry-triptych__item {
+.no-flexbox .entry-triptych__item,
+.no-flexbox .about-triptych__item {
   display: inline-block;
   vertical-align: top;
   letter-spacing: normal;
 }
 .entry-instagrams__photo,
-.entry-triptych__photo {
+.entry-triptych__photo,
+.about-triptych__photo {
   max-width: 100%;
+}
+.about-triptych {
+  margin-bottom: 10px;
+}
+.about-triptych__item {
+  position: relative;
+  height: 328px;
+  width: 348px;
+}
+.about-triptych__photo {
+  position: absolute;
+  top: 0;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  -moz-transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  -o-transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  -ms-transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+.about-triptych__photo.is-hidden {
+  opacity: 0;
 }
 .entry-photo {
   margin-bottom: 30px;
@@ -1267,10 +1288,6 @@ body {
 }
 .about-copyrights {
   font-size: 13px;
-}
-.instagram-placeholder {
-  width: 328px;
-  height: 328px;
 }
 @media print {
   @page {

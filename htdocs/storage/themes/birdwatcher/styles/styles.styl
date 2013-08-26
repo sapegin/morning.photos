@@ -445,14 +445,11 @@ lightbox-button-glow() {
 }
 
 .entry-instagrams,
-.entry-triptych {
+.entry-triptych,
+.about-triptych {
 	layout-row();
 	space(2);
 	margin-top:(-(spacer));
-
-	&_no-space {
-		space();
-	}
 
 	&__item {
 		layout-nth(3);
@@ -462,6 +459,25 @@ lightbox-button-glow() {
 
 	&__photo {
 		max-width:100%;
+	}
+}
+
+.about-triptych {
+	space();
+
+	&__item {
+		position:relative;
+		height:size = 328px;
+		width:size + 2*spacer;
+	}
+
+	&__photo {
+		position:absolute;
+		top:0;
+		transition:opacity .5s ease-in-sine;
+		&.is-hidden {
+			opacity:0;
+		}
 	}
 }
 
@@ -866,9 +882,4 @@ for tag in "best" "good" "russian" "english" {
 
 .about-copyrights {
 	font-size:small-font;
-}
-
-.instagram-placeholder {
-	width:328px;
-	height:328px;
 }
