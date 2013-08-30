@@ -284,6 +284,13 @@
   link_en: http://en.wikipedia.org/wiki/Ansel_Adams
   role: фотограф
 
+- text: I object to photographs that intentionally reflect appearances of other forms of graphic art, and I do not understand the purpose of paintings that painstakingly imitate photographs.
+  author: Ансел Адамс
+  link: http://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%81%D0%B5%D0%BB_%D0%90%D0%B4%D0%B0%D0%BC%D1%81
+  author_en: Ansel Adams
+  link_en: http://en.wikipedia.org/wiki/Ansel_Adams
+  role: фотограф
+
 - text: Если снимок недостаточно хорош, значит, ты недостаточно близко.
   author: Роберт Капа
   link: http://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B1%D0%B5%D1%80%D1%82_%D0%9A%D0%B0%D0%BF%D0%B0
@@ -402,11 +409,73 @@
   link: http://www.fotografia.com.ua/
   role: фотограф
 
+- text: Photography is mostly about waiting, not shooting.
+  author: Damaso Reyes
+  link: https://twitter.com/damasoreyes
+  role: фотограф
+
+- text: Amateurs worry about equipment, professionals worry about money, masters worry about light, I just take pictures.
+  author: Vernon Trent
+  link: http://www.vernontrent.com/
+  role: фотограф
+
+- text: Most cameras are better than most photographers.
+  author: Michael Reichmann
+  role: фотограф, создатель сайта [Luminous Landscape](http://www.luminous-landscape.com/)
+
+- text: Камера — это инструмент, который учит людей, как видеть без камеры.
+  author: Доротея Ланж
+  link: https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D0%BD%D0%B6,_%D0%94%D0%BE%D1%80%D0%BE%D1%82%D0%B5%D1%8F
+  author_en: Dorothea Lange
+  link_en: https://en.wikipedia.org/wiki/Dorothea_Lange
+  role: фотограф
+
+- text: Фотография — это поиск того, что может попасть в кадр. Когда вы ограничиваете события рамкой кадра — вы изменяете эти события.
+  author: Гарри Виногранд
+  link: https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B4,_%D0%93%D0%B0%D1%80%D1%80%D0%B8
+  author_en: Gary Winogrand
+  link_en: https://en.wikipedia.org/wiki/Gary_Winogrand
+  role: фотограф
+
+- text: Я не хочу ничего сказать своими фотографиями. Все что меня интересует — увидеть, как объект будет выглядеть на фотографии. Я никогда не знаю этого заранее.
+  author: Гарри Виногранд
+  link: https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B4,_%D0%93%D0%B0%D1%80%D1%80%D0%B8
+  author_en: Gary Winogrand
+  link_en: https://en.wikipedia.org/wiki/Gary_Winogrand
+  role: фотограф
+
+- text: …Это чертовски сложно фотографировать что-то красивое. Фотография должна быть более интересной, или более красивой, чем то, что было сфотографировано.
+  author: Гарри Виногранд
+  link: https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B4,_%D0%93%D0%B0%D1%80%D1%80%D0%B8
+  author_en: Gary Winogrand
+  link_en: https://en.wikipedia.org/wiki/Gary_Winogrand
+  role: фотограф
+
+- text: Фотография — это не спорт. У нее нет правил. Все должно быть испробовано.
+  author: Билл Брандт
+  author_en: Bill Brandt
+  link_en: https://en.wikipedia.org/wiki/Bill_Brandt
+  role: фотограф
+
+- text: Главный инструмент фотографа — его глаза. Это может выглядеть странным, но многие фотографы предпочитают использовать глаза других фотографов, прошлого или настоящего, вместо собственных. Такие фотографы слепы.
+  author: Мануэль Альварес Браво
+  link: https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D0%B2%D0%B0%D1%80%D0%B5%D1%81_%D0%91%D1%80%D0%B0%D0%B2%D0%BE,_%D0%9C%D0%B0%D0%BD%D1%83%D1%8D%D0%BB%D1%8C
+  author_en: Manuel Álvarez Bravo
+  link_en: https://en.wikipedia.org/wiki/Manuel_Alvarez_Bravo
+  role: фотограф
+
 - text: Одна из самых больших ошибок, которую может сделать фотограф — это надеяться, что его фотография будет похожа на реальный мир. Если мы ограничиваем своё воображение реальным миром, мы будем вечно пытаться скопировать его красоту, но никогда не сможем сделать ничего большего.
   author: Гэлен Роувелл
   author_en: Galen Rowell
   link_en: http://en.wikipedia.org/wiki/Galen_Rowell
   role: фотограф и альпинист
+
+- text: Мы путешествовали долгие месяцы. С китами работали в течение шести недель, даже не снимая кадры для фильма… Полнолуние — хорошее время. Кажется, зулусы говорят, что терпение — это яйцо, из которого вылупится великая птица. Думаю, в душе я — зулус. Ждёшь всем сердцем, — и случаются дни чудес, а бывают дни, когда о чудесах только думаешь. Но ты не спешить и не прикладываешь усилий. Слоны будут решать, или киты. Я буду работать по времени слонов.
+  author: Грегори Кольбер
+  link: https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%B8_%D0%9A%D0%BE%D0%BB%D1%8C%D0%B1%D0%B5%D1%80
+  author_en: Gregory Colbert
+  link_en: https://en.wikipedia.org/wiki/Gregory_Colbert
+  role: кинематографист, фотограф, автор «Пепла и снега»
 
 - text: Если человек сделал за свою жизнь сто фотографий, это действительно великий фотограф. Для фотографа оставить после себя сто фотографий — выдающееся достижение.
   author: Ара Гюлер («Око Стамбула»)
@@ -508,6 +577,31 @@
   link_en: http://de.wikipedia.org/wiki/Paul_Klee
   role: художник
 
+- text: Дали повторяется? И море повторяется, и закат, и рассвет…
+  author: Сальвадор Дали
+  link: https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BB%D1%8C%D0%B2%D0%B0%D0%B4%D0%BE%D1%80_%D0%94%D0%B0%D0%BB%D0%B8
+  author_en: Salvador Dalí
+  link_en: https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD
+  role: художник
+
+- text: Критики Искусству нужны… но занимаясь фотографией, их следует игнорировать.
+  author: Брукс Дженсен
+  author_en: Brooks Jensen
+  link_en: http://www.brooksjensenarts.com/
+  role: редактор журнала классической фотографии Lens Work
+
+- text: Споры вокруг различных типов фотоувеличителей, объективов равно как и дебаты между сторонниками аналоговой и цифровой фотографии — пустая трата времени. Тот, кто полагает, что специальное оборудование позволяет получать лучшие фотографии — забывает о главном: лучшие снимки делают лучшие фотографы. Фототехника никогда не будет являться определяющим фактором.
+  author: Брукс Дженсен
+  author_en: Brooks Jensen
+  link_en: http://www.brooksjensenarts.com/
+  role: редактор журнала классической фотографии Lens Work
+
+- text: Хотите продавать много? Фотографируйте в цвете и не скупитесь на него! Еще больше?! Снимайте горы, океаны, осень, листопады и животных.
+  author: Брукс Дженсен
+  author_en: Brooks Jensen
+  link_en: http://www.brooksjensenarts.com/
+  role: редактор журнала классической фотографии Lens Work
+
 - text: Картина, которую хвалят больше, чем десять процентов публики, подлежит сожжению.
   author: Джордж Бернард Шоу
   link: http://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%BE%D1%80%D0%B4%D0%B6_%D0%91%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%B4_%D0%A8%D0%BE%D1%83
@@ -529,27 +623,6 @@
   link_en: http://en.wikipedia.org/wiki/George_Bernard_Shaw
   role: писатель
 
-- text: Если позволить фотографии заменить собой искусство в каких-то из его функций, то она вытеснит или испортит всё, что сможет, благодаря естественному союзнику, который она обнаруживает в безмозглости многолюдных масс.
-  author: Шарль Бодлер
-  link: http://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D1%80%D0%BB%D1%8C_%D0%91%D0%BE%D0%B4%D0%BB%D0%B5%D1%80
-  author_en: Charles Baudelaire
-  link_en: http://fr.wikipedia.org/wiki/Charles_Baudelaire
-  role: поэт
-
-- text: Размышления — это самая трудная работа, видимо поэтому ею занимаются так мало людей.
-  author: Генри Форд
-  link: http://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%80%D0%B4%2C_%D0%93%D0%B5%D0%BD%D1%80%D0%B8
-  author_en: Henry Ford
-  link_en: http://en.wikipedia.org/wiki/Henry_Ford
-  role: промышленник
-
-- text: Величайшей пыткой для большинства людей во всём мире является необходимость думать.
-  author: Лютер Бёрбанк
-  link: http://ru.wikipedia.org/wiki/%D0%91%D1%91%D1%80%D0%B1%D0%B0%D0%BD%D0%BA%2C_%D0%9B%D1%8E%D1%82%D0%B5%D1%80
-  author_en: Luther Burbank
-  link_en: http://en.wikipedia.org/wiki/Luther_Burbank
-  role: американский селекционер
-
 - text: Художник пишет не то, что видит, а то, что будут видеть другие.
   author: Поль Валери
   link: http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BB%D1%8C_%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8
@@ -564,21 +637,12 @@
   link_en: http://de.wikipedia.org/wiki/Karl_Kraus
   role: писатель
 
-- text: Современная живопись — это когда покупаешь картину, чтобы закрыть дыру в стене, и приходишь к выводу, что дыра выглядит лучше.
-  author: Роберт Орбен
-  author_en: Robert Orben
-  link_en: http://en.wikipedia.org/wiki/Robert_Orben
-  role: юморист
-
 - text: Искусство — это всегда ограничение. Смысл всякой картины в ее рамке.
   author: Гилберт Честертон
   link: http://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BB%D0%B1%D0%B5%D1%80%D1%82_%D0%A7%D0%B5%D1%81%D1%82%D0%B5%D1%80%D1%82%D0%BE%D0%BD
   author_en: Gilbert Keith Chesterton
   link_en: http://en.wikipedia.org/wiki/G._K._Chesterton
   role: писатель
-
-- text: Только прирожденный художник способен трудиться так, чтобы им стать.
-  author: Герцогиня Диана (Мари де Босак)
 
 - text: У меня непритязательный вкус: мне вполне достаточно самого лучшего.
   author: Оскар Уайльд
@@ -604,9 +668,6 @@
   link_en: http://en.wikipedia.org/wiki/Oscar_Wild
   role: писатель
 
-- text: Каждый художник, который изображает небо зелёным, а траву голубой, должен быть подвергнут стерилизации.
-  author: Адольф Гитлер
-
 - text: Бесстыжий художник — это субъект, который, прикинувшись соблазнителем, заманивает девушку в свою мастерскую и там ее пишет.
   author: Карл Краус
   link: http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%BB_%D0%9A%D1%80%D0%B0%D1%83%D1%81
@@ -628,11 +689,6 @@
   link_en: http://fr.wikipedia.org/wiki/Jean_Cocteau
   role: писатель
 
-- text: Мастерство — это когда «что» и «как» приходят одновременно.
-  author: Всеволод Мейерхольдэ
-  link: http://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%B2%D0%BE%D0%BB%D0%BE%D0%B4_%D0%9C%D0%B5%D0%B9%D0%B5%D1%80%D1%85%D0%BE%D0%BB%D1%8C%D0%B4
-  role: театральный режиссёр и актёр
-
 - text: Компьютер имеет то преимущество перед мозгом, что им пользуются.
   author: Габриэль Лауб
   link: http://ru.wikipedia.org/wiki/%D0%93%D0%B0%D0%B1%D1%80%D0%B8%D1%8D%D0%BB%D1%8C_%D0%9B%D0%B0%D1%83%D0%B1
@@ -645,21 +701,6 @@
   author_en: Anatole France
   link_en: http://fr.wikipedia.org/wiki/Anatole_France
   role: писатель
-
-- text: Вдохновение — это такой гость, который не всегда является на первый зов. Между тем, работать нужно всегда, и настоящий, честный артист не сможет сидеть сложа руки, под предлогом, что он не расположен. Если ждать расположения и не пытаться идти навстречу к нему, то легко впасть в лень и апатию. Нужно терпеть, верить, и вдохновение неминуемо явится тому, кто сумел победить своё нерасположение.
-  author: Пётр Ильич Чайковский
-  link: http://ru.wikipedia.org/wiki/%D0%9F%D1%91%D1%82%D1%80_%D0%98%D0%BB%D1%8C%D0%B8%D1%87_%D0%A7%D0%B0%D0%B9%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9
-  role: композитор
-
-- text: Критики Искусству нужны… но занимаясь фотографией, их следует игнорировать.
-  author_en: Brooks Jensen
-  link_en: http://www.brooksjensenarts.com/
-  role: редактор журнала классической фотографии Lens Work
-
-- text: Споры вокруг различных типов фотоувеличителей, объективов равно как и дебаты между сторонниками аналоговой и цифровой фотографии — пустая трата времени. Тот, кто полагает, что специальное оборудование позволяет получать лучшие фотографии — забывает о главном: лучшие снимки делают лучшие фотографы. Фототехника никогда не будет являться определяющим фактором.
-  author_en: Brooks Jensen
-  link_en: http://www.brooksjensenarts.com/
-  role: редактор журнала классической фотографии Lens Work
 
 - text: Я убежден лишь в одном: вдохновение приходит во время труда.
   author: Николай Алексеевич Островский
@@ -680,9 +721,16 @@
   link_en: http://en.wikipedia.org/wiki/Paul_Heyse
   role: писатель
 
-- text: Если проблему можно разрешить, не стоит о ней беспокоиться. Если проблема неразрешима, беспокоиться о ней бессмысленно.
-  author: Далай Лама XIV
-  link: http://ru.wikipedia.org/wiki/%D0%94%D0%B0%D0%BB%D0%B0%D0%B9-%D0%BB%D0%B0%D0%BC%D0%B0_XIV
+- text: Глупость высмеивается не для того, чтобы истребить глупость — она неистребима. Это делается для того, чтобы поддержать дух разумных.
+  author: Фазиль Искандер
+  link_en: https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B7%D0%B8%D0%BB%D1%8C_%D0%98%D1%81%D0%BA%D0%B0%D0%BD%D0%B4%D0%B5%D1%80
+  role: писатель
+
+- text: Для того, чтобы избежать критики, ничего не делайте, ничего не говорите, будьте ничем.
+  author: Элберт Хаббард
+  author_en: Elbert Hubbard
+  link_en: https://en.wikipedia.org/wiki/Elbert_Hubbard
+  role: писатель
 
 - text: Ничто так не удивляет людей, как здравый смысл и действие по плану.
   author: Ральф Эмерсон
@@ -691,79 +739,88 @@
   link_en: http://en.wikipedia.org/wiki/Ralph_Waldo_Emerson
   role: поэт
 
-- text: Глупость высмеивается не для того, чтобы истребить глупость — она неистребима. Это делается для того, чтобы поддержать дух разумных.
-  author: Фазиль Искандер
-
-- text: Для того, чтобы избежать критики, ничего не делайте, ничего не говорите, будьте ничем.
-  author: Элберт Хаббард
-
-- text: Если у вас в руках молоток, весь мир начинает вам казаться одним большим гвоздём.
-  author: Абрахам Маслоу
+- text: Электронный мозг будет думать за нас точно так же, как электрический стул за нас умирает.
+  author: Станислав Ежи Лец
+  link: https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D0%BD%D0%B8%D1%81%D0%BB%D0%B0%D0%B2_%D0%95%D0%B6%D0%B8_%D0%9B%D0%B5%D1%86
+  author_en: Stanisław Jerzy Lec
+  link_en: https://en.wikipedia.org/wiki/Stanis%C5%82aw_Jerzy_Lec
+  role: поэт
 
 - text: Мнение не бывает ни истинным и ни ложным, а лишь полезным в жизни или бесполезным.
-  authro: Шри Ауробиндо
+  author: Шри Ауробиндо
+  link: https://ru.wikipedia.org/wiki/%D0%A8%D1%80%D0%B8_%D0%90%D1%83%D1%80%D0%BE%D0%B1%D0%B8%D0%BD%D0%B4%D0%BE
+  author_en: Sri Aurobindo
+  link_en: https://en.wikipedia.org/wiki/Sri_Aurobindo
+  role: философ, поэт
+
+- text: Если позволить фотографии заменить собой искусство в каких-то из его функций, то она вытеснит или испортит всё, что сможет, благодаря естественному союзнику, который она обнаруживает в безмозглости многолюдных масс.
+  author: Шарль Бодлер
+  link: http://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D1%80%D0%BB%D1%8C_%D0%91%D0%BE%D0%B4%D0%BB%D0%B5%D1%80
+  author_en: Charles Baudelaire
+  link_en: http://fr.wikipedia.org/wiki/Charles_Baudelaire
+  role: поэт
+
+- text: Размышления — это самая трудная работа, видимо поэтому ею занимаются так мало людей.
+  author: Генри Форд
+  link: http://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%80%D0%B4%2C_%D0%93%D0%B5%D0%BD%D1%80%D0%B8
+  author_en: Henry Ford
+  link_en: http://en.wikipedia.org/wiki/Henry_Ford
+  role: промышленник
+
+- text: Величайшей пыткой для большинства людей во всём мире является необходимость думать.
+  author: Лютер Бёрбанк
+  link: http://ru.wikipedia.org/wiki/%D0%91%D1%91%D1%80%D0%B1%D0%B0%D0%BD%D0%BA%2C_%D0%9B%D1%8E%D1%82%D0%B5%D1%80
+  author_en: Luther Burbank
+  link_en: http://en.wikipedia.org/wiki/Luther_Burbank
+  role: американский селекционер
+
+- text: Современная живопись — это когда покупаешь картину, чтобы закрыть дыру в стене, и приходишь к выводу, что дыра выглядит лучше.
+  author: Роберт Орбен
+  author_en: Robert Orben
+  link_en: http://en.wikipedia.org/wiki/Robert_Orben
+  role: юморист
+
+- text: Мастерство — это когда «что» и «как» приходят одновременно.
+  author: Всеволод Мейерхольдэ
+  link: http://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%B2%D0%BE%D0%BB%D0%BE%D0%B4_%D0%9C%D0%B5%D0%B9%D0%B5%D1%80%D1%85%D0%BE%D0%BB%D1%8C%D0%B4
+  role: театральный режиссёр и актёр
+
+- text: Вдохновение — это такой гость, который не всегда является на первый зов. Между тем, работать нужно всегда, и настоящий, честный артист не сможет сидеть сложа руки, под предлогом, что он не расположен. Если ждать расположения и не пытаться идти навстречу к нему, то легко впасть в лень и апатию. Нужно терпеть, верить, и вдохновение неминуемо явится тому, кто сумел победить своё нерасположение.
+  author: Пётр Ильич Чайковский
+  link: http://ru.wikipedia.org/wiki/%D0%9F%D1%91%D1%82%D1%80_%D0%98%D0%BB%D1%8C%D0%B8%D1%87_%D0%A7%D0%B0%D0%B9%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9
+  role: композитор
 
 - text: Всё искусство абсолютно бесполезно. Бесполезно, но не бессмысленно — это разные вещи.
   author: Марк Алмонд
+  link: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%80%D0%BA_%D0%90%D0%BB%D0%BC%D0%BE%D0%BD%D0%B4
+  author_en: Marc Almond
+  link_en: https://en.wikipedia.org/wiki/Marc_Almond
+  role: музыкант
 
 - text: Совершенство складывается из мелочей.
   author: Микеланджело
+  link: https://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D0%BA%D0%B5%D0%BB%D0%B0%D0%BD%D0%B4%D0%B6%D0%B5%D0%BB%D0%BE
+  author_en: Michelangelo
+  link_en: https://en.wikipedia.org/wiki/Michelangelo
+  role: великий итальянский скульптор
 
-- text: Мелочи не играют решающей роли. Они решают всё.
-  author: Харви Маккей
-
-- text: Дали повторяется? И море повторяется, и закат, и рассвет…
-  author: Сальвадор Дали
-
-- text: Даже если бог вам дал талант, вы обнаружите это, только немало потрудясь.
-  author: Вольфганг Ленгсфельд
+- text: Если проблему можно разрешить, не стоит о ней беспокоиться. Если проблема неразрешима, беспокоиться о ней бессмысленно.
+  author: Далай Лама XIV
+  link: http://ru.wikipedia.org/wiki/%D0%94%D0%B0%D0%BB%D0%B0%D0%B9-%D0%BB%D0%B0%D0%BC%D0%B0_XIV
 
 - text: Когда вдохновение не приходит ко мне, я прохожу полпути, чтобы встретить его.
   author: Зигмунд Фрейд
-
-- text: Электронный мозг будет думать за нас точно так же, как электрический стул за нас умирает.
-  author: Станислав Ежи Лец
+  link: https://ru.wikipedia.org/wiki/%D0%97%D0%B8%D0%B3%D0%BC%D1%83%D0%BD%D0%B4_%D0%A4%D1%80%D0%B5%D0%B9%D0%B4
+  author_en: Sigmund Freud
+  link_en: https://en.wikipedia.org/wiki/Sigmund_Freud
+  role: психолог
 
 - text: Многие готовы скорее умереть, чем подумать. Часто, кстати, так и случается.
   author: Бертран Рассел
-
-- text: Есть два способа достижения цели — простой и трудный. И вот что удивительно: большинство людей всегда выбирают именно тот, что сложнее.
-  author: Руб Голдберг
-  role: американский карикатурист
-
-- text: Photography is mostly about waiting, not shooting.
-  author: Damaso Reyes
-
-- text: …Amateurs worry about equipment, professionals worry about money, masters worry about light, I just take pictures…
-  author: Vernon Trent
-
-- text: Having a camera makes you no more a photographer than having a hammer and some nails makes you a carpenter.
-  author: Claude Adams
-
-- text: Most cameras are better than most photographers.
-  author: Michael Reichmann
-  role: фотограф, создатель сайта [Luminous Landscape](http://www.luminous-landscape.com/)
-
-- text: Камера это инструмент, который учит людей, как видеть без камеры.
-  author: Dorothea Lange
-
-- text: Полдня ты будешь за ним по лесу гоняться, чтобы из своего фоторужья выстрелить, а потом ещё полдня — чтобы фотографию отдать!
-  author: Мультфильм «Простоквашино»
-
-- text: Фотография — это поиск того, что может попасть в кадр. Когда вы ограничиваете события рамкой кадра — вы изменяете эти события.
-  author: Gary Winogrand
-
-- text: A tripod is the second most important piece of equipment you could ever use; the first most important piece of equipment is a good tripod
-  author: Kevin Moss
-
-- text: Хотите продавать много? Фотографируйте в цвете и не скупитесь на него! Еще больше?! Снимайте горы, океаны, осень, листопады и животных.
-  author: Брукс Дженсен
-  role: фотограф главный редактор журнала классической фотографии Lens Work
-
-- text: Мы путешествовали долгие месяцы. С китами работали в течение шести недель, даже не снимая кадры для фильма… Полнолуние — хорошее время. Кажется, зулусы говорят, что терпение — это яйцо, из которого вылупится великая птица. Думаю, в душе я — зулус. Ждёшь всем сердцем, — и случаются дни чудес, а бывают дни, когда о чудесах только думаешь. Но ты не спешить и не прикладываешь усилий. Слоны будут решать, или киты.  Я буду работать по времени слонов.
-  author: Грегори Кольбер
-  author_en: Gregory Colbert
-  role: кинематографист и фотограф
+  link_en: https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%80%D1%82%D1%80%D0%B0%D0%BD_%D0%A0%D0%B0%D1%81%D1%81%D0%B5%D0%BB
+  author_en: Bertrand Russell
+  link_en: https://en.wikipedia.org/wiki/Bertrand_Russell
+  role: математик
 
 - text: Ставить водяной знак на работу, это как ссать на свои вещи, чтобы никто не смог ими воспользоваться.
   author: Томас Амадор
@@ -773,31 +830,17 @@
 
 - text: Все, что добавляет третье измерение изображению — измерение времени, звука или движения, идеи или значения — все, что добавляется к фотографическому изображению с целью приблизить его к реальности, заставить его имитировать реальность — прямое насилие которое разрушает параллельную вселенную фотографического образа.
   author: Жан Бодрийар
+  link: https://ru.wikipedia.org/wiki/%D0%96%D0%B0%D0%BD_%D0%91%D0%BE%D0%B4%D1%80%D0%B8%D0%B9%D0%B0%D1%80
+  author_en: Jean Baudrillard
+  link_en: https://en.wikipedia.org/wiki/Jean_Baudrillard
+  role: социолог, культуролог, фотограф
 
-- text: Чтобы стать фотографом, нужно фотографировать. Ни горы прочитанных книг, ни большое количество прослушанных семинаров не заменят простого акта фотографирования.
-  author: Гарри Каллахан
-
-- text: Опыт — лучший учитель. Но нет никакой гарантии, что в конце пути вы станете художником. Но и сам путь имеет большое значение.
-  author: Гарри Каллахан
-
-- text: You miss 100% of the shots you don’t take!
-  author_en: Wayne Gretzky
-  role: хоккеист
-
-- text: |
-    В фотографии, как в живописи и скульптуре, вы можете передать хорошо только то, что вы хорошо понимаете.
-
-    Искусство не зависит исключительно от технического мастерства.
-  author: Дюшан де Булонь
+- text: В фотографии, как в живописи и скульптуре, вы можете передать хорошо только то, что вы хорошо понимаете. Искусство не зависит исключительно от технического мастерства.
+  author: Дюшен де Булон
+  link: https://ru.wikipedia.org/wiki/%D0%91%D1%83%D0%BB%D0%BE%D0%BD,_%D0%94%D1%8E%D1%88%D0%B5%D0%BD_%D0%B4%D0%B5
+  author_en: Duchenne de Boulogne
+  link_en: https://en.wikipedia.org/wiki/Duchenne_de_Boulogne
   role: ученый, врач, невролог, основатель электротерапии
 
-- text: Фотография — это не спорт. У нее нет правил. Все должно быть испробовано.
-  author_en: Bill Brandt
-
-- text: Главный инструмент фотографа — его глаза. Это может выглядеть странным, но многие фотографы предпочитают использовать глаза других фотографов, прошлого или настоящего, вместо собственных. Такие фотографы слепы.
-  author_en: Manuel Alvarez Bravo 
-
-- text: Фотография не о снятых вещах, а о том, как они выглядят сфотографированными.
-  author_en: Garry Winogrand
-
-
+- text: Полдня ты будешь за ним по лесу гоняться, чтобы из своего фоторужья выстрелить, а потом ещё полдня — чтобы фотографию отдать!
+  author: Мультфильм «Простоквашино»
