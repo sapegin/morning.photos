@@ -8,7 +8,7 @@
 
 <div class="about-splash">
 	<div class="about-splash-i">
-		<div class="about-splash__img" data-component="parallax" data-speed="0.5"></div>
+		<div class="about-splash__img" data-component="parallax" data-speed="0.41"></div>
 	</div>
 </div>
 
