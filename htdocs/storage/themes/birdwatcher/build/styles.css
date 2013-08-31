@@ -181,6 +181,19 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: subpixel-antialiased;
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding-bottom: 24px;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 24px;
+  padding: 0 10px;
 }
 h1,
 h2,
@@ -634,7 +647,11 @@ body {
   color: #fff;
 }
 .footer {
+  padding: 0;
   font-size: 13px;
+}
+.page_album .footer {
+  padding: 0 10px;
 }
 .page_index .footer,
 .page_content .footer {
