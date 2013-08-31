@@ -18,7 +18,6 @@
 
 		<koken:load source="pages" order_by="created_on" order_direction="desc">
 			<koken:loop>
-
 				<koken:variable name="is_travel" value="no" />
 				<koken:topics>
 					<koken:first>
@@ -26,13 +25,20 @@
 					</koken:first>
 				</koken:topics>
 
+				<koken:variable name="travel_title" value="{{ page.title }}" />
 				<koken:if data="is_travel" equals="yes">
 					<div class="album-thumbnail">
 						<koken:link class="album-thumbnail__link link">
-							<koken:featured_image>
-								<img src="{{ presets.medium.url }}" alt="{{ page.title }}" height="200" class="album-thumbnail__img">
-							</koken:featured_image>
-							<h2 class="album-thumbnail__title">{{ page.title }}</h2>
+							<koken:topics>
+								<koken:first>
+									<koken:covers>
+										<koken:first>
+											<img src="{{ presets.medium.url }}" alt="{{ travel_title }}" height="200" class="album-thumbnail__img">
+										</koken:first>
+									</koken:covers>
+								</koken:first>
+							</koken:topics>
+							<h2 class="album-thumbnail__title">{{ travel_title }}</h2>
 						</koken:link>
 					</div>
 				</koken:if>
