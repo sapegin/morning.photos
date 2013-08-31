@@ -2,7 +2,18 @@
 <body class="page page_portfolio">
 <koken:include file="inc/page-header.html" />
 
+<koken:head>
+<title>Фотографии — {{ site.title }}</title>
+</koken:head>
+
 <div class="content">
+
+	<div class="entry-header">
+		<h1 class="entry-title">
+			Фотографии
+		</h1>
+	</div>
+
 	<div class="albums">
 
 		<koken:load source="albums" filter:tags="portfolio">
@@ -12,7 +23,7 @@
 				<div class="album-thumbnail">
 					<koken:link class="album-thumbnail__link link">
 						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
-						<h2 class="album-thumbnail__title"><koken:link>{{ album.title }}</koken:link></h2>
+						<h2 class="album-thumbnail__title">{{ album.title }}</h2>
 					</koken:link>
 				</div>
 

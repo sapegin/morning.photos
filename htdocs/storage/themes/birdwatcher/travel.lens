@@ -7,21 +7,51 @@
 </koken:head>
 
 <div class="content">
+
+	<div class="entry-header">
+		<h1 class="entry-title">
+			Путешествия
+		</h1>
+	</div>
+
 	<div class="albums">
 
-		<koken:load source="albums" filter:tags="old_travel" order_by="created_on" order_direction="desc">
+		<koken:load source="pages" order_by="created_on" order_direction="desc">
+			<koken:loop>
 
+				<koken:variable name="is_travel" value="no" />
+				<koken:topics>
+					<koken:first>
+						<koken:variable name="is_travel" value="yes" />
+					</koken:first>
+				</koken:topics>
+
+				<koken:if data="is_travel" equals="yes">
+					<div class="album-thumbnail">
+						<koken:link class="album-thumbnail__link link">
+							<koken:featured_image>
+								<img src="{{ presets.medium.url }}" alt="{{ page.title }}" height="200" class="album-thumbnail__img">
+							</koken:featured_image>
+							<h2 class="album-thumbnail__title">{{ page.title }}</h2>
+						</koken:link>
+					</div>
+				</koken:if>
+
+			</koken:loop>
+		</koken:load>
+
+
+		<koken:load source="albums" filter:tags="old_travel" order_by="created_on" order_direction="desc">
 			<koken:loop>
 
 				<div class="album-thumbnail">
 					<koken:link class="album-thumbnail__link link">
 						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
-						<h2 class="album-thumbnail__title"><koken:link>{{ album.title }}</koken:link></h2>
+						<h2 class="album-thumbnail__title">{{ album.title }}</h2>
 					</koken:link>
 				</div>
 
 			</koken:loop>
-
 		</koken:load>
 
 	</div>
