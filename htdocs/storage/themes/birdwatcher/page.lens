@@ -10,6 +10,12 @@
 			<h1 class="entry-title">
 				{{ page.title }}
 			</h1>
+
+			<koken:not empty="page.excerpt">
+				<div class="entry-excerpt">
+					{{ page.excerpt paragraphs="true" }}
+				</div>
+			</koken:not>
 		</div>
 
 		<div class="entry bw-page" data-component="page">
@@ -43,7 +49,7 @@ utils.initComponents({
 				var wrapper = photo.closest('.entry-photo');
 				var prevWrapper = wrapper.prev('.entry-photo');
 				var prev = prevWrapper.find('.entry-photo__photo');
-				
+
 				if (prev && prev.data('portrait') && !prev.data('portrait_done')) {
 					var prevRatio = ratio(prev[0].width, prev[0].height);
 					if (photoRatio === prevRatio) {

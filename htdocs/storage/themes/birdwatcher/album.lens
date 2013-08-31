@@ -32,9 +32,11 @@
 			{{ album.title }}
 		</h1>
 
-		<div class="page-excerpt">
-			{{ album.description paragraphs="true" }}
-		</div>
+		<koken:not empty="album.description">
+			<div class="entry-excerpt">
+				{{ album.description paragraphs="true" }}
+			</div>
+		</koken:not>
 	</div>
 
 	<!-- Display essays/pages written about this album -->
@@ -76,7 +78,6 @@ function ui(img) {
 		</koken:loop>
 	</div>
 
-	<!-- Display pagination links -->
 	<p>
 		<koken:include file="inc/pagination.html" />
 	</p>
