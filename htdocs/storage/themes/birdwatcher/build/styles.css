@@ -335,11 +335,15 @@ a:link {
 .no-pressable:active {
   position: static;
 }
-.no-underline,
+.no-underline:link,
 .link_quoted:link,
+.no-underline:visited,
 .link_quoted:visited,
+.no-underline:hover,
 .link_quoted:hover,
+.no-underline:active,
 .link_quoted:active,
+.no-underline:focus,
 .link_quoted:focus {
   text-decoration: none;
   border-bottom: 0;
@@ -379,7 +383,16 @@ a:link {
 .text a:active,
 .link:focus,
 .link u:focus,
-.text a:focus {
+.text a:focus,
+.link:hover u,
+.link u:hover u,
+.text a:hover u,
+.link:active u,
+.link u:active u,
+.text a:active u,
+.link:focus u,
+.link u:focus u,
+.text a:focus u {
   color: #1694ec;
 }
 .link_fake,
@@ -554,6 +567,7 @@ body {
   line-height: 1.3;
 }
 .gamma,
+.album-thumbnail__title,
 .book-review__title {
   font-size: 24px;
   font-weight: normal;
@@ -561,7 +575,6 @@ body {
 }
 .delta,
 .entry h3,
-.album-thumbnail__title,
 .about-subtitle {
   font-size: 19px;
   font-weight: bold;
@@ -1068,6 +1081,22 @@ body {
   display: inline-block;
   vertical-align: top;
   letter-spacing: normal;
+}
+.album-thumbnail__link,
+.album-thumbnail__link:link,
+.album-thumbnail__link:visited,
+.album-thumbnail__link:hover,
+.album-thumbnail__link:active,
+.album-thumbnail__link:focus {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.album-thumbnail__img {
+  margin-bottom: 5px;
+}
+.album-thumbnail__summary {
+  margin-left: 0.5em;
+  font-size: 16px;
 }
 .book-review {
   margin-bottom: 40px;

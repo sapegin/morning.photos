@@ -585,8 +585,29 @@ lightbox-button-glow() {
 	layout-nth(4);
 	space(2);
 
+	&__link {
+		&,
+		&:link,
+		&:visited,
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration:none;
+			color:base-color;
+		}
+	}
+
+	&__img {
+		margin-bottom:5px;
+	}
+
 	&__title {
-		@extend .delta;
+		@extend .gamma;
+	}
+
+	&__summary {
+		margin-left:.5em;
+		font-size:16px;
 	}
 }
 

@@ -25,20 +25,26 @@
 					</koken:first>
 				</koken:topics>
 
-				<koken:variable name="travel_title" value="{{ page.title }}" />
+				<koken:variable name="page_title" value="{{ page.title }}" />
 				<koken:if data="is_travel" equals="yes">
 					<div class="album-thumbnail">
 						<koken:link class="album-thumbnail__link link">
 							<koken:topics>
 								<koken:first>
+									<koken:variable name="album_summary" value="{{ album.summary }}" />
 									<koken:covers>
 										<koken:first>
-											<img src="{{ presets.medium.url }}" alt="{{ travel_title }}" height="200" class="album-thumbnail__img">
+											<img src="{{ presets.medium.url }}" alt="{{ page_title }}" height="200" class="album-thumbnail__img">
 										</koken:first>
 									</koken:covers>
 								</koken:first>
 							</koken:topics>
-							<h2 class="album-thumbnail__title">{{ travel_title }}</h2>
+							<h2 class="album-thumbnail__title">
+								<u>{{ page_title }}</u>
+								<koken:not empty="album_summary">
+									<span class="album-thumbnail__summary">{{ album_summary }}</span>
+								</koken:not>
+							</h2>
 						</koken:link>
 					</div>
 				</koken:if>
@@ -53,7 +59,12 @@
 				<div class="album-thumbnail">
 					<koken:link class="album-thumbnail__link link">
 						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
-						<h2 class="album-thumbnail__title">{{ album.title }}</h2>
+						<h2 class="album-thumbnail__title">
+							<u>{{ album.title }}</u>
+							<koken:not empty="album.summary">
+								<span class="album-thumbnail__summary">{{ album.summary }}</span>
+							</koken:not>
+						</h2>
 					</koken:link>
 				</div>
 
