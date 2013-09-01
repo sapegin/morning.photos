@@ -350,7 +350,9 @@ a:link {
   background-image: none;
 }
 .link,
+.text a,
 .link u,
+.text a u,
 .text a {
   -webkit-transition: border 0.1s ease-in-out, color 0.2s ease-in-out, background 0.2s ease-in-out;
   -moz-transition: border 0.1s ease-in-out, color 0.2s ease-in-out, background 0.2s ease-in-out;
@@ -361,42 +363,37 @@ a:link {
   text-decoration: underline;
 }
 .link,
-.link u,
 .text a,
 .link:link,
-.link u:link,
 .text a:link,
 .link u,
+.text a u,
+.link:link u,
+.text a:link u,
 .text a {
   color: #1978c8;
 }
 .link:visited,
-.link u:visited,
-.text a:visited {
+.text a:visited,
+.link:visited u,
+.text a:visited u {
   color: #8c5ad2;
 }
 .link:hover,
-.link u:hover,
 .text a:hover,
 .link:active,
-.link u:active,
 .text a:active,
 .link:focus,
-.link u:focus,
 .text a:focus,
 .link:hover u,
-.link u:hover u,
 .text a:hover u,
 .link:active u,
-.link u:active u,
 .text a:active u,
 .link:focus u,
-.link u:focus u,
 .text a:focus u {
   color: #1694ec;
 }
 .link_fake,
-.link u_fake,
 .text a_fake {
   text-decoration: none;
   background-position: 0 76.5%;
@@ -406,13 +403,10 @@ a:link {
   background-repeat: repeat-x;
 }
 .link_fake,
-.link u_fake,
 .text a_fake,
 .link_fake:link,
-.link u_fake:link,
 .text a_fake:link,
 .link_fake:visited,
-.link u_fake:visited,
 .text a_fake:visited {
   color: #1978c8;
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1978c8), color-stop(0.5, #1978c8), color-stop(0.5, transparent));
@@ -423,13 +417,10 @@ a:link {
   background-image: linear-gradient(left, #1978c8 0, #1978c8 50%, transparent 50%);
 }
 .link_fake:hover,
-.link u_fake:hover,
 .text a_fake:hover,
 .link_fake:active,
-.link u_fake:active,
 .text a_fake:active,
 .link_fake:focus,
-.link u_fake:focus,
 .text a_fake:focus {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1694ec), color-stop(0.5, #1694ec), color-stop(0.5, transparent));
   background-image: -webkit-linear-gradient(left, #1694ec 0, #1694ec 50%, transparent 50%);
