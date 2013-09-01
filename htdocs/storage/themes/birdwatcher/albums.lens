@@ -23,7 +23,9 @@
 				<div class="album-thumbnail">
 					<koken:link class="album-thumbnail__link link">
 						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
-						<h2 class="album-thumbnail__title">{{ album.title }}</h2>
+						<h2 class="album-thumbnail__title">
+							<u>{{ album.title }}</u>
+						</h2>
 					</koken:link>
 				</div>
 
