@@ -53,7 +53,7 @@
 		</koken:load>
 
 
-		<koken:load source="albums" filter:tags="old_travel" order_by="created_on" order_direction="desc">
+		<koken:load source="albums" filter:tags="old_travel">
 			<koken:loop>
 
 				<div class="album-thumbnail">
