@@ -3,14 +3,14 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-<title>Путешествия — {{ site.title }}</title>
+<title>Поездки — {{ site.title }}</title>
 </koken:head>
 
 <div class="content">
 
 	<div class="entry-header">
 		<h1 class="entry-title">
-			Путешествия
+			Поездки
 		</h1>
 	</div>
 
