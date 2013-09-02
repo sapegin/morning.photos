@@ -1326,6 +1326,7 @@ body {
   display: none;
 }
 .about-copyrights {
+  margin-bottom: 20px;
   font-size: 13px;
 }
 @media print {
