@@ -6,7 +6,7 @@
 <title>Книги о фотографии и обработке фотографий — {{ site.title }}</title>
 </koken:head>
 
-<div class="content text">
+<div class="content text entry-content">
 
 	<div class="entry-header">
 		<h1 class="entry-title">Книги о фотографии</h1>
