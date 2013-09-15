@@ -797,15 +797,23 @@ for tag in "best" "good" "russian" "english" {
 	}
 }
 
-.index-list {
+.articles-list {
 	&__title {
+		@extend .gamma;
 		space();
-		font-size:normal-font;
+
+		&_index {
+			font-size:normal-font;
+		}
 	}
 
 	&__item {
 		margin-bottom:(spacer/2);
 		font-size:normal-font;
+
+		&:before {
+			display:none;
+		}
 	}
 
 	&__description {

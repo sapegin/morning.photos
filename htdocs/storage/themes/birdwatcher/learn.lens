@@ -1,0 +1,87 @@
+<koken:include file="inc/header.html" />
+<body class="page page_page">
+<koken:include file="inc/page-header.html" />
+
+<koken:head>
+<title>Статьи — {{ site.title }}</title>
+</koken:head>
+
+<div class="content text entry-content">
+
+	<div class="entry-header">
+		<h1 class="entry-title">Статьи</h1>
+	</div>
+
+	<div class="articles-list">
+
+		<ul class="articles-list__list">
+
+			<li class="articles-list__item">
+				<a href="/reading/" class="link">Книги о фотографии</a>
+				<div class="articles-list__description">Рецензии на прочитанные мной книги</div>
+			</li>
+			<li class="articles-list__item">
+				<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
+				<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+			</li>
+			<li class="articles-list__item">
+				<a href="/funquotes/" class="link">Фотография где</a>
+				<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="articles-list">
+
+		<h2 class="articles-list__title">Фотобанки, продажа фотографий через интернет</h2>
+
+		<ul class="articles-list__list">
+			<li class="articles-list__item">
+				<a href="#" class="link">Фотобанки</a>
+				<div class="articles-list__description">Что такое фотобанки, какие они бывают</div>
+			</li>
+			<li class="articles-list__item">
+				<a href="#" class="link">Микростоки</a>
+				<div class="articles-list__description">Как работать с микростоками, описание основных сайтов</div>
+			</li>
+			<li class="articles-list__item">
+				<a href="#" class="link">Сводная таблица микростоков</a>
+				<div class="articles-list__description">Подробная информация об основных микростоках</div>
+			</li>
+			<li class="articles-list__item">
+				<a href="#" class="link">Околостоковые ссылки</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="articles-list">
+
+		<koken:load source="essays" featured="true">
+
+			<h2 class="articles-list__title"><a href="/blog/" class="link">Блог</a></h2>
+
+			<ul class="articles-list__list">
+
+			<koken:loop>
+
+				<li class="articles-list__item">
+					<koken:link class="link">{{ essay.title }}</koken:link>
+					<koken:not empty="essay.excerpt">
+						<div class="articles-list__description">{{ essay.excerpt }}</div>
+					</koken:not>
+				</li>
+
+			</koken:loop>
+
+			</ul>
+
+		</koken:load>
+
+	</div>
+
+
+</div>
+
+<koken:include file="inc/footer.html" />

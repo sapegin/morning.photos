@@ -31,17 +31,17 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 				<div class="l-row l-triple-space">
 
-					<div class="l-third index-list">
+					<div class="l-third articles-list">
 
 						<koken:load source="essays" featured="true" limit="5">
 
-							<div class="index-list__title">Интересное в <a href="/blog/" class="link">блоге</a>:</div>
+							<div class="articles-list__title articles-list__title_index">Интересное в <a href="/blog/" class="link">блоге</a>:</div>
 
-							<ul class="index-list__list">
+							<ul class="articles-list__list">
 
 							<koken:loop>
 
-								<li class="index-list__item">
+								<li class="articles-list__item">
 									<koken:link class="link">{{ essay.title }}</koken:link>
 								</li>
 
@@ -55,23 +55,23 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 					<div class="l-third">
 
-						<ul class="index-list__list">
+						<ul class="articles-list__list">
 
-							<li class="index-list__item">
+							<li class="articles-list__item">
 								<a href="/reading/" class="link">Книги о фотографии</a>
-								<div class="index-list__description">Мои рецензии</div>
+								<div class="articles-list__description">Мои рецензии</div>
 							</li>
-							<li class="index-list__item">
+							<li class="articles-list__item">
 								<a href="#" class="link">Продажа фотографий через фотобанки</a>
-								<div class="index-list__description">Статьи о фотостоках</div>
+								<div class="articles-list__description">Статьи о фотостоках</div>
 							</li>
-							<li class="index-list__item">
+							<li class="articles-list__item">
 								<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-								<div class="index-list__description">Фотографы, художники, писатели и все, все, все</div>
+								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
 							</li>
-							<li class="index-list__item">
+							<li class="articles-list__item">
 								<a href="#" class="link">Фотография где</a>
-								<div class="index-list__description">Смешные цитаты с фотофорумов</div>
+								<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
 							</li>
 
 						</ul>
@@ -87,10 +87,10 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 							</div>
 						</div>
 
-						<ul class="index-list__list">
+						<ul class="articles-list__list">
 
-							<li class="index-list__item"><a href="/about/" class="link">Обо мне</a></li>
-							<li class="index-list__item"><a href="/buy/" class="link">Как купить мои фотографии</a></li>
+							<li class="articles-list__item"><a href="/about/" class="link">Обо мне</a></li>
+							<li class="articles-list__item"><a href="/buy/" class="link">Как купить мои фотографии</a></li>
 
 						</ul>
 
