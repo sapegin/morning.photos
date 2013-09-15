@@ -59,6 +59,11 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		space(2);
 	}
 
+	h3 {
+		@extend .delta;
+		space();
+	}
+
 	blockquote {
 		margin-left:4*spacer;
 		margin-right:4*spacer;
@@ -68,7 +73,6 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 			font-style:italic;
 		}
 	}
-
 }
 
 // Fotorama tweaks.
@@ -380,14 +384,7 @@ lightbox-button-glow() {
 	p,
 	ul,
 	ol {
-		space(3);
-		// max-width:40em;
 		line-height:1.6;
-	}
-
-	h3 {
-		@extend .delta;
-		space();
 	}
 }
 
@@ -643,6 +640,7 @@ lightbox-button-glow() {
 
 	&__rating {
 		position:relative;
+		height:14px;
 		line-height:1;
 
 		&:before,

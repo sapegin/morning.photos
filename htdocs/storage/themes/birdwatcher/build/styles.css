@@ -521,12 +521,12 @@ a:link {
 .text h6,
 .zeta,
 .photo-info__title,
-.entry h3,
 .entry-title,
 .entry-title_excerpt,
 .entry-title_excerpt-photo,
 .album-thumbnail__title,
 .book-review__title,
+.articles-list__title,
 .about-subtitle {
   text-rendering: optimizeLegibility;
   -webkit-font-feature-settings: "liga", "dlig";
@@ -559,13 +559,14 @@ body {
 }
 .gamma,
 .album-thumbnail__title,
-.book-review__title {
+.book-review__title,
+.articles-list__title {
   font-size: 24px;
   font-weight: normal;
   line-height: 1.3;
 }
 .delta,
-.entry h3,
+.text h3,
 .about-subtitle {
   font-size: 19px;
   font-weight: bold;
@@ -575,6 +576,9 @@ body {
 .text ul,
 .text ol {
   margin-bottom: 20px;
+}
+.text h3 {
+  margin-bottom: 10px;
 }
 .text blockquote {
   margin-left: 40px;
@@ -859,11 +863,7 @@ body {
 .entry p,
 .entry ul,
 .entry ol {
-  margin-bottom: 30px;
   line-height: 1.6;
-}
-.entry h3 {
-  margin-bottom: 10px;
 }
 .entry-header {
   margin-bottom: 30px;
@@ -895,6 +895,9 @@ body {
 .entry-title_excerpt-photo .entry-title__link:active,
 .entry-title_excerpt-photo .entry-title__link:focus {
   color: #fff;
+}
+.entry-content {
+  margin-bottom: 40px;
 }
 .entry-excerpt {
   font-size: 13px;
@@ -1111,6 +1114,7 @@ body {
 }
 .book-review__rating {
   position: relative;
+  height: 14px;
   line-height: 1;
 }
 .book-review__rating:before,
@@ -1244,15 +1248,20 @@ body {
   -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.25);
   box-shadow: 0 0 6px rgba(0,0,0,0.25);
 }
-.index-list__title {
+.articles-list__title {
   margin-bottom: 10px;
+}
+.articles-list__title_index {
   font-size: 16px;
 }
-.index-list__item {
+.articles-list__item {
   margin-bottom: 5px;
   font-size: 16px;
 }
-.index-list__description {
+.articles-list__item:before {
+  display: none;
+}
+.articles-list__description {
   font-size: 13px;
 }
 .index-about {
