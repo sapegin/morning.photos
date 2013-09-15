@@ -50,9 +50,18 @@ docpadConfig = {
 
 		# Markdown string
 		mds: (s) ->
-			s and (marked s)
+			s and ((marked s)
 				.replace(/^\s*<p>/, '')
 				.replace(/<\/p>\s*$/, '')
+				)
+
+		cleanMd: (s) ->
+			s and (s
+				.replace(/<br>\s+/g, '<br>')
+				.replace(/<\/?code>/g, '`')
+				.replace(/\s--?/g, ' —')
+				.replace(/\\(\d)/g, '$1')
+				)
 
 	events:
 		generateBefore: (opts) ->
