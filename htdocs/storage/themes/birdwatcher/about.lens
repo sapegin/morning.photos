@@ -130,9 +130,8 @@
 		</div>
 
 		<div class="l-double-space">
-			<img src="/images/about/equipment.jpg" alt="" width="100%">
+			<img src="/images/about/equipment.jpg" alt="Чем снимает Артём Сапегин" width="1024" height="492">
 		</div>
-
 
 		<div class="l-row l-quad-space">
 
@@ -172,8 +171,8 @@
 		<script>window.initPhotos()</script>
 
 		<div class="l-row l-double-space">
-			<div class="l-two-thirds"><img src="/images/about/workplace.jpg" alt="" width="100%"></div>
-			<div class="l-third"><img src="/images/about/iphone.jpg" alt="" width="100%"></div>
+			<div class="l-two-thirds"><img src="/images/about/workplace.jpg" alt="Рабочее место Артёма Сапегина" width="676" height="328"></div>
+			<div class="l-third"><img src="/images/about/iphone.jpg" alt="Обработка фотографии в VSCO Cam на айфоне" width="328" height="328"></div>
 		</div>
 
 		<div class="l-row l-quad-space">
@@ -188,7 +187,7 @@
 
 			<div class="l-third">
 				<ul class="about-list">
-					<li class="about-list__item">На айфоне: <a href="http://instagram.com/sapegin">Instagram</a>, <a href="http://vsco.co/vscocam">VSCO CAM</a>, <a href="http://www.snapseed.com/home/mobile/features/">Snapseed</a>, <a href="http://www.photopills.com/" title="Направление солнца и время закатов и рассветов и многое друге">PhotoPills</a>, <a href="http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app" title="Съёмка и просмотр фотографий на айфоне">EOS Remote</a>, <a href="http://mapswith.me/" title="Офлайновая карта с возможностью отмечать интересные места">MapsWithMe</a></li>
+					<li class="about-list__item">На айфоне: <a href="http://instagram.com/sapegin">Instagram</a>, <a href="http://vsco.co/vscocam">VSCO Cam</a>, <a href="http://www.snapseed.com/home/mobile/features/">Snapseed</a>, <a href="http://www.photopills.com/" title="Направление солнца и время закатов и рассветов и многое друге">PhotoPills</a>, <a href="http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app" title="Съёмка и просмотр фотографий на айфоне">EOS Remote</a>, <a href="http://mapswith.me/" title="Офлайновая карта с возможностью отмечать интересные места">MapsWithMe</a></li>
 				</ul>
 			</div>
 
