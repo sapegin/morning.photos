@@ -198,6 +198,28 @@ lightbox-button-glow() {
 	text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
 }
 
+.lightbox-button {
+	lightbox-button-transition();
+	width:lightbox-button-width;
+	height:lightbox-button-height;
+	line-height:lightbox-button-height;
+	color:light-color;
+	text-align:center;
+	cursor:pointer;
+	text-shadow:0 0 4px black(.5);
+
+	&:hover {
+		lightbox-button-glow()
+	}
+
+	&.is-disabled,
+	&.is-disabled:hover {
+		color:white(.25);
+		text-shadow:0 0 4px black(.25);
+		cursor:default;
+	}
+}
+
 .lightbox {
 	position:absolute;
 	top:40px;
@@ -250,6 +272,7 @@ lightbox-button-glow() {
 		}
 		&_right {
 			right:(-(spacer));
+			text-align:right;
 		}
 		.icon {
 			margin-top:.5em;
@@ -264,28 +287,6 @@ lightbox-button-glow() {
 
 	&__meta {
 		display:none;
-	}
-}
-
-.lightbox-button {
-	lightbox-button-transition();
-	width:lightbox-button-width;
-	height:lightbox-button-height;
-	line-height:lightbox-button-height;
-	color:light-color;
-	text-align:center;
-	cursor:pointer;
-	text-shadow:0 0 4px black(.5);
-
-	&:hover {
-		lightbox-button-glow()
-	}
-
-	&.is-disabled,
-	&.is-disabled:hover {
-		color:white(.25);
-		text-shadow:0 0 4px black(.25);
-		cursor:default;
 	}
 }
 
