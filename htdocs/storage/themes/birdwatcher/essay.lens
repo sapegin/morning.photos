@@ -6,6 +6,7 @@
 <koken:load>
 
 	<koken:head>
+		<title>{{ essay.title strip_html="true" }} — Блог — {{ site.title }}</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ essay.title strip_html="true" }}" />
 		<meta property="og:description" content="{{ essay.excerpt strip_html="true" }}" />

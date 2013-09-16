@@ -2,6 +2,10 @@
 <body class="page page_essays">
 <koken:include file="inc/page-header.html" />
 
+<koken:head>
+<title>Блог — {{ site.title }}</title>
+</koken:head>
+
 <koken:load limit="10">
 
 	<koken:loop>
