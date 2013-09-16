@@ -116,14 +116,17 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 .nav {
 	float:right;
 
+	// I have to use tag names here because Koken don’t provide any ability to change it
+
 	li {
 		display:inline-block;
-		margin-left:.6em;
+		margin-left:.8em;
 		&:first-child {
 			margin-left:0;
 		}
 	}
 
+	span,
 	a,
 	a:link,
 	a:visited,
@@ -133,12 +136,19 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		font-size:normal-font;
 		color:base-color;
 	}
+
+	.k-nav-current {
+		font-weight:bold;
+	}
 }
-.page_inverted-head .nav a {
+.page_inverted-head .nav a,
+.page_inverted-head .nav span {
 	& {
 		tweak-inverted-text();
 		color:light-color;
 	}
+}
+.page_inverted-head .nav a {
 	&:hover,
 	&:active,
 	&:focus {
