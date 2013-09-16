@@ -4,6 +4,8 @@
 ;(function ($) {
 	'use strict';
 
+	var _window = $(window);
+
 	$.fn.tmpl = function(tmplId, data) {
 		return $(this).html(window.__templates[tmplId](data));
 	};
@@ -33,7 +35,7 @@
 			var fotorama = container.data('fotorama');
 			fotorama.load(photos);
 
-			$(window).resize(resize);
+			_window.resize(resize);
 		},
 		'photo-album': function(elem) {
 			function update() {
@@ -132,9 +134,9 @@
 
 			updateNav();
 
-			$(window).resize(resize);
+			_window.resize(resize);
 
-			$(window).on('popstate', function(event) {
+			_window.on('popstate', function(event) {
 				var m = window.location.href.match(urlRegExp);
 				var id = m && m[1];
 				if (!id || id === currentId) return;
