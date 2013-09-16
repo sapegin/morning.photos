@@ -39,8 +39,9 @@
 			function update() {
 				gallery.addClass('is-activated');
 				var frame = fotorama.activeFrame;
+				currentId = frame.id;
 				frame.title = frame.info.title || '***';
-				frame.permalink = location.href.replace(/\/photos\/\d+\/$/, '/photos/' + frame.id + '/');
+				frame.permalink = location.href.replace(urlRegExp, '/photos/' + currentId + '/');
 				frame.albumHref = albumHref;
 				frame.album = albumName;
 
@@ -59,9 +60,17 @@
 				updateNav();
 			}
 
+			function isFirst() {
+				return fotorama.activeIndex === 0;
+			}
+
+			function isLast() {
+				return fotorama.activeIndex === fotorama.data.length-1;
+			}
+
 			function updateNav() {
-				prevButton.toggleClass('is-disabled', fotorama.activeIndex === 0);
-				nextButton.toggleClass('is-disabled', fotorama.activeIndex === fotorama.data.length-1);
+				prevButton.toggleClass('is-disabled', isFirst());
+				nextButton.toggleClass('is-disabled', isLast());
 			}
 
 			function resize() {
@@ -71,16 +80,21 @@
 				});
 			}
 
+			function idToIndex(id) {
+				var index;
+				$.each(photos, function(idx, val) {
+					if (photos[idx].id === id) {
+						index = idx;
+						return false;
+					}
+				});
+				return index;
+			}
+
 			var photos = window.__photos;
 			var currentId = window.__photos_current_id;
-			var startIndex = 0;
-			$.each(photos, function(index, value) {
-				if (photos[index].id === currentId) {
-					startIndex = index;
-					return false;
-				}
-			});
-
+			var urlRegExp = /\/photos\/(\d+)\/$/;
+			var startIndex = idToIndex(currentId);
 			var container = $(elem);
 			var gallery = container.find('.js-gallery');
 			var sharePane = container.find('.js-share');
@@ -106,10 +120,12 @@
 			gallery.on('fotorama:show', update);
 
 			container.on('click', '.js-prev', function() {
+				if (isFirst()) return;
 				fotorama.show('<');
 				updateNav();
 			});
 			container.on('click', '.js-next', function() {
+				if (isLast()) return;
 				fotorama.show('>');
 				updateNav();
 			});
@@ -117,6 +133,13 @@
 			updateNav();
 
 			$(window).resize(resize);
+
+			$(window).on('popstate', function(event) {
+				var m = window.location.href.match(urlRegExp);
+				var id = m && m[1];
+				if (!id || id === currentId) return;
+				fotorama.show({index: idToIndex(id)});
+			});
 		},
 
 		'tag-filter': {tagFilter: {
