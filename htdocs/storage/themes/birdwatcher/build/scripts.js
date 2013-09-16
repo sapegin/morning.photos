@@ -309,7 +309,7 @@ function encodeHTMLSource() {var encodeHTMLRules = { "&": "&#38;", "<": "&#60;",
 var out='<h1 class="photo-info__title">'+(it.title)+'</h1><div class="photo-info__album"><a href="'+(it.albumHref)+'" class="photo-info__album-link">⇧ <u>'+(it.album)+'</u></a></div>';if(it.info.caption){out+='<div class="photo-info__caption">'+(it.info.caption)+'</div>';}if(it.location){out+='<div class="photo-info__location">'+(it.location)+'</div>';}out+='<div class="photo-info__meta">'+(it.pubdate)+', '+(it.exif)+'</div>';return out;
 };
   tmpl['photo-title']=function anonymous(it) {
-var out=''+(it.title)+' - '+(it.siteTitle);return out;
+var out=''+(it.title)+' — '+(it.siteTitle);return out;
 };
 return tmpl;})()
 /* Author: Artem Sapegin, http://sapegin.me, 2013 */
@@ -317,6 +317,8 @@ return tmpl;})()
 /*global utils:false */
 ;(function ($) {
 	'use strict';
+
+	var _window = $(window);
 
 	$.fn.tmpl = function(tmplId, data) {
 		return $(this).html(window.__templates[tmplId](data));
@@ -347,7 +349,7 @@ return tmpl;})()
 			var fotorama = container.data('fotorama');
 			fotorama.load(photos);
 
-			$(window).resize(resize);
+			_window.resize(resize);
 		},
 		'photo-album': function(elem) {
 			function update() {
@@ -407,6 +409,7 @@ return tmpl;})()
 
 			var photos = window.__photos;
 			var currentId = window.__photos_current_id;
+			var siteTitle = window.__site_title;
 			var urlRegExp = /\/photos\/(\d+)\/$/;
 			var startIndex = idToIndex(currentId);
 			var container = $(elem);
@@ -415,7 +418,6 @@ return tmpl;})()
 			var infoPane = container.find('.js-info');
 			var prevButton = container.find('.js-prev');
 			var nextButton = container.find('.js-next');
-			var siteTitle = $('.js-site-title').text();
 			var albumLinkElem = $('.js-album-link');
 			var albumHref = albumLinkElem.attr('href');
 			var albumName = albumLinkElem.text();
@@ -446,9 +448,9 @@ return tmpl;})()
 
 			updateNav();
 
-			$(window).resize(resize);
+			_window.resize(resize);
 
-			$(window).on('popstate', function(event) {
+			_window.on('popstate', function(event) {
 				var m = window.location.href.match(urlRegExp);
 				var id = m && m[1];
 				if (!id || id === currentId) return;
