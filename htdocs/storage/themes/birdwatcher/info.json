@@ -7,14 +7,5 @@
 		"name": "Artem Sapegin",
 		"link": "http://sapegin.me"
 	},
-	"koken_version_required": "0.8.0-beta.1",
-
-	"navigation_groups": {
-		"menu": {
-			"label": "Menu",
-			"defaults": [
-				"albums", "contents", "essays"
-			]
-		}
-	}
+	"koken_version_required": "0.9.0"
 }

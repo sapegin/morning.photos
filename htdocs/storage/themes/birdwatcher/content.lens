@@ -115,6 +115,7 @@ document.documentElement.className += ' is-fullscreen';
 	</div>
 
 <script>
+var __site_title = '{{ site.title }}';
 var __photos_current_id = '{{ content.id }}';
 <koken:parent>
 var __photos = [<koken:loop separator=", ">{

@@ -95,6 +95,7 @@
 
 			var photos = window.__photos;
 			var currentId = window.__photos_current_id;
+			var siteTitle = window.__site_title;
 			var urlRegExp = /\/photos\/(\d+)\/$/;
 			var startIndex = idToIndex(currentId);
 			var container = $(elem);
@@ -103,7 +104,6 @@
 			var infoPane = container.find('.js-info');
 			var prevButton = container.find('.js-prev');
 			var nextButton = container.find('.js-next');
-			var siteTitle = $('.js-site-title').text();
 			var albumLinkElem = $('.js-album-link');
 			var albumHref = albumLinkElem.attr('href');
 			var albumName = albumLinkElem.text();
