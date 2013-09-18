@@ -1,13 +1,16 @@
-<h1 class="photo-info__title">{{=it.title}}</h1>
+<header class="photo-info__header">
+	<h1 class="photo-info__title">{{=it.title}}</h1>
+	{{? it.info.caption}}
+		<div class="photo-info__caption">{{=it.info.caption}}</div>
+	{{?}}
+</header>
 
-<div class="photo-info__album"><a href="{{=it.albumHref}}" class="photo-info__album-link">⇧ <u>{{=it.album}}</u></a></div>
+<div class="photo-info__meta">
+	{{? it.location}}{{=it.location}}, {{?}}{{=it.pubdate}}, {{=it.exif}}
+</div>
 
-{{? it.info.caption}}
-<div class="photo-info__caption">{{=it.info.caption}}</div>
+{{? it.copyright}}
+	<div class="photo-info__copyright">
+		© {{=it.copyright}}
+	</div>
 {{?}}
-
-{{? it.location}}
-<div class="photo-info__location">{{=it.location}}</div>
-{{?}}
-
-<div class="photo-info__meta">{{=it.pubdate}}, {{=it.exif}}</div>

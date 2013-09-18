@@ -52,8 +52,8 @@
 
 @font-face {
 	font-family:"icons";
-	src:url("icons-968bc39b3f970c4d47343bf1a72f180e.eot");
-	src:url("icons-968bc39b3f970c4d47343bf1a72f180e.eot?#iefix") format("embedded-opentype"), url("icons-968bc39b3f970c4d47343bf1a72f180e.woff") format("woff"), url("icons-968bc39b3f970c4d47343bf1a72f180e.ttf") format("truetype"), url("icons-968bc39b3f970c4d47343bf1a72f180e.svg?#webfont") format("svg");
+	src:url("icons-ffa21e52917d4003f3ae241292d249b2.eot");
+	src:url("icons-ffa21e52917d4003f3ae241292d249b2.eot?#iefix") format("embedded-opentype"), url("icons-ffa21e52917d4003f3ae241292d249b2.woff") format("woff"), url("icons-ffa21e52917d4003f3ae241292d249b2.ttf") format("truetype"), url("icons-ffa21e52917d4003f3ae241292d249b2.svg?#webfont") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -68,17 +68,20 @@
 
 
 /* Icons */
-.icon_info:before {
+.icon_close:before {
 	content:"\f100";
 }
-.icon_left:before {
+.icon_info:before {
 	content:"\f101";
 }
-.icon_right:before {
+.icon_left:before {
 	content:"\f102";
 }
-.icon_share:before {
+.icon_right:before {
 	content:"\f103";
+}
+.icon_share:before {
+	content:"\f104";
 }
 
 		</style>
@@ -88,6 +91,8 @@
 		<h1>icons</h1>
 
 		<div class="icons" id="icons">
+			
+				<div class="icons__item" data-name="close"><i class="icon icon_close"></i> icon_close</div>
 			
 				<div class="icons__item" data-name="info"><i class="icon icon_info"></i> icon_info</div>
 			

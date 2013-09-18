@@ -3,7 +3,7 @@ function encodeHTMLSource() {var encodeHTMLRules = { "&": "&#38;", "<": "&#60;",
   String.prototype.encodeHTML=encodeHTMLSource();
   var tmpl = {};
   tmpl['photo-info']=function anonymous(it) {
-var out='<h1 class="photo-info__title">'+(it.title)+'</h1><div class="photo-info__album"><a href="'+(it.albumHref)+'" class="photo-info__album-link">⇧ <u>'+(it.album)+'</u></a></div>';if(it.info.caption){out+='<div class="photo-info__caption">'+(it.info.caption)+'</div>';}if(it.location){out+='<div class="photo-info__location">'+(it.location)+'</div>';}out+='<div class="photo-info__meta">'+(it.pubdate)+', '+(it.exif)+'</div>';return out;
+var out='<header class="photo-info__header"><h1 class="photo-info__title">'+(it.title)+'</h1>';if(it.info.caption){out+='<div class="photo-info__caption">'+(it.info.caption)+'</div>';}out+='</header><div class="photo-info__meta">';if(it.location){out+=(it.location)+', ';}out+=(it.pubdate)+', '+(it.exif)+'</div>';if(it.copyright){out+='<div class="photo-info__copyright">© '+(it.copyright)+'</div>';}return out;
 };
   tmpl['photo-title']=function anonymous(it) {
 var out=''+(it.title)+' — '+(it.siteTitle);return out;

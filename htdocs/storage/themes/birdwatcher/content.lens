@@ -1,5 +1,5 @@
 <koken:include file="inc/header.html" />
-<body class="page page_content page_inverted-head">
+<body class="page page_content">
 <koken:include file="inc/page-header.html" />
 
 <koken:load>
@@ -29,6 +29,8 @@ document.documentElement.className += ' is-fullscreen';
 
 	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
 
+		<div class="lightbox__logo logo"><koken:link to="front" class="logo__link">{{ site.title }}</koken:link></div>
+
 		<div class="lightbox__gallery">
 			<div class="lightbox__image js-gallery" style="background-image:url({{ content.presets.xlarge.url }})">
 				<img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
@@ -42,6 +44,12 @@ document.documentElement.className += ' is-fullscreen';
 			<div class="lightbox__arrow lightbox__arrow_right lightbox-button js-next">
 				<i class="icon icon_right"></i>
 			</div>
+			<koken:link class="lightbox__close lightbox-button js-close">
+				<i class="icon icon_close"></i>
+				<div class="lightbox__close-tooltip">
+					Обратно в альбом «{{ album.title }}»
+				</div>
+			</koken:link>
 		</koken:parent>
 
 		<div class="lightbox__controls">
@@ -56,34 +64,32 @@ document.documentElement.className += ' is-fullscreen';
 					<i class="icon icon_info"></i>
 				</div>
 				<div class="lightbox-pane__popup photo-info js-info">
+					<header class="photo-info__header">
+						<h1 class="photo-info__title">
+							<koken:if empty="content.title">
+								***
+							<koken:else>
+								{{ content.title }}
+							</koken:if>
+						</h1>
 
-					<h1 class="photo-info__title">{{ content.title | '***' }}</h1>
-
-					<koken:parent>
-						<div class="photo-info__album">
-							<koken:link class="photo-info__album-link js-album-link">
-								{{ album.title }}
-							</koken:link>
+						<div class="photo-info__caption">
+							{{ content.caption paragraphs="true" }}
 						</div>
-					</koken:parent>
-
-					<div class="photo-info__caption">
-						{{ content.caption paragraphs="true" }}
-					</div>
-
-					<koken:iptc>
-						<div class="photo-info__location">
-							<koken:not empty="iptc.city">
-								{{ iptc.city }}<koken:not empty="iptc.country">,</koken:not>
-							</koken:not>
-							<koken:not empty="iptc.country">
-								{{ iptc.country }}
-							</koken:not>
-						</div>
-					</koken:iptc>
+					</header>
 
 					<div class="photo-info__meta">
+						<koken:iptc>
+							<koken:not empty="iptc.city">
+								{{ iptc.city }},
+							</koken:not>
+							<koken:not empty="iptc.country">
+								{{ iptc.country }},
+							</koken:not>
+						</koken:iptc>
+
 						<time datetime="{{ content.captured_on date_format='c' }}">{{ content.captured_on date_format="j.m.Y" }}</time>,
+
 						<koken:exif>
 							<koken:not empty="exif.exposure">
 								{{ exif.exposure }},
@@ -100,6 +106,13 @@ document.documentElement.className += ' is-fullscreen';
 						</koken:exif>
 					</div>
 
+					<koken:iptc>
+						<koken:if condition="{{ iptc.byline }} != {{ profile.name }}">
+							<div class="photo-info__copyright">
+								© {{ iptc.byline }}
+							</div>
+						</koken:if>
+					</koken:iptc>
 				</div>
 			</div>
 		</div>
@@ -122,7 +135,8 @@ var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},
 	location: '<koken:iptc><koken:not empty="iptc.city">{{ iptc.city }}<koken:not empty="iptc.country">, </koken:not></koken:not><koken:not empty="iptc.country">{{ iptc.country }}</koken:not></koken:iptc>',
-	exif: '<koken:exif><koken:not empty="exif.exposure">{{ exif.exposure }},</koken:not> <koken:not empty="exif.aperture">{{ exif.aperture }},</koken:not> <koken:not empty="exif.focal_length">{{ exif.focal_length }},</koken:not> <koken:not empty="exif.iso_speed_ratings">{{ exif.iso_speed_ratings }}</koken:not></koken:exif>'
+	exif: '<koken:exif><koken:not empty="exif.exposure">{{ exif.exposure }},</koken:not> <koken:not empty="exif.aperture">{{ exif.aperture }},</koken:not> <koken:not empty="exif.focal_length">{{ exif.focal_length }},</koken:not> <koken:not empty="exif.iso_speed_ratings">{{ exif.iso_speed_ratings }}</koken:not></koken:exif>',
+	copyright: '<koken:iptc><koken:if condition="{{ iptc.byline }} != {{ profile.name }}">{{ iptc.byline }}</koken:if></koken:iptc>'
 }</koken:loop>];
 </koken:parent>
 </script>

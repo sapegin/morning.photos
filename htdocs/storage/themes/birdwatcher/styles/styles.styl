@@ -84,6 +84,9 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	clearfix();
 	space(2);
 }
+.page_content .header {
+	display:none;
+}
 
 .logo {
 	float:left;
@@ -100,16 +103,20 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		color:base-color;
 	}
 }
-.page_inverted-head {
+.page_inverted-head,
+.page_content {
 	.logo,
 	.logo__link {
 		tweak-inverted-text();
+		color:light-hover-color;
+	}
+}
+.page_content {
+	.logo__link {
 		color:light-color;
 	}
-	.logo__link:hover,
-	.logo__link:active,
-	.logo__link:focus {
-		color:#fff;
+	.logo__link:hover {
+		color:light-hover-color;
 	}
 }
 
@@ -145,14 +152,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 .page_inverted-head .nav span {
 	& {
 		tweak-inverted-text();
-		color:light-color;
-	}
-}
-.page_inverted-head .nav a {
-	&:hover,
-	&:active,
-	&:focus {
-		color:#fff;
+		color:light-hover-color;
 	}
 }
 
@@ -198,13 +198,14 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 lightbox-button-width = 60px;
 lightbox-button-height = 40px;
+header-height = 40px;
 
 lightbox-button-transition() {
 	transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
 }
 
 lightbox-button-glow() {
-	color:#fff;
+	color:light-hover-color;
 	text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
 }
 
@@ -215,6 +216,7 @@ lightbox-button-glow() {
 	line-height:lightbox-button-height;
 	color:light-color;
 	text-align:center;
+	text-decoration:none;
 	cursor:pointer;
 	text-shadow:0 0 4px black(.5);
 
@@ -232,18 +234,24 @@ lightbox-button-glow() {
 
 .lightbox {
 	position:absolute;
-	top:40px;
-	bottom:spacer;
-	left:spacer;
-	right:spacer;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+
+	&__logo {
+		position:absolute;
+		left:2*spacer;
+		top:spacer;
+	}
 
 	&__gallery,
 	&__saver {
 		position:absolute;
-		top:0;
+		top:header-height;
+		bottom:spacer;
 		left:0;
-		width:100%;
-		height:100%;
+		right:0;
 	}
 
 	&__saver {
@@ -263,25 +271,29 @@ lightbox-button-glow() {
 	}
 
 	&__controls,
-	&__arrow {
+	&__arrow,
+	&__close {
 		z-index:9999;
 		opacity:0;
 	}
 
 	&__controls {
 		lightbox-button-transition();
-		absolute:left (-(spacer)) bottom (spacer/2);
+		position:absolute;
+		left:0;
+		bottom:spacer;
 	}
 
 	&__arrow {
-		absolute:top 50%;
+		position:absolute;
+		top:50%;
 		margin-top:(-(lightbox-button-height/2));
 
 		&_left {
-			left:(-(spacer));
+			left:0;
 		}
 		&_right {
-			right:(-(spacer));
+			right:0;
 			text-align:right;
 		}
 		.icon {
@@ -290,8 +302,38 @@ lightbox-button-glow() {
 		}
 	}
 
+	&__close {
+		position:absolute;
+		top:0;
+		right:0;
+		width:50px;
+		.icon {
+			margin-top:.65em;
+			font-size:17px;
+		}
+	}
+
+	&__close-tooltip,
+	&__close:hover &__close-tooltip {
+		tweak-inverted-text();
+		position:absolute;
+		top:spacer;
+		right:50px;
+		line-height:24px;
+		color:light-color;
+		text-decoration:underline;
+		text-align:right;
+		white-space:nowrap;
+		text-shadow:none;
+		display:none;
+	}
+	&__close:hover &__close-tooltip {
+		display:block;
+	}
+
 	&:hover &__controls,
-	&:hover &__arrow {
+	&:hover &__arrow,
+	&:hover &__close {
 		opacity:1;
 	}
 
@@ -313,7 +355,7 @@ lightbox-button-glow() {
 		display:none;
 		absolute:left lightbox-button-width bottom (-(spacer));
 		padding:spacer;
-		background:#fff;
+		background:bg-color;
 	}
 
 	&:hover &__button {
@@ -325,43 +367,25 @@ lightbox-button-glow() {
 }
 
 .photo-info {
-	width:800px;
+	width:500px;
+	width:40vw;
+
+	&__header {
+		space(2);
+	}
 
 	&__title {
+		space(0.5)
 		@extend .beta;
 	}
 
-	&__album {
-		space(2);
-		font-size:small-font;
-	}
-
-	&__album-link:link,
-	&__album-link:visited,
-	&__album-link:hover,
-	&__album-link:active,
-	&__album-link:focus {
-		color:base-color;
-		text-decoration:none;
-
-		u {
-			text-decoration:underline;
-		}
-	}
-
-	&__caption{
-		space(2);
+	&__caption {
 		font-size:normal-font;
 	}
 
-	&__location {
-		space(2);
+	&__meta,
+	&__copyright {
 		font-size:small-font;
-	}
-
-	&__meta {
-		font-size:small-font;
-		color:#999;
 	}
 }
 
@@ -773,21 +797,7 @@ for tag in "best" "good" "russian" "english" {
 		margin:0;
 		max-width:none;
 		text-shadow:0 0 3px black(.5);
-
-		.logo,
-		a,
-		a:link,
-		a:visited,
-		a:hover,
-		a:active,
-		a:focus {
-			color:#fff;
-		}
-
 	}
-}
-
-.featured-album {
 }
 
 .index-content {

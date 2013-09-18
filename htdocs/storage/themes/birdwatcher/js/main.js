@@ -44,8 +44,6 @@
 				currentId = frame.id;
 				frame.title = frame.info.title || '***';
 				frame.permalink = location.href.replace(urlRegExp, '/photos/' + currentId + '/');
-				frame.albumHref = albumHref;
-				frame.album = albumName;
 
 				// Update URL
 				history.pushState('', frame.title, frame.permalink);
@@ -104,9 +102,6 @@
 			var infoPane = container.find('.js-info');
 			var prevButton = container.find('.js-prev');
 			var nextButton = container.find('.js-next');
-			var albumLinkElem = $('.js-album-link');
-			var albumHref = albumLinkElem.attr('href');
-			var albumName = albumLinkElem.text();
 
 			gallery.fotorama({
 				nav: false,
