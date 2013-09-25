@@ -115,7 +115,9 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	.logo__link {
 		color:light-color;
 	}
-	.logo__link:hover {
+	.logo__link:hover,
+	.logo__link:active,
+	.logo__link:focus, {
 		color:light-hover-color;
 	}
 }
@@ -319,7 +321,7 @@ lightbox-button-glow() {
 		position:absolute;
 		top:spacer;
 		right:50px;
-		line-height:24px;
+		line-height:1.5;
 		color:light-color;
 		text-decoration:underline;
 		text-align:right;

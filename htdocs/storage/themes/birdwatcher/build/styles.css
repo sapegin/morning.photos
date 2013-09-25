@@ -632,7 +632,10 @@ body {
 .page_content .logo__link {
   color: #ccc;
 }
-.page_content .logo__link:hover {
+.page_content .logo__link:hover,
+.page_content .logo__link:active,
+.page_content .logo__link:focus,
+.page_content {
   color: #fff;
 }
 .nav {
@@ -801,7 +804,7 @@ body {
   position: absolute;
   top: 10px;
   right: 50px;
-  line-height: 24px;
+  line-height: 1.5;
   color: #ccc;
   text-decoration: underline;
   text-align: right;
