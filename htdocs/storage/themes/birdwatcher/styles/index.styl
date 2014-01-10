@@ -1,27 +1,28 @@
 /* Author: Artem Sapegin, http://sapegin.me, 2013 */
 
-content-max-width = 1024px;
-sticky-footer-height = 24px;
+content_max_width = 1024px;
+sticky_footer_height = 24px;
 spacer = 10px;
-bg-color = #fff;
-base-color = #1a1a1a;
-light-color = #ccc;
-light-hover-color = #fff;
-link-style = "underline";
-link-color = #1978c8;
-visited-color = #8c5ad2;
-hover-color = #1694ec;
-photo-bg-color = #1a1a1a;
-site-domain = "birdwatcher.ru";  // For print style sheet
-content-font = 19px
-normal-font = 16px
-small-font = 13px
+bg_color = #fff;
+base_color = #1a1a1a;
+light_color = #ccc;
+light_hover_color = #fff;
+link_style = "underline";
+link_color = #1978c8;
+visited_color = #8c5ad2;
+hover_color = #1694ec;
+photo_bg_color = #1a1a1a;
+site_domain = "birdwatcher.ru";
+content_font = 19px
+normal_font = 16px
+small_font = 13px
 
-@import "../js/libs/fotorama/fotorama.css";
+@import "../bower_components/fotorama/fotorama.css";
 @import "../build/fonts/icons";
 @import "tamia";
-@import "blocks/media";
-@import "blocks/list";
-@import "blocks/richtypo";
+@import "modules/media";
+@import "modules/list";
+@import "modules/richtypo";
 @import "styles";
-@import "print";
+
+// @import "blocks/*";

@@ -1,13 +1,13 @@
 // Author: Artem Sapegin, http://sapegin.me, 2013
 
 body {
-	background:bg-color;
-	color:base-color;
+	background:bg_color;
+	color:base_color;
 	line-height:1.5;
 	padding:spacer 2*spacer;
-	font-size:normal-font;
-	if (max-width) {
-		max-width:max-width;
+	font-size:normal_font;
+	if (max_width) {
+		max-width:max_width;
 		margin-left:auto;
 		margin-right:auto;
 	}
@@ -40,7 +40,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 .delta {
-	font-size:content-font;
+	font-size:content_font;
 	font-weight:bold;
 	line-height:1.3;
 }
@@ -99,8 +99,8 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	&__link:hover,
 	&__link:active,
 	&__link:focus {
-		font-size:normal-font;
-		color:base-color;
+		font-size:normal_font;
+		color:base_color;
 	}
 }
 .page_inverted-head,
@@ -108,17 +108,17 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	.logo,
 	.logo__link {
 		tweak-inverted-text();
-		color:light-hover-color;
+		color:light_hover_color;
 	}
 }
 .page_content {
 	.logo__link {
-		color:light-color;
+		color:light_color;
 	}
 	.logo__link:hover,
 	.logo__link:active,
 	.logo__link:focus, {
-		color:light-hover-color;
+		color:light_hover_color;
 	}
 }
 
@@ -142,7 +142,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	a:hover,
 	a:active,
 	a:focus {
-		font-size:normal-font;
+		font-size:normal_font;
 		color:base-color;
 	}
 
@@ -154,13 +154,13 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 .page_inverted-head .nav span {
 	& {
 		tweak-inverted-text();
-		color:light-hover-color;
+		color:light_hover_color;
 	}
 }
 
 .footer {
 	padding:0;
-	font-size:small-font;
+	font-size:small_font;
 
 	.page_album & {
 		padding:0 spacer;
@@ -177,7 +177,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .page {
 	&_content {
-		background:photo-bg-color;
+		background:photo_bg_color;
 	}
 
 	&_content,
@@ -193,30 +193,30 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 @media (min-width:1025px) {
 	.page_index {
-		background:photo-bg-color;
+		background:photo_bg_color;
 	}
 }
 
 
-lightbox-button-width = 60px;
-lightbox-button-height = 40px;
-header-height = 40px;
+lightbox_button_width = 60px;
+lightbox_button_height = 40px;
+header_height = 40px;
 
 lightbox-button-transition() {
 	transition:all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
 }
 
 lightbox-button-glow() {
-	color:light-hover-color;
+	color:light_hover_color;
 	text-shadow:0 0 10px hsla(209, 75%, 65%, 1);
 }
 
 .lightbox-button {
 	lightbox-button-transition();
-	width:lightbox-button-width;
-	height:lightbox-button-height;
-	line-height:lightbox-button-height;
-	color:light-color;
+	width:lightbox_button_width;
+	height:lightbox_button_height;
+	line-height:lightbox_button_height;
+	color:light_color;
 	text-align:center;
 	text-decoration:none;
 	cursor:pointer;
@@ -250,7 +250,7 @@ lightbox-button-glow() {
 	&__gallery,
 	&__saver {
 		position:absolute;
-		top:header-height;
+		top:header_height;
 		bottom:spacer;
 		left:0;
 		right:0;
@@ -267,7 +267,7 @@ lightbox-button-glow() {
 		background-repeat:no-repeat;
 		background-position:center center;
 		background-size:contain;
-		&.is-activated {
+		.is-activated & {
 			background:none !important;
 		}
 	}
@@ -289,7 +289,7 @@ lightbox-button-glow() {
 	&__arrow {
 		position:absolute;
 		top:50%;
-		margin-top:(-(lightbox-button-height/2));
+		margin-top:(-(lightbox_button_height/2));
 
 		&_left {
 			left:0;
@@ -322,7 +322,7 @@ lightbox-button-glow() {
 		top:spacer;
 		right:50px;
 		line-height:1.5;
-		color:light-color;
+		color:light_color;
 		text-decoration:underline;
 		text-align:right;
 		white-space:nowrap;
@@ -355,9 +355,11 @@ lightbox-button-glow() {
 
 	&__popup {
 		display:none;
-		absolute:left lightbox-button-width bottom (-(spacer));
+		position:absolute;
+		left:lightbox_button_width;
+		bottom:(-(spacer));
 		padding:spacer;
-		background:bg-color;
+		background:bg_color;
 	}
 
 	&:hover &__button {
@@ -382,12 +384,12 @@ lightbox-button-glow() {
 	}
 
 	&__caption {
-		font-size:normal-font;
+		font-size:normal_font;
 	}
 
 	&__meta,
 	&__copyright {
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
@@ -413,7 +415,7 @@ lightbox-button-glow() {
 
 .entry,
 .entry-content {
-	font-size:content-font;
+	font-size:content_font;
 
 	div + p {
 		margin-top:4*spacer;
@@ -441,7 +443,7 @@ lightbox-button-glow() {
 		&:hover,
 		&:active,
 		&:focus {
-			color:base-color;
+			color:base_color;
 			text-decoration:none;
 		}
 		&:hover,
@@ -466,7 +468,7 @@ lightbox-button-glow() {
 			&:hover,
 			&:active,
 			&:focus {
-				color:bg-color;
+				color:bg_color;
 			}
 		}
 	}
@@ -477,15 +479,15 @@ lightbox-button-glow() {
 }
 
 .entry-excerpt {
-	font-size:small-font;
+	font-size:small_font;
 }
 
 .entry-pubdate {
-	font-size:small-font;
+	font-size:small_font;
 }
 
 .entry-tags {
-	font-size:small-font;
+	font-size:small_font;
 }
 
 .entry-instagrams,
@@ -542,7 +544,7 @@ lightbox-button-glow() {
 	}
 
 	&__title {
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
@@ -555,20 +557,20 @@ lightbox-button-glow() {
 		margin-left:(-(2*spacer));
 		margin-right:(-(2*spacer));
 		padding:8*spacer 2*spacer;
-		background:base-color;
-		color:bg-color;
+		background:base_color;
+		color:bg_color;
 
 		.essay__content a,
 		.essay__meta a {
 			&,
 			&:link,
 			&:visited {
-				color:light-color;
+				color:light_color;
 			}
 			&:hover,
 			&:active,
 			&:focus {
-				color:bg-color;
+				color:bg_color;
 			}
 		}
 	}
@@ -597,12 +599,12 @@ lightbox-button-glow() {
 	&__item {
 		display:inline-block;
 		margin-right:1em;
-		font-size:normal-font;
+		font-size:normal_font;
 	}
 
 	&__counter {
 		margin-left:.25em;
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
@@ -610,7 +612,7 @@ lightbox-button-glow() {
 	space(4);
 
 	&__link {
-		font-size:content-font;
+		font-size:content_font;
 	}
 }
 
@@ -632,7 +634,7 @@ lightbox-button-glow() {
 		&:active,
 		&:focus {
 			text-decoration:none;
-			color:base-color;
+			color:base_color;
 		}
 	}
 
@@ -645,7 +647,7 @@ lightbox-button-glow() {
 	}
 
 	&__summary {
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
@@ -665,7 +667,7 @@ lightbox-button-glow() {
 
 	&__translation {
 		margin-bottom:14px;
-		font-size:normal-font;
+		font-size:normal_font;
 		font-weight:normal;
 		font-style:italic;
 	}
@@ -692,7 +694,7 @@ lightbox-button-glow() {
 
 		&:before {
 			color:#ccc;
-			color:rgba(base-color,.25);
+			color:rgba(base_color,.25);
 		}
 		i {
 			color:base-color;
@@ -758,7 +760,7 @@ for tag in "best" "good" "russian" "english" {
 			&:active,
 			&:focus {
 				font-weight:bold;
-				color:base-color;
+				color:base_color;
 				text-decoration:none;
 				cursor:default;
 			}
@@ -771,11 +773,11 @@ for tag in "best" "good" "russian" "english" {
 
 	&__text {
 		space(2);
-		font-style:normal-font;
+		font-style:normal_font;
 	}
 
 	&__meta {
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
@@ -810,11 +812,11 @@ for tag in "best" "good" "russian" "english" {
 
 	&-i-i {
 		position:relative;
-		margin-top:(-(normal-font*2.5));
+		margin-top:(-(normal_font*2.5));
 		margin-left:(-(spacer*0.5));
 		margin-right:(-(spacer*0.5));
 		padding:spacer*1.5;
-		background:bg-color;
+		background:bg_color;
 		box-shadow:0 0 6px black(.25);
 	}
 }
@@ -825,13 +827,13 @@ for tag in "best" "good" "russian" "english" {
 		space();
 
 		&_index {
-			font-size:normal-font;
+			font-size:normal_font;
 		}
 	}
 
 	&__item {
 		margin-bottom:(spacer/2);
-		font-size:normal-font;
+		font-size:normal_font;
 
 		&:before {
 			display:none;
@@ -839,13 +841,13 @@ for tag in "best" "good" "russian" "english" {
 	}
 
 	&__description {
-		font-size:small-font;
+		font-size:small_font;
 	}
 }
 
 .index-about {
 	space();
-	font-size:small-font;
+	font-size:small_font;
 }
 
 @media (max-width:1024px) {
@@ -900,7 +902,7 @@ for tag in "best" "good" "russian" "english" {
 	margin-left:(-(2*spacer));
 	margin-right:(-(2*spacer));
 	padding:4*spacer 2*spacer spacer;
-	background:bg-color;
+	background:bg_color;
 }
 
 .about-subtitle {
@@ -922,11 +924,11 @@ for tag in "best" "good" "russian" "english" {
 	space(2);
 
 	&__item {
-		font-size:normal-font;
+		font-size:normal_font;
 
 		&_obsolete,
 		&_obsolete-first {
-			font-size:small-font;
+			font-size:small_font;
 		}
 
 		&_obsolete {
@@ -941,5 +943,5 @@ for tag in "best" "good" "russian" "english" {
 
 .about-copyrights {
 	space(2);
-	font-size:small-font;
+	font-size:small_font;
 }

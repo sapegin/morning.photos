@@ -1,3 +1,5 @@
+node_modules
+bower_components
 admin
 app
 htdocs/storage/cache

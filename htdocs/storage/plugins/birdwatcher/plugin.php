@@ -23,8 +23,7 @@ class Birdwatcher extends KokenPlugin {
 	function clean_koken($html_str)
 	{
 		// Remove Koken shit from page header
-		$html_str = preg_replace('%<!--\[if IE\]>.*?mediaelement-and-player.min.js[^"]*"></script>%sm', '', $html_str);
-		$html_str = preg_replace('%<script src="/app/site/themes/common/js/pulse.js[^"]*"></script>%sm', '', $html_str);
+		$html_str = preg_replace('%<script src="//ajax.googleapis.com/ajax/libs/jquery/.*?}\);</script>%sm', '', $html_str);
 		
 		return $html_str;
 	}

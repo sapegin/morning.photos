@@ -27,7 +27,7 @@
 document.documentElement.className += ' is-fullscreen';
 </script>
 
-	<div class="lightbox" <koken:parent>data-component="photo-album"</koken:parent>>
+	<div class="lightbox" <koken:parent>data-component="gallery"</koken:parent>>
 
 		<div class="lightbox__logo logo"><koken:link to="front" class="logo__link">{{ site.title }}</koken:link></div>
 
@@ -57,13 +57,15 @@ document.documentElement.className += ' is-fullscreen';
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_share"></i>
 				</div>
-				<div class="lightbox-pane__popup js-share">Share...</div>
+				<div class="lightbox-pane__popup" <koken:parent>data-component="gallery-share"</koken:parent>>
+					Share...
+				</div>
 			</div>
 			<div class="lightbox__control lightbox-pane">
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_info"></i>
 				</div>
-				<div class="lightbox-pane__popup photo-info js-info">
+				<div class="lightbox-pane__popup photo-info" <koken:parent>data-component="gallery-info"</koken:parent>>
 					<header class="photo-info__header">
 						<h1 class="photo-info__title">
 							<koken:if empty="content.title">
