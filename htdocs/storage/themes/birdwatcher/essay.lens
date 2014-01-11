@@ -22,7 +22,7 @@
 			</h2>
 		</header>
 
-		<div class="essay__content text bw-essay">
+		<div class="essay__content text bw-entry" entry-type="essay">
 			{{ essay.content }}
 		</div>
 

@@ -1,29 +1,39 @@
 <?php
 
-//error_reporting(E_ALL);
-
 class Birdwatcher extends KokenPlugin {
 	function __construct()
 	{
-		$this->register_filter('site.output', 'awesomize');
+		$this->register_filter('api.text', 'filter_text');
+		$this->register_filter('site.output', 'filter_output');
 	}
 
-	function awesomize($html_str)
+	function filter_text($data)
+	{
+		// Entry type: page, essay or essay_excerpt
+		$type = $data['page_type'];
+		if ($type === 'essay' && $this->is_text_list()) {
+			$type .= '_excerpt';
+		}
+
+		// Simple text processing
+		$data['content'] = call_user_func(array($this, "process_html_$type"), $data['content'], $data['url']);
+
+		return $data;
+	}
+
+	function filter_output($html_str)
 	{
 		$html_str = $this->clean_koken($html_str);
 		$html_str = $this->common_typo($html_str);
-
-		require_once 'lib/ganon.php';
-		$html = str_get_dom($html_str);
-		$html = $this->process_page($html);
-		$html = $this->process_essays($html);
-		return (string)$html;
+		$html_str = $this->process_entries($html_str);
+		return $html_str;
 	}
 
 	function clean_koken($html_str)
 	{
-		// Remove Koken shit from page header
+		// Remove Koken’s shit from page header
 		$html_str = preg_replace('%<script src="//ajax.googleapis.com/ajax/libs/jquery/.*?}\);</script>%sm', '', $html_str);
+		$html_str = preg_replace('%<!\-\-\[if IE\]>\s*<script src=".*?/html5shiv.js"></script>\s*<!\[endif\]\-\->%sm', '', $html_str);
 		
 		return $html_str;
 	}
@@ -40,100 +50,30 @@ class Birdwatcher extends KokenPlugin {
 		return $m[1] . $this->typo_process($m[2]) . $m[3];
 	}
 
-	function process_page($html)
-	{
-		foreach ($html('.bw-page') as $page) {
-			$page = $this->process_html($page, 'process_html_page');
-			$page = $this->process_photos($page);
-			$page->removeClass('bw-page');
-		}
-
-		return $html;
-	}
-
-	function process_essays($html)
-	{
-		foreach ($html('.bw-essay-excerpt') as $essay) {
-			$essay = $this->process_essay_excerpt($essay);
-		}
-
-		foreach ($html('.bw-essay') as $essay) {
-			$essay = $this->process_essay($essay);
-		}
-
-		return $html;
-	}
-
-	function process_essay($essay)
-	{
-		$essay = $this->process_html($essay, 'process_html_essay');
-		$essay = $this->process_photos($essay);
-
-		$essay->removeClass('bw-essay');
-
-		return $html;
-	}
-
-	function process_essay_excerpt($essay)
-	{
-		$essay = $this->process_html($essay, 'process_html_essay_excerpt');
-		$essay = $this->process_photos($essay);
-
-		$type = $essay->type;
-		if ($type === 'photo') {
-			// Move first photo before header
-			$first = $essay('.entry-photo', 0);
-			if ($first) {
-				$first->changeParent($essay('.essay__featured', 0));
-			}
-		}
-		
-		$essay->removeClass('bw-essay-excerpt');
-		$essay->deleteAttribute('url');
-		$essay->deleteAttribute('type');
-
-		return $essay;
-	}
-
-	function process_html($entry, $callback)
-	{
-		$html_str = $entry->html();
-
-		$html_str = call_user_func(array($this, $callback), $html_str, $entry);
-
-		// It probably should be setOuterText, but it don't work
-		$entry->setInnerText($html_str);
-		$first = $entry->firstChild(true)->detach(true);
-
-		return $entry;
-	}
-
-	function process_html_page($html_str, $entry)
+	function process_html_page($html_str, $url)
 	{
 		$html_str = $this->typo_process($html_str);
 		return $html_str;
 	}
 
-	function process_html_essay($html_str, $entry)
+	function process_html_essay($html_str, $url)
 	{
-		$html_str = $this->process_lj($html_str, $entry);
+		$html_str = $this->process_lj($html_str);
 		$html_str = $this->typo_process($html_str);
 		return $html_str;
 	}
 
-	function process_html_essay_excerpt($html_str, $entry)
+	function process_html_essay_excerpt($html_str, $url)
 	{
-		$html_str = $this->process_more($html_str, $entry);
+		$html_str = $this->process_more($html_str, $url);
 		$html_str = $this->typo_process($html_str);
-		$html_str = $this->process_lj($html_str, $entry);
+		$html_str = $this->process_lj($html_str);
 		return $html_str;
 	}
 
 	// More tag
-	function process_more($html_str, $entry)
+	function process_more($html_str, $url)
 	{
-		$url = $entry->url;
-
 		$parts = explode('<!--more-->', $html_str);
 		$html_str = $parts[0];
 		if (count($parts) > 1) {
@@ -146,7 +86,7 @@ class Birdwatcher extends KokenPlugin {
 	// LJ tags
 	// <lj user="pavel_kosenko">
 	// <lj comm="hamster_photo">
-	function process_lj($html_str, $entry)
+	function process_lj($html_str)
 	{
 		// <lj user="">: short links
 		$html_str = preg_replace('%\[lj user="([a-z0-9](?:[_a-z0-9]*[a-z0-9]))"\]%e', "'<a href=\"http://'.str_replace('_','-','\\1').'.livejournal.com/\" class=\"lj-link\">\\1</a>'", $html_str);
@@ -161,11 +101,51 @@ class Birdwatcher extends KokenPlugin {
 		return $html_str;
 	}
 
-	function process_photos($content)
+	function process_entries($html_str)
+	{
+		if (strpos($html_str, 'bw-entry') === false) return $html_str;
+
+		require_once 'lib/ganon.php';
+		$doc = str_get_dom($html_str);
+		foreach ($doc('.bw-entry') as $entry) {
+			$type = $entry->getAttribute('entry-type');
+			$entry->removeClass('bw-entry');
+			$entry->deleteAttribute('entry-type');
+
+			$entry = $this->process_photos($entry);
+
+			// Extra processing, if needed for this entry type
+			$func = array($this, "process_$type");
+			if (is_callable($func)) {
+				$entry = call_user_func($func, $entry);
+			}
+		}
+		return (string)$doc;
+	}
+	
+	function process_essay_excerpt($essay)
+	{
+		$essay_type = $essay->type;
+		if ($essay_type === 'photo') {
+			// Move first photo before header
+			$first = $essay('.entry-photo', 0);
+			if ($first) {
+				$first->changeParent($essay('.essay__featured', 0));
+			}
+		}
+		$essay->deleteAttribute('type');
+
+		return $essay;
+	}
+
+	function process_photos($entry)
 	{
 		$ig_wrapper = null;
+		$prev_embed = null;
+		$prev_img = null;
+		$prev_ratio = null;
 
-		foreach ($content('.k-content-embed') as $embed) {
+		foreach ($entry('.k-content-embed') as $embed) {
 			$noscript = $embed('noscript', 0);
 			if ($noscript) {
 				$noscript->delete();
@@ -196,24 +176,51 @@ class Birdwatcher extends KokenPlugin {
 			}
 
 			if ($base) {
+				// Instagram
 				if (strpos($base, 'IG-') !== false) {
-					// Instagram
 					$embed->class = 'entry-instagrams__item';
 					$this->process_img($embed('img', 0), 'entry-instagrams', 'medium');
 
 					// Instagram wrapper
-					if ($this->prev($embed)->class !== 'entry-instagrams') {
-						// First Instargam image in set
+					if ($this->prev($embed)->class !== 'entry-instagrams') {  // First Instargam image in set
 						$ig_wrapper = $embed->wrap('div');
 						$ig_wrapper->class = 'entry-instagrams';
 					}
 					else {
 						$embed->changeParent($ig_wrapper);
 					}
+					$prev_ratio = null;
 				}
+				// Library photo
 				else { 
-					// Library photo
-					$this->process_img($img, 'entry-photo', 'large');
+					$img_size = 'large';
+					$size = $this->get_image_size($img);
+					// Vertical or square
+					if ($size[1] >= $size[0]) {
+						$ratio = $this->get_image_ratio($size);
+						// Same ratio and direct siblings
+						if ($ratio === $prev_ratio && $this->prev($embed) === $prev_embed) {
+							// Place two vertical or square photos of the same ratio in a row
+							$wrapper = $prev_embed->wrap('div');
+							$wrapper->class = 'l-row';
+							$prev_embed->addClass('l-half');
+							$embed->addClass('l-half');
+							$embed->changeParent($wrapper);
+							
+							// Decrease image sizes by one step
+							$img_size = 'medium_large';
+							$prev_img->src = str_replace(',large.', ",$img_size.", $prev_img->src);
+							$prev_img->width = $size[0];
+							$prev_img->height = $size[1];
+
+							$prev_ratio = null;
+						}
+						else {
+							$prev_ratio = $ratio;
+						}
+					}
+
+					$this->process_img($img, 'entry-photo', $img_size);
 
 					$link = $embed('a[href*="/photos/"]', 0);
 					if ($link) {
@@ -223,13 +230,30 @@ class Birdwatcher extends KokenPlugin {
 					}
 				}
 			}
+
+			$prev_embed = $embed;
+			$prev_img = $img;
 		}
 
-		return $content;
+		return $entry;
 	}
 
-	function process_img($img, $block, $size)
+	function get_image_size($img, $preset='medium_large')
 	{
+		$presets = $img->getAttribute('data-presets');
+		$m = null;
+		preg_match("%\b$preset,(\d+),(\d+)%", $presets, $m);
+		return [intval($m[1]), intval($m[2])];
+	}
+
+	function get_image_ratio($sizes)
+	{
+		return round($sizes[0]/$sizes[1]*100) / 100;
+	}
+
+	function process_img($img, $block, $preset)
+	{
+		$size = $this->get_image_size($img, $preset);
 		$base = '';
 		$extension = '';
 		foreach($img->attributes as $attr => $value) {
@@ -246,7 +270,9 @@ class Birdwatcher extends KokenPlugin {
 			}
 			$img->deleteAttribute($attr);
 		}
-		$img->src = "$base$size.$extension";
+		$img->src = "$base$preset.$extension";
+		$img->width = $size[0];
+		$img->height = $size[1];
 		$img->class = "{$block}__photo";
 
 		return $img;
@@ -264,6 +290,14 @@ class Birdwatcher extends KokenPlugin {
 		return null;
 	}
 
+	/**
+	 * Check if we’re on essays list.
+	 */
+	function is_text_list()
+	{
+		return strpos($_SERVER['REQUEST_URI'], '/limit:') !== false;
+	}
+
 	function typo_backup_tags($s)
 	{
 		$this->typo_tags[] = $s[1];
@@ -276,12 +310,13 @@ class Birdwatcher extends KokenPlugin {
 		return array_shift($this->typo_tags);
 	}
 
-	/*
-	 * Обогащение типографики. Кавычки, тире и прочие знаки уже должны быть расставлены.
+	/**
+	 * Typography.
+	 *
+	 * Based on https://github.com/sapegin/wp-typohelper
 	 */
 	function typo_process($s)
 	{
-
 		// Убиваем табуляцию
 		$s = str_replace("\t", '', $s);
 		

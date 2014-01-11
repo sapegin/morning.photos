@@ -4,7 +4,7 @@
 
 <koken:load>
 
-	<div class="content entry-content">
+	<article class="content entry-content">
 
 		<div class="entry-header">
 			<h1 class="entry-title">
@@ -18,71 +18,12 @@
 			</koken:not>
 		</div>
 
-		<div class="entry bw-page" data-component="page">
+		<div class="entry text bw-entry" entry-type="page">
 			{{ page.content }}
 		</div>
 
-	</div>
+	</article>
 
 </koken:load>
 
-
 <koken:include file="inc/footer.html" />
-
-
-<script>
-utils.initComponents({
-	'page': function(elem) {
-		var ratio = function(w, h) {
-			return Math.round(w/h*100) / 100;
-		};
-
-		var photos = $(elem).find('.entry-photo__photo');
-		for (var photoIdx = 0; photoIdx < photos.length; photoIdx++) {
-			photos[photoIdx].onload = function() {
-				var w = this.width, h = this.height;
-				if (h < w) return;
-				var photo = $(this);
-				photo.data('portrait', true);
-
-				var photoRatio = ratio(w, h);
-				var wrapper = photo.closest('.entry-photo');
-				var prevWrapper = wrapper.prev('.entry-photo');
-				var prev = prevWrapper.find('.entry-photo__photo');
-
-				if (prev && prev.data('portrait') && !prev.data('portrait_done')) {
-					var prevRatio = ratio(prev[0].width, prev[0].height);
-					if (photoRatio === prevRatio) {
-						prevWrapper.wrap('<div class="l-row">');
-						prevWrapper.parent().append(wrapper);
-
-						prevWrapper.addClass('l-half');
-						wrapper.addClass('l-half');
-
-						photo.data('portrait_done', true);
-						prev.data('portrait_done', true);
-					}
-				}
-				else {
-					var nextWrapper = wrapper.next('.entry-photo');
-					var next = nextWrapper.find('.entry-photo__photo');
-					if (next && next.data('portrait') && !next.data('portrait_done')) {
-						var nextRatio = ratio(next[0].width, next[0].height);
-						if (photoRatio === nextRatio) {
-							wrapper.wrap('<div class="l-row">');
-							wrapper.parent().append(nextWrapper);
-
-							nextWrapper.addClass('l-half');
-							wrapper.addClass('l-half');
-
-							photo.data('portrait_done', true);
-							next.data('portrait_done', true);
-						}
-					}
-				}
-
-			};
-		}
-	}
-});
-</script>
