@@ -53,25 +53,12 @@
 	</koken:topics>
 	-->
 
-<script>
-function ui(img) {
-	var tempImg = new Image;
-	tempImg.onload = function() {
-		if (this.height < 200) {
-			img.width = img.width;
-			img.src = img.src.replace(',medium.jpg', ',large.jpg');
-		}
-	};
-	tempImg.src = img.src;
-}
-</script>
-
 	<div class="thumbnails">
 		<koken:loop>
 			<div class="thumbnails__item">
 				<koken:content_image>
-					<koken:link class="thumbnail">
-						<img class="thumbnail__img" src="{{ content.presets.medium.url }}" alt="{{ content.title }}" height="200" onload="ui(this)">
+					<koken:link class="thumbnail bw-thumb">
+						<koken:img class="thumbnail__img" alt="{{ content.title }}" />
 					</koken:link>
 				</koken:content_image>
 			</div>

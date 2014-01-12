@@ -1,6 +1,8 @@
 <?php
 
 class Birdwatcher extends KokenPlugin {
+	public $thumb_height = 200;
+
 	function __construct()
 	{
 		$this->register_filter('api.text', 'filter_text');
@@ -26,6 +28,7 @@ class Birdwatcher extends KokenPlugin {
 		$html_str = $this->clean_koken($html_str);
 		$html_str = $this->common_typo($html_str);
 		$html_str = $this->process_entries($html_str);
+		$html_str = $this->process_thumbs($html_str);
 		return $html_str;
 	}
 
@@ -121,6 +124,44 @@ class Birdwatcher extends KokenPlugin {
 			}
 		}
 		return (string)$doc;
+	}
+	
+	function process_thumbs($html_str)
+	{
+		if (strpos($html_str, 'bw-thumb') === false) return $html_str;
+
+		require_once 'lib/ganon.php';
+		$doc = str_get_dom($html_str);
+		foreach ($doc('.bw-thumb') as $thumb) {
+			$thumb->removeClass('bw-thumb');
+			$thumb = $this->process_thumb($thumb);			
+		}
+		return (string)$doc;
+	}
+
+	function process_thumb($thumb)
+	{
+		$noscript = $thumb('noscript', 0);
+		if ($noscript) {
+			$noscript->delete();
+		}
+
+		$img = $thumb('img', 0);
+		if (!$img) continue;
+
+		// Image height should be at least 200px
+		$thumb_size = 'medium';
+		$size = $this->get_image_size($img, $thumb_size);
+		if ($size[1] < $this->thumb_height) {
+			$thumb_size = 'large';
+		}
+
+		// Recalculate width to match 200px height
+		$this->process_img($img, $img->class, $thumb_size);
+		$img->width = $this->thumb_height/$size[1]*$size[0];
+		$img->height = $this->thumb_height;
+
+		return $thumb;
 	}
 	
 	function process_essay_excerpt($essay)
