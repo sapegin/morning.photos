@@ -21,8 +21,8 @@
 			<koken:loop>
 
 				<div class="album-thumbnail">
-					<koken:link class="album-thumbnail__link link">
 						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
+					<koken:link class="album-thumbnail__link link" url="{{ album.canonical_url }}">
 						<h2 class="album-thumbnail__title">
 							<u>{{ album.title }}</u>
 						</h2>
