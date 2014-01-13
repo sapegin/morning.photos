@@ -34,7 +34,7 @@
 									<koken:variable name="album_summary" value="{{ album.summary }}" />
 									<koken:covers>
 										<koken:first>
-											<img src="{{ presets.medium.url }}" alt="{{ page_title }}" height="200" class="album-thumbnail__img">
+											<img src="{{ presets.medium.url }}" alt="{{ page_title }}" width="241" height="161" class="album-thumbnail__img">
 										</koken:first>
 									</koken:covers>
 								</koken:first>
@@ -58,7 +58,7 @@
 
 				<div class="album-thumbnail">
 					<koken:link class="album-thumbnail__link link">
-						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" height="200" class="album-thumbnail__img">
+						<img src="{{ album.covers.first.presets.medium.url }}" alt="{{ album.title }}" width="241" height="161" class="album-thumbnail__img">
 						<h2 class="album-thumbnail__title">
 							<u>{{ album.title }}</u>
 						</h2>
