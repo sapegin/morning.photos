@@ -40,7 +40,7 @@ class Gallery extends Component
 
 		_win.on('popstate', (event) =>
 			m = window.location.href.match(@urlRegExp)
-			id = m[1]?
+			id = m?[1]
 			return  if not id or id is currentId
 			@fotorama.show({index: @idToIndex(id)})
 		)
