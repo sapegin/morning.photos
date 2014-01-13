@@ -158,7 +158,7 @@ class Birdwatcher extends KokenPlugin {
 
 		// Recalculate width to match 200px height
 		$this->process_img($img, $img->class, $thumb_size);
-		$img->width = $this->thumb_height/$size[1]*$size[0];
+		$img->width = round($this->thumb_height/$size[1]*$size[0]);
 		$img->height = $this->thumb_height;
 
 		return $thumb;
