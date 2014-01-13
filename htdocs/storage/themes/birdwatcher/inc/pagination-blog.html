@@ -3,18 +3,10 @@
 
 <div class="pagination">
 
-	<koken:if condition="{{ page }} > 1">
-
-		<koken:link data="previous_page" class="pagination__link link link_quoted">
-			&larr; <u>Назад</u>
-		</koken:link>
-
-	</koken:if>
-
 	<koken:if condition="{{ page }} < {{ pages }}">
 
 		<koken:link data="next_page" class="pagination__link link link_quoted">
-			<u>Вперёд</u> &rarr;
+			&darr; <u>Ранее</u>
 		</koken:link>
 
 	</koken:if>

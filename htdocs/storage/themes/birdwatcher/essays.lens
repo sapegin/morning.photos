@@ -15,7 +15,7 @@
 	</koken:loop>
 
 	<div class="content">
-		<koken:include file="inc/pagination.html" />
+		<koken:include file="inc/pagination-blog.html" />
 	</div>
 
 </koken:load>
