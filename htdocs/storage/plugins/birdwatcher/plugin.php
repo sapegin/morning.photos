@@ -1,7 +1,7 @@
 <?php
 
 class Birdwatcher extends KokenPlugin {
-	public $thumb_height = 200;
+	public $thumb_height = 300;
 
 	function __construct()
 	{
@@ -149,14 +149,14 @@ class Birdwatcher extends KokenPlugin {
 		$img = $thumb('img', 0);
 		if (!$img) continue;
 
-		// Image height should be at least 200px
+		// Image height should be at least 300px
 		$thumb_size = 'medium';
 		$size = $this->get_image_size($img, $thumb_size);
 		if ($size[1] < $this->thumb_height) {
 			$thumb_size = 'large';
 		}
 
-		// Recalculate width to match 200px height
+		// Recalculate width to match 300px height
 		$this->process_img($img, $img->class, $thumb_size);
 		$img->width = round($this->thumb_height/$size[1]*$size[0]);
 		$img->height = $this->thumb_height;
@@ -220,7 +220,7 @@ class Birdwatcher extends KokenPlugin {
 				// Instagram
 				if (strpos($base, 'IG-') !== false) {
 					$embed->class = 'entry-instagrams__item';
-					$this->process_img($embed('img', 0), 'entry-instagrams', 'medium');
+					$this->process_img($embed('img', 0), 'entry-instagrams__photo', 'medium');
 
 					// Instagram wrapper
 					if ($this->prev($embed)->class !== 'entry-instagrams') {  // First Instargam image in set
@@ -261,7 +261,7 @@ class Birdwatcher extends KokenPlugin {
 						}
 					}
 
-					$this->process_img($img, 'entry-photo', $img_size);
+					$this->process_img($img, 'entry-photo__photo', $img_size);
 
 					$link = $embed('a[href*="/photos/"]', 0);
 					if ($link) {
@@ -292,7 +292,7 @@ class Birdwatcher extends KokenPlugin {
 		return round($sizes[0]/$sizes[1]*100) / 100;
 	}
 
-	function process_img($img, $block, $preset)
+	function process_img($img, $class, $preset)
 	{
 		$size = $this->get_image_size($img, $preset);
 		$base = '';
@@ -314,7 +314,7 @@ class Birdwatcher extends KokenPlugin {
 		$img->src = "$base$preset.$extension";
 		$img->width = $size[0];
 		$img->height = $size[1];
-		$img->class = "{$block}__photo";
+		$img->class = $class;
 
 		return $img;
 	}
