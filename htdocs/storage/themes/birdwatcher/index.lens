@@ -9,7 +9,7 @@
 
 		<koken:load>
 
-<koken:include file="inc/shuffle.html" />
+<script><koken:include file="build/inlines/shuffle.js" /></script>
 <script>
 var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url }}'}</koken:loop>]);
 (new Image).src = __photos[0].img;

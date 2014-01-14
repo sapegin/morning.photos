@@ -1,4 +1,3 @@
-<script>
 // http://bost.ocks.org/mike/shuffle/
 function shuffle(a) {
 	var m = a.length;
@@ -10,4 +9,3 @@ function shuffle(a) {
 	}
 	return a;
 }
-</script>

@@ -58,13 +58,21 @@ module.exports = (grunt) ->
 				dest: 'build/scripts.js'
 		uglify:
 			options:
-				banner: '<%= banner %>'
 				compress:
 					global_defs:
 						DEBUG: debug
 			main:
+				options:
+					banner: '<%= banner %>'
 				files:
 					'<%= concat.main.dest %>': '<%= concat.main.dest %>'
+			inlines:
+				files: [
+					expand: true
+					cwd: 'js/inlines/'
+					src: '*.js'
+					dest: 'build/inlines/'
+				]
 		stylus:
 			options:
 				'include css': true
@@ -104,6 +112,7 @@ module.exports = (grunt) ->
 				files: [
 					'<%= concat.main.dest %>'
 					'build/styles.css'
+					'build/inlines/*.js'
 				]
 			dot:
 				options:
@@ -123,6 +132,13 @@ module.exports = (grunt) ->
 					'<%= dot.main.dest %>'
 				]
 				tasks: ['concat']
+			inlines:
+				options:
+					atBegin: true
+				files: [
+					'js/inlines/*.js'
+				]
+				tasks: ['uglify:inlines']
 			stylus:
 				options:
 					atBegin: true
