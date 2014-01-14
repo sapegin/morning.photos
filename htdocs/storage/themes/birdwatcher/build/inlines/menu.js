@@ -1,0 +1,1 @@
+!function(){if(document.querySelector){var a=document.querySelector(".k-nav-current");if(a&&a.href===location.origin+location.pathname){var b=document.createElement("span");b.className="k-nav-current",b.innerHTML=a.innerHTML,a.parentNode.replaceChild(b,a)}}}();
