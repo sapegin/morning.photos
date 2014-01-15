@@ -49,7 +49,7 @@
       return _win.on('popstate', function(event) {
         var id, m;
         m = window.location.href.match(_this.urlRegExp);
-        id = m[1] != null;
+        id = m != null ? m[1] : void 0;
         if (!id || id === currentId) {
           return;
         }
