@@ -143,7 +143,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 	a:active,
 	a:focus {
 		font-size:normal_font;
-		color:base-color;
+		color:base_color;
 	}
 
 	.k-nav-current {
@@ -684,16 +684,25 @@ lightbox-button-glow() {
 
 	&__rating {
 		position:relative;
-		height:14px;
-		line-height:1;
+
+		&,
+		&:before,
+		i,
+		i:before,
+		i:after {
+			height:1.2em;
+			line-height:1;
+			vertical-align:top;
+			font-size:17px;
+			font-style:normal;
+			letter-spacing:.2ex;
+		}
 
 		&:before,
 		i {
 			position:absolute;
 			left:0;
 			top:0;
-			font-size:13px;
-			font-style:normal;
 		}
 
 		&:before {
@@ -701,7 +710,7 @@ lightbox-button-glow() {
 			color:rgba(base_color,.25);
 		}
 		i {
-			color:base-color;
+			color:base_color;
 		}
 		&:before,
 		&_5 i:before {
