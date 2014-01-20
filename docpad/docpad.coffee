@@ -11,6 +11,10 @@ docpadConfig = {
 
 	templateData:
 
+		books: (YAML.load 'src/books.yml')
+		booksPubDate: (fs.statSync 'src/books.yml').mtime
+		quotes: (YAML.load 'src/quotes.yml')
+
 		tags:
 			best: 'Лучшие'
 			good: 'Хорошие'
@@ -65,11 +69,6 @@ docpadConfig = {
 
 	events:
 		generateBefore: (opts) ->
-			filename = 'src/books.yml'
-			config = @docpad.getConfig().templateData
-			config.books = (YAML.load filename)
-			config.booksPubDate = (fs.statSync filename).mtime
-			config.quotes = (YAML.load 'src/quotes.yml')
 			moment.lang 'ru'
 
 }

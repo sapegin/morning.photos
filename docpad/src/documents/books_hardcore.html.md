@@ -1,3 +1,3 @@
 ---
-layout: books_hardcore
+layout: _books_hardcore
 ---
