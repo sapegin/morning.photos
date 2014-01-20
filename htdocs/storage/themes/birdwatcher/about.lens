@@ -4,6 +4,14 @@
 
 <koken:head>
 	<title>Фотограф Артём Сапегин: кто такой и чем снимает</title>
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:title" content="Фотограф Артём Сапегин: кто такой и чем снимает" />
+	<meta property="og:description" content="Моё увлечение фотографией началось совершенно случайно в 2004 году с покупки простой плёночной зеркалки. Почему-то я тогда захотел купить камеру и даже чуть не купил цифровую мыльницу, но решил, что зеркалка всё-таки круче. С тех пор не отпускает." />
+	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@{{ profile.twitter }}" />
+	<meta name="twitter:creator" content="@{{ profile.twitter }}" />
 </koken:head>
 
 <div class="about-splash">

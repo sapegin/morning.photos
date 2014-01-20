@@ -122,7 +122,9 @@ document.documentElement.className += ' is-fullscreen';
 		<div class="lightbox__meta">
 			<koken:tags>
 				<p>
-					<koken:loop separator=", ">{{ tag.title }}</koken:loop>
+					<koken:loop separator=", ">
+						<koken:link>{{ tag.title }}</koken:link>
+					</koken:loop>
 				</p>
 			</koken:tags>
 		</div>

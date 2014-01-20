@@ -1,112 +1,41 @@
 <koken:include file="inc/header.html" />
+<body class="page page_album">
+<koken:include file="inc/page-header.html" />
 
-<div id="content">
-
-	<!-- Load this template's source data (contents) and limit for pagination -->
-	<koken:load limit="50">
-
-		<h3>
-			<!-- Displays the type of archive (Tag, Date, Category) plus the archive's title and a link to view all content -->
-			<koken:link to="contents">Content</koken:link> / View by {{ archive.type.plural }} / {{ archive.title }}
-		</h3>
-
-		<div class="lcol">
-
-			<!-- Loop over loaded archival data and render content with each pass -->
+<koken:load limit="4">
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="Фотографии с тегом «{{ archive.title }}»" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		<koken:first>
+			<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		</koken:first>
+		<koken:not empty="profile.twitter">
+			<meta name="twitter:card" content="gallery" />
+			<meta name="twitter:site" content="@{{ profile.twitter }}" />
+			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
 			<koken:loop>
-
-				<!-- wrapper used for keyboard navigation targetting -->
-				<div class="item">
-
-					<!-- Display each item's title, fallback to file name if empty, link to content.lens -->
-					<h2>
-						<koken:link title="View {{ content.filename }}">
-							{{ content.title | content.filename }}
-						</koken:link>
-					</h2>
-
-					<!-- Displayed if the asset is an image -->
-					<koken:content_image>
-
-						<!-- Display image title, fallback to file name if empty, link to content.lens -->
-						<koken:link title="View {{ content.filename }}">
-							<koken:img />
-						</koken:link>
-
-					</koken:content_image>
-
-					<!-- Displayed if the asset is a video -->
-					<koken:content_video>
-
-						<!-- Load the video -->
-						<koken:video />
-
-					</koken:content_video>
-
-					<p>
-						{{ content.caption }}
-					</p>
-
-					<p>
-						<strong>Uploaded:</strong> {{ content.uploaded_on }}
-					</p>
-
-				</div>
-
+				<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
 			</koken:loop>
+		</koken:not>
+	</koken:head>
+</koken:load>
 
-			<!-- Display pagination links -->
-			<p>
-				<koken:include file="inc/pagination.html" />
-			</p>
 
-		</div> <!-- close .lcol -->
+<koken:load limit="50">
 
-		<div class="rcol">
+	<div class="entry-header">
+		<h1 class="entry-title">
+			Фотографии с тегом «{{ archive.title }}»
+		</h1>
+	</div>
 
-			<!-- Links to content archived by date, categories and tags -->
-			<koken:load source="archives" summary="true" limit_to="content">
-				<h3>View content by date</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }}&nbsp;({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
+	<koken:include file="inc/thumbnails.html" />
+	<koken:include file="inc/pagination.html" />
 
-			<koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
-				<h3>View content by category</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }}&nbsp;({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
-
-			<koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
-				<h3>View content by tag</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }}&nbsp;({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
-
-		</div> <!-- close .rcol -->
-
-		<!-- Fallback content if no data was loaded by koken:load -->
-		<koken:else>
-
-			Nothing loaded
-
-	</koken:load>
-
-</div> <!-- close #content -->
-
-<!-- Turn on keyboard scrolling (left/right arrow keys) for items -->
-<koken:keyboard_scroll element="div.item" />
+</koken:load>
 
 <koken:include file="inc/footer.html" />

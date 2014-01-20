@@ -9,6 +9,28 @@
 
 		<koken:load>
 
+			<koken:head>
+				<title>{{ site.title }} — пейзаж, городской пейзаж, путешествия, тревел, природа, собаки, фото</title>
+				<meta property="og:site_name" content="{{ site.title }}" />
+				<meta property="og:title" content="{{ site.title }}" />
+				<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="{{ location.site_url }}" />
+				<koken:first>
+					<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+					<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+					<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+				</koken:first>
+				<koken:not empty="profile.twitter">
+					<meta name="twitter:card" content="gallery" />
+					<meta name="twitter:site" content="@{{ profile.twitter }}" />
+					<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+					<koken:loop limit="4">
+						<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+					</koken:loop>
+				</koken:not>
+			</koken:head>
+
 <script><koken:include file="build/inlines/shuffle.js" /></script>
 <script>
 var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url }}'}</koken:loop>]);

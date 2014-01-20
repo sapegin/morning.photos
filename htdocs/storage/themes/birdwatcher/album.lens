@@ -6,15 +6,17 @@
 
 	<koken:head>
 		<meta property="og:site_name" content="{{ site.title }}" />
-		<meta property="og:title" content="{{ album.title strip_html="true" }}" />
-		<meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+		<meta property="og:title" content="{{ album.title strip_html='true' }}" />
+		<meta property="og:description" content="{{ album.summary | album.description strip_html='true' }}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="{{ album.url }}" />
-		<koken:covers><koken:shift>
-		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
-		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
-		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
-		</koken:shift></koken:covers>
+		<koken:covers>
+			<koken:shift>
+				<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+				<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+				<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+			</koken:shift>
+		</koken:covers>
 		<koken:not empty="profile.twitter">
 			<meta name="twitter:card" content="gallery" />
 			<meta name="twitter:site" content="@{{ profile.twitter }}" />
@@ -53,23 +55,8 @@
 	</koken:topics>
 	-->
 
-	<div class="thumbnails js-thumbs">
-		<koken:loop>
-			<div class="thumbnails__item bw-thumb">
-				<koken:content_image>
-					<koken:link class="thumbnail">
-						<koken:img class="thumbnail__img thumbnails__item-img js-img" alt="{{ content.title }}" />
-					</koken:link>
-				</koken:content_image>
-			</div>
-		</koken:loop>
-	</div>
-
-	<script><koken:include file="build/inlines/album.js" /></script>
-
-	<p>
-		<koken:include file="inc/pagination.html" />
-	</p>
+	<koken:include file="inc/thumbnails.html" />
+	<koken:include file="inc/pagination.html" />
 
 </koken:load>
 

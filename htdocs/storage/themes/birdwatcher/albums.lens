@@ -2,21 +2,48 @@
 <body class="page page_portfolio">
 <koken:include file="inc/page-header.html" />
 
-<koken:head>
-<title>Фотографии — {{ site.title }}</title>
-</koken:head>
+<koken:load source="albums" filter:tags="portfolio">
 
-<div class="content">
+	<koken:head>
+		<title>Фотографии — {{ site.title }}</title>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="Фотографии" />
+		<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+		<meta property="og:type" content="website" />
+		<koken:first>
+			<koken:covers>
+				<koken:first>
+					<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+					<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+					<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+				</koken:first>
+			</koken:covers>
+		</koken:first>
+		<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		<koken:not empty="profile.twitter">
+			<meta name="twitter:card" content="gallery" />
+			<meta name="twitter:site" content="@{{ profile.twitter }}" />
+			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			<koken:loop limit="4">
+				<koken:variable name="photo_index" value="{{ index }}" />
+				<koken:covers>
+					<koken:shift>
+						<meta name="twitter:image{{ photo_index }}" content="{{ content.presets.medium_large.cropped.url }}">
+					</koken:shift>
+				</koken:covers>
+			</koken:loop>
+		</koken:not>
+	</koken:head>
 
-	<div class="entry-header">
-		<h1 class="entry-title">
-			Фотографии
-		</h1>
-	</div>
+	<div class="content">
 
-	<div class="albums">
+		<div class="entry-header">
+			<h1 class="entry-title">
+				Фотографии
+			</h1>
+		</div>
 
-		<koken:load source="albums" filter:tags="portfolio">
+		<div class="albums">
 
 			<koken:loop>
 
@@ -31,9 +58,9 @@
 
 			</koken:loop>
 
-		</koken:load>
-
+		</div>
 	</div>
-</div>
+
+</koken:load>
 
 <koken:include file="inc/footer.html" />

@@ -1,0 +1,13 @@
+<div class="thumbnails js-thumbs">
+	<koken:loop>
+		<div class="thumbnails__item bw-thumb">
+			<koken:content_image>
+				<koken:link class="thumbnail">
+					<koken:img class="thumbnail__img thumbnails__item-img js-img" alt="{{ content.title }}" />
+				</koken:link>
+			</koken:content_image>
+		</div>
+	</koken:loop>
+</div>
+
+<script><koken:include file="build/inlines/album.js" /></script>

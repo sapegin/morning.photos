@@ -3,7 +3,14 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-<title>Фотография где, или уголок фотоонаниста — цитаты с фотофорумов и фотографических сообществ — {{ site.title }}</title>
+	<title>Фотография где, или уголок фотоонаниста — цитаты с фотофорумов и фотографических сообществ — {{ site.title }}</title>
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:title" content="Фотография где, или уголок фотоонаниста: цитаты с фотофорумов и фотографических сообществ" />
+	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@{{ profile.twitter }}" />
+	<meta name="twitter:creator" content="@{{ profile.twitter }}" />
 </koken:head>
 
 
