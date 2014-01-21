@@ -153,5 +153,5 @@ module.exports = (grunt) ->
 				tasks: ['stylus']
 
 	grunt.registerTask 'docpad', ['shell:docpad']
-	grunt.registerTask 'default', ['stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
+	grunt.registerTask 'default', ['webfont', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
 	grunt.registerTask 'deploy', ['stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
