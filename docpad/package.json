@@ -1,15 +1,14 @@
 {
   "name": "birdwatcher",
   "version": "0.0.0",
-  "dependencies": {
+  "private": true,
+  "devDependencies": {
+    "docpad": "~6.60.3",
     "docpad-plugin-eco": "~2.0.3",
     "yamljs": "~0.1.4",
     "marked": "~0.3.0",
     "richtypo": "~0.1.8",
     "moment": "~2.5.0",
     "docpad-plugin-marked": "~2.2.0"
-  },
-  "devDependencies": {
-    "docpad": "~6.60.3"
   }
 }

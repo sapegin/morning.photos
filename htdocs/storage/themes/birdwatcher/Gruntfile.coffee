@@ -105,6 +105,13 @@ module.exports = (grunt) ->
 					stylesheet: 'styl'
 				src: 'icons/*.svg'
 				dest: 'build/fonts'
+		shell:
+			docpad:
+				options:
+					stdout: true
+					execOptions:
+						cwd: '../../../../docpad'
+				command: 'node_modules/.bin/docpad generate --silent'
 		watch:
 			livereload:
 				options:
@@ -145,5 +152,5 @@ module.exports = (grunt) ->
 				files: 'styles/**/*'
 				tasks: ['stylus']
 
+	grunt.registerTask 'docpad', ['shell:docpad']
 	grunt.registerTask 'default', ['stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
-	grunt.registerTask 'default', ['stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
