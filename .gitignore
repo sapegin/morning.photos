@@ -8,6 +8,10 @@ htdocs/storage/originals
 htdocs/storage/tmp
 htdocs/storage/wallpaper
 htdocs/storage/custom
+htdocs/storage/themes/birdwatcher/build/*.js
+htdocs/storage/themes/birdwatcher/build/inlines/*.js
+htdocs/storage/themes/birdwatcher/build/*.css
+htdocs/storage/themes/birdwatcher/build/*.png
 api.php
 dl.php
 i.php
