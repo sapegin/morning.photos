@@ -93,12 +93,12 @@
 
 - id: lightroom3
   author: Nat Coalson
-  title: Lightroom 3: Streamlining Your Digital Photography Process
-  year: 2010, LR4: 2012
-  link: http://www.amazon.com/Lightroom-Streamlining-Digital-Photography-Photoshop/dp/1118206177/
+  title: Lightroom 5: Streamlining Your Digital Photography Process
+  year: 2010, LR4: 2012, LR5: 2013
+  link: http://www.amazon.com/Lightroom-Streamlining-Digital-Photography-Process-ebook/dp/B00E5ZITCW/
   rating: 4.5
   tags: [english]
-  text: Если вы думаете, что хорошо знаете Лайтрум, то ошибаетесь; и эта книга объяснит вам почему. Уже вышло обновление про Lightroom 4.
+  text: Если вы думаете, что хорошо знаете Лайтрум, то ошибаетесь, и эта книга объяснит вам, почему. Я читал издание про третью версию, последнее — про пятую.
 
 - id: visionvoice
   author: David duChemin
@@ -255,7 +255,7 @@
   link: http://www.amazon.com/gp/product/1933952067/
   rating: 5
   tags: [english]
-  text: Книга <a href="http://www.beautiful-landscape.com/">Алана Бриота</a> началась как <a href="http://www.luminous-landscape.com/columns/briots_view.shtml">серия эссе</a> на сайте Luminous Landscape. Эссе на разные темы (от выбора фокусного расстояния и отличий изображения на матрице от реальности до композиции и продажи фотографий) были дополнены новыми главами и отличными фотографиями автора. Отличная книга о языке фотографии на примере пейзажа.
+  text: Книга [Алана Бриота](http://www.beautiful-landscape.com/) началась как [серия эссе](http://www.luminous-landscape.com/columns/briots_view.shtml) на сайте Luminous Landscape. Эссе на разные темы (от выбора фокусного расстояния и отличий изображения на матрице от реальности до композиции и продажи фотографий) были дополнены новыми главами и отличными фотографиями автора. Отличная книга о языке фотографии на примере пейзажа.
 
 - id: bresson
   author: Анри Картье-Брессон
@@ -339,7 +339,7 @@
 - id: filters
   author: Ли Фрост
   title: Светофильтры в фотографии
-  year: 0
+  year: 2005
   link: http://www.ozon.ru/context/detail/id/2579209/
   rating: 4
   tags: [english, russian]
@@ -370,7 +370,7 @@
 - id: rozov
   author: Георгий Розов
   title: Как снимать: искусство фотографии
-  year: 0
+  year: 2006
   link: http://www.ozon.ru/context/detail/id/5422603/
   rating: 4
   tags: [russian]
@@ -392,7 +392,7 @@
 - id: panoramic
   author: Ли Фрост
   title: Панорамная фотография
-  year: 0
+  year: 2005
   link: http://www.ozon.ru/context/detail/id/2392172/
   rating: 4
   tags: [english, russian]
