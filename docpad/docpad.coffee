@@ -50,7 +50,9 @@ docpadConfig = {
 
 		# Markdown
 		md: (s) ->
-			s and (marked s)
+			s and ((marked s)
+				.replace(/«<a([^>]+>)([^<]*)(<\/a>)»/g, '<a class="link_quoted"$1«<u>$2</u>»$3')  # Tweak quoted links
+				)
 
 		# Markdown string
 		mds: (s) ->
