@@ -4,6 +4,7 @@ path='sites/beta.birdwatcher.ru'
 [deploy]
 git checkout master
 git pull
-#cd htdocs/storage/themes/birdwatcher/
-#npm install
-#node -e "require('grunt').cli()" _ deploy
+cd htdocs/storage/themes/birdwatcher/
+npm install
+node_modules/.bin/bower install
+node -e "require('grunt').cli()" _ deploy
