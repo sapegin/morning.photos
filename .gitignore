@@ -2,12 +2,14 @@ node_modules
 bower_components
 admin
 app
+htdocs/files
 htdocs/storage/cache
 htdocs/storage/configuration
 htdocs/storage/originals
 htdocs/storage/tmp
 htdocs/storage/wallpaper
 htdocs/storage/custom
+htdocs/storage/themes/birdwatcher/info.json
 htdocs/storage/themes/birdwatcher/build/*.js
 htdocs/storage/themes/birdwatcher/build/inlines/*.js
 htdocs/storage/themes/birdwatcher/build/*.css
@@ -18,5 +20,4 @@ i.php
 index.php
 preview.php
 .htaccess
-/htdocs/files
 .docpad.db
