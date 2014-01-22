@@ -33,6 +33,7 @@
         nav: false,
         keyboard: true,
         transition: 'crossfade',
+        width: '100%',
         height: this.gallery.height()
       });
       this.fotorama = this.gallery.data('fotorama');
@@ -61,7 +62,6 @@
 
     Gallery.prototype.update = function() {
       var frame, permalink;
-      this.addState('activated');
       frame = this.fotorama.activeFrame;
       frame.title = frame.info.title || '***';
       permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");

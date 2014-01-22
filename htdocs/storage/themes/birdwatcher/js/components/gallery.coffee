@@ -24,6 +24,7 @@ class Gallery extends Component
 			nav: false
 			keyboard: true
 			transition: 'crossfade'
+			width: '100%'
 			height: @gallery.height()
 		})
 
@@ -46,7 +47,6 @@ class Gallery extends Component
 		)
 
 	update: ->
-		@addState('activated')
 		frame = @fotorama.activeFrame
 		frame.title = frame.info.title or '***'
 
