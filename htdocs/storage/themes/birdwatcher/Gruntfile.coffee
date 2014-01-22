@@ -90,6 +90,15 @@ module.exports = (grunt) ->
 			compile:
 				files:
 					'build/styles.css': 'styles/index.styl'
+		fingerprint:
+			assets:
+				src: [
+					'build/scripts.js'
+					'build/modernizr.js'
+					'build/styles.css'
+				]
+				filename: 'info.json',
+				template: grunt.file.read('templates/info.json')
 		copy:
 			main:
 				files: [
@@ -153,5 +162,5 @@ module.exports = (grunt) ->
 				tasks: ['stylus']
 
 	grunt.registerTask 'docpad', ['shell:docpad']
-	grunt.registerTask 'default', ['webfont', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
-	grunt.registerTask 'deploy', ['stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy']
+	grunt.registerTask 'default', ['webfont', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy', 'fingerprint']
+	grunt.registerTask 'deploy', ['stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy', 'fingerprint']

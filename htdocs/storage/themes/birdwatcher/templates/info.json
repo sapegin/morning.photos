@@ -1,7 +1,7 @@
 {
 	"name": "Birdwatcher",
-	"version": "0.0.0",
-	"description": "Bare bones theme for theme developers learning the ropes. Nothing fancy, just data.",
+	"version": "<%= fingerprint %>",
+	"description": "Birdwatcher.ru theme.",
 	"demo": "http://birdwatcher.ru",
 	"author": {
 		"name": "Artem Sapegin",
