@@ -198,7 +198,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 
-lightbox_button_width = 60px;
+lightbox_button_width = 50px;
 lightbox_button_height = 40px;
 header_height = 40px;
 
@@ -283,24 +283,23 @@ lightbox-button-glow() {
 		lightbox-button-transition();
 		position:absolute;
 		left:0;
-		bottom:spacer;
+		bottom:0;
 	}
 
 	&__arrow {
 		position:absolute;
 		top:50%;
 		margin-top:(-(lightbox_button_height/2));
+		text-align:center;
 
 		&_left {
 			left:0;
 		}
 		&_right {
 			right:0;
-			text-align:right;
 		}
 		.icon {
-			margin-top:.5em;
-			font-size:34px;
+			font-size:35px;
 		}
 	}
 
@@ -310,7 +309,7 @@ lightbox-button-glow() {
 		right:0;
 		width:50px;
 		.icon {
-			margin-top:.65em;
+			margin-top:.15em;
 			font-size:17px;
 		}
 	}
@@ -346,10 +345,14 @@ lightbox-button-glow() {
 
 .lightbox-pane {
 	&__button {
+		text-align:center;
 		cursor:default;
 
 		.icon {
-			font-size:10px;
+			font-size:20px;
+		}
+		.icon_info {
+			margin-left:-.5ex;
 		}
 	}
 
@@ -357,7 +360,7 @@ lightbox-button-glow() {
 		display:none;
 		position:absolute;
 		left:lightbox_button_width;
-		bottom:(-(spacer));
+		bottom:0;
 		padding:spacer;
 		background:bg_color;
 	}
