@@ -554,6 +554,26 @@ lightbox-button-glow() {
 	}
 }
 
+.entry-tip {
+	position:relative;
+	font-size:small_font;
+
+	&:before {
+		content:"\261e";
+		position:absolute;
+		top:-.25em;
+		left:-(1em + .3em);
+		width:1em;
+		text-align:right;
+		font-size:23px;
+	}
+}
+
+.entry-figure-right {
+	float:right;
+	margin-left:grid_gutter;
+}
+
 
 .essay {
 	space(6);
