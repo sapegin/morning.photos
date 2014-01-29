@@ -50,9 +50,9 @@
 					<li class="about-links__item"><a href="http://twitter.com/sapegin">Твитер</a></li>
 				</ul>
 
-				<!--ul class="about-links">
+				<ul class="about-links">
 					<li class="about-links__item"><a href="/buy/">Купить мои фотографии</a></li>
-				</ul-->
+				</ul>
 
 			</div>
 
@@ -134,9 +134,9 @@
 
 		</div>
 
-		<div class="about-site">О сайте: сайт работает на <a href="http://koken.me/" title="Лучший движок для фотогалереи и блога">Кокене</a>, <a href="http://fotorama.io/" title="Лучшая галерея на Яваскрипте">Фотораме</a> и <a href="http://sapegin.github.io/tamia/" title="Мой фронтенд-фреймворк">Тамии</a>; иконки нарисовал <a href="http://genn.org/">Гена Осипенко</a>.</div>
+		<div class="about-site">О сайте: сайт работает на <a href="http://koken.me/" title="Лучший движок для фотогалереи и блога">Кокене</a>, <a href="http://fotorama.io/" title="Лучшая галерея на Яваскрипте">Фотораме</a> и <a href="http://sapegin.github.io/tamia/" title="Мой фронтенд-фреймворк">Тамии</a>; иконки нарисовал <a href="http://genn.org/">Гена Осипенко</a>; хостинг — <a href="https://www.digitalocean.com/?refcode=bb49cbe65bb4" title="Хороший и недорогой VPS">Диджиталоушен</a>.</div>
 
-		<div class="about-copyrights">Фотографии на этой странице: <a href="https://www.facebook.com/oflegontova">Ольга Флегонтова</a>, <a href="http://vk.com/glazyrina.svetlana">Света Глазырина</a>, <a href="http://koobassoff.deviantart.com/">Сергей Кубасов</a>, <a href="http://svetlyak.ru/">Александр Артёменко</a>, <a href="http://www.fourlittlepaws.com/">Юля Титовец</a>, <a href="http://zudochk.in/">Дима Зудочкин</a>.</div>
+		<div class="about-copyrights">Фотографии на этой странице: <a href="https://www.facebook.com/oflegontova">Ольга Флегонтова</a>, <a href="http://vk.com/glazyrina.svetlana">Света Глазырина</a>, <a href="http://koobassoff.deviantart.com/gallery/">Сергей Кубасов</a>, <a href="http://svetlyak.ru/">Александр Артёменко</a>, <a href="http://www.fourlittlepaws.com/">Юля Титовец</a>, <a href="http://zudochk.in/">Дима Зудочкин</a>.</div>
 
 	</div>
 </div>

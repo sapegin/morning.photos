@@ -112,7 +112,7 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 						<ul class="articles-list__list">
 
 							<li class="articles-list__item"><a href="/about/" class="link">Обо мне</a></li>
-							<li class="articles-list__item"><a href="/buy/" class="link">Как купить мои фотографии</a></li>
+							<li class="articles-list__item"><a href="/buy/" class="link">Купить мои фотографии</a></li>
 
 						</ul>
 
