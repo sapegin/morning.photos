@@ -36,30 +36,11 @@
 				<a href="/funquotes/" class="link">Фотография где</a>
 				<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
 			</li>
-
-		</ul>
-	</div>
-
-	<div class="articles-list">
-
-		<h2 class="articles-list__title">Фотобанки, продажа фотографий через интернет</h2>
-
-		<ul class="articles-list__list">
 			<li class="articles-list__item">
-				<a href="#" class="link">Фотобанки</a>
-				<div class="articles-list__description">Что такое фотобанки, какие они бывают</div>
+				<a href="/pages/microstocks/" class="link">Микростоки</a>
+				<div class="articles-list__description">Как продавать фотографии в интернете</div>
 			</li>
-			<li class="articles-list__item">
-				<a href="#" class="link">Микростоки</a>
-				<div class="articles-list__description">Как работать с микростоками, описание основных сайтов</div>
-			</li>
-			<li class="articles-list__item">
-				<a href="#" class="link">Сводная таблица микростоков</a>
-				<div class="articles-list__description">Подробная информация об основных микростоках</div>
-			</li>
-			<li class="articles-list__item">
-				<a href="#" class="link">Околостоковые ссылки</a>
-			</li>
+
 		</ul>
 
 	</div>
