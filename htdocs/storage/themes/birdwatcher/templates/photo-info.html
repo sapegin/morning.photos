@@ -9,6 +9,14 @@
 	{{? it.location}}{{=it.location}}, {{?}}{{=it.pubdate}}, {{=it.exif}}
 </div>
 
+{{? it.tags.length}}
+	<div class="photo-info__tags">
+		{{ for (var tagIdx = 0; tagIdx < it.tags.length; tagIdx++) { }}
+			<a href="/photos/tags/{{!it.tags[tagIdx].replace(/ /g,'+')}}">{{=it.tags[tagIdx]}}</a>{{? tagIdx<=it.tags.length}}, {{?}}
+		{{ } }}
+	</div>
+{{?}}
+
 {{? it.copyright}}
 	<div class="photo-info__copyright">
 		© {{=it.copyright}}

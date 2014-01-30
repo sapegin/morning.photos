@@ -65,7 +65,7 @@ document.documentElement.className += ' is-fullscreen';
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_info"></i>
 				</div>
-				<div class="lightbox-pane__popup photo-info" <koken:parent>data-component="gallery-info"</koken:parent>>
+				<div class="lightbox-pane__popup photo-info text" <koken:parent>data-component="gallery-info"</koken:parent>>
 					<header class="photo-info__header">
 						<h1 class="photo-info__title">
 							<koken:if empty="content.title">
@@ -108,6 +108,14 @@ document.documentElement.className += ' is-fullscreen';
 						</koken:exif>
 					</div>
 
+					<koken:tags>
+						<div class="photo-info__tags">
+							<koken:loop separator=", ">
+								<koken:link>{{ tag.title }}</koken:link>
+							</koken:loop>
+						</div>
+					</koken:tags>
+
 					<koken:iptc>
 						<koken:if condition="{{ iptc.byline }} != {{ profile.name }}">
 							<div class="photo-info__copyright">
@@ -117,16 +125,6 @@ document.documentElement.className += ' is-fullscreen';
 					</koken:iptc>
 				</div>
 			</div>
-		</div>
-
-		<div class="lightbox__meta">
-			<koken:tags>
-				<p>
-					<koken:loop separator=", ">
-						<koken:link>{{ tag.title }}</koken:link>
-					</koken:loop>
-				</p>
-			</koken:tags>
 		</div>
 
 	</div>
@@ -139,6 +137,7 @@ var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},
 	location: '<koken:iptc><koken:not empty="iptc.city">{{ iptc.city }}<koken:not empty="iptc.country">, </koken:not></koken:not><koken:not empty="iptc.country">{{ iptc.country }}</koken:not></koken:iptc>',
+	tags: [<koken:tags><koken:loop separator=", ">'{{ tag.title strip_html="true" }}'</koken:loop></koken:tags>],
 	exif: '<koken:exif><koken:not empty="exif.exposure">{{ exif.exposure }},</koken:not> <koken:not empty="exif.aperture">{{ exif.aperture }},</koken:not> <koken:not empty="exif.focal_length">{{ exif.focal_length }},</koken:not> <koken:not empty="exif.iso_speed_ratings">{{ exif.iso_speed_ratings }}</koken:not></koken:exif>',
 	copyright: '<koken:iptc><koken:if condition="{{ iptc.byline }} != {{ profile.name }}">{{ iptc.byline }}</koken:if></koken:iptc>'
 }</koken:loop>];

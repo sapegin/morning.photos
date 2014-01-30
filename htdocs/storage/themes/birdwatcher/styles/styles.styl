@@ -337,10 +337,6 @@ lightbox-button-glow() {
 	&:hover &__close {
 		opacity:1;
 	}
-
-	&__meta {
-		display:none;
-	}
 }
 
 .lightbox-pane {
@@ -391,8 +387,14 @@ lightbox-button-glow() {
 	}
 
 	&__meta,
+	&__tags,
 	&__copyright {
+		space();
 		font-size:small_font;
+
+		&:last-child {
+			margin-bottom:0;
+		}
 	}
 }
 
