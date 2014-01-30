@@ -12,7 +12,7 @@
 {{? it.tags.length}}
 	<div class="photo-info__tags">
 		{{ for (var tagIdx = 0; tagIdx < it.tags.length; tagIdx++) { }}
-			<a href="/photos/tags/{{!it.tags[tagIdx].replace(/ /g,'+')}}">{{=it.tags[tagIdx]}}</a>{{? tagIdx<it.tags.length-1}}, {{?}}
+			<a href="/photos/tags/{{!it.tags[tagIdx].replace(/ /g,'+')}}/">{{=it.tags[tagIdx]}}</a>{{? tagIdx<it.tags.length-1}}, {{?}}
 		{{ } }}
 	</div>
 {{?}}
