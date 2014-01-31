@@ -34,7 +34,8 @@
 
 		var rowWidth = 0;
 		var elems = [];
-		for (var photoIdx = 0, elemsCnt = allElems.length; photoIdx < elemsCnt; photoIdx++) {
+		var photoIdx;
+		for (photoIdx = 0, elemsCnt = allElems.length; photoIdx < elemsCnt; photoIdx++) {
 			var photo = allElems[photoIdx];
 
 			elems.push(photo);
@@ -49,7 +50,7 @@
 		}
 
 		// Set original sizes for last (not full) row
-		for (var photoIdx = 0, elemsCnt = elems.length; photoIdx < elemsCnt; photoIdx++) {
+		for (photoIdx = 0, elemsCnt = elems.length; photoIdx < elemsCnt; photoIdx++) {
 			var photo = elems[photoIdx];
 			var img = photo.img;
 			img.width = photo.w;
