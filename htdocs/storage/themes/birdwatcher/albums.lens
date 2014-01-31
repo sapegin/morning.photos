@@ -2,7 +2,7 @@
 <body class="page page_portfolio">
 <koken:include file="inc/page-header.html" />
 
-<koken:load source="albums" filter:tags="portfolio">
+<koken:load limit="4" source="albums" filter:tags="portfolio">
 
 	<koken:head>
 		<title>Фотографии — {{ site.title }}</title>
@@ -24,7 +24,7 @@
 			<meta name="twitter:card" content="gallery" />
 			<meta name="twitter:site" content="@{{ profile.twitter }}" />
 			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
-			<koken:loop limit="4">
+			<koken:loop>
 				<koken:variable name="photo_index" value="{{ index }}" />
 				<koken:covers>
 					<koken:shift>
@@ -34,6 +34,10 @@
 			</koken:loop>
 		</koken:not>
 	</koken:head>
+
+</koken:load>
+
+<koken:load source="albums" filter:tags="portfolio">
 
 	<div class="content">
 
