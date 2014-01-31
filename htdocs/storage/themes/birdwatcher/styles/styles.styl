@@ -483,8 +483,14 @@ lightbox-button-glow() {
 	space(4);
 }
 
-.entry-excerpt {
+.entry-excerpt,
+.entry-links {
+	space(0.5);
 	font-size:small_font;
+
+	&:last-child {
+		space(0);
+	}
 }
 
 .entry-pubdate {

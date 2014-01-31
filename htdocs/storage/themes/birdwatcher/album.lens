@@ -39,21 +39,15 @@
 				{{ album.description paragraphs="true" }}
 			</div>
 		</koken:not>
-	</div>
 
-	<!-- Display essays/pages written about this album -->
-	<!--
-	<koken:topics>
-		<p>
-			<strong>Related content:</strong>
-			<koken:loop separator=", ">
-				<koken:link>
-					{{ essay.title }}
-				</koken:link>
-			</koken:loop>
-		</p>
-	</koken:topics>
-	-->
+		<koken:topics>
+			<div class="entry-links">
+				<koken:first>
+					Смотрите так же <koken:link>отчёт о поездке</koken:link>.
+				</koken:first>
+			</div>
+		</koken:topics>
+	</div>
 
 	<koken:include file="inc/thumbnails.html" />
 	<koken:include file="inc/pagination.html" />
