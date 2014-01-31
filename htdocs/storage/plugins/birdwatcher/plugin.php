@@ -37,14 +37,14 @@ class Birdwatcher extends KokenPlugin {
 		// Remove Koken’s shit from page header
 		$html_str = preg_replace('%<script src="//ajax.googleapis.com/ajax/libs/jquery/.*?}\);</script>%sm', '', $html_str);
 		$html_str = preg_replace('%<!\-\-\[if IE\]>\s*<script src=".*?/html5shiv.js"></script>\s*<!\[endif\]\-\->%sm', '', $html_str);
-		
+
 		return $html_str;
 	}
 
 	function common_typo($html_str)
 	{
 		$html_str = preg_replace_callback('%(<h[1-6] class="entry-title">)(.*?)(</h[1-6]>)%sm', array($this, 'typo_title'), $html_str);
-		
+
 		return $html_str;
 	}
 
@@ -61,8 +61,8 @@ class Birdwatcher extends KokenPlugin {
 
 	function process_html_essay($html_str, $url)
 	{
-		$html_str = $this->process_lj($html_str);
 		$html_str = $this->typo_process($html_str);
+		$html_str = $this->process_lj($html_str);
 		return $html_str;
 	}
 
@@ -87,19 +87,18 @@ class Birdwatcher extends KokenPlugin {
 	}
 
 	// LJ tags
-	// <lj user="pavel_kosenko">
-	// <lj comm="hamster_photo">
+	// [lj user="pavel_kosenko"]
+	// [lj comm="hamster_photo"]
 	function process_lj($html_str)
 	{
-		// <lj user="">: short links
+		// [lj user=""]: short links
 		$html_str = preg_replace('%\[lj user="([a-z0-9](?:[_a-z0-9]*[a-z0-9]))"\]%e', "'<a href=\"http://'.str_replace('_','-','\\1').'.livejournal.com/\" class=\"lj-link\">\\1</a>'", $html_str);
 
-		// <lj user="">, <lj comm=""> и <lj syn="">
-		$html_str = preg_replace('%\[lj (user|comm|syn)="([_a-z0-9]+)"\]%', '<a href=\"http://\\1s.livejournal.com/\\2/\" class=\"lj-link\">\\2</a>', $html_str);
-		
+		// [lj user=""], [lj comm=""]
+		$html_str = preg_replace('%\[lj (user|comm)="([_a-z0-9]+)"\]%', '<a href="http://\\1s.livejournal.com/\\2/" class="lj-link">\\2</a>', $html_str);
+
 		// Fix links
 		$html_str = str_replace('comms.livejournal.com', 'community.livejournal.com', $html_str);
-		$html_str = str_replace('syns.livejournal.com', 'syndicated.livejournal.com', $html_str);
 
 		return $html_str;
 	}
@@ -125,7 +124,7 @@ class Birdwatcher extends KokenPlugin {
 		}
 		return (string)$doc;
 	}
-	
+
 	function process_thumbs($html_str)
 	{
 		if (strpos($html_str, 'bw-thumb') === false) return $html_str;
@@ -134,7 +133,7 @@ class Birdwatcher extends KokenPlugin {
 		$doc = str_get_dom($html_str);
 		foreach ($doc('.bw-thumb') as $thumb) {
 			$thumb->removeClass('bw-thumb');
-			$thumb = $this->process_thumb($thumb);			
+			$thumb = $this->process_thumb($thumb);
 		}
 		return (string)$doc;
 	}
@@ -163,7 +162,7 @@ class Birdwatcher extends KokenPlugin {
 
 		return $thumb;
 	}
-	
+
 	function process_essay_excerpt($essay)
 	{
 		$essay_type = $essay->type;
@@ -200,12 +199,12 @@ class Birdwatcher extends KokenPlugin {
 
 			$embed->class = 'entry-photo';
 			$base = $img->getAttribute('data-base');
-			
+
 			$content_div = $embed('.k-content', 0);
 			if ($content_div) {
 				$content_div->detach(true);
 			}
-			
+
 			$text = $embed('.k-content-text', 0);
 			if ($text) {
 				$text->class = 'entry-photo__text';
@@ -233,7 +232,7 @@ class Birdwatcher extends KokenPlugin {
 					$prev_ratio = null;
 				}
 				// Library photo
-				else { 
+				else {
 					$img_size = 'large';
 					$size = $this->get_image_size($img);
 					// Vertical or square
@@ -247,7 +246,7 @@ class Birdwatcher extends KokenPlugin {
 							$prev_embed->addClass('l-half');
 							$embed->addClass('l-half');
 							$embed->changeParent($wrapper);
-							
+
 							// Decrease image sizes by one step
 							$img_size = 'medium_large';
 							$prev_img->src = str_replace(',large.', ",$img_size.", $prev_img->src);
@@ -360,13 +359,13 @@ class Birdwatcher extends KokenPlugin {
 	{
 		// Убиваем табуляцию
 		$s = str_replace("\t", '', $s);
-		
+
 		// Убиваем повторяющиеся пробелы
 		$s = preg_replace('% +%', ' ', $s);
 
 		// Исправляем неразрывные пробелы
 		$s = str_replace(" ", '&nbsp;', $s);
-	
+
 		// Сохраняем теги
 		$s = preg_replace_callback('%(<[^>]*>)%ums', array($this, 'typo_backup_tags'), $s);
 
@@ -388,25 +387,25 @@ class Birdwatcher extends KokenPlugin {
 
 		// Год
 		$s = preg_replace('%(?<![0-9])([0-9]{4}) (г\.)%ui', '\\1&nbsp;\\2', $s);
-		
+
 		// Имена собственные
 		// $s = preg_replace('%(?<![а-яёА-ЯЁ])([гГ]|[гГ]р|[тТ]ов)\. ([А-ЯЁ])%u', '\\1.&nbsp;\\2', $s);
-		
+
 		// Инициалы
 		$s = preg_replace('%(?<![а-яёА-ЯЁ])((?:[А-ЯЁ]\. ){1,2}[А-ЯЁ][-а-яё]+)%u', '<nobr>\\1</nobr>', $s);
-		
+
 		// Слова через дефис
 		$s = preg_replace('%(?<![а-яё])((?:[а-яё]{1,2}(?:\-[а-яё]+))|(?:[а-яё]+(?:\-[а-яё]{1,2})))(?![а-яё])%ui', '<nobr>\\1</nobr>', $s);
-		
+
 		// Частицы
 		$s = preg_replace('% (ж|бы|б|же|ли|ль|либо|или)(?![а-яё])%ui', '&nbsp;\\1', $s);
-		
+
 		// Предлоги и союзы
 		$s = preg_replace('%(?<![а-яё])(а|в|во|вне|и|или|к|о|с|у|о|со|об|обо|от|ото|то|на|не|ни|но|из|изо|за|уж|на|по|под|подо|пред|предо|про|над|надо|как|без|безо|что|да|для|до|там|ещё|их|или|ко|меж|между|перед|передо|около|через|сквозь|для|при|я)\s%ui', '\\1&nbsp;', $s);
 
 		// Валюты
 		$s = preg_replace('%(\d) (\$|р\.|руб\.)%ui', '\\1&nbsp;\\2', $s);
-		
+
 		// Даты
 		$s = preg_replace('%(\d) (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|ноября|декабря)%ui', '\\1&nbsp;\\2', $s);
 
