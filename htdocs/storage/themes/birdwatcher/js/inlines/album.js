@@ -47,6 +47,14 @@
 				rowWidth = 0;
 			}
 		}
+
+		// Set original sizes for last (not full) row
+		for (var photoIdx = 0, elemsCnt = elems.length; photoIdx < elemsCnt; photoIdx++) {
+			var photo = elems[photoIdx];
+			var img = photo.img;
+			img.width = photo.w;
+			img.height = photo.h;
+		}
 	}
 
 	function throttle(fn, threshhold) {
