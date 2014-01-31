@@ -112,6 +112,7 @@ module.exports = (grunt) ->
 				options:
 					relativeFontPath: 'fonts/'
 					stylesheet: 'styl'
+					embed: true
 				src: 'icons/*.svg'
 				dest: 'build/fonts'
 		shell:
