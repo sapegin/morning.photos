@@ -22,7 +22,7 @@
       var currentId, startIndex,
         _this = this;
       this.photos = window.__photos;
-      this.siteTitle = window.__site_title;
+      this.siteTitle = $('meta[property="og:site_name"]').attr('content');
       this.urlRegExp = /\/photos\/(\d+)\/$/;
       currentId = window.__photos_current_id;
       startIndex = this.idToIndex(currentId);

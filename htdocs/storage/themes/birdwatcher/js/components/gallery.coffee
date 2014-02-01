@@ -10,7 +10,7 @@ _doc = $(document)
 class Gallery extends Component
 	init: ->
 		@photos = window.__photos
-		@siteTitle = window.__site_title
+		@siteTitle = $('meta[property="og:site_name"]').attr('content')
 		@urlRegExp = /\/photos\/(\d+)\/$/
 
 		currentId = window.__photos_current_id
