@@ -61,9 +61,21 @@
 		</div>
 
 		<div class="about-triptych">
-			<div class="about-triptych__item js-instagram"></div>
-			<div class="about-triptych__item js-instagram"></div>
-			<div class="about-triptych__item js-instagram"></div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me1.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me2.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me3.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
 		</div>
 
 		<div class="l-double-space">
@@ -100,16 +112,28 @@
 		</div>
 
 		<div class="about-triptych">
-			<div class="about-triptych__item js-instagram"></div>
-			<div class="about-triptych__item js-instagram"></div>
-			<div class="about-triptych__item js-instagram"></div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me4.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me5.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
+			<div class="about-triptych__item">
+				<div class="about-triptych__item-i js-instagram">
+					<img src="/images/about/me6.jpg" alt="Артём Сапегин" class="about-triptych__photo about-triptych__photo_original">
+				</div>
+			</div>
 		</div>
 
 		<script>window.initPhotos()</script>
 
 		<div class="l-row l-double-space">
 			<div class="l-two-thirds"><img src="/images/about/workplace.jpg" alt="Рабочее место Артёма Сапегина" width="676" height="328"></div>
-			<div class="l-third"><img src="/images/about/iphone.jpg" alt="Обработка фотографии в VSCO Cam на айфоне" width="328" height="328"></div>
+			<div class="l-third about-iphone"><img src="/images/about/iphone.jpg" alt="Обработка фотографии в VSCO Cam на айфоне" width="328" height="328"></div>
 		</div>
 
 		<div class="l-row l-quad-space">

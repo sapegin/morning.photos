@@ -65,7 +65,7 @@
 	window.initPhotos = function() {
 		placeholders = document.getElementsByClassName('js-instagram');
 		for (var placeholderIdx = 0; placeholderIdx < placeholders.length; placeholderIdx++) {
-			placeholders[placeholderIdx].innerHTML = makeImg(nextUrl()) + makeImg('', 'is-hidden');
+			placeholders[placeholderIdx].innerHTML = makeImg(nextUrl()) + makeImg('', 'is-hidden') + placeholders[placeholderIdx].innerHTML;
 		}
 		setTimeout(tick, interval);
 	}
