@@ -1,0 +1,9 @@
+<div class="latest-books">
+	<% latest = @books.splice(0, 5) %>
+	<% for book in latest: %>
+		<a href="/reading/#<%= book.id %>" title="<%= book.author %>. <%= book.title %>" class="latest-books__item">
+			<img src="/images/books/<%= book.id %>.jpg" alt="<%= book.author %>. <%= book.title %>" class="latest-books__img">
+			<!--div class="book-review__rating book-review__rating_<%= (book.rating+'').replace '.', '-' %>"><i></i></div-->
+		</a>
+	<% end %>
+</div>

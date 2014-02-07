@@ -190,9 +190,16 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		padding:0;
 	}
 }
-@media (min-width:1025px) {
++above(1025px) {
 	.page_index {
 		background:photo_bg_color;
+	}
+}
++below(740px) {
+	.page_learn {
+		.l-half {
+			layout-nth(1);
+		}
 	}
 }
 
@@ -953,10 +960,6 @@ for tag in "best" "good" "russian" "english" {
 
 
 // About page
-
-.page_about {
-
-}
 
 .about-splash {
 	height:(500px - 55px);  // Photo height - header height

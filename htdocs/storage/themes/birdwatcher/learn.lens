@@ -1,5 +1,5 @@
 <koken:include file="inc/header.html" />
-<body class="page page_page">
+<body class="page page_learn">
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
@@ -20,54 +20,65 @@
 		<h1 class="entry-title">Статьи</h1>
 	</div>
 
-	<div class="articles-list">
+	<div class="l-row">
+		<div class="l-half">
 
-		<ul class="articles-list__list">
+			<div class="articles-list">
 
-			<li class="articles-list__item">
-				<a href="/reading/" class="link">Книги о фотографии</a>
-				<div class="articles-list__description">Рецензии на прочитанные мной книги</div>
-			</li>
-			<li class="articles-list__item">
-				<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-				<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
-			</li>
-			<li class="articles-list__item">
-				<a href="/funquotes/" class="link">Фотография где</a>
-				<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
-			</li>
-			<li class="articles-list__item">
-				<a href="/pages/microstocks/" class="link">Микростоки</a>
-				<div class="articles-list__description">Как продавать фотографии в интернете</div>
-			</li>
+				<ul class="articles-list__list">
 
-		</ul>
+					<li class="articles-list__item">
+						<a href="/reading/" class="link">Книги о фотографии</a>
+						<div class="articles-list__description">Рецензии на прочитанные мной книги</div>
+						<koken:include file="../../../../docpad/out/books_latest.html" />
+					</li>
+					<li class="articles-list__item">
+						<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
+						<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+					</li>
+					<li class="articles-list__item">
+						<a href="/funquotes/" class="link">Фотография где</a>
+						<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
+					</li>
+					<li class="articles-list__item">
+						<a href="/pages/microstocks/" class="link">Микростоки</a>
+						<div class="articles-list__description">Как продавать фотографии в интернете</div>
+					</li>
 
-	</div>
+				</ul>
 
-	<div class="articles-list">
+			</div>
 
-		<koken:load source="essays" featured="true">
+		</div>
+		<div class="l-half">
 
-			<h2 class="articles-list__title"><a href="/blog/" class="link">Блог</a></h2>
 
-			<ul class="articles-list__list">
+			<div class="articles-list">
 
-			<koken:loop>
+				<koken:load source="essays" featured="true">
 
-				<li class="articles-list__item">
-					<koken:link class="link">{{ essay.title }}</koken:link>
-					<koken:not empty="essay.excerpt">
-						<div class="articles-list__description">{{ essay.excerpt }}</div>
-					</koken:not>
-				</li>
+					<h2 class="articles-list__title"><a href="/blog/" class="link">Блог</a></h2>
 
-			</koken:loop>
+					<ul class="articles-list__list">
 
-			</ul>
+					<koken:loop>
 
-		</koken:load>
+						<li class="articles-list__item">
+							<koken:link class="link">{{ essay.title }}</koken:link>
+							<koken:not empty="essay.excerpt">
+								<!--div class="articles-list__description">{{ essay.excerpt }}</div-->
+							</koken:not>
+						</li>
 
+					</koken:loop>
+
+					</ul>
+
+				</koken:load>
+
+			</div>
+
+		</div>
 	</div>
 
 
