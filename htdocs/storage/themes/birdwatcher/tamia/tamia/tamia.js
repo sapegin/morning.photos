@@ -345,6 +345,21 @@ if (typeof window.DEBUG === 'undefined') window.DEBUG = true;
 		var _templates = window.__templates;
 		if (_templates) {
 			/**
+			 * Simplest template.
+			 *
+			 * Just replaces {something} with data.something.
+			 *
+			 * @param {String} tmpl Template.
+			 * @param {String} data Template context.
+			 * @return {String} HTML.
+			 */
+			tamia.stmpl = function(tmpl, data) {
+				return tmpl.replace(/\{([^\}]+)\}/g, function(m, key) {
+					return data[key] || '';
+				});
+			}
+
+			/**
 			 * Invokes precompiled template.
 			 *
 			 * Templates should be stored in window.__templates.

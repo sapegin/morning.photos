@@ -4,10 +4,15 @@
 
 <koken:load>
 
+	<koken:variable name="title" value="***" />
+	<koken:not empty="content.title">
+		<koken:variable name="title" value="{{ content.title strip_html='true' }}" />
+	</koken:not>
+
 	<koken:head>
-		<title>{{ content.title strip_html="true" }} — Фото — {{ site.title }}</title>
+		<title>{{ title }} — Фото — {{ site.title }}</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
-		<meta property="og:title" content="{{ content.title strip_html='true' }}" />
+		<meta property="og:title" content="{{ title }}" />
 		<meta property="og:description" content="{{ content.caption strip_html="true" }}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
@@ -57,8 +62,15 @@ document.documentElement.className += ' is-fullscreen';
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_share"></i>
 				</div>
-				<div class="lightbox-pane__popup" <koken:parent>data-component="gallery-share"</koken:parent>>
-					Share...
+				<div class="lightbox-pane__popup">
+					<div class="social-likes social-likes_vertical social-likes_light" data-title="{{ title }} / Артём Сапегин"
+						data-title-template="{title} / Артём Сапегин" <koken:parent>data-component="gallery-share"</koken:parent>>
+						<div class="facebook" title="Поделиться ссылкой на Фейсбуке">Фейсбук</div>
+						<div class="twitter" title="Поделиться ссылкой в Твитере">Твитер</div>
+						<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
+						<div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Гугл+</div>
+						<div class="pinterest" title="Поделиться картинкой на Пинтересте" data-media="{{ content.presets.medium_large.url }}">Пинтерест</div>
+					</div>
 				</div>
 			</div>
 			<div class="lightbox__control lightbox-pane">
@@ -68,11 +80,7 @@ document.documentElement.className += ' is-fullscreen';
 				<div class="lightbox-pane__popup photo-info text" <koken:parent>data-component="gallery-info"</koken:parent>>
 					<header class="photo-info__header">
 						<h1 class="photo-info__title">
-							<koken:if empty="content.title">
-								***
-							<koken:else>
-								{{ content.title }}
-							</koken:if>
+							{{ title }}
 						</h1>
 
 						<div class="photo-info__caption">

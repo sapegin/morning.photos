@@ -51,8 +51,8 @@ class Gallery extends Component
 		frame.title = frame.info.title or '***'
 
 		# Update URL
-		permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
-		history.pushState('', frame.title, permalink)
+		frame.permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
+		history.pushState('', frame.title, frame.permalink)
 
 		# Update page title
 		document.title = tamia.tmpl('photo-title', {

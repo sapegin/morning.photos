@@ -61,11 +61,11 @@
     };
 
     Gallery.prototype.update = function() {
-      var frame, permalink;
+      var frame;
       frame = this.fotorama.activeFrame;
       frame.title = frame.info.title || '***';
-      permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
-      history.pushState('', frame.title, permalink);
+      frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
+      history.pushState('', frame.title, frame.permalink);
       document.title = tamia.tmpl('photo-title', {
         title: frame.title,
         siteTitle: this.siteTitle
