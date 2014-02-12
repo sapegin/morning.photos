@@ -62,7 +62,6 @@ class Birdwatcher extends KokenPlugin {
 	function process_html_essay($html_str, $url)
 	{
 		$html_str = $this->typo_process($html_str);
-		$html_str = $this->process_lj($html_str);
 		return $html_str;
 	}
 
@@ -70,7 +69,6 @@ class Birdwatcher extends KokenPlugin {
 	{
 		$html_str = $this->process_more($html_str, $url);
 		$html_str = $this->typo_process($html_str);
-		$html_str = $this->process_lj($html_str);
 		return $html_str;
 	}
 
@@ -82,23 +80,6 @@ class Birdwatcher extends KokenPlugin {
 		if (count($parts) > 1) {
 			$html_str .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
 		}
-
-		return $html_str;
-	}
-
-	// LJ tags
-	// [lj user="pavel_kosenko"]
-	// [lj comm="hamster_photo"]
-	function process_lj($html_str)
-	{
-		// [lj user=""]: short links
-		$html_str = preg_replace('%\[lj user="([a-z0-9](?:[_a-z0-9]*[a-z0-9]))"\]%e', "'<a href=\"http://'.str_replace('_','-','\\1').'.livejournal.com/\" class=\"lj-link\">\\1</a>'", $html_str);
-
-		// [lj user=""], [lj comm=""]
-		$html_str = preg_replace('%\[lj (user|comm)="([_a-z0-9]+)"\]%', '<a href="http://\\1s.livejournal.com/\\2/" class="lj-link">\\2</a>', $html_str);
-
-		// Fix links
-		$html_str = str_replace('comms.livejournal.com', 'community.livejournal.com', $html_str);
 
 		return $html_str;
 	}
