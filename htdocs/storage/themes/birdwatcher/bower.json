@@ -5,8 +5,8 @@
   "dependencies": {
     "modernizr": "~2.7.1",
     "fotorama": "~4.4.9",
-    "hashnav": "*",
-    "jquery": "~2.0.3",
+    "hashnav": "~1.0.1",
+    "jquery": "~2.1.0",
     "social-likes": "~3.0.2"
   }
 }
