@@ -36,6 +36,10 @@
 	<koken:include file="inc/thumbnails.html" />
 	<koken:include file="inc/pagination.html" />
 
+<koken:else>
+
+	<p>Фотографии не найдены.</p>
+
 </koken:load>
 
 <koken:include file="inc/footer.html" />
