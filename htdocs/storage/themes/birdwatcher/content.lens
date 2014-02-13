@@ -67,8 +67,8 @@ document.documentElement.className += ' is-fullscreen';
 						data-title-template="{title} / Артём Сапегин" <koken:parent>data-component="gallery-share"</koken:parent>>
 						<div class="facebook" title="Поделиться ссылкой на Фейсбуке">Фейсбук</div>
 						<div class="twitter" title="Поделиться ссылкой в Твитере" data-via="{{ profile.twitter }}">Твитер</div>
-						<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
 						<div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Гугл+</div>
+						<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
 						<div class="pinterest" title="Поделиться картинкой на Пинтересте" data-media="{{ content.presets.medium_large.url }}">Пинтерест</div>
 					</div>
 				</div>

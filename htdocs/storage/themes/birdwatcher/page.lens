@@ -45,8 +45,8 @@
 		<div class="social-likes social-likes_light" data-title="{{ page.title strip_html='true' }}">
 			<div class="facebook" title="Поделиться ссылкой на Фейсбуке">Фейсбук</div>
 			<div class="twitter" title="Поделиться ссылкой в Твитере" data-via="{{ profile.twitter }}">Твитер</div>
-			<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
 			<div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Гугл+</div>
+			<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
 		</div>
 
 	</article>
