@@ -2,7 +2,6 @@ node_modules
 bower_components
 admin
 app
-htdocs/files
 htdocs/storage/cache
 htdocs/storage/configuration
 htdocs/storage/originals
