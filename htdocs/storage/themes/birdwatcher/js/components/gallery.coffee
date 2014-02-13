@@ -13,8 +13,7 @@ class Gallery extends Component
 		@siteTitle = $('meta[property="og:site_name"]').attr('content')
 		@urlRegExp = /\/photos\/(\d+)\/$/
 
-		currentId = window.__photos_current_id
-		startIndex = @idToIndex(currentId)
+		startIndex = @idToIndex(window.__photos_current_id)
 
 		@gallery = @find('gallery')
 		@prevButton = @find('prev')
@@ -39,14 +38,16 @@ class Gallery extends Component
 
 		_win.resize(@resize.bind(this))
 
+		@inPopState = false
 		_win.on('popstate', (event) =>
 			m = window.location.href.match(@urlRegExp)
 			id = m?[1]
-			return  if not id or id is currentId
+			return  if not id
+			@inPopState = true
 			@fotorama.show({index: @idToIndex(id)})
 		)
 
-	update: ->
+	update: () ->
 		frame = @fotorama.activeFrame
 		frame.title = frame.info.title or '***'
 
@@ -57,8 +58,10 @@ class Gallery extends Component
 		})
 
 		# Update URL
-		frame.permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
-		history.pushState('', pageTitle, frame.permalink)
+		unless @inPopState
+			frame.permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
+			history.pushState('', pageTitle, frame.permalink)
+		@inPopState = false
 
 		# Track page view
 		if window.ga then ga('send', 'pageview', {

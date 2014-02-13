@@ -19,13 +19,12 @@
     }
 
     Gallery.prototype.init = function() {
-      var currentId, startIndex,
+      var startIndex,
         _this = this;
       this.photos = window.__photos;
       this.siteTitle = $('meta[property="og:site_name"]').attr('content');
       this.urlRegExp = /\/photos\/(\d+)\/$/;
-      currentId = window.__photos_current_id;
-      startIndex = this.idToIndex(currentId);
+      startIndex = this.idToIndex(window.__photos_current_id);
       this.gallery = this.find('gallery');
       this.prevButton = this.find('prev');
       this.nextButton = this.find('next');
@@ -47,13 +46,15 @@
       this.on('click', 'next', this.next);
       this.updateNav();
       _win.resize(this.resize.bind(this));
+      this.inPopState = false;
       return _win.on('popstate', function(event) {
         var id, m;
         m = window.location.href.match(_this.urlRegExp);
         id = m != null ? m[1] : void 0;
-        if (!id || id === currentId) {
+        if (!id) {
           return;
         }
+        _this.inPopState = true;
         return _this.fotorama.show({
           index: _this.idToIndex(id)
         });
@@ -68,8 +69,11 @@
         title: frame.title,
         siteTitle: this.siteTitle
       });
-      frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
-      history.pushState('', pageTitle, frame.permalink);
+      if (!this.inPopState) {
+        frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
+        history.pushState('', pageTitle, frame.permalink);
+      }
+      this.inPopState = false;
       if (window.ga) {
         ga('send', 'pageview', {
           page: frame.permalink,
