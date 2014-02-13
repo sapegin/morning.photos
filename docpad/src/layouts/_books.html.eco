@@ -14,29 +14,12 @@
 			<span class="filter__tag link js-filter-tag" data-tag-id="<%= id %>"><%= name %></span>
 		<% end %>
 	</div>
-	<script>
-	(function() {
-		if (location.hash && document.querySelectorAll && document.body.classList) {
-			var container = document.querySelector('[data-component="tag-filter"]');
-			if (!container) return;
 
-			var defaultItem = document.querySelector('.js-filter .is-default');
-			if (!defaultItem) return;
-			container.classList.remove('tag_' + defaultItem.getAttribute('data-tag-id'));
-			defaultItem.classList.remove('is-active');
-
-			var tag = location.hash.slice(1);
-			var activeItem = document.querySelector('.js-filter-tag[data-tag-id="' + tag + '"]');
-			if (!activeItem) return;
-			container.classList.add('tag_' + tag);
-			activeItem.classList.add('is-active');
-		}
-	})();
-	</script>
+	<script><koken:include file="build/inlines/reading-filter.js" /></script>
 
 	<div class="book-reviews">
 		<% for book in @books: %>
-		
+
 			<% (book.tags.push 'good') if book.rating >= 4 %>
 			<% (book.tags.push 'best') if book.rating is 5 %>
 			<div class="media book-review <%= @tags_classes book.tags, 'book-review_tag' %>" id="<%= book.id %>">
@@ -62,29 +45,7 @@
 		<% end %>
 	</div>
 
-	<script>
-	(function() {
-		if (location.hash && document.querySelectorAll && document.body.classList) {
-			function hideBook(e) {
-				if (!e.target.classList.contains('js-filter-tag')) return;
-				book.style.display = null;
-				filter.removeEventListener('click', hideBook, false);
-			}
+	<script><koken:include file="build/inlines/reading-footer.js" /></script>
 
-			var container = document.querySelector('[data-component="tag-filter"]');
-			if (!container) return;
-
-			var id = location.hash.slice(1);
-			var book = document.getElementById(id);
-			if (book) {
-				container.className = '';
-				book.style.display = 'block';
-
-				var filter = document.querySelector('.js-filter');
-				filter.addEventListener('click', hideBook, false);
-			}
-		}
-	})();
-	</script>
 
 </div>

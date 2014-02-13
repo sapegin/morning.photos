@@ -25,29 +25,12 @@
 			<span class="filter__tag link js-filter-tag" data-tag-id="english">На английском</span>
 		
 	</div>
-	<script>
-	(function() {
-		if (location.hash && document.querySelectorAll && document.body.classList) {
-			var container = document.querySelector('[data-component="tag-filter"]');
-			if (!container) return;
 
-			var defaultItem = document.querySelector('.js-filter .is-default');
-			if (!defaultItem) return;
-			container.classList.remove('tag_' + defaultItem.getAttribute('data-tag-id'));
-			defaultItem.classList.remove('is-active');
-
-			var tag = location.hash.slice(1);
-			var activeItem = document.querySelector('.js-filter-tag[data-tag-id="' + tag + '"]');
-			if (!activeItem) return;
-			container.classList.add('tag_' + tag);
-			activeItem.classList.add('is-active');
-		}
-	})();
-	</script>
+	<script><koken:include file="build/inlines/reading-filter.js" /></script>
 
 	<div class="book-reviews">
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="kosenko">
@@ -69,7 +52,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian" id="decisivemoment">
@@ -90,7 +73,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="rowell">
@@ -111,7 +94,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="speaking">
@@ -132,7 +115,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="contemplative">
@@ -153,7 +136,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="phototrekking">
@@ -174,7 +157,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="pet101">
@@ -195,7 +178,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="photographeratwork">
@@ -216,7 +199,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="visionmongers">
@@ -237,7 +220,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="dambook">
@@ -258,7 +241,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="lightroom3">
@@ -279,7 +262,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good book-review_tag_best" id="visionvoice">
@@ -300,7 +283,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="nightphoto">
@@ -321,7 +304,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="landscapeinframe">
@@ -342,7 +325,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="natureweston">
@@ -363,7 +346,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good book-review_tag_best" id="briot2">
@@ -384,7 +367,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="bluepixel">
@@ -405,7 +388,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good book-review_tag_best" id="withintheframe">
@@ -426,7 +409,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="closeups">
@@ -447,7 +430,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="succeed">
@@ -468,7 +451,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="modelreleases">
@@ -489,7 +472,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english" id="microstock">
@@ -510,7 +493,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good" id="rawsecrets">
@@ -531,7 +514,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good book-review_tag_best" id="digitalnature">
@@ -552,7 +535,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="zabavy">
@@ -573,7 +556,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good" id="learntosee">
@@ -594,7 +577,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="sell">
@@ -619,7 +602,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_good book-review_tag_best" id="landscape">
@@ -640,7 +623,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good book-review_tag_best" id="bresson">
@@ -665,7 +648,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian" id="kvadrat">
@@ -686,7 +669,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="subjektiv">
@@ -707,7 +690,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian" id="tommackie">
@@ -732,7 +715,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good book-review_tag_best" id="macro">
@@ -757,7 +740,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="poetika">
@@ -778,7 +761,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="wildlife">
@@ -803,7 +786,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="filters">
@@ -828,7 +811,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="orange">
@@ -849,7 +832,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good book-review_tag_best" id="nappelbaum">
@@ -870,7 +853,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good" id="rozov">
@@ -891,7 +874,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="evening">
@@ -916,7 +899,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="panoramic">
@@ -941,7 +924,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good book-review_tag_best" id="bw">
@@ -966,7 +949,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="portrait">
@@ -991,7 +974,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian" id="kak">
@@ -1012,7 +995,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="istoria">
@@ -1037,7 +1020,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="newton">
@@ -1062,7 +1045,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian book-review_tag_good" id="fotomaster">
@@ -1083,7 +1066,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian" id="fotoapparaty">
@@ -1104,7 +1087,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_russian" id="korablev">
@@ -1125,7 +1108,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian" id="hedzhkou">
@@ -1150,7 +1133,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="frost2">
@@ -1175,7 +1158,7 @@
 				</div>
 			</div>
 		
-		
+
 			
 			
 			<div class="media book-review book-review_tag_english book-review_tag_russian book-review_tag_good" id="frost1">
@@ -1202,29 +1185,7 @@
 		
 	</div>
 
-	<script>
-	(function() {
-		if (location.hash && document.querySelectorAll && document.body.classList) {
-			function hideBook(e) {
-				if (!e.target.classList.contains('js-filter-tag')) return;
-				book.style.display = null;
-				filter.removeEventListener('click', hideBook, false);
-			}
+	<script><koken:include file="build/inlines/reading-footer.js" /></script>
 
-			var container = document.querySelector('[data-component="tag-filter"]');
-			if (!container) return;
-
-			var id = location.hash.slice(1);
-			var book = document.getElementById(id);
-			if (book) {
-				container.className = '';
-				book.style.display = 'block';
-
-				var filter = document.querySelector('.js-filter');
-				filter.addEventListener('click', hideBook, false);
-			}
-		}
-	})();
-	</script>
 
 </div>
