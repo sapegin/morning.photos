@@ -139,7 +139,7 @@ document.documentElement.className += ' is-fullscreen';
 
 <script>
 var __photos_current_id = '{{ content.id }}';
-<koken:parent>
+<koken:parent order_by="captured_on" order_direction="desc">
 var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},
