@@ -1,6 +1,56 @@
-<koken:include file="inc/header.html" />
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Страница не найдена</title>
+<style>
+body {
+	margin:0;
+	padding:2em;
+	}
+* {
+	line-height:1.1em;
+	font-family:"Helvetica Neue", Arial, sans-serif;
+	}
+h1 {
+	font-size:2em;
+	margin:0 0 .7em;
+	}
+h2 {
+	margin:1.5em 0 0;
+	font-size:1.3em;
+	}
+footer {
+	margin-top:3em;
+	font-size:.8em;
+	}
+</style>
+</head>
+<body>
 
-<!-- Displays the error code for page that wasn't found, couldn't be loaded, etc -->
-Error: {{ routed_variables.code }}
+	<h1>Страница не найдена</h1>
 
-<koken:include file="inc/footer.html" />
+	<p>К сожалению, на сайте нет страницы с&nbsp;таким адресом.</p>
+
+	<p>Поисковые хомяки проверили все страницы, но&nbsp;так и&nbsp;не&nbsp;смогли найти&nbsp;ту, что вы&nbsp;искали. Они сожалеют об&nbsp;этом и&nbsp;хотят вам чем-нибудь помочь. Хотите орешков?</p>
+
+	<h2>Почему это могло случиться?</h2>
+
+	<ul>
+		<li>Вы&nbsp;попали сюда кликнув по&nbsp;неправильной ссылке.</li>
+		<li>Страница была удалена.</li>
+		<li>Вы&nbsp;опечатались при вводе адреса.</li>
+	</ul>
+
+	<h2>И что теперь делать?</h2>
+
+	<ul>
+		<li>Попробуйте найти нужную страницу с&nbsp;<a href="/">главной страницы</a> сайта.</li>
+		<li>Попробуйте исправить адрес.</li>
+		<li><a href="/about/">Напишите мне</a> и&nbsp;мы&nbsp;вместе что-нибудь придумаем.</li>
+	</ul>
+
+	<footer><a href="/">Фотографии Артёма Сапегина</a></footer>
+
+</body>
+</html>
