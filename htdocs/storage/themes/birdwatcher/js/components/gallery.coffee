@@ -39,10 +39,13 @@ class Gallery extends Component
 		_win.resize(@resize.bind(this))
 
 		@inPopState = false
+		onload = true
 		_win.on('popstate', (event) =>
 			m = window.location.href.match(@urlRegExp)
 			id = m?[1]
-			return  if not id
+			if not id or onload
+				onload = false
+				return
 			@inPopState = true
 			@fotorama.show({index: @idToIndex(id)})
 		)
@@ -64,6 +67,7 @@ class Gallery extends Component
 		@inPopState = false
 
 		# Track page view
+		console.log 'update'
 		if window.ga then ga('send', 'pageview', {
 			page: frame.permalink
 			title: pageTitle

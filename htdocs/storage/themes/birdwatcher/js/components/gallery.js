@@ -19,7 +19,7 @@
     }
 
     Gallery.prototype.init = function() {
-      var startIndex,
+      var onload, startIndex,
         _this = this;
       this.photos = window.__photos;
       this.siteTitle = $('meta[property="og:site_name"]').attr('content');
@@ -47,11 +47,13 @@
       this.updateNav();
       _win.resize(this.resize.bind(this));
       this.inPopState = false;
+      onload = true;
       return _win.on('popstate', function(event) {
         var id, m;
         m = window.location.href.match(_this.urlRegExp);
         id = m != null ? m[1] : void 0;
-        if (!id) {
+        if (!id || onload) {
+          onload = false;
           return;
         }
         _this.inPopState = true;
@@ -74,6 +76,7 @@
         history.pushState('', pageTitle, frame.permalink);
       }
       this.inPopState = false;
+      console.log('update');
       if (window.ga) {
         ga('send', 'pageview', {
           page: frame.permalink,
