@@ -1,0 +1,32 @@
+<koken:include file="inc/header.html" />
+<body class="page">
+<koken:include file="inc/page-header.html" />
+
+<koken:load source="tags" limit_to="content" limit="9999">
+
+	<div class="content entry-content">
+
+		<div class="entry-header">
+			<h1 class="entry-title">
+				Теги
+			</h1>
+		</div>
+
+		<ul class="all-tags">
+
+			<koken:loop>
+
+				<li class="all-tags__item">
+					<koken:link class="link">{{ tag.title }}</koken:link>
+					<span class="all-tags__counter">{{ tag.counts.total }}</span>
+				</li>
+
+			</koken:loop>
+
+		</ul>
+
+	</div>
+
+</koken:load>
+
+<koken:include file="inc/footer.html" />
