@@ -61,15 +61,21 @@
     };
 
     Gallery.prototype.update = function() {
-      var frame;
+      var frame, pageTitle;
       frame = this.fotorama.activeFrame;
       frame.title = frame.info.title || '***';
-      frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
-      history.pushState('', frame.title, frame.permalink);
-      document.title = tamia.tmpl('photo-title', {
+      document.title = pageTitle = tamia.tmpl('photo-title', {
         title: frame.title,
         siteTitle: this.siteTitle
       });
+      frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
+      history.pushState('', pageTitle, frame.permalink);
+      if (window.ga) {
+        ga('send', 'pageview', {
+          page: frame.permalink,
+          title: pageTitle
+        });
+      }
       this.updateNav();
       return _doc.trigger('photochanged', frame);
     };

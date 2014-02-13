@@ -50,14 +50,20 @@ class Gallery extends Component
 		frame = @fotorama.activeFrame
 		frame.title = frame.info.title or '***'
 
-		# Update URL
-		frame.permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
-		history.pushState('', frame.title, frame.permalink)
-
 		# Update page title
-		document.title = tamia.tmpl('photo-title', {
+		document.title = pageTitle = tamia.tmpl('photo-title', {
 			title: frame.title
 			siteTitle: @siteTitle
+		})
+
+		# Update URL
+		frame.permalink = location.href.replace(@urlRegExp, "/photos/#{frame.id}/")
+		history.pushState('', pageTitle, frame.permalink)
+
+		# Track page view
+		if window.ga then ga('send', 'pageview', {
+			page: frame.permalink
+			title: pageTitle
 		})
 
 		@updateNav()
