@@ -26,8 +26,10 @@ class Birdwatcher extends KokenPlugin {
 	function filter_output($html_str)
 	{
 		$html_str = $this->clean_koken($html_str);
+		$html_str = $this->fix_rss_links($html_str);
 		$html_str = $this->common_typo($html_str);
 		$html_str = $this->process_entries($html_str);
+		$html_str = $this->process_rss($html_str);
 		$html_str = $this->process_thumbs($html_str);
 		return $html_str;
 	}
@@ -37,6 +39,27 @@ class Birdwatcher extends KokenPlugin {
 		// Remove Koken’s shit from page header
 		$html_str = preg_replace('%<script src="//ajax.googleapis.com/ajax/libs/jquery/.*?}\);</script>%sm', '', $html_str);
 		$html_str = preg_replace('%<!\-\-\[if IE\]>\s*<script src=".*?/html5shiv.js"></script>\s*<!\[endif\]\-\->%sm', '', $html_str);
+
+		return $html_str;
+	}
+
+	function fix_rss_links($html_str)
+	{
+		$html_str = str_replace(
+			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: All uploads" href="/feed/content/recent.rss" />',
+			'',
+			$html_str
+		);
+		$html_str = str_replace(
+			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: Essays" href="/feed/essays/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Блог о фотографии Артёма Сапегина" href="/feed/" />',
+			$html_str
+		);
+		$html_str = str_replace(
+			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: Timeline" href="/feed/timeline/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина" href="/feed/timeline/recent.rss" />',
+			$html_str
+		);
 
 		return $html_str;
 	}
@@ -104,6 +127,21 @@ class Birdwatcher extends KokenPlugin {
 			}
 		}
 		return (string)$doc;
+	}
+
+	function process_rss($html_str)
+	{
+		if (strpos($html_str, '<rss version="2.0"') === false) return $html_str;
+
+		header('Content-type: text/xml');
+
+		$html_str = preg_replace('%</?noscript>%', '', $html_str);
+		$html_str = preg_replace('%<img width="100\%"%', '<img', $html_str);
+		$html_str = preg_replace('%<img data-alt=[^>]+>%', '', $html_str);
+		$html_str = preg_replace('%(<a href="/photos/\d+/)lightbox/%', '\\1', $html_str);
+		$html_str = preg_replace('%<a href="/%', '<a href="http://' . $_SERVER['HTTP_HOST'] . '/', $html_str);
+
+		return $html_str;
 	}
 
 	function process_thumbs($html_str)
