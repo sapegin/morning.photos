@@ -20,6 +20,10 @@ tamia.initComponents(
 
 		container.fotorama({
 			nav: false
+			arrows: false
+			click: false
+			swipe: false
+			trackpad: false
 			transition: 'dissolve'
 			loop: true
 			autoplay: 7000
