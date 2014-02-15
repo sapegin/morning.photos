@@ -4,6 +4,7 @@
 
 <koken:load>
 
+	<koken:variable name="id" value="{{ content.id }}" />
 	<koken:variable name="title" value="***" />
 	<koken:not empty="content.title">
 		<koken:variable name="title" value="{{ content.title strip_html='true' }}" />
@@ -138,9 +139,11 @@ document.documentElement.className += ' is-fullscreen';
 
 	</div>
 
+
 <script>
-var __photos_current_id = '{{ content.id }}';
+var __ga_event = ['send', 'event', 'photo', 'view', '{{ title }} / {{ id }}'];
 <koken:parent order_by="captured_on" order_direction="desc">
+var __photos_current_id = '{{ id }}';
 var __photos = [<koken:loop separator=", ">{
 	id: '{{ id }}', img: '{{ presets.xlarge.url }}', pubdate: '{{ captured_on date_format="j.m.Y" }}',
 	info: {{ content.to_json fields="title, caption" }},

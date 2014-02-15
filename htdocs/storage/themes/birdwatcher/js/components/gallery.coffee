@@ -67,11 +67,12 @@ class Gallery extends Component
 		@inPopState = false
 
 		# Track page view
-		console.log 'update'
-		if window.ga then ga('send', 'pageview', {
-			page: frame.permalink
-			title: pageTitle
-		})
+		if window.ga
+			ga('send', 'pageview', {
+				page: frame.permalink
+				title: pageTitle
+			})
+			ga('send', 'event', 'photo', 'view', "#{frame.title} / #{frame.id}")
 
 		@updateNav()
 

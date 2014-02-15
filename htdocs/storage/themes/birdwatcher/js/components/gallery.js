@@ -76,12 +76,12 @@
         history.pushState('', pageTitle, frame.permalink);
       }
       this.inPopState = false;
-      console.log('update');
       if (window.ga) {
         ga('send', 'pageview', {
           page: frame.permalink,
           title: pageTitle
         });
+        ga('send', 'event', 'photo', 'view', "" + frame.title + " / " + frame.id);
       }
       this.updateNav();
       return _doc.trigger('photochanged', frame);
