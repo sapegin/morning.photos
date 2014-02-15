@@ -904,6 +904,12 @@ for tag in "best" "good" "russian" "english" {
 }
 
 .index-content {
+	opacity:0;
+
+	.is-ok & {
+		lightbox-button-transition();
+		opacity:1;
+	}
 
 	&-i {
 		margin-top:100vh;

@@ -10,9 +10,12 @@
 
   tamia.initComponents({
     'featured-album': function(elem) {
-      var container, contentContainer, fotorama, photos, resize;
+      var container, contentContainer, fotorama, load, photos, resize;
       resize = function() {
         return contentContainer.css('margin-top', container.height());
+      };
+      load = function() {
+        return $('body').addClass('is-ok');
       };
       container = $(elem);
       contentContainer = $('.js-content');
@@ -28,6 +31,7 @@
         fit: 'cover'
       });
       container.on('fotorama:load', resize);
+      container.on('fotorama:load', load);
       fotorama = container.data('fotorama');
       fotorama.load(photos);
       return _win.resize(resize);

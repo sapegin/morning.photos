@@ -11,6 +11,9 @@ tamia.initComponents(
 		resize = ->
 			contentContainer.css('margin-top', container.height())
 
+		load = ->
+			$('body').addClass('is-ok')
+
 		container = $(elem)
 		contentContainer = $('.js-content')
 		photos = window.__photos
@@ -26,6 +29,7 @@ tamia.initComponents(
 			fit: 'cover'
 		})
 		container.on('fotorama:load', resize)
+		container.on('fotorama:load', load)
 
 		fotorama = container.data('fotorama')
 		fotorama.load(photos)
