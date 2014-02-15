@@ -30,6 +30,7 @@
 
 <script>
 document.documentElement.className += ' is-fullscreen';
+<koken:parent>(new Image).src = '{{ content.presets.xlarge.url }}';</koken:parent>
 </script>
 
 	<div class="lightbox" <koken:parent>data-component="gallery"</koken:parent>>
