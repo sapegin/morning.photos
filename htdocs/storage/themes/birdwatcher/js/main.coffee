@@ -45,12 +45,13 @@ tamia.initComponents(
 		linkSelector: '.js-filter-tag'
 
 	'parallax': (elem) ->
+		return  unless Modernizr.touch
 		return  unless window.pageYOffset?
 
 		container = $(elem)
 		speed = container.data('speed') or 0.5
 		screenHeight = screen.height
-		_doc.scroll( ->
+		$(window).scroll( ->
 			pageY = window.pageYOffset
 			if pageY < screenHeight
 				offset = -pageY * speed
@@ -58,7 +59,7 @@ tamia.initComponents(
 		)
 
 	'touch-toggle': (elem) ->
-		return unless Modernizr.touch
+		return  unless Modernizr.touch
 
 		elem = $(elem)
 		elem.click( ->

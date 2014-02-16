@@ -48,13 +48,16 @@
     },
     'parallax': function(elem) {
       var container, screenHeight, speed;
+      if (!Modernizr.touch) {
+        return;
+      }
       if (window.pageYOffset == null) {
         return;
       }
       container = $(elem);
       speed = container.data('speed') || 0.5;
       screenHeight = screen.height;
-      return _doc.scroll(function() {
+      return $(window).scroll(function() {
         var offset, pageY;
         pageY = window.pageYOffset;
         if (pageY < screenHeight) {
