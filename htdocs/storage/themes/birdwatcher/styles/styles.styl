@@ -278,9 +278,13 @@ lightbox-button-glow() {
 	&__controls,
 	&__arrow,
 	&__close {
+		no-select();
 		z-index:9999;
-		opacity:0;
 		transform:translateZ(0);  // Speed up Fotorama
+
+		.no-touch & {
+			opacity:0;
+		}
 	}
 
 	&__controls {
@@ -375,10 +379,12 @@ lightbox-button-glow() {
 		}
 	}
 
-	&:hover &__button {
+	.no-touch &:hover &__button,
+	&.is-pressed &__button {
 		lightbox-button-glow();
 	}
-	&:hover &__popup {
+	.no-touch &:hover &__popup,
+	&.is-pressed &__popup {
 		display:block;
 	}
 }

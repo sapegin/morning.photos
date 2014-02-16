@@ -57,4 +57,14 @@ tamia.initComponents(
 				container.css('transform', "translateY(#{offset}px)")
 		)
 
+	'touch-toggle': (elem) ->
+		return unless Modernizr.touch
+
+		elem = $(elem)
+		elem.click( ->
+			pressed = elem.hasClass('is-pressed')
+			elem.closest('.js-touch-toggle-container').find('.is-pressed').removeClass('is-pressed')
+			elem.toggleClass('is-pressed', not pressed)
+		)
+
 )

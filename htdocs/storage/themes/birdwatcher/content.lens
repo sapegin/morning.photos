@@ -59,8 +59,8 @@ document.documentElement.className += ' is-fullscreen';
 			</koken:link>
 		</koken:parent>
 
-		<div class="lightbox__controls">
-			<div class="lightbox__control lightbox-pane">
+		<div class="lightbox__controls js-touch-toggle-container">
+			<div class="lightbox__control lightbox-pane" data-component="touch-toggle">
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_share"></i>
 				</div>
@@ -75,7 +75,7 @@ document.documentElement.className += ' is-fullscreen';
 					</div>
 				</div>
 			</div>
-			<div class="lightbox__control lightbox-pane">
+			<div class="lightbox__control lightbox-pane" data-component="touch-toggle">
 				<div class="lightbox-pane__button lightbox-button">
 					<i class="icon icon_info"></i>
 				</div>

@@ -62,6 +62,18 @@
           return container.css('transform', "translateY(" + offset + "px)");
         }
       });
+    },
+    'touch-toggle': function(elem) {
+      if (!Modernizr.touch) {
+        return;
+      }
+      elem = $(elem);
+      return elem.click(function() {
+        var pressed;
+        pressed = elem.hasClass('is-pressed');
+        elem.closest('.js-touch-toggle-container').find('.is-pressed').removeClass('is-pressed');
+        return elem.toggleClass('is-pressed', !pressed);
+      });
     }
   });
 
