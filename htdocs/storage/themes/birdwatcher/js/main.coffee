@@ -45,7 +45,7 @@ tamia.initComponents(
 		linkSelector: '.js-filter-tag'
 
 	'parallax': (elem) ->
-		return  unless Modernizr.touch
+		return  if Modernizr.touch
 		return  unless window.pageYOffset?
 
 		container = $(elem)

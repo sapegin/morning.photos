@@ -48,7 +48,7 @@
     },
     'parallax': function(elem) {
       var container, screenHeight, speed;
-      if (!Modernizr.touch) {
+      if (Modernizr.touch) {
         return;
       }
       if (window.pageYOffset == null) {
