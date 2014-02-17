@@ -31,6 +31,7 @@
 
 <script>
 document.documentElement.className += ' is-fullscreen';
+ga('send', 'event', 'photo', 'view', '{{ title }} / {{ photo_id }}');
 <koken:parent>(new Image).src = '{{ content.presets.xlarge.url }}';</koken:parent>
 </script>
 
@@ -141,7 +142,6 @@ document.documentElement.className += ' is-fullscreen';
 
 
 <script>
-var __ga_event = ['send', 'event', 'photo', 'view', '{{ title }} / {{ photo_id }}'];
 <koken:parent order_by="captured_on" order_direction="desc">
 var __photos_current_id = '{{ photo_id }}';
 var __photos = [<koken:loop separator=", ">{
