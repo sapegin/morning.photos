@@ -69,3 +69,8 @@ tamia.initComponents(
 		)
 
 )
+
+# Track Social Likes activity
+_doc.on('popup_opened.social-likes', (event, service, win) ->
+    ga('send', 'social', service, 'share', location.href)
+)

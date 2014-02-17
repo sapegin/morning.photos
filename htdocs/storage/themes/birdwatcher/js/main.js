@@ -80,4 +80,8 @@
     }
   });
 
+  _doc.on('popup_opened.social-likes', function(event, service, win) {
+    return ga('send', 'social', service, 'share', location.href);
+  });
+
 }).call(this);
