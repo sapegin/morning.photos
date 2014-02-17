@@ -3,9 +3,10 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-	<title>Цитаты о фотографии и искусстве — {{ site.title }}</title>
+	<title>Цитаты и афоризмы о фотографии и искусстве — {{ site.title }}</title>
 	<meta property="og:site_name" content="{{ site.title }}" />
-	<meta property="og:title" content="Цитаты о фотографии и искусстве" />
+	<meta property="og:title" content="Цитаты и афоризмы о фотографии и искусстве" />
+	<meta property="og:description" content="Подборка цитат и афоризмов фотографов, художников, писателей и других деятелей искусства." />
 	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 	<meta property="og:type" content="article" />
 	<meta name="twitter:card" content="summary" />
