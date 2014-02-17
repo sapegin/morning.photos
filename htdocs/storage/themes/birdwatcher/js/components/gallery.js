@@ -30,8 +30,12 @@
       this.nextButton = this.find('next');
       this.gallery.fotorama({
         nav: false,
+        arrows: false,
         keyboard: true,
-        transition: 'crossfade',
+        click: true,
+        swipe: true,
+        trackpad: false,
+        transition: Modernizr.touch ? 'slide' : 'crossfade',
         width: '100%',
         height: this.gallery.height()
       });

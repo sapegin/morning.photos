@@ -21,8 +21,12 @@ class Gallery extends Component
 
 		@gallery.fotorama({
 			nav: false
+			arrows: false
 			keyboard: true
-			transition: 'crossfade'
+			click: true
+			swipe: true
+			trackpad: false
+			transition: if Modernizr.touch then 'slide' else 'crossfade'
 			width: '100%'
 			height: @gallery.height()
 		})

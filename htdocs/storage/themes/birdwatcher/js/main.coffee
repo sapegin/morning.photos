@@ -21,6 +21,7 @@ tamia.initComponents(
 		container.fotorama({
 			nav: false
 			arrows: false
+			keyboard: false
 			click: false
 			swipe: false
 			trackpad: false

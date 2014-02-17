@@ -22,6 +22,7 @@
       photos = window.__photos;
       container.fotorama({
         nav: false,
+        keyboard: false,
         arrows: false,
         click: false,
         swipe: false,
