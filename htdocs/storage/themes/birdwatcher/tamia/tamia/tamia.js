@@ -201,8 +201,9 @@ if (typeof window.DEBUG === 'undefined') window.DEBUG = true;
 		tamia.registerEvents = function(handlers) {
 			var events = $.map(handlers, _tamiaze).join(' ');
 			_doc.on(events, function(event) {
-				if (DEBUG) log('Event "%s":', event.type, event.target);
-				handlers[event.type](event.target);
+				var eventName = [event.type, event.namespace].join('.').replace(/.tamia$/, '');
+				if (DEBUG) log('Event "%s":', eventName, event.target);
+				handlers[eventName](event.target);
 			});
 		};
 
@@ -342,23 +343,24 @@ if (typeof window.DEBUG === 'undefined') window.DEBUG = true;
 		/**
 		 * Templates
 		 */
+
+		/**
+		 * Simplest template.
+		 *
+		 * Just replaces {something} with data.something.
+		 *
+		 * @param {String} tmpl Template.
+		 * @param {String} data Template context.
+		 * @return {String} HTML.
+		 */
+		tamia.stmpl = function(tmpl, data) {
+			return tmpl.replace(/\{([^\}]+)\}/g, function(m, key) {
+				return data[key] || '';
+			});
+		}
+
 		var _templates = window.__templates;
 		if (_templates) {
-			/**
-			 * Simplest template.
-			 *
-			 * Just replaces {something} with data.something.
-			 *
-			 * @param {String} tmpl Template.
-			 * @param {String} data Template context.
-			 * @return {String} HTML.
-			 */
-			tamia.stmpl = function(tmpl, data) {
-				return tmpl.replace(/\{([^\}]+)\}/g, function(m, key) {
-					return data[key] || '';
-				});
-			}
-
 			/**
 			 * Invokes precompiled template.
 			 *
@@ -372,7 +374,7 @@ if (typeof window.DEBUG === 'undefined') window.DEBUG = true;
 				var tmpl = _templates[tmplId];
 				if (DEBUG) if (!tmpl) warn('Template %s not found.', tmplId);
 				return tmpl(data);
-			}
+			};
 
 			/**
 			 * Replaces jQuery node’s content with the result of template invocation.
@@ -384,30 +386,32 @@ if (typeof window.DEBUG === 'undefined') window.DEBUG = true;
 			jQuery.fn.tmpl = function(tmplId, data) {
 				var html = tamia.tmpl(tmplId, data);
 				return jQuery(this).html(html);
-			}
-
-			/**
-			 * Google Analytics tracking
-			 *
-			 * @param data-ga Event name ('link' if empty).
-			 * @param [data-action] Event action ('click' by default).
-			 *
-			 * Examples:
-			 *
-			 *   <a href="http://github.com/" data-ga>GitHub</span>
-			 *   <span class="js-slider-next" data-ga="slider" data-action="next">Next</span>
-			 */
-			_doc.on('click', '[data-ga]', function(event) {
-				var elem = jQuery(event.currentTarget);
-				var eventName = elem.data('ga') || 'link';
-				var eventAction = elem.data('ga-action') || 'click';
-				var url = elem.attr('href');
-				if (url) event.preventDefault();
-				ga('send', 'event', eventName, eventAction, url, {hitCallback: function() {
-					if (url) document.location = url;
-				}});
-			});
+			};
 		}
+
+
+		/**
+		 * Google Analytics tracking.
+		 *
+		 * @param data-ga Event name ('link' if empty).
+		 * @param [data-action] Event action ('click' by default).
+		 *
+		 * Examples:
+		 *
+		 *   <a href="http://github.com/" data-ga>GitHub</span>
+		 *   <span class="js-slider-next" data-ga="slider" data-action="next">Next</span>
+		 */
+		if ('ga' in window) _doc.on('click', '[data-ga]', function(event) {
+			var elem = jQuery(event.currentTarget);
+			var eventName = elem.data('ga') || 'link';
+			var eventAction = elem.data('ga-action') || 'click';
+			var url = elem.attr('href');
+			if (url) event.preventDefault();
+			ga('send', 'event', eventName, eventAction, url, {hitCallback: function() {
+				if (url) document.location = url;
+			}});
+		});
+
 
 		/**
 		 * Grid helper.
