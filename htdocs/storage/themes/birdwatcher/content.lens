@@ -52,12 +52,12 @@ ga('send', 'event', 'photo', 'view', '{{ title }} / {{ photo_id }}');
 			<div class="lightbox__arrow lightbox__arrow_right lightbox-button js-next">
 				<i class="icon icon_right"></i>
 			</div>
-			<koken:link class="lightbox__close lightbox-button js-close">
+			<a href="{{ album.url }}" class="lightbox__close lightbox-button js-close" data-component="hotkey" data-hotkey="esc">
 				<i class="icon icon_close"></i>
 				<div class="lightbox__close-tooltip">
 					Обратно в альбом «{{ album.title }}»
 				</div>
-			</koken:link>
+			</a>
 		</koken:parent>
 
 		<div class="lightbox__controls js-touch-toggle-container">
