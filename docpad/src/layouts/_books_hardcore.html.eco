@@ -1,9 +1,9 @@
 <table>
 <% for book in @books: %>
 	<tr>
-		<td valign="top">
+		<td valign="top" align="center" style="padding-bottom:10px">
 			<img src="http://birdwatcher.ru/images/books/<%= book.id %>.jpg" alt="<%= book.author %>. <%= book.title %>"><br>
-			Моя оценка: <%= (book.rating+'').replace '.5', '½' %>/5.
+			<%= (book.rating+'').replace '.5', '½' %>/5
 		</td>
 		<td valign="top" style="padding:0 0 10px 10px">
 			<p><strong><%= book.author %>. <% if book.link: %><a href="<%= @buyLink book.link %>"><% end %><%= book.title %><% if book.link: %></a><% end %></strong>
