@@ -926,6 +926,7 @@ for tag in "best" "good" "russian" "english" {
 	}
 
 	&-i-i {
+		grid-row();
 		position:relative;
 		margin-top:(-(normal_font*2.5));
 		margin-left:(-(spacer*0.5));
@@ -934,18 +935,56 @@ for tag in "best" "good" "russian" "english" {
 		background:bg_color;
 		box-shadow:0 0 6px black(.25);
 	}
-}
 
-.articles-list {
-	&__title {
-		@extend .gamma;
-		space();
+	&__blog {
+		grid-col(1,4);
+	}
 
-		&_index {
-			font-size:normal_font;
+	&__learn {
+		grid-col(5,4);
+	}
+
+	&__about {
+		grid-col(9,4);
+	}
+
+	+below(950px) {
+		&__blog {
+			grid-col(1,6);
+		}
+
+		&__learn {
+			grid-col(7,6);
+		}
+
+		&__about {
+			space(3);
+			no-cols();
+
+			.articles-list__item {
+				display:inline-block;
+				margin-right:.5em;
+			}
+		}
+
+		&__userpic {
+			display:none;
 		}
 	}
 
+	+below(500px) {
+		&__blog,
+		&__learn {
+			no-cols();
+		}
+
+		&__learn {
+			space(3);
+		}
+	}
+}
+
+.articles-list {
 	&__item {
 		margin-bottom:(spacer/2);
 		font-size:normal_font;
@@ -957,6 +996,15 @@ for tag in "best" "good" "russian" "english" {
 
 	&__description {
 		font-size:small_font;
+	}
+}
+
+.articles-list-title {
+	@extend .gamma;
+	space();
+
+	&_index {
+		font-size:normal_font;
 	}
 }
 
