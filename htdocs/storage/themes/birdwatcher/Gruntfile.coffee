@@ -99,14 +99,15 @@ module.exports = (grunt) ->
 				]
 				filename: 'info.json',
 				template: grunt.file.read('templates/info.json')
-		copy:
-			main:
-				files: [
-					expand: true
-					cwd: 'bower_components/fotorama/'
-					src: '*.png'
-					dest: 'build/'
-				]
+		replace:
+			fotorama:
+				files:
+					'build/fotorama.css': 'bower_components/fotorama/fotorama.css'
+				options:
+					patterns: [
+						match: /background:url\(fotorama(@2x)?.png\) no-repeat(;background-size:96px 160px)?/g
+						replacement: ''
+					]
 		webfont:
 			icons:
 				options:
@@ -163,5 +164,5 @@ module.exports = (grunt) ->
 				tasks: ['stylus']
 
 	grunt.registerTask 'docpad', ['shell:docpad']
-	grunt.registerTask 'default', ['webfont', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy', 'fingerprint']
-	grunt.registerTask 'deploy', ['stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'copy', 'fingerprint']
+	grunt.registerTask 'default', ['webfont', 'replace', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'fingerprint']
+	grunt.registerTask 'deploy', ['replace', 'stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'fingerprint']
