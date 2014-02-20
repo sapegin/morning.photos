@@ -923,8 +923,7 @@ visible_part_height = normal_font*2.5;
 		margin-top:visible_part_height + header_height;
 	}
 
-	&-i-i {
-		grid-row();
+	&__text {
 		position:relative;
 		margin-top:-(visible_part_height);
 		margin-left:-(spacer*0.5);
@@ -933,6 +932,10 @@ visible_part_height = normal_font*2.5;
 		background:bg_color;
 		z-index:9999999;
 		box-shadow:0 0 6px black(.25);
+	}
+
+	&__text-i {
+		grid-row();
 	}
 
 	&__blog {

@@ -51,70 +51,74 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 		<div class="index-content-i content js-content">
 
-			<div class="index-content-i-i">
+			<div class="index-content__text">
 
-				<div class="index-content__about">
+				<div class="index-content__text-i">
 
-					<div class="media index-about">
-						<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="index-content__userpic media__img media__img_rev">
-						<div class="media__body">
-							<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+					<div class="index-content__about">
+
+						<div class="media index-about">
+							<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="index-content__userpic media__img media__img_rev">
+							<div class="media__body">
+								<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+							</div>
 						</div>
-					</div>
-
-					<ul class="articles-list">
-
-						<li class="articles-list__item"><a href="/about/" class="link" data-ga="index-link">Обо мне</a></li>
-						<li class="articles-list__item"><a href="/buy/" class="link" data-ga="index-link">Купить мои фотографии</a></li>
-
-					</ul>
-
-				</div>
-
-				<div class="index-content__learn">
-
-					<ul class="articles-list">
-
-						<li class="articles-list__item">
-							<a href="/reading/" class="link" data-ga="index-link">Книги о фотографии</a>
-							<div class="articles-list__description">Мои рецензии</div>
-						</li>
-						<li class="articles-list__item">
-							<a href="/quotes/" class="link" data-ga="index-link">Цитаты о фотографии и искусстве</a>
-							<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
-						</li>
-						<li class="articles-list__item">
-							<a href="#" class="link" data-ga="index-link">Фотография где</a>
-							<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
-						</li>
-						<li class="articles-list__item">
-							<a href="/pages/microstocks/" class="link" data-ga="index-link">Микростоки</a>
-							<div class="articles-list__description">Как продавать фотографии в интернете</div>
-						</li>
-
-					</ul>
-
-				</div>
-
-				<div class="index-content__blog">
-
-					<koken:load source="essays" featured="true" limit="5">
-
-						<div class="articles-list-title articles-list-title_index">Интересное в <a href="/blog/" class="link" data-ga="index-link">блоге</a>:</div>
 
 						<ul class="articles-list">
 
-						<koken:loop>
-
-							<li class="articles-list__item">
-								<a href="{{ essay.url }}" class="link" data-ga="index-link">{{ essay.title }}</a>
-							</li>
-
-						</koken:loop>
+							<li class="articles-list__item"><a href="/about/" class="link" data-ga="index-link">Обо мне</a></li>
+							<li class="articles-list__item"><a href="/buy/" class="link" data-ga="index-link">Купить мои фотографии</a></li>
 
 						</ul>
 
-					</koken:load>
+					</div>
+
+					<div class="index-content__learn">
+
+						<ul class="articles-list">
+
+							<li class="articles-list__item">
+								<a href="/reading/" class="link" data-ga="index-link">Книги о фотографии</a>
+								<div class="articles-list__description">Мои рецензии</div>
+							</li>
+							<li class="articles-list__item">
+								<a href="/quotes/" class="link" data-ga="index-link">Цитаты о фотографии и искусстве</a>
+								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+							</li>
+							<li class="articles-list__item">
+								<a href="#" class="link" data-ga="index-link">Фотография где</a>
+								<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
+							</li>
+							<li class="articles-list__item">
+								<a href="/pages/microstocks/" class="link" data-ga="index-link">Микростоки</a>
+								<div class="articles-list__description">Как продавать фотографии в интернете</div>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div class="index-content__blog">
+
+						<koken:load source="essays" featured="true" limit="5">
+
+							<div class="articles-list-title articles-list-title_index">Интересное в <a href="/blog/" class="link" data-ga="index-link">блоге</a>:</div>
+
+							<ul class="articles-list">
+
+							<koken:loop>
+
+								<li class="articles-list__item">
+									<a href="{{ essay.url }}" class="link" data-ga="index-link">{{ essay.title }}</a>
+								</li>
+
+							</koken:loop>
+
+							</ul>
+
+						</koken:load>
+
+					</div>
 
 				</div>
 
