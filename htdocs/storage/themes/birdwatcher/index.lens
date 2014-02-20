@@ -124,6 +124,4 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 	</div>
 
-</div>
-
 <koken:include file="inc/footer.html" />

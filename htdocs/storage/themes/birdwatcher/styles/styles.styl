@@ -175,6 +175,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 }
 
 .page {
+	&_index,
 	&_content {
 		background:photo_bg_color;
 	}
@@ -188,11 +189,6 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 	&_index {
 		padding:0;
-	}
-}
-+above(1025px) {
-	.page_index {
-		background:photo_bg_color;
 	}
 }
 +below(740px) {
@@ -912,6 +908,8 @@ for tag in "best" "good" "russian" "english" {
 	}
 }
 
+visible_part_height = normal_font*2.5;
+
 .index-content {
 	opacity:0;
 	transform:translateZ(0);  // Speed up Fotorama
@@ -922,17 +920,18 @@ for tag in "best" "good" "russian" "english" {
 	}
 
 	&-i {
-		margin-top:100vh;
+		margin-top:visible_part_height + header_height;
 	}
 
 	&-i-i {
 		grid-row();
 		position:relative;
-		margin-top:(-(normal_font*2.5));
-		margin-left:(-(spacer*0.5));
-		margin-right:(-(spacer*0.5));
+		margin-top:-(visible_part_height);
+		margin-left:-(spacer*0.5);
+		margin-right:-(spacer*0.5);
 		padding:spacer*1.5;
 		background:bg_color;
+		z-index:9999999;
 		box-shadow:0 0 6px black(.25);
 	}
 
@@ -1032,7 +1031,7 @@ for tag in "best" "good" "russian" "english" {
 // About page
 
 .about-splash {
-	height:(500px - 55px);  // Photo height - header height
+	height:(500px - header_height);  // Photo height - header height
 
 	&-i {
 		position:fixed;
