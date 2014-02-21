@@ -12,7 +12,8 @@
 
 /* POWERED BY */
 
-  Wordpress: http://wordpress.org/
+  Koken: http://koken.me/
+  Fotorama: http://fotorama.io/
   Tâmia: http://sapegin.github.io/tamia/
 
   -_-_-_-_-_-_-_,------,
