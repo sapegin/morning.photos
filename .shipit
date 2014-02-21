@@ -8,3 +8,4 @@ cd htdocs/storage/themes/birdwatcher/
 npm install
 node_modules/.bin/bower install
 node -e "require('grunt').cli()" _ deploy
+rm -rf ../../cache/site
