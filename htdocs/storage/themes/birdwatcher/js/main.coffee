@@ -69,6 +69,14 @@ tamia.initComponents(
 			elem.toggleClass('is-pressed', not pressed)
 		)
 
+	'essay-excerpts': (elem) ->
+		$(elem).on('click', '.js-more-link', (event) ->
+			link = $(event.currentTarget)
+			link.closest('.js-more').find('.js-more-content').trigger('appear.tamia')
+			link.remove()
+			event.preventDefault()
+		)
+
 )
 
 # Track Social Likes activity

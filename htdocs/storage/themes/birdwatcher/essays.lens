@@ -17,11 +17,15 @@
 
 <koken:load limit="10">
 
-	<koken:loop>
+	<div data-component="essay-excerpts">
 
-		<koken:include file="inc/essay-excerpt.html" />
+		<koken:loop>
 
-	</koken:loop>
+			<koken:include file="inc/essay-excerpt.html" />
+
+		</koken:loop>
+
+	</div>
 
 	<div class="content">
 		<koken:include file="inc/pagination-blog.html" />

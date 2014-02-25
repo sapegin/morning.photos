@@ -78,6 +78,15 @@
         elem.closest('.js-touch-toggle-container').find('.is-pressed').removeClass('is-pressed');
         return elem.toggleClass('is-pressed', !pressed);
       });
+    },
+    'essay-excerpts': function(elem) {
+      return $(elem).on('click', '.js-more-link', function(event) {
+        var link;
+        link = $(event.currentTarget);
+        link.closest('.js-more').find('.js-more-content').trigger('appear.tamia');
+        link.remove();
+        return event.preventDefault();
+      });
     }
   });
 

@@ -99,9 +99,13 @@ class Birdwatcher extends KokenPlugin {
 	function process_more($html_str, $url)
 	{
 		$parts = explode('<!--more-->', $html_str);
-		$html_str = $parts[0];
 		if (count($parts) > 1) {
-			$html_str .= '<p class="more-link"><a class="more-link__link" href="' . $url . '">Читать дальше…</a></p>';
+			$html_str = $parts[0] .
+				'<div class="js-more">' .
+					'<p class="more-link"><a class="more-link__link js-more-link" href="' . $url . '">Читать дальше…</a></p>' .
+					'<div class="js-more-content is-hidden">' . $parts[1] . '</div>' .
+				'</div>'
+			;
 		}
 
 		return $html_str;
