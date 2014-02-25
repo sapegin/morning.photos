@@ -82,6 +82,9 @@
     'essay-excerpts': function(elem) {
       return $(elem).on('click', '.js-more-link', function(event) {
         var link;
+        if (event.metaKey || event.ctrlKey) {
+          return;
+        }
         link = $(event.currentTarget);
         link.closest('.js-more').find('.js-more-content').trigger('appear.tamia');
         link.remove();

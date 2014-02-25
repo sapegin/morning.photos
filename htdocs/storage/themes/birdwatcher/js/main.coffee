@@ -71,6 +71,7 @@ tamia.initComponents(
 
 	'essay-excerpts': (elem) ->
 		$(elem).on('click', '.js-more-link', (event) ->
+			return  if event.metaKey or event.ctrlKey
 			link = $(event.currentTarget)
 			link.closest('.js-more').find('.js-more-content').trigger('appear.tamia')
 			link.remove()
