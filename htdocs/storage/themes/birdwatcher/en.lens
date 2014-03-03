@@ -54,45 +54,37 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 		<div class="index-content-i content js-content">
 
-			<div class="index-content-i-i">
+			<div class="index-content__text">
 
-				<div class="l-row l-triple-space">
+				<div class="index-content__text-i">
 
-					<div class="l-third articles-list">
+					<div class="index-content__about">
 
-						<div class="articles-list__title articles-list__title_index delta">Portfolio</div>
+						<div class="media index-about">
+							<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="index-content__userpic media__img media__img_rev">
+							<div class="media__body text">
 
-						<ul class="articles-list__list">
-							<li class="articles-list__item">
-								<a href="/albums/landscapes/" class="link">Landscapes</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/cityscapes/" class="link">Cityscapes</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/travel/" class="link">Travel</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/nature/" class="link">Nature</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/dogs/" class="link">Dogs</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/horses/" class="link">Horses</a>
-							</li>
-							<li class="articles-list__item">
-								<a href="/albums/animals/" class="link">Animals</a>
-							</li>
+								<p>Hi! I’m Artem. I’m web developer and passionate photographer from Moscow, Russia. I love shooting nature, cities and dogs. I shoot with a Canon 6D and an iPhone.</p>
+
+								<p>Sorry, this gallery is in Russian, but you can still enjoy the photos. Just click on thumbnails and use <nobr>&larr; and &rarr;</nobr> keys on your keyboard to navigate through albums.</p>
+
+							</div>
+						</div>
+
+						<ul class="articles-list">
+
+							<li class="articles-list__item"><a href="http://sapegin.me/about" class="link">About me</a></li>
+							<li class="articles-list__item"><a href="http://sapegin.me/contacts" class="link">Contacts</a></li>
+
 						</ul>
 
 					</div>
 
-					<div class="l-third">
+					<div class="index-content__learn">
 
-						<div class="articles-list__title articles-list__title_index delta">Travel</div>
+						<div class="articles-list-title articles-list-title_index delta">Travel</div>
 
-						<ul class="articles-list__list">
+						<ul class="articles-list">
 							<li class="articles-list__item">
 								<a href="/pages/budapest/" class="link">Budapest</a>, Hungary, May 2013
 							</li>
@@ -136,24 +128,32 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 					</div>
 
-					<div class="l-third">
+					<div class="index-content__blog">
 
-						<div class="media index-about">
-							<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="media__img media__img_rev">
-							<div class="media__body text">
-
-								<p>Hi! I’m Artem. I’m web developer and passionate photographer from Moscow, Russia. I love shooting nature, cities and dogs. I shoot with a Canon 6D and an iPhone.</p>
-
-								<p>Sorry, this gallery is in Russian, but you can still enjoy the photos. Just click on thumbnails and use <nobr>&larr; and &rarr;</nobr> keys on your keyboard to navigate through albums.</p>
-
-							</div>
-						</div>
+						<div class="articles-list-title articles-list-title_index delta">Portfolio</div>
 
 						<ul class="articles-list__list">
-
-							<li class="articles-list__item"><a href="http://sapegin.me/about" class="link">About me</a></li>
-							<li class="articles-list__item"><a href="http://sapegin.me/contacts" class="link">Contacts</a></li>
-
+							<li class="articles-list__item">
+								<a href="/albums/landscapes/" class="link">Landscapes</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/cityscapes/" class="link">Cityscapes</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/travel/" class="link">Travel</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/nature/" class="link">Nature</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/dogs/" class="link">Dogs</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/horses/" class="link">Horses</a>
+							</li>
+							<li class="articles-list__item">
+								<a href="/albums/animals/" class="link">Animals</a>
+							</li>
 						</ul>
 
 					</div>
