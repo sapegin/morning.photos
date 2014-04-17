@@ -33,17 +33,17 @@
 
 </koken:load>
 
-<koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
+<koken:categories limit_to="essays" order_by="essay_count">
 	<ul class="blog-tags text content">
 	<koken:loop>
 		<li class="blog-tags__item">
-			<koken:link to="archive_essays">
-				{{ title }}
+			<koken:link>
+				{{ category.title }}
 			</koken:link>
-			<span class="blog-tags__counter">{{ counts.essays }}</span>
+			<span class="blog-tags__counter">{{ category.counts.total }}</span>
 		</li>
 	</koken:loop>
 	</ul>
-</koken:load>
+</koken:categories>
 
 <koken:include file="inc/footer.html" />
