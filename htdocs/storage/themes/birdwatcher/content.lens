@@ -1,3 +1,4 @@
+<koken:variable name="viewport_extra" value=", minimal-ui" />
 <koken:include file="inc/header.html" />
 <body class="page page_content">
 <koken:include file="inc/page-header.html" />
