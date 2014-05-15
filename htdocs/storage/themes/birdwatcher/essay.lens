@@ -51,6 +51,10 @@
 			</koken:categories>
 		</footer>
 
+		<div class="essay__discuss">
+			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-ga="discuss-link">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-ga="discuss-link">почту</a>.
+		</div>
+
 		<div class="essay__social">
 			<koken:variable name="sociallikes_title" value="{{ essay.title }}" />
 			<koken:include file="inc/sociallikes.html" />
