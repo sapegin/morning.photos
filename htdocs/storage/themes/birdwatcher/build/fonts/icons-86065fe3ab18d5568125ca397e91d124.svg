@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Thu May 22 08:19:55 2014
+ By Artem Sapegin
+Created by Artem Sapegin with FontForge 2.0 (http://fontforge.sf.net)
+</metadata>
+<defs>
+<font id="icons" horiz-adv-x="296" >
+  <font-face 
+    font-family="icons"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="0 -64 512 448"
+    underline-thickness="25"
+    underline-position="-52"
+    unicode-range="U+E001-E005"
+  />
+<missing-glyph horiz-adv-x="187" 
+d="M17 0v341h136v-341h-136zM34 17h102v307h-102v-307z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="187" 
+d="M17 0v341h136v-341h-136zM34 17h102v307h-102v-307z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="170" 
+ />
+    <glyph glyph-name="uniE001" unicode="&#xe001;" horiz-adv-x="512" 
+d="M62 448l194 -195l195 195l61 -61l-194 -195l194 -195l-61 -61l-195 194l-194 -194l-62 61l195 195l-195 195z" />
+    <glyph glyph-name="uniE002" unicode="&#xe002;" horiz-adv-x="236" 
+d="M180 448q24 0 38 -14q13 -13 13 -35q0 -25 -20 -45t-48 -20q-24 0 -38 14q-13 13 -12 37q0 23 18 43t49 20zM75 -64q-52 0 -28 91l31 130q8 29 0 29q-7 0 -28 -9q-22 -9 -37 -20l-13 23q46 40 97 64q53 25 77 25q40 0 19 -83l-36 -136q-7 -33 3 -33q21 0 60 31l16 -21
+q-42 -42 -90 -67q-46 -24 -71 -24z" />
+    <glyph glyph-name="uniE003" unicode="&#xe003;" 
+d="M256 448l40 -39l-217 -217l216 -217l-39 -39l-256 256z" />
+    <glyph glyph-name="uniE004" unicode="&#xe004;" 
+d="M40 -64l-40 39l217 217l-217 217l40 39l256 -256z" />
+    <glyph glyph-name="uniE005" unicode="&#xe005;" horiz-adv-x="512" 
+d="M384 100v29l51 41v-96q0 -11 -7 -18t-18 -7h-384q-11 0 -18 7q-8 8 -8 18v282q0 11 7 18t19 7h147q-18 -13 -30 -25l-20 -20l-5 -6h-67v-230h333zM342 278q-85 0 -124 -21q-38 -21 -82 -93q0 1 0.5 5t0.5 7q0 9 4 28q5 22 12 41q7 18 22 42q16 25 36 41t55 28
+q34 12 76 12v80l170 -128l-170 -133v91z" />
+  </font>
+</defs></svg>
