@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "modernizr": "~2.7.1",
-    "fotorama": "~4.4.9",
+    "fotorama": "~4.5.1",
     "hashnav": "~1.0.1",
     "jquery": "~2.1.0",
     "social-likes": "~3.0.2"
