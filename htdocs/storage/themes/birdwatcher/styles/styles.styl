@@ -23,19 +23,19 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .alpha {
 	font-size:48px;
-	font-weight:normal;
+	font-weight:300;
 	line-height:1.1;
 }
 
 .beta {
 	font-size:32px;
-	font-weight:normal;
+	font-weight:300;
 	line-height:1.1;
 }
 
 .gamma {
 	font-size:24px;
-	font-weight:normal;
+	font-weight:300;
 	line-height:1.1;
 }
 
@@ -59,6 +59,10 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 		space(2);
 	}
 
+	h2 {
+		@extend .beta;
+		space();
+	}
 	h3 {
 		@extend .delta;
 		space();
@@ -458,6 +462,7 @@ lightbox-button-glow() {
 	ul,
 	ol {
 		line-height:1.6;
+		font-weight:300;
 	}
 }
 
