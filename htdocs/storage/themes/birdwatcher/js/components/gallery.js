@@ -1,151 +1,144 @@
-(function() {
-  'use strict';
-  var $, Gallery, _doc, _ref, _win,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+// Author: Artem Sapegin, http://sapegin.me, 2014
 
-  $ = jQuery;
+/*global tamia:false, ga:false*/
+;(function(window, $, undefined) {
+	'use strict';
 
-  _win = $(window);
+	var _win = $(window);
+	var _doc = $(document);
 
-  _doc = $(document);
+	/* jshint camelcase:false */
+	var photosList = window.__photos;
+	var currentId = window.__photos_current_id;
+	/* jshint camelcase:true */
 
-  Gallery = (function(_super) {
-    __extends(Gallery, _super);
+	var Gallery = tamia.extend(tamia.Component, {
+		binded: 'update prev next resize',
 
-    function Gallery() {
-      _ref = Gallery.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
+		init: function() {
+			this.photos = photosList;
+			this.siteTitle = $('meta[property="og:site_name"]').attr('content');
+			this.urlRegExp = /\/photos\/(\d+)\/$/;
 
-    Gallery.prototype.init = function() {
-      var onload, startIndex,
-        _this = this;
-      this.photos = window.__photos;
-      this.siteTitle = $('meta[property="og:site_name"]').attr('content');
-      this.urlRegExp = /\/photos\/(\d+)\/$/;
-      startIndex = this.idToIndex(window.__photos_current_id);
-      this.gallery = this.find('gallery');
-      this.prevButton = this.find('prev');
-      this.nextButton = this.find('next');
-      this.gallery.fotorama({
-        nav: false,
-        arrows: false,
-        keyboard: true,
-        click: true,
-        swipe: true,
-        trackpad: false,
-        transition: Modernizr.touch ? 'slide' : 'crossfade',
-        width: '100%',
-        height: this.gallery.height()
-      });
-      this.fotorama = this.gallery.data('fotorama');
-      this.fotorama.load(this.photos);
-      this.fotorama.show({
-        index: startIndex,
-        time: 0
-      });
-      this.gallery.on('fotorama:show', this.update.bind(this));
-      this.on('click', 'prev', this.prev);
-      this.on('click', 'next', this.next);
-      this.updateNav();
-      _win.resize(this.resize.bind(this));
-      this.inPopState = false;
-      onload = true;
-      return _win.on('popstate', function(event) {
-        var id, m;
-        m = window.location.href.match(_this.urlRegExp);
-        id = m != null ? m[1] : void 0;
-        if (!id || onload) {
-          onload = false;
-          return;
-        }
-        _this.inPopState = true;
-        return _this.fotorama.show({
-          index: _this.idToIndex(id)
-        });
-      });
-    };
+			var startIndex = this.idToIndex(currentId);
 
-    Gallery.prototype.update = function() {
-      var frame, pageTitle;
-      frame = this.fotorama.activeFrame;
-      frame.title = frame.info.title || '***';
-      document.title = pageTitle = tamia.tmpl('photo-title', {
-        title: frame.title,
-        siteTitle: this.siteTitle
-      });
-      if (!this.inPopState) {
-        frame.permalink = location.href.replace(this.urlRegExp, "/photos/" + frame.id + "/");
-        history.pushState('', pageTitle, frame.permalink);
-      }
-      this.inPopState = false;
-      if (window.ga) {
-        ga('send', 'pageview', {
-          page: frame.permalink,
-          title: pageTitle
-        });
-        ga('send', 'event', 'photo', 'view', "" + frame.title + " / " + frame.id);
-      }
-      this.updateNav();
-      return _doc.trigger('photochanged', frame);
-    };
+			this.gallery = this.elem.find('.js-gallery');
+			this.prevButton = this.elem.find('.js-prev');
+			this.nextButton = this.elem.find('.js-next');
 
-    Gallery.prototype.next = function() {
-      if (this.isLast()) {
-        return;
-      }
-      this.fotorama.show('>');
-      return this.updateNav();
-    };
+			this.gallery.fotorama({
+				nav: false,
+				arrows: false,
+				keyboard: true,
+				click: true,
+				swipe: true,
+				trackpad: false,
+				transition: Modernizr.touch ? 'slide' : 'crossfade',
+				width: '100%',
+				height: this.gallery.height()
+			});
 
-    Gallery.prototype.prev = function() {
-      if (this.isFirst()) {
-        return;
-      }
-      this.fotorama.show('<');
-      return this.updateNav();
-    };
+			this.fotorama = this.gallery.data('fotorama');
+			this.fotorama.load(this.photos);
+			this.fotorama.show({index: startIndex, time: 0});
+			this.gallery.on('fotorama:show', this.update_);
 
-    Gallery.prototype.isFirst = function() {
-      return this.fotorama.activeIndex === 0;
-    };
+			this.elem.on('click', '.js-prev', this.prev_);
+			this.elem.on('click', '.js-next', this.next_);
+			this.updateNav();
 
-    Gallery.prototype.isLast = function() {
-      return this.fotorama.activeIndex === this.fotorama.data.length - 1;
-    };
+			_win.resize(this.resize_);
 
-    Gallery.prototype.updateNav = function() {
-      this.prevButton.toggleClass('is-disabled', this.isFirst());
-      return this.nextButton.toggleClass('is-disabled', this.isLast());
-    };
+			this.inPopState = false;
+			var onload = true;
+			_win.on('popstate', function(event) {
+				var m = window.location.href.match(this.urlRegExp);
+				var id = m && m[1];
+				if (!id || onload) {
+					onload = false;
+					return;
+				}
+				this.inPopState = true;
+				this.fotorama.show({index: this.idToIndex(id)});
+			}.bind(this));
+		},
 
-    Gallery.prototype.resize = function() {
-      return this.fotorama.resize({
-        width: this.gallery.width(),
-        height: this.gallery.height()
-      });
-    };
+		update: function() {
+			var frame = this.fotorama.activeFrame;
+			frame.title = frame.info.title || '***';
 
-    Gallery.prototype.idToIndex = function(id) {
-      var index,
-        _this = this;
-      index = null;
-      $.each(this.photos, function(idx, val) {
-        if (_this.photos[idx].id === id) {
-          index = idx;
-          return false;
-        }
-      });
-      return index;
-    };
+			// Update page title
+			var pageTitle = document.title = tamia.tmpl('photo-title', {
+				title: frame.title,
+				siteTitle: this.siteTitle
+			});
 
-    return Gallery;
+			// Update URL
+			if (!this.inPopState) {
+				frame.permalink = location.href.replace(this.urlRegExp, '/photos/' + frame.id + '/');
+				history.pushState('', pageTitle, frame.permalink);
+			}
+			this.inPopState = false;
 
-  })(Component);
+			// Track page view
+			if (window.ga) {
+				ga('send', 'pageview', {
+					page: frame.permalink,
+					title: pageTitle
+				});
+				ga('send', 'event', 'photo', 'view', frame.title + ' / ' + frame.id);
+			}
 
-  tamia.initComponents({
-    'gallery': Gallery
-  });
+			this.updateNav();
 
-}).call(this);
+			_doc.trigger('photochanged', frame);
+		},
+
+		next: function() {
+			if (this.isLast()) return;
+			this.fotorama.show('>');
+			this.updateNav();
+		},
+
+		prev: function() {
+			if (this.isFirst()) return;
+			this.fotorama.show('<');
+			this.updateNav();
+		},
+
+		isFirst: function() {
+			return this.fotorama.activeIndex === 0;
+		},
+
+		isLast: function() {
+			return this.fotorama.activeIndex === this.fotorama.data.length-1;
+		},
+
+		updateNav: function() {
+			this.prevButton.toggleState('disabled', this.isFirst());
+			this.nextButton.toggleState('disabled', this.isLast());
+		},
+
+		resize: function() {
+			this.fotorama.resize({
+				width: this.gallery.width(),
+				height: this.gallery.height()
+			});
+		},
+
+		idToIndex: function(id) {
+			var index = null;
+			var photos = this.photos;
+			$.each(photos, function(idx, val) {
+				if (photos[idx].id === id) {
+					index = idx;
+					return false;
+				}
+			});
+			return index;
+		}
+	});
+
+	tamia.initComponents({gallery: Gallery});
+
+}(window, jQuery));

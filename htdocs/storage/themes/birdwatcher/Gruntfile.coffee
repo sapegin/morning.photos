@@ -9,15 +9,19 @@ module.exports = (grunt) ->
 
 	grunt.initConfig
 		banner: '/*! Author: Artem Sapegin, http://sapegin.me, <%= grunt.template.today("yyyy") %> */\n'
-		coffeelint:
-			options: grunt.file.readJSON('.coffeelintrc')
-			files: '<%= coffee.main.src %>'
 		dot:
 			main:
 				options:
 					variable: '__templates'
 				src: 'templates/*.html'
 				dest: 'build/_templates.js'
+		jshint:
+			options:
+				jshintrc: '.jshintrc'
+			files: [
+				'js/*.js'
+				'js/components/*.js'
+			]
 		modernizr:
 			devFile: 'bower_components/modernizr/modernizr.js'
 			outputFile: 'build/modernizr.js'
@@ -34,15 +38,6 @@ module.exports = (grunt) ->
 					'jquery'
 					'modernizr'
 				]
-		coffee:
-			main:
-				expand: true
-				src: [
-					"js/components/*.coffee"
-					"js/*.coffee"
-				]
-				dest: '.'
-				ext: '.js'
 		concat:
 			main:
 				src: [
@@ -137,11 +132,6 @@ module.exports = (grunt) ->
 					atBegin: true
 				files: '<%= dot.main.src %>'
 				tasks: ['dot']
-			coffee:
-				options:
-					atBegin: true
-				files: '<%= coffee.main.src %>'
-				tasks: 'coffee'
 			concat:
 				options:
 					atBegin: true
@@ -164,5 +154,5 @@ module.exports = (grunt) ->
 				tasks: ['stylus']
 
 	grunt.registerTask 'docpad', ['shell:docpad']
-	grunt.registerTask 'default', ['webfont', 'replace', 'stylus', 'coffeelint', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'fingerprint']
-	grunt.registerTask 'deploy', ['replace', 'stylus', 'dot', 'bower_concat', 'coffee', 'modernizr', 'concat', 'uglify', 'fingerprint']
+	grunt.registerTask 'default', ['jshint', 'webfont', 'replace', 'stylus', 'dot', 'bower_concat', 'modernizr', 'concat', 'uglify', 'fingerprint']
+	grunt.registerTask 'deploy', ['replace', 'stylus', 'dot', 'bower_concat', 'modernizr', 'concat', 'uglify', 'fingerprint']

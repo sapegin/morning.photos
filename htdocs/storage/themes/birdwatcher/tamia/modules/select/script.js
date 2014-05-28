@@ -1,46 +1,46 @@
-(function() {
-  'use strict';
-  var $, Select, _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+// Tâmia © 2014 Artem Sapegin http://sapegin.me
+// Select with custom design
 
-  $ = jQuery;
+/*global tamia:false*/
+;(function(window, $, undefined) {
+	'use strict';
 
-  Select = (function(_super) {
-    __extends(Select, _super);
+	var _selectClass = '.js-select';
+	var _boxClass = '.js-box';
 
-    function Select() {
-      _ref = Select.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
+	var Select = tamia.extend(tamia.Component, {
+		binded: 'focus blur change',
 
-    Select.prototype.init = function() {
-      this.selectElem = this.find('select');
-      this.boxElem = this.find('box');
-      this.on('focus', 'select', this.focus);
-      this.on('blur', 'select', this.blur);
-      this.on('change', 'select', this.change);
-      return this.change();
-    };
+		init: function() {
+			this.selectElem = this.elem.find(_selectClass);
+			this.boxElem = this.elem.find(_boxClass);
 
-    Select.prototype.focus = function() {
-      return this.addState('focused');
-    };
+			this.elem.on({
+				focus: this.focus_,
+				blur: this.blur_,
+				change: this.change_
+			}, _selectClass);
 
-    Select.prototype.blur = function() {
-      return this.removeState('focused');
-    };
+			this.change();
+		},
 
-    Select.prototype.change = function() {
-      return this.boxElem.text(this.selectElem.find(':selected').text());
-    };
+		focus: function() {
+			this.toggleFocused(true);
+		},
 
-    return Select;
+		blur: function() {
+			this.toggleFocused(false);
+		},
 
-  })(Component);
+		toggleFocused: function(toggle) {
+			this.elem.toggleState('focused', toggle);
+		},
 
-  tamia.initComponents({
-    select: Select
-  });
+		change: function() {
+			this.boxElem.text(this.selectElem.find(':selected').text());
+		}
+	});
 
-}).call(this);
+	tamia.initComponents({select: Select});
+
+}(window, jQuery));

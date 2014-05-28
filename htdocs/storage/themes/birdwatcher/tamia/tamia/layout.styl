@@ -22,6 +22,7 @@ grid_columns ?= 12
 grid-row()
 	clearfix()
 	grid-wrapper()
+	content: "tamia__grid-row"  if DEBUG
 
 // Column (grid).
 //
@@ -44,24 +45,6 @@ grid-col(position=1, span=1, context=null)
 	_grid-float()
 	grid-padding()
 
-// Single column.
-//
-// position - Start column number (default: 1).
-// span - Width, in culumns (default: 1).
-// context - Width of parent column (default: null).
-grid-one(position=1, span=1, context=null)
-	_grid-column(position, span, context)
-	grid-padding()
-
-// Single column (without padding, wrapper for child columns).
-//
-// position - Start column number (default: 1).
-// span - Width, in culumns (default: 1).
-// context - Width of parent column (default: null).
-grid-one-container(position=1, span=1, context=null)
-	clearfix()
-	_grid-column(position, span, context)
-
 // Gutter size negative margin to make column with different background.
 // You should adjust padding depending on content.
 grid-explode()
@@ -69,8 +52,8 @@ grid-explode()
 
 // Width of column, in percent.
 //
-// position - Start column number (default: 1).
 // span - Width, in culumns (default: 1).
+// context - Width of parent column (default: null).
 //
 // Returns percent.
 grid-width(span=1, context=null)
@@ -100,6 +83,7 @@ _grid-column(position=1, span=1, context=null)
 	unit-width = 100% / context
 	width: span * unit-width
 	margin-left: (position - 1) * unit-width
+	content: "tamia__grid-col"  if DEBUG
 
 _grid-float()
 	float: left
@@ -119,6 +103,7 @@ layout-row()
 	.no-flexbox &
 		display: block
 		letter-spacing: -0.31em
+	content: "tamia__layout-row"  if DEBUG
 
 // Column (simple layout).
 //
@@ -131,7 +116,7 @@ layout-row()
 //   .row
 //     layout-row()
 //   .col
-//     layout-nth(2)  // Half
+//     layout-nth(1/2)  // Half
 layout-nth(part)
 	_layout-col()
 	_layout-part(part)
@@ -150,25 +135,38 @@ layout-change(part)
 layout-stop()
 	_layout-part(1)
 
+_layout-col()
+	grid-padding()
+	/// IE8-9
+	.no-flexbox &
+		display: inline-block
+		vertical-align: top
+		letter-spacing: normal
+	content: "tamia__layout-col"  if DEBUG
+
+_layout-part(part)
+	width: (100% / (1 / part))
+
+
+//
+// Misc
+//
 
 // Center element with specified width and hegith.
+//
+// width - Width of an element.
+// height - Height of an element (default: null).
+//
+// Example:
+//   .checkbox:before
+//     center(.8em, .65em)
+//     background-image: url("check.svg")
 center(width, height=null)
 	size(width, height)
 	left: 50%
 	top: 50%
 	margin-left: (-(@width / 2))
 	margin-top: (-(@height / 2))
-
-_layout-col()
-	grid-padding()
-	// IE8-9
-	.no-flexbox &
-		display: inline-block
-		vertical-align: top
-		letter-spacing: normal
-
-_layout-part(part)
-	width: (100% / part)
 
 
 //
@@ -189,30 +187,31 @@ _layout-part(part)
 
 // Sixth (to use inside .l-row).
 .l-sixth
-	_layout-part(6)
+	_layout-part(1/6)
 
 // Quarter (to use inside .l-row).
 .l-quarter
-	_layout-part(4)
+	_layout-part(1/4)
 
 // Three quarters (to use inside .l-row).
 .l-three-quarters
-	_layout-part(4/3)
+	_layout-part(3/4)
 
 // Third (to use inside .l-row).
 .l-third
-	_layout-part(3)
+	_layout-part(1/3)
 
 // Two thirds (to use inside .l-row).
 .l-two-thirds
-	_layout-part(3/2)
+	_layout-part(2/3)
 
 // Half (to use inside .l-row).
 .l-half
-	_layout-part(2)
+	_layout-part(1/2)
 
-// Flexible columns with left (.l-left) and right (.l-right) text alignment (to use inside .l-row).
+// Flexible columns with left text alignment (to use inside .l-row).
 .l-left,
+// Flexible columns with right text alignment (to use inside .l-row).
 .l-right
 	flex: 1
 .l-right
@@ -236,6 +235,12 @@ _layout-part(part)
 		display: table-cell
 		text-align: center
 		vertical-align: middle
+
+// Horizontally centered block.
+.l-centered
+	display: block
+	margin-left: auto
+	margin-right: auto
 
 
 //
@@ -270,26 +275,39 @@ space(rows=1)
 ///
 
 if DEBUG
-	.g-debug-col
-		grid-padding()
-		float: left
-		width: grid-width()
+	.tamia__show-layout-outlines
+		.tamia__grid-col,
+		.tamia__layout-col
+			transition: outline .15s ease-in-out
+		.tamia__grid-col
+			outline: 1px solid #fc6
+		.tamia__layout-col
+			outline: 1px solid #6cc
 
-	.g-debug-helper
+	.tamia__grid-row,
+	.tamia__layout-row
+		position: relative
+
+	.tamia__grid-debugger
 		position: absolute
 		left: 0
 		right: 0
-		height: 100%
-		min-height: 3000px
 		z-index: 10000
 		overflow: hidden
 		pointer-events: none
-		*
-			height: 100%
-		[data-component="grid"]
-			grid-wrapper()
-		.g-debug-col:before
+		transition: opacity .15s ease-in-out
+		&.is-hidden
+			opacity: 0
+
+	.tamia__grid-debugger-col
+		grid-padding()
+		float: left
+		width: grid-width()
+		height: inherit
+		&:before
 			content: ""
 			display: block
 			height: inherit
 			background: hsla(220,40%,50%,.25)
+
+

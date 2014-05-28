@@ -1,56 +1,49 @@
-(function() {
-  'use strict';
-  var $, elems_map, init_handler, inited, keys, _doc;
+// Author: Artem Sapegin, http://sapegin.me, 2014
+// <a href="{{ album.url }}" data-component="hotkey" data-hotkey="esc">
 
-  $ = jQuery;
+/*global tamia:false*/
+;(function(window, $, undefined) {
+	'use strict';
 
-  _doc = $(document);
+	var _doc = $(document);
 
-  keys = {
-    esc: 27
-  };
+	var keys = {
+		esc: 27
+	};
 
-  elems_map = {};
+	var elemsMap = {};
+	var inited = false;
 
-  inited = false;
+	function initHandler() {
+		_doc.on('keydown', function(event) {
+			var keycode = event.which;
+			var elems = elemsMap[keycode];
+			if (!elems) return;
 
-  init_handler = function() {
-    return _doc.on('keydown', function(event) {
-      var elem, elems, keycode, url, _i, _len, _results;
-      keycode = event.which;
-      elems = elems_map[keycode];
-      if (!elems) {
-        return;
-      }
-      event.preventDefault();
-      _results = [];
-      for (_i = 0, _len = elems.length; _i < _len; _i++) {
-        elem = elems[_i];
-        url = elem.attr('href');
-        if (url) {
-          _results.push(location.href = url);
-        } else {
-          _results.push(void 0);
-        }
-      }
-      return _results;
-    });
-  };
+			event.preventDefault();
+			for (var elem in elems) {
+				var url = elem.attr('href');
+				if (url) {
+					location.href = url;
+				}
+			}
+		});
+	}
 
-  tamia.initComponents({
-    'hotkey': function(elem) {
-      var hotkey, keycode;
-      elem = $(elem);
-      hotkey = elem.data('hotkey');
-      keycode = keys[hotkey];
-      if (elems_map[keycode] == null) {
-        elems_map[keycode] = [];
-      }
-      elems_map[keycode].push(elem);
-      if (!inited) {
-        return init_handler();
-      }
-    }
-  });
+	tamia.initComponents({
+		'hotkey': function(elem) {
+			elem = $(elem);
 
-}).call(this);
+			var hotkey = elem.data('hotkey');
+			var keycode = keys[hotkey];
+			if (!elemsMap[keycode]) elemsMap[keycode] = [];
+			elemsMap[keycode].push(elem);
+
+			if (!inited) {
+				initHandler();
+				inited = true;
+			}
+		}
+	});
+
+}(window, jQuery));
