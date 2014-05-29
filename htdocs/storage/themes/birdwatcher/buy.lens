@@ -5,7 +5,7 @@
 <koken:head>
 	<title>Купить фотографии Артёма Сапегина: пейзаж, городской пейзаж, путешествия, тревел, природа, собаки, фото</title>
 	<meta property="og:site_name" content="{{ site.title }}" />
-	<meta property="og:title" content="Статьи Артёма Сапегина" />
+	<meta property="og:title" content="Купить фотографии Артёма Сапегина" />
 	<meta property="og:description" content="{{ site.description strip_html='true' }}" />
 	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 	<meta property="og:type" content="article" />
