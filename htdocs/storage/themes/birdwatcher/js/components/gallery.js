@@ -82,11 +82,8 @@
 
 			// Track page view
 			if (window.ga) {
-				ga('send', 'pageview', {
-					page: frame.permalink,
-					title: pageTitle
-				});
-				ga('send', 'event', 'photo', 'view', frame.title + ' / ' + frame.id);
+				ga('send', 'pageview', {page: frame.permalink, title: pageTitle});
+				mixpanel.track('Photo viewed', {Title: frame.title, Id: frame.id});
 			}
 
 			this.updateNav();

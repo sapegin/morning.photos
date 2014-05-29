@@ -66,8 +66,8 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 						<ul class="articles-list">
 
-							<li class="articles-list__item"><a href="/about/" class="link" data-ga="index-link">Обо мне</a></li>
-							<li class="articles-list__item"><a href="/buy/" class="link" data-ga="index-link">Купить мои фотографии</a></li>
+							<li class="articles-list__item"><a href="/about/" class="link">Обо мне</a></li>
+							<li class="articles-list__item"><a href="/buy/" class="link">Купить мои фотографии</a></li>
 
 						</ul>
 
@@ -78,19 +78,19 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 						<ul class="articles-list">
 
 							<li class="articles-list__item">
-								<a href="/reading/" class="link" data-ga="index-link">Книги о фотографии</a>
+								<a href="/reading/" class="link">Книги о фотографии</a>
 								<div class="articles-list__description">Мои рецензии</div>
 							</li>
 							<li class="articles-list__item">
-								<a href="/quotes/" class="link" data-ga="index-link">Цитаты о фотографии и искусстве</a>
+								<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
 								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
 							</li>
 							<li class="articles-list__item">
-								<a href="/funquotes/" class="link" data-ga="index-link">Фотография где</a>
+								<a href="/funquotes/" class="link">Фотография где</a>
 								<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
 							</li>
 							<li class="articles-list__item">
-								<a href="/pages/microstocks/" class="link" data-ga="index-link">Микростоки</a>
+								<a href="/pages/microstocks/" class="link">Микростоки</a>
 								<div class="articles-list__description">Как продавать фотографии в интернете</div>
 							</li>
 
@@ -102,14 +102,14 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 						<koken:load source="essays" featured="true" limit="5">
 
-							<div class="articles-list-title articles-list-title_index">Интересное в <a href="/blog/" class="link" data-ga="index-link">блоге</a>:</div>
+							<div class="articles-list-title articles-list-title_index">Интересное в <a href="/blog/" class="link">блоге</a>:</div>
 
 							<ul class="articles-list">
 
 							<koken:loop>
 
 								<li class="articles-list__item">
-									<a href="{{ essay.url }}" class="link" data-ga="index-link">{{ essay.title }}</a>
+									<a href="{{ essay.url }}" class="link">{{ essay.title }}</a>
 								</li>
 
 							</koken:loop>
@@ -127,5 +127,7 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 		</div>
 
 	</div>
+
+	<script>mixpanel.track_links('.js-content', 'Index link clicked')</script>
 
 <koken:include file="inc/footer.html" />

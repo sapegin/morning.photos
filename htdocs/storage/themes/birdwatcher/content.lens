@@ -32,7 +32,7 @@
 
 <script>
 document.documentElement.className += ' is-fullscreen';
-ga('send', 'event', 'photo', 'view', '{{ title }} / {{ photo_id }}');
+mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 <koken:parent>(new Image).src = '{{ content.presets.xlarge.url }}';</koken:parent>
 </script>
 

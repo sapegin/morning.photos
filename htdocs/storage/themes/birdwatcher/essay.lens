@@ -26,6 +26,9 @@
 		</koken:not>
 	</koken:head>
 
+	<script>
+	mixpanel.track('Blog post viewed', {Title: '{{ essay.title strip_html="true" }}'});
+	</script>
 
 	<article class="essay essay_single entry content">
 
@@ -52,7 +55,7 @@
 		</footer>
 
 		<div class="essay__discuss">
-			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-ga="discuss-link">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-ga="discuss-link">почту</a>.
+			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
 		</div>
 
 		<div class="essay__social">

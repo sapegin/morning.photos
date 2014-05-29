@@ -92,7 +92,7 @@
 
 	// Track Social Likes activity
 	_doc.on('popup_opened.social-likes', function(event, service, win) {
-	    ga('send', 'social', service, 'share', location.href);
+	    mixpanel.track('Shared', {Service: service, URL: location.href});
 	});
 
 }(window, jQuery));
