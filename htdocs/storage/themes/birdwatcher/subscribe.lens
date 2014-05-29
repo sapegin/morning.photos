@@ -31,7 +31,14 @@
 			<button type="submit" class="subscribe__button button">Подписаться</button>
 		</div>
 	</form>
-	<script>mixpanel.track_forms('#subscribe', 'Subscribed', function(form) { return {Email: form.MERGE0.value} })</script>
+	<script>
+	mixpanel.track_forms('#subscribe', 'Subscribed', function(form) {
+		var email = form.MERGE0.value;
+		mixpanel.identify(email);
+		mixpanel.people.set({$email: email, $created: new Date()});
+		return {Email: email}
+	})
+	</script>
 
 	<ul>
 		<li>Новые фотографии, анонсы моих электронных книг и всякое такое.</li>
