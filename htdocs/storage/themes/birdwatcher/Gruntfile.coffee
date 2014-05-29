@@ -47,6 +47,7 @@ module.exports = (grunt) ->
 					'tamia/vendor/*.js'
 					'tamia/tamia/tamia.js'
 					'tamia/tamia/component.js'
+					'tamia/modules/form/script.js'
 					'js/components/*.js'
 					'js/main.js'
 				]

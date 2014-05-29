@@ -1141,7 +1141,22 @@ visible_part_height = normal_font*2.5;
 }
 
 .about-site,
-.about-copyrights {
+.about-copyrights,
+.note {
 	space(2);
 	font-size:small_font;
+}
+
+.subscribe {
+	space(4);
+	max-width:500px;
+
+	&__field-col {
+		padding-right:spacer;
+	}
+
+	&__honey {
+		position:absolute;
+		left:-9999px;
+	}
 }

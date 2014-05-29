@@ -1,0 +1,46 @@
+<koken:include file="inc/header.html" />
+<body class="page page_page">
+<koken:include file="inc/page-header.html" />
+
+<koken:head>
+	<title>Рассылка Артёма Сапегина</title>
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:title" content="Рассылка Артёма Сапегина" />
+	<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@{{ profile.twitter }}" />
+	<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+</koken:head>
+
+<div class="content text entry-content">
+
+	<div class="entry-header">
+		<h1 class="entry-title">Подпишитесь на мою рассылку</h1>
+	</div>
+
+	<form id="subscribe" action="http://birdwatcher.us8.list-manage.com/subscribe/post" method="post" class="subscribe l-row l-row_flat">
+		<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209">
+		<input type="hidden" name="id" value="e0d45226cc">
+		<div class="subscribe__honey"><input type="text" name="b_de175cf2070fa3cfd7d3ad209_e0d45226cc" tabindex="-1" value=""></div>
+		<div class="subscribe__field-col l-left">
+			<input type="email" name="MERGE0" class="subscribe__field field field_block" placeholder="Ваша почта" autocapitalize="off" autocorrect="off" required autofocus>
+		</div>
+		<div class="subscribe__button-col">
+			<button type="submit" class="subscribe__button button">Подписаться</button>
+		</div>
+	</form>
+	<script>mixpanel.track_forms('#subscribe', 'Subscribed', function(form) { return {Email: form.MERGE0.value} })</script>
+
+	<ul>
+		<li>Новые фотографии, анонсы моих электронных книг и всякое такое.</li>
+		<li>Выходит примерно раз в месяц. Редко чаще, часто реже.</li>
+		<li>Вы можете отписаться в течение первых 70,8¹ лет.</li>
+	</ul>
+
+	<p class="note">¹ Средняя продолжительность жизни в России по данным Росстата.</p>
+
+</div>
+
+<koken:include file="inc/footer.html" />
