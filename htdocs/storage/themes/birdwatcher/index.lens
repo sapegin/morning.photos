@@ -128,6 +128,6 @@ var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url 
 
 	</div>
 
-	<script>mixpanel.track_links('.js-content', 'Index link clicked')</script>
+	<script>mixpanel.track_links('.js-content .link', 'Index link clicked')</script>
 
 <koken:include file="inc/footer.html" />
