@@ -686,7 +686,7 @@ lightbox-button-glow() {
 	}
 
 	&__discuss {
-		space(2);
+		space(4);
 		font-size:16px;
 	}
 }
@@ -1158,5 +1158,24 @@ visible_part_height = normal_font*2.5;
 	&__honey {
 		position:absolute;
 		left:-9999px;
+	}
+}
+
+.subscribe-block {
+	margin:0 (-(2*spacer));
+	padding:2*spacer;
+	background:#efefef;
+
+	&__title {
+		@extend .gamma;
+		space(1.5);
+	}
+
+	&__info {
+		font-size:small_font;
+	}
+
+	.subscribe {
+		space(1.5);
 	}
 }

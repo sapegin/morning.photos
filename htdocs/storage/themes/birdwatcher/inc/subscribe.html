@@ -1,0 +1,19 @@
+<form id="subscribe" action="http://birdwatcher.us8.list-manage.com/subscribe/post" method="post" class="subscribe l-row l-row_flat">
+	<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209">
+	<input type="hidden" name="id" value="e0d45226cc">
+	<div class="subscribe__honey"><input type="text" name="b_de175cf2070fa3cfd7d3ad209_e0d45226cc" tabindex="-1" value=""></div>
+	<div class="subscribe__field-col l-left">
+		<input type="email" name="MERGE0" class="subscribe__field field field_block" placeholder="Ваша почта" autocapitalize="off" autocorrect="off" required {{ subscribe_extra }}>
+	</div>
+	<div class="subscribe__button-col">
+		<button type="submit" class="subscribe__button button">Подписаться</button>
+	</div>
+</form>
+<script>
+mixpanel.track_forms('#subscribe', 'Subscribed', function(form) {
+	var email = form.MERGE0.value;
+	mixpanel.identify(email);
+	mixpanel.people.set({$email: email, $created: new Date()});
+	return {Email: email, From: '{{ subscribe_from }}'}
+})
+</script>

@@ -58,9 +58,14 @@
 			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
 		</div>
 
-		<div class="essay__social">
-			<koken:variable name="sociallikes_title" value="{{ essay.title }}" />
-			<koken:include file="inc/sociallikes.html" />
+		<div class="subscribe-block">
+			<div class="subscribe-block__title">Подпишитесь на мою рассылку</div>
+			<div class="subscribe-block__form">
+				<koken:variable name="subscribe_from" value="Blog" />
+				<koken:variable name="subscribe_extra" value="" />
+				<koken:include file="inc/subscribe.html" />
+				<div class="subscribe-block__info">Новые фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+			</div>
 		</div>
 
 	</article>
