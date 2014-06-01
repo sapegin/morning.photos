@@ -20,9 +20,11 @@
 		<h1 class="entry-title">Подпишитесь на мою рассылку</h1>
 	</div>
 
-	<koken:variable name="subscribe_from" value="Subscribe" />
-	<koken:variable name="subscribe_extra" value="autofocus" />
-	<koken:include file="inc/subscribe.html" />
+	<div class="subscribe-page">
+		<koken:variable name="subscribe_from" value="Subscribe" />
+		<koken:variable name="subscribe_extra" value="autofocus" />
+		<koken:include file="inc/subscribe.html" />
+	</div>
 
 	<ul>
 		<li>Новые фотографии, анонсы моих электронных книг и всякое такое.</li>

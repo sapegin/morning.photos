@@ -1148,7 +1148,6 @@ visible_part_height = normal_font*2.5;
 }
 
 .subscribe {
-	space(4);
 	max-width:500px;
 
 	&__field-col {
@@ -1161,6 +1160,10 @@ visible_part_height = normal_font*2.5;
 	}
 }
 
+.subscribe-page {
+	space(4);
+}
+
 .subscribe-block {
 	margin:0 (-(2*spacer));
 	padding:2*spacer;
@@ -1171,11 +1174,11 @@ visible_part_height = normal_font*2.5;
 		space(1.5);
 	}
 
-	&__info {
-		font-size:small_font;
+	&__form {
+		space(1.5);
 	}
 
-	.subscribe {
-		space(1.5);
+	&__info {
+		font-size:small_font;
 	}
 }
