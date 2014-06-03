@@ -16,10 +16,17 @@
 	<meta name="twitter:creator" content="@{{ profile.twitter }}" />
 </koken:head>
 
+<script>mixpanel.track('Reading page viewed')</script>
+
 <div class="content text entry-content">
 
 	<div class="entry-header">
 		<h1 class="entry-title">Книги о фотографии</h1>
+	</div>
+
+	<div class="l-triple-space">
+		<script><koken:include file="build/inlines/shuffle.js" /></script>
+		<koken:include file="../../../../docpad/out/books_actual.html" />
 	</div>
 
 	<koken:include file="../../../../docpad/out/books.html" />

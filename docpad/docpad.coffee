@@ -20,6 +20,7 @@ docpadConfig = {
 			good: 'Хорошие'
 			russian: 'На русском'
 			english: 'На английском'
+			available: 'Ещё продаются'
 
 		partners:
 			'amazon.com': '?tag=artesapesphot-20'

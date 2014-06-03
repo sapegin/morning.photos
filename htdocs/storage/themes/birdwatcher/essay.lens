@@ -26,9 +26,7 @@
 		</koken:not>
 	</koken:head>
 
-	<script>
-	mixpanel.track('Blog post viewed', {Title: '{{ essay.title strip_html="true" }}'});
-	</script>
+	<script>mixpanel.track('Blog post viewed', {Title: '{{ essay.title strip_html="true" }}'})</script>
 
 	<article class="essay essay_single entry content">
 
