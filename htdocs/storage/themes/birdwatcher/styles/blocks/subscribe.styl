@@ -1,0 +1,27 @@
+// Author: Artem Sapegin, http://sapegin.me, 2014
+
+.subscribe {
+	max-width:500px;
+
+	&__field-col {
+		padding-right:spacer;
+	}
+
+	&__honey {
+		position:absolute;
+		left:-9999px;
+	}
+
+	+below(450px) {
+		display:block;
+
+		&__field-col {
+			space(.5);
+			padding-right:0;
+		}
+
+		&__button {
+			width:100%;
+		}
+	}
+}
