@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			main: {
+				nonull: true,
 				src: [
 					'<%= bower_concat.main.dest %>',
 					'<%= dot.main.dest %>',
