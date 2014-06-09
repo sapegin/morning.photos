@@ -7,12 +7,10 @@
 		binded: 'error',
 
 		init: function() {
-			tamia.trace(this, 'Subscribe');
 			this.elem.on('error.form.tamia', this.error_);
 		},
 
 		error: function(event, data) {
-			console.log(data);
 		 	return data.msg ? data.msg.replace(/^\d+\s+\-\s+/, '') : null;
 		}
 	});
