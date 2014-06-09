@@ -17,6 +17,8 @@
 	"strict": true,
 	"globals": {
 		"Modernizr": false,
-		"tamia": false
+		"tamia": false,
+		"mixpanel": false,
+		"yaCounter218061": false
 	}
 }

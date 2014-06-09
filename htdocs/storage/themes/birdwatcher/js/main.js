@@ -1,6 +1,5 @@
 // Author: Artem Sapegin, http://sapegin.me, 2014
 
-/*global tamia:false, mixpanel:false*/
 ;(function(window, $, undefined) {
 	'use strict';
 
