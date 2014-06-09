@@ -1,6 +1,6 @@
 // Author: Artem Sapegin, http://sapegin.me, 2014
 
-/*global tamia:false, ga:false, mixpanel:false*/
+/*global tamia:false, yaCounter218061:false, mixpanel:false*/
 ;(function(window, $, undefined) {
 	'use strict';
 
@@ -81,10 +81,8 @@
 			this.inPopState = false;
 
 			// Track page view
-			if (window.ga) {
-				ga('send', 'pageview', {page: frame.permalink, title: pageTitle});
-				mixpanel.track('Photo viewed', {Title: frame.title, Id: frame.id});
-			}
+			if (window.yaCounter218061) yaCounter218061.hit(frame.permalink, frame.title);
+			if (window.mixpanel) mixpanel.track('Photo viewed', {Title: frame.title, Id: frame.id});
 
 			this.updateNav();
 
