@@ -5,6 +5,9 @@
 <koken:load>
 
 	<koken:head>
+		<koken:not empty="page.excerpt">
+			<title>{{ page.excerpt }}</title>
+		</koken:not>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ page.title strip_html='true' }}" />
 		<meta property="og:description" content="{{ page.excerpt strip_html='true' }}" />
