@@ -6,10 +6,10 @@
 			<%= (book.rating+'').replace '.5', '½' %>/5
 		</td>
 		<td valign="top" style="padding:0 0 10px 10px">
-			<p><strong><%= book.author %>. <% if book.link: %><a href="<%= @buyLink book.link %>" data-track"Book link clicked"><% end %><%= book.title %><% if book.link: %></a><% end %></strong>
+			<p><strong><%= book.author %>. <% if book.link: %><a href="<%= @buyLink book.link %>" data-track="Book link clicked"><% end %><%= book.title %><% if book.link: %></a><% end %></strong>
 				<% if book.translation: %>
 					<br>
-					<%= book.translation.author %>. <a href="<%= @buyLink book.translation.link %>" data-track"Book link clicked"><%= book.translation.title %></a>
+					<%= book.translation.author %>. <a href="<%= @buyLink book.translation.link %>" data-track="Book link clicked"><%= book.translation.title %></a>
 				<% end %>
 			</p>
 			<%- @absolutizeLinks @md book.text %>

@@ -25,12 +25,12 @@
 			<% (book.tags.push 'available') if book.available %>
 			<div class="media book-review <%= @tags_classes book.tags, 'book-review_tag' %>" id="<%= book.id %>">
 				<h2 class="book-review__title">
-					<%= book.author %>. <% if book.link: %><a href="<%= @buyLink book.link %>" data-track"Book link clicked"><% end %><%= book.title %><% if book.link: %></a><% end %>
+					<%= book.author %>. <% if book.link: %><a href="<%= @buyLink book.link %>" data-track="Book link clicked"><% end %><%= book.title %><% if book.link: %></a><% end %>
 					<% if book.year: %><span class="book-review__year"><%= book.year %></span><% end %>
 				</h2>
 				<% if book.translation: %>
 					<h3 class="book-review__translation">
-						<%= book.translation.author %>. <a href="<%= @buyLink book.translation.link %>" data-track"Book link clicked"><%= book.translation.title %></a>
+						<%= book.translation.author %>. <a href="<%= @buyLink book.translation.link %>" data-track="Book link clicked"><%= book.translation.title %></a>
 					</h3>
 				<% end %>
 				<div class="media">
