@@ -37,6 +37,7 @@
 <script>
 var __photos = shuffle([<koken:loop separator=", ">{img: '{{ presets.xlarge.url }}'}</koken:loop>]);
 (new Image).src = __photos[0].img;
+mixpanel.track('Index page viewed');
 </script>
 
 			<div class="featured-album">
