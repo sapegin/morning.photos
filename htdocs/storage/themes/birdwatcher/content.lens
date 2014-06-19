@@ -8,6 +8,7 @@
 	<koken:variable name="photo_id" value="{{ content.id }}" />
 	<koken:variable name="title" value="***" />
 	<koken:variable name="xlarge_url" value="{{ content.presets.xlarge.url }}" />
+	<koken:variable name="canonical_url" value="{{ content.canonical_url }}" />
 
 	<koken:not empty="content.title">
 		<koken:variable name="title" value="{{ content.title strip_html='true' }}" />
@@ -137,6 +138,21 @@ mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 							</div>
 						</koken:if>
 					</koken:iptc>
+
+					<koken:parent>
+						<a class="is-hidden" href="{{ canonical_url }}">{{ title }}</a>
+					<koken:else>
+						<koken:albums>
+								<div class="photo-info__albums">
+									Входит в альбомы:
+									<koken:loop separator=", ">
+										<koken:link>
+											{{ album.title }}
+										</koken:link>
+									</koken:loop>
+								</div>
+							</koken:albums>
+					</koken:parent>
 				</div>
 			</div>
 		</div>
