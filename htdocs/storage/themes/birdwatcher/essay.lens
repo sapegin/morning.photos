@@ -28,33 +28,37 @@
 
 	<script>mixpanel.track('Blog post viewed', {Title: '{{ essay.title strip_html="true" }}'})</script>
 
-	<article class="essay essay_single entry content">
+	<div class="content">
 
-		<header class="essay__header">
-			<h2 class="entry-title">
-				{{ essay.title }}
-			</h2>
-		</header>
+		<article class="essay essay_single entry">
 
-		<div class="essay__content text bw-entry" entry-type="essay">
-			{{ essay.content }}
-		</div>
+			<header class="essay__header">
+				<h2 class="entry-title">
+					{{ essay.title }}
+				</h2>
+			</header>
 
-		<div class="essay__discuss">
-			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
-		</div>
+			<div class="essay__content text bw-entry" entry-type="essay">
+				{{ essay.content }}
+			</div>
 
-		<footer class="essay__meta">
-			<time class="essay__pubdate entry-pubdate" datetime="{{ essay.published_on date_format='c' }}">{{ essay.published_on date_format='j.m.Y' }}</time>
+			<div class="essay__discuss">
+				Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
+			</div>
 
-			<koken:categories>
-				<span class="entry-tags text">
-					<koken:loop separator=", ">
-						<koken:link>{{ category.title }}</koken:link>
-					</koken:loop>
-				</span>
-			</koken:categories>
-		</footer>
+			<footer class="essay__meta">
+				<time class="essay__pubdate entry-pubdate" datetime="{{ essay.published_on date_format='c' }}">{{ essay.published_on date_format='j.m.Y' }}</time>
+
+				<koken:categories>
+					<span class="entry-tags text">
+						<koken:loop separator=", ">
+							<koken:link>{{ category.title }}</koken:link>
+						</koken:loop>
+					</span>
+				</koken:categories>
+			</footer>
+
+		</article>
 
 		<div class="subscribe-block">
 			<div class="subscribe-block__title">Подпишитесь на мою рассылку</div>
@@ -66,7 +70,7 @@
 			<div class="subscribe-block__info">Новые фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
 		</div>
 
-	</article>
+	</div>
 
 <koken:else>
 
