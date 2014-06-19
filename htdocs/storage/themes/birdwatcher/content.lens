@@ -7,6 +7,8 @@
 
 	<koken:variable name="photo_id" value="{{ content.id }}" />
 	<koken:variable name="title" value="***" />
+	<koken:variable name="xlarge_url" value="{{ content.presets.xlarge.url }}" />
+
 	<koken:not empty="content.title">
 		<koken:variable name="title" value="{{ content.title strip_html='true' }}" />
 	</koken:not>
@@ -33,7 +35,7 @@
 <script>
 document.documentElement.className += ' is-fullscreen';
 mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
-<koken:parent>(new Image).src = '{{ content.presets.xlarge.url }}';</koken:parent>
+<koken:parent>(new Image).src = '{{ xlarge_url }}';</koken:parent>
 </script>
 
 	<div class="lightbox" <koken:parent>data-component="gallery"</koken:parent>>
@@ -41,8 +43,8 @@ mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 		<div class="lightbox__logo logo"><koken:link to="front" class="logo__link">{{ site.title }}</koken:link></div>
 
 		<div class="lightbox__gallery">
-			<div class="lightbox__image js-gallery" <koken:parent><koken:else>style="background-image:url({{ content.presets.xlarge.url }})"</koken:parent>>
-				<img class="lightbox__saver" src="{{ content.presets.xlarge.url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
+			<div class="lightbox__image js-gallery" <koken:parent><koken:else>style="background-image:url({{ xlarge_url }})"</koken:parent>>
+				<img class="lightbox__saver" src="{{ xlarge_url }}" alt="{{ content.title }}<koken:tags>: <koken:loop separator=", ">{{ tag.title }}</koken:loop></koken:tags>">
 			</div>
 		</div>
 
