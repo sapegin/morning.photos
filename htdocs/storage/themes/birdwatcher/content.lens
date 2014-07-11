@@ -15,7 +15,7 @@
 	</koken:not>
 
 	<koken:head>
-		<title>{{ title }} — Фото — {{ site.title }}</title>
+		<title>{{ title }} — фото Артёма Сапегина</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ title }}" />
 		<meta property="og:description" content="{{ content.caption strip_html='true' }}" />
