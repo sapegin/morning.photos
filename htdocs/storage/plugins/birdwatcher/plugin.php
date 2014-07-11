@@ -101,10 +101,10 @@ class Birdwatcher extends KokenPlugin {
 		$parts = explode('<!--more-->', $html_str);
 		if (count($parts) > 1) {
 			$html_str = $parts[0] .
-				'<div class="js-more">' .
+				'<!--more_open--><div class="js-more">' .
 					'<p class="more-link"><a class="more-link__link js-more-link" href="' . $url . '">Читать дальше…</a></p>' .
-					'<div class="js-more-content is-hidden">' . $parts[1] . '</div>' .
-				'</div>'
+					'<div class="js-more-content is-hidden"><!--/more_open-->' . $parts[1] . '<!--more_close--></div>' .
+				'</div><!--/more_close-->'
 			;
 		}
 
@@ -144,6 +144,13 @@ class Birdwatcher extends KokenPlugin {
 		$html_str = preg_replace('%<img data-alt=[^>]+>%', '', $html_str);
 		$html_str = preg_replace('%(<a href="/photos/\d+/)lightbox/%', '\\1', $html_str);
 		$html_str = preg_replace('%<a href="/%', '<a href="http://' . $_SERVER['HTTP_HOST'] . '/', $html_str);
+
+		// Restore more tag
+		$html_str = preg_replace('%<!--more_open-->.*?<!--/more_open-->%sm', '<!--more-->', $html_str);
+		$html_str = preg_replace('%<!--more_close-->.*?<!--/more_close-->%sm', '', $html_str);
+
+		// Fix images
+		$html_str = preg_replace('%<figure class="k-content-embed">\s*<div class="k-content">\s*(.*?)\s*</div>\s*</figure>%sm', '<p>\\1</p>', $html_str);
 
 		return $html_str;
 	}
