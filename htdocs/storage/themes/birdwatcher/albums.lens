@@ -2,7 +2,7 @@
 <body class="page page_portfolio">
 <koken:include file="inc/page-header.html" />
 
-<koken:load limit="4" source="albums" filter:tags="portfolio">
+<koken:load limit="4" source="albums" filter:tags="portfolio" order_by="created_on" order_direction="desc">
 
 	<koken:head>
 		<title>Фотографии — {{ site.title }}</title>
@@ -37,7 +37,7 @@
 
 </koken:load>
 
-<koken:load source="albums" filter:tags="portfolio">
+<koken:load source="albums" filter:tags="portfolio" order_by="created_on" order_direction="desc">
 
 	<div class="content">
 
