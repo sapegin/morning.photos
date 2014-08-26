@@ -61,13 +61,13 @@
 		</article>
 
 		<div class="subscribe-block">
-			<div class="subscribe-block__title">Подпишитесь на мою рассылку</div>
+			<div class="subscribe-block__title">Понравился пост? Подпишитесь на рассылку!</div>
 			<div class="subscribe-block__form">
 				<koken:variable name="subscribe_from" value="Blog" />
 				<koken:variable name="subscribe_extra" value="" />
 				<koken:include file="inc/subscribe.html" />
 			</div>
-			<div class="subscribe-block__info">Новые фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+			<div class="subscribe-block__info">Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
 		</div>
 
 	</div>
