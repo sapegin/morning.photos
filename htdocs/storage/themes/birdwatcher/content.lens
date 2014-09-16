@@ -18,7 +18,11 @@
 		<title>{{ title }} — фото Артёма Сапегина</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ title }}" />
-		<meta property="og:description" content="{{ content.caption strip_html='true' }}" />
+		<koken:not empty="content.caption">
+			<meta property="og:description" content="{{ content.caption strip_html='true' }}" />
+		<koken:else>
+			<meta property="og:description" content="Кликните, чтобы посмотреть фотографию на сайте" />
+		</koken:not>
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
 		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />

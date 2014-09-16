@@ -9,7 +9,15 @@
 		<title>{{ essay.title strip_html="true" }} — Блог о фотографии Артёма Сапегина</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ essay.title strip_html='true' }}" />
-		<meta property="og:description" content="{{ essay.excerpt strip_html='true' }}" />
+		<koken:not empty="essay.excerpt">
+			<meta property="og:description" content="{{ essay.excerpt strip_html='true' }}" />
+		<koken:else>
+			<koken:has_category title="Фотографии">
+				<meta property="og:description" content="Кликните, чтобы посмотреть фотографию на сайте" />
+			<koken:else>
+				<meta property="og:description" content="…" />
+			</koken:has_category>
+		</koken:not>
 		<meta property="og:url" content="{{ essay.url }}" />
 		<meta property="og:type" content="article">
 		<koken:featured_image>
