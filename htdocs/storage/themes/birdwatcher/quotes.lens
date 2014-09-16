@@ -25,8 +25,20 @@
 
 	<koken:include file="../../../../docpad/out/quotes.html" />
 
-	<koken:variable name="sociallikes_title" value="{{ page_title }}" />
-	<koken:include file="inc/sociallikes.html" />
+	<div class="l-triple-space">
+		<koken:variable name="sociallikes_title" value="{{ page_title }}" />
+		<koken:include file="inc/sociallikes.html" />
+	</div>
+
+	<div class="subscribe-block">
+		<div class="subscribe-block__title">Подпишитесь на мою рассылку о фотографии</div>
+		<div class="subscribe-block__form">
+			<koken:variable name="subscribe_from" value="Quotes" />
+			<koken:variable name="subscribe_extra" value="" />
+			<koken:include file="inc/subscribe.html" />
+		</div>
+		<div class="subscribe-block__info">Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+	</div>
 
 </div>
 
