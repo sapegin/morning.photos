@@ -16,6 +16,7 @@
 
 		init: function() {
 			//tamia.trace(this, 'Form');
+
 			this.method = this.elem.data('method') || 'post';
 			this.dataType = this.elem.data('form-type') || 'json';
 			this.url = this.elem.data('form-action');
@@ -88,7 +89,7 @@
 			});
 			return fields;
 		}
- 	});
+	});
 
 	tamia.initComponents({form: Form});
 

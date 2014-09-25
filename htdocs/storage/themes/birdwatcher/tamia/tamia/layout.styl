@@ -32,7 +32,10 @@ grid-row()
 //
 // Example:
 //
-//   .row>.col1+.col2
+//   <div class="row">
+//	   <div class="col1"></div>
+//	   <div class="col2"></div>
+//   </div>
 //
 //   .row
 //     grid-row()
@@ -45,10 +48,41 @@ grid-col(position=1, span=1, context=null)
 	_grid-float()
 	grid-padding()
 
+// Column and wrapper for nested columns (grid).
+//
+// position - Start column number (default: 1).
+// span - Width, in culumns (default: 1).
+// context - Width of parent column (default: null).
+//
+// Example:
+//
+//   <div class="row">
+//	   <div class="col1">
+//	     <div class="col3"></div>
+//	     <div class="col4"></div>
+//	   </div>
+//	   <div class="col2"></div>
+//   </div>
+//
+//   .row
+//     grid-row()
+//   .col1
+//     grid-col-row(1,8)
+//   .col2, .col3, .col4
+//     grid-col(...)
+grid-col-row(position=1, span=1, context=null)
+	_grid-column(position, span, context)
+
 // Gutter size negative margin to make column with different background.
-// You should adjust padding depending on content.
-grid-explode()
-	margin: (-(grid_gutter))
+//
+// full - Explode to all sides if true, left/right otherwise (default: false).
+grid-explode(full=false)
+	grid-padding(full)
+	if full
+		margin: -(grid_gutter)
+	else
+		margin-left: -(grid_gutter)
+		margin-right: -(grid_gutter)
 
 // Width of column, in percent.
 //
@@ -111,7 +145,10 @@ layout-row()
 //
 // Example:
 //
-//   .row>.col+.col
+//   <div class="row">
+//     <div class="col"></div>
+//     <div class="col"></div>
+//   </div>
 //
 //   .row
 //     layout-row()
@@ -158,6 +195,7 @@ _layout-part(part)
 // height - Height of an element (default: null).
 //
 // Example:
+//
 //   .checkbox:before
 //     center(.8em, .65em)
 //     background-image: url("check.svg")
@@ -174,6 +212,8 @@ center(width, height=null)
 //
 
 // Column wrapper.
+//
+// - l-row_flat - Disable negative left/right margins.
 .l-row
 	layout-row()
 	&_flat
@@ -213,6 +253,13 @@ center(width, height=null)
 	_layout-part(1/2)
 
 // Flexible columns with left text alignment (to use inside .l-row).
+//
+// Example:
+//
+//   <div class="l-row l-row_flat">
+//     <div class="l-left">Left</div>
+//     <div class="l-right">Left</div>
+//   </div>
 .l-left,
 // Flexible columns with right text alignment (to use inside .l-row).
 .l-right
@@ -225,11 +272,23 @@ center(width, height=null)
 	.l-right
 		float: right
 
+// Pull left (float: left).
+.l-pull-left
+	float: left !important
+
+// Pull right (float: right).
+.l-pull-right
+	float: right !important
+
 // Centered content (vertically and horizontally).
 //
 // Example:
 //
-//   .l-center>.l-center-i>span
+//   <div class="l-center">
+//     <div class="l-center-i">
+//       <span>Centered content</span>
+//     </div>
+//   </div>
 .l-center
 	display: table
 	width: 100%
@@ -278,14 +337,64 @@ space(rows=1)
 ///
 
 if DEBUG
+	.tamia__show-help
+		overflow: hidden
+
+	.tamia__help
+		display: flex
+		align-items: center
+		justify-content: center
+		position: fixed
+		left: 0
+		top: 0
+		right: 0
+		bottom: 0
+		*
+			background: #fff
+			color: #000
+			text-shadow: none
+			font: 16px/20px "Helvetica Neue", Arial, sans-serif
+		ul
+			padding: 2*spacer 2*spacer spacer
+			border-radius: .25em
+			box-shadow: 0 .2em .1em black(.15)
+		li
+			margin-bottom: spacer
+		kbd
+			display: inline-block
+			margin-right: .3em
+			padding: .1em .3em
+			background: #ccc
+			border-radius: .3em
+			text-shadow: 0 1px 0 white(.4)
+
 	.tamia__show-layout-outlines
 		.tamia__grid-col,
 		.tamia__layout-col
 			transition: outline .15s ease-in-out
 		.tamia__grid-col
-			outline: 1px solid #fc6
+			outline: 1px solid #fc6 !important
 		.tamia__layout-col
-			outline: 1px solid #6cc
+			outline: 1px solid #6cc !important
+
+	.tamia__show-all-outlines
+		*:before,
+		*:after
+			outline: 1px solid #d381c3 !important
+		*
+			outline: 1px solid #fb0120 !important
+			*
+				outline: 1px solid #fc6d24 !important
+				*
+					outline: 1px solid #fda331 !important
+					*
+						outline: 1px solid #a1c659 !important
+						*
+							outline: 1px solid #76c7b7 !important
+							*
+								outline: 1px solid #6fb3d2 !important
+								*
+									outline: 1px solid #be643c !important
 
 	.tamia__grid-row,
 	.tamia__layout-row
@@ -312,5 +421,3 @@ if DEBUG
 			display: block
 			height: inherit
 			background: hsla(220,40%,50%,.25)
-
-

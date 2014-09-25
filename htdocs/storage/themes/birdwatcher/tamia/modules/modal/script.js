@@ -59,6 +59,12 @@
 			this.wrapper.trigger('appear.tamia');
 			_doc.on('keyup', this.keyup_);
 			_opened = this;
+
+			// Set focus to element with autofocus attribute
+			var autofocus = this.elem.find('[autofocus]');
+			if (autofocus.length) {
+				autofocus.focus();
+			}
 		},
 
 		close: function(params) {
@@ -96,7 +102,7 @@
 		},
 
 		shadeClick: function(event) {
-			if ($(event.target).hasClass('js-modal')) {
+			if ($(event.target).hasClass('js-modal') && this.elem.data('modal-close-on-shade') !== 'no') {
 				this.dismiss(event);
 			}
 		}
@@ -109,6 +115,12 @@
 			var modal = container.data('modal');
 			if (!modal) modal = new Modal(elem);
 			modal.open();
+		},
+		'close.modal': function(elem) {
+			var container = $(elem);
+			var modal = container.data('modal');
+			if (!modal) return;
+			modal.close();
 		}
 	});
 

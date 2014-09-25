@@ -19,6 +19,9 @@ Modal popup.
 		</footer>
 	</div>
 
+To disable modal closing by click on a shade use `data-modal-close-on-shade="no"` attribute:
+
+	<div class="modal is-hidden" data-modal-close-on-shade="no">
 
 ## How to open
 
@@ -41,6 +44,10 @@ Open via link:
 ### open.modal.tamia
 
 Fire this event on `.modal` DOM node to open popup.
+
+### close.modal.tamia
+
+Fire this event on `.modal` DOM node to close popup.
 
 ### commit.modal.tamia
 
