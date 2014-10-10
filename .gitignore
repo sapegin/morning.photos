@@ -21,3 +21,5 @@ preview.php
 .htaccess
 .docpad.db
 htdocs/manifest.php
+payments/settings.php
+payments/data/db
