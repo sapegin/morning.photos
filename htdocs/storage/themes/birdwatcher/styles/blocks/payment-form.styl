@@ -1,0 +1,18 @@
+// Author: Artem Sapegin, http://sapegin.me, 2014
+
+.payment-form {
+	&_card,
+	&_yandex,
+	&_paypal,
+	&_paid,
+	&_free {
+		display:none;
+	}
+	&_type_card &_card,
+	&_type_yandex &_yandex,
+	&_type_paypal &_paypal,
+	&_cost_paid &_paid,
+	&_cost_free &_free {
+		display:inline;
+	}
+}

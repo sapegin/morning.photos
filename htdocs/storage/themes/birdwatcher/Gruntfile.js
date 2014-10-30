@@ -18,6 +18,7 @@ module.exports = function(grunt) {
 					'tamia/tamia/tamia.js',
 					'tamia/tamia/component.js',
 					'tamia/modules/form/script.js',
+					'tamia/modules/modal/script.js',
 					'js/components/*.js',
 					'js/main.js'
 				],
