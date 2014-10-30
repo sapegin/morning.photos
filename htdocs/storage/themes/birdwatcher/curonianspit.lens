@@ -71,7 +71,7 @@ var paymentTest = true;
 				</div>
 				<div class="payment-popup__note">
 					<span class="payment-form_paid">Вы будете перенаправлены на сайт <span class="payment-form_card">Яндекс-денег (регистрация не нужна)</span><span class="payment-form_paypal">Пейпала</span><span class="payment-form_yandex">Яндекс-денег</span>. После оплаты вы получите письмо со ссылкой на книгу.</span>
-					<span class="payment-form_form">Вы получите письмо со ссылкой на книгу.</span>
+					<span class="payment-form_free">Вы получите письмо со ссылкой на книгу.</span>
 				</div>
 			</div>
 		</div>
