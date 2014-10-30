@@ -84,7 +84,7 @@
 			// Find places for extra fields
 			var extrasToAdd = _.pick(extras, function(value, key) {
 				return key in values;
-			})
+			});
 			_.each(extrasToAdd, function(value, key) {
 				data[value] = values[key];
 			});
@@ -104,8 +104,6 @@
 			var prefix = 'payment-form_';
 			var node = this.elem[0];
 			node.className = node.className.replace(new RegExp(prefix + group + '_\\w+'), prefix + group + '_' + mode);
-			console.log(node.className);
-
 		}
 	});
 
