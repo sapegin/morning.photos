@@ -6,13 +6,14 @@
 	&_paypal,
 	&_paid,
 	&_free {
-		display:none;
+		transition: opacity .3s linear;
+		opacity:0;
 	}
 	&_type_card &_card,
 	&_type_yandex &_yandex,
 	&_type_paypal &_paypal,
 	&_cost_paid &_paid,
 	&_cost_free &_free {
-		display:inline;
+		opacity:1;
 	}
 }

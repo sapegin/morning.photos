@@ -69,15 +69,24 @@ var paymentTest = true;
 						</div>
 					</div>
 				</div>
-				<div class="payment-popup__note">
-					<span class="payment-form_paid">Вы будете перенаправлены на сайт <span class="payment-form_card">Яндекс-денег (регистрация не нужна)</span><span class="payment-form_paypal">Пейпала</span><span class="payment-form_yandex">Яндекс-денег</span>. После оплаты вы получите письмо со ссылкой на книгу.</span>
-					<span class="payment-form_free">Вы получите письмо со ссылкой на книгу.</span>
-				</div>
 			</div>
 		</div>
 		<footer class="modal__footer">
-			<button type="submit" class="button payment-form_paid" tabindex="4">Оплатить и скачать</button>
-			<button type="submit" class="button payment-form_free" tabindex="4">Скачать</button>
+			<div class="payment-popup__note">
+				<span class="payment-form_paid">
+					<span class="payment-popup__note-text payment-form_card">Вы будете перенаправлены на сайт Яндекс-денег (регистрация не нужна).</span>
+					<span class="payment-popup__note-text payment-form_yandex">Вы будете перенаправлены на сайт Яндекс-денег.</span>
+					<span class="payment-popup__note-text payment-form_paypal">Вы будете перенаправлены на сайт Пейпала.</span>
+					<br>После оплаты вы получите письмо со ссылкой на книгу.
+				</span>
+				<span class="payment-popup__note-text payment-form_free">
+					Вы получите письмо со ссылкой на книгу.
+				</span>
+			</div>
+			<div class="payment-popup__buttons">
+				<button type="submit" class="payment-popup__button button payment-form_paid" tabindex="4">Оплатить и скачать</button>
+				<button type="submit" class="payment-popup__button button payment-form_free" tabindex="4">Скачать</button>
+			</div>
 		</footer>
 	</form>
 </div>
