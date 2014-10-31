@@ -39,34 +39,32 @@ var paymentTest = true;
 				<input type="hidden" name="good_id" value="csebook">
 				<input type="hidden" name="description" value="{{ book_title }}">
 				<input type="hidden" name="redirect" value="http://birdwatcher.ru/subscribe-thanks/">
-				<div class="form__group">
-					<div class="form__row">
-						<div class="form__label">Заплачу</div>
-						<div class="form__widget">
-							<div class="switcher">
-								<input class="switcher__input js-payment-form-type" id="payment-popup-card" type="radio" name="type" value="card" checked="checked" tabindex="2" autofocus>
-								<label class="switcher__label" for="payment-popup-card">Картой</label>
-								<input class="switcher__input js-payment-form-type" id="payment-popup-yandex" type="radio" name="type" value="yandex" tabindex="2">
-								<label class="switcher__label" for="payment-popup-yandex">Яндекс-деньгами</label>
-								<input class="switcher__input js-payment-form-type" id="payment-popup-paypal" type="radio" name="type" value="paypal" tabindex="2">
-								<label class="switcher__label" for="payment-popup-paypal">Пейпалом</label>
-							</div>
+				<div class="form__row">
+					<div class="form__label">Заплачу</div>
+					<div class="form__widget">
+						<div class="switcher">
+							<input class="switcher__input js-payment-form-type" id="payment-popup-card" type="radio" name="type" value="card" checked="checked" tabindex="2" autofocus>
+							<label class="switcher__label" for="payment-popup-card">Картой</label>
+							<input class="switcher__input js-payment-form-type" id="payment-popup-yandex" type="radio" name="type" value="yandex" tabindex="2">
+							<label class="switcher__label" for="payment-popup-yandex">Яндекс-деньгами</label>
+							<input class="switcher__input js-payment-form-type" id="payment-popup-paypal" type="radio" name="type" value="paypal" tabindex="2">
+							<label class="switcher__label" for="payment-popup-paypal">Пейпалом</label>
 						</div>
 					</div>
-					<div class="form__row">
-						<label for="payment-popup-summ" class="form__label"></label>
-						<div class="form__widget">
-							<div class="summ-field">
-								<input id="payment-popup-summ" type="text" pattern="\d*" class="field summ-field__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="1" required>
-								<label for="payment-popup-summ" class="summ-field__currency">₷</label>
-							</div>
+				</div>
+				<div class="form__row">
+					<label for="payment-popup-summ" class="form__label"></label>
+					<div class="form__widget">
+						<div class="summ-field">
+							<input id="payment-popup-summ" type="text" pattern="\d*" class="field summ-field__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="1" required>
+							<label for="payment-popup-summ" class="summ-field__currency">₷</label>
 						</div>
 					</div>
-					<div class="form__row">
-						<label for="payment-popup-email" class="form__label">Почта</label>
-						<div class="form__widget">
-							<input id="payment-popup-email" type="email" class="field summ-field__field" size="5" name="email" value="artem@sapegin.ru" tabindex="3" placeholder="Чтобы отправить вам ссылку на книгу" required>
-						</div>
+				</div>
+				<div class="form__row">
+					<label for="payment-popup-email" class="form__label">Почта</label>
+					<div class="form__widget">
+						<input id="payment-popup-email" type="email" class="field summ-field__field" size="5" name="email" value="artem@sapegin.ru" tabindex="3" placeholder="Чтобы отправить вам ссылку на книгу" required>
 					</div>
 				</div>
 			</div>
