@@ -55,9 +55,9 @@ var paymentTest = true;
 				<div class="form__row">
 					<label for="payment-popup-summ" class="form__label"></label>
 					<div class="form__widget">
-						<div class="summ-field">
-							<input id="payment-popup-summ" type="text" pattern="\d*" class="field summ-field__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="1" required>
-							<label for="payment-popup-summ" class="summ-field__currency">₷</label>
+						<div class="field-with-unit payment-popup__summ">
+							<input id="payment-popup-summ" type="text" pattern="\d*" class="field field-with-unit__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="1" required>
+							<label for="payment-popup-summ" class="field-with-unit__unit">₷</label>
 						</div>
 					</div>
 				</div>
