@@ -32,7 +32,7 @@ var paymentTest = true;
 
 
 <div class="modal payment-popup is-hidden js-buy-popup" data-modal-close-on-shade="no">
-	<form action="" class="payment-form payment-form_type_card payment-form_cost_paid" data-component="payment-form">
+	<form action="" class="payment-form payment-form_type_card payment-form_cost_paid" data-component="payment-form autolock">
 		<div class="modal__body">
 			<button class="close payment-popup__close js-modal-dismiss"></button>
 			<div class="form form_block">
