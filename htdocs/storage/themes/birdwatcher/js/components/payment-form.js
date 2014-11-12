@@ -12,6 +12,8 @@
 			this.elem.on('click', '.js-payment-form-type', this.changeType_);
 			this.elem.on('input change', '.js-payment-form-summ', this.changeSumm_);
 			this.elem.on('submit', this.submit_);
+
+			this.elem.trigger('unlock.form.tamia');  // To prevent disabled submit button in Firefox after Back button pressed
 		},
 
 		changeType: function(event) {
