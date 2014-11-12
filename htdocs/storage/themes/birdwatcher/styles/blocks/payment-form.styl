@@ -8,8 +8,9 @@
 	&_paid.is-disabled,
 	&_free,
 	&_free.is-disabled {
-		transition: opacity .3s linear;
+		transition:visibility 0s linear .3s, opacity .3s linear;
 		opacity:0;
+		visibility:hidden;
 	}
 	&_type_card &_card,
 	&_type_yandex &_yandex,
@@ -17,9 +18,13 @@
 	&_cost_paid &_paid,
 	&_cost_free &_free {
 		opacity:1;
+		visibility:visible;
+		transition-delay:0s;
 	}
 	&_cost_paid &_paid.is-disabled,
 	&_cost_free &_free.is-disabled {
 		opacity:.4;
+		visibility:visible;
+		transition-delay:0s;
 	}
 }
