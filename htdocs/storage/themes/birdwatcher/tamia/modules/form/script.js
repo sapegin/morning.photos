@@ -155,7 +155,7 @@
 		 * Disables submit button of a form.
 		 */
 		'lock.form': function(elem) {
-			_toggle_submit(elem, false);
+			tamia.delay(_toggle_submit, null, 50, elem, false);
 		}
 	});
 
