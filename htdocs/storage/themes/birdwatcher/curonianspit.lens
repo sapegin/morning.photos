@@ -43,7 +43,7 @@ var paymentTest = true;
 					<div class="form__label">Заплачу</div>
 					<div class="form__widget">
 						<div class="switcher">
-							<input class="switcher__input js-payment-form-type" id="payment-popup-card" type="radio" name="type" value="card" checked="checked" tabindex="1" autofocus>
+							<input class="switcher__input js-payment-form-type" id="payment-popup-card" type="radio" name="type" value="card" checked="checked" tabindex="1">
 							<label class="switcher__label" for="payment-popup-card">Картой</label>
 							<input class="switcher__input js-payment-form-type" id="payment-popup-yandex" type="radio" name="type" value="yandex" tabindex="1">
 							<label class="switcher__label" for="payment-popup-yandex">Яндекс-деньгами</label>
@@ -56,7 +56,7 @@ var paymentTest = true;
 					<label for="payment-popup-summ" class="form__label"></label>
 					<div class="form__widget">
 						<div class="field-with-unit payment-popup__summ">
-							<input id="payment-popup-summ" type="text" pattern="\d*" class="field field-with-unit__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="2" required>
+							<input id="payment-popup-summ" type="text" pattern="\d*" class="field field-with-unit__field js-payment-form-summ" size="5" name="summ" value="99" tabindex="2" required autofocus>
 							<label for="payment-popup-summ" class="field-with-unit__unit"><span class="rub">Р</span></label>
 						</div>
 					</div>
