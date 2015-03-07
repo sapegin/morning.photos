@@ -72,7 +72,7 @@ docpadConfig = {
 
 	events:
 		generateBefore: (opts) ->
-			moment.lang 'ru'
+			moment.locale 'ru'
 
 }
 
