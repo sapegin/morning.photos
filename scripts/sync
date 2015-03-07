@@ -1,0 +1,152 @@
+#!/usr/bin/env php
+<?php
+
+// Birdwatcher sync.
+// Copies all new blog post from English (Koken) version to Russian (Docpad) and converts to Markdown.
+
+define('POSTS_LIMIT', 20);
+define('CONFIG_FILE', './.db.json');
+define('SYNCED_POSTS_FILE', './data/synced.json');
+define('PHOTOS_URLS_FILE', './data/pics.json');
+define('POSTS_DIR', '../docpad/src/documents/ru/blog/');
+define('PHOTOS_HOST', 'http://birdwatcher.ru/');
+
+require_once('./include/HTML_To_Markdown.php');
+
+setup();
+connectToDatabase();
+buildPhotosUrls();
+syncPosts();
+
+print "Done.";
+
+function setup() {
+	date_default_timezone_set('Europe/Moscow');
+	@mkdir(dirname(SYNCED_POSTS_FILE), 0777, true);
+	@mkdir(dirname(PHOTOS_URLS_FILE), 0777, true);
+	@mkdir(POSTS_DIR, 0777, true);
+}
+
+function connectToDatabase() {
+	print 'Connecting...';
+
+	$config = json_decode(file_get_contents(CONFIG_FILE));
+
+	$connection = @mysql_connect($config->host, $config->username, $config->password);
+	if (!$connection) {
+		// Setup SSH tunelling and try again
+		print 'ssh1';
+		exec("ssh -fNg -L 3307:127.0.0.1:3306 $config->ssh");
+		print 'ssh2';
+		mysql_connect($config->host, $config->username, $config->password);
+	}
+
+	mysql_set_charset('utf8');
+
+	$result = mysql_select_db($config->database);
+	if (!$result) {
+		die("Can't use $config->database: " . mysql_error());
+	}
+
+	print " OK\n";
+}
+
+function syncPosts() {
+	print 'Syncing posts...';
+
+	if (file_exists(SYNCED_POSTS_FILE)) {
+		$synced_posts = json_decode(file_get_contents(SYNCED_POSTS_FILE));
+	}
+	else {
+		$synced_posts = array();
+	}
+	$added_posts = 0;
+
+	// Category slugs
+	$tag_slugs = array();
+	$result_tags = mysql_query("SELECT * from koken_categories");
+	while ($tag = mysql_fetch_assoc($result_tags)) {
+		$tag_slugs[$tag['id']] = $tag['slug'];
+	}
+
+	// Posts
+	$result_posts = mysql_query("SELECT * from koken_text");
+	while ($post = mysql_fetch_assoc($result_posts)) {
+		$id = $post['id'];
+		if (in_array($id, $synced_posts)) continue;
+
+		$result_tags = mysql_query("SELECT * from koken_join_categories_text WHERE text_id={$id}");
+		$tags = array();
+		while ($tag = mysql_fetch_assoc($result_tags)) {
+			$tags[] = $tag_slugs[$tag['category_id']];
+		}
+
+		$md = htmlToMd($post, $tags);
+
+		file_put_contents(POSTS_DIR . $id . '.html.md', $md);
+
+		$synced_posts[] = $id;
+		$added_posts++;
+
+		print '.';
+
+		if ($added_posts === POSTS_LIMIT) break;
+	}
+
+	file_put_contents(SYNCED_POSTS_FILE, json_encode($synced_posts));
+
+	print "\nPosts added: $added_posts\n";
+}
+
+function buildPhotosUrls() {
+	print 'Building photos URLs...';
+	$result_picture = mysql_query("SELECT * from koken_content");
+	while ($picture = mysql_fetch_assoc($result_picture)) {
+		$id = $picture['id'];
+		$id_str = str_pad(floor(intval($id) / 1000), 3, '0', STR_PAD_LEFT) . '/' . str_pad(substr($id, -3), 3, '0', STR_PAD_LEFT);
+		$filename = explode('.', $picture['filename']);
+		$photos[$id] = "storage/cache/images/$id_str/{$filename[0]},{size}.{$picture['file_modified_on']}.{$filename[1]}";
+		print '.';
+	}
+	file_put_contents(PHOTOS_URLS_FILE, json_encode($photos));
+	print "\nPhotos found: " . count($photos) . "\n";
+}
+
+function htmlToMd($post, $tags) {
+	// Convet HTML to Markdown
+	// HACK: prevent cyrillic and more tags loss
+	$content = $post['content'];
+	$content = str_replace('<!--more-->', '§ß€', $content);
+	$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
+	$content = str_replace('&', '§ß£', $content);
+	$md = new HTML_To_Markdown($content, array('header_style' => 'atx'));
+	$md = str_replace('§ß£', '&', $md);
+	$md = mb_convert_encoding($md, 'UTF-8', 'HTML-ENTITIES');
+	$md = str_replace('§ß€', '<!--more-->', $md);
+
+	// [koken_upload filename="F0059-0002.jpg" label="F0059-0002.jpg"]
+	$md = preg_replace('/\s*\[koken_upload filename="([^"]+)"\s*label="([^"]+)"[^\]]*\]\s*/', "\n\n![$1](upload://$2)\n\n", $md);
+
+	// [koken_photo label="Sapegin-Artem-20D-2006-07-08-209-0974.jpg" id="1236" media_type="image" link="lightbox" album="28" caption="none"]
+	$md = preg_replace('/\s*\[koken_photo label="([^"]+)"\s*id="([^"]+)"\s*[^\]]*\]\s*/', "\n\n![$1](photo://$2)\n\n", $md);
+
+	// <del>
+	$md = preg_replace('/<del[^>]*>([^<]+)<\/del>/', '~~$1~~', $md);
+
+	// Clean up
+	$md = preg_replace('/\s*<!--more-->\s*/', "\n\n<!--more-->\n\n", $md);
+	$md = preg_replace('/[\n\r]{2,}/', "\n\n", $md);
+	$md = trim($md) . "\n";
+
+	// Frontmatter
+	$md = "---
+layout: post
+title: '{$post['title']}'
+date: " . date('M j, Y', $post['published_on']) . "
+tags:
+  - " . implode("\n  - ", $tags) . "
+---
+
+" . $md;
+	return $md;
+}

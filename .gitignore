@@ -23,3 +23,4 @@ preview.php
 htdocs/manifest.php
 payments/settings.php
 payments/data/db
+scripts/.db.json
