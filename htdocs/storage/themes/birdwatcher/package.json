@@ -5,6 +5,7 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-bower-concat": "~0.2.4",
+    "grunt-browser-sync": "~2.0.0",
     "grunt-contrib-concat": "~0.4.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-stylus": "~0.17.0",
@@ -16,8 +17,9 @@
     "grunt-replace": "~0.7.7",
     "grunt-shell": "~0.7.0",
     "grunt-webfont": "~0.4.2",
+    "imagemin-pngquant": "~4.0.0",
     "stylobuild": "~0.4.3",
-    "tamia-grunt": "~0.0.1"
+    "tamia-grunt": "~0.4.0"
   },
   "dependencies": {}
 }

@@ -4,11 +4,19 @@
   "private": true,
   "devDependencies": {
     "docpad": "~6.73.5",
+    "docpad-plugin-cleanurls": "~2.7.0",
     "docpad-plugin-ect": "~2.0.1",
     "docpad-plugin-marked": "~2.3.0",
+    "docpad-plugin-paged": "~2.4.0",
+    "docpad-plugin-partials": "~2.9.2",
+    "docpad-plugin-tags": "~2.0.7",
+    "lodash": "~3.4.0",
     "marked": "~0.3.3",
     "moment": "~2.9.0",
     "richtypo": "~0.1.8",
     "yamljs": "~0.2.1"
+  },
+  "scripts": {
+  	"setupDev": "ln -s ../htdocs/storage/themes/birdwatcher/build ./out/ru/build"
   }
 }

@@ -55,7 +55,7 @@
 			</div>
 
 			<footer class="essay__meta">
-				<time class="essay__pubdate entry-pubdate" datetime="{{ essay.published_on date_format='c' }}">{{ essay.published_on date_format='j.m.Y' }}</time>
+				<time class="essay__pubdate entry-pubdate" datetime="{{ essay.published_on date_format='c' }}" pubdate>{{ essay.published_on date_format='j.m.Y' }}</time>
 
 				<koken:categories>
 					<span class="entry-tags text">

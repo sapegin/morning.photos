@@ -1,3 +1,54 @@
-<div class="post">
-	<%- @rt @content %>
+---
+layout: _base
+---
+
+<%
+@document.pageType = 'essay'
+%>
+
+<script>mixpanel.track('Blog post viewed', {Title: '<%= @document.title %>'})</script>
+
+<div class="content">
+
+	<article class="essay essay_single entry">
+
+		<header class="essay__header">
+			<h2 class="entry-title">
+				<%- @rtt @document.title %>
+			</h2>
+		</header>
+
+		<div class="essay__content text bw-entry" entry-type="essay">
+			<%- @rt @content %>
+		</div>
+
+		<div class="essay__discuss">
+			Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
+		</div>
+
+		<footer class="essay__meta">
+			<time class="essay__pubdate entry-pubdate" datetime="<%= @document.date %>" pubdate><%= @pubDate @document.date %></time>
+
+			<span class="entry-tags">
+				<% for _, tag of @document.tags: %>
+					<% if @document.slug is "tags-#{tag}": %>
+						<span><%= @tagNames[tag] %></span>
+					<% else: %>
+						<a href="<%= @tagUrl tag %>" class="link"><%= @tagNames[tag] %></a>
+					<% end %>
+				<% end %>
+			</span>
+
+		</footer>
+
+	</article>
+
+	<div class="subscribe-block">
+		<div class="subscribe-block__title">Понравился пост? Подпишитесь на рассылку!</div>
+		<div class="subscribe-block__form">
+			<%- @partial 'subscribe', {subscribe_from: 'Blog'} %>
+		</div>
+		<div class="subscribe-block__info">Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+	</div>
+
 </div>

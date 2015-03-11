@@ -111,6 +111,13 @@ module.exports = function(grunt) {
 				],
 				tasks: ['uglify:inlines']
 			}
+		},
+		browserSync: {
+			dev: {
+				options: {
+					server: '../../../../docpad/out/ru/'
+				}
+			}
 		}
 	});
 

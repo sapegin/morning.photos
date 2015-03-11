@@ -1,0 +1,30 @@
+// Author: Artem Sapegin, http://sapegin.me, 2015
+
+.nav {
+	float:right;
+	margin:0 -.4em;
+
+	&__item {
+		display:inline-block;
+		padding:0 .4em;
+	}
+
+	&__label {
+		+link-all-states() {
+			font-size:normal_font;
+			color:base_color;
+		}
+	}
+
+	&__label.is-active {
+		font-weight:bold;
+	}
+
+	+below(740px) {
+		float:none;
+	}
+}
+.page_inverted-head .nav__label {
+	tweak-inverted-text();
+	color:light_hover_color;
+}

@@ -7,15 +7,20 @@
 define('POSTS_LIMIT', 20);
 define('CONFIG_FILE', './.db.json');
 define('SYNCED_POSTS_FILE', './data/synced.json');
-define('PHOTOS_URLS_FILE', './data/pics.json');
+define('PHOTOS_URLS_FILE', './data/photos.json');
+define('UPLOADS_URLS_FILE', './data/uploads.json');
 define('POSTS_DIR', '../docpad/src/documents/ru/blog/');
+define('UPLOADS_REMOTE_DIR', '/home/tema/sites/beta.birdwatcher.ru/htdocs/storage/custom');
 define('PHOTOS_HOST', 'http://birdwatcher.ru/');
 
 require_once('./include/HTML_To_Markdown.php');
 
+$config = null;
+
 setup();
 connectToDatabase();
 buildPhotosUrls();
+buildUploadsUrls();
 syncPosts();
 
 print "Done.";
@@ -24,10 +29,13 @@ function setup() {
 	date_default_timezone_set('Europe/Moscow');
 	@mkdir(dirname(SYNCED_POSTS_FILE), 0777, true);
 	@mkdir(dirname(PHOTOS_URLS_FILE), 0777, true);
+	@mkdir(dirname(UPLOADS_URLS_FILE), 0777, true);
 	@mkdir(POSTS_DIR, 0777, true);
 }
 
 function connectToDatabase() {
+	global $config;
+
 	print 'Connecting...';
 
 	$config = json_decode(file_get_contents(CONFIG_FILE));
@@ -35,10 +43,8 @@ function connectToDatabase() {
 	$connection = @mysql_connect($config->host, $config->username, $config->password);
 	if (!$connection) {
 		// Setup SSH tunelling and try again
-		print 'ssh1';
-		exec("ssh -fNg -L 3307:127.0.0.1:3306 $config->ssh");
-		print 'ssh2';
-		mysql_connect($config->host, $config->username, $config->password);
+		print "\nSetting up SSH tunelling. Press Ctrl+C and run script again.";
+		shell_exec("ssh -fN -L 3307:127.0.0.1:3306 $config->ssh");
 	}
 
 	mysql_set_charset('utf8');
@@ -100,16 +106,39 @@ function syncPosts() {
 
 function buildPhotosUrls() {
 	print 'Building photos URLs...';
+	$photos = array();
 	$result_picture = mysql_query("SELECT * from koken_content");
 	while ($picture = mysql_fetch_assoc($result_picture)) {
 		$id = $picture['id'];
 		$id_str = str_pad(floor(intval($id) / 1000), 3, '0', STR_PAD_LEFT) . '/' . str_pad(substr($id, -3), 3, '0', STR_PAD_LEFT);
-		$filename = explode('.', $picture['filename']);
-		$photos[$id] = "storage/cache/images/$id_str/{$filename[0]},{size}.{$picture['file_modified_on']}.{$filename[1]}";
+		$pathinfo = pathinfo($picture['filename']);
+		$photos[$id] = "storage/cache/images/$id_str/{$pathinfo['filename']},{size}.{$picture['file_modified_on']}.{$pathinfo['extension']}";
 		print '.';
 	}
 	file_put_contents(PHOTOS_URLS_FILE, json_encode($photos));
 	print "\nPhotos found: " . count($photos) . "\n";
+}
+
+function buildUploadsUrls() {
+	global $config;
+
+	print 'Building uploads URLs...';
+
+	$ls = shell_exec("ssh $config->ssh 'ls -gG --time-style=full-iso \"" . UPLOADS_REMOTE_DIR . "\" | awk \"{print \\$4, \\$5, \\$7}\"'");
+	$lines = explode("\n", trim($ls));
+	array_shift($lines);  // Remove total line
+	$uploads = array();
+
+	// 2013-06-24 08:25:12.000000000 03-33-006.jpg
+	foreach ($lines as $line) {
+		$timestamp = strtotime(substr($line, 0, 19));
+		$filename = substr($line, 30);
+		$pathinfo = pathinfo($filename);
+		$uploads[$filename] = "storage/cache/images/custom/{$pathinfo['filename']}-{$pathinfo['extension']}/{size}.$timestamp.{$pathinfo['extension']}";
+	}
+
+	file_put_contents(UPLOADS_URLS_FILE, json_encode($uploads));
+	print "\nFiles found: " . count($uploads) . "\n";
 }
 
 function htmlToMd($post, $tags) {

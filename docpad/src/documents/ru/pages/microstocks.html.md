@@ -2,8 +2,6 @@
 layout: post
 title: 'Продажа фотографий в интернете на микростоках'
 date: Jan 25, 2014
-tags:
-  -
 ---
 
 <script>mixpanel.track('Microstocks page viewed')</script>
