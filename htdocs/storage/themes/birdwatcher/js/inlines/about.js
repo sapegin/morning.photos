@@ -2,7 +2,7 @@
 	var count = 34;
 		visible = 6,
 		interval = 3000,
-		urlTpl = '/images/about/me{num}.jpg',
+		urlTpl = 'http://birdwatcher.ru/images/about/me{num}.jpg',
 		imgTpl = '<img src="{url}" alt="" class="about-triptych__photo {cls} js-img">',
 		photos = [],
 		imgs = [],

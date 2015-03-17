@@ -2,13 +2,13 @@
 <body class="page page_page">
 <koken:include file="inc/page-header.html" />
 
-<koken:variable name="page_title" value="Цитаты и афоризмы о фотографии и искусстве" />
+<koken:variable name="page_title" value="Quotes and aphorisms about photography and arts" />
 
 <koken:head>
 	<title>{{ page_title }}  — {{ site.title }}</title>
 	<meta property="og:site_name" content="{{ site.title }}" />
 	<meta property="og:title" content="{{ page_title }}" />
-	<meta property="og:description" content="Подборка цитат и афоризмов фотографов, художников, писателей и других деятелей искусства." />
+	<meta property="og:description" content="My favourite quotes of photographers, painters, writers and so on." />
 	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 	<meta property="og:type" content="article" />
 	<meta name="twitter:card" content="summary" />
@@ -20,7 +20,7 @@
 <div class="content text entry-content">
 
 	<div class="entry-header">
-		<h1 class="entry-title">Цитаты о фотографии и искусстве</h1>
+		<h1 class="entry-title">Quotes about photography and arts</h1>
 	</div>
 
 	<koken:include file="../../../../docpad/out/quotes.html" />
@@ -31,13 +31,13 @@
 	</div>
 
 	<div class="subscribe-block">
-		<div class="subscribe-block__title">Подпишитесь на мою рассылку о фотографии</div>
+		<div class="subscribe-block__title">Subscribe to my newsletter</div>
 		<div class="subscribe-block__form">
 			<koken:variable name="subscribe_from" value="Quotes" />
 			<koken:variable name="subscribe_extra" value="" />
 			<koken:include file="inc/subscribe.html" />
 		</div>
-		<div class="subscribe-block__info">Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+		<div class="subscribe-block__info">New photos, ebooks and everything else I’m going to create. Not very often, no spam.</div>
 	</div>
 
 </div>

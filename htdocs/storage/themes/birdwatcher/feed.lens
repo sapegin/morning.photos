@@ -10,7 +10,7 @@
 <koken:load source="essays" limit="15">
 
 	<channel>
-		<title>Блог о фотографии Артёма Сапегина</title>
+		<title>Artem Sapegin’s Photography Blog</title>
 		<atom:link href="{{ location.host }}{{ location.here }}" rel="self" type="application/rss+xml" />
 		<link>{{ location.host }}</link>
 		<description>{{ site.description strip_html="true" }}</description>

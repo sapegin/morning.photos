@@ -3,9 +3,9 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-	<title>Купить фотографии Артёма Сапегина: пейзаж, городской пейзаж, путешествия, тревел, природа, собаки, фото</title>
+	<title>Buy Artem Sapegin’s photos: landscapes, travel, cityscapes, nature, dogs</title>
 	<meta property="og:site_name" content="{{ site.title }}" />
-	<meta property="og:title" content="Купить фотографии Артёма Сапегина" />
+	<meta property="og:title" content="Buy Artem Sapegin’s photos" />
 	<meta property="og:description" content="{{ site.description strip_html='true' }}" />
 	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 	<meta property="og:type" content="article" />
@@ -17,18 +17,18 @@
 <div class="content text entry-content">
 
 	<div class="entry-header">
-		<h1 class="entry-title">Купить фотографии</h1>
+		<h1 class="entry-title">Buy my photos</h1>
 	</div>
 
 	<div class="entry-triptych">
-		<a class="entry-triptych__item" href="/albums/curonian-spit/photos/237/"><img class="entry-triptych__photo" src="/images/buy/buy1.jpg" width="328" height="219" alt="Волнорезы в сумерках"></a>
-		<a class="entry-triptych__item" href="/albums/tallinn/photos/68/"><img class="entry-triptych__photo" src="/images/buy/buy2.jpg" width="328" height="219" alt="Таллин утром"></a>
-		<a class="entry-triptych__item" href="/albums/zubova-schel/photos/307/"><img class="entry-triptych__photo" src="/images/buy/buy3.jpg" width="328" height="219" alt="Камни на берегу моря после заката"></a>
+		<a class="entry-triptych__item" href="/albums/curonian-spit/photos/237/"><img class="entry-triptych__photo" src="/images/buy/buy1.jpg" width="328" height="219" alt="Baltic Sea in twilight"></a>
+		<a class="entry-triptych__item" href="/albums/tallinn/photos/68/"><img class="entry-triptych__photo" src="/images/buy/buy2.jpg" width="328" height="219" alt="Morning Tallinn"></a>
+		<a class="entry-triptych__item" href="/albums/zubova-schel/photos/307/"><img class="entry-triptych__photo" src="/images/buy/buy3.jpg" width="328" height="219" alt="Boulders on a sea shore after sunset"></a>
 	</div>
 
-	<p>Проще всего купить мои фотографии на&nbsp;микростоках: <a href="http://bit.ly/istock-sapegin" title="Портфолио на Айстоке">Айстоке</a>, <a href="http://www.shutterstock.com/g/hamstersphoto?rid=208096" title="Портфолио на Шаттерстоке">Шаттерстоке</a> и <a href="http://lori.ru/Asapegin?ref=599" title="Портфолио на Лори">Лори</a>.</p>
+	<p>You can buy my photos at microstock sites: <a href="http://bit.ly/istock-sapegin" title="My iStock portfolio">iStock</a> or <a href="http://www.shutterstock.com/g/hamstersphoto?rid=208096" title="My Shutterstock portfolio">Shutterstock</a>.</p>
 
-	<p>Или просто <a href="/about/">напишите&nbsp;мне</a>, если хотите купить файл или&nbsp;отпечаток.</p>
+	<p>Or just <a href="/about/">drop me a line</a> if you want to buy a file or a print.</p>
 
 </div>
 

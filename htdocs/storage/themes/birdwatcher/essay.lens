@@ -6,14 +6,14 @@
 <koken:load>
 
 	<koken:head>
-		<title>{{ essay.title strip_html="true" }} — Блог о фотографии Артёма Сапегина</title>
+		<title>{{ essay.title strip_html="true" }} — Artem Sapegin’s Photography Blog</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ essay.title strip_html='true' }}" />
 		<koken:not empty="essay.excerpt">
 			<meta property="og:description" content="{{ essay.excerpt strip_html='true' }}" />
 		<koken:else>
-			<koken:has_category title="Фотографии">
-				<meta property="og:description" content="Кликните, чтобы посмотреть фотографию на сайте" />
+			<koken:has_category title="Photos">
+				<meta property="og:description" content="Click to view the photo on a site" />
 			<koken:else>
 				<meta property="og:description" content="…" />
 			</koken:has_category>
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="essay__discuss">
-				Пишите комментарии в <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">твитер</a> или <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">почту</a>.
+				Tell me what you think <a href="https://twitter.com/sapegin" class="link" data-track="Discuss link clicked">on Twitter</a> or <a href="mailto:artem@sapegin.ru" class="link" data-track="Discuss link clicked">by email</a>.
 			</div>
 
 			<footer class="essay__meta">
@@ -69,13 +69,13 @@
 		</article>
 
 		<div class="subscribe-block">
-			<div class="subscribe-block__title">Понравился пост? Подпишитесь на рассылку!</div>
+			<div class="subscribe-block__title">Subscribe to my newsletter</div>
 			<div class="subscribe-block__form">
 				<koken:variable name="subscribe_from" value="Blog" />
 				<koken:variable name="subscribe_extra" value="" />
 				<koken:include file="inc/subscribe.html" />
 			</div>
-			<div class="subscribe-block__info">Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.</div>
+			<div class="subscribe-block__info">New photos, ebooks and everything else I’m going to create. Not very often, no spam.</div>
 		</div>
 
 	</div>

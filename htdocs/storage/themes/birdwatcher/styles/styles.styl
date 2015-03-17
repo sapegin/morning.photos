@@ -95,11 +95,13 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; }
 
 .logo {
 	float:left;
+	font-size:normal_font;
 	font-weight:normal;
 
-	+link-all-states() {
-		font-size:normal_font;
-		color:base_color;
+	&__link {
+		+link-all-states() {
+			color:base_color;
+		}
 	}
 
 	+below(740px) {
@@ -1084,7 +1086,7 @@ visible_part_height = normal_font*2.5;
 
 	&__img {
 		height:inherit;
-		background:url("/images/about/splash.jpg") center center;
+		background:url("http://birdwatcher.ru/images/about/splash.jpg") center center;
 	}
 
 	+above(1601px) {

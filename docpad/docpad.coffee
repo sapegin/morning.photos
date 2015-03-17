@@ -11,7 +11,11 @@ richtypo = require 'richtypo'
 
 photoPrefix = 'http://birdwatcher.ru/'
 photos = JSON.parse(fs.readFileSync('../scripts/data/photos.json'))
+featured = JSON.parse(fs.readFileSync('../scripts/data/featured.json'))
 uploads = JSON.parse(fs.readFileSync('../scripts/data/uploads.json'))
+
+getPhotoUrl = (tpl, size) ->
+	photoPrefix + tpl.replace('{size}', size)
 
 docpadConfig = {
 
@@ -59,6 +63,9 @@ docpadConfig = {
 			'amazon.com': '?tag=artesapesphot-20'
 			'ozon.ru': '?partner=sapegin'
 
+		featured: featured.map (url) ->
+			{img: getPhotoUrl(url, 'xlarge')}
+
 		# Page title
 		pageTitle: ->
 			if @documentUrl() is '/'
@@ -76,8 +83,12 @@ docpadConfig = {
 			@document.description or @siteDescription
 
 		bodyClass: ->
-			if @document.pageType
-				"page page_#{@document.pageType}"
+			types = @document.pageType
+			if types
+				types = [types]  unless Array.isArray(types)
+				types = types.map (type) ->
+					"page_#{type}"
+				"page " + types.join(' ')
 			else
 				"page"
 
@@ -92,7 +103,7 @@ docpadConfig = {
 			@document.url.replace('/ru', '')
 
 		isIndex: ->
-			@documentUrl() is '/'
+			@documentUrl() is ''
 
 		isPost: ->
 			/\/blog\//.test(@documentUrl())
@@ -112,9 +123,13 @@ docpadConfig = {
 			"/blog/categories/#{tag}"
 
 		# List of clases for review tags
-		tags_classes: (list, prefix) ->
+		tagsClasses: (list, prefix) ->
 			return '' unless list
 			("#{prefix}_#{tag}" for tag in list).join ' '
+
+		orderedTagCloud: ->
+			cloud = @getTagCloud()
+			_.sortByOrder(cloud, ['count'], [false])
 
 		absolutizeLinks: (s) ->
 			s and (s.replace /href="#/g, 'href="http://birdwatcher.ru/reading/#')
@@ -147,6 +162,13 @@ docpadConfig = {
 				.replace(/\s--?/g, ' —')
 				.replace(/\\(\d)/g, '$1')
 				)
+
+	collections:
+		posts: (database) ->
+			database.findAllLive({relativeOutDirPath: 'ru/blog', unpublished: {$exists: false}, isPagedAuto: {$ne: true}}, [date:-1])
+		# drafts: (database) ->
+		# 	database.findAllLive({relativeOutDirPath: 'ru/blog', unpublished: $exists: true}, [date:-1])
+
 	plugins:
 		tags:
 			extension: '.html'
@@ -157,6 +179,9 @@ docpadConfig = {
 		marked:
 			markedRenderer:
 				image: (href, title, text) ->
+					title = ''  if not title
+					text = ''  if not text
+
 					# Replace URL for photos and uploads
 					m = href.match(/^(\w+):\/\/(.*)$/)
 					if m
@@ -164,13 +189,17 @@ docpadConfig = {
 						id = m[2]
 						switch protocol
 							when 'photo'
-								href = photoPrefix + photos[id].replace('{size}', 'large')
+								console.log "WARNING: photo with ID #{id} not found"  unless photos[id]
+								href = getPhotoUrl(photos[id], 'large')
 							when 'upload'
-								href = photoPrefix + uploads[id].replace('{size}', 'large')
+								console.log "WARNING: upload with URL #{id} not found"  unless uploads[id]
+								href = getPhotoUrl(uploads[id], 'large')
 
-					out = "<img src=\"#{href}\" alt=\"#{text}\"";
-					out += " title=\"#{title}\""  if title
-					return "#{out}>"
+					"""
+					<figure class=\"entry-photo\">
+						<img src=\"#{href}\" alt=\"#{text}\" title=\"#{title}\" class=\"entry-photo__photo\">
+					</figure>
+					"""
 
 	events:
 		generateBefore: (opts) ->

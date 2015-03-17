@@ -1,0 +1,63 @@
+<%
+is_photo = @doc.tags.indexOf('photos') isnt -1
+text = @doc.contentRenderedWithoutLayouts
+
+# Cut
+if text
+	parts = text.split(@cutTag)
+	if parts.length > 1
+		url = @documentUrl(@doc.url)
+		text = """
+		#{parts[0]}
+		<div class=\"js-more\">
+			<p class=\"more-link\"><a class=\"more-link__link js-more-link\" href=\"#{url}\">Читать дальше…</a></p>
+			<div class="js-more-content is-hidden">#{parts[1]}</div>
+		</div>
+		"""
+
+# Featured photo
+if is_photo and text
+	re = /(<figure class="entry-photo">[\S\s]*?<\/figure>)/m
+	m = text.match(re)
+	first_photo = m and m[1]
+	text = text.replace(re, '')
+%>
+
+<article class="essay entry <% if is_photo: %>essay_photo<% end %>">
+	<div class="content">
+
+		<% if is_photo: %>
+			<div class="essay__featured">
+				<%- first_photo %>
+			</div>
+			<h2 class="entry-title entry-title_excerpt-photo">
+				<a class="entry-title__link" href="<%= @documentUrl(@doc.url) %>"><%- @rtt @doc.title %></a>
+			</h2>
+		<% else: %>
+			<header class="essay__header">
+				<h2 class="entry-title entry-title_excerpt">
+					<a class="entry-title__link" href="<%= @documentUrl(@doc.url) %>"><%- @rtt @doc.title %></a>
+				</h2>
+			</header>
+		<% end %>
+
+		<div class="essay__content text">
+			<%- @rt text %>
+		</div>
+
+		<footer class="essay__meta">
+			<time class="essay__pubdate entry-pubdate" datetime="<%= @doc.date %>"><%= @pubDate @doc.date %></time>
+
+			<span class="entry-tags">
+				<% for _, tag of @doc.tags: %>
+					<% if @doc.slug is "tags-#{tag}": %>
+						<span class="entry-tags__tag is-active"><%= @tagNames[tag] %></span>
+					<% else: %>
+						<a href="<%= @tagUrl tag %>" class="entry-tags__tag link"><%= @tagNames[tag] %></a>
+					<% end %>
+				<% end %>
+			</span>
+		</footer>
+
+	</div>
+</article>

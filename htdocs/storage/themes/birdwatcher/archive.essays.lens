@@ -6,7 +6,7 @@
 
 	<div class="entry-header content">
 		<h1 class="entry-title">
-			Посты с тегом «{{ archive.title }}»
+			All posts with a “{{ archive.title }}” category
 		</h1>
 	</div>
 
@@ -26,7 +26,7 @@
 
 <koken:else>
 
-	<p>Посты не найдены.</p>
+	<p>Posts not found.</p>
 
 </koken:load>
 

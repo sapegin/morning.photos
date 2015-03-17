@@ -3,11 +3,11 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-	<title>Рассылка Артёма Сапегина</title>
+	<title>Artem Sapegin’s newsletter</title>
 	<koken:load source="featured_content" order_by="uploaded_on" order_direction="desc" limit="1">
 		<koken:first>
 			<meta property="og:site_name" content="{{ site.title }}" />
-			<meta property="og:title" content="Рассылка Артёма Сапегина" />
+			<meta property="og:title" content="Artem Sapegin’s newsletter" />
 			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
 			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 			<meta property="og:type" content="article" />
@@ -24,7 +24,7 @@
 <div class="content text entry-content">
 
 	<div class="entry-header">
-		<h1 class="entry-title">Подпишитесь на мою рассылку</h1>
+		<h1 class="entry-title">Subscribe to my newsletter</h1>
 	</div>
 
 	<div class="subscribe-page">
@@ -34,12 +34,13 @@
 	</div>
 
 	<ul>
-		<li>Новые фотографии, анонсы моих электронных книг и всякое такое.</li>
-		<li>Выходит примерно раз в месяц. Редко чаще, часто реже.</li>
-		<li>Вы можете отписаться в течение первых 70,8¹ лет.</li>
+		<li>New photos, ebooks and everything else I’m going to create.</li>
+		<li>One issue per month on average. Maybe more, most probably less.</li>
+		<li>No spam. I won’t sell your email.</li>
+		<li>You have 78¹ years to unsubscribe.</li>
 	</ul>
 
-	<p class="note">¹ Средняя продолжительность жизни в России по данным Росстата.</p>
+	<p class="note">¹ The average life expectancy in Europe according to Statista Inc.</p>
 
 </div>
 

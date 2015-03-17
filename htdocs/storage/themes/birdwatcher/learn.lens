@@ -3,9 +3,9 @@
 <koken:include file="inc/page-header.html" />
 
 <koken:head>
-	<title>Статьи — {{ site.title }}</title>
+	<title>Articles — {{ site.title }}</title>
 	<meta property="og:site_name" content="{{ site.title }}" />
-	<meta property="og:title" content="Статьи Артёма Сапегина" />
+	<meta property="og:title" content="Artem Sapegin’s articles" />
 	<meta property="og:description" content="{{ site.description strip_html='true' }}" />
 	<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 	<meta property="og:type" content="article" />
@@ -17,7 +17,7 @@
 <div class="content text entry-content">
 
 	<div class="entry-header">
-		<h1 class="entry-title">Статьи</h1>
+		<h1 class="entry-title">Articles</h1>
 	</div>
 
 	<div class="l-row">
@@ -28,25 +28,17 @@
 				<ul class="articles-list__list">
 
 					<li class="articles-list__item">
-						<a href="/reading/" class="link">Книги о фотографии</a>
-						<div class="articles-list__description">Рецензии на прочитанные мной книги</div>
+						<a href="/reading/" class="link">Photography books</a>
+						<div class="articles-list__description">Short notes on books I’ve read</div>
 						<koken:include file="../../../../docpad/out/books_latest.html" />
 					</li>
 					<li class="articles-list__item">
-						<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-						<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+						<a href="/quotes/" class="link">Quotes about photography and arts</a>
+						<div class="articles-list__description">My favourite quotes of photographers, painters, writers and so on</div>
 					</li>
 					<li class="articles-list__item">
-						<a href="/funquotes/" class="link">Фотография где</a>
-						<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
-					</li>
-					<li class="articles-list__item">
-						<a href="/pages/microstocks/" class="link">Микростоки</a>
-						<div class="articles-list__description">Как продавать фотографии в интернете</div>
-					</li>
-					<li class="articles-list__item">
-						<a href="/subscribe/" class="link">Рассылка сайта</a>
-						<div class="articles-list__description">Фотографии, анонсы моих электронных книг и т. п.</div>
+						<a href="/subscribe/" class="link">My newsletter</a>
+						<div class="articles-list__description">New photos, ebooks and everything else I’m going to create</div>
 					</li>
 
 				</ul>
@@ -61,7 +53,7 @@
 
 				<koken:load source="essays" featured="true">
 
-					<h2 class="articles-list__title"><a href="/blog/" class="link">Блог</a></h2>
+					<h2 class="articles-list__title"><a href="/blog/" class="link">Blog</a></h2>
 
 					<ul class="articles-list__list">
 
@@ -69,9 +61,6 @@
 
 						<li class="articles-list__item">
 							<koken:link class="link">{{ essay.title }}</koken:link>
-							<koken:not empty="essay.excerpt">
-								<!--div class="articles-list__description">{{ essay.excerpt }}</div-->
-							</koken:not>
 						</li>
 
 					</koken:loop>

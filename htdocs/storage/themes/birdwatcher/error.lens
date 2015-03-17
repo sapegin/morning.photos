@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-	<title>Страница не найдена</title>
+	<title>Page not found</title>
 <style>
 body {
 	margin:0;
@@ -28,29 +28,11 @@ footer {
 </head>
 <body>
 
-	<h1>Страница не найдена</h1>
+	<h1>Page not found</h1>
 
-	<p>К сожалению, на сайте нет страницы с&nbsp;таким адресом.</p>
+	<p>The requested page was not found on this site.</p>
 
-	<p>Поисковые хомяки проверили все страницы, но&nbsp;так и&nbsp;не&nbsp;смогли найти&nbsp;ту, что вы&nbsp;искали. Они сожалеют об&nbsp;этом и&nbsp;хотят вам чем-нибудь помочь. Хотите орешков?</p>
-
-	<h2>Почему это могло случиться?</h2>
-
-	<ul>
-		<li>Вы&nbsp;попали сюда кликнув по&nbsp;неправильной ссылке.</li>
-		<li>Страница была удалена.</li>
-		<li>Вы&nbsp;опечатались при вводе адреса.</li>
-	</ul>
-
-	<h2>И что теперь делать?</h2>
-
-	<ul>
-		<li>Попробуйте найти нужную страницу с&nbsp;<a href="/">главной страницы</a> сайта.</li>
-		<li>Попробуйте исправить адрес.</li>
-		<li><a href="/about/">Напишите мне</a> и&nbsp;мы&nbsp;вместе что-нибудь придумаем.</li>
-	</ul>
-
-	<footer><a href="/">Фотографии Артёма Сапегина</a></footer>
+	<footer><a href="/">Artem Sapegin Photography</a></footer>
 
 </body>
 </html>

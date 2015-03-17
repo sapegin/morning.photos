@@ -15,13 +15,13 @@
 	</koken:not>
 
 	<koken:head>
-		<title>{{ title }} — фото Артёма Сапегина</title>
+		<title>{{ title }} — Artem Sapegin’s photo</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
 		<meta property="og:title" content="{{ title }}" />
 		<koken:not empty="content.caption">
 			<meta property="og:description" content="{{ content.caption strip_html='true' }}" />
 		<koken:else>
-			<meta property="og:description" content="Кликните, чтобы посмотреть фотографию на сайте" />
+			<meta property="og:description" content="Click to view the photo on a site" />
 		</koken:not>
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
@@ -63,7 +63,7 @@ mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 			<a href="{{ album.url }}" class="lightbox__close lightbox-button js-close" data-component="hotkey" data-hotkey="esc">
 				<i class="icon icon_close"></i>
 				<div class="lightbox__close-tooltip">
-					Обратно в альбом «{{ album.title }}»
+					Back to “{{ album.title }}” album
 				</div>
 			</a>
 		</koken:parent>
@@ -74,13 +74,12 @@ mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 					<i class="icon icon_share"></i>
 				</div>
 				<div class="lightbox-pane__popup">
-					<div class="social-likes social-likes_vertical social-likes_light" data-title="{{ title }} / Артём Сапегин"
-						data-title-template="{title} / Артём Сапегин" <koken:parent>data-component="gallery-share"</koken:parent>>
-						<div class="facebook" title="Поделиться ссылкой на Фейсбуке">Фейсбук</div>
-						<div class="twitter" title="Поделиться ссылкой в Твитере" data-via="{{ profile.twitter }}">Твитер</div>
-						<div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Гугл+</div>
-						<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
-						<div class="pinterest" title="Поделиться картинкой на Пинтересте" data-media="{{ content.presets.medium_large.url }}">Пинтерест</div>
+					<div class="social-likes social-likes_vertical social-likes_light" data-title="{{ title }} by Artem Sapegin"
+						data-title-template="{title} by Artem Sapegin" <koken:parent>data-component="gallery-share"</koken:parent>>
+						<div class="facebook" title="Share photo on Facebook">Facebook</div>
+						<div class="twitter" title="Share photo on Twitter" data-via="{{ profile.twitter }}">Twitter</div>
+						<div class="plusone" title="Share photo on Google+">Google+</div>
+						<div class="pinterest" title="Share photo on Pinterest" data-media="{{ content.presets.medium_large.url }}">Pinterest</div>
 					</div>
 				</div>
 			</div>
@@ -148,7 +147,7 @@ mixpanel.track('Photo viewed', {Title: '{{ title }}', Id: '{{ photo_id }}'});
 					<koken:else>
 						<koken:albums>
 								<div class="photo-info__albums">
-									Входит в альбомы:
+									In albums:
 									<koken:loop separator=", ">
 										<koken:link>
 											{{ album.title }}

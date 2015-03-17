@@ -1,0 +1,28 @@
+---
+layout: _page
+---
+
+<%
+@document.pageType = 'essays'
+%>
+
+<div data-component="essay-excerpts">
+
+	<% for doc in @getPageCollection('posts').toJSON(): %>
+		<%- @partial 'post-excerpt', {doc: doc} %>
+	<% end %>
+
+</div>
+
+<div class="content">
+	<%- @partial 'pagination-blog' %>
+</div>
+
+<ul class="blog-tags text content">
+	<% for tag in @orderedTagCloud(): %>
+		<li class="blog-tags__item">
+			<a href="<%= @tagUrl tag.tag %>"><%= @tagNames[tag.tag] %></a>
+			<span class="blog-tags__counter"><%= tag.count %></span>
+		</li>
+	<% end %>
+</ul>

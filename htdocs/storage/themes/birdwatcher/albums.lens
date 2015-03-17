@@ -5,9 +5,9 @@
 <koken:load limit="4" source="albums" filter:tags="portfolio" order_by="created_on" order_direction="desc">
 
 	<koken:head>
-		<title>Фотографии — {{ site.title }}</title>
+		<title>Portfolio — {{ site.title }}</title>
 		<meta property="og:site_name" content="{{ site.title }}" />
-		<meta property="og:title" content="Фотографии" />
+		<meta property="og:title" content="Portfolio" />
 		<meta property="og:description" content="{{ site.description strip_html='true' }}" />
 		<meta property="og:type" content="website" />
 		<koken:first>
@@ -43,7 +43,7 @@
 
 		<div class="entry-header">
 			<h1 class="entry-title">
-				Фотографии
+				Portfolio
 			</h1>
 		</div>
 

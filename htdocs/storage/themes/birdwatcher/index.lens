@@ -10,7 +10,7 @@
 		<koken:load>
 
 			<koken:head>
-				<title>{{ site.title }} — пейзаж, городской пейзаж, путешествия, тревел, природа, собаки, фото</title>
+				<title>{{ site.title }}: landscapes, travel, cityscapes, nature, dogs</title>
 				<meta name="description" content="{{ site.description }}" />
 				<meta name="keywords" content="{{ site.keywords }}" />
 				<meta property="og:site_name" content="{{ site.title }}" />
@@ -59,16 +59,16 @@ mixpanel.track('Index page viewed');
 					<div class="index-content__about">
 
 						<div class="media index-about">
-							<img src="/images/userpic.jpg" width="100" height="100" alt="Артём Сапегин" class="index-content__userpic media__img media__img_rev">
+							<img src="/images/userpic.jpg" width="100" height="100" alt="Artem Sapegin" class="index-content__userpic media__img media__img_rev">
 							<div class="media__body">
-								<p>Привет! Меня зовут Артём. В свободное от работы программистом время я фотографирую. Люблю снимать природу, города и своих собак.</p>
+								<p>Hi! I’m Artem. I’m web developer and passionate photographer from Moscow, Russia. I love shooting nature, cities and dogs.</p>
 							</div>
 						</div>
 
 						<ul class="articles-list">
 
-							<li class="articles-list__item"><a href="/about/" class="link">Обо мне</a></li>
-							<li class="articles-list__item"><a href="/buy/" class="link">Купить мои фотографии</a></li>
+							<li class="articles-list__item"><a href="/about/" class="link">About me</a></li>
+							<li class="articles-list__item"><a href="/buy/" class="link">Buy my photos</a></li>
 
 						</ul>
 
@@ -76,29 +76,27 @@ mixpanel.track('Index page viewed');
 
 					<div class="index-content__learn">
 
-						<ul class="articles-list">
+					<div class="articles-list-title articles-list-title_index delta">Portfolio</div>
 
+						<ul class="articles-list__list">
 							<li class="articles-list__item">
-								<a href="/reading/" class="link">Книги о фотографии</a>
-								<div class="articles-list__description">Мои рецензии</div>
+								<a href="/albums/landscapes/" class="link">Landscapes</a>
 							</li>
 							<li class="articles-list__item">
-								<a href="/quotes/" class="link">Цитаты о фотографии и искусстве</a>
-								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+								<a href="/albums/cityscapes/" class="link">Cityscapes</a>
 							</li>
 							<li class="articles-list__item">
-								<a href="/funquotes/" class="link">Фотография где</a>
-								<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
+								<a href="/albums/travel/" class="link">Travel</a>
 							</li>
 							<li class="articles-list__item">
-								<a href="/pages/microstocks/" class="link">Микростоки</a>
-								<div class="articles-list__description">Как продавать фотографии в интернете</div>
+								<a href="/albums/nature/" class="link">Nature</a>
 							</li>
 							<li class="articles-list__item">
-								<a href="/subscribe/" class="link">Рассылка сайта</a>
-								<div class="articles-list__description">Фотографии, анонсы моих электронных книг и т. п.</div>
+								<a href="/albums/dogs/" class="link">Dogs</a>
 							</li>
-
+							<li class="articles-list__item">
+								<a href="/albums/animals/" class="link">Animals</a>
+							</li>
 						</ul>
 
 					</div>
@@ -107,7 +105,7 @@ mixpanel.track('Index page viewed');
 
 						<koken:load source="essays" featured="true" limit="5">
 
-							<div class="articles-list-title articles-list-title_index">Интересное в <a href="/blog/" class="link">блоге</a>:</div>
+							<div class="articles-list-title articles-list-title_index">New posts in the <a href="/blog/" class="link">blog</a>:</div>
 
 							<ul class="articles-list">
 
