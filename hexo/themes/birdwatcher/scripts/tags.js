@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Video tag.
+ *
+ * Syntax:
+ *   {% video url [height=576] %}
+ */
 hexo.extend.tag.register('video', function(args) {
 	var videoUrl = args[0];
 	var videoHeight = args[1] || 576;
