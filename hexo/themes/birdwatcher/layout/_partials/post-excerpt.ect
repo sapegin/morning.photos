@@ -5,7 +5,7 @@ text = @post.content
 # Cut
 if @post.excerpt
 	text = """
-	#{text}
+	#{@post.excerpt}
 	<div class=\"js-more\">
 		<p class=\"more-link\"><a class=\"more-link__link js-more-link\" href=\"/#{@post.path}\">#{@theme.excerpt_link}</a></p>
 		<div class="js-more-content is-hidden">#{@post.more}</div>
