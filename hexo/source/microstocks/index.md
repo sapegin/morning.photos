@@ -10,9 +10,9 @@ date: Jan 25, 2014
 *Микростоки* (micropayment stock — микроплатёжный фотобанк) — это сайты, продающие фотографии за небольшие деньги (от нескольких долларов). За каждую продажу автор получает небольшое вознаграждение (определённый процент от стоимости фотографии). Одну и ту же фотографию можно продавать бесконечное число раз и загружать на несколько микростоков сразу. Этим и объясняется выгода микростоков для авторов.
 
 <div class="entry-triptych">
-<a class="entry-triptych__item" href="http://lori.ru/1478129?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto1.jpg" width="328" height="219" alt="Красивая девушка (привет, жена!) плывёт в бассейне"></a>
-<a class="entry-triptych__item" href="http://lori.ru/661853?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto2.jpg" width="328" height="219" alt="Лучи солнца на закате"></a>
-<a class="entry-triptych__item" href="http://lori.ru/657577?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto3.jpg" width="328" height="219" alt="Стальная опора линии электропередач на чистом голубом небе"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/1478129?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto1.jpg" width="328" height="219" alt="Красивая девушка (привет, жена!) плывёт в бассейне"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/661853?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto2.jpg" width="328" height="219" alt="Лучи солнца на закате"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/657577?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto3.jpg" width="328" height="219" alt="Стальная опора линии электропередач на чистом голубом небе"></a>
 </div>
 
 Средняя цена одной фотографии для покупателя 1—10 $, в зависимости от размера. Автор получает 20—50% с каждой продажи. При большом (сотни или тысячи фотографий), качественном и актуальном портфолио ежемесячный доход может составить довольно большую сумму. Для многих фотографов микростоки — основной источник дохода. Но и с небольшим портфолио заработать на поход в кафе с любимой девушкой или ~~что-нибудь ненужное~~ очередную фотожелезяку вполне возможно.
@@ -38,9 +38,9 @@ date: Jan 25, 2014
 Кроме фотографий на многих микростоках можно продавать векторные иллюстрации, видеоклипы, флэш-анимацию и звук.
 
 <div class="entry-triptych">
-<a class="entry-triptych__item" href="http://lori.ru/679936?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto4.jpg" width="328" height="219" alt="Силуэт вороны на ярком голубом небе"></a>
-<a class="entry-triptych__item" href="http://lori.ru/257992?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto5.jpg" width="328" height="219" alt="Огонь на чёрном фоне"></a>
-<a class="entry-triptych__item" href="http://lori.ru/679913?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto6.jpg" width="328" height="219" alt="Тени трёх уходящих людей"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/679936?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto4.jpg" width="328" height="219" alt="Силуэт вороны на ярком голубом небе"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/257992?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto5.jpg" width="328" height="219" alt="Огонь на чёрном фоне"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/679913?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto6.jpg" width="328" height="219" alt="Тени трёх уходящих людей"></a>
 </div>
 
 ## Как попасть на микросток
@@ -58,15 +58,17 @@ date: Jan 25, 2014
 - Хорошая резкость. И резким должно быть то, что нужно, а не ухо модели, например. Однако искуственно повышать резкость не рекомендуется. Так же не рекомендуется программно увеличивать изображения.
 - Отсутствие цифрового шума, хроматических аберраций, битых пикселей и артефактов сжатия.
 
-[Хорошее описание всевозможных артефактов](http://dpanswers.com/content/tech_defects.php "Image Defects").
+<p class="entry-tip">[Хорошее описание всевозможных артефактов](http://dpanswers.com/content/tech_defects.php "Image Defects").</p>
 
-Для удаления шума мне обычно хватает Лайтрума, но в особенно запущенных случаях я пользовался [Noiseware](http://imagenomic.com/nw.aspx "Imagenomic Noiseware — Unmatched Noise Reduction for Digital Images") и [фильтром Surface Blur](http://birdwatcher.ru/blog/2721/ "Удаление шума с помощью Surface Blur") в Фотошопе — главное тут не перестараться.
+<p class="entry-tip">Для удаления шума мне обычно хватает Лайтрума, но в особенно запущенных случаях я пользовался [Noiseware](http://imagenomic.com/nw.aspx "Imagenomic Noiseware — Unmatched Noise Reduction for Digital Images") и [фильтром Surface Blur](http://birdwatcher.ru/blog/2721/ "Удаление шума с помощью Surface Blur") в Фотошопе — главное тут не перестараться.</p>
+
 - Отсутствие на снимке товарных знаков, логотипов, вывесок, рекламных щитов, номеров автомобилей, названий улиц и тому подобного. Всё это необходимо аккуратно заретушировать.
 - Наличие *расписки модели* (*model release*, *модел-релиз*) для всех узнаваемых людей, присутствующих на фотографии. Если на снимке несколько человек, то на каждого нужна отдельная расписка. Для несовершеннолетних моделей релиз должны подписать оба родителя. Для всех случаев понадобится подпись свидетеля.
 
-[Универсальная расписка модели](/files/sapegin_model_release.pdf) на русском и английском языках ([пример заполения](http://lori.ru/doc/forauthors/docs_infill)).
+<p class="entry-tip">[Универсальная расписка модели](/files/sapegin_model_release.pdf) на русском и английском языках ([пример заполения](http://lori.ru/doc/forauthors/docs_infill)).</p>
 
-[Шаблон расписки модели](/files/sapegin_model_release_template.doc) на русском и английском языках для взрослых и детей (сюда можно вписать свои данные, чтобы не писать одно и то же каждый раз).
+<p class="entry-tip">[Шаблон расписки модели](/files/sapegin_model_release_template.doc) на русском и английском языках для взрослых и детей (сюда можно вписать свои данные, чтобы не писать одно и то же каждый раз).</p>
+
 - На фотографии не должно быть объектов, защищённых какими-либо правами. Например, чужих произведений искусства, дизайнерской мебели, и даже Эйфелевой башни ночью (схема её освещения запатентована). В таком случае может потребоваться *разрешение собственника* (*property release*).
 - Метаданные (название, описание и ключевые слова) на английском языке.
 
@@ -80,9 +82,9 @@ date: Jan 25, 2014
 
 Закачивать проще по FTP, а не через браузер. Так можно загружать картинки большими пачками. После этого останется лишь выбрать на сайте фотобанка категории, ввести метаданные (о там, как этого избежать, чуть ниже), поставить несколько надоедливых галочек и всё.
 
-Хорошие бесплатные программы для загрузки по FTP: [Cyberduck](http://cyberduck.ch/ "FTP, SFTP, WebDAV, Cloud Files & Amazon S3 Browser for Mac OS X") для мака и [WinSCP](http://winscp.net/ "Free SFTP, FTP and SCP client for Windows") для Виндоуса. Я использую [ForkLift](http://binarynights.com/forklift/ "The most advanced file manager and FTP + SFTP + Amazon S3 + WEBDav client for Mac OS X") (мак, 30 $).
+<p class="entry-tip">Хорошие бесплатные программы для загрузки по FTP: [Cyberduck](http://cyberduck.ch/ "FTP, SFTP, WebDAV, Cloud Files & Amazon S3 Browser for Mac OS X") для мака и [WinSCP](http://winscp.net/ "Free SFTP, FTP and SCP client for Windows") для Виндоуса. Я использую [ForkLift](http://binarynights.com/forklift/ "The most advanced file manager and FTP + SFTP + Amazon S3 + WEBDav client for Mac OS X") (мак, 30 $).</p>
 
-Чтобы не загружать файлы на каждый сайт по отдельности, можно воспользоваться специальными сайтами: [picWorkflow](http://www.picworkflow.com/?by=508 "Photo Retouching, Keywording and Distribution to your exact specifications") или [LightBurner](http://lightburner.com/ "Distribute and Sell your Photos Online Effortlessly!"). Закачиваете файлы на FTP сайта, а дальше они сами раскидывают их на все нужные стоки.
+<p class="entry-tip">Чтобы не загружать файлы на каждый сайт по отдельности, можно воспользоваться специальными сайтами: [picWorkflow](http://www.picworkflow.com/?by=508 "Photo Retouching, Keywording and Distribution to your exact specifications") или [LightBurner](http://lightburner.com/ "Distribute and Sell your Photos Online Effortlessly!"). Закачиваете файлы на FTP сайта, а дальше они сами раскидывают их на все нужные стоки.</p>
 
 ## Атрибутирование фотографий
 
@@ -94,10 +96,10 @@ date: Jan 25, 2014
 
 В ключевых словах (Keywords) необходимо перечислить все важные предметы, их свойства, материалы, цвет, действия и так далее, запечатлённые на снимке, включая их синоноимы. Это самое важное поле: именно по этим словам вашу фотографию будут находить клиенты. Обычно рекомендуют вводить от 5 до 25 слов. На многих фотобанках есть ограничение в 50 слов, поэтому вводить больше нет смысла. Если написать слишком мало слов, то фотографию просто никто не найдёт; а написав слишком много, вы рискуете получить отказ за спам. Особенно придирчив в этом плане Айсток: у них даже есть свой словарь, из которого нужно выбрать значение каждого ключевого слова.
 
-Сочинять ключевые слова очень помогает [сервис подбора](http://microstock.ru/cgi-bin/keywords.cgi "Подбор ключевых слов для изображений") на сайте Микросток.ру.
+<p class="entry-tip">Сочинять ключевые слова очень помогает [сервис подбора](http://microstock.ru/cgi-bin/keywords.cgi "Подбор ключевых слов для изображений") на сайте Микросток.ру.</p>
 
-Если вы такой же ленивый, как я, то ключевые слова можно купить. Я для этого (и для загрузки файлов, но об этом ниже) использую [picWorkflow](http://picworkflow.com/?by=508 "Photo Retouching, Keywording and Distribution
-to your exact specifications"). 20 ключевых слов будут стоить от 10 до 40 центов. Цену вы устанавливаете сами: от неё будет зависеть качество и скорость выполнения заказа. Я обычно выбираю чуть выше среднего. [Подбробное описание](http://birdwatcher.ru/blog/5734/) Пикворкфлоу у меня в блоге.
+<p class="entry-tip">Если вы такой же ленивый, как я, то ключевые слова можно купить. Я для этого (и для загрузки файлов, но об этом ниже) использую [picWorkflow](http://picworkflow.com/?by=508 "Photo Retouching, Keywording and Distribution
+to your exact specifications"). 20 ключевых слов будут стоить от 10 до 40 центов. Цену вы устанавливаете сами: от неё будет зависеть качество и скорость выполнения заказа. Я обычно выбираю чуть выше среднего. [Подбробное описание](http://birdwatcher.ru/blog/5734/) Пикворкфлоу у меня в блоге.</p>
 
 Обращайте внимание на правильность написания слов. В ключевых словах встречается множество орфографических ошибок — не повторяйте их. При копировании ключевых слов из одной работы в другую похожую внимательно читайте их — иначе можно пропустить слова, которые уже не имеют никакого отношения к изображению, что может быть расценено инспекторами как спам, а покупателей привести в ярость.
 
@@ -111,7 +113,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 4. От 5 до 25 ключевых слов (Keywords).
 5. Метаданные в IPTC-полях JPEG-файлов.
 
-![lightroom-keywords.png](upload://lightroom-keywords.png)
+![Атрибутирование фотографии в Лайтруме](upload://lightroom-keywords.png "Атрибутирование фотографии в Лайтруме")
 
 ## Получение денег
 
@@ -142,9 +144,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 - Сохраняйте в JPEG непосредственно перед загрузкой на стоки. Никогда не пересохраняйте JPEG-файлы несколько раз.
 
 <div class="entry-triptych">
-<a class="entry-triptych__item" href="http://lori.ru/692835?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto10.jpg" width="328" height="219" alt="Деревянная расчёска, изолированная на белом фоне"></a>
-<a class="entry-triptych__item" href="http://lori.ru/2377838?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto11.jpg" width="328" height="219" alt="Дюны, Куршская коса"></a>
-<a class="entry-triptych__item" href="http://lori.ru/669388?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto12.jpg" width="328" height="219" alt="Мыльные пузыри на зелёном нерезком фоне"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/692835?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto10.jpg" width="328" height="219" alt="Деревянная расчёска, изолированная на белом фоне"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/2377838?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto11.jpg" width="328" height="219" alt="Дюны, Куршская коса"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/669388?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto12.jpg" width="328" height="219" alt="Мыльные пузыри на зелёном нерезком фоне"></a>
 </div>
 
 ## Мой микростоковый рабочий процесс
@@ -158,9 +160,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 5. Отправка на микростоки (picWorkflow).
 6. Завершение оформления фотографий на сайтах микростоков (плагин picWorkflow для Хрома — [Microstock Submission Assistant](http://picworkflow.com/blog/featured/faster-submissions-with-the-microstock-submission-assistant/?by=508), есть версия для Файрфокса).
 
-[Подбробное описание](http://birdwatcher.ru/blog/5734/) Пикворкфлоу у меня в блоге.
+<p class="entry-tip">[Подбробное описание](http://birdwatcher.ru/blog/5734/) Пикворкфлоу у меня в блоге.</p>
 
-![picworkflow.png](upload://picworkflow.png)
+![Покупка ключевых слов на Пикворкфлоу](upload://picworkflow.png "Покупка ключевых слов на Пикворкфлоу")
 
 ## Что продаётся
 
@@ -179,9 +181,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 К наименее популярным относятся домашние животные, пейзажи, цветы — такого в фотобанках и так навалом, поэтому хорошо продаются только самые оригинальные и яркие карточки.
 
 <div class="entry-triptych">
-<a class="entry-triptych__item" href="http://lori.ru/694774?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto7.jpg" width="328" height="219" alt="Наушники, лежащие на нотах"></a>
-<a class="entry-triptych__item" href="http://lori.ru/1475538?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto8.jpg" width="328" height="219" alt="Картинг на снегу"></a>
-<a class="entry-triptych__item" href="http://lori.ru/2362561?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto9.jpg" width="328" height="219" alt="Молотый кофе в мерной ложке"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/694774?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto7.jpg" width="328" height="219" alt="Наушники, лежащие на нотах"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/1475538?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto8.jpg" width="328" height="219" alt="Картинг на снегу"></a>
+	<a class="entry-triptych__item" href="http://lori.ru/2362561?ref=599"><img class="entry-triptych__photo" src="/images/stocks/stockphoto9.jpg" width="328" height="219" alt="Молотый кофе в мерной ложке"></a>
 </div>
 
 ## С какими микростоками стоит работать
@@ -190,7 +192,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [iStock](http://bit.ly/istock-homepage "Айсток") ([моё портфолио](http://bit.ly/istock-sapegin "Портфолио на Айстоке"))
 
-<figure class="entry-figure-right">[![iStock](/images/stocks/istock.png)](http://bit.ly/istock-homepage "Айсток")</figure>Канадский фотобанк, появился в 2001-м году. Это самый первый микросток. Инспекторы Айстока считаются самыми строгими, но и по доходности этот фотобанк один из лучших.
+<figure class="entry-figure-right">[![iStock](/images/stocks/istock.png)](http://bit.ly/istock-homepage "Айсток")</figure>
+
+Канадский фотобанк, появился в 2001-м году. Это самый первый микросток. Инспекторы Айстока считаются самыми строгими, но и по доходности этот фотобанк один из лучших.
 
 Для регистрации нужен скан паспорта, мой российский паспорт их вполне устроил. Экзамен из трёх фотографий. Прошёл со второго раза. Первый раз проверяли две недели, второй раз проверили за ночь. На продажу экзаменационные фотографии необходимо загружать заново. При этом у меня ни одну из них после экзамена не приняли. Кроме экзамена нужно пройти теоретический тест.
 
@@ -198,7 +202,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 Здесь нет загрузки по FTP и есть своя замороченная система ключевых слов на основе словаря. Инспекторы Айстока не любят ключевые слова, напрямую не относящиеся к тому, что изображено на фотографии. Поэтому при загрузке сюда я удаляю часть ключевых слов.
 
-Сильно облегчает загрузку бесплатная программа [DeepMeta](http://www.deepmeta.com/ "Manage your iStockphoto portfolio") (для мака и Виндоуса).
+<p class="entry-tip">Сильно облегчает загрузку бесплатная программа [DeepMeta](http://www.deepmeta.com/ "Manage your iStockphoto portfolio") (для мака и Виндоуса).</p>
 
 На Айстоке не любят чрезмерно обработанные фотографии (overfiltered): с завышенной насыщенностью, тонированные и другими эффектами.
 
@@ -206,7 +210,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Shutterstock](http://submit.shutterstock.com/?ref=208096 "Шаттерсток") ([моё портфолио](http://www.shutterstock.com/g/hamstersphoto?rid=208096 "Портфолио на Шаттерстоке"))
 
-<figure class="entry-figure-right">[![Shutterstock](/images/stocks/shutterstock.png)](http://submit.shutterstock.com/?ref=208096 "Шаттерсток")</figure>Американский фотосток, основан в 2003-м году. Имеет самую большую базу изображений среди микростоков — больше 30 миллионов. Шаттерсток считается наиболее доходным микростоком.
+<figure class="entry-figure-right">[![Shutterstock](/images/stocks/shutterstock.png)](http://submit.shutterstock.com/?ref=208096 "Шаттерсток")</figure>
+
+Американский фотосток, основан в 2003-м году. Имеет самую большую базу изображений среди микростоков — больше 30 миллионов. Шаттерсток считается наиболее доходным микростоком.
 
 Для регистрации необходим скан загранпаспорта. Экзамен из 10 фотографий. Принять должны не меньше семи. Повторная пересдача возможна не ранее, чем через месяц. Я прошёл с первого раза. Проверили за ночь. Экзаменационные фотографии сразу попадают в портфолио и начинают продаваться.
 
@@ -214,23 +220,40 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Fotolia](http://us.fotolia.com/partner/120735 "Фотолия") ([моё портфолио](http://us.fotolia.com/p/120735/partner/120735 "Портфолио на Фотолии"))
 
-<figure class="entry-figure-right">[![Fotolia](/images/stocks/fotolia.png)](http://us.fotolia.com/partner/120735 "Фотолия")</figure>Американский микросток, появился в 2005 году.
+<figure class="entry-figure-right">[![Fotolia](/images/stocks/fotolia.png)](http://us.fotolia.com/partner/120735 "Фотолия")</figure>
+
+Американский микросток, появился в 2005 году.
 
 Экзамена нет. База у Фотолии немного меньше, чем у Шаттерстока, но по личным ощущениям туда почти ничего не берут и там не очень хорошо покупают.
 
 ### [Dreamstime](http://www.dreamstime.com/#res191014 "Дримстайм") ([моё портфолио](http://www.dreamstime.com/Sapegin_portfolio_pg1#res191014 "Портфолио на Дримстайме"))
 
-<figure class="entry-figure-right">[![Dreamstime](/images/stocks/dreamstime.png)](http://www.dreamstime.com/#res191014 "Дримстайм")</figure>Экзамена нет, больше и нечего про него сказать.
+<figure class="entry-figure-right">[![Dreamstime](/images/stocks/dreamstime.png)](http://www.dreamstime.com/#res191014 "Дримстайм")</figure>
+
+Экзамена нет, больше и нечего про него сказать.
 
 Имеет российское представительство — [Фототаймс](http://phototimes.ru/ "Фотобанк «Фототаймс»").
 
 ### [Лори](http://lori.ru/?ref=599 "Лори") ([моё портфолио](http://lori.ru/Asapegin?ref=599 "Портфолио в Лори"))
 
-<figure class="entry-figure-right">[![Лори](/images/stocks/lori.png)](http://lori.ru/?ref=599 "Лори")</figure>Единственный пока российский микросток. Экзамена нет, но необходимо (по требованиям российских законов) подписание бумажного договора (его нужно отправить по почте). Продажи случаются редко. Сайт у них один из самых удобных, да и вообще мне это банк нравится.
+<figure class="entry-figure-right">[![Лори](/images/stocks/lori.png)](http://lori.ru/?ref=599 "Лори")</figure>
+
+Единственный пока российский микросток. Экзамена нет, но необходимо (по требованиям российских законов) подписание бумажного договора (его нужно отправить по почте). Продажи случаются редко. Сайт у них один из самых удобных, да и вообще мне это банк нравится.
 
 ## Сводная таблица микростоков
 
-<table class="table"><thead><tr><th>Название</th><th>[iStock](http://bit.ly/istock-homepage)</th><th>[Shutterstock](http://submit.shutterstock.com/?ref=208096)</th><th>[Fotolia](http://us.fotolia.com/partner/120735)</th><th>[Dreamstime](http://www.dreamstime.com/#res191014)</th><th>[Лори](http://lori.ru/?ref=599)</th></tr></thead><tbody><tr><th>Продажа поштучно / по подписке</th><td>Да / да</td><td>Да / да</td><td class="redactor-current-td">Да / да</td><td>Да / да</td><td>Да / нет</td></tr><tr><th>Редакционное использование</th><td>Да</td><td>Да</td><td>Нет</td><td>Да</td><td>Да</td></tr><tr><th>Экзамен</th><td>3 фотографии + теоретический тест</td><td>10 фотографий</td><td>Нет</td><td>Нет</td><td>Нет</td></tr><tr><th>Дополнительные требования при регистрации</th><td>Скан обычного паспорта или водительских прав</td><td>Скан загранпаспорта</td><td></td><td>Скан обычного паспорта или водительских прав</td><td>Нужно подписывать бумажный договор</td></tr><tr><th>Минимальная сумма вывода</th><td>100 $</td><td>75 $;
-Автоматически 15-го числа каждого месяца</td><td>50 $</td><td>100 $</td><td>1500 р. (до 3000 р. — комиссия 100 р.)</td></tr><tr><th>Размер гонорара</th><td>15—20% (до 45% для эксклюзивщиков)</td><td>Поштучно <nobr>0,81—2,85 $,</nobr>
-по подписке <nobr>0,25—0,38 $</nobr></td><td>Поштучно 20—63%,
-по подписке 0,25—0,40 $</td><td><nobr>25—45%</nobr></td><td><nobr>30—50%</nobr></td></tr><tr><th>Выплаты по реферальной программе</th><td><nobr>Покупатели: 20%</nobr></td><td><nobr>Фотографы: 0,04 $;</nobr><nobr>покупатели: 20%</nobr></td><td><nobr>Фотографы: 10%;</nobr><nobr>покупатели: 15%</nobr></td><td><nobr>Фотографы: 10%;</nobr><nobr>покупатели: 10%</nobr></td><td><nobr>Фотографы: 1%;</nobr><nobr>покупатели: 2%</nobr> (10% первый месяц)</td></tr><tr><th>Срок реферальной программы</th><td>Первая покупка в течение 30 дней</td><td>Фотографы: 2 года; покупатели: первая покупка</td><td>Фотографы: 1 год; покупатели: первая покупка</td><td>3 года</td><td></td></tr></tbody></table>
+<table class="table">
+	<thead>
+		<tr><th>Название</th><th>[iStock](http://bit.ly/istock-homepage)</th><th>[Shutterstock](http://submit.shutterstock.com/?ref=208096)</th><th>[Fotolia](http://us.fotolia.com/partner/120735)</th><th>[Dreamstime](http://www.dreamstime.com/#res191014)</th><th>[Лори](http://lori.ru/?ref=599)</th></tr>
+	</thead>
+	<tbody>
+		<tr><th>Продажа поштучно / по подписке</th><td>Да / да</td><td>Да / да</td><td>Да / да</td><td>Да / да</td><td>Да / нет</td></tr>
+		<tr><th>Редакционное использование</th><td>Да</td><td>Да</td><td>Нет</td><td>Да</td><td>Да</td></tr>
+		<tr><th>Экзамен</th><td>3 фотографии + теоретический тест</td><td>10 фотографий</td><td>Нет</td><td>Нет</td><td>Нет</td></tr>
+		<tr><th>Дополнительные требования при регистрации</th><td>Скан обычного паспорта или водительских прав</td><td>Скан загранпаспорта</td><td></td><td>Скан обычного паспорта или водительских прав</td><td>Нужно подписывать бумажный договор</td></tr>
+		<tr><th>Минимальная сумма вывода</th><td>100 $</td><td>75 $;<br>Автоматически 15-го числа каждого месяца</td><td>50 $</td><td>100 $</td><td>1500 р. (до 3000 р. — комиссия 100 р.)</td></tr>
+		<tr><th>Размер гонорара</th><td>15—20% (до 45% для эксклюзивщиков)</td><td>Поштучно <nobr>0,81—2,85 $,</nobr><br>по подписке <nobr>0,25—0,38 $</nobr></td><td>Поштучно 20—63%,<br>по подписке 0,25—0,40 $</td><td><nobr>25—45%</nobr></td><td><nobr>30—50%</nobr></td></tr>
+		<tr><th>Выплаты по реферальной программе</th><td><nobr>Покупатели: 20%</nobr></td><td><nobr>Фотографы: 0,04 $;</nobr><br><nobr>покупатели: 20%</nobr></td><td><nobr>Фотографы: 10%;</nobr><br><nobr>покупатели: 15%</nobr></td><td><nobr>Фотографы: 10%;</nobr><br><nobr>покупатели: 10%</nobr></td><td><nobr>Фотографы: 1%;</nobr><br><nobr>покупатели: 2%</nobr> (10% первый месяц)</td></tr>
+		<tr><th>Срок реферальной программы</th><td>Первая покупка в течение 30 дней</td><td>Фотографы: 2 года; покупатели: первая покупка</td><td>Фотографы: 1 год; покупатели: первая покупка</td><td>3 года</td><td></td></tr>
+	</tbody>
+</table>
