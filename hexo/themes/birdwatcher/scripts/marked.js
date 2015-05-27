@@ -31,9 +31,17 @@ Renderer.prototype.image = function(href, title, text) {
 		}
 	}
 
+	if (title) {
+		title = ['<figcaption class="entry-photo__text">',
+				'<span class="entry-photo__title">', title, '</span>',
+			'</figcaption>'
+		].join('');
+	}
+
 	return [
-		'<figure class="entry-photo">' +
-			'<img src="', href, '" alt="', text, '" title="', title, '" class="entry-photo__photo">' +
+		'<figure class="entry-photo">',
+			'<img src="', href, '" alt="', text, '" class="entry-photo__photo">',
+			title,
 		'</figure>'
 	].join('');
 };
