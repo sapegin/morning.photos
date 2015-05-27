@@ -1,0 +1,28 @@
+<% extend '_page-with-title' %>
+
+<div class="l-quad-space">
+	<%- @rt @page.content %>
+</div>
+
+<div class="quotes">
+	<% for quote in @config.quotes: %>
+		<div class="quote">
+			<div class="quote__text">
+				<%- @rt @md quote.text %>
+			</div>
+			<div class="quote__meta">
+				<% if quote.author: %>
+				<% if quote.link: %><a href="<%= quote.link %>"><% end %><%= quote.author %><% if quote.link: %></a><% end %>
+				<% end %><% if quote.author_en: %>
+				(<% if quote.link_en: %><a href="<%= quote.link_en %>"><% end %><%= quote.author_en %><% if quote.link_en: %></a><% end %>)<% end %><% if quote.role: %>,
+				<%- @rt @mds quote.role %><% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<div class="l-triple-space">
+	<%- @partial '_partials/sociallikes', {title: @page.title} %>
+</div>
+
+<%- @partial '_partials/subscribe', {from: 'Quotes'} %>

@@ -1,0 +1,20 @@
+<table>
+<% for book in @config.books: %>
+	<tr>
+		<td valign="top" align="center" style="padding-bottom:10px">
+			<img src="http://birdwatcher.ru/images/books/<%= book.id %>.jpg" alt="<%= book.author %>. <%= book.title %>"><br>
+			<%= (book.rating+'').replace '.5', '½' %>/5
+		</td>
+		<td valign="top" style="padding:0 0 10px 10px">
+			<p><strong><%= book.author %>. <% if book.link: %><a href="<%= @buy_link book.link %>" data-track="Book link clicked"><% end %><%= book.title %><% if book.link: %></a><% end %></strong>
+				<% if book.translation: %>
+					<br>
+					<%= book.translation.author %>. <a href="<%= @buy_link book.translation.link %>" data-track="Book link clicked"><%= book.translation.title %></a>
+				<% end %>
+			</p>
+			<%- @absolutize_links @md book.text %>
+		</td>
+	</tr>
+
+<% end %>
+</table>

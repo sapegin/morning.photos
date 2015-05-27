@@ -190,6 +190,7 @@ tags:
 
 /**
 * Indents a flat JSON string to make it more human-readable.
+* Source: http://www.daveperrett.com/articles/2008/03/11/format-json-with-php/
 *
 * @param string $json The original JSON string to process.
 * @return string Indented version of the original JSON string.

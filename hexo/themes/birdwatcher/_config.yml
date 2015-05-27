@@ -1,0 +1,35 @@
+menu:
+  Блог: blog/
+  Фотографии: albums/
+  Поездки: travel/
+  Статьи: learn/
+  Обо мне: about/
+
+tag_names:
+  photos: 'Фотографии'
+  photography: 'О фотографии'
+  life: 'Жизнь'
+  geeky: 'Гиковское'
+  idiots: 'Идиоты'
+  dogs: 'Собаки'
+  books: 'Книги'
+  horses: 'Лошади'
+  masters: 'Мастера'
+  humor: 'Юмор'
+
+book_tags:
+  best: 'Лучшие'
+  good: 'Хорошие'
+  russian: 'На русском'
+  english: 'На английском'
+  available: 'Ещё продаются'
+
+partners:
+  'amazon.com': '?tag=artesapesphot-20'
+  'ozon.ru': '?partner=sapegin'
+
+rss: /feed/
+
+excerpt_link: Читать дальше…
+
+twitter: sapegin

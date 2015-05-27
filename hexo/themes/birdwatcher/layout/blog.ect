@@ -1,0 +1,26 @@
+<% extend '_page' %>
+
+<%
+@set_page_type 'essays'
+%>
+
+<% content %>
+
+<div data-component="essay-excerpts">
+	<% @page.posts.each (post) => if 1: %>
+		<%- @partial '_partials/post-excerpt', {post: post} %>
+	<% end %>
+</div>
+
+<div class="content">
+	<%- @partial '_partials/pagination-blog' %>
+</div>
+
+<ul class="blog-tags text content">
+	<% @ordered_tags().each (tag) => if 1: %>
+		<li class="blog-tags__item">
+			<a href="/<%= tag.path %>"><%= @theme.tag_names[tag.name] %></a>
+			<span class="blog-tags__counter"><%= tag.length %></span>
+		</li>
+	<% end %>
+</ul>

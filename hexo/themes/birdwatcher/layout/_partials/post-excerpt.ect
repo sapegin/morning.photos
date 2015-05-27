@@ -1,0 +1,48 @@
+<%
+is_photo = !!@post.tags.find({name: 'photos'}).length
+text = @post.content
+
+# Cut
+if @post.excerpt
+	text = """
+	#{text}
+	<div class=\"js-more\">
+		<p class=\"more-link\"><a class=\"more-link__link js-more-link\" href=\"/#{@post.path}\">#{@theme.excerpt_link}</a></p>
+		<div class="js-more-content is-hidden">#{@post.more}</div>
+	</div>
+	"""
+
+# Featured photo
+if is_photo
+	re = /(<figure class="entry-photo">[\S\s]*?<\/figure>)/m
+	m = text.match(re)
+	first_photo = m and m[1]
+	text = text.replace(re, '')
+%>
+
+<article class="essay entry <% if is_photo: %>essay_photo<% end %>">
+	<div class="content">
+
+		<% if is_photo: %>
+			<div class="essay__featured">
+				<%- first_photo %>
+			</div>
+			<h2 class="entry-title entry-title_excerpt-photo">
+				<a class="entry-title__link" href="/<%= @post.path %>"><%- @rtt @post.title %></a>
+			</h2>
+		<% else: %>
+			<header class="essay__header">
+				<h2 class="entry-title entry-title_excerpt">
+					<a class="entry-title__link" href="/<%= @post.path %>"><%- @rtt @post.title %></a>
+				</h2>
+			</header>
+		<% end %>
+
+		<div class="essay__content text">
+			<%- @rt text %>
+		</div>
+
+		<%- @partial '_partials/post-meta', {post: @post} %>
+	</div>
+</article>
+

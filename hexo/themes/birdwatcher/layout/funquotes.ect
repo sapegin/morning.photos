@@ -1,0 +1,9 @@
+<% extend '_page-with-title' %>
+
+<%- @rt @page.content %>
+
+<div class="l-triple-space">
+	<%- @partial '_partials/sociallikes', {title: @page.title} %>
+</div>
+
+<%- @partial '_partials/subscribe', {from: 'FunQuotes'} %>

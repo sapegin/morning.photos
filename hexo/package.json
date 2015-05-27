@@ -1,0 +1,22 @@
+{
+  "name": "birdwatcher-hexo",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.1.1"
+  },
+  "dependencies": {
+    "hexo": "~3.1.1",
+    "hexo-generator-archive": "~0.1.2",
+    "hexo-pagination": "~0.0.2",
+    "hexo-renderer-ect": "~0.1.0",
+    "hexo-server": "~0.1.2",
+    "lodash": "~3.9.3",
+    "marked": "~0.3.3",
+    "richtypo": "~0.1.8",
+    "yamljs": "~0.2.3"
+  },
+  "scripts": {
+    "setupDev": "ln -s ../../../../htdocs/storage/themes/birdwatcher/build ./themes/birdwatcher/source/"
+  }
+}

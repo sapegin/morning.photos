@@ -1,0 +1,24 @@
+---
+layout: _page
+---
+
+<%
+@document.pageType = ['page', 'about', 'inverted-head']
+%>
+
+<div class="about-splash">
+	<div class="about-splash-i">
+		<div class="about-splash__img" data-component="parallax" data-speed="0.41"></div>
+	</div>
+</div>
+
+<script><%- @embedFile 'build/inlines/shuffle.js' %></script>
+<script><%- @embedFile 'build/inlines/about.js' %></script>
+
+<div class="about-content">
+	<div class="content text">
+
+		<%- @rt @content %>
+
+	</div>
+</div>
