@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /app/
 
-Host: birdwatcher.ru
+Host: morning.photos

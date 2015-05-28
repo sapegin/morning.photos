@@ -1,0 +1,23 @@
+/* TEAM */
+
+  Web developer: Artem Sapegin
+  Email: artem@sapegin.ru
+  Site: http://sapegin.me
+  Location: Moscow, Russia
+
+	Icons: Genn Osypenko
+	Site: http://genn.org/
+	Location: Kiev, Ukraine
+
+
+/* POWERED BY */
+
+  Hexo: http://hexo.io/
+  Koken: http://koken.me/
+  Fotorama: http://fotorama.io/
+  Tâmia: http://sapegin.github.io/tamia/
+
+  -_-_-_-_-_-_-_,------,
+  _-_-_-_-_-_-_-|   /\_/\\
+  -_-_-_-_-_-_-~|__( ^ .^)
+  -_-_-_-_-_-_-""  ""
