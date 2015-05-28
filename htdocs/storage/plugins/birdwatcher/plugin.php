@@ -46,18 +46,18 @@ class Birdwatcher extends KokenPlugin {
 	function fix_rss_links($html_str)
 	{
 		$html_str = str_replace(
-			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: All uploads" href="/feed/content/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Artem Sapegin Photography: All uploads" href="/feed/content/recent.rss" />',
 			'',
 			$html_str
 		);
 		$html_str = str_replace(
-			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: Essays" href="/feed/essays/recent.rss" />',
-			'<link rel="alternate" type="application/atom+xml" title="Блог о фотографии Артёма Сапегина" href="/feed/" />',
+			'<link rel="alternate" type="application/atom+xml" title="Artem Sapegin Photography: Essays" href="/feed/essays/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Artem Sapegin’s Photography Blog" href="/feed/" />',
 			$html_str
 		);
 		$html_str = str_replace(
-			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина: Timeline" href="/feed/timeline/recent.rss" />',
-			'<link rel="alternate" type="application/atom+xml" title="Фотографии Артёма Сапегина" href="/feed/timeline/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Artem Sapegin Photography: Timeline" href="/feed/timeline/recent.rss" />',
+			'<link rel="alternate" type="application/atom+xml" title="Artem Sapegin Photography" href="/feed/timeline/recent.rss" />',
 			$html_str
 		);
 
@@ -102,7 +102,7 @@ class Birdwatcher extends KokenPlugin {
 		if (count($parts) > 1) {
 			$html_str = $parts[0] .
 				'<!--more_open--><div class="js-more">' .
-					'<p class="more-link"><a class="more-link__link js-more-link" href="' . $url . '">Читать дальше…</a></p>' .
+					'<p class="more-link"><a class="more-link__link js-more-link" href="' . $url . '">Read more…</a></p>' .
 					'<div class="js-more-content is-hidden"><!--/more_open-->' . $parts[1] . '<!--more_close--></div>' .
 				'</div><!--/more_close-->'
 			;
@@ -387,65 +387,39 @@ class Birdwatcher extends KokenPlugin {
 	 */
 	function typo_process($s)
 	{
-		// Убиваем табуляцию
+		// Remove tabs
 		$s = str_replace("\t", '', $s);
 
-		// Убиваем повторяющиеся пробелы
+		// Remove multiple spaces
 		$s = preg_replace('% +%', ' ', $s);
 
-		// Исправляем неразрывные пробелы
-		$s = str_replace(" ", '&nbsp;', $s);
+		// Fix non-breaking spaces
+		$s = str_replace(' ', '&nbsp;', $s);
 
-		// Сохраняем теги
+		// Preserve tags
 		$s = preg_replace_callback('%(<[^>]*>)%ums', array($this, 'typo_backup_tags'), $s);
 
-		$search = array(
-			'№ ',			// Номер
-			'§ ',			// Параграф
-			' —',			// Тире
-			'и т. д.',
-			'и т. п.',
-		);
-		$replace = array(
-			'№&nbsp;',
-			'§&nbsp;',
-			'&nbsp;—',
-			'и&nbsp;т.&nbsp;д.',
-			'и&nbsp;т.&nbsp;п.',
-		);
-		$s = str_replace($search, $replace, $s);
+		// Em-dash
+		$s = preg_replace('%\s([—–])\s%u', '&#8202;—&#8202;', $s);
+		$s = preg_replace('%(\w+[—–])(\w)%u', '<nobr>\\1</nobr>\\2', $s);
 
-		// Год
-		$s = preg_replace('%(?<![0-9])([0-9]{4}) (г\.)%ui', '\\1&nbsp;\\2', $s);
+		// Hyphens
+		$s = preg_replace('%(\W|^)((?:\w{1,2}(?:\-\w+))|(?:\w+(?:\-\w{1,2})))(?!\w)%u', '\\1<nobr>\\2</nobr>', $s);
 
-		// Имена собственные
-		// $s = preg_replace('%(?<![а-яёА-ЯЁ])([гГ]|[гГ]р|[тТ]ов)\. ([А-ЯЁ])%u', '\\1.&nbsp;\\2', $s);
+		// Prepositions
+		$s = preg_replace('%(\W|^)(at|or|and|the|a|by|an|in|on|of|for|to|as|i|or|my)\s%ui', '\\1\\2&nbsp;', $s);
 
-		// Инициалы
-		$s = preg_replace('%(?<![а-яёА-ЯЁ])((?:[А-ЯЁ]\. ){1,2}[А-ЯЁ][-а-яё]+)%u', '<nobr>\\1</nobr>', $s);
+		// Abbreviations
+		$s = preg_replace('%([A-Z]{3,})%u', '<abbr>\\1</abbr>', $s);
 
-		// Слова через дефис
-		$s = preg_replace('%(?<![а-яё])((?:[а-яё]{1,2}(?:\-[а-яё]+))|(?:[а-яё]+(?:\-[а-яё]{1,2})))(?![а-яё])%ui', '<nobr>\\1</nobr>', $s);
-
-		// Частицы
-		$s = preg_replace('% (ж|бы|б|же|ли|ль|либо|или)(?![а-яё])%ui', '&nbsp;\\1', $s);
-
-		// Предлоги и союзы
-		$s = preg_replace('%(?<![а-яё])(а|в|во|вне|и|или|к|о|с|у|о|со|об|обо|от|ото|то|на|не|ни|но|из|изо|за|уж|на|по|под|подо|пред|предо|про|над|надо|как|без|безо|что|да|для|до|там|ещё|их|или|ко|меж|между|перед|передо|около|через|сквозь|для|при|я)\s%ui', '\\1&nbsp;', $s);
-
-		// Валюты
-		$s = preg_replace('%(\d) (\$|р\.|руб\.)%ui', '\\1&nbsp;\\2', $s);
-
-		// Даты
-		$s = preg_replace('%(\d) (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|ноября|декабря)%ui', '\\1&nbsp;\\2', $s);
-
-		// Восстанавливаем теги
+		// Restore tags
 		$s = preg_replace_callback("/<≈>/u", array($this, 'typo_restore_tags'), $s);
 
-		// Последнее слово в абзаце
-		$s = preg_replace('%\s([а-яё]+[.!?\)]</p>)%ui', '&nbsp;\\1', $s);
+		// Last word in paragraph
+		$s = preg_replace('%\s(\w+[.!?\)]</p>)%ui', '&nbsp;\\1', $s);
 
-		$s = str_replace('&nbsp;', " ", $s);
+		// Unicode non-breaking space
+		$s = str_replace('&nbsp;', ' ', $s);
 
 		return trim($s);
 	}
