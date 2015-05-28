@@ -15,7 +15,7 @@ timezone: Europe/Moscow
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://birdwatcher.ru
 root: /
-permalink: blog/:key/
+permalink: blog/:name/
 server_ip: 127.0.0.1
 theme_path: ../htdocs/storage/themes/birdwatcher
 photo_prefix: http://birdwatcher.ru/
