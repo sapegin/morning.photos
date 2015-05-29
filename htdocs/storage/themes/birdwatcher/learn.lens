@@ -27,7 +27,7 @@
 
 				<ul class="articles-list__list">
 
-					<li class="articles-list__item">
+					<!--li class="articles-list__item">
 						<a href="/reading/" class="link">Photography books</a>
 						<div class="articles-list__description">Short notes on books I’ve read</div>
 						<koken:include file="../../../../docpad/out/books_latest.html" />
@@ -35,7 +35,7 @@
 					<li class="articles-list__item">
 						<a href="/quotes/" class="link">Quotes about photography and arts</a>
 						<div class="articles-list__description">My favourite quotes of photographers, painters, writers and so on</div>
-					</li>
+					</li-->
 					<li class="articles-list__item">
 						<a href="/subscribe/" class="link">My newsletter</a>
 						<div class="articles-list__description">New photos, ebooks and everything else I’m going to create</div>

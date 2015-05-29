@@ -84,14 +84,14 @@ module.exports = function(grunt) {
 			}
 		},
 		shell: {
-			docpad: {
+			hexo: {
 				options: {
 					stdout: true,
 					execOptions: {
-						cwd: '../../../../docpad'
+						cwd: '../../../../hexo'
 					}
 				},
-				command: 'node_modules/.bin/docpad generate --silent'
+				command: 'node_modules/.bin/hexo generate --silent'
 			}
 		},
 		watch: {
@@ -115,13 +115,13 @@ module.exports = function(grunt) {
 		browserSync: {
 			dev: {
 				options: {
-					server: '../../../../docpad/out/ru/'
+					server: '../../../../hexo/public/'
 				}
 			}
 		}
 	});
 
-	grunt.registerTask('docpad', ['shell:docpad']);
+	grunt.registerTask('hexo', ['shell:hexo']);
 	grunt.registerTask('default', ['webfont', 'replace', 'scripts', 'stylus', 'dot', 'fingerprint']);
 	grunt.registerTask('deploy', ['replace', 'scripts', 'stylus', 'dot', 'fingerprint']);
 };
