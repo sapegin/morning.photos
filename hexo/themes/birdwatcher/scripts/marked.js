@@ -41,7 +41,7 @@ Renderer.prototype.image = function(href, title, text) {
 
 	if (title) {
 		title = ['<figcaption class="entry-photo__text">',
-				'<span class="entry-photo__title">', title, '</span>',
+				'<span class="entry-photo__title">', marked(title), '</span>',
 			'</figcaption>'
 		].join('');
 	}
