@@ -15,7 +15,7 @@
 				<% if @is_current(url, true): %>
 					<span class="nav__label is-active"><%= title %></a>
 				<% else: %>
-					<a class="nav__label <% if @path.indexOf(url) is 0: %>is-active<% end %>" href="/<%- url %>"><%= title %></a>
+					<a class="nav__label <% if @path.indexOf(url) is 0: %>is-active<% end %>" href="<%- if url.indexOf('http:') is 0 then url else "/#{url}" %>"><%= title %></a>
 				<% end %>
 			</li><!--
 		<% end %>
