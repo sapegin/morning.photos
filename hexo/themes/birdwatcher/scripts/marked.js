@@ -21,12 +21,20 @@ Renderer.prototype.image = function(href, title, text) {
 		var id = m[2];
 		switch (protocol) {
 			case 'photo':
-				if (!hexo.config.photos[id]) console.log('WARNING: photo with ID ' + id + ' not found');
-				href = get_photo_url(hexo.config.photos[id], 'large');
+				if (hexo.config.photos[id]) {
+					href = get_photo_url(hexo.config.photos[id], 'large');
+				}
+				else {
+					console.log('WARNING: photo with ID ' + id + ' not found');
+				}
 				break;
 			case 'upload':
-				if (!hexo.config.uploads[id]) console.log('WARNING: upload with URL ' + id + ' not found');
-				href = get_photo_url(hexo.config.uploads[id], 'large');
+				if (hexo.config.uploads[id]) {
+					href = get_photo_url(hexo.config.uploads[id], 'large');
+				}
+				else {
+					console.log('WARNING: upload with URL ' + id + ' not found');
+				}
 				break;
 		}
 	}
