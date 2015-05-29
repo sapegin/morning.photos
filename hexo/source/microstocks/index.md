@@ -1,5 +1,6 @@
 ---
 layout: page
+likes: true
 title: 'Продажа фотографий в интернете на микростоках'
 page_title: 'Продажа фотографий в интернете — микростоки, фотобанки, фотостоки, Shutterstock, Fotolia, iStockPhoto, Лори'
 date: Jan 25, 2014
