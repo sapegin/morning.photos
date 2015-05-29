@@ -64,6 +64,13 @@ Renderer.prototype.paragraph = function(text) {
 	}
 };
 
+// Do not put IDs in headers
+Renderer.prototype.heading = function(text, level, raw) {
+	// @todo We should increase level of heading by one but Koken doesn’t support it.
+	var tag = 'h' + level;
+	return '<' + tag + '>' + text + '</' + tag + '>\n';
+};
+
 function renderer(data) {
 	return marked(data.text, {
 		renderer: new Renderer()
