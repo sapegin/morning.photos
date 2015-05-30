@@ -4,13 +4,10 @@
   "private": true,
   "dependencies": {
     "modernizr": "~2.8.3",
-    "fotorama": "~4.6.2",
-    "hashnav": "~1.0.1",
-    "jquery": "~2.1.0",
+    "fotorama": "~4.6.4",
+    "hashnav": "~1.0.2",
+    "jquery": "~2.1.4",
     "social-likes": "~3.0.2",
     "underscore": "~1.7.0"
-  },
-  "resolutions": {
-    "fotorama": "~4.6.2"
   }
 }

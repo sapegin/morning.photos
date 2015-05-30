@@ -11,16 +11,17 @@
 	/**
 	 * Ajax form
 	 */
-	var Form = tamia.extend(tamia.Component, {
+	tamia.Form = tamia.extend(tamia.Component, {
+		displayName: 'tamia.Form',
 		binded: 'submit success error',
 
 		init: function() {
-			//tamia.trace(this, 'Form');
+			//tamia.trace(this);
 
 			this.method = this.elem.data('method') || 'post';
 			this.dataType = this.elem.data('form-type') || 'json';
 			this.url = this.elem.data('form-action');
-			if (DEBUG && !this.url) throw tamia.Error('Form: data-form-action not defined.');
+			if (DEBUG && !this.url) throw tamia.Error('tamia.Form: data-form-action not defined.');
 
 			this.successElem = this.elem.find('.js-form-success');
 			if (this.successElem.length) this.defaultMessage = this.successElem.html();
@@ -89,17 +90,17 @@
 		}
 	});
 
-	tamia.initComponents({form: Form});
+	tamia.initComponents({form: tamia.Form});
 
 
 	/**
 	 * Disable submit button on submit
 	 */
-	var AutoLock = tamia.extend(tamia.Component, {
+	tamia.AutoLock = tamia.extend(tamia.Component, {
+		displayName: 'tamia.AutoLock',
 		binded: 'submit',
 
 		init: function() {
-			// tamia.trace(this, 'AutoLock');
 			this.elem.on('submit', this.submit_);
 		},
 
@@ -108,7 +109,7 @@
 		}
 	});
 
-	tamia.initComponents({autolock: AutoLock});
+	tamia.initComponents({autolock: tamia.AutoLock});
 
 
 	var _toggle_fields = function(elem, enable) {

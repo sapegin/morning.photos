@@ -725,6 +725,7 @@ lightbox-button-glow() {
 		display:inline-block;
 		margin-right:1em;
 		font-size:normal_font;
+		white-space:nowrap;
 	}
 
 	&__counter {
@@ -749,7 +750,7 @@ lightbox-button-glow() {
 }
 
 .album-thumbnail {
-	@extend .responsive-images;
+	responsive-images();
 	layout-nth(1/4);
 	space(2);
 
@@ -1114,7 +1115,7 @@ visible_part_height = normal_font*2.5;
 }
 
 .about-content {
-	@extend .responsive-images;
+	responsive-images();
 	margin-left:(-(2*spacer));
 	margin-right:(-(2*spacer));
 	padding:4*spacer 2*spacer spacer;

@@ -1,9 +1,9 @@
-// Tâmia © 2013 Artem Sapegin http://sapegin.me
+// Tâmia © 2015 Artem Sapegin http://sapegin.me
 // Helper classes
 
 // Element is hidden.
 .is-hidden
-	display: none
+	display: none !important
 
 // Element is invisible (but occupies place on page).
 .is-invisible
@@ -11,16 +11,10 @@
 
 /// Element is in transit between hidden (.is-hidden) and visible.
 .is-transit
-	display: block
+	display: block !important
 	&.l-center
-		display: table
+		display: table !important
 
 // Clearfix.
 .group
 	clearfix()
-
-// Make all images inside responsive.
-.responsive-images
-	img
-		max-width: 100%
-		height: auto

@@ -7,42 +7,52 @@
 
 	var _wrapperClass = 'loader-wrapper';
 	var _shadeSelector = '.loader-shade';
-	var _loaderTmpl = '' +
-	'<div class="loader-shade">' +
-		'<div class="l-center">' +
-			'<div class="l-center-i">' +
-				'<div class="spinner spinner_big"></div>' +
-			'</div>' +
-		'</div>' +
-	'</div>';
 
-	var Loader = tamia.extend(tamia.Component, {
+	tamia.Loader = tamia.extend(tamia.Component, {
+		displayName: 'tamia.Loader',
+		template: {
+			block: 'loader-shade',
+			content: {
+				block: 'l-center',
+				content: {
+					block: 'l-center',
+					inner: true,
+					content: {
+						block: 'spinner',
+						mods: 'big'
+					}
+				}
+			}
+		},
+
 		init: function() {
-			this.initHtml();
 			tamia.delay(this.elem.addState, this.elem, 0, 'loading');
 		},
 
 		destroy: function() {
-			this.elem.removeState('loading');
-			this.elem.find(_shadeSelector).afterTransition(function() {
-				this.elem.removeClass(_wrapperClass);
-				this.loader.remove();
-			}.bind(this));
+			tamia.delay(function() {
+				this.elem.removeState('loading');
+				this.elem.find(_shadeSelector).afterTransition(function() {
+					this.elem.removeClass(_wrapperClass);
+					this.loader.remove();
+				}.bind(this));
+			}, this, 0);
 		},
 
 		initHtml: function() {
 			this.elem.addClass(_wrapperClass);
-			this.loader = $(_loaderTmpl);
+			this.loader = tamia.oporNode(this.template);
 			this.elem.append(this.loader);
 		}
 	});
+
 
 	// Events
 	tamia.registerEvents({
 		'loading-start': function(elem) {
 			var container = $(elem);
 			if (container.data('loader')) return;
-			container.data('loader', new Loader(elem));
+			container.data('loader', new tamia.Loader(elem));
 		},
 
 		'loading-stop': function(elem) {

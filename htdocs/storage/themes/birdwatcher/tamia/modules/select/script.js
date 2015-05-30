@@ -5,21 +5,39 @@
 ;(function(window, $, undefined) {
 	'use strict';
 
-	var _selectClass = '.js-select';
-	var _boxClass = '.js-box';
+	var _disabledState = 'disabled';
 
-	var Select = tamia.extend(tamia.Component, {
+	tamia.Select = tamia.extend(tamia.Component, {
+		displayName: 'tamia.Select',
 		binded: 'focus blur change',
+		template: {
+			block: 'select',
+			node: 'root',
+			content: [
+				{
+					block: 'select',
+					elem: 'box',
+					link: 'boxElem'
+				},
+				{
+					block: 'select',
+					elem: 'select',
+					node: '.js-select',
+					link: 'selectElem'
+				}
+			]
+		},
 
 		init: function() {
-			this.selectElem = this.elem.find(_selectClass);
-			this.boxElem = this.elem.find(_boxClass);
-
-			this.elem.on({
+			this.selectElem.on({
 				focus: this.focus_,
 				blur: this.blur_,
 				change: this.change_
-			}, _selectClass);
+			});
+
+			if (this.elem.hasState(_disabledState)) {
+				this.selectElem.prop(_disabledState, true);
+			}
 
 			this.change();
 		},
@@ -41,6 +59,6 @@
 		}
 	});
 
-	tamia.initComponents({select: Select});
+	tamia.initComponents({select: tamia.Select});
 
 }(window, jQuery));

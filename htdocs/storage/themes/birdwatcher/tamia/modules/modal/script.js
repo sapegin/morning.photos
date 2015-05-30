@@ -11,16 +11,26 @@
 	var _bodyClass = 'modal-opened';
 	var _switchingState = 'switching';
 	var _hiddenState = 'hidden';
-	var _wrapperTmpl = '' +
-	'<div class="modal-shade is-hidden">' +
-		'<div class="l-center">' +
-			'<div class="l-center-i js-modal"></div>' +
-		'</div>' +
-	'</div>';
 	var _opened = null;
 
-	var Modal = tamia.extend(tamia.Component, {
+	tamia.Modal = tamia.extend(tamia.Component, {
+		displayName: 'tamia.Modal',
 		binded: 'commit dismiss keyup shadeClick',
+		wrapperTemplate: {
+			block: 'modal-shade',
+			states: 'hidden',
+			content: {
+				block: 'l-center',
+				content: {
+					block: 'l-center',
+					inner: true,
+					js: 'modal',
+					content: {
+						node: true
+					}
+				}
+			}
+		},
 
 		init: function() {
 			this.elem.data('modal', this);
@@ -31,11 +41,9 @@
 			}
 		},
 
-		initHtml: function() {
+		initWrapperHtml: function() {
 			if (this.wrapper) return;
-
-			this.wrapper = $(_wrapperTmpl);
-			this.wrapper.find('.js-modal').append(this.elem);
+			this.wrapper = tamia.oporNode(this.wrapperTemplate, this.elem);
 			this.wrapper.on('click', this.shadeClick_);
 			_body.append(this.wrapper);
 			this.elem.removeState('hidden');
@@ -45,7 +53,7 @@
 			if (this === _opened) return;
 
 			var opened = _opened;
-			this.initHtml();
+			this.initWrapperHtml();
 			_body.addClass(_bodyClass);
 			if (opened) {
 				opened.close({hide: true});
@@ -113,7 +121,7 @@
 		'open.modal': function(elem) {
 			var container = $(elem);
 			var modal = container.data('modal');
-			if (!modal) modal = new Modal(elem);
+			if (!modal) modal = new tamia.Modal(elem);
 			modal.open();
 		},
 		'close.modal': function(elem) {
