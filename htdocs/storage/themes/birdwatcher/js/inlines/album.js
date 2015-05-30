@@ -16,7 +16,7 @@
 			var img = photo.img;
 			var fw = Math.floor(photo.w * overPercent);
 			var fh = Math.floor(photo.h * overPercent);
-			var isLast = !(photoIdx < elemsCnt - 1);
+			var isLast = photoIdx >= elemsCnt - 1;
 
 			trackWidth += fw + margin;
 
@@ -34,9 +34,11 @@
 
 		var rowWidth = 0;
 		var elems = [];
+		var photo;
 		var photoIdx;
+		var elemsCnt;
 		for (photoIdx = 0, elemsCnt = allElems.length; photoIdx < elemsCnt; photoIdx++) {
-			var photo = allElems[photoIdx];
+			photo = allElems[photoIdx];
 
 			elems.push(photo);
 
@@ -51,7 +53,7 @@
 
 		// Set original sizes for last (not full) row
 		for (photoIdx = 0, elemsCnt = elems.length; photoIdx < elemsCnt; photoIdx++) {
-			var photo = elems[photoIdx];
+			photo = elems[photoIdx];
 			var img = photo.img;
 			img.width = photo.w;
 			img.height = photo.h;
@@ -62,7 +64,7 @@
 		var last;
 		var deferTimer;
 		return function() {
-			var now = +(new Date);
+			var now = +(new Date());
 			var args = arguments;
 			if (last && now < last + threshhold) {
 				clearTimeout(deferTimer);
@@ -84,7 +86,6 @@
 	var allElems = [];
 	var rowWidth = 0;
 	var photos = container.querySelectorAll('.js-img');
-	var targetHeight = parseInt(photos[0].getAttribute('height'), 10);
 
 	for (var photoIdx = 0, photosCnt = photos.length; photoIdx < photosCnt; photoIdx++) {
 		var img = photos[photoIdx];

@@ -1,3 +1,5 @@
+/* jshint unused: false */
+
 // http://bost.ocks.org/mike/shuffle/
 function shuffle(a) {
 	var m = a.length;

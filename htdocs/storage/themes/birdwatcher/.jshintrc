@@ -14,7 +14,7 @@
 	"bitwise": true,
 	"noempty": true,
 	"unused": "vars",
-	"strict": true,
+	"strict": false,
 	"globals": {
 		"Modernizr": false,
 		"tamia": false,

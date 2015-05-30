@@ -1,21 +1,23 @@
+/* global shuffle:false */
 (function() {
-	var count = 34;
+	var count = 34,
 		visible = 6,
 		interval = 3000,
 		urlTpl = 'http://birdwatcher.ru/images/about/me{num}.jpg',
 		imgTpl = '<img src="{url}" alt="" class="about-triptych__photo {cls} js-img">',
 		photos = [],
 		imgs = [],
-		placeholders = null,
-		lastPhoto = null;
+		placeholders,
+		lastPhoto,
+		photoIdx;
 
-	for (var photoIdx = 1; photoIdx <= count; photoIdx++) {
+	for (photoIdx = 1; photoIdx <= count; photoIdx++) {
 		photos.push(urlTpl.replace('{num}', photoIdx));
 	}
 	photos = shuffle(photos);
 
-	for (var photoIdx = 1; photoIdx <= visible + 1; photoIdx++) {
-		var img = (new Image);
+	for (photoIdx = 1; photoIdx <= visible + 1; photoIdx++) {
+		var img = (new Image());
 		img.src = photos[photoIdx];
 		imgs.push(img);
 	}
@@ -37,7 +39,7 @@
 		newImg.className = newImg.className.replace(/\s+is-hidden/, '');
 		oldImg.className += ' is-hidden';
 
-		(new Image).src = photos[0];
+		(new Image()).src = photos[0];
 		setTimeout(tick, interval);
 	}
 
@@ -45,7 +47,7 @@
 		var num;
 		do {
 			num = Math.floor(Math.random() * visible);
-		} while (num === lastPhoto)
+		} while (num === lastPhoto);
 		lastPhoto = num;
 		return placeholders[num].getElementsByClassName('js-img');
 	}
@@ -68,5 +70,5 @@
 			placeholders[placeholderIdx].innerHTML = makeImg(nextUrl()) + makeImg('', 'is-hidden') + placeholders[placeholderIdx].innerHTML;
 		}
 		setTimeout(tick, interval);
-	}
+	};
 })();

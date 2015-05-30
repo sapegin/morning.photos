@@ -1,3 +1,5 @@
+/* jshint camelcase: false, unused: false */
+
 var paymentData = {
 	providers: {
 		free: {

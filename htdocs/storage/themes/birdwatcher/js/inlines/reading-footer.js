@@ -3,11 +3,11 @@
  */
  (function() {
  	if (location.hash && document.querySelectorAll && document.body.classList) {
- 		function hideBook(e) {
+ 		var hideBook = function(e) {
  			if (!e.target.classList.contains('js-filter-tag')) return;
  			book.style.display = null;
  			filter.removeEventListener('click', hideBook, false);
- 		}
+ 		};
 
  		var container = document.querySelector('[data-component="tag-filter"]');
  		if (!container) return;
