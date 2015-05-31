@@ -7,7 +7,7 @@
 			name = @theme.tag_names[tag.name]
 			comma = if index < @post.tags.length-1 then '<span class="entry-tags__separator">,</span>' else ''
 			%>
-			<% if @post.path.indexOf('categories/') isnt -1: %>
+			<% if @page.path.indexOf(tag.path) is 0: %>
 				<span class="entry-tags__tag is-active"><%= name %></span><%- comma %>
 			<% else: %>
 				<a href="/<%= tag.path %>" class="entry-tags__tag link"><%= name %></a><%- comma %>
