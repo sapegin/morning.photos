@@ -1,5 +1,9 @@
 <% extend 'blog' %>
 
+<%
+@page.title = "Посты с тегом «#{@theme.tag_names[@page.tag]}»"
+%>
+
 <div class="entry-header content">
-	<h1 class="entry-title">Посты с тегом «<%= @theme.tag_names[@page.tag] %>»</h1>
+	<h1 class="entry-title"><%= @page.title %></h1>
 </div>

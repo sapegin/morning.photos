@@ -14,12 +14,17 @@ helpers.page_title = function(suffix) {
 	if (this.page.page_title) {
 		return this.page.page_title;
 	}
-	if (suffix === undefined) suffix = true;
+	if (suffix === undefined) {
+		suffix = true;
+	}
 	if (this.is_home()) {
 		return this.config.title + (suffix ? (' — ' + this.config.title_description) : '');
 	}
 	if (this.page.title) {
-		return this.page.title + (suffix ? (' — ' + (this.is_post() ? this.config.blog_title : this.config.title)) : '');
+		if (suffix) {
+			suffix = ' — ' + (this.is_post() || this.is_tag() ? this.config.blog_title : this.config.title);
+		}
+		return this.page.title + suffix || '';
 	}
 	else {
 		return this.config.title;
