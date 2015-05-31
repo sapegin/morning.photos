@@ -59,7 +59,7 @@
 
 				<koken:categories>
 					<span class="entry-tags text">
-						<koken:loop separator=", ">
+						<koken:loop separator="<span class=entry-tags__separator>,</span>">
 							<koken:link>{{ category.title }}</koken:link>
 						</koken:loop>
 					</span>

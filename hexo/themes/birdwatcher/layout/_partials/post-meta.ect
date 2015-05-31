@@ -5,12 +5,12 @@
 		<% @post.tags.forEach (tag, index) => if 1: %>
 			<%
 			name = @theme.tag_names[tag.name]
-			comma = if index < @post.tags.length-1 then ',' else ''
+			comma = if index < @post.tags.length-1 then '<span class="entry-tags__separator">,</span>' else ''
 			%>
 			<% if @post.path.indexOf('categories/') isnt -1: %>
-				<span class="entry-tags__tag is-active"><%= name %></span><%= comma %>
+				<span class="entry-tags__tag is-active"><%= name %></span><%- comma %>
 			<% else: %>
-				<a href="/<%= tag.path %>" class="entry-tags__tag link"><%= name %></a><%= comma %>
+				<a href="/<%= tag.path %>" class="entry-tags__tag link"><%= name %></a><%- comma %>
 			<% end %>
 		<% end %>
 	</span>
