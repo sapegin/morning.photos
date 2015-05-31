@@ -13,6 +13,7 @@ htdocs/storage/themes/birdwatcher/build/*.js
 htdocs/storage/themes/birdwatcher/build/inlines/*.js
 htdocs/storage/themes/birdwatcher/build/*.css
 htdocs/storage/themes/birdwatcher/build/*.png
+htdocs/storage/themes/birdwatcher/build/*.map
 api.php
 dl.php
 i.php
