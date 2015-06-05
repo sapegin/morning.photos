@@ -69,6 +69,7 @@ mixpanel.track('Index page viewed');
 
 							<li class="articles-list__item"><a href="/about/" class="link">About me</a></li>
 							<li class="articles-list__item"><a href="/buy/" class="link">Buy my photos</a></li>
+							<li class="articles-list__item"><a href="/subscribe/" class="link">Subscribe to my newsletter</a></li>
 
 						</ul>
 
