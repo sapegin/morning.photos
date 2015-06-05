@@ -8,31 +8,157 @@ var richtypo = require('richtypo');
 
 richtypo.lang(hexo.config.language);
 
+function meta(name, content){
+	return '<meta name="' + name + '" content="' + content + '">';
+}
+
+function og(name, content){
+	return '<meta property="' + name + '" content="' + content + '">';
+}
+
 var helpers = {};
 
 helpers.page_title = function(suffix) {
 	if (this.page.page_title) {
 		return this.page.page_title;
 	}
-	if (suffix === undefined) {
-		suffix = true;
-	}
-	if (this.is_home()) {
-		return this.config.title + (suffix ? (' — ' + this.config.title_description) : '');
+	if (this.is_blog_home()) {
+		return this.config.blog_title;
 	}
 	if (this.page.title) {
-		if (suffix) {
-			suffix = ' — ' + (this.is_post() || this.is_tag() ? this.config.blog_title : this.config.title);
+		if (suffix === undefined) {
+			suffix = ' — ' + this.site_name();
 		}
-		return this.page.title + suffix || '';
+		return this.page.title + (suffix || '');
 	}
 	else {
 		return this.config.title;
 	}
 };
 
+helpers.site_name = function() {
+	return this.is_blog() ? this.config.blog_title : this.config.title;
+};
+
 helpers.page_url = function(path, options) {
 	return this.url_for(path, options).replace(/index\.html$/, '');
+};
+
+helpers.is_blog = function() {
+	var search = 'blog/';
+	return this.path.substring(0, search.length) === search;
+};
+
+helpers.is_blog_home = function() {
+	return this.path === 'blog/index.html';
+};
+
+helpers.meta_tags = function(options) {
+	options = options || {};
+
+	var page = this.page;
+	var images = page.images || [];
+
+	var twType;
+	var ogType;
+	if (this.is_home()) {
+		ogType = 'website';
+	}
+	else if (this.is_blog_home()) {
+		twType = 'summary';
+		ogType = 'blog';
+	}
+	else if (this.is_page()) {
+		twType = 'summary';
+		ogType = 'article';
+	}
+	else if (this.is_post()) {
+		twType = 'summary';
+		ogType = 'article';
+	}
+	if (images && images.length) {
+		twType = 'gallery';
+	}
+
+	if (!twType && !ogType) {
+		return '';
+	}
+
+	var config = this.config;
+	var content = page.content;
+	var description = page.description;
+
+	var title = options.title || page.title || config.title;
+	if (this.is_home()) {
+		title = this.site_name();
+	}
+
+	var tags = [];
+
+	if (!description) {
+		if (content) {
+			// First paragraph
+			var m = content.match(/<p[^>]*>(.*?)<\/p>/i);
+			if (m) {
+				description = m[1]
+					.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '')  // From https://github.com/azer/strip
+					.trim()
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;')
+					.replace(/&/g, '&amp;')
+					.replace(/"/g, '&quot;')
+					.replace(/'/g, '&apos;')
+				;
+			}
+		}
+		if (!description) {
+			description = config.description;
+		}
+	}
+
+	if (content && !images && (this.is_post() || this.is_page())) {
+		// First image
+		var m = content.match(/<img\s+src=["']([^"']+)["']/i);
+		if (m) {
+			twType = 'summary_large_image';
+			images = [m[1]];
+		}
+	}
+
+	tags.push(
+		meta('description', description),
+		og('og:type', ogType),
+		og('og:title', title),
+		og('og:url', this.page_url(this.url)),
+		og('og:site_name', this.site_name()),
+		og('og:description', description)
+	);
+
+	images.map(function(path) {
+		if (path.indexOf('http:') !== 0) {
+			return config.url + path;
+		}
+		return path;
+	}).forEach(function(path, index) {
+		tags.push(og('og:image', path));
+	});
+
+	if (twType === 'gallery') {
+		images.forEach(function(path, index) {
+			tags.push(meta('twitter:image' + index, path));
+		});
+	}
+
+	if (twType) {
+		tags.push(
+			meta('twitter:card', twType),
+			meta('twitter:title', title),
+			meta('twitter:description', description),
+			meta('twitter:creator', '@' + options.twitter_id)
+		);
+	}
+
+	return tags.join('\n');
 };
 
 helpers.fingerprint = _.memoize(function(filepath) {

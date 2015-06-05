@@ -2,6 +2,8 @@
 
 <%
 @set_page_type 'index', 'inverted-head'
+@page.__index = true;
+@page.images = @_.shuffle(@config.featured).slice(0, 4).map((img) -> img.img)
 %>
 
 <div class="index">

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title><%= @page_title() %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<%- @open_graph({title: @page_title(false), twitter_id: @theme.twitter}) %>
+	<%- @meta_tags({title: @page_title(false), twitter_id: @theme.twitter}) %>
 	<% if @page.noindex: %>
 		<meta name="robots" content="noindex follow">
 	<% end %>
