@@ -19,7 +19,7 @@
 <ul class="blog-tags text content">
 	<% @ordered_tags().each (tag) => if 1: %>
 		<li class="blog-tags__item">
-			<a href="/<%= tag.path %>"><%= @theme.tag_names[tag.name] %></a>
+			<a href="<%= @page_url tag.path %>"><%= @theme.tag_names[tag.name] %></a>
 			<span class="blog-tags__counter"><%= tag.length %></span>
 		</li>
 	<% end %>

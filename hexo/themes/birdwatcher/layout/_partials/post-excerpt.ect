@@ -28,12 +28,12 @@ if is_photo
 				<%- first_photo %>
 			</div>
 			<h2 class="entry-title entry-title_excerpt-photo">
-				<a class="entry-title__link" href="/<%= @post.path %>"><%- @rtt @post.title %></a>
+				<a class="entry-title__link" href="<%= @page_url @post.path %>"><%- @rtt @post.title %></a>
 			</h2>
 		<% else: %>
 			<header class="essay__header">
 				<h2 class="entry-title entry-title_excerpt">
-					<a class="entry-title__link" href="/<%= @post.path %>"><%- @rtt @post.title %></a>
+					<a class="entry-title__link" href="<%= @page_url @post.path %>"><%- @rtt @post.title %></a>
 				</h2>
 			</header>
 		<% end %>

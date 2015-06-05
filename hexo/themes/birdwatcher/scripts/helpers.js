@@ -31,6 +31,10 @@ helpers.page_title = function(suffix) {
 	}
 };
 
+helpers.page_url = function(path, options) {
+	return this.url_for(path, options).replace(/index\.html$/, '');
+};
+
 helpers.fingerprint = _.memoize(function(filepath) {
 	var datetime = fs.statSync(this.theme_filepath(filepath)).mtime.getTime();
 	return filepath + '?' + datetime;

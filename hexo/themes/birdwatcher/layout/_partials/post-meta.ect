@@ -10,7 +10,7 @@
 			<% if @page.path.indexOf(tag.path) is 0: %>
 				<span class="entry-tags__tag is-active"><%= name %></span><%- comma %>
 			<% else: %>
-				<a href="/<%= tag.path %>" class="entry-tags__tag link"><%= name %></a><%- comma %>
+				<a href="<%= @page_url tag.path %>" class="entry-tags__tag link"><%= name %></a><%- comma %>
 			<% end %>
 		<% end %>
 	</span>
