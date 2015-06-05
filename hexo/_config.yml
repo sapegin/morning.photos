@@ -18,7 +18,7 @@ root: /
 permalink: blog/:name/
 server_ip: 127.0.0.1
 theme_path: ../htdocs/storage/themes/birdwatcher
-photo_prefix: http://birdwatcher.ru/
+photo_prefix: http://morning.photos/
 
 
 # Directory

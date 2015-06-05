@@ -11,8 +11,8 @@ define('PHOTOS_URLS_FILE', './data/photos.json');
 define('UPLOADS_URLS_FILE', './data/uploads.json');
 define('FEATURED_URLS_FILE', './data/featured.json');
 define('POSTS_DIR', '../hexo/source/_posts/');
-define('UPLOADS_REMOTE_DIR', '/home/tema/sites/beta.birdwatcher.ru/htdocs/storage/custom');
-define('PHOTOS_HOST', 'http://birdwatcher.ru/');
+define('UPLOADS_REMOTE_DIR', '/home/tema/sites/birdwatcher.ru/htdocs/storage/custom');
+define('PHOTOS_HOST', 'http://morning.photos/');
 
 require_once('./include/HTML_To_Markdown.php');
 
