@@ -3,7 +3,7 @@
   Web developer: Artem Sapegin
   Email: artem@sapegin.ru
   Site: http://sapegin.me
-  Location: Moscow, Russia
+  Location: Berlin, Germany
 
 	Icons: Genn Osypenko
 	Site: http://genn.org/

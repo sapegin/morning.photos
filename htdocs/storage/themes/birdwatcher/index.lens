@@ -61,7 +61,7 @@ mixpanel.track('Index page viewed');
 						<div class="media index-about">
 							<img src="/images/userpic.jpg" width="100" height="100" alt="Artem Sapegin" class="index-content__userpic media__img media__img_rev">
 							<div class="media__body">
-								<p>Hi! I’m Artem. I’m web developer and passionate photographer from Moscow, Russia. I love shooting nature, cities and dogs.</p>
+								<p>Hi! I’m Artem. I’m a web developer and passionate photographer living in Berlin, Germany. I love shooting nature, cities and dogs.</p>
 							</div>
 						</div>
 

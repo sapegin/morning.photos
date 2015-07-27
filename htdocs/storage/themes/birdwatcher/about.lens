@@ -43,7 +43,6 @@
 				<ul class="about-links">
 					<li class="about-links__item"><a href="mailto:artem@sapegin.ru">artem@sapegin.ru</a></li>
 					<li class="about-links__item"><a href="skype:artemsapegin">artemsapegin</a> (Skype)</li>
-					<li class="about-links__item"><a href="tel:+79265563433">+7 926 556-34-33</a></li>
 				</ul>
 
 				<ul class="about-links">
@@ -53,6 +52,7 @@
 				</ul>
 
 				<ul class="about-links">
+					<li class="about-links__item"><a href="/subscribe/">Subscribe to my newsletter</a></li>
 					<li class="about-links__item"><a href="/buy/">Buy my photos</a></li>
 				</ul>
 
