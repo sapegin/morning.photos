@@ -1,7 +1,5 @@
 node_modules
 bower_components
-admin
-app
 htdocs/storage/cache
 htdocs/storage/configuration
 htdocs/storage/originals
@@ -14,14 +12,14 @@ htdocs/storage/themes/birdwatcher/build/inlines/*.js
 htdocs/storage/themes/birdwatcher/build/*.css
 htdocs/storage/themes/birdwatcher/build/*.png
 htdocs/storage/themes/birdwatcher/build/*.map
-api.php
-dl.php
-i.php
-index.php
-preview.php
 .htaccess
 .docpad.db
 htdocs/manifest.php
 payments/settings.php
 payments/data/db
 scripts/.db.json
+
+photos
+public
+data
+lib

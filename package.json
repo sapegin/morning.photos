@@ -1,0 +1,44 @@
+{
+  "name": "morning-photos",
+  "version": "0.0.0",
+  "description": "Artem Sapegin Photography",
+  "author": "Artem Sapegin <artem@sapegin.ru> (http://sapegin.me/)",
+  "license": "SEE LICENSE IN <Readme.md>",
+  "private": true,
+  "scripts": {
+    "test": "npm run lint",
+    "start": "npm run server",
+    "build": "node lib",
+    "build:es": "babel-node src",
+    "build:watch": "chokidar templates source -c 'node lib'",
+    "build:watch:es": "chokidar templates source -c 'babel-node src'",
+    "compile": "babel -d lib src",
+    "compile:watch": "babel --watch -d lib src",
+    "server": "tamia server",
+    "bundle": "tamia bundle",
+    "lint": "eslint js src"
+  },
+  "dependencies": {
+    "tamia": "~2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.6.5",
+    "babel-eslint": "~5.0.0",
+    "babel-preset-tamia": "~6.5.0",
+    "chokidar": "~1.4.3",
+    "eslint": "~1.10.3",
+    "eslint-config-tamia": "~1.2.0",
+    "exif-parser": "~0.1.9",
+    "fledermaus": "~4.1.4",
+    "fs-extra": "~0.26.7",
+    "glob": "~7.0.3",
+    "lodash": "~4.6.1",
+    "node-iptc": "~1.0.4",
+    "sharp": "~0.13.1",
+    "tamia-build": "~0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/sapegin/birdwatcher.git"
+  }
+}

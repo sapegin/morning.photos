@@ -1,0 +1,1180 @@
+body {
+	background: bg_color;
+	color: base_color;
+	line-height: 1.5;
+	padding: spacer 2*spacer;
+	font-size: normal_font;
+	if (max_width) {
+		max-width: max_width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Fonts
+
+body {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
+// Headers: alpha, beta, gamma, delta, epsilon, epsilon
+
+.alpha {
+	font-size: 48px;
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+.beta {
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+.gamma {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+.delta {
+	font-size: content_font;
+	font-weight: bold;
+	line-height: 1.3;
+}
+
+
+// Text
+
+.text {
+	p,
+	ul,
+	ol {
+		space(2);
+	}
+
+	h2 {
+		@extend .beta;
+		space();
+	}
+	h3 {
+		@extend .delta;
+		space();
+	}
+
+	blockquote {
+		margin-left: 4*spacer;
+		margin-right: 4*spacer;
+		font-size: 90%;
+
+		cite {
+			font-style: italic;
+		}
+	}
+}
+
+// Fotorama tweaks.
+.fotorama__arr {
+	display: none !important;
+}
+
+.header {
+	clearfix();
+	space(2);
+	text-align: center;
+}
+.page_content .header {
+	display: none;
+}
+
+.logo {
+	float: left;
+	font-size: normal_font;
+	font-weight: normal;
+
+	&__link {
+		+link-all-states() {
+			color: base_color;
+		}
+	}
+
+	+below(740px) {
+		space(0.5);
+		float: none;
+	}
+}
+.page_inverted-head,
+.page_content {
+	.logo,
+	.logo__link {
+		tweak-inverted-text();
+		color: light_hover_color;
+	}
+}
+.page_content {
+	.logo__link {
+		color: light_color;
+	}
+	.logo__link:hover,
+	.logo__link:active,
+	.logo__link:focus {
+		color: light_hover_color;
+	}
+}
+
+// Hackish navigation for Koken
+.koken-nav {
+	float: right;
+	margin: 0 -.4em;
+
+	// I have to use tag names here because Koken doesn’t provide any ability to change it
+
+	li {
+		display: inline-block;
+		padding: 0 .4em;
+	}
+
+	span,
+	a,
+	a:link,
+	a:visited,
+	a:hover,
+	a:active,
+	a:focus {
+		font-size: normal_font;
+		color: base_color;
+	}
+
+	.k-nav-current {
+		font-weight: bold;
+	}
+
+	+below(740px) {
+		float: none;
+	}
+}
+.page_inverted-head .koken-nav a,
+.page_inverted-head .koken-nav span {
+	& {
+		tweak-inverted-text();
+		color: light_hover_color;
+	}
+}
+
+.footer {
+	padding: 0 2*spacer;
+	font-size: small_font;
+
+	.page_index &,
+	.page_content & {
+		display: none;
+	}
+}
+
+.is-fullscreen {
+	overflow: hidden;
+}
+
+.page {
+	&_index,
+	&_content {
+		background: photo_bg_color;
+	}
+
+	&_content,
+	&_album {
+		.content {
+			max-width: 100%;
+		}
+	}
+
+	&_index {
+		padding: 0;
+	}
+
+	&_ebook {
+		.footer {
+			display: none;
+		}
+	}
+}
++below(740px) {
+	.page_learn {
+		.l-half {
+			layout-stop();
+		}
+	}
+}
+
+
+lightbox_button_width = 50px;
+lightbox_button_height = 40px;
+header_height = 40px;
+
+lightbox-button-transition() {
+	transition: all 333ms cubic-bezier(0.1, 0.25, 0.25, 1);
+}
+
+lightbox-button-glow() {
+	color: light_hover_color;
+	text-shadow: 0 0 10px hsla(209, 75%, 65%, 1);
+}
+
+.lightbox-button {
+	lightbox-button-transition();
+	width: lightbox_button_width;
+	height: lightbox_button_height;
+	line-height: lightbox_button_height;
+	color: light_color;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	text-shadow: 0 0 4px black(.5);
+
+	&:hover {
+		lightbox-button-glow()
+	}
+
+	&.is-disabled,
+	&.is-disabled:hover {
+		color: white(.25);
+		text-shadow: 0 0 4px black(.25);
+		cursor: default;
+	}
+}
+
+.lightbox {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	&__logo {
+		position: absolute;
+		left: 2*spacer;
+		top: spacer;
+	}
+
+	&__gallery,
+	&__saver {
+		position: absolute;
+		top: header_height;
+		bottom: spacer;
+		left: 0;
+		right: 0;
+	}
+
+	&__saver {
+		opacity: 0;
+	}
+
+	&__image {
+		max-width: 1600px;
+		height: 100%;
+		margin: 0 auto;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+
+	&__controls,
+	&__arrow,
+	&__close {
+		no-select();
+		z-index: 9999;
+		transform: translateZ(0);  // Speed up Fotorama
+
+		.no-touch & {
+			opacity: 0;
+		}
+	}
+	.touch &__arrow {
+		display: none;
+	}
+
+	&__controls {
+		lightbox-button-transition();
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		margin-top: (-(lightbox_button_height/2));
+		text-align: center;
+
+		&_left {
+			left: 0;
+		}
+		&_right {
+			right: 0;
+		}
+		.icon {
+			font-size: 35px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50px;
+		.icon {
+			margin-top: .15em;
+			font-size: 17px;
+		}
+	}
+
+	&__close-tooltip,
+	&__close:hover &__close-tooltip {
+		tweak-inverted-text();
+		position: absolute;
+		top: spacer;
+		right: 50px;
+		line-height: 1.5;
+		color: light_color;
+		text-decoration: underline;
+		text-align: right;
+		white-space: nowrap;
+		text-shadow: none;
+		display: none;
+	}
+	&__close:hover &__close-tooltip {
+		display: block;
+	}
+
+	&:hover &__controls,
+	&:hover &__arrow,
+	&:hover &__close {
+		opacity: 1;
+	}
+
+	+below(650px) {
+		&__close:hover &__close-tooltip {
+			display: none;
+		}
+	}
+}
+
+.lightbox-pane {
+	&__button {
+		text-align: center;
+		cursor: default;
+
+		.icon {
+			font-size: 20px;
+		}
+		.icon_info {
+			margin-left: -.5ex;
+		}
+	}
+
+	&__popup {
+		enable-select();
+		display: none;
+		position: absolute;
+		left: lightbox_button_width;
+		bottom: 0;
+		padding: spacer;
+		background: bg_color;
+
+		.social-likes {
+			margin: (spacer/2) (spacer/2) 0;
+		}
+	}
+
+	.no-touch &:hover &__button,
+	&.is-pressed &__button {
+		lightbox-button-glow();
+	}
+	.no-touch &:hover &__popup,
+	&.is-pressed &__popup {
+		display: block;
+	}
+}
+
+.photo-info {
+	width: 500px;
+	width: 40vw;
+
+	&__header {
+		space(2);
+	}
+
+	&__title {
+		space(0.5)
+		@extend .beta;
+	}
+
+	&__caption {
+		font-size: normal_font;
+	}
+
+	&__meta,
+	&__tags,
+	&__copyright,
+	&__albums {
+		space();
+		font-size: small_font;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	+below(1024px) {
+		width: 60vw;
+	}
+	+below(650px) {
+		width: 80vw;
+	}
+}
+
+.thumbnails {
+	clearfix();
+	margin: 0 (-(spacer / 2)) spacer*4;
+
+	&__item {
+		float: left;
+		margin: 0 (spacer / 2) spacer;
+	}
+}
+
+
+.thumbnail {
+	display: block;
+	overflow: hidden;
+
+	&__img {
+		display: block;
+	}
+}
+
+.entry,
+.entry-content {
+	font-size: content_font;
+
+	div + p,
+	figure + p {
+		margin-top: 4*spacer;
+	}
+
+	p,
+	ul,
+	ol {
+		line-height: 1.6;
+		font-weight: 300;
+	}
+}
+
+.entry-header {
+	space(3);
+}
+
+.entry-title {
+	@extend .alpha;
+	margin-bottom: 5px;
+
+	&__link {
+		&,
+		&:link,
+		&:visited,
+		&:hover,
+		&:active,
+		&:focus {
+			color: base_color;
+			text-decoration: none;
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			border-bottom: 2px solid;
+		}
+	}
+
+	&_excerpt,
+	&_excerpt-photo {
+		@extend .beta;
+	}
+
+	&_excerpt-photo {
+		space(2);
+
+		.entry-title__link {
+			&,
+			&:link,
+			&:visited,
+			&:hover,
+			&:active,
+			&:focus {
+				color: bg_color;
+			}
+		}
+	}
+}
+
+.entry-content {
+	space(4);
+}
+
+.entry-excerpt,
+.entry-links {
+	space(0.5);
+	font-size: small_font;
+
+	&:last-child {
+		space(0);
+	}
+}
+
+.entry-pubdate {
+	font-size: small_font;
+}
+
+.entry-tags {
+	font-size: small_font;
+
+	&__separator {
+		display: inline-block;
+		margin-right: .3em;
+	}
+}
+
+.entry-instagrams,
+.entry-triptych,
+.about-triptych {
+	layout-row();
+	space(2);
+	margin-top: (-(spacer));
+
+	&__item {
+		layout-nth(1/3);
+		margin-top: spacer;
+		margin-bottom: spacer;
+	}
+
+	&__photo {
+		max-width: 100%;
+		height: auto;
+	}
+
+	+below(320px) {
+		&__item {
+			layout-stop();
+		}
+	}
+}
+
+.about-triptych {
+	margin: (-(spacer)) (-(spacer)) spacer;
+
+	&__item-i {
+		position: relative;
+	}
+
+	&__photo {
+		position: absolute;
+		top: 0;
+		transition: opacity .5s ease-in-sine;
+		&.is-hidden {
+			display: block;
+			opacity: 0;
+		}
+		&_original {
+			position: static;
+			visibility: hidden;
+		}
+	}
+}
+
+.entry-photo {
+	space(3);
+
+	& + &,
+	.l-row + &,
+	& + .l-row {
+		margin-top: (-(spacer));
+	}
+	.l-row & {
+		margin-top: 0;
+	}
+
+	&__photo {
+		max-width: 100%;
+		height: auto;
+	}
+
+	&__title {
+		font-size: small_font;
+	}
+
+	+below(1024px) {
+		margin-left: -(2*spacer);
+		margin-right: -(2*spacer);
+		&.l-half {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	+below(560px) {
+		&.l-half {
+			layout-stop();
+		}
+	}
+}
+
+// http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
+.entry-video {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;  // 16×9
+	padding-top: 35px;  // Allow space for the chrome — this is specific to YouTube videos.
+	overflow: hidden;
+
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	+below(1024px) {
+		margin-side: -(2*spacer);
+	}
+}
+
+.entry-tip {
+	position: relative;
+	font-size: small_font;
+
+	&:before {
+		content: "\261e";
+		position: absolute;
+		top: -.25em;
+		left: -(1em + .3em);
+		width: 1em;
+		text-align: right;
+		font-size: 23px;
+	}
+}
+
+.entry-figure-right {
+	float: right;
+	margin-left: grid_gutter;
+}
+
+
+.essay {
+	space(6);
+
+	&_photo {
+		tweak-inverted-text();
+		margin-left: (-(2*spacer));
+		margin-right: (-(2*spacer));
+		padding: 8*spacer 2*spacer;
+		background: base_color;
+		color: bg_color;
+
+		.essay__content a,
+		.essay__meta a {
+			&,
+			&:link,
+			&:visited {
+				color: light_color;
+			}
+			&:hover,
+			&:active,
+			&:focus {
+				color: bg_color;
+			}
+		}
+	}
+
+	&_photo + &_photo {
+		margin-top: (-(14*spacer));
+	}
+
+	&__header {
+		space(2);
+	}
+
+	&__content {
+		space(2);
+	}
+
+	&_single &__meta {
+		space();
+	}
+
+	&__pubdate {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	&__discuss {
+		space(1);
+		font-size: 16px;
+	}
+}
+
+.blog-tags {
+	space(4);
+
+	&__item {
+		display: inline-block;
+		margin-right: 1em;
+		font-size: normal_font;
+		white-space: nowrap;
+	}
+
+	&__counter {
+		margin-left: .25em;
+		font-size: small_font;
+	}
+}
+
+.pagination {
+	space(4);
+
+	&__link {
+		margin-right: .5em;
+		font-size: content_font;
+	}
+}
+
+
+.albums {
+	layout-row();
+	space(4);
+}
+
+.album-thumbnail {
+	responsive-images();
+	layout-nth(1/4);
+	space(2);
+
+	&__link {
+		+link-all-states() {
+			text-decoration: none;
+			color: base_color;
+		}
+	}
+
+	&__img {
+		margin-bottom: 5px;
+	}
+
+	&__title {
+		@extend .gamma;
+	}
+
+	&__summary {
+		font-size: small_font;
+	}
+
+	+below(800px) {
+		layout-nth(1/3);
+	}
+	+below(540px) {
+		layout-nth(1/2);
+	}
+	+below(320px) {
+		layout-stop();
+	}
+}
+
+
+.book-review {
+	space(4);
+
+	&__title {
+		@extend .gamma;
+		margin-bottom: 10px;
+	}
+
+	&__year {
+		margin-left: .5em;
+		font-size: 16px;
+	}
+
+	&__translation {
+		margin-bottom: 14px;
+		font-size: normal_font;
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	&__img {
+		max-width: 120px;
+		margin-top: 7px;
+		margin-bottom: spacer;
+	}
+
+	&__rating {
+		position: relative;
+
+		&,
+		&:before,
+		i,
+		i:before,
+		i:after {
+			height: 1.2em;
+			line-height: 1;
+			vertical-align: top;
+			font-size: 17px;
+			font-style: normal;
+			letter-spacing: .2ex;
+		}
+
+		&:before,
+		i {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			margin-left: -5.2ex;
+		}
+
+		&:before {
+			color: #ccc;
+			color: rgba(base_color,.25);
+		}
+		i {
+			color: base_color;
+		}
+		&:before,
+		&_5 i:before {
+			content: "★★★★★";
+		}
+		&_4 i:before,
+		&_4-5 i:before {
+			content: "★★★★";
+		}
+		&_3 i:before,
+		&_3-5 i:before {
+			content: "★★★";
+		}
+		&_2 i:before,
+		&_2-5 i:before {
+			content: "★★";
+		}
+		&_1 i:before,
+		&_1-5 i:before {
+			content: "★";
+		}
+		&_4-5 i:after,
+		&_3-5 i:after,
+		&_2-5 i:after,
+		&_1-5 i:after,
+		&_0-5 i:after {
+			content: "★";
+			display: inline-block;
+			overflow: hidden;
+			width: 1.1ex;  // HACK
+		}
+	}
+}
+
+
+.book-review {
+	display: none;
+}
+.tag_all .book-review {
+	display: block;
+}
+for tag in "best" "good" "russian" "english" "available" {
+	.tag_{tag} .book-review_tag_{tag} {
+		display: block;
+	}
+}
+
+
+.filter {
+	space(3);
+
+	&__tag {
+		margin-right: .5em;
+
+		&.is-active {
+			&,
+			&:link,
+			&:visited,
+			&:hover,
+			&:active,
+			&:focus {
+				font-weight: bold;
+				color: base_color;
+				text-decoration: none;
+				cursor: default;
+			}
+		}
+	}
+}
+
+.quote {
+	space(4);
+
+	&__text {
+		space(2);
+		font-style: normal_font;
+	}
+
+	&__meta {
+		font-size: small_font;
+	}
+}
+
+
+.index {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	.header-i {
+		position: relative;
+		z-index: 9999999;
+	}
+
+	.header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		padding: spacer;
+		margin: 0;
+		max-width: none;
+		text-shadow: 0 0 3px black(.5);
+	}
+}
+
+visible_part_height = normal_font*2.5;
+
+.index-content {
+	opacity: 0;
+	transform: translateZ(0);  // Speed up Fotorama
+
+	.is-ok & {
+		lightbox-button-transition();
+		opacity: 1;
+	}
+
+	&-i {
+		margin-top: visible_part_height + header_height;
+	}
+
+	&__text {
+		position: relative;
+		margin-top: -(visible_part_height);
+		margin-left: -(spacer*0.5);
+		margin-right: -(spacer*0.5);
+		padding: spacer*1.5;
+		background: bg_color;
+		z-index: 9999999;
+		box-shadow: 0 0 6px black(.25);
+	}
+
+	&__text-i {
+		grid-row();
+	}
+
+	&__blog {
+		grid-col(1,4);
+	}
+
+	&__learn {
+		grid-col(5,4);
+	}
+
+	&__about {
+		grid-col(9,4);
+	}
+
+	+below(950px) {
+		&__blog {
+			grid-col(1,6);
+		}
+
+		&__learn {
+			grid-col(7,6);
+		}
+
+		&__about {
+			space(3);
+			no-cols();
+
+			.articles-list__item {
+				display: inline-block;
+				margin-right: .5em;
+			}
+		}
+
+		&__userpic {
+			display: none;
+		}
+	}
+
+	+below(500px) {
+		&__blog,
+		&__learn {
+			no-cols();
+		}
+
+		&__learn {
+			space(3);
+		}
+	}
+}
+
+.articles-list {
+	&__item {
+		margin-bottom: (spacer/2);
+		font-size: normal_font;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	&__description {
+		font-size: small_font;
+	}
+}
+
+.articles-list-title {
+	@extend .gamma;
+	space();
+
+	&_index {
+		font-size: normal_font;
+	}
+}
+
+.index-about {
+	space();
+	font-size: small_font;
+}
+
+@media (max-width: 1024px) {
+	.index {
+		position: static;
+	}
+	.index-content {
+
+		&-i {
+			margin-top: 0 !important;  // important to overwrite value set by JS
+		}
+		&-i-i {
+			box-shadow: none;
+		}
+	}
+}
+
+
+// About page
+
+.about-splash {
+	height: (500px - header_height);  // Photo height - header height
+
+	&-i {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 500px;
+		overflow: hidden;
+		z-index: -1;
+	}
+
+	&__img {
+		height: inherit;
+		background: url("http://birdwatcher.ru/images/about/splash.jpg") center center;
+	}
+
+	+above(1601px) {
+		&__img {
+			background-size: cover;
+		}
+	}
+	+below(900px) {
+		height: 300px;
+		&__img {
+			background-position: 60% -60px;
+		}
+	}
+	+below(600px) {
+		height: 200px;
+		&__img {
+			background-position: 65% -80px;
+		}
+	}
+	+below(400px) {
+		&__img {
+			background-position: 71% -80px;
+		}
+	}
+}
+
+.about-content {
+	responsive-images();
+	margin-left: (-(2*spacer));
+	margin-right: (-(2*spacer));
+	padding: 4*spacer 2*spacer spacer;
+	background: bg_color;
+
+	+below(450px) {
+		.l-two-thirds,
+		.l-third {
+			layout-stop();
+		}
+		.about-iphone {
+			display: none;
+		}
+	}
+}
+
+.about-subtitle {
+	@extend .delta;
+	space();
+}
+
+.about-links {
+	space(2);
+
+	&__item {
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.about-list {
+	space(2);
+
+	&__item {
+		font-size: normal_font;
+
+		&_obsolete,
+		&_obsolete-first {
+			font-size: small_font;
+		}
+
+		&_obsolete {
+			margin-top: spacer;
+		}
+
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.about-site,
+.about-copyrights,
+.note {
+	space(2);
+	font-size: small_font;
+}

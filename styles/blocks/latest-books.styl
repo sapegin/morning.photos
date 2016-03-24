@@ -1,0 +1,32 @@
+// Author: Artem Sapegin, http://sapegin.me, 2014
+
+.latest-books {
+	margin-top: (spacer/2);
+	margin-bottom: spacer;
+	overflow: hidden;
+	white-space: nowrap;
+
+	&__item {
+		no-underline();
+		margin-left: (spacer/2);
+		display: inline-block;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&__img {
+		max-height: 100px;
+	}
+
+	&_big &__item {
+		margin-left: spacer;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	&_big &__img {
+		max-height: 115px;
+	}
+}
