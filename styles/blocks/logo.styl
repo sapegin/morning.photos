@@ -1,0 +1,34 @@
+.logo {
+	font-size: normal_font;
+	font-weight: normal;
+
+	&__link {
+		+link-all-states() {
+			color: base_color;
+		}
+	}
+
+	+below(740px) {
+		space(0.5);
+	}
+}
+
+.page_inverted-head,
+.page_content {
+	.logo,
+	.logo__link {
+		tweak-inverted-text();
+		color: light_hover_color;
+	}
+}
+
+.page_content {
+	.logo__link {
+		color: light_color;
+	}
+	.logo__link:hover,
+	.logo__link:active,
+	.logo__link:focus {
+		color: light_hover_color;
+	}
+}

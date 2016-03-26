@@ -79,89 +79,6 @@ body {
 	display: none !important;
 }
 
-.header {
-	clearfix();
-	space(2);
-	text-align: center;
-}
-.page_content .header {
-	display: none;
-}
-
-.logo {
-	float: left;
-	font-size: normal_font;
-	font-weight: normal;
-
-	&__link {
-		+link-all-states() {
-			color: base_color;
-		}
-	}
-
-	+below(740px) {
-		space(0.5);
-		float: none;
-	}
-}
-.page_inverted-head,
-.page_content {
-	.logo,
-	.logo__link {
-		tweak-inverted-text();
-		color: light_hover_color;
-	}
-}
-.page_content {
-	.logo__link {
-		color: light_color;
-	}
-	.logo__link:hover,
-	.logo__link:active,
-	.logo__link:focus {
-		color: light_hover_color;
-	}
-}
-
-// Hackish navigation for Koken
-.koken-nav {
-	float: right;
-	margin: 0 -.4em;
-
-	// I have to use tag names here because Koken doesn’t provide any ability to change it
-
-	li {
-		display: inline-block;
-		padding: 0 .4em;
-	}
-
-	span,
-	a,
-	a:link,
-	a:visited,
-	a:hover,
-	a:active,
-	a:focus {
-		font-size: normal_font;
-		color: base_color;
-	}
-
-	.k-nav-current {
-		font-weight: bold;
-	}
-
-	+below(740px) {
-		float: none;
-	}
-}
-.page_inverted-head .koken-nav a,
-.page_inverted-head .koken-nav span {
-	& {
-		tweak-inverted-text();
-		color: light_hover_color;
-	}
-}
-
 .footer {
 	padding: 0 2*spacer;
 	font-size: small_font;
@@ -934,21 +851,6 @@ for tag in "best" "good" "russian" "english" "available" {
 	top: 0;
 	left: 0;
 	width: 100%;
-
-	.header-i {
-		position: relative;
-		z-index: 9999999;
-	}
-
-	.header {
-		position: absolute;
-		left: 0;
-		right: 0;
-		padding: spacer;
-		margin: 0;
-		max-width: none;
-		text-shadow: 0 0 3px black(.5);
-	}
 }
 
 visible_part_height = normal_font*2.5;

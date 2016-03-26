@@ -1,0 +1,32 @@
+.header {
+	space(2);
+	display: flex;
+	justify-content: space-between;
+
+	+below(740px) {
+		display: block;
+		text-align: center;
+	}
+}
+
+// TODO: remove from template
+.page_content .header {
+	display: none;
+}
+
+// TODO: .index is a bad name
+.index {
+	.header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		padding: spacer;
+		margin: 0;
+		max-width: none;
+		text-shadow: 0 0 3px black(.5);
+	}
+	.header-i {
+		position: relative;
+		z-index: 9999999;
+	}
+}
