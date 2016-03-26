@@ -1,19 +1,39 @@
 import fs from 'fs-extra';
-import util from './util';
-import { SIZES_JSON } from '../sizes';
+import tag from 'html-tag';
+import { getPhotoUrl } from './util';
+
+/* eslint-disable no-invalid-this, no-console */
+
+const SIZES_JSON = 'data/sizes.json';
 
 // Sizes database
-// console.log('ccc', SIZES_JSON);
-let sizes = {};
-if (SIZES_JSON) {
-	sizes = fs.readJsonSync(SIZES_JSON);
-}
+const sizes = fs.readJsonSync(SIZES_JSON);
 
-// Photo URL
-export function photo(name, size) {
-	const filename = util.getPhotoFilname(name, size);
-	const url = util.getPhotoUrl(name, size);
-	const { width, height } = sizes[filename];
-	return `<img src="${url}" width="${width}" height="${height}" alt="">`;
-}
+export { getPhotoUrl };
 
+/**
+ * <img> tag for photo.
+ *
+ * @param {string} slug
+ * @param {string} size
+ * @param {string} alt
+ * @param {string} className
+ * @returns {string}
+ */
+export function photo({ slug, size, alt, className }) {
+	const src = getPhotoUrl(slug, size);
+	const photoSizes = sizes[slug];
+	if (!photoSizes) {
+		const error = `<b>Sizes not found for photo: ${slug}</b>`;
+		console.error(error);
+		return error;
+	}
+	const { width, height } = photoSizes[size];
+	return tag('img', {
+		src,
+		width,
+		height,
+		alt,
+		class: className,
+	});
+}

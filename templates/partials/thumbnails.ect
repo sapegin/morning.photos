@@ -1,0 +1,16 @@
+<div class="thumbnails js-thumbs">
+	<% for photo in @photos: %>
+		<div class="thumbnails__item">
+			<a href="<%= @url %>/<%= photo.slug %>" class="thumbnail">
+				<%- @photo
+					slug: photo.slug,
+					size: 'thumb',
+					alt: photo.title,
+					className: 'thumbnail__img thumbnails__item-img js-img'
+				%>
+			</a>
+		</div>
+	<% end %>
+</div>
+
+<script><%- @inlineFile 'build/album.js' %></script>

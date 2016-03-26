@@ -1,21 +1,21 @@
 /**
  * Return photo URL.
  *
- * @param {string} name
+ * @param {string} slug
  * @param {string} size
  * @returns {string}
  */
-export function getPhotoUrl(name, size) {
-	return `/photos/${size}/${getPhotoFilname(name, size)}`;
+export function getPhotoUrl(slug, size) {
+	return `/photos/${size}/${getPhotoFilname(slug, size)}`;
 }
 
 /**
  * Return photo file name.
  *
- * @param {string} name
+ * @param {string} slug
  * @param {string} size
  * @returns {string}
  */
-export function getPhotoFilname(name, size) {
-	return `${name}-${size}.jpg`;
+export function getPhotoFilname(slug, size) {
+	return `${slug}-${size}.jpg`;
 }
