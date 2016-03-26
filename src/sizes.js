@@ -3,16 +3,16 @@
 
 import fs from 'fs-extra';
 import path from 'path';
+import { set } from 'lodash';
 import sharp from 'sharp';
 import glob from 'glob';
-import readIptc from 'node-iptc';
 import { start } from 'fledermaus';
 import { getPhotoFilname } from '../src/util/util';
 import { slugify } from '../src/util/gallery';
 
 /* eslint-disable no-console */
 
-export const SIZES_JSON = 'data/sizes.json';
+const SIZES_JSON = 'data/sizes.json';
 const INPUT_DIR = 'photos';
 const OUTPUT_DIR = 'public/photos';
 const SIZES = [
@@ -66,29 +66,38 @@ sharp.simd(true);
 fs.mkdirsSync(path.dirname(SIZES_JSON));
 SIZES.forEach(size => fs.mkdirsSync(path.join(OUTPUT_DIR, size.name)));
 
-// Sizes database
-let sizes = fs.existsSync(SIZES_JSON) ? fs.readJsonSync(SIZES_JSON) : {};
+// Read original photos list
+const photos = glob.sync(path.join(INPUT_DIR, '/*.jpg'));
+
+// Read sizes database
+const previousSizes = fs.existsSync(SIZES_JSON) ? fs.readJsonSync(SIZES_JSON) : {};
+
+// Remove deleted photos from sizes database
+const sizes = photos.reduce((filteredSizes, photo) => {
+	const slug = getSlug(photo);
+	if (previousSizes[slug]) {
+		filteredSizes[slug] = previousSizes[slug];
+	}
+	return filteredSizes;
+}, {});
+
+// Save sizes database before exit
 process.on('exit', () => {
 	fs.outputJsonSync(SIZES_JSON, sizes, { spaces: 2 });
 });
 
-// Original photos
-const photos = glob.sync(path.join(INPUT_DIR, '/*.jpg'));
-
+// Resize ’em all!
 photos.forEach(photo => {
 	// Skip not modified photos
-	if (!isNewerThan(photo, getPublicFilePath(photo, SIZES[0]))) {
+	if (!isNewerThan(photo, getPublicFilePath(photo, SIZES[0].name))) {
 		return;
 	}
 
-	const photoName = getPhotoName(photo);
+	const slug = getSlug(photo);
 
-	console.log(photoName);
+	console.log(slug);
 
-	const buffer = fs.readFileSync(photo);
-	const iptc = readIptc(buffer);
-
-	const baseImage = sharp(buffer);
+	const baseImage = sharp(photo);
 	baseImage.metadata().then(metadata => {
 		SIZES.forEach(size => {
 			if (size.process) {
@@ -122,15 +131,10 @@ photos.forEach(photo => {
 					return;
 				}
 
-				if (!sizes[photoName]) {
-					sizes[photoName] = {
-						title: iptc.object_name,
-					};
-				}
-				sizes[photoName][size.name] = {
+				set(sizes, [slug, size.name], {
 					width,
 					height,
-				};
+				});
 			});
 		});
 	});
@@ -144,18 +148,18 @@ photos.forEach(photo => {
  * @returns {string}
  */
 function getPublicFilePath(originalPath, size) {
-	const photoName = getPhotoName(originalPath);
-	const filename = getPhotoFilname(photoName, size);
+	const slug = getSlug(originalPath);
+	const filename = getPhotoFilname(slug, size);
 	return path.join(OUTPUT_DIR, size, filename);
 }
 
 /**
- * Return photo name from a path.
+ * Return photo slug from a path.
  *
  * @param {string} filepath
  * @returns {string}
  */
-function getPhotoName(filepath) {
+function getSlug(filepath) {
 	return slugify(path.basename(filepath, '.jpg'));
 }
 
