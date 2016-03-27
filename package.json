@@ -19,6 +19,8 @@
     "lint": "eslint js src"
   },
   "dependencies": {
+    "has-touch": "~1.0.1",
+    "swiper": "~3.3.1",
     "tamia": "~2.0.3"
   },
   "devDependencies": {

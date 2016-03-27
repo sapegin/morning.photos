@@ -1,0 +1,102 @@
+.lightbox {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: light_color;
+
+	&__logo {
+		position: absolute;
+		left: 2*spacer;
+		top: spacer;
+	}
+
+	&__gallery {
+		position: absolute;
+		top: header_height;
+		bottom: spacer;
+		left: 0;
+		right: 0;
+	}
+	&__gallery-holder {
+		max-width: 1600px;
+		height: 100%;
+		margin: 0 auto;
+	}
+
+	&__controls,
+	&__arrow,
+	&__close {
+		no-select();
+		z-index: 9999;
+		opacity: 0;
+	}
+	@media (hover:none) {
+		&__controls,
+		&__close {
+			opacity: 1;
+		}
+	}
+
+	&__controls {
+		lightbox-button-transition();
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		margin-top: (-(lightbox_button_height/2));
+		text-align: center;
+
+		&_left {
+			left: 0;
+		}
+		&_right {
+			right: 0;
+		}
+		.icon {
+			font-size: 35px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50px;
+		padding-top: 2px;
+	}
+
+	&__close-tooltip,
+	&__close:hover &__close-tooltip {
+		tweak-inverted-text();
+		position: absolute;
+		top: spacer;
+		right: 45px;
+		line-height: 1.5;
+		text-decoration: underline;
+		text-align: right;
+		white-space: nowrap;
+		text-shadow: none;
+		display: none;
+	}
+	&__close:hover &__close-tooltip {
+		display: block;
+	}
+
+	&:hover &__controls,
+	&:hover &__arrow,
+	&:hover &__close {
+		opacity: 1;
+	}
+
+	+below(650px) {
+		&__close:hover &__close-tooltip {
+			display: none;
+		}
+	}
+}

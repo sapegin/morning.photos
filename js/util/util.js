@@ -7,3 +7,25 @@
 export function toArray(list) {
 	return Array.prototype.slice.call(list);
 }
+
+/**
+ * Return photo URL.
+ *
+ * @param {string} slug
+ * @param {string} size
+ * @returns {string}
+ */
+export function getPhotoUrl(slug, size) {
+	return `/photos/${size}/${getPhotoFilename(slug, size)}`;
+}
+
+/**
+ * Return photo file name.
+ *
+ * @param {string} slug
+ * @param {string} size
+ * @returns {string}
+ */
+export function getPhotoFilename(slug, size) {
+	return `${slug}-${size}.jpg`;
+}

@@ -1,0 +1,28 @@
+.lightbox-pane {
+	&__button {
+		text-align: center;
+		cursor: default;
+
+		.icon_info {
+			margin-left: -.3em;
+		}
+	}
+
+	&__popup {
+		enable-select();
+		display: none;
+		position: absolute;
+		left: lightbox_button_width;
+		bottom: 0;
+		padding: spacer 1.5*spacer;
+		color: base_color;
+		background: bg_color;
+	}
+
+	&:hover &__button {
+		lightbox-button-glow();
+	}
+	&:hover &__popup {
+		display: block;
+	}
+}

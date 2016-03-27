@@ -7,7 +7,7 @@ import { set } from 'lodash';
 import sharp from 'sharp';
 import glob from 'glob';
 import { start } from 'fledermaus';
-import { getPhotoFilname } from '../src/util/util';
+import { getPhotoFilename } from '../js/util/util';
 import { slugify } from '../src/util/gallery';
 
 /* eslint-disable no-console */
@@ -149,7 +149,7 @@ photos.forEach(photo => {
  */
 function getPublicFilePath(originalPath, size) {
 	const slug = getSlug(originalPath);
-	const filename = getPhotoFilname(slug, size);
+	const filename = getPhotoFilename(slug, size);
 	return path.join(OUTPUT_DIR, size, filename);
 }
 

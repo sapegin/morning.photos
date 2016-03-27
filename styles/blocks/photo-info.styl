@@ -1,0 +1,31 @@
+.photo-info {
+	width: 500px;
+	width: 40vw;
+	margin-bottom: -(spacer);
+
+	&__header {
+		space(1.5);
+	}
+
+	&__title {
+		space(0.5)
+		@extend .beta;
+	}
+
+	&__caption {
+		font-size: normal_font;
+	}
+
+	&__meta,
+	&__copyright {
+		space();
+		font-size: small_font;
+	}
+
+	+below(1024px) {
+		width: 60vw;
+	}
+	+below(650px) {
+		width: 80vw;
+	}
+}

@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import tag from 'html-tag';
-import { getPhotoUrl } from './util';
+import { getPhotoUrl } from '../../js/util/util';
 
 /* eslint-disable no-invalid-this, no-console */
 
@@ -24,9 +24,9 @@ export function photo({ slug, size, alt, className }) {
 	const src = getPhotoUrl(slug, size);
 	const photoSizes = sizes[slug];
 	if (!photoSizes) {
-		const error = `<b>Sizes not found for photo: ${slug}</b>`;
+		const error = `Sizes not found for photo: ${slug}`;
 		console.error(error);
-		return error;
+		return `<b>${error}</b>`;
 	}
 	const { width, height } = photoSizes[size];
 	return tag('img', {
@@ -36,4 +36,14 @@ export function photo({ slug, size, alt, className }) {
 		alt,
 		class: className,
 	});
+}
+
+/**
+ * HTML for SVG icon.
+ *
+ * @param {string} name
+ * @returns {string}
+ */
+export function icon(name) {
+	return this.embedFile(`icons/${name}.svg`).replace('<svg', `<svg class="icon icon_${name}"`);
 }

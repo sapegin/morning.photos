@@ -57,7 +57,7 @@ albums.forEach(album => {
 
 	// Album JSON
 	const json = album.photos = photos.map(
-		pick(['slug', 'date', 'title', 'caption', 'location', 'exif', 'keywords'])
+		pick(['slug', 'date', 'title', 'caption', 'location', 'exif'])
 	);
 
 	// Create document for each photo
