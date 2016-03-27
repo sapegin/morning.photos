@@ -1,0 +1,21 @@
+<% extend '_page' %>
+
+<%
+@setPageType 'about', 'inverted-head'
+%>
+
+<div class="about-splash">
+	<div class="about-splash-i">
+		<div class="about-splash__img js-parallax"></div>
+	</div>
+</div>
+
+<script><%- @inlineFile 'build/parallax.js' %></script>
+
+<div class="about-content">
+	<div class="content text">
+		<%- @rt @content %>
+	</div>
+</div>
+
+<script><%- @inlineFile 'build/about.js' %></script>

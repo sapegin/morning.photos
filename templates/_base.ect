@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title><%= @getPageTitle() %></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0<%= @viewportExtra %>">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<meta property="og:site_name" content="Replace with proper meta tags generation">
+
+		<% if @noindex: %>
+			<meta name="robots" content="noindex follow">
+		<% end %>
+
+		<!--<link rel="alternative" href="< %- @theme.rss % >" title="< %= @config.blog_title % >" type="application/atom+xml">-->
+
+		<link href="<%- @fingerprint '/build/styles.css' %>" rel="stylesheet">
+
+		<!--<script>< %- @embedFile 'build/counters.js' % ></script>-->
+	</head>
+	<body class="<%= @getBodyClasses() %>">
+		<% content %>
+	</body>
+</html>
