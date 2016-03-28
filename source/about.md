@@ -63,7 +63,7 @@ gear:
         - Epson P-2000 photo storage
         - Benro A-197 tripod + KB-2 ball head
         - Manfrotto 728B tripod with broken legs
-        - Slik U&nbsp;7700 childish tripod
+        - Slik U&nbsp;7700 tripod
   -
     -
       current:
@@ -80,17 +80,16 @@ software:
       current:
         - |
           MacBook Pro 15",<br>
-          Adobe Lightroom 5 + [500px](http://500px.com/lightroom "Export photos to 500px"), [Koken](http://help.koken.me/customer/portal/articles/828699-lightroom-publish-services-plugin "Export photos to Koken powered site"),<br>
-          Adobe Photoshop CC 2014 + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Luminosity masks panel")
+          Adobe Lightroom CC + [500px](http://500px.com/lightroom "Export photos to 500px"),<br>
+          Adobe Photoshop CC + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Luminosity masks panel")
   -
     -
       current:
         - 'On iPhone: [Instagram](http://instagram.com/sapegin)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
-        - '[Snapseed](http://www.snapseed.com/home/mobile/features/)'
         - '[PhotoPills](http://www.photopills.com/ "The best photo shoot planner for iPhone")'
         - '[EOS Remote](http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app "Shooting and viewing using iPhone")'
-        - '[MapsWithMe](http://mapswith.me/ "The best offline map for iPhone")'
+        - '[HERE Maps](https://pages.here.com/app/ "The best offline map for iPhone")'
     -
       obsolete:
         - Adobe Bridge
