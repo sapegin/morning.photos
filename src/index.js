@@ -1,3 +1,4 @@
+import find from 'lodash/find';
 import orderBy from 'lodash/orderBy';
 import pick from 'lodash/fp/pick';
 import {
@@ -13,7 +14,7 @@ import {
 } from 'fledermaus';
 import { getDateTimeFormat } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
-import { loadPhoto } from './util/gallery';
+import { loadPhoto, slugify } from './util/gallery';
 
 start('Building the site...');
 
@@ -33,10 +34,19 @@ let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
 	},
 });
 
+/**
+ * Albums and photos
+ */
+
 const albums = filterDocuments(documents, { layout: 'album' });
 albums.forEach(album => {
 	// Date formatter: March 2016
 	const dateFormat = getDateTimeFormat(album.lang, { year: 'numeric', month: 'long' });
+
+	// Convert cover to a slug
+	if (album.cover) {
+		album.cover = slugify(album.cover);
+	}
 
 	// Parse photos list
 	const photosList = album.content.split('\n');
@@ -75,6 +85,14 @@ albums.forEach(album => {
 		return photos;
 	});
 });
+
+/**
+ * Portfolio
+ */
+
+let portfolioDoc = find(documents, { url: '/albums' });
+portfolioDoc.albums = filterDocuments(albums, { sourcePath: /^albums/ });
+
 
 let pages = generatePages(documents, config, helpers, { ect: renderTemplate });
 

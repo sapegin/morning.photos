@@ -1,0 +1,12 @@
+---
+title: Landscapes
+layout: album
+lang: en
+order: date-desc
+cover: 2014-10-13_3505_Artem_Sapegin
+---
+
+2014-10-16_3942_Artem_Sapegin
+2014-10-13_3483_Artem_Sapegin
+2014-10-13_3505_Artem_Sapegin
+2014-10-16_3986_Artem_Sapegin
