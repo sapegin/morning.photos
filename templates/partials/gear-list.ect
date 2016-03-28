@@ -1,0 +1,20 @@
+<div class="l-row l-quad-space">
+	<% for column in @list: %>
+	<div class="l-third">
+		<% for list in column: %>
+		<ul class="about-list">
+			<% if list.current: %>
+				<li class="about-list__item">
+					<%- @mds list.current.join(', ') %>
+				</li>
+			<% end %>
+			<% if list.obsolete: %>
+				<li class="about-list__item about-list__item_obsolete">
+					<%- list.obsolete.map((item) => "<del>#{item}</del>").join(', ') %>
+				</li>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
+	<% end %>
+</div>
