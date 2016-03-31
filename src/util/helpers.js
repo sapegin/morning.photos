@@ -1,14 +1,10 @@
-import fs from 'fs-extra';
 import tag from 'html-tag';
 import { castArray, uniq } from 'lodash';
+import { errorInlineHtml } from 'fledermaus/lib/util';
 import { getPhotoUrl } from '../../js/util/util';
+import sizes from './sizes';
 
 /* eslint-disable no-invalid-this, no-console */
-
-const SIZES_JSON = 'data/sizes.json';
-
-// Sizes database
-const sizes = fs.readJsonSync(SIZES_JSON);
 
 export { getPhotoUrl };
 
@@ -22,12 +18,18 @@ export { getPhotoUrl };
  * @returns {string}
  */
 export function photo({ slug, size, alt, className }) {
+	if (slug.startsWith('http')) {
+		return tag('img', {
+			src: slug,
+			alt,
+			class: className,
+		});
+	}
+
 	const src = getPhotoUrl(slug, size);
 	const photoSizes = sizes[slug];
 	if (!photoSizes) {
-		const error = `Sizes not found for photo: ${slug}`;
-		console.error(error);
-		return `<b>${error}</b>`;
+		return errorInlineHtml(`Sizes not found for photo: ${slug}`);
 	}
 	const { width, height } = photoSizes[size];
 	return tag('img', {

@@ -10,18 +10,22 @@
     "start": "npm run server",
     "build": "node lib",
     "build:es": "babel-node src",
-    "build:watch": "chokidar templates source -c 'node lib'",
-    "build:watch:es": "chokidar templates source -c 'babel-node src'",
+    "build:watch": "chokidar templates source lib -c 'node lib'",
+    "build:watch:es": "chokidar templates source src -c 'babel-node src'",
     "compile": "babel -d lib src",
     "compile:watch": "babel --watch -d lib src",
     "server": "tamia server",
     "bundle": "tamia bundle",
-    "lint": "eslint js src"
+    "lint": "eslint js src",
+    "sizes": "node lib/sizes",
+    "sizes:es": "babel-node src/sizes"
   },
   "dependencies": {
+    "babel-plugin-transform-react-jsx": "~6.7.4",
     "has-touch": "~1.0.1",
     "swiper": "~3.3.1",
-    "tamia": "~2.0.3"
+    "tamia": "~2.0.3",
+    "vdo": "~3.0.1"
   },
   "devDependencies": {
     "babel-cli": "~6.6.5",
@@ -31,7 +35,7 @@
     "eslint": "~1.10.3",
     "eslint-config-tamia": "~1.2.0",
     "exif-parser": "~0.1.9",
-    "fledermaus": "~4.3.0",
+    "fledermaus": "~4.3.3",
     "fs-extra": "~0.26.7",
     "glob": "~7.0.3",
     "html-tag": "~0.2.1",

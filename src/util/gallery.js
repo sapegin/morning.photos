@@ -44,9 +44,10 @@ function parseMetadata(name, { imageSize, tags }, iptc) {
  */
 export function slugify(name) {
 	return name
-		.replace(/_Artem_Sapegin/, '')
+		.replace(/\.jpg$/i, '')
+		.replace(/_Artem_Sapegin/i, '')
 		.replace(/_/g, '-')
-		;
+	;
 }
 
 /**

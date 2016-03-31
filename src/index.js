@@ -14,6 +14,7 @@ import {
 } from 'fledermaus';
 import { getDateTimeFormat } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
+import * as customTags from './util/tags';
 import { loadPhoto, slugify } from './util/gallery';
 
 start('Building the site...');
@@ -21,7 +22,9 @@ start('Building the site...');
 const config = loadConfig('config');
 const options = config.base;
 
-const renderMarkdown = createMarkdownRenderer();
+let renderMarkdown = createMarkdownRenderer({
+	customTags,
+});
 const renderTemplate = createTemplateRenderer({
 	root: options.templatesFolder,
 });
