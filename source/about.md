@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: About
 lang: en
 pageTitle: 'Artem Sapegin: about the photographer and his photo equipment'
 about: 'About the site: works on [Fledermaus](https://github.com/sapegin/fledermaus "My static site generator") and [Tâmia](http://sapegin.github.io/tamia/ "My front-end framework"); icons — [Genn Osipenko](http://genn.org/); hosting — [DigitalOcean](https://www.digitalocean.com/?refcode=bb49cbe65bb4).'
@@ -90,6 +90,7 @@ software:
         - '[PhotoPills](http://www.photopills.com/ "The best photo shoot planner for iPhone")'
         - '[EOS Remote](http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app "Shooting and viewing using iPhone")'
         - '[HERE Maps](https://pages.here.com/app/ "The best offline map for iPhone")'
+  -
     -
       obsolete:
         - Adobe Bridge

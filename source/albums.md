@@ -1,5 +1,5 @@
 ---
-layout: portfolio
+layout: Portfolio
 lang: en
 title: Portfolio
 ---

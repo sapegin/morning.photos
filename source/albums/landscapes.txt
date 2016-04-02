@@ -1,6 +1,6 @@
 ---
 title: Landscapes
-layout: album
+layout: Album
 lang: en
 order: date-desc
 cover: 2014-10-13_3505_Artem_Sapegin

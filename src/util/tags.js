@@ -1,19 +1,14 @@
-import vdo from 'vdo';
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { slugify } from './gallery';
-import { photo } from './helpers';
 import sizes from './sizes';
+import PhotoBase from '../../templates/components/Photo';
 
 /* eslint-disable no-console, no-unused-vars */
 
 // TODO: alts
 
 function Photo({ slug }) {
-	return vdo.markSafe(photo({
-		slug,
-		size: 'medium',
-		className: 'entry-photo__photo',
-	}));
+	return <PhotoBase slug={slug} size="medium" class="entry-photo__photo" />;
 }
 
 function ratio(slug) {

@@ -41,7 +41,7 @@ let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
  * Albums and photos
  */
 
-const albums = filterDocuments(documents, { layout: 'album' });
+const albums = filterDocuments(documents, { layout: 'Album' });
 albums.forEach(album => {
 	// Date formatter: March 2016
 	const dateFormat = getDateTimeFormat(album.lang, { year: 'numeric', month: 'long' });
@@ -80,7 +80,7 @@ albums.forEach(album => {
 			sourcePath: album.sourcePath.replace(/(\.\w+)$/, `/${photo.slug}$1`),
 			url: `${album.url}/${photo.slug}`,
 			lang: album.lang,
-			layout: 'photo',
+			layout: 'Photo',
 			albumTitle: album.title,
 			albumUrl: album.url,
 			photos: json,
@@ -96,7 +96,6 @@ albums.forEach(album => {
 let portfolioDoc = find(documents, { url: '/albums' });
 portfolioDoc.albums = filterDocuments(albums, { sourcePath: /^albums/ });
 
-
-let pages = generatePages(documents, config, helpers, { ect: renderTemplate });
+let pages = generatePages(documents, config, helpers, { jsx: renderTemplate });
 
 savePages(pages, options.publicFolder);
