@@ -30,6 +30,15 @@ col-width(cols) {
 		max-width: 100%;
 	}
 
+	&__title {
+		@extend .gamma;
+		margin-top: .2em;
+	}
+
+	&__summary {
+		font-size: small_font;
+	}
+
 	+below(1024px) {
 		margin-side: -(2*spacer);
 		&_three-even &__photo {
