@@ -12,6 +12,11 @@ export default function($) {
 							<h2 class="photo-grid__title">
 								<u>{album.title}</u>
 							</h2>
+							{album.description &&
+								<div class="photo-grid__description">
+									<u>{album.description}</u>
+								</div>
+							}
 						</a>
 					</div>
 				))}

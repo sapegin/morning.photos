@@ -8,3 +8,24 @@ menu:
   Travel: /travel
   About: /about
   По-русски: http://birdwatcher.ru/
+
+tagNames:
+  photos: 'My Photos'
+  photography: 'Photography'
+  life: 'Life'
+  dogs: 'Dogs'
+  books: 'Books'
+  masters: 'Masters'
+
+cutTag: Read later…
+
+# Russian
+subscribe:
+  url: http://birdwatcher.us8.list-manage.com/subscribe/post
+  endpoint: http://birdwatcher.us8.list-manage.com/subscribe/post-json?c=?
+  title: 'Подпишитесь на мою рассылку о фотографии'
+  info: 'Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.'
+  emailLabel: Ваша почта
+  button: Подписаться
+  success: 'Спасибо! Вам осталось подтвердить подписку, кликнув ссылку в письме, которое вы сейчас получите.'
+  error: 'Что-то пошло не так, попробуйте позже.'

@@ -35,6 +35,17 @@ let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
 	renderers: {
 		md: renderMarkdown,
 	},
+	// Custom front matter field parsers
+	fieldParsers: {
+		// Save `date` field as a timestamp
+		timestamp: (timestamp, attrs) => Date.parse(attrs.date),
+		// Convert `date` field to a Date object
+		date: date => new Date(Date.parse(date)),
+		// Strip language (`en` or `ru`) from the URL (filename)
+		url: url => url.replace(/(en|ru)\//, ''),
+	},
+	// Cut separator
+	cutTag: options.cutTag,
 });
 
 /**
