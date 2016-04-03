@@ -1,14 +1,32 @@
+import cx from 'classnames';
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { slugify } from './gallery';
 import sizes from './sizes';
-import PhotoBase from '../../templates/components/Photo';
+import Photo from '../../templates/components/Photo';
 
-/* eslint-disable no-console, no-unused-vars */
+function Grid({ size }, children) {
+	return (
+		<div class={cx('photo-grid', size && `photo-grid_${size}`)}>
+			{children}
+		</div>
+	);
+}
 
-// TODO: alts
+function GridOfThrees(props, children) {
+	const size = children.length % 2 === 0 ? 'three-even' : 'three';
+	return (
+		<Grid size={size}>
+			{children}
+		</Grid>
+	);
+}
 
-function Photo({ slug }) {
-	return <PhotoBase slug={slug} size="medium" class="entry-photo__photo" />;
+function GridPhoto({ slug, size }) {
+	return (
+		<div class="photo-grid__photo">
+			<Photo slug={slug} size={size} class="photo-grid__img" />
+		</div>
+	);
 }
 
 function ratio(slug) {
@@ -44,51 +62,52 @@ export function group({ children }) {
 
 	let photoIdx = 0;
 	let rows = [];
+	let threes = [];
 	while (photoIdx < photos.length) {
 		const slug = photos[photoIdx];
 		const next1 = photos[photoIdx + 1];
 		const next2 = photos[photoIdx + 2];
 
-		if (ratio(slug) === 1.0 && ratio(next1) === 1.0 && ratio(next2) === 1.0) {
+		const isThree = ratio(slug) === 1.0 && ratio(next1) === 1.0 && ratio(next2) === 1.0;
+		const isPair = ratio(slug) <= 1.0 && ratio(next1) === ratio(slug);
+
+		if (!isThree && threes.length) {
+			rows.push(<GridOfThrees>{threes}</GridOfThrees>);
+			threes = [];
+		}
+
+		if (isThree) {
 			// Three square photos
-			rows.push(
-				<div class="l-row">
-					<figure class="entry-photo l-third">
-						<Photo slug={slug} />
-					</figure>
-					<figure class="entry-photo l-third">
-						<Photo slug={next1} />
-					</figure>
-					<figure class="entry-photo l-third">
-						<Photo slug={next2} />
-					</figure>
-				</div>
+			threes.push(
+				<GridPhoto slug={slug} size="small" />,
+				<GridPhoto slug={next1} size="small" />,
+				<GridPhoto slug={next2} size="small" />
 			);
 			photoIdx += 2;
 		}
-		else if (ratio(slug) < 1.0 && ratio(next1) === ratio(slug)) {
+		else if (isPair) {
 			// Two portrait photos
 			rows.push(
-				<div class="l-row">
-					<figure class="entry-photo l-half">
-						<Photo slug={slug} />
-					</figure>
-					<figure class="entry-photo l-half">
-						<Photo slug={next1} />
-					</figure>
-				</div>
+				<Grid size="pair">
+					<GridPhoto slug={slug} size="small" />
+					<GridPhoto slug={next1} size="small" />
+				</Grid>
 			);
 			photoIdx += 1;
 		}
 		else {
 			// One landscape photo
 			rows.push(
-				<figure class="entry-photo">
-					<Photo slug={slug} />
-				</figure>
+				<Grid>
+					<GridPhoto slug={slug} size="medium" />
+				</Grid>
 			);
 		}
 		photoIdx++;
+	}
+
+	if (threes.length) {
+		rows.push(<GridOfThrees>{threes}</GridOfThrees>);
 	}
 
 	return rows.join('\n');

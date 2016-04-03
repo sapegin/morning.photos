@@ -1,0 +1,44 @@
+col-width(part) {
+	width: "calc(%s - %s)" % (100%*part spacer);
+}
+
+.photo-grid {
+	space(2);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	& + & {
+		margin-top: (-(2*spacer));
+	}
+
+	&__photo {
+		space(2);
+	}
+	&_pair &__photo {
+		col-width(1/2);
+	}
+	&_three  &__photo,
+	&_three-even  &__photo {
+		col-width(1/3);
+	}
+
+	&__img {
+		height: auto;
+		max-width: 100%;
+	}
+
+	+below(1024px) {
+		margin-side: -(2*spacer);
+		&_three-even &__photo {
+			col-width(1/2);
+		}
+	}
+	+below(502px) {
+		&_pair &__photo,
+		&_three &__photo,
+		&_three-even &__photo {
+			width: auto;
+		}
+	}
+}

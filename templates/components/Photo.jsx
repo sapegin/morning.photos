@@ -3,7 +3,7 @@ import { getPhotoUrl } from '../../js/util/util';
 import sizes from '../../src/util/sizes';
 
 export default function($) {
-	const { slug, size, alt } = $;
+	const { slug, size, alt = '' } = $;
 
 	if (slug.startsWith('http')) {
 		return (
@@ -18,6 +18,6 @@ export default function($) {
 	}
 	const { width, height } = photoSizes[size];
 	return (
-		<img src={src} width={width} height={height} alt={alt} class={$.class} />
+		<img src={src} width={width} height={height} alt={alt || photoSizes.title} class={$.class} />
 	);
 }
