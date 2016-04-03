@@ -26,36 +26,25 @@ const SIZES = [
 	},
 	{
 		name: 'medium',
-		width: 1024,
+		width: 1024,  // Text page width
 		height: 1024,
 		quality: 90,
 		sharp: [1, 0.15, 0.65],
 	},
 	{
 		name: 'small',
-		width: 241,
-		height: 161,
+		width: 502,  // Half of text page width + 20px gap
 		quality: 85,
 		thumb: true,
 		sharp: [1, 0.1, 0.6],
-		process: ({ width, height }) => width > height,
 	},
 	{
 		name: 'thumb',
 		width: null,
-		height: 270,
+		height: 270,  // Height of thumbnails row
 		quality: 85,
 		thumb: true,
 		sharp: [1, 0.1, 0.6],
-	},
-	{
-		name: 'insta',
-		width: 328,
-		height: 382,
-		quality: 85,
-		thumb: true,
-		sharp: [1, 0.1, 0.65],
-		process: ({ width, height }) => width === height,
 	},
 ];
 
