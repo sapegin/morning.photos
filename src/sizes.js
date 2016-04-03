@@ -6,6 +6,7 @@ import path from 'path';
 import { set } from 'lodash';
 import sharp from 'sharp';
 import glob from 'glob';
+import readIptc from 'node-iptc';
 import { start } from 'fledermaus';
 import { getPhotoFilename } from '../js/util/util';
 import { slugify } from '../src/util/gallery';
@@ -97,7 +98,10 @@ photos.forEach(photo => {
 
 	console.log(slug);
 
-	const baseImage = sharp(photo);
+	const buffer = fs.readFileSync(photo);
+	const iptc = readIptc(buffer);
+
+	const baseImage = sharp(buffer);
 	baseImage.metadata().then(metadata => {
 		SIZES.forEach(size => {
 			if (size.process) {
@@ -131,6 +135,7 @@ photos.forEach(photo => {
 					return;
 				}
 
+				set(sizes, [slug, 'title'], iptc.object_name || '');
 				set(sizes, [slug, size.name], {
 					width,
 					height,
