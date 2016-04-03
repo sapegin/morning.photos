@@ -8,7 +8,7 @@ const VISIBLE_PHOTOS = 6;
 const UPDATE_INTERVAL = 3000;
 
 const urlTemplate = num => `/images/about/me${num}.jpg`;
-const imgTemplate = (url, cls = '') => `<img src="${url}" alt="" class="about-triptych__photo ${cls} js-img">`;
+const imgTemplate = (url, cls = '') => `<img src="${url}" alt="" class="photo-grid__img ${cls} js-img">`;
 
 let lastPhoto;
 

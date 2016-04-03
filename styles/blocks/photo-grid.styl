@@ -41,4 +41,18 @@ col-width(part) {
 			width: auto;
 		}
 	}
+
+	&_fade &__photo-i {
+		position: relative;
+	}
+	&_fade &__img {
+		appear-fade(.6s);
+		display: block !important;
+		position: absolute;
+		top: 0;
+	}
+	&_fade &__img_original {
+		position: static;
+		visibility: hidden;
+	}
 }

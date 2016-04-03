@@ -1,7 +1,6 @@
 // TODO: should be modifiers of a single class
 .entry-instagrams,
-.entry-triptych,
-.about-triptych {
+.entry-triptych {
 	layout-row();
 	space(2);
 	margin-top: (-(spacer));
@@ -20,25 +19,6 @@
 	+below(320px) {
 		&__item {
 			layout-stop();
-		}
-	}
-}
-
-.about-triptych {
-	margin: (-(spacer)) (-(spacer)) spacer;
-
-	&__item-i {
-		position: relative;
-	}
-
-	&__photo {
-		appear-fade(.6s);
-		display: block !important;
-		position: absolute;
-		top: 0;
-		&_original {
-			position: static;
-			visibility: hidden;
 		}
 	}
 }

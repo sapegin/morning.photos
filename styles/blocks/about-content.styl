@@ -1,0 +1,17 @@
+.about-content {
+	responsive-images();
+	margin-left: (-(2*spacer));
+	margin-right: (-(2*spacer));
+	padding: 4*spacer 2*spacer spacer;
+	background: bg_color;
+
+	+below(450px) {
+		.l-two-thirds,
+		.l-third {
+			layout-stop();
+		}
+		.about-iphone {
+			display: none;
+		}
+	}
+}

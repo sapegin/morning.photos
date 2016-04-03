@@ -26,9 +26,9 @@ export default function($) {
 						</div>
 						<div class="l-third">
 							{map(links, group => (
-								<ul class="about-links">
+								<ul class="l-double-space">
 									{map(group, link => (
-										<li class="about-links__item">
+										<li>
 											<a href={link.link} class="link">{link.label}</a>
 											{link.description && ` (${link.description})`}
 										</li>
@@ -59,11 +59,11 @@ export default function($) {
 
 					<AboutGearList list={software} {...$} />
 
-					<div class="about-site">
+					<div class="note">
 						{flow(markdown, typo, safe)(about)}
 					</div>
 
-					<div class="about-copyrights">
+					<div class="note">
 						{copyrightsLabel}:
 						{' '}
 						{safe(copyrights.map(item => `<a href="${item.link}">${item.label}</a>`).join(', '))}.
