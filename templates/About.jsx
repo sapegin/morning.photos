@@ -1,6 +1,7 @@
 import flow from 'lodash/flow';
 import map from 'lodash/map';
 import Page from './Page';
+import PhotoGrid from './components/PhotoGrid';
 import AboutTriptych from './components/AboutTriptych';
 import AboutGearList from './components/AboutGearList';
 
@@ -40,20 +41,22 @@ export default function($) {
 
 					<AboutTriptych start={1} alt={author} />
 
-					<div class="l-double-space">
+					<PhotoGrid>
 						<img src="/images/about/equipment.jpg" alt={gearAlt} width="1024" height="492" />
-					</div>
+					</PhotoGrid>
 
 					<AboutGearList list={gear} {...$} />
 
 					<AboutTriptych start={4} alt={author} />
 
-					<div class="l-row l-double-space">
-						<div class="l-two-thirds">
-							<img src="/images/about/workplace.jpg" alt={workplaceAlt} width="676" height="328" />
+					<div class="photo-grid">
+						<div class="photo-grid__photo photo-grid__photo_two-thirds">
+							<img src="/images/about/workplace.jpg" alt={workplaceAlt} width="676" height="328"
+								class="photo-grid__img" />
 						</div>
-						<div class="l-third about-iphone">
-							<img src="/images/about/iphone.jpg" alt={iphoneAlt} width="328" height="328" />
+						<div class="photo-grid__photo photo-grid__photo_third">
+							<img src="/images/about/iphone.jpg" alt={iphoneAlt} width="328" height="328"
+								class="photo-grid__img" />
 						</div>
 					</div>
 

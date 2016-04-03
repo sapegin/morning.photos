@@ -1,17 +1,18 @@
 .about-content {
-	responsive-images();
-	margin-left: (-(2*spacer));
-	margin-right: (-(2*spacer));
+	margin-side: (-(2*spacer));
 	padding: 4*spacer 2*spacer spacer;
 	background: bg_color;
 
-	+below(450px) {
-		.l-two-thirds,
-		.l-third {
-			layout-stop();
+	// Add padding to first and last columns to align gaps with .photo-grid
+	+below(1024px) {
+		.l-row {
+			margin-side: (-(3*spacer));
 		}
-		.about-iphone {
-			display: none;
+		.l-row > :first-child {
+			padding-left: 3*spacer;
+		}
+		.l-row > :last-child {
+			padding-right: 3*spacer;
 		}
 	}
 }

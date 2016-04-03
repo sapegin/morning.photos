@@ -1,33 +1,8 @@
-import cx from 'classnames';
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { slugify } from './gallery';
 import sizes from './sizes';
 import Photo from '../../templates/components/Photo';
-
-function Grid({ size }, children) {
-	return (
-		<div class={cx('photo-grid', size && `photo-grid_${size}`)}>
-			{children}
-		</div>
-	);
-}
-
-function GridOfThrees(props, children) {
-	const size = children.length % 2 === 0 ? 'three-even' : 'three';
-	return (
-		<Grid size={size}>
-			{children}
-		</Grid>
-	);
-}
-
-function GridPhoto({ slug, size }) {
-	return (
-		<div class="photo-grid__photo">
-			<Photo slug={slug} size={size} class="photo-grid__img" />
-		</div>
-	);
-}
+import PhotoGrid from '../../templates/components/PhotoGrid';
 
 function ratio(slug) {
 	if (!slug) {
@@ -72,42 +47,42 @@ export function group({ children }) {
 		const isPair = ratio(slug) <= 1.0 && ratio(next1) === ratio(slug);
 
 		if (!isThree && threes.length) {
-			rows.push(<GridOfThrees>{threes}</GridOfThrees>);
+			rows.push(<PhotoGrid>{threes}</PhotoGrid>);
 			threes = [];
 		}
 
 		if (isThree) {
 			// Three square photos
 			threes.push(
-				<GridPhoto slug={slug} size="small" />,
-				<GridPhoto slug={next1} size="small" />,
-				<GridPhoto slug={next2} size="small" />
+				<Photo slug={slug} size="small" />,
+				<Photo slug={next1} size="small" />,
+				<Photo slug={next2} size="small" />
 			);
 			photoIdx += 2;
 		}
 		else if (isPair) {
 			// Two portrait photos
 			rows.push(
-				<Grid size="pair">
-					<GridPhoto slug={slug} size="small" />
-					<GridPhoto slug={next1} size="small" />
-				</Grid>
+				<PhotoGrid>
+					<Photo slug={slug} size="small" />
+					<Photo slug={next1} size="small" />
+				</PhotoGrid>
 			);
 			photoIdx += 1;
 		}
 		else {
 			// One landscape photo
 			rows.push(
-				<Grid>
-					<GridPhoto slug={slug} size="medium" />
-				</Grid>
+				<PhotoGrid>
+					<Photo slug={slug} size="medium" />
+				</PhotoGrid>
 			);
 		}
 		photoIdx++;
 	}
 
 	if (threes.length) {
-		rows.push(<GridOfThrees>{threes}</GridOfThrees>);
+		rows.push(<PhotoGrid>{threes}</PhotoGrid>);
 	}
 
 	return rows.join('\n');
