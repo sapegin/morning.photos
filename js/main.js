@@ -10,5 +10,6 @@ import 'tamia/lib/modules/text';
 import 'tamia/lib/modules/richtypo';
 
 import './components/gallery';
+import './components/cut';
 
 import '../styles/index.styl';

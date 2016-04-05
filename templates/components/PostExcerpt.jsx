@@ -32,12 +32,12 @@ export default function($, children) {
 				<div class="essay__content text">
 					{flow(typo, safe)(text)}
 					{more &&
-						<div class="js-more">
+						<u-cut>
 							<p class="more-link">
 								<a class="more-link__link js-more-link" href={url}>{__('readMore')}</a>
 							</p>
 							<div class="js-more-content is-hidden">{flow(typo, safe)(more)}</div>
-						</div>
+						</u-cut>
 					}
 				</div>
 

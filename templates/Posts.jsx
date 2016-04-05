@@ -4,7 +4,7 @@ import PostExcerpt from './components/PostExcerpt';
 
 export default function($, children) {
 	const { documents, tags, nextUrl } = $;
-	const { __, safe, option, typo, typoTitle } = $;
+	const { __, safe, option, typo, typoTitle, Script } = $;
 
 	return (
 		<Page pageType="essay" noIndex={!!nextUrl} {...$}>
@@ -33,6 +33,8 @@ export default function($, children) {
 					</ul>
 				}
 			</div>
+
+			<Script src="/build/main.js"/>
 		</Page>
 	);
 }
