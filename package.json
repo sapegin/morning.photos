@@ -7,14 +7,13 @@
   "private": true,
   "scripts": {
     "test": "npm run lint",
-    "start": "npm run server",
+    "start": "tamia server --lang en",
     "build": "node lib",
     "build:es": "babel-node src",
-    "build:watch": "chokidar templates source lib -c 'node lib'",
-    "build:watch:es": "chokidar templates source src -c 'babel-node src'",
+    "build:watch": "chokidar templates source config lib -c 'node lib'",
+    "build:watch:es": "chokidar templates source config src -c 'babel-node src'",
     "compile": "babel -d lib src",
     "compile:watch": "babel --watch -d lib src",
-    "server": "tamia server",
     "bundle": "tamia bundle",
     "lint": "eslint js src",
     "sizes": "node lib/sizes",
@@ -39,9 +38,11 @@
     "fs-extra": "~0.26.7",
     "glob": "~7.0.3",
     "lodash": "~4.6.1",
+    "minimist": "~1.2.0",
     "node-iptc": "~1.0.4",
     "sharp": "~0.13.1",
-    "tamia-build": "~0.3.0"
+    "tamia-build": "~0.3.0",
+    "unist-util-visit": "~1.1.0"
   },
   "repository": {
     "type": "git",

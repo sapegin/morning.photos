@@ -20,7 +20,7 @@ export default function($) {
 						{flow(typo, safe)(content)}
 					</div>
 
-					<PostMeta {...$} />
+					<PostMeta {...$} post={$} />
 				</article>
 
 				<Subscribe {...$} from="Blog" />

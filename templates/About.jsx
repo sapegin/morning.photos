@@ -1,5 +1,6 @@
 import flow from 'lodash/flow';
 import map from 'lodash/map';
+import { markdown } from 'fledermaus/lib/util';
 import Page from './Page';
 import PhotoGrid from './components/PhotoGrid';
 import AboutTriptych from './components/AboutTriptych';
@@ -7,7 +8,7 @@ import AboutGearList from './components/AboutGearList';
 
 export default function($) {
 	const { content, links, gearAlt, gear, workplaceAlt, iphoneAlt, software, about, copyrightsLabel, copyrights } = $;
-	const { safe, typo, markdown, option, Script } = $;
+	const { safe, typo, option, Script } = $;
 	const author = option('author');
 	return (
 		<Page {...$} pageType={['about', 'inverted-head']}>

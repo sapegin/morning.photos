@@ -1,6 +1,6 @@
 import cx from 'classnames';
 
-export default function PhotoGrid(props, children) {
+export default function(props, children) {
 	let size;
 	if (children.length === 2) {
 		size = 'pair';

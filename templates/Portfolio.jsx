@@ -2,10 +2,11 @@ import PageWithTitle from './PageWithTitle';
 import Photo from './components/Photo';
 
 export default function($) {
+	const { albums } = $;
 	return (
 		<PageWithTitle {...$} pageType="portfolio">
 			<div class="photo-grid photo-grid_three-even">
-				{$.albums.map(album => (
+				{albums.map(album => (
 					<div class="photo-grid__photo">
 						<a class="link link_quoted" href={album.url}>
 							<Photo slug={album.cover} size="small" alt={album.title} class="photo-grid__img" />

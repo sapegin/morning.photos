@@ -1,11 +1,15 @@
 import find from 'lodash/find';
 import orderBy from 'lodash/orderBy';
+import values from 'lodash/values';
 import pick from 'lodash/fp/pick';
 import {
 	start,
 	loadConfig,
 	loadSourceFiles,
 	filterDocuments,
+	groupDocuments,
+	orderDocuments,
+	paginate,
 	generatePages,
 	savePages,
 	createMarkdownRenderer,
@@ -15,6 +19,7 @@ import {
 import { getDateTimeFormat } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
+import * as remarkPlugins from './util/remark';
 import { loadPhoto, slugify } from './util/gallery';
 
 start('Building the site...');
@@ -24,6 +29,7 @@ const options = config.base;
 
 let renderMarkdown = createMarkdownRenderer({
 	customTags,
+	plugins: values(remarkPlugins),
 });
 const renderTemplate = createTemplateRenderer({
 	root: options.templatesFolder,
@@ -47,6 +53,9 @@ let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
 	// Cut separator
 	cutTag: options.cutTag,
 });
+
+// Oder by date, newest first
+documents = orderDocuments(documents, ['-timestamp']);
 
 /**
  * Albums and photos
@@ -105,8 +114,76 @@ albums.forEach(album => {
  */
 
 let portfolioDoc = find(documents, { url: '/albums' });
-portfolioDoc.albums = filterDocuments(albums, { sourcePath: /^albums/ });
+portfolioDoc.albums = filterDocuments(albums, { url: /^\/albums\// });
 
-let pages = generatePages(documents, config, helpers, { jsx: renderTemplate });
+/**
+ * Blog
+ */
+
+// Group posts by language
+let posts = filterDocuments(documents, { url: /^\/blog\// });
+const postsByLanguage = groupDocuments(posts, 'lang');
+const languages = Object.keys(postsByLanguage);
+
+documents.push(...languages.reduce((result, lang) => {
+	const docs = postsByLanguage[lang];
+	let newDocs = [];
+
+	// Pagination
+	newDocs.push(...paginate(docs, {
+		sourcePathPrefix: `${lang}/blog`,
+		urlPrefix: '/blog',
+		documentsPerPage: options.postsPerPage,
+		layout: 'Posts',
+		extra: {
+			lang,
+		},
+	}));
+
+	// Tags
+	const postsByTag = groupDocuments(docs, 'tags');
+	const tags = Object.keys(postsByTag);
+	newDocs.push(...tags.reduce((tagsResult, tag) => {
+		let tagDocs = postsByTag[tag];
+		let tagsNewDocs = paginate(tagDocs, {
+			sourcePathPrefix: `${lang}/blog/tags/${tag}`,
+			urlPrefix: `/blog/tags/${tag}`,
+			documentsPerPage: options.postsPerPage,
+			layout: 'Tag',
+			extra: {
+				total: tagDocs.length,
+				lang,
+				tag,
+			},
+		});
+		return [...tagsResult, ...tagsNewDocs];
+	}, []));
+
+	// Tags list for the blog home page
+	let blogHomepageDoc = find(newDocs, { url: '/blog' });
+	let tagsWithCount = tags.map(tag => ({
+		id: tag,
+		utl: `/blog/tags/${tag}`,
+		count: postsByTag[tag].length,
+	}));
+	blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
+
+	// Atom feed
+	// newDocs.push({
+	// 	sourcePath: `${lang}/atom.xml`,
+	// 	url: `/atom.xml`,
+	// 	layout: 'Atom.xml',
+	// 	documents: docs.slice(0, options.postsInFeed),
+	// 	lang,
+	// });
+
+	return [...result, ...docs, ...newDocs];
+}, []));
+
+/**
+ * Generate pages
+ */
+
+const pages = generatePages(documents, config, helpers, { jsx: renderTemplate });
 
 savePages(pages, options.publicFolder);

@@ -17,7 +17,11 @@ tagNames:
   books: 'Books'
   masters: 'Masters'
 
-cutTag: Read later…
+readMore: Read more…
+nextPage: Previously
+
+tags:
+  title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'
 
 # Russian
 subscribe:

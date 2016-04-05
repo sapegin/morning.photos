@@ -1,17 +1,15 @@
 import flow from 'lodash/flow';
 import Page from './Page';
+import PageTitle from './components/PageTitle';
 
 export default function($, children) {
+	const { content } = $;
+	const { typo, safe } = $;
 	return (
 		<Page {...$}>
 			<div class="content entry-content">
-				<div class="entry-header">
-					<h1 class="entry-title">{$.typoTitle($.title)}</h1>
-					{$.description &&
-						<div class="entry-excerpt">${flow($.typo, $.safe)($.description)}</div>
-					}
-				</div>
-				{children.length ? children : flow($.typo, $.safe)($.content)}
+				<PageTitle {...$} />
+				{children.length ? children : flow(typo, safe)(content)}
 			</div>
 		</Page>
 	);
