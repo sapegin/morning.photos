@@ -11,8 +11,13 @@ export default function(props, children) {
 	return (
 		<div class={cx('photo-grid', size && `photo-grid_${size}`)}>
 			{children.map(photo => {
-				photo.attrs.class = 'photo-grid__img';
-				return <div class="photo-grid__photo">{photo}</div>;
+				if (photo.type === 'img') {
+					photo.attrs.class = 'photo-grid__img';
+					return <div class="photo-grid__photo">{photo}</div>;
+				}
+				photo.attrs.class = 'photo-grid__photo';
+				photo.children[0].attrs.class = 'photo-grid__img';
+				return photo;
 			})}
 		</div>
 	);
