@@ -1,10 +1,9 @@
-// import flow from 'lodash/flow';
 import Page from './Page';
 import PostExcerpt from './components/PostExcerpt';
 
 export default function($, children) {
 	const { documents, tags, nextUrl } = $;
-	const { __, safe, option, typo, typoTitle, Script } = $;
+	const { __, option, typo, typoTitle, Script } = $;
 
 	return (
 		<Page pageType="essay" noIndex={!!nextUrl} {...$}>

@@ -1,4 +1,3 @@
-import flow from 'lodash/flow';
 import cx from 'classnames';
 import PostMeta from './PostMeta';
 
@@ -24,19 +23,19 @@ export default function($, children) {
 							{isPhoto &&
 								<div class="essay__featured">{safe(firstPhoto)}</div>
 							}
-							{flow(typoTitle, safe)(title)}
+							{typoTitle(title)}
 						</a>
 					</h2>
 				</header>
 
 				<div class="essay__content text">
-					{flow(typo, safe)(text)}
+					{typo(text)}
 					{more &&
 						<u-cut>
 							<p class="more-link">
 								<a class="more-link__link js-more-link" href={url}>{__('readMore')}</a>
 							</p>
-							<div class="js-more-content is-hidden">{flow(typo, safe)(more)}</div>
+							<div class="js-more-content is-hidden">{typo(more)}</div>
 						</u-cut>
 					}
 				</div>

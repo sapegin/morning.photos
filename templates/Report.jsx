@@ -1,11 +1,12 @@
-import flow from 'lodash/flow';
 import PageWithTitle from './PageWithTitle';
 
 export default function($) {
+	const { content } = $;
+	const { typo } = $;
 	return (
 		<PageWithTitle {...$} pageType="report">
 			<div class="text">
-				{flow($.typo, $.safe)($.content)}
+				{typo(content)}
 			</div>
 		</PageWithTitle>
 	);

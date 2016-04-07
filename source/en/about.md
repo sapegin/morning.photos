@@ -100,7 +100,7 @@ software:
         - PTLens
         - GeoSetter
         - The Photographer’s Ephemeris
-copyrightsLabel: "Photos on this page"
+copyrightsLabel: "Photos on this page:"
 copyrights:
   -
     link: https://www.facebook.com/oflegontova

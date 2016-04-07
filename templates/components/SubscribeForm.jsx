@@ -1,6 +1,6 @@
 export default ({
 	from, extra,
-	safe, dateToString, option,
+	dateToString, option, __,
 }) => (
 	<form action={option('subscribe.url')} method="post" class="form subscribe" data-component="form subscribe"
 		data-form-action={option('subscribe.endpoint')} data-form-type="jsonp" data-subscribe-from={from}>
@@ -12,15 +12,15 @@ export default ({
 			</div>
 			<div class="subscribe__field-col l-left">
 				<input type="email" name="MERGE0" class="subscribe__field field field_block js-subscribe-email"
-					placeholder={option('subscribe.emailLabel')} autocapitalize="off" autocorrect="off" required
+					placeholder={__('subscribe.emailLabel')} autocapitalize="off" autocorrect="off" required
 					{...extra}
 				/>
 			</div>
 			<div class="subscribe__button-col">
-				<button type="submit" class="subscribe__button button">{option('subscribe.button')}</button>
+				<button type="submit" class="subscribe__button button">{__('subscribe.button')}</button>
 			</div>
 		</div>
-		<div class="form__success alert js-form-success">{option('subscribe.success')}</div>
-		<div class="form__error alert alert_error js-form-error">{option('subscribe.error')}</div>
+		<div class="form__success alert js-form-success">{__('subscribe.success')}</div>
+		<div class="form__error alert alert_error js-form-error">{__('subscribe.error')}</div>
 	</form>
 );

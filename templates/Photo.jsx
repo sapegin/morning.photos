@@ -4,7 +4,7 @@ import PhotoInfo from './components/PhotoInfo';
 
 export default function($) {
 	const { slug, title, keywords, albumUrl, albumTitle, photos } = $;
-	const { safe, json, option, Script, Icon } = $;
+	const { json, option, Script, Icon } = $;
 	return (
 		<Base {...$} pageType="content" viewportExtra="minimal-ui">
 			<script>

@@ -1,9 +1,8 @@
-import flow from 'lodash/flow';
 import cx from 'classnames';
 
 export default ({
 	title, caption, location, date, artist, exif,
-	typo, typoTitle, safe, option,
+	typo, typoTitle, option,
 }) => (
 	<div class="photo-info text">
 		<header class="photo-info__header">
@@ -11,7 +10,7 @@ export default ({
 				{typoTitle(title || '***')}
 			</h1>
 			<div class={cx('photo-info__caption', 'js-gallery-info-caption', { 'is-hidden': !caption })}>
-				{flow(typo, safe)(caption || '')}
+				{typo(caption || '')}
 			</div>
 		</header>
 		<div class="photo-info__meta">

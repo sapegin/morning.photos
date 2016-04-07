@@ -1,6 +1,7 @@
 import flow from 'lodash/flow';
 import map from 'lodash/map';
 import { markdown } from 'fledermaus/lib/util';
+import { Group } from 'fledermaus/lib/components';
 import Page from './Page';
 import PhotoGrid from './components/PhotoGrid';
 import AboutTriptych from './components/AboutTriptych';
@@ -8,7 +9,7 @@ import AboutGearList from './components/AboutGearList';
 
 export default function($) {
 	const { content, links, gearAlt, gear, workplaceAlt, iphoneAlt, software, about, copyrightsLabel, copyrights } = $;
-	const { safe, typo, option, Script } = $;
+	const { typo, option, Script } = $;
 	const author = option('author');
 	return (
 		<Page {...$} pageType={['about', 'inverted-head']}>
@@ -24,7 +25,7 @@ export default function($) {
 				<div class="content">
 					<div class="l-row l-quad-space">
 						<div class="l-two-thirds text">
-							{flow(typo, safe)(content)}
+							{typo(content)}
 						</div>
 						<div class="l-third">
 							{map(links, group => (
@@ -64,14 +65,15 @@ export default function($) {
 					<AboutGearList list={software} {...$} />
 
 					<div class="note">
-						{flow(markdown, typo, safe)(about)}
+						{flow(markdown, typo)(about)}
 					</div>
 
-					<div class="note">
-						{copyrightsLabel}:
-						{' '}
-						{safe(copyrights.map(item => `<a href="${item.link}">${item.label}</a>`).join(', '))}.
-					</div>
+					<Group class="note">
+						{copyrightsLabel}
+						<Group glue=", " inline>
+							{copyrights.map(item => <a href={item.link}>{item.label}</a>)}
+						</Group>
+					</Group>
 				</div>
 			</div>
 

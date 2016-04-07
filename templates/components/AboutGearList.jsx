@@ -1,9 +1,6 @@
 import flow from 'lodash/flow';
-import join from 'lodash/fp/join';
-import map from 'lodash/fp/map';
 import { markdown } from 'fledermaus/lib/util';
-
-const joinList = join(', ');
+import { Group } from 'fledermaus/lib/components';
 
 export default ({ list, safe }) => (
 	<div class="l-row l-quad-space">
@@ -13,12 +10,12 @@ export default ({ list, safe }) => (
 					<ul class="about-list">
 						{items.current &&
 							<li class="about-list__item">
-								{flow(joinList, markdown, safe)(items.current)}
+								<Group glue=", ">{items.current.map(flow(markdown, safe))}</Group>
 							</li>
 						}
 						{items.obsolete &&
 							<li class="about-list__item about-list__item_obsolete">
-								{flow(map(item => `<del>${item}</del>`), joinList, safe)(items.obsolete)}
+								<Group glue=", ">{items.obsolete.map(item => <del>{safe(item)}</del>)}</Group>
 							</li>
 						}
 					</ul>

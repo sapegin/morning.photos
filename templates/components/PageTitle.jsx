@@ -1,13 +1,11 @@
-import flow from 'lodash/flow';
-
 export default ({
 	title, description,
-	typo, typoTitle, safe,
+	typo, typoTitle,
 }) => (
 	<div class="entry-header">
-		<h1 class="entry-title">{flow(typoTitle, safe)(title)}</h1>
+		<h1 class="entry-title">{typoTitle(title)}</h1>
 		{description &&
-			<div class="entry-excerpt">${flow(typo, safe)(description)}</div>
+			<div class="entry-excerpt">${typo(description)}</div>
 		}
 	</div>
 );

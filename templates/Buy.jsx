@@ -1,10 +1,9 @@
-import flow from 'lodash/flow';
 import PageWithTitle from './PageWithTitle';
 import PhotoGrid from './components/PhotoGrid';
 
 export default function($) {
 	const { content } = $;
-	const { typo, safe } = $;
+	const { typo } = $;
 	return (
 		<PageWithTitle {...$}>
 			<PhotoGrid>
@@ -19,7 +18,7 @@ export default function($) {
 				</a>
 			</PhotoGrid>
 
-			<div class="text">{flow(typo, safe)(content)}</div>
+			<div class="text">{typo(content)}</div>
 		</PageWithTitle>
 	);
 }
