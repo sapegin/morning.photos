@@ -8,10 +8,10 @@ export default ({
 		<time class="essay__pubdate entry-pubdate" datetime={post.date}>{dateToString(post.date)}</time>
 
 		<Group glue=", " class="entry-tags" inline>
-			{post.tags.map(name => name === tag ? (
-				<span class="entry-tags__tag is-active">{option('tagNames')[name]}</span>
+			{post.tags.map(id => id === tag ? (
+				<span class="entry-tags__tag is-active">{option('tagNames')[id]}</span>
 			) : (
-				<a href={`/blog/tags/${name}`} class="entry-tags__tag link">{option('tagNames')[name]}</a>
+				<a href={`/blog/tags/${id}`} class="entry-tags__tag link">{option('tagNames')[id]}</a>
 			))}
 		</Group>
 	</footer>
