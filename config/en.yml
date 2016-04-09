@@ -1,4 +1,5 @@
 title: Artem Sapegin Photography
+titleLong: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs"
 author: Artem Sapegin
 twitter: iamsapegin
 
@@ -19,6 +20,11 @@ tagNames:
 
 readMore: Read more…
 nextPage: Previously
+
+share:
+  facebook: Facebook
+  twitter: Twitter
+  gplus: Google+
 
 tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'

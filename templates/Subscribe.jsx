@@ -4,14 +4,14 @@ import Subscribe from './components/Subscribe';
 
 export default function($) {
 	const { content } = $;
-	const { typo, safe } = $;
+	const { typo } = $;
 	return (
 		<PageWithTitle {...$}>
 			<div class="subscribe-page">
 				<Subscribe {...$} from="Subscribe" extra={{ autofocus: true }} />
 			</div>
 
-			<div class="text">{flow(typo, safe)(content)}</div>
+			<div class="text">{typo(content)}</div>
 		</PageWithTitle>
 	);
 }

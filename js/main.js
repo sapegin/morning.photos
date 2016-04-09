@@ -9,6 +9,8 @@ import 'tamia/lib/modules/list';
 import 'tamia/lib/modules/text';
 import 'tamia/lib/modules/richtypo';
 
+import 'social-likes-next';
+
 import './components/gallery';
 import './components/cut';
 
