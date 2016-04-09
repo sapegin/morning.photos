@@ -15,3 +15,7 @@ postsInFeed: 15
 cutTag: <!--more-->
 
 artist: Artem Sapegin
+
+partners:
+  'amazon.com': '?tag=artesapesphot-20'
+  'ozon.ru': '?partner=sapegin'

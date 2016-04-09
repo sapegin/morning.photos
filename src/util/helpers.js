@@ -26,7 +26,7 @@ export function setPageType(...types) {
 /**
  * Return <body> classes.
  *
- * @returns {string}
+ * @returns {array} types
  */
 export function getBodyClasses(types) {
 	let allTypes = [...castArray(this.pageType), ...castArray(types)];
@@ -35,4 +35,20 @@ export function getBodyClasses(types) {
 		.map(type => `page_${type}`)
 	;
 	return ['page'].concat(allTypes).join(' ');
+}
+
+/**
+ * Append partner ID to given URL.
+ *
+ * @param {string} url
+ * @returns {string}
+ */
+export function getBuyLink(url) {
+	const partners = this.option('partners');
+	for (let partner in partners) {
+		if (url.includes(partner)) {
+			return url + partners[partner];
+		}
+	}
+	return url;
 }

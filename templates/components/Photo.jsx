@@ -1,6 +1,6 @@
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { getPhotoUrl } from '../../js/util/util';
-import sizes from '../../src/util/sizes';
+import sizes from '../../src/data/sizes';
 
 export default function($) {
 	const { slug, size, alt = '' } = $;

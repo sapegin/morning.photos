@@ -1,0 +1,41 @@
+title: Фотографии Артёма Сапегина
+titleLong: "Фотографии Артёма Сапегина: пейзаж, городской пейзаж, путешествия, тревел, природа, собаки"
+author: Артём Сапегин
+twitter: sapegin
+
+menu:
+  Блог: /blog
+  Фотографии: /albums
+  Поездки: /travel
+  Статьи: /learn
+  Обо мне: /about
+  In English: http://morning.photos/
+
+tagNames:
+  photos: 'My Photos'
+  photography: 'Photography'
+  life: 'Life'
+  dogs: 'Dogs'
+  books: 'Books'
+  masters: 'Masters'
+
+readMore: Читать дальше…
+nextPage: Ранее
+
+share:
+  facebook: Фейсбук
+  twitter: Твитер
+  gplus: Гугл-плюс
+
+tags:
+  title: '{num, plural, one{# пост} few{# поста} many{# постов} other{# поста}} с тегом «{tag}»'
+
+subscribe:
+  url: http://birdwatcher.us8.list-manage.com/subscribe/post
+  endpoint: http://birdwatcher.us8.list-manage.com/subscribe/post-json?c=?
+  title: 'Подпишитесь на мою рассылку о фотографии'
+  info: 'Новые посты и фотографии, анонсы моих электронных книг и всякое такое. Не слишком часто, без спама.'
+  emailLabel: Ваша почта
+  button: Подписаться
+  success: 'Спасибо! Вам осталось подтвердить подписку, кликнув ссылку в письме, которое вы сейчас получите.'
+  error: 'Что-то пошло не так, попробуйте позже.'

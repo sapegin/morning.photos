@@ -1,6 +1,6 @@
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { slugify } from './gallery';
-import sizes from './sizes';
+import sizes from './../data/sizes';
 import Photo from '../../templates/components/Photo';
 import PhotoGrid from '../../templates/components/PhotoGrid';
 
