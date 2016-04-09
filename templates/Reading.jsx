@@ -3,6 +3,7 @@ import { markdownBlock } from 'fledermaus/lib/util';
 import { Group } from 'fledermaus/lib/components';
 import books, { booksPubDate } from '../src/data/books';
 import PageWithTitle from './PageWithTitle';
+import Share from './components/Share';
 
 const rating = stars => (
 	<span>
@@ -12,8 +13,8 @@ const rating = stars => (
 );
 
 export default function($) {
-	const { content, lastUpdateLabel } = $;
-	const { typo, typoTitle, dateToString, getBuyLink } = $;
+	const { content, pageTitle, lastUpdateLabel } = $;
+	const { typo, typoTitle, dateToString, getBuyLink, Script } = $;
 	return (
 		<PageWithTitle {...$} pageType="reading">
 			<div class="text">
@@ -64,7 +65,11 @@ export default function($) {
 						);
 					})}
 				</div>
+
+				<Share {...$} title={pageTitle} />
 			</div>
+
+			<Script src="/build/main.js"/>
 		</PageWithTitle>
 	);
 }
