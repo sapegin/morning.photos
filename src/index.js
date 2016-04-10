@@ -177,6 +177,13 @@ documents.push(...languages.reduce((result, lang) => {
 	// 	lang,
 	// });
 
+	// Add list of important posts to Learn page
+	let learnDoc = find(documents, { url: '/learn', lang });
+	if (learnDoc) {
+		let importantPosts = filterDocuments(docs, { important: true });
+		learnDoc.importantPosts = importantPosts;
+	}
+
 	return [...result, ...docs, ...newDocs];
 }, []));
 

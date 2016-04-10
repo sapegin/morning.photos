@@ -27,7 +27,7 @@ share:
   twitter: Твитнуть
 
 tags:
-  title: '{num, plural, one{# пост} few{# поста} many{# постов} other{# поста}} с тегом «{tag}»'
+  title: '{total, plural, one{# пост} few{# поста} many{# постов} other{# поста}} с тегом «{tag}»'
 
 subscribe:
   url: http://birdwatcher.us8.list-manage.com/subscribe/post

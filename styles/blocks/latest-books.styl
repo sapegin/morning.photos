@@ -1,5 +1,3 @@
-// Author: Artem Sapegin, http://sapegin.me, 2014
-
 .latest-books {
 	margin-top: (spacer/2);
 	margin-bottom: spacer;
@@ -8,7 +6,7 @@
 
 	&__item {
 		no-underline();
-		margin-left: (spacer/2);
+		margin-left: spacer;
 		display: inline-block;
 
 		&:first-child {
@@ -18,15 +16,5 @@
 
 	&__img {
 		max-height: 100px;
-	}
-
-	&_big &__item {
-		margin-left: spacer;
-		&:first-child {
-			margin-left: 0;
-		}
-	}
-	&_big &__img {
-		max-height: 115px;
 	}
 }
