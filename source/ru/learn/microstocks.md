@@ -194,7 +194,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [iStock](http://bit.ly/istock-homepage "Айсток") ([моё портфолио](http://bit.ly/istock-sapegin "Портфолио на Айстоке"))
 
-<figure class="entry-figure-right">[![iStock](/images/stocks/istock.png)](http://bit.ly/istock-homepage "Айсток")</figure>
+<figure class="entry-figure-right"><a href="http://bit.ly/istock-homepage" title="Айсток"><img src="/images/stocks/istock.png" alt="iStock"></a></figure>
 
 Канадский фотобанк, появился в 2001-м году. Это самый первый микросток. Инспекторы Айстока считаются самыми строгими, но и по доходности этот фотобанк один из лучших.
 
@@ -212,7 +212,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Shutterstock](http://submit.shutterstock.com/?ref=208096 "Шаттерсток") ([моё портфолио](http://www.shutterstock.com/g/hamstersphoto?rid=208096 "Портфолио на Шаттерстоке"))
 
-<figure class="entry-figure-right">[![Shutterstock](/images/stocks/shutterstock.png)](http://submit.shutterstock.com/?ref=208096 "Шаттерсток")</figure>
+<figure class="entry-figure-right"><a href="http://submit.shutterstock.com/?ref=208096" title="Шаттерсток"><img src="/images/stocks/shutterstock.png" alt="Shutterstock"></a></figure>
 
 Американский фотосток, основан в 2003-м году. Имеет самую большую базу изображений среди микростоков — больше 30 миллионов. Шаттерсток считается наиболее доходным микростоком.
 
@@ -222,7 +222,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Fotolia](http://us.fotolia.com/partner/120735 "Фотолия") ([моё портфолио](http://us.fotolia.com/p/120735/partner/120735 "Портфолио на Фотолии"))
 
-<figure class="entry-figure-right">[![Fotolia](/images/stocks/fotolia.png)](http://us.fotolia.com/partner/120735 "Фотолия")</figure>
+<figure class="entry-figure-right"><a href="http://us.fotolia.com/partner/120735" title="Фотолия"><img src="/images/stocks/fotolia.png" alt="Fotolia"></a></figure>
 
 Американский микросток, появился в 2005 году.
 
@@ -230,7 +230,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Dreamstime](http://www.dreamstime.com/#res191014 "Дримстайм") ([моё портфолио](http://www.dreamstime.com/Sapegin_portfolio_pg1#res191014 "Портфолио на Дримстайме"))
 
-<figure class="entry-figure-right">[![Dreamstime](/images/stocks/dreamstime.png)](http://www.dreamstime.com/#res191014 "Дримстайм")</figure>
+<figure class="entry-figure-right"><a href="http://www.dreamstime.com/#res191014" title="Дримстайм"><img src="/images/stocks/dreamstime.png" alt="Dreamstime"></a></figure>
 
 Экзамена нет, больше и нечего про него сказать.
 
@@ -238,7 +238,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ### [Лори](http://lori.ru/?ref=599 "Лори") ([моё портфолио](http://lori.ru/Asapegin?ref=599 "Портфолио в Лори"))
 
-<figure class="entry-figure-right">[![Лори](/images/stocks/lori.png)](http://lori.ru/?ref=599 "Лори")</figure>
+<figure class="entry-figure-right"><a href="http://lori.ru/?ref=599" title="Лори"><img src="/images/stocks/lori.png" alt="Лори"></a></figure>
 
 Единственный пока российский микросток. Экзамена нет, но по закону необходимо подписание бумажного договора, который нужно отправить по почте. Продажи случаются редко. Сайт у них один из самых удобных, да и вообще мне это банк нравится.
 
