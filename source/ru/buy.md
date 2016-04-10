@@ -1,10 +1,10 @@
 ---
+lang: ru
 layout: Buy
-lang: en
-title: Buy my photos
-pageTitle: 'Buy Artem Sapegin’s photos: landscapes, travel, cityscapes, nature, dogs'
+title: Купить фотографии
+pageTitle: "Купить фотографии Артёма Сапегина: пейзаж, городской пейзаж, путешествия, тревел, природа, собаки, фото"
 ---
 
-You can buy my photos at microstock sites: [iStock](http://bit.ly/istock-sapegin "My iStock portfolio") or [Shutterstock](http://www.shutterstock.com/g/hamstersphoto?rid=208096 "My Shutterstock portfolio").
+Проще всего купить мои фотографии на микростоках: [Айстоке](http://www.istockphoto.com/portfolio/sapegin "Портфолио на Айстоке") и [Шаттерстоке](http://www.shutterstock.com/g/hamstersphoto?rid=208096 "Портфолио на Шаттерстоке").
 
-Or just [drop me a line](/about) if you want to buy a file or a print.
+Или просто [напишите мне](/about), если хотите купить файл или отпечаток.
