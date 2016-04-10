@@ -23,9 +23,8 @@ readMore: Читать дальше…
 nextPage: Ранее
 
 share:
-  facebook: Фейсбук
-  twitter: Твитер
-  gplus: Гугл-плюс
+  facebook: Поделиться
+  twitter: Твитнуть
 
 tags:
   title: '{num, plural, one{# пост} few{# поста} many{# постов} other{# поста}} с тегом «{tag}»'

@@ -22,9 +22,8 @@ readMore: Read more…
 nextPage: Previously
 
 share:
-  facebook: Facebook
-  twitter: Twitter
-  gplus: Google+
+  facebook: Share
+  twitter: Tweet
 
 tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'
