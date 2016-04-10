@@ -5,7 +5,7 @@ import sizes from '../../src/data/sizes';
 export default function($) {
 	const { slug, size, alt = '' } = $;
 
-	if (slug.startsWith('http')) {
+	if (slug.startsWith('http') || slug.startsWith('/')) {
 		return (
 			<img src={slug} alt={alt} class={$.class} />
 		);

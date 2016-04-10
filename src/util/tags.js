@@ -8,7 +8,7 @@ function ratio(slug) {
 	if (!slug) {
 		return false;
 	}
-	if (slug.startsWith('http')) {
+	if (slug.startsWith('http') || slug.startsWith('/')) {
 		return 1.0;
 	}
 	const { width, height } = sizes[slug].large;
@@ -21,7 +21,7 @@ export function group({ children }) {
 	let photos;
 	try {
 		photos = files.map(file => {
-			if (file.startsWith('http')) {
+			if (file.startsWith('http') || file.startsWith('/')) {
 				return file;
 			}
 			const slug = slugify(file);
