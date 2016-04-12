@@ -113,7 +113,7 @@ albums.forEach(album => {
  * Portfolio
  */
 
-let portfolioDoc = find(documents, { url: '/albums' });
+let portfolioDoc = find(documents, { url: '/albums', lang: 'en' });
 portfolioDoc.albums = filterDocuments(albums, { url: /^\/albums\// });
 
 /**
