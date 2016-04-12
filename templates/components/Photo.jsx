@@ -1,5 +1,6 @@
 import { errorInlineHtml } from 'fledermaus/lib/util';
 import { getPhotoUrl } from '../../js/util/util';
+import { slugify } from '../../src/util/gallery';
 import sizes from '../../src/data/sizes';
 
 export default function($) {
@@ -11,10 +12,11 @@ export default function($) {
 		);
 	}
 
-	const src = getPhotoUrl(slug, size);
-	const photoSizes = sizes[slug];
+	const realSlug = slugify(slug);
+	const src = getPhotoUrl(realSlug, size);
+	const photoSizes = sizes[realSlug];
 	if (!photoSizes) {
-		return errorInlineHtml(`Sizes not found for photo: ${slug}`);
+		return errorInlineHtml(`Sizes not found for photo: ${realSlug}`);
 	}
 	const { width, height } = photoSizes[size];
 	return (
