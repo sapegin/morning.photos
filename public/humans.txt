@@ -5,16 +5,14 @@
   Site: http://sapegin.me
   Location: Berlin, Germany
 
-	Icons: Genn Osypenko
-	Site: http://genn.org/
-	Location: Kiev, Ukraine
+  Icons: Genn Osypenko
+  Site: http://genn.org/
+  Location: Kiev, Ukraine
 
 
 /* POWERED BY */
 
-  Hexo: http://hexo.io/
-  Koken: http://koken.me/
-  Fotorama: http://fotorama.io/
+  Fledermaus: https://github.com/sapegin/fledermaus
   Tâmia: http://sapegin.github.io/tamia/
 
   -_-_-_-_-_-_-_,------,
