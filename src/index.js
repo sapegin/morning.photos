@@ -48,7 +48,7 @@ let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
 		// Convert `date` field to a Date object
 		date: date => new Date(Date.parse(date)),
 		// Strip language (`en` or `ru`) from the URL (filename)
-		url: url => url.replace(/(en|ru)\//, ''),
+		url: url => url.replace(/(en|ru)(\/|$)/, ''),
 	},
 	// Cut separator
 	cutTag: options.cutTag,
@@ -177,10 +177,12 @@ documents.push(...languages.reduce((result, lang) => {
 	// 	lang,
 	// });
 
-	// Add list of important posts to Learn page
+	// Add list of important posts to the main and Learn pages
+	let importantPosts = filterDocuments(documents, { important: true, lang });
+	let indexDoc = find(documents, { url: '/', lang });
+	indexDoc.importantPosts = importantPosts;
 	let learnDoc = find(documents, { url: '/learn', lang });
 	if (learnDoc) {
-		let importantPosts = filterDocuments(docs, { important: true });
 		learnDoc.importantPosts = importantPosts;
 	}
 

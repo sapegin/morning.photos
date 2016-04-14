@@ -8,14 +8,14 @@ const URL_REG_EXP = /\/([-\d]+)$/;
 // TODO: Breaks resizing
 // <img data-src="${getPhotoUrl(photo.slug, 'large')}" class="lightbox-image__saver swiper-lazy">
 
-const slideTemplate = photo => (
+export const slideTemplate = photo => (
 	`<div class="lightbox-image swiper-slide swiper-lazy" data-background="${getPhotoUrl(photo.slug, 'large')}">
 		<div class="swiper-lazy-preloader"></div>
 	</div>`
 );
 
 class Gallery extends Component {
-	static binded = 'onSlideChangeStart onPopState onKeyDown';
+	static binded = 'onInit onSlideChangeStart onPopState onKeyDown';
 
 	init() {
 		this.photos = window.__galleryPhotos;
@@ -45,12 +45,13 @@ class Gallery extends Component {
 			allowSwipeToPrev: hasTouch,
 			allowSwipeToNext: hasTouch,
 			keyboardControl: true,
+			simulateTouch: false,
 			preloadImages: false,
 			lazyLoading: true,
 			lazyLoadingInPrevNext: true,
 			lazyLoadingInPrevNextAmount: 2,
-			lazyLoadingOnTransitionStart: true,
 			onSlideChangeStart: this.onSlideChangeStart,
+			lazyLoadingOnTransitionStart: true,
 			fade: {
 				crossFade: false,
 			},
@@ -58,7 +59,7 @@ class Gallery extends Component {
 
 		this.updateNav(this.swiper);
 	}
-
+	
 	onSlideChangeStart(swiper) {
 		const photo = this.photos[swiper.activeIndex];
 		const title = photo.title || '***';

@@ -12,6 +12,7 @@ import 'tamia/lib/modules/richtypo';
 import 'social-likes-next';
 
 import './components/gallery';
+import './components/featured';
 import './components/cut';
 
 import '../styles/index.styl';

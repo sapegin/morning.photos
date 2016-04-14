@@ -12,12 +12,16 @@ menu:
   In English: http://morning.photos/
 
 tagNames:
-  photos: 'My Photos'
-  photography: 'Photography'
-  life: 'Life'
-  dogs: 'Dogs'
-  books: 'Books'
-  masters: 'Masters'
+  photos: 'Фотографии'
+  photography: 'О фотографии'
+  life: 'Жизнь'
+  geeky: 'Гиковское'
+  idiots: 'Идиоты'
+  dogs: 'Собаки'
+  books: 'Книги'
+  horses: 'Лошади'
+  masters: 'Мастера'
+  humor: 'Юмор'
 
 readMore: Читать дальше…
 nextPage: Ранее

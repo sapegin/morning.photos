@@ -3,6 +3,7 @@ module.exports = function(options) {
 	if (argv.lang) {
 		// Redirect HTML pages to local folder
 		options.rewrites = [
+			'^/$ /' + argv.lang + '/index.html L',
 			'^([^\.]*)$ /' + argv.lang + '$1.html',
 		];
 	}
