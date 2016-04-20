@@ -87,3 +87,18 @@ export function group({ children }) {
 
 	return rows.join('\n');
 }
+
+export function video({ src, height = 576 }) {
+	return (
+		<div class="entry-video">
+			<iframe
+				class="entry-video__video"
+				width="1024"
+				height={height}
+				src={src}
+				frameborder="0"
+				allowfullscreen
+			></iframe>
+		</div>
+	);
+}
