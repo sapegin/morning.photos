@@ -1,7 +1,0 @@
-<div class="latest-books">
-	<% for book in @config.books.slice(0, 5): %>
-		<a href="/reading/#<%= book.id %>" title="<%= book.author %>. <%= book.title %>" class="latest-books__item">
-			<img src="/images/books/<%= book.id %>.jpg" alt="<%= book.author %>. <%= book.title %>" class="latest-books__img">
-		</a>
-	<% end %>
-</div>
