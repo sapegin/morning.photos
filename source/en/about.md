@@ -57,7 +57,6 @@ gear:
         - Sirui <nobr>T-2204X</nobr> tripod <nobr>+ K-20X</nobr> ball head <nobr>+ [L-bracket](http://www.sunwayfoto.com/e_goodsDetail.aspx?gId=1217)</nobr>
         - polarizer
         - ND8 neutral density filter
-        - remote release
         - remote release with a timer
       obsolete:
         - Epson P-2000 photo storage
@@ -88,7 +87,6 @@ software:
         - 'On iPhone: [Instagram](http://instagram.com/sapegin)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
         - '[PhotoPills](http://www.photopills.com/ "The best photo shoot planner for iPhone")'
-        - '[EOS Remote](http://www.usa.canon.com/cusa/consumer/standard_display/EOS_app "Shooting and viewing using iPhone")'
         - '[HERE Maps](https://pages.here.com/app/ "The best offline map for iPhone")'
   -
     -
