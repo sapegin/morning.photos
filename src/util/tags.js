@@ -4,24 +4,33 @@ import sizes from './../data/sizes';
 import Photo from '../../templates/components/Photo';
 import PhotoGrid from '../../templates/components/PhotoGrid';
 
+let customRatios = {};
+
 function ratio(slug) {
 	if (!slug) {
 		return false;
 	}
 	if (slug.startsWith('http') || slug.startsWith('/')) {
-		return 1.0;
+		return customRatios[slug] || 1.0;
 	}
 	const { width, height } = sizes[slug].large;
 	return width / height;
 }
 
-export function group({ children }) {
+export function grid({ children }) {
 	const files = children.split('\n');
 
 	let photos;
 	try {
 		photos = files.map(file => {
 			if (file.startsWith('http') || file.startsWith('/')) {
+				// Custom ratio?
+				let m = file.match(/^(.*?) (\d+:\d+)$/);
+				if (m) {
+					file = m[1];
+					let [width, height] = m[2].split(':');
+					customRatios[file] = Number(width) / Number(height);
+				}
 				return file;
 			}
 			const slug = slugify(file);
