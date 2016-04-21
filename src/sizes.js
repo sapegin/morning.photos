@@ -29,7 +29,7 @@ const SIZES = [
 		width: 1024,  // Text page width
 		height: 1024,
 		quality: 90,
-		sharp: [1, 0.15, 0.65],
+		sharp: [1, 0.12, 0.62],
 	},
 	{
 		name: 'small',
