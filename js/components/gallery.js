@@ -15,7 +15,7 @@ export const slideTemplate = photo => (
 );
 
 class Gallery extends Component {
-	static binded = 'onInit onSlideChangeStart onPopState onKeyDown';
+	static binded = 'onSlideChangeStart onPopState onKeyDown';
 
 	init() {
 		this.photos = window.__galleryPhotos;
@@ -59,7 +59,7 @@ class Gallery extends Component {
 
 		this.updateNav(this.swiper);
 	}
-	
+
 	onSlideChangeStart(swiper) {
 		const photo = this.photos[swiper.activeIndex];
 		const title = photo.title || '***';
