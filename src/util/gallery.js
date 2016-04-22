@@ -33,7 +33,7 @@ function parseMetadata(name, { imageSize, tags }, iptc) {
 		title: iptc.object_name,
 		caption: iptc.caption,
 		location: locationString(iptc.country_or_primary_location_name, iptc.city, iptc.sub_location),
-		keywords: iptc.keywords,
+		keywords: iptc.keywords || [],
 	};
 }
 
