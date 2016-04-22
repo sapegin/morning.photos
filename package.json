@@ -42,6 +42,7 @@
     "lodash": "~4.6.1",
     "minimist": "~1.2.0",
     "node-iptc": "~1.0.4",
+    "num2fraction": "~1.2.2",
     "sharp": "~0.13.1",
     "tamia-build": "~0.3.0",
     "unist-util-visit": "~1.1.0",

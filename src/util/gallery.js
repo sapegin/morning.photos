@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
+import num2fraction from 'num2fraction';
 
 // TODO: cache results to JSON file
 
@@ -79,11 +80,24 @@ function locationString(country, city, location) {
  */
 function exifString(exposureTime, aperture, focalLength, iso) {
 	return asList([
-		exposureTime && `${exposureTime} sec`,
+		exposureTime && `${formatExposure(exposureTime)} sec`,
 		aperture && `f/${aperture}`,
 		focalLength && `${focalLength}mm`,
 		iso && `ISO ${iso}`,
 	]);
+}
+
+/**
+ * Convert exposure time to human readable format.
+ *
+ * @param {number} exposureTime
+ * @returns {string}
+ */
+function formatExposure(exposureTime) {
+	if (exposureTime < 1) {
+		return num2fraction(exposureTime);
+	}
+	return String(exposureTime);
 }
 
 /**
