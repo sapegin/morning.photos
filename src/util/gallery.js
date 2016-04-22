@@ -47,10 +47,12 @@ export function slugify(name) {
 	return name
 		.replace(/\.jpg$/i, '')
 		.replace(/_/g, '-')
-		.replace(/-Artem-Sapegin/i, '')
-		.replace(/Artem-Sapegin-/i, '')
-		.replace(/-5D/i, '')
-		.replace(/-20D/i, '')
+		.replace(/Artem-Sapegin/i, '')
+		.replace(/Sapegin-Artem/i, '')
+		.replace(/5D/i, '')
+		.replace(/20D/i, '')
+		.replace(/--+/ig, '-')
+		.replace(/(^-|-$)/ig, '')
 	;
 }
 
