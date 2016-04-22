@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { Group } from 'fledermaus/lib/components';
 
 export default ({
 	title, caption, location, date, artist, exif,
@@ -13,11 +14,11 @@ export default ({
 				{typo(caption || '')}
 			</div>
 		</header>
-		<div class="photo-info__meta">
+		<Group class="photo-info__meta">
 			<span class={cx('js-gallery-info-location', { 'is-hidden': !location })}>{location || ''},</span>
-			<time class="js-gallery-info-date">{date}</time>,
+			<span><time class="js-gallery-info-date">{date}</time>,</span>
 			<span class="js-gallery-info-exif">{exif}</span>
-		</div>
+		</Group>
 		<footer class={cx('photo-info__copyright', 'js-gallery-info-artist', { 'is-hidden': artist === option('artist') })}>
 			© {artist}
 		</footer>
