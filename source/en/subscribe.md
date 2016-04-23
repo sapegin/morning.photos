@@ -2,6 +2,9 @@
 layout: Subscribe
 lang: en
 title: Subscribe to my newsletter
+pageTitle: Artem Sapegin Photography Mail List
+description: New photos, ebooks and everything else I’m going to create.
+image: 2010-07-06_7750
 ---
 
 - New photos, ebooks and everything else I’m going to create.

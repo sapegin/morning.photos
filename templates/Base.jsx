@@ -2,7 +2,7 @@ const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, 
 
 export default function($, children) {
 	const { lang, title, viewportExtra, noIndex, pageType } = $;
-	const { getPageTitle, getBodyClasses } = $;
+	const { getPageTitle, getMetaTags, getBodyClasses } = $;
 	return (
 		<html lang={lang}>
 			<head>
@@ -11,9 +11,8 @@ export default function($, children) {
 				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content={viewport(viewportExtra)} />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
-				{noIndex && <meta name="robots" content="noindex follow" />}
+				{getMetaTags()}
 
-				<meta property="og:site_name" content="Replace with proper meta tags generation" />
 				{/* <link rel="alternative" href={$.rss} title={$.option('blogTitle')} type="application/atom+xml" /> */}
 
 				<$.Style src="/build/styles.css" />

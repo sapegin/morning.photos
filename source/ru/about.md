@@ -2,6 +2,7 @@
 lang: ru
 layout: About
 pageTitle: 'Артём Сапегин: о фотографе и его технике'
+image: /images/about/equipment.jpg
 about: 'О сайте: сайт работает на [Фледермаусе](https://github.com/sapegin/fledermaus "Мой генератор статических сайтов") and [Тамии](http://sapegin.github.io/tamia/ "Мой фронтенд-фреймворк"); иконки нарисовал [Гена Осипенко](http://genn.org/); хостинг — [DigitalOcean](https://www.digitalocean.com/?refcode=bb49cbe65bb4).'
 gearAlt: Чем снимает Артём Сапегин
 workplaceAlt: Рабочее место Артёма Сапегина

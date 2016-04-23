@@ -1,5 +1,13 @@
-import { castArray, uniq } from 'lodash';
+import { castArray, uniq, sample } from 'lodash';
+import {
+	og,
+	meta,
+	getFirstParagraph,
+	getFirstImage,
+	cleanHtml,
+} from 'fledermaus/lib/util';
 import { getPhotoUrl } from '../../js/util/util';
+import { slugify } from './gallery';
 
 /* eslint-disable no-invalid-this, no-console */
 
@@ -13,6 +21,110 @@ export { getPhotoUrl };
  */
 export function Icon({ name }) {
 	return this.safe(this.embedFile(`icons/${name}.svg`).replace('<svg', `<svg class="icon icon_${name}"`));
+}
+
+/**
+ * Return site name (different for blog pages).
+ *
+ * @returns {string}
+ */
+export function getSiteName() {
+	return this.url.startsWith('/blog') ? this.option('titleBlog') : this.option('title');
+}
+
+/**
+ * Title to use in a <title> tag.
+ *
+ * @param {string} $1.title Custom title.
+ * @param {boolean} $1.suffix Do not append suffix if `false`.
+ * @return {string}
+ */
+export function getPageTitle({ title, suffix } = {}) {
+	if (this.pageTitle) {
+		return this.pageTitle;
+	}
+	if (title || this.title) {
+		if (suffix === undefined) {
+			suffix = ' — ' + this.getSiteName();
+		}
+		return cleanHtml(title || this.title) + (suffix || '');
+	}
+
+	return this.option('title');
+}
+
+/**
+ * OG, Twitter Card and other meta tags
+ * @returns {Array}
+ */
+export function getMetaTags() {
+	let tags = [];
+
+	if (this.noIndex) {
+		tags.push(meta('robots', 'noindex follow'));
+	}
+
+	let title = this.getPageTitle({ suffix: false }) || this.title || this.option('title');
+	let description = this.description || this.caption;
+	let content = this.content;
+	let image = this.image || this.cover || this.slug;
+
+	let twType = 'summary';
+	let ogType = 'article';
+
+	if (this.url === '/') {
+		ogType = 'website';
+		title = this.option('title');
+	}
+
+	if (this.url === '/' || this.url === '/blog') {
+		image = sample(this.option('featured'));
+	}
+
+	if (image && !image.startsWith('http') && !image.startsWith('/')) {
+		image = this.getPhotoUrl(slugify(image), 'medium');
+	}
+
+	if (content && !image) {
+		let firstImage = getFirstImage(content);
+		if (firstImage) {
+			image = firstImage;
+		}
+	}
+
+	if (image) {
+		twType = 'summary_large_image';
+		image = this.absolutizeUrl(image);
+		tags.push(og('og:image', image));
+		tags.push(meta('twitter:image', image));
+	}
+
+	if (!description) {
+		if (content) {
+			let firstParagraph = getFirstParagraph(content);
+			if (firstParagraph) {
+				description = firstParagraph;
+			}
+		}
+		if (!description) {
+			description = this.option('titleLong');
+		}
+	}
+
+	tags.push(
+		meta('description', description),
+		og('og:type', ogType),
+		og('og:title', title),
+		og('og:url', this.absolutizeUrl(this.url)),
+		og('og:site_name', this.getSiteName()),
+		og('og:description', description),
+		meta('twitter:card', twType),
+		meta('twitter:title', title),
+		meta('twitter:description', description),
+		meta('twitter:creator', '@' + this.option('twitter'))
+	);
+
+	return tags;
 }
 
 /**

@@ -152,6 +152,7 @@ documents.push(...languages.reduce((result, lang) => {
 		documentsPerPage: options.postsPerPage,
 		layout: 'Posts',
 		extra: {
+			pageTitle: config[lang].titleBlog,
 			lang,
 		},
 	}));

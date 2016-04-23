@@ -1,5 +1,8 @@
 import PageWithTitle from './PageWithTitle';
 import PhotoGrid from './components/PhotoGrid';
+import Photo from './components/Photo';
+
+// TODO: Replace with links to portfolio
 
 export default function($) {
 	const { content } = $;
@@ -7,14 +10,14 @@ export default function($) {
 	return (
 		<PageWithTitle {...$}>
 			<PhotoGrid>
-				<a href="/albums/curonian-spit/photos/237/">
-					<img src="/images/buy/buy1.jpg" width="328" height="219" alt="Baltic Sea in twilight" />
+				<a href="/travel/curonian-spit/2010-07-06-7750">
+					<Photo slug="2010-07-06_7750" size="small" />
 				</a>
-				<a href="/albums/tallinn/photos/68/">
-					<img src="/images/buy/buy2.jpg" width="328" height="219" alt="Morning Tallinn" />
+				<a href="/travel/tallinn">
+					<Photo slug="2012-08-26_2203" size="small" />
 				</a>
-				<a href="/albums/zubova-schel/photos/307/">
-					<img src="/images/buy/buy3.jpg" width="328" height="219" alt="Boulders on a sea shore after sunset" />
+				<a href="/travel/zubova-schel/2009-09-18-1357">
+					<Photo slug="2009-09-18_1357" size="small" />
 				</a>
 			</PhotoGrid>
 

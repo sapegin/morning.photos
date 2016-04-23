@@ -2,6 +2,7 @@
 layout: About
 lang: en
 pageTitle: 'Artem Sapegin: about the photographer and his photo equipment'
+image: /images/about/equipment.jpg
 about: 'About the site: works on [Fledermaus](https://github.com/sapegin/fledermaus "My static site generator") and [Tâmia](http://sapegin.github.io/tamia/ "My front-end framework"); icons — [Genn Osipenko](http://genn.org/); hosting — [DigitalOcean](https://www.digitalocean.com/?refcode=bb49cbe65bb4).'
 gearAlt: Artem Sapegin’s photography kit
 workplaceAlt: Artem Sapegin’s work place

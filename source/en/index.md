@@ -2,6 +2,7 @@
 lang: en
 layout: Index
 title: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs, photos"
+description: Landscapes, travel, cityscapes, nature, dogs and blog about photography.
 blogTitle: 'New posts in the <a href="/blog" class="link">blog</a>:'
 links:
   -
