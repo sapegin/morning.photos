@@ -44,7 +44,7 @@ export default function($) {
 					<AboutTriptych start={1} alt={author} />
 
 					<PhotoGrid>
-						<img src="/images/about/equipment.jpg" alt={gearAlt} width="1024" height="492" />
+						<img src="/images/about/equipment.jpg" alt={gearAlt} width="1024" height="524" />
 					</PhotoGrid>
 
 					<AboutGearList list={gear} {...$} />
