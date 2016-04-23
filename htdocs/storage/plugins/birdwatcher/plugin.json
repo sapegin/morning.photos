@@ -1,9 +1,0 @@
-{ 
-  "name": "Birdwatcher.ru",
-  "version": "0.2",
-  "description": "Various stuff for Birdwatcher.ru.",
-  "author": {
-    "name": "Artem Sapegin",
-    "link": "http://sapegin.me"
-  }
-}

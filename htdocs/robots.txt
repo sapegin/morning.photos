@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /admin/
-Disallow: /app/
-
-Host: morning.photos
