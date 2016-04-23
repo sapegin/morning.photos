@@ -1,0 +1,26 @@
+---
+title: Divnogorie
+layout: Album
+lang: en
+description: Voronezh region, July 2006.
+order: date-asc
+cover: Sapegin_Artem_20D_2006-07-08_208-0874
+date: Jul 8, 2006
+---
+
+Sapegin_Artem_20D_2006-07-08_208-0861
+Sapegin_Artem_20D_2006-07-08_208-0869
+Sapegin_Artem_20D_2006-07-08_208-0874
+Sapegin_Artem_20D_2006-07-08_209-0938
+Sapegin_Artem_20D_2006-07-08_209-0945
+Sapegin_Artem_20D_2006-07-08_209-0965
+Sapegin_Artem_20D_2006-07-08_209-0970
+Sapegin_Artem_20D_2006-07-08_209-0974
+Sapegin_Artem_20D_2006-07-08_210-1033
+Sapegin_Artem_20D_2006-07-08_210-1057
+Sapegin_Artem_20D_2006-07-08_210-1095
+Sapegin_Artem_20D_2006-07-08_212-1215
+Sapegin_Artem_20D_2006-07-08_212-1234
+Sapegin_Artem_20D_2006-07-09_212-1268
+Sapegin_Artem_20D_2006-07-09_213-1342
+Sapegin_Artem_20D_2006-07-09_213-1358

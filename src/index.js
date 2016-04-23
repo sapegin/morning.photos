@@ -21,6 +21,7 @@ import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
 import { loadPhoto, slugify } from './util/gallery';
+import { typo, typoTitle } from './util/typo';
 
 start('Building the site...');
 
@@ -89,9 +90,18 @@ albums.forEach(album => {
 	}
 
 	// Album JSON
-	const json = album.photos = photos.map(
-		pick(['slug', 'date', 'title', 'caption', 'location', 'exif'])
-	);
+	const json = album.photos = photos
+		.map(
+			pick(['slug', 'date', 'title', 'caption', 'location', 'exif'])
+		)
+		.map(photo => (
+			{
+				...photo,
+				title: typoTitle(photo.title, photo.lang),
+				caption: typo(photo.caption, photo.lang),
+			}
+		))
+	;
 
 	// Create document for each photo
 	photos.forEach(photo => {
