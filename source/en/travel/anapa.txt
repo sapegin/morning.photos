@@ -1,26 +1,33 @@
 ---
-title: Divnogorie
+title: Anapa
 layout: Album
 lang: en
-description: Voronezh region, July 2006.
+description: Our honeymoon trip. Anapa. September 2008.
 order: date-asc
-cover: Sapegin_Artem_20D_2006-07-08_208-0874
-date: Jul 8, 2006
+cover: 2008-09-11_5D_7951_Artem_Sapegin
+date: Sep 7, 2008
 ---
 
-Sapegin_Artem_20D_2006-07-08_208-0861
-Sapegin_Artem_20D_2006-07-08_208-0869
-Sapegin_Artem_20D_2006-07-08_208-0874
-Sapegin_Artem_20D_2006-07-08_209-0938
-Sapegin_Artem_20D_2006-07-08_209-0945
-Sapegin_Artem_20D_2006-07-08_209-0965
-Sapegin_Artem_20D_2006-07-08_209-0970
-Sapegin_Artem_20D_2006-07-08_209-0974
-Sapegin_Artem_20D_2006-07-08_210-1033
-Sapegin_Artem_20D_2006-07-08_210-1057
-Sapegin_Artem_20D_2006-07-08_210-1095
-Sapegin_Artem_20D_2006-07-08_212-1215
-Sapegin_Artem_20D_2006-07-08_212-1234
-Sapegin_Artem_20D_2006-07-09_212-1268
-Sapegin_Artem_20D_2006-07-09_213-1342
-Sapegin_Artem_20D_2006-07-09_213-1358
+2008-09-13_5D_8768_Artem_Sapegin
+2008-09-13_5D_8713_Artem_Sapegin
+2008-09-13_5D_8677_Artem_Sapegin
+2008-09-13_5D_8644_Artem_Sapegin
+2008-09-13_5D_8334_Artem_Sapegin
+2008-09-12_5D_8306_Artem_Sapegin
+2008-09-12_5D_8293_Artem_Sapegin
+2008-09-11_5D_8018_Artem_Sapegin
+2008-09-11_5D_7951_Artem_Sapegin
+2008-09-11_5D_7907_Artem_Sapegin
+2008-09-11_5D_7850_Artem_Sapegin
+2008-09-10_5D_7840_Artem_Sapegin
+2008-09-10_5D_7830_Artem_Sapegin
+2008-09-10_5D_7813_Artem_Sapegin
+2008-09-09_5D_7636_Artem_Sapegin
+2008-09-09_5D_7604_Artem_Sapegin
+2008-09-08_5D_7506_Artem_Sapegin
+2008-09-08_5D_7471_Artem_Sapegin
+2008-09-08_5D_7438_Artem_Sapegin
+2008-09-08_5D_7422_Artem_Sapegin
+2008-09-08_5D_7370_Artem_Sapegin
+2008-09-08_5D_7341_Artem_Sapegin
+2008-09-07_5D_7097_Artem_Sapegin

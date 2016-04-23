@@ -1,0 +1,34 @@
+---
+title: Solontsovo
+layout: Album
+lang: en
+description: Solontsovo, Moscow region. January 2009.
+order: date-asc
+cover: 2009-01-04_5D_0374_Artem_Sapegin
+date: Jan 4, 2009
+---
+
+2009-01-04_5D_0168_Artem_Sapegin
+2009-01-04_5D_0331_Artem_Sapegin
+2009-01-04_5D_0362_Artem_Sapegin
+2009-01-04_5D_0367_Artem_Sapegin
+2009-01-04_5D_0374_Artem_Sapegin
+2009-01-04_5D_0534_Artem_Sapegin
+2009-01-05_5D_0586_Artem_Sapegin
+2009-01-05_5D_0592_Artem_Sapegin
+2009-01-05_5D_0624_Artem_Sapegin
+2009-01-05_5D_0643_Artem_Sapegin
+2009-01-05_5D_0675_Artem_Sapegin
+2009-01-05_5D_0776_Artem_Sapegin
+2009-01-05_5D_0859_Artem_Sapegin
+2009-01-06_5D_0941_Artem_Sapegin
+2009-01-06_5D_0986_Artem_Sapegin
+2009-01-06_5D_1051_Artem_Sapegin
+2009-01-06_5D_1114_Artem_Sapegin
+2009-01-06_5D_1142_Artem_Sapegin
+2009-01-06_5D_1167_Artem_Sapegin
+2009-01-07_5D_1275_Artem_Sapegin
+2009-01-07_5D_1409_Artem_Sapegin
+2009-01-07_5D_1587_Artem_Sapegin
+2009-01-08_5D_1602_Artem_Sapegin
+2009-01-08_5D_1668_Artem_Sapegin

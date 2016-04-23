@@ -1,0 +1,60 @@
+---
+title: Kalevala
+layout: Album
+lang: en
+description: Karelia, July 2007.
+order: date-asc
+cover: Sapegin_Artem_20D_2007-07-11_397-9741
+date: Jul 9, 2007
+---
+
+Sapegin_Artem_20D_2007-07-14_415-1561
+Sapegin_Artem_20D_2007-07-14_414-1493
+Sapegin_Artem_20D_2007-07-13_411-1136
+Sapegin_Artem_20D_2007-07-13_411-1123
+Sapegin_Artem_20D_2007-07-13_411-1106
+Sapegin_Artem_20D_2007-07-13_411-1104
+Sapegin_Artem_20D_2007-07-13_410-1081
+Sapegin_Artem_20D_2007-07-13_410-1041
+Sapegin_Artem_20D_2007-07-13_410-1038
+Sapegin_Artem_20D_2007-07-13_410-1031
+Sapegin_Artem_20D_2007-07-13_410-1006
+Sapegin_Artem_20D_2007-07-13_409-0965
+Sapegin_Artem_20D_2007-07-13_409-0955
+Sapegin_Artem_20D_2007-07-13_409-0916
+Sapegin_Artem_20D_2007-07-13_407-0797
+Sapegin_Artem_20D_2007-07-13_407-0774
+Sapegin_Artem_20D_2007-07-13_407-0755
+Sapegin_Artem_20D_2007-07-12_406-0630
+Sapegin_Artem_20D_2007-07-12_405-0530
+Sapegin_Artem_20D_2007-07-12_405-0510
+Sapegin_Artem_20D_2007-07-12_404-0448
+Sapegin_Artem_20D_2007-07-12_404-0402
+Sapegin_Artem_20D_2007-07-12_402-0261
+Sapegin_Artem_20D_2007-07-12_402-0248
+Sapegin_Artem_20D_2007-07-12_402-0208
+Sapegin_Artem_20D_2007-07-12_401-0195
+Sapegin_Artem_20D_2007-07-11_400-0078
+Sapegin_Artem_20D_2007-07-11_400-0063
+Sapegin_Artem_20D_2007-07-11_400-0025
+Sapegin_Artem_20D_2007-07-11_398-9897
+Sapegin_Artem_20D_2007-07-11_398-9877
+Sapegin_Artem_20D_2007-07-11_398-9820
+Sapegin_Artem_20D_2007-07-11_397-9790
+Sapegin_Artem_20D_2007-07-11_397-9773
+Sapegin_Artem_20D_2007-07-11_397-9748
+Sapegin_Artem_20D_2007-07-11_397-9741
+Sapegin_Artem_20D_2007-07-11_397-9729
+Sapegin_Artem_20D_2007-07-11_395-9561
+Sapegin_Artem_20D_2007-07-11_395-9556
+Sapegin_Artem_20D_2007-07-11_395-9531
+Sapegin_Artem_20D_2007-07-11_395-9521
+Sapegin_Artem_20D_2007-07-11_395-9520
+Sapegin_Artem_20D_2007-07-11_395-9517
+Sapegin_Artem_20D_2007-07-10_393-9397
+Sapegin_Artem_20D_2007-07-09_392-9206
+Sapegin_Artem_20D_2007-07-09_391-9191
+Sapegin_Artem_20D_2007-07-09_390-9040
+Sapegin_Artem_20D_2007-07-09_389-8995
+Sapegin_Artem_20D_2007-07-09_389-8985
+Sapegin_Artem_20D_2007-07-09_389-8980

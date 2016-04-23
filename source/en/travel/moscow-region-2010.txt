@@ -1,0 +1,32 @@
+---
+title: Moscow Region 2010
+layout: Album
+lang: en
+description: Drakino and Ulitkino, autumn 2010.
+order: date-asc
+cover: 2010-09-25_5D_0945_Artem_Sapegin
+date: Sep 21, 2010
+---
+
+2010-09-21_5D_9711_Artem_Sapegin
+2010-09-21_5D_9781_Artem_Sapegin
+2010-09-21_5D_9793_Artem_Sapegin
+2010-09-21_5D_9799_Artem_Sapegin
+2010-09-23_5D_0084_Artem_Sapegin
+2010-09-23_5D_0112_Artem_Sapegin
+2010-09-24_5D_0212_Artem_Sapegin
+2010-09-24_5D_0335_Artem_Sapegin
+2010-09-24_5D_0474_Artem_Sapegin
+2010-09-24_5D_0507_Artem_Sapegin
+2010-09-25_5D_0937_Artem_Sapegin
+2010-09-25_5D_0945_Artem_Sapegin
+2010-09-25_5D_0984_Artem_Sapegin
+2010-09-26_5D_0995_Artem_Sapegin
+2010-11-04_5D_1827_Artem_Sapegin
+2010-11-04_5D_1856_Artem_Sapegin
+2010-11-05_5D_1885_Artem_Sapegin
+2010-11-05_5D_1936_Artem_Sapegin
+2010-11-06_5D_2029_Artem_Sapegin
+2010-11-06_5D_2213_Artem_Sapegin
+2010-11-07_5D_2338_Artem_Sapegin
+2010-11-07_5D_2395_Artem_Sapegin

@@ -1,32 +1,38 @@
 ---
-title: Curonian Spit
+title: Netherlands
 layout: Album
 lang: en
-description: "Kaliningrad region: Curonian Spit, Kaliningrad, Zelenogradsk, Lesnoy. July 2010."
+description: "Euro Dog Show trip and a holiday: Amsterdam, Rotterdam, Utrecht and Leeuwarden. August — September 2011."
 order: date-asc
-cover: 2010-07-08_5D_8041_Artem_Sapegin
-date: Jul 1, 2010
+cover: 2011-08-31_5D_5263_Artem_Sapegin
+date: Aug 26, 2011
 ---
 
-2010-06-30_5D_7073_Artem_Sapegin
-2010-07-01_5D_7114_Artem_Sapegin
-2010-07-01_5D_7149_Artem_Sapegin
-2010-07-01_5D_7156_Artem_Sapegin
-2010-07-01_5D_7160_Artem_Sapegin
-2010-07-01_5D_7191_Artem_Sapegin
-2010-07-01_5D_7204_Artem_Sapegin
-2010-07-01_5D_7278_Artem_Sapegin
-2010-07-01_5D_7359_Artem_Sapegin
-2010-07-01_5D_7378_Artem_Sapegin
-2010-07-02_5D_7407_Artem_Sapegin
-2010-07-02_5D_7484_Artem_Sapegin
-2010-07-04_5D_7538_Artem_Sapegin
-2010-07-06_5D_7750_Artem_Sapegin
-2010-07-06_5D_7770_Artem_Sapegin
-2010-07-07_5D_7897_Artem_Sapegin
-2010-07-08_5D_7931_Artem_Sapegin
-2010-07-08_5D_7960_Artem_Sapegin
-2010-07-08_5D_7985_Artem_Sapegin
-2010-07-08_5D_8000_Artem_Sapegin
-2010-07-08_5D_8031_Artem_Sapegin
-2010-07-08_5D_8041_Artem_Sapegin
+2011-08-26_5D_4671_Artem_Sapegin
+2011-08-26_5D_4679_Artem_Sapegin
+2011-08-26_5D_4735_Artem_Sapegin
+2011-08-26_5D_4743_Artem_Sapegin
+2011-08-26_5D_4791_Artem_Sapegin
+2011-08-26_5D_4835_Artem_Sapegin
+2011-08-27_5D_4907_Artem_Sapegin
+2011-08-27_5D_4911_Artem_Sapegin
+2011-08-27_5D_4921_Artem_Sapegin
+2011-08-29_5D_5004_Artem_Sapegin
+2011-08-29_5D_5009_Artem_Sapegin
+2011-08-29_5D_5019_Artem_Sapegin
+2011-08-29_5D_5037_Artem_Sapegin
+2011-08-29_5D_5046_Artem_Sapegin
+2011-08-29_5D_5052_Artem_Sapegin
+2011-08-29_5D_5055_Artem_Sapegin
+2011-08-30_5D_5084_Artem_Sapegin
+2011-08-30_5D_5205_Artem_Sapegin_pano
+2011-08-31_5D_5263_Artem_Sapegin
+2011-08-31_5D_5299_Artem_Sapegin
+2011-08-31_5D_5310_Artem_Sapegin
+2011-08-31_5D_5313_Artem_Sapegin
+2011-08-31_5D_5315_Artem_Sapegin
+2011-08-31_5D_5319_Artem_Sapegin
+2011-08-31_5D_5334_Artem_Sapegin
+2011-08-31_5D_5353_Artem_Sapegin
+2011-09-04_5D_5809_Artem_Sapegin
+2011-09-05_5D_5863_Artem_Sapegin
