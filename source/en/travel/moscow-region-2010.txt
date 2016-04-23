@@ -1,8 +1,9 @@
 ---
 title: Moscow Region 2010
+byline: Russia, autumn 2010
+description: Drakino and Ulitkino, Russia, autumn 2010.
 layout: Album
 lang: en
-description: Drakino and Ulitkino, autumn 2010.
 order: date-asc
 cover: 2010-09-25_5D_0945_Artem_Sapegin
 date: Sep 21, 2010

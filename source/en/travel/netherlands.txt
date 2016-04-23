@@ -1,8 +1,9 @@
 ---
 title: Netherlands
+byline: Autumn 2011
+description: "Euro Dog Show trip and a holiday: Amsterdam, Rotterdam, Utrecht and Leeuwarden. August — September 2011."
 layout: Album
 lang: en
-description: "Euro Dog Show trip and a holiday: Amsterdam, Rotterdam, Utrecht and Leeuwarden. August — September 2011."
 order: date-asc
 cover: 2011-08-31_5D_5263_Artem_Sapegin
 date: Aug 26, 2011

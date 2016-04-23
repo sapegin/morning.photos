@@ -1,8 +1,9 @@
 ---
 title: Anapa
+byline: Russia, September 2008
+description: Our honeymoon trip. Anapa, Russia, September 2008.
 layout: Album
 lang: en
-description: Our honeymoon trip. Anapa. September 2008.
 order: date-asc
 cover: 2008-09-11_5D_7951_Artem_Sapegin
 date: Sep 7, 2008

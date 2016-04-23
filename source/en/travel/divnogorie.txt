@@ -1,8 +1,9 @@
 ---
 title: Divnogorie
+byline: Russia, July 2006
+description: Voronezh region, Russia, July 2006.
 layout: Album
 lang: en
-description: Voronezh region, July 2006.
 order: date-asc
 cover: Sapegin_Artem_20D_2006-07-08_208-0874
 date: Jul 8, 2006

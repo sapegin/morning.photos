@@ -1,8 +1,9 @@
 ---
 title: Zubova Schel
+byline: Russia, September 2009
+description: Equestrian holiday in Zubova Schel. And some Adler and Sochi. Russia, September 2009.
 layout: Album
 lang: en
-description: Equestrian holiday in Zubova Schel. And some Adler and Sochi. September 2009.
 order: date-asc
 cover: 2009-09-18_5D_1357_Artem_Sapegin
 date: Sep 15, 2009

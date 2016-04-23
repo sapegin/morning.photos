@@ -1,8 +1,9 @@
 ---
 title: Kalevala
+byline: Russia, July 2007
+description: Karelia, Russia, July 2007.
 layout: Album
 lang: en
-description: Karelia, July 2007.
 order: date-asc
 cover: Sapegin_Artem_20D_2007-07-11_397-9741
 date: Jul 9, 2007

@@ -1,5 +1,6 @@
 ---
 title: Budapest
+byline: Hungary, May 2013
 description: "Budapest, Hungary — a trip to the World Dog Show 2013 with Tsiri the saluki"
 layout: Report
 lang: en

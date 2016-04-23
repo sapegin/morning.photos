@@ -1,8 +1,9 @@
 ---
 title: Solontsovo
+byline: Russia, January 2009
 layout: Album
+description: Moscow Region, Russia, January 2009.
 lang: en
-description: Solontsovo, Moscow region. January 2009.
 order: date-asc
 cover: 2009-01-04_5D_0374_Artem_Sapegin
 date: Jan 4, 2009

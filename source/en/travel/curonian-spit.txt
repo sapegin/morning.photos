@@ -1,8 +1,9 @@
 ---
 title: Curonian Spit
+byline: Russia, July 2010
+description: "Kaliningrad region: Curonian Spit, Kaliningrad, Zelenogradsk, Lesnoy. Russia, July 2010."
 layout: Album
 lang: en
-description: "Kaliningrad region: Curonian Spit, Kaliningrad, Zelenogradsk, Lesnoy. July 2010."
 order: date-asc
 cover: 2010-07-08_5D_8041_Artem_Sapegin
 date: Jul 1, 2010

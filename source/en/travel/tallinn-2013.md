@@ -1,5 +1,6 @@
 ---
 title: Tallinn 2013
+byline: Estonia, July 2013
 description: "Tallinn, Estonia — a trip with dogs: Tsiri the saluki and Dessi the dachshund"
 layout: Report
 lang: en

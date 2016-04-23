@@ -1,8 +1,9 @@
 ---
 title: Dombai
+byline: Russia, July 2009
+description: Excursion trip to the Caucasus mountains, Russia, July 2009.
 layout: Album
 lang: en
-description: Excursion trip to the Caucasus mountains, July 2009.
 order: date-asc
 cover: 2009-07-20_5D_8752_Artem_Sapegin
 date: Jul 19, 2009

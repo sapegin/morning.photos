@@ -1,5 +1,6 @@
 ---
 title: Salzburg
+byline: Austria, May 2012
 description: "Salzburg, Austria — a trip to the World Dog Show 2012 with Tsiri the saluki"
 layout: Report
 lang: en

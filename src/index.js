@@ -62,7 +62,7 @@ documents = orderDocuments(documents, ['-timestamp']);
  * Albums and photos
  */
 
-const albums = filterDocuments(documents, { layout: 'Album' });
+const albums = filterDocuments(documents, { layout: /^(Album|Report)$/ });
 albums.forEach(album => {
 	// Date formatter: March 2016
 	const dateFormat = getDateTimeFormat(album.lang, { year: 'numeric', month: 'long' });
@@ -70,6 +70,10 @@ albums.forEach(album => {
 	// Convert cover to a slug
 	if (album.cover) {
 		album.cover = slugify(album.cover);
+	}
+
+	if (album.layout !== 'Album') {
+		return;
 	}
 
 	// Parse photos list
@@ -120,11 +124,13 @@ albums.forEach(album => {
 });
 
 /**
- * Portfolio
+ * Portfolio and travel
  */
 
 let portfolioDoc = find(documents, { url: '/albums', lang: 'en' });
 portfolioDoc.albums = filterDocuments(albums, { url: /^\/albums\// });
+let travelDoc = find(documents, { url: '/travel', lang: 'en' });
+travelDoc.albums = filterDocuments(albums, { url: /^\/travel\// });
 
 /**
  * Blog
