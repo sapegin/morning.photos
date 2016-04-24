@@ -11,6 +11,7 @@ photos
 public/images/travel
 public/images/blog
 public/**/*.html
+public/**/*.xml
 public/build/*.js
 public/build/*.css
 data/sizes.json

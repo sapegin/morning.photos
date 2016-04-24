@@ -185,14 +185,17 @@ documents.push(...languages.reduce((result, lang) => {
 	}));
 	blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
 
-	// Atom feed
-	// newDocs.push({
-	// 	sourcePath: `${lang}/atom.xml`,
-	// 	url: `/atom.xml`,
-	// 	layout: 'Atom.xml',
-	// 	documents: docs.slice(0, options.postsInFeed),
-	// 	lang,
-	// });
+	// RSS feed
+	let feedDoc = find(documents, { url: '/feed', lang });
+	feedDoc.items = docs.slice(0, options.postsInFeed).map(({ title, content, url, date }) => ({
+		url,
+		date,
+		title,
+		description: content,
+	}));
+
+	// RSS feed: photos
+	// TODO
 
 	// Add list of important posts to the main and Learn pages
 	let importantPosts = filterDocuments(documents, { important: true, lang });
