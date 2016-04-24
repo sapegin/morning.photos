@@ -3,12 +3,21 @@ import path from 'path';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
+import { printError } from 'fledermaus/lib/util';
 
 // TODO: cache results to JSON file
 
 export function loadPhoto(folder, name) {
 	const filepath = path.resolve(folder, `${name}.jpg`);
-	const buffer = fs.readFileSync(filepath);
+
+	let buffer;
+	try {
+		buffer = fs.readFileSync(filepath);
+	}
+	catch (e) {
+		printError(`Cannot load photo ${name}.jpg`);
+		process.exit(1);
+	}
 
 	const parser = exifParser.create(buffer);
 	const exif = parser.parse();
