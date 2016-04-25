@@ -60,6 +60,7 @@ export function slugify(name) {
 		.replace(/Sapegin-Artem/i, '')
 		.replace(/5D/i, '')
 		.replace(/20D/i, '')
+		.replace(/MG/i, '')
 		.replace(/--+/ig, '-')
 		.replace(/(^-|-$)/ig, '')
 	;
