@@ -76,6 +76,7 @@ A couple of other salukis, Ilya and Claire, joined us.
 2013-08-01_3114_Artem_Sapegin
 2013-08-01_3142_Artem_Sapegin
 2013-08-03_3671_Artem_Sapegin
+2013-07-31_2844_Artem_Sapegin
 2013-08-01_3402_Artem_Sapegin
 </x-grid>
 
