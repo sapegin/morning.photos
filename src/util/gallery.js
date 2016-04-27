@@ -15,7 +15,7 @@ export function loadPhoto(folder, name) {
 		buffer = fs.readFileSync(filepath);
 	}
 	catch (e) {
-		printError(`Cannot load photo ${name}.jpg`);
+		printError(`Cannot load photo ${name}.jpg, exiting...`);
 		process.exit(1);
 	}
 
@@ -56,11 +56,13 @@ export function slugify(name) {
 	return name
 		.replace(/\.jpg$/i, '')
 		.replace(/_/g, '-')
-		.replace(/Artem-Sapegin/i, '')
-		.replace(/Sapegin-Artem/i, '')
-		.replace(/5D/i, '')
-		.replace(/20D/i, '')
-		.replace(/MG/i, '')
+		.replace(/Artem-Sapegin/ig, '')
+		.replace(/Sapegin-Artem/ig, '')
+		.replace(/5D/ig, '')
+		.replace(/20D/ig, '')
+		.replace(/MG/ig, '')
+		.replace(/Edit/ig, '')
+		.replace(/HDR/ig, '')
 		.replace(/--+/ig, '-')
 		.replace(/(^-|-$)/ig, '')
 	;
