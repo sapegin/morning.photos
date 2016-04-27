@@ -19,7 +19,6 @@ date: Jan 4, 2009
 2009-01-05_5D_0592_Artem_Sapegin
 2009-01-05_5D_0624_Artem_Sapegin
 2009-01-05_5D_0643_Artem_Sapegin
-2009-01-05_5D_0675_Artem_Sapegin
 2009-01-05_5D_0776_Artem_Sapegin
 2009-01-05_5D_0859_Artem_Sapegin
 2009-01-06_5D_0941_Artem_Sapegin
@@ -31,5 +30,6 @@ date: Jan 4, 2009
 2009-01-07_5D_1275_Artem_Sapegin
 2009-01-07_5D_1409_Artem_Sapegin
 2009-01-07_5D_1587_Artem_Sapegin
+2009-01-08_5D_1746_Artem_Sapegin
 2009-01-08_5D_1602_Artem_Sapegin
 2009-01-08_5D_1668_Artem_Sapegin
