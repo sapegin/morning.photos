@@ -34,21 +34,21 @@ body {
 // Headers: alpha, beta, gamma, delta, epsilon, epsilon
 
 .alpha {
-	margin-left: -.15ex;
+	margin-left: -.1ex;
 	font-size: 48px;
 	font-weight: 300;
 	line-height: 1.1;
 }
 
 .beta {
-	margin-left: -.1ex;
+	margin-left: 0;
 	font-size: 32px;
 	font-weight: 300;
 	line-height: 1.1;
 }
 
 .gamma {
-	margin-left: -.1ex;
+	margin-left: 0;
 	font-size: 24px;
 	font-weight: 300;
 	line-height: 1.1;
@@ -66,17 +66,35 @@ body {
 .text {
 	h2 {
 		@extend .beta;
-		space();
+		margin-top: 30px;
+		margin-bottom: 15px;
 	}
 	h3 {
 		@extend .delta;
-		space();
+		margin-top: 30px;
+		margin-bottom: 15px;
 	}
 
-	blockquote {
-		margin-left: 4*spacer;
-		margin-right: 4*spacer;
-		font-size: 90%;
+	li {
+		margin-bottom: 10px;
+	}
+
+	// Default browser style is `bolder`, it’s not bold enough because main text’s weight is 300.
+	b,
+	strong {
+		font-weight: bold;
+	}
+
+	// Floating images
+	.left {
+		float: left;
+		margin-right: 1.5*spacer;
+		margin-top: .25em;
+	}
+	.right {
+		float: right;
+		margin-left: 1.5*spacer;
+		margin-top: .25em;
 	}
 }
 
@@ -149,7 +167,7 @@ body {
 
 .entry-title {
 	@extend .alpha;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 
 	&__link {
 		&,
@@ -241,15 +259,7 @@ body {
 	+below(1024px) {
 		margin-left: -(2*spacer);
 		margin-right: -(2*spacer);
-		&.l-half {
-			margin-left: 0;
-			margin-right: 0;
-		}
-	}
-	+below(560px) {
-		&.l-half {
-			layout-stop();
-		}
+		text-align: center;
 	}
 }
 
@@ -310,6 +320,10 @@ body {
 
 	&__content {
 		space(2);
+
+		h2 {
+			@extend .gamma;
+		}
 	}
 
 	&_single &__meta {
