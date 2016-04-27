@@ -16,7 +16,7 @@ import {
 	createTemplateRenderer,
 	helpers as defaultHelpers,
 } from 'fledermaus';
-import { getDateTimeFormat } from 'fledermaus/lib/util';
+import { getDateTimeFormat, printError } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
@@ -82,9 +82,12 @@ albums.forEach(album => {
 	// Load photos
 	let photos = photosList.map(name => {
 		let photo = loadPhoto(options.photosFolder, name);
+		if (!photo.timestamp) {
+			printError(`Timestamp not available for photo: ${name}`);
+		}
 		return {
 			...photo,
-			date: dateFormat.format(new Date(photo.timestamp)),
+			date: photo.timestamp && dateFormat.format(new Date(photo.timestamp)),
 		};
 	});
 

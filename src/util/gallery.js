@@ -33,7 +33,7 @@ function parseMetadata(name, { imageSize, tags }, iptc) {
 		slug: slugify(name),
 		width: imageSize.width,
 		height: imageSize.height,
-		timestamp: tags.DateTimeOriginal * 1000,
+		timestamp: tags.DateTimeOriginal && tags.DateTimeOriginal * 1000,
 		exif: exifString(tags.ExposureTime, tags.FNumber, tags.FocalLength, tags.ISO),
 		artist: tags.Artist,
 		latitude: tags.GPSLatitude,
