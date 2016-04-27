@@ -15,7 +15,6 @@ cover: 2014-09-13_2791_Artem_Sapegin
 2014-03-22_6567_Artem_Sapegin
 2014-01-25_6218_Artem_Sapegin
 2014-01-25_6210_Artem_Sapegin
-2013-11-02_5061_Artem_Sapegin
 2013-11-03_5268_Artem_Sapegin
 2013-11-03_5166_Artem_Sapegin
 2013-11-03_5145_Artem_Sapegin
@@ -44,5 +43,5 @@ cover: 2014-09-13_2791_Artem_Sapegin
 2010-07-31_5D_8392_Artem_Sapegin
 Sapegin_Artem_20D_2007-05-02_311-1169
 Sapegin_Artem_20D_2007-04-13_294-9401
-_MG_8351.psd
-_MG_7250.psd
+_MG_8351
+_MG_7250

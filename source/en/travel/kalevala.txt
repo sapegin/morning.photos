@@ -35,6 +35,7 @@ Sapegin_Artem_20D_2007-07-12_402-0261
 Sapegin_Artem_20D_2007-07-12_402-0248
 Sapegin_Artem_20D_2007-07-12_402-0208
 Sapegin_Artem_20D_2007-07-12_401-0195
+Sapegin_Artem_20D_2007-07-12_Lake_Panorama
 Sapegin_Artem_20D_2007-07-11_400-0078
 Sapegin_Artem_20D_2007-07-11_400-0063
 Sapegin_Artem_20D_2007-07-11_400-0025
@@ -53,6 +54,7 @@ Sapegin_Artem_20D_2007-07-11_395-9531
 Sapegin_Artem_20D_2007-07-11_395-9521
 Sapegin_Artem_20D_2007-07-11_395-9520
 Sapegin_Artem_20D_2007-07-11_395-9517
+Sapegin_Artem_20D_2007-07-10_394-9472
 Sapegin_Artem_20D_2007-07-10_393-9397
 Sapegin_Artem_20D_2007-07-09_392-9206
 Sapegin_Artem_20D_2007-07-09_391-9191
@@ -60,3 +62,4 @@ Sapegin_Artem_20D_2007-07-09_390-9040
 Sapegin_Artem_20D_2007-07-09_389-8995
 Sapegin_Artem_20D_2007-07-09_389-8985
 Sapegin_Artem_20D_2007-07-09_389-8980
+Sapegin_Artem_20D_2007-07-11_400-0098-Sapegin_Artem_20D_2007-07-11_401-0135

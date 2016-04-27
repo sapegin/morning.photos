@@ -1,0 +1,39 @@
+---
+title: Animals
+layout: Album
+lang: en
+order: date-desc
+cover: 2012-08-20_5D_1332_Artem_Sapegin
+---
+
+2013-07-27_0527_Artem_Sapegin
+2012-08-20_5D_1332_Artem_Sapegin
+2010-11-04_5D_1856_Artem_Sapegin
+2010-11-04_5D_1827_Artem_Sapegin
+2010-09-24_5D_0212_Artem_Sapegin
+2010-09-23_5D_0112_Artem_Sapegin
+2010-07-06_5D_7770_Artem_Sapegin
+2009-09-22_5D_1924_Artem_Sapegin
+2009-09-22_5D_1920_Artem_Sapegin
+2009-09-19_5D_1508_Artem_Sapegin
+2009-09-19_5D_1406_Artem_Sapegin
+2009-09-17_5D_0927_Artem_Sapegin
+2010-07-06_5D_7753_Artem_Sapegin
+2009-02-15_5D_2367_Artem_Sapegin
+2009-01-31_5D_2025_Artem_Sapegin
+2009-01-08_5D_1746_Artem_Sapegin
+2009-01-07_5D_1409_Artem_Sapegin
+2009-01-05_5D_0643_Artem_Sapegin
+2008-12-27_5D_0108_Artem_Sapegin
+Sapegin_Artem_20D_2007-09-22_444-4417
+Sapegin_Artem_20D_2007-07-11_397-9790
+Sapegin_Artem_20D_2007-05-26_350-5080
+Sapegin_Artem_20D_2007-04-22_307-0754
+Sapegin_Artem_20D_2007-04-21_303-0373
+Sapegin_Artem_20D_2007-04-07_291-9169
+Sapegin_Artem_20D_2007-04-07_291-9150
+Sapegin_Artem_20D_2007-04-07_290-9070
+Sapegin_Artem_20D_2006-07-18_221-2188
+Sapegin_Artem_20D_2006-07-18_220-2084
+_MG_9189
+_MG_5386

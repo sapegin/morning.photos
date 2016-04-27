@@ -1,0 +1,18 @@
+---
+title: Nature
+layout: Album
+lang: en
+order: date-desc
+cover: 2009-09-17_5D_0741_Artem_Sapegin
+---
+
+2016-01-17_5793_Artem_Sapegin
+2016-01-17_5823_Artem_Sapegin-HDR
+2010-09-24_5D_0474_Artem_Sapegin
+2010-07-01_5D_7156_Artem_Sapegin
+2010-07-02_5D_7484_Artem_Sapegin
+2010-07-08_5D_7931_Artem_Sapegin
+2010-07-08_5D_7960_Artem_Sapegin
+2009-09-17_5D_0741_Artem_Sapegin
+2009-09-18_5D_1225_Artem_Sapegin
+2009-09-18_5D_1357_Artem_Sapegin
