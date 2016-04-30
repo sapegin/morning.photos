@@ -1,0 +1,22 @@
+---
+title: Helsinki & Tallinn
+byline: August 2014.
+layout: Album
+description: Estonia, Finland, August 2014.
+lang: en
+order: date-asc
+cover: 2014-08-08_1006_Artem_Sapegin
+date: Aug 8, 2014
+unlisted: true
+---
+
+2014-08-08_0907_Artem_Sapegin
+2014-08-08_1006_Artem_Sapegin
+2014-08-09_1168_Artem_Sapegin
+2014-08-09_1250_Artem_Sapegin
+2014-08-12_1364_Artem_Sapegin
+2014-08-15_1645_Artem_Sapegin
+2014-08-15_1718_Artem_Sapegin
+2014-08-15_1812_Artem_Sapegin
+2014-08-15_1819_Artem_Sapegin
+2014-08-17_2117_Artem_Sapegin

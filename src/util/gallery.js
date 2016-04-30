@@ -58,6 +58,7 @@ export function slugify(name) {
 		.replace(/_/g, '-')
 		.replace(/Artem-Sapegin/ig, '')
 		.replace(/Sapegin-Artem/ig, '')
+		.replace(/Olga-Flegontova/ig, '')
 		.replace(/5D/ig, '')
 		.replace(/20D/ig, '')
 		.replace(/MG/ig, '')
