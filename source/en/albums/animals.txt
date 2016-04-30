@@ -4,6 +4,7 @@ layout: Album
 lang: en
 order: date-desc
 cover: 2012-08-20_5D_1332_Artem_Sapegin
+date: Jan 1, 2000
 ---
 
 2013-07-27_0527_Artem_Sapegin

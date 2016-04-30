@@ -1,10 +1,11 @@
 ---
-title: Travel
+title: Dogs
 description: "See also personal albums of my dogs: [Dessi the dachshund](/albums/dachshund) and [Tsiri the saluki](/albums/saluki)."
 layout: Album
 lang: en
 order: date-desc
 cover: 2013-08-01_3402_Artem_Sapegin
+date: Jan 1, 2010
 ---
 
 2014-09-27_3218_Artem_Sapegin

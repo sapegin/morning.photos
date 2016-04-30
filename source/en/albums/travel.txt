@@ -3,11 +3,10 @@ title: Travel
 layout: Album
 lang: en
 order: date-desc
-cover: 2014-09-13_2791_Artem_Sapegin
+cover: 2013-08-02_3531_Artem_Sapegin
+date: Jan 1, 2015
 ---
 
-2014-10-13_3505_Artem_Sapegin
-2014-10-13_3483_Artem_Sapegin
 2014-01-02_5475_Artem_Sapegin
 2013-11-03_5344_Artem_Sapegin
 2013-11-03_5126_Artem_Sapegin
