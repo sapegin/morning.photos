@@ -1,13 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import { memoize } from 'lodash';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
 import { printError } from 'fledermaus/lib/util';
 
-// TODO: cache results to JSON file
-
-export function loadPhoto(folder, name) {
+export const loadPhoto = memoize((folder, name) => {
 	const filepath = path.resolve(folder, `${name}.jpg`);
 
 	let buffer;
@@ -25,7 +24,7 @@ export function loadPhoto(folder, name) {
 	const iptc = readIptc(buffer);
 
 	return parseMetadata(name, exif, iptc);
-}
+}, (folder, name) => `${folder}/${name}`);
 
 function parseMetadata(name, { imageSize, tags }, iptc) {
 	return {
