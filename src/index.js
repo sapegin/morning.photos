@@ -183,7 +183,7 @@ documents.push(...languages.reduce((result, lang) => {
 	let blogHomepageDoc = find(newDocs, { url: '/blog' });
 	let tagsWithCount = tags.map(tag => ({
 		id: tag,
-		utl: `/blog/tags/${tag}`,
+		url: `/blog/tags/${tag}`,
 		count: postsByTag[tag].length,
 	}));
 	blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
