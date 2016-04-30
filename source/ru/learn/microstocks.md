@@ -190,9 +190,9 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ## С какими микростоками стоит работать
 
-Я загружаю фотографии на [iStock](http://bit.ly/istock-homepage), [Shutterstock](http://submit.shutterstock.com/?ref=208096), [Fotolia](http://us.fotolia.com/partner/120735), [Dreamstime](http://www.dreamstime.com/#res191014) и [Лори](http://lori.ru/?ref=599). Пробовал грузить на другие, но с моим небольшим портфолио в этом нет смысла — я никогда не наберу там необходимой для вывода суммы.
+Я загружаю фотографии на [iStock](http://www.istockphoto.com/), [Shutterstock](http://submit.shutterstock.com/?ref=208096), [Fotolia](http://us.fotolia.com/partner/120735), [Dreamstime](http://www.dreamstime.com/#res191014) и [Лори](http://lori.ru/?ref=599). Пробовал грузить на другие, но с моим небольшим портфолио в этом нет смысла — я никогда не наберу там необходимой для вывода суммы.
 
-### [iStock](http://bit.ly/istock-homepage "Айсток") ([моё портфолио](http://bit.ly/istock-sapegin "Портфолио на Айстоке"))
+### [iStock](http://www.istockphoto.com/ "Айсток") ([моё портфолио](http://www.istockphoto.com/portfolio/sapegin "Портфолио на Айстоке"))
 
 <figure class="entry-figure-right"><a href="http://bit.ly/istock-homepage" title="Айсток"><img src="/images/stocks/istock.png" alt="iStock"></a></figure>
 
@@ -244,7 +244,7 @@ to your exact specifications"). 20 ключевых слов будут стои
 
 ## Сводная таблица микростоков
 
-| Название | [iStock](http://bit.ly/istock-homepage) | [Shutterstock](http://submit.shutterstock.com/?ref=208096) | [Fotolia](http://us.fotolia.com/partner/120735) | [Dreamstime](http://www.dreamstime.com/#res191014) | [Лори](http://lori.ru/?ref=599) |
+| Название | [iStock](http://www.istockphoto.com/) | [Shutterstock](http://submit.shutterstock.com/?ref=208096) | [Fotolia](http://us.fotolia.com/partner/120735) | [Dreamstime](http://www.dreamstime.com/#res191014) | [Лори](http://lori.ru/?ref=599) |
 | --- | --- | --- | --- | --- | --- |
 | **Продажа поштучно / по подписке** | Да / да | Да / да | Да / да | Да / да | Да / нет |
 | **Редакционное использование** | Да | Да | Нет | Да | Да |
