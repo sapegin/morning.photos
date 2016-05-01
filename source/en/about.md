@@ -105,8 +105,8 @@ copyrights:
     link: https://www.facebook.com/oflegontova
     label: Olga Flegontova
   -
-    link: https://www.facebook.com/svetlana.glazyrina.35
-    label: Svetlana Glazyrina
+    link: https://www.facebook.com/patil.a.chetan
+    label: Chetan Patil
   -
     link: http://koobassoff.deviantart.com/gallery/
     label: Sergey Kubasov
