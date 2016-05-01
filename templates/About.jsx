@@ -68,12 +68,12 @@ export default function($) {
 						{flow(markdown, typo)(about)}
 					</div>
 
-					<Group class="note">
-						{copyrightsLabel}
+					<div class="note">
+						{copyrightsLabel}{' '}
 						<Group glue=", " inline>
 							{copyrights.map(item => <a href={item.link}>{item.label}</a>)}
-						</Group>
-					</Group>
+						</Group>.
+					</div>
 				</div>
 			</div>
 
