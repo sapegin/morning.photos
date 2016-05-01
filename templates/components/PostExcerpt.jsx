@@ -11,7 +11,9 @@ export default function($, children) {
 	let firstPhoto;
 	if (isPhoto) {
 		firstPhoto = text.match(/<figure class="entry-photo">[\S\s]*?<\/figure>/);
-		text = text.replace(firstPhoto, '');
+		if (firstPhoto) {
+			text = text.replace(firstPhoto, '');
+		}
 	}
 
 	return (
@@ -20,7 +22,7 @@ export default function($, children) {
 				<header>
 					<h2 class={cx('entry-title', 'entry-title_excerpt' + (isPhoto ? '-photo' : ''))}>
 						<a class="entry-title__link" href={url}>
-							{isPhoto &&
+							{isPhoto && firstPhoto &&
 								<div class="essay__featured">{safe(firstPhoto)}</div>
 							}
 							{typoTitle(title)}

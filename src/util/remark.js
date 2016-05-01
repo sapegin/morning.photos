@@ -17,12 +17,7 @@ export function image() {
 				const slug = slugify(name);
 				node.value = (
 					<figure class="entry-photo">
-						<Photo slug={slug} size="medium" />
-						{child.title &&
-							<figcaption class="entry-photo__text">
-								<span class="entry-photo__title">{safe(markdown(child.title))}</span>
-							</figcaption>
-						}
+						<Photo slug={slug} size="medium" class="entry-photo__img" />
 					</figure>
 				);
 			}
@@ -36,7 +31,12 @@ export function image() {
 			else {
 				node.value = (
 					<figure class="entry-photo">
-						<img src={child.url} alt={child.title} />
+						<img src={child.url} alt={child.title} class="entry-photo__img" />
+						{child.title &&
+							<figcaption class="entry-photo__byline">
+								{safe(markdown(child.title))}
+							</figcaption>
+						}
 					</figure>
 				);
 			}

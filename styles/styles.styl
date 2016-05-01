@@ -234,35 +234,6 @@ body {
 	}
 }
 
-// TODO: replace with .photo-grid
-.entry-photo {
-	space(3);
-
-	& + &,
-	.l-row + &,
-	& + .l-row {
-		margin-top: (-(spacer));
-	}
-	.l-row & {
-		margin-top: 0;
-	}
-
-	&__photo {
-		max-width: 100%;
-		height: auto;
-	}
-
-	&__title {
-		font-size: small_font;
-	}
-
-	+below(1024px) {
-		margin-left: -(2*spacer);
-		margin-right: -(2*spacer);
-		text-align: center;
-	}
-}
-
 .entry-tip {
 	position: relative;
 	font-size: small_font;
