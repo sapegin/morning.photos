@@ -18,13 +18,13 @@ links:
       description: скайп
   -
     -
-      link: http://500px.com/sapegin
+      link: https://500px.com/sapegin
       label: 500px
     -
-      link: http://instagram.com/sapegin
+      link: https://www.instagram.com/sapegin/
       label: Инстаграм
     -
-      link: http://twitter.com/iamsapegin
+      link: https://twitter.com/sapegin
       label: Твитер
   -
     -
@@ -60,18 +60,18 @@ gear:
         - нейтральный фильтр ND8
         - пульт с таймером
       obsolete:
-        - Фотоальбом Epson P-2000
         - штатив Benro A-197 tripod + голова KB-2
         - штатив Manfrotto 728B со&nbsp;сломанными ногами
         - штатив Slik U&nbsp;7700
+        - Фотоальбом Epson P-2000
   -
     -
       current:
-        - 'Рюкзак [Dakine Sequence](http://birdwatcher.ru/blog/2117/ "Обзор фоторюкзака Dakine Sequence у меня в блоге")'
+        - 'Рюкзак [Dakine Sequence](http://birdwatcher.ru/blog/2117 "Обзор фоторюкзака Dakine Sequence у меня в блоге")'
         - сумка National Geographic 2345 bag
-        - '[Lowepro Transporter](http://store.lowepro.com/transporter-camera-strap) camera strap'
+        - ремень Lowepro Transporter
       obsolete:
-        - 'Рюкзак [Lowepro CompuTrekker Plus&nbsp;AW](http://birdwatcher.ru/blog/1669/ "Пара фотографий фоторюкзака CompuTrekker Plus AW у меня в блоге")'
+        - 'Рюкзак [Lowepro CompuTrekker Plus&nbsp;AW](http://birdwatcher.ru/blog/1669 "Пара фотографий фоторюкзака CompuTrekker Plus AW у меня в блоге")'
         - рюкзак Lowepro Mini Trekker Classic
         - рюкзак Lowepro Rover&nbsp;AW&nbsp;II
 software:
@@ -80,12 +80,12 @@ software:
       current:
         - |
           MacBook Pro 15",<br>
-          Adobe Lightroom CC + [500px](http://500px.com/lightroom "Публикация фотографий на 500px из Лайтрума"),<br>
+          Adobe Lightroom CC + [500px](https://500px.com/lightroom "Публикация фотографий на 500px из Лайтрума"),<br>
           Adobe Photoshop CC + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Панелька для создания яркостных масок")
   -
     -
       current:
-        - 'On iPhone: [Instagram](http://instagram.com/sapegin)'
+        - 'On iPhone: [Instagram](https://www.instagram.com/sapegin/)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
         - '[PhotoPills](http://www.photopills.com/ "Направление солнца и время закатов и рассветов и многое друге")'
         - '[HERE Maps](https://pages.here.com/app/ "Офлайновая карта с возможностью отмечать интересные места")'
@@ -102,24 +102,23 @@ software:
 copyrightsLabel: "Фотографии на этой странице:"
 copyrights:
   -
-    link: https://www.facebook.com/oflegontova
-    label: Ольга Флегонтова
+    link: http://svetlyak.ru/
+    label: Александр Артёменко
   -
-    link: https://www.facebook.com/patil.a.chetan
-    label: Четан Патил
+    link: http://zudochk.in/
+    label: Дима Зудочкин
   -
     link: http://koobassoff.deviantart.com/gallery/
     label: Сергей Кубасов
   -
-    link: http://svetlyak.ru/
-    label: Александр Артёменко
+    link: https://www.facebook.com/patil.a.chetan
+    label: Четан Патил
   -
     link: http://www.fourlittlepaws.com/
     label: Юля Титовец
   -
-    link: http://zudochk.in/
-    label: Дима Зудочкин
-
+    link: https://www.facebook.com/oflegontova
+    label: Ольга Флегонтова
 ---
 
 Моё увлечение фотографией началось совершенно случайно в 2004 году с покупки простой плёночной зеркалки. Почему-то я тогда захотел купить камеру и даже чуть не купил цифровую мыльницу, но решил, что зеркалка всё-таки круче. С тех пор не отпускает.

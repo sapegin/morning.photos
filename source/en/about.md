@@ -5,7 +5,7 @@ pageTitle: 'Artem Sapegin: about the photographer and his photo equipment'
 image: /images/about/equipment.jpg
 about: 'About the site: works on [Fledermaus](https://github.com/sapegin/fledermaus "My static site generator") and [Tâmia](http://sapegin.github.io/tamia/ "My front-end framework"); icons — [Genn Osipenko](http://genn.org/); hosting — [DigitalOcean](https://www.digitalocean.com/?refcode=bb49cbe65bb4).'
 gearAlt: Artem Sapegin’s photography kit
-workplaceAlt: Artem Sapegin’s work place
+workplaceAlt: Artem Sapegin’s workplace
 iphoneAlt: Photo processing in VSCO Cam on iPhone
 links:
   -
@@ -18,13 +18,13 @@ links:
       description: Skype
   -
     -
-      link: http://500px.com/sapegin
+      link: https://500px.com/sapegin
       label: 500px
     -
-      link: http://instagram.com/sapegin
+      link: https://www.instagram.com/sapegin/
       label: Instagram
     -
-      link: http://twitter.com/iamsapegin
+      link: https://twitter.com/iamsapegin
       label: Twitter
   -
     -
@@ -60,16 +60,16 @@ gear:
         - ND8 neutral density filter
         - remote release with a timer
       obsolete:
-        - Epson P-2000 photo storage
         - Benro A-197 tripod + KB-2 ball head
         - Manfrotto 728B tripod with broken legs
         - Slik U&nbsp;7700 tripod
+        - Epson P-2000 photo storage
   -
     -
       current:
         - Dakine Sequence backpack
         - National Geographic 2345 bag
-        - '[Lowepro Transporter](http://store.lowepro.com/transporter-camera-strap "Transporter camera strap on Lowepro site") camera strap'
+        - Lowepro Transporter camera strap
       obsolete:
         - Lowepro CompuTrekker Plus&nbsp;AW backpack
         - Lowepro Mini Trekker Classic backpack
@@ -80,12 +80,12 @@ software:
       current:
         - |
           MacBook Pro 15",<br>
-          Adobe Lightroom CC + [500px](http://500px.com/lightroom "Export photos to 500px"),<br>
+          Adobe Lightroom CC + [500px](https://500px.com/lightroom "Export photos to 500px"),<br>
           Adobe Photoshop CC + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Luminosity masks panel")
   -
     -
       current:
-        - 'On iPhone: [Instagram](http://instagram.com/sapegin)'
+        - 'On iPhone: [Instagram](https://www.instagram.com/sapegin/)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
         - '[PhotoPills](http://www.photopills.com/ "The best photo shoot planner for iPhone")'
         - '[HERE Maps](https://pages.here.com/app/ "The best offline map for iPhone")'
@@ -102,17 +102,17 @@ software:
 copyrightsLabel: "Photos on this page:"
 copyrights:
   -
+    link: http://svetlyak.ru/
+    label: Alexander Artemenko
+  -
     link: https://www.facebook.com/oflegontova
     label: Olga Flegontova
-  -
-    link: https://www.facebook.com/patil.a.chetan
-    label: Chetan Patil
   -
     link: http://koobassoff.deviantart.com/gallery/
     label: Sergey Kubasov
   -
-    link: http://svetlyak.ru/
-    label: Alexander Artemenko
+    link: https://www.facebook.com/patil.a.chetan
+    label: Chetan Patil
   -
     link: http://www.fourlittlepaws.com/
     label: Yulia Titovets
