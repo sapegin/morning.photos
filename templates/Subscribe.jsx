@@ -1,6 +1,5 @@
-import flow from 'lodash/flow';
 import PageWithTitle from './PageWithTitle';
-import Subscribe from './components/Subscribe';
+import SubscribeForm from './components/SubscribeForm';
 
 export default function($) {
 	const { content } = $;
@@ -8,7 +7,7 @@ export default function($) {
 	return (
 		<PageWithTitle {...$}>
 			<div class="subscribe-page">
-				<Subscribe {...$} from="Subscribe" extra={{ autofocus: true }} />
+				<SubscribeForm {...$} from="Subscribe" extra={{ autofocus: true }} />
 			</div>
 
 			<div class="text">{typo(content)}</div>
