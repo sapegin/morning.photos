@@ -21,7 +21,7 @@ export default function($) {
 					</div>
 
 					<PostMeta {...$} post={$} />
-					<Share {...$} title={$.title} />
+					<Share {...$} title={title} />
 				</article>
 
 				<Subscribe {...$} from="Blog" />
