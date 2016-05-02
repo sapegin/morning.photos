@@ -25,6 +25,7 @@ nextPage: Previously
 share:
   facebook: Share
   twitter: Tweet
+  pinterest: Pin
 
 tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'

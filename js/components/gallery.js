@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import hasTouch from 'has-touch';
+import socialLikes from 'social-likes-next';
 import { Component, registerComponent, onEvent, toggleState, data } from 'tamia';
 import { getPhotoUrl } from '../util/util';
 
@@ -75,7 +76,7 @@ class Gallery extends Component {
 
 		// Update navigation and info pane
 		this.updateNav(swiper);
-		this.updateInfo({ ...photo, title });
+		this.updateInfo({ ...photo, url, title, pageTitle });
 
 		// Track page view
 		if (window.yaCounter218061) {
@@ -96,7 +97,6 @@ class Gallery extends Component {
 		if (event.which === 27) {  // Escape
 			location.href = data(this.elem, 'albumUrl');
 		}
-		console.log(event.which);
 	}
 
 	updateNav(swiper) {
@@ -117,6 +117,14 @@ class Gallery extends Component {
 			const elem = this.getElem(name);
 			elem.innerHTML = value || '';
 			toggleState(elem, 'hidden', !value);
+		});
+
+		socialLikes(this.getElem('info-share'), {
+			url: photo.url,
+			title: photo.pageTitle,
+			data: {
+				media: getPhotoUrl(photo.slug, 'large'),
+			},
 		});
 	}
 
