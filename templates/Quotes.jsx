@@ -44,9 +44,7 @@ export default function($) {
 					))}
 				</div>
 
-				<div class="l-triple-space">
-					<Share {...$} title={pageTitle} />
-				</div>
+				<Share {...$} title={pageTitle} />
 			</div>
 
 			<Script src="/build/main.js" />

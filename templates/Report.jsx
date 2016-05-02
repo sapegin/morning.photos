@@ -9,9 +9,7 @@ export default function($) {
 			<div class="text">
 				{typo(content)}
 			</div>
-			<div class="l-triple-space">
-				<Share {...$} title={`${title} — photos by Artem Sapegin`} />
-			</div>
+			<Share {...$} title={`${title} — photos by Artem Sapegin`} />
 			<Script src="/build/main.js" />
 		</PageWithTitle>
 	);

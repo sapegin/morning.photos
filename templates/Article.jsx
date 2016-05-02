@@ -9,9 +9,7 @@ export default function($, children) {
 			<div class="text">
 				{typo(content)}
 
-				<div class="l-triple-space">
-					<Share {...$} />
-				</div>
+				<Share {...$} />
 			</div>
 
 			<Script src="/build/main.js" />
