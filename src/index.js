@@ -145,11 +145,11 @@ const postsByLanguage = groupDocuments(posts, 'lang');
 const languages = Object.keys(postsByLanguage);
 
 documents.push(...languages.reduce((result, lang) => {
-	const docs = postsByLanguage[lang];
+	const langPosts = postsByLanguage[lang];
 	let newDocs = [];
 
 	// Pagination
-	newDocs.push(...paginate(docs, {
+	newDocs.push(...paginate(langPosts, {
 		sourcePathPrefix: `${lang}/blog`,
 		urlPrefix: '/blog',
 		documentsPerPage: options.postsPerPage,
@@ -161,7 +161,7 @@ documents.push(...languages.reduce((result, lang) => {
 	}));
 
 	// Tags
-	const postsByTag = groupDocuments(docs, 'tags');
+	const postsByTag = groupDocuments(langPosts, 'tags');
 	const tags = Object.keys(postsByTag);
 	newDocs.push(...tags.reduce((tagsResult, tag) => {
 		let tagDocs = postsByTag[tag];
@@ -190,18 +190,15 @@ documents.push(...languages.reduce((result, lang) => {
 
 	// RSS feed
 	let feedDoc = find(documents, { url: '/feed', lang });
-	feedDoc.items = docs.slice(0, options.postsInFeed).map(({ title, content, url, date }) => ({
-		url,
-		date,
-		title,
-		description: content,
-	}));
+	feedDoc.items = langPosts.slice(0, options.postsInFeed);
 
 	// RSS feed: photos
-	// TODO
+	let photoFeedDoc = find(documents, { url: '/feed-photos', lang });
+	let photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
+	photoFeedDoc.items = photoPosts.slice(0, options.postsInFeed);
 
 	// Add list of important posts to the main and Learn pages
-	let importantPosts = filterDocuments(documents, { important: true, lang });
+	let importantPosts = filterDocuments(langPosts, { important: true });
 	let indexDoc = find(documents, { url: '/', lang });
 	indexDoc.importantPosts = importantPosts;
 	let learnDoc = find(documents, { url: '/learn', lang });
@@ -209,7 +206,7 @@ documents.push(...languages.reduce((result, lang) => {
 		learnDoc.importantPosts = importantPosts;
 	}
 
-	return [...result, ...docs, ...newDocs];
+	return [...result, ...langPosts, ...newDocs];
 }, []));
 
 /**
