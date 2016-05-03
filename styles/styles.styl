@@ -271,11 +271,13 @@ body {
 			&,
 			&:link,
 			&:visited {
+				link-underline(light_color);
 				color: light_color;
 			}
 			&:hover,
 			&:active,
 			&:focus {
+				link-underline(bg_color);
 				color: bg_color;
 			}
 		}
