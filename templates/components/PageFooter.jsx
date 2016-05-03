@@ -3,7 +3,7 @@ export default ({ author }) => (
 		<div class="copyrights content">
 			© <a href="http://sapegin.me/" class="link">{author}</a>,
 			{' '}
-			{(new Date()).getFullYear()}
+			2004—{(new Date()).getFullYear()}
 		</div>
 	</footer>
 );
