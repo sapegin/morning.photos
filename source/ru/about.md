@@ -12,10 +12,6 @@ links:
     -
       link: mailto:artem@sapegin.ru
       label: artem@sapegin.ru
-    -
-      link: skype:artemsapegin
-      label: artemsapegin
-      description: скайп
   -
     -
       link: https://500px.com/sapegin
@@ -23,6 +19,9 @@ links:
     -
       link: https://www.instagram.com/sapegin/
       label: Инстаграм
+    -
+      link: https://www.facebook.com/artemsapeginphoto/
+      label: Фейсбук
     -
       link: https://twitter.com/sapegin
       label: Твитер
