@@ -14,14 +14,14 @@ links:
       label: artem@sapegin.ru
   -
     -
-      link: https://500px.com/sapegin
-      label: 500px
-    -
       link: https://www.instagram.com/sapegin/
       label: Инстаграм
     -
       link: https://www.facebook.com/artemsapeginphoto/
       label: Фейсбук
+    -
+      link: https://500px.com/sapegin
+      label: 500 пикселей
     -
       link: https://twitter.com/sapegin
       label: Твитер
