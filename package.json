@@ -24,7 +24,8 @@
     "has-touch": "~1.0.1",
     "social-likes-next": "~1.0.0",
     "swiper": "~3.3.1",
-    "tamia": "~2.0.6"
+    "tamia": "~2.0.6",
+    "tamia-ajax-form": "~0.1.0"
   },
   "devDependencies": {
     "babel-cli": "~6.6.5",
