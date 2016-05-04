@@ -11,8 +11,9 @@ import 'tamia/lib/modules/richtypo';
 
 import 'social-likes-next';
 
-import './components/gallery';
-import './components/featured';
 import './components/cut';
+import './components/featured';
+import './components/gallery';
+import './components/subscribe';
 
 import '../styles/index.styl';

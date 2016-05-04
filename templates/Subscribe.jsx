@@ -3,7 +3,7 @@ import SubscribeForm from './components/SubscribeForm';
 
 export default function($) {
 	const { content } = $;
-	const { typo } = $;
+	const { typo, Script } = $;
 	return (
 		<PageWithTitle {...$}>
 			<div class="subscribe-page">
@@ -11,6 +11,8 @@ export default function($) {
 			</div>
 
 			<div class="text">{typo(content)}</div>
+
+			<Script src="/build/main.js"/>
 		</PageWithTitle>
 	);
 }

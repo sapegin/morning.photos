@@ -33,7 +33,7 @@ tags:
 
 subscribe:
   url: "http://photos.us8.list-manage.com/subscribe/post"
-  endpoint: "http://birdwatcher.us8.list-manage.com/subscribe/post-json?c=?"
+  endpoint: "http://birdwatcher.us8.list-manage.com/subscribe/post-json"
   title: Subscribe to my newsletter about photography
   info: New photos, ebooks and everything else I’m going to create. Not very often, no spam.
   emailLabel: Your email

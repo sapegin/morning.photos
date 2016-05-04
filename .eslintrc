@@ -2,5 +2,8 @@
 	"extends": "tamia",
 	"rules": {
 		"no-unused-vars": 0
+	},
+	"globals": {
+		"mixpanel": false
 	}
 }
