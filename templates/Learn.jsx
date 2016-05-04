@@ -34,7 +34,7 @@ export default function($) {
 							</li>
 							<li class="articles-list__item">
 								<a href="/learn/quotes" class="link">Цитаты о фотографии и искусстве</a>
-								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
+								<div class="articles-list__description">Фотографы, художники и писатели</div>
 							</li>
 							<li class="articles-list__item">
 								<a href="/learn/funquotes" class="link">Фотография где</a>
@@ -43,7 +43,7 @@ export default function($) {
 							<li class="articles-list__item">
 								<a href="/subscribe" class="link">Рассылка сайта</a>
 								<div class="articles-list__description">
-									Фотографии, анонсы моих электронных книг и т. п.
+									Фотографии, статьи, новые проекты
 								</div>
 							</li>
 						</ul>
