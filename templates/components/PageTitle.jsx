@@ -8,7 +8,7 @@ export default ({
 	<div class="entry-header">
 		<h1 class="entry-title">{typoTitle(title)}</h1>
 		{showDescription && description &&
-			<div class="entry-excerpt">{flow(markdown, typo)(description)}</div>
+			<div class="entry-excerpt text">{flow(markdown, typo)(description)}</div>
 		}
 	</div>
 );
