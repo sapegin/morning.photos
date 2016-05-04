@@ -29,16 +29,16 @@ export default function($) {
 								</div>
 							</li>
 							<li class="articles-list__item">
+								<a href="/learn/microstocks" class="link">Микростоки</a>
+								<div class="articles-list__description">Как продавать фотографии в интернете</div>
+							</li>
+							<li class="articles-list__item">
 								<a href="/learn/quotes" class="link">Цитаты о фотографии и искусстве</a>
 								<div class="articles-list__description">Фотографы, художники, писатели и все, все, все</div>
 							</li>
 							<li class="articles-list__item">
 								<a href="/learn/funquotes" class="link">Фотография где</a>
 								<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
-							</li>
-							<li class="articles-list__item">
-								<a href="/learn/microstocks" class="link">Микростоки</a>
-								<div class="articles-list__description">Как продавать фотографии в интернете</div>
 							</li>
 							<li class="articles-list__item">
 								<a href="/subscribe" class="link">Рассылка сайта</a>
