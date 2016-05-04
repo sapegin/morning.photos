@@ -1,5 +1,3 @@
-import { Group } from 'fledermaus/lib/components';
-
 export default ({
 	title, url,
 	__, absolutizeUrl,
