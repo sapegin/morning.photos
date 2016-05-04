@@ -64,11 +64,11 @@ export default function($) {
 
 					<AboutGearList list={software} {...$} />
 
-					<div class="note">
+					<div class="note text">
 						{flow(markdown, typo)(about)}
 					</div>
 
-					<div class="note">
+					<div class="note text">
 						{copyrightsLabel}{' '}
 						<Group glue=", " inline>
 							{copyrights.map(item => <a href={item.link}>{item.label}</a>)}

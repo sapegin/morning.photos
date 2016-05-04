@@ -7,15 +7,19 @@ export default ({ list, typo }) => (
 		{list.map(column => (
 			<div class="l-third">
 				{column.map(items => (
-					<ul class="about-list">
+					<ul class="about-list text">
 						{items.current &&
 							<li class="about-list__item">
-								<Group glue=", ">{items.current.map(flow(markdown, typo))}</Group>
+								<Group glue=", ">
+									{items.current.map(flow(markdown, typo))}
+								</Group>
 							</li>
 						}
 						{items.obsolete &&
 							<li class="about-list__item about-list__item_obsolete">
-								<Group glue=", ">{items.obsolete.map(item => <del>{typo(item)}</del>)}</Group>
+								<Group glue=", ">
+									{items.obsolete.map(item => <del>{flow(markdown, typo)(item)}</del>)}
+								</Group>
 							</li>
 						}
 					</ul>
