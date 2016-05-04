@@ -2,6 +2,7 @@ import Page from './Page';
 import PostMeta from './components/PostMeta';
 import Subscribe from './components/Subscribe';
 import Share from './components/Share';
+import Comments from './components/Comments';
 
 export default function($) {
 	const { title, content } = $;
@@ -25,6 +26,8 @@ export default function($) {
 				</article>
 
 				<Subscribe {...$} from="Blog" />
+
+				<Comments {...$} />
 			</div>
 
 			<Script src="/build/main.js"/>
