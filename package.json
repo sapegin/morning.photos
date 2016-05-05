@@ -9,16 +9,11 @@
     "test": "npm run lint",
     "start": "tamia server --lang en",
     "start:ru": "tamia server --lang ru",
-    "build": "node lib",
-    "build:es": "babel-node src",
-    "build:watch": "chokidar templates source config lib -c 'node lib'",
-    "build:watch:es": "chokidar templates source config src -c 'babel-node src'",
-    "compile": "babel -d lib src",
-    "compile:watch": "babel --watch -d lib src",
+    "build": "babel-node src",
+    "build:watch": "chokidar templates source config src -c 'babel-node src'",
     "bundle": "tamia bundle",
     "lint": "eslint js src",
-    "sizes": "node lib/sizes",
-    "sizes:es": "babel-node src/sizes"
+    "sizes": "babel-node src/sizes"
   },
   "dependencies": {
     "has-touch": "~1.0.1",
