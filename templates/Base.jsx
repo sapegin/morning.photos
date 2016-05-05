@@ -2,7 +2,7 @@ const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, 
 
 export default function($, children) {
 	const { lang, title, viewportExtra, noIndex, pageType } = $;
-	const { getPageTitle, getMetaTags, getBodyClasses } = $;
+	const { getPageTitle, getMetaTags, getBodyClasses, Style, Script } = $;
 	return (
 		<html lang={lang}>
 			<head>
@@ -15,9 +15,8 @@ export default function($, children) {
 
 				{/* <link rel="alternative" href={$.rss} title={$.option('blogTitle')} type="application/atom+xml" /> */}
 
-				<$.Style src="/build/styles.css" />
-
-				{/* <Script src="build/counters.js" inline /> */}
+				<Style src="/build/styles.css" />
+				<Script src="/build/counters.js" inline />
 			</head>
 			<body class={getBodyClasses(pageType)}>
 				{children}
