@@ -17,7 +17,7 @@ export default function($) {
 									{books.slice(0, 5).map(book => {
 										const alt = `${book.author}. ${book.title}`;
 										return (
-											<a href={`/reading/${book.id}`} title={alt} class="latest-books__item">
+											<a href={`/learn/reading#${book.id}`} title={alt} class="latest-books__item">
 												<img
 													src={`/images/books/${book.id}.jpg`}
 													alt={alt}
