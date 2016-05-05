@@ -45,7 +45,7 @@ export default ({
 			<div
 				class="pinterest"
 				title="Share photo on Pinterest"
-				data-image={absolutizeUrl(getPhotoUrl(slug, 'large'))}
+				data-media={absolutizeUrl(getPhotoUrl(slug, 'large'))}
 			>
 				{__('share.pinterest')}
 			</div>

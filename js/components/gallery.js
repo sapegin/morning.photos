@@ -123,7 +123,8 @@ class Gallery extends Component {
 			url: photo.url,
 			title: photo.pageTitle,
 			data: {
-				media: getPhotoUrl(photo.slug, 'large'),
+				// XXX
+				media: 'http://morning.photos/' + getPhotoUrl(photo.slug, 'large'),
 			},
 		});
 	}
