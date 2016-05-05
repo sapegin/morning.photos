@@ -4,6 +4,7 @@ path='sites/morning.photos'
 [deploy:local]
 command rm -rf public/en
 command rm -rf public/ru
+npm run bundle
 npm run sizes
 npm run build
 echo "Syncing blog..."
