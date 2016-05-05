@@ -1,9 +1,10 @@
-import url from 'url';
 import visit from 'unist-util-visit';
 import { trim } from 'lodash';
 import { safe, markdown } from 'fledermaus/lib/util';
 import { slugify } from './gallery';
 import Photo from '../../templates/components/Photo';
+
+const PHOTO_PROTOCOL = 'photo://';
 
 export function image() {
 	return ast => visit(ast, 'paragraph', node => {
@@ -12,8 +13,8 @@ export function image() {
 			let extra = node.children.length > 1 && node.children.pop();
 			node.children = null;
 			node.type = 'html';
-			if (child.url.startsWith('photo://')) {
-				const name = url.parse(child.url).host;
+			if (child.url.startsWith(PHOTO_PROTOCOL)) {
+				const name = child.url.substring(PHOTO_PROTOCOL.length);
 				const slug = slugify(name);
 				node.value = (
 					<figure class="entry-photo">
