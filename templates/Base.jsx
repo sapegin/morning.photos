@@ -2,7 +2,7 @@ const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, 
 
 export default function($, children) {
 	const { lang, title, viewportExtra, noIndex, pageType } = $;
-	const { getPageTitle, getMetaTags, getBodyClasses, Style, Script } = $;
+	const { getPageTitle, getMetaTags, getBodyClasses, Style, Script, __ } = $;
 	return (
 		<html lang={lang}>
 			<head>
@@ -13,7 +13,7 @@ export default function($, children) {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				{getMetaTags()}
 
-				{/* <link rel="alternative" href={$.rss} title={$.option('blogTitle')} type="application/atom+xml" /> */}
+				<link rel="alternative" href="/feed.xml" title={__('titleBlog')} type="application/atom+xml" />
 
 				<Style src="/build/styles.css" />
 				<Script src="/build/counters.js" inline />
