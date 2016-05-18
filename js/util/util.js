@@ -29,3 +29,15 @@ export function getPhotoUrl(slug, size) {
 export function getPhotoFilename(slug, size) {
 	return `${slug}-${size}.jpg`;
 }
+
+/**
+ * Strip HTML tags.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function stripTags(html) {
+	let elem = document.createElement('div');
+	elem.innerHTML = html;
+	return elem.textContent || '';
+}

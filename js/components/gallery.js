@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import hasTouch from 'has-touch';
 import socialLikes from 'social-likes-next';
 import { Component, registerComponent, onEvent, toggleState, data } from 'tamia';
-import { getPhotoUrl } from '../util/util';
+import { getPhotoUrl, stripTags } from '../util/util';
 
 const URL_REG_EXP = /\/([-\d]+)$/;
 
@@ -66,7 +66,7 @@ class Gallery extends Component {
 		const title = photo.title || '***';
 
 		// Update page title
-		const pageTitle = document.title = [title, this.siteTitle].join(' — ');
+		const pageTitle = document.title = [stripTags(title), this.siteTitle].join(' — ');
 
 		// Update URL
 		const url = location.href.replace(URL_REG_EXP, `/${photo.slug}`);
