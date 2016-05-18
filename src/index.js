@@ -16,7 +16,7 @@ import {
 	createTemplateRenderer,
 	helpers as defaultHelpers,
 } from 'fledermaus';
-import { getDateTimeFormat, printError } from 'fledermaus/lib/util';
+import { getDateTimeFormat } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
