@@ -86,4 +86,8 @@ unlisted: true
 2014-01-18_6052_Artem_Sapegin
 2014-05-17_7270_Artem_Sapegin
 2014-05-25_7670_Artem_Sapegin
+2014-08-18_2177_Artem_Sapegin
+2014-08-18_2256_Artem_Sapegin
+2014-08-18_2310_Artem_Sapegin
+2014-08-18_2313_Artem_Sapegin
 2016-03-19_5850_Artem_Sapegin
