@@ -8,4 +8,4 @@ npm run bundle
 npm run sizes
 npm run build
 echo "Syncing blog..."
-rsync --archive --compress --force --delete public/ $SSH_HOST:$SSH_PATH
+rsync --recursive --links --compress --force --delete --checksum public/ $SSH_HOST:$SSH_PATH
