@@ -17,3 +17,6 @@ import './components/gallery';
 import './components/subscribe';
 
 import '../styles/index.styl';
+
+import SweetScroll from 'sweet-scroll';
+new SweetScroll();

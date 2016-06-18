@@ -1,6 +1,5 @@
 import flow from 'lodash/flow';
 import { markdownBlock } from 'fledermaus/lib/util';
-import { Group } from 'fledermaus/lib/components';
 import books, { booksPubDate } from '../src/data/books';
 import PageWithTitle from './PageWithTitle';
 import Share from './components/Share';
@@ -53,7 +52,7 @@ export default function($) {
 											alt={`${book.author}. ${book.title}`}
 											class="book-review__img"
 										/>
-										<div class={`book-review__rating`}>
+										<div class="book-review__rating">
 											{rating(book.rating)}
 										</div>
 									</div>
