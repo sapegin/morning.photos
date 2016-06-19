@@ -4,7 +4,7 @@
 	background: bg_color;
 
 	// Add padding to first and last columns to align gaps with .photo-grid
-	+below(1024px) {
+	+between(741px, 1024px) {
 		.l-row {
 			margin-side: (-(3*spacer));
 		}
@@ -13,6 +13,13 @@
 		}
 		.l-row > :last-child {
 			padding-right: 3*spacer;
+		}
+	}
+
+	+below(740px) {
+		.l-two-thirds,
+		.l-third {
+			layout-stop();
 		}
 	}
 }
