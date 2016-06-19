@@ -6,7 +6,7 @@ export default function($) {
 	const { typo, Script } = $;
 	return (
 		<PageWithTitle {...$}>
-			<div class="subscribe-page">
+			<div class="l-quad-space">
 				<SubscribeForm {...$} from="Subscribe" extra={{ autofocus: true }} />
 			</div>
 

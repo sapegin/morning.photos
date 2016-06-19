@@ -1,0 +1,58 @@
+.essay {
+	space(6);
+
+	&_photo {
+		tweak-inverted-text();
+		margin-left: (-(2*spacer));
+		margin-right: (-(2*spacer));
+		padding: 8*spacer 2*spacer;
+		background: base_color;
+		color: bg_color;
+
+		.essay__content a,
+		.essay__meta a {
+			&,
+			&:link,
+			&:visited {
+				link-underline(light_color);
+				color: light_color;
+			}
+			&:hover,
+			&:active,
+			&:focus {
+				link-underline(bg_color);
+				color: bg_color;
+			}
+		}
+	}
+
+	&_photo + &_photo {
+		margin-top: (-(14*spacer));
+	}
+
+	&__header {
+		space(2);
+	}
+
+	&__content {
+		space(2);
+
+		h2 {
+			@extend .gamma;
+		}
+	}
+
+	&_single &__meta {
+		space();
+	}
+
+	&__pubdate {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	&__discuss {
+		space(1);
+		font-size: 16px;
+	}
+}

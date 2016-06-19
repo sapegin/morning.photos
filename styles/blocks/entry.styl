@@ -1,0 +1,98 @@
+.entry,
+.entry-content {
+	font-size: content_font;
+
+	p,
+	ul,
+	ol {
+		line-height: 1.6;
+		font-weight: 300;
+	}
+}
+
+.entry-header {
+	space(3);
+}
+
+.entry-title {
+	@extend .alpha;
+	margin-bottom: 10px;
+
+	&__link {
+		&,
+		&:link,
+		&:visited,
+		&:hover,
+		&:active,
+		&:focus {
+			color: base_color;
+			text-decoration: none;
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			border-bottom: 2px solid;
+		}
+	}
+
+	&_excerpt,
+	&_excerpt-photo {
+		@extend .beta;
+	}
+
+	&_excerpt-photo {
+		space(2);
+
+		.entry-title__link {
+			&,
+			&:link,
+			&:visited,
+			&:hover,
+			&:active,
+			&:focus {
+				color: bg_color;
+			}
+		}
+	}
+}
+
+.entry-content {
+	space(4);
+}
+
+.entry-excerpt {
+	space(0.5);
+	font-size: small_font;
+
+	&:last-child {
+		space(0);
+	}
+}
+
+.entry-pubdate {
+	font-size: small_font;
+}
+
+.entry-tags {
+	font-size: small_font;
+
+	&__separator {
+		display: inline-block;
+		margin-right: .3em;
+	}
+}
+
+.entry-tip {
+	position: relative;
+	font-size: small_font;
+
+	&:before {
+		content: "\261e";
+		position: absolute;
+		top: -.25em;
+		left: -(1em + .3em);
+		width: 1em;
+		text-align: right;
+		font-size: 23px;
+	}
+}

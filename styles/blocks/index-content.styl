@@ -51,7 +51,7 @@ visible_part_height = normal_font*2.5;
 
 		&__about {
 			space(3);
-			no-cols();
+			width: 100%;
 
 			.articles-list__item {
 				display: inline-block;
@@ -67,11 +67,11 @@ visible_part_height = normal_font*2.5;
 	+below(500px) {
 		&__blog,
 		&__learn {
-			no-cols();
+			width: 100%;
 		}
 
 		&__learn {
-			space(3);
+			space(2);
 		}
 	}
 }
