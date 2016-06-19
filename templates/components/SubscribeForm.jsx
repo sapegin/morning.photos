@@ -4,7 +4,7 @@ export default ({
 }) => (
 	<u-subscribe data-action={option('subscribe.endpoint')} data-from={from}>
 		<form action={option('subscribe.url')} method="post" class="form subscribe js-subscribe-form">
-			<div class="l-wrap l-space">
+			<div class="subscribe__form l-wrap l-space">
 				<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209" />
 				<input type="hidden" name="id" value="e0d45226cc" />
 				<div class="subscribe__honey">
