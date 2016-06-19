@@ -5,7 +5,7 @@ export default function($) {
 	const { importantPosts } = $;
 	const { typo } = $;
 	return (
-		<PageWithTitle {...$}>
+		<PageWithTitle pageType="learn" {...$}>
 			<div class="l-row text">
 				<div class="l-half">
 					<div class="articles-list">
