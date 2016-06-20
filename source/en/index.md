@@ -25,11 +25,11 @@ links2:
     link: /about
     label: About me
   -
+    link: /subscribe
+    label: Subscribe to photography newsletter
+  -
     link: /buy
     label: Buy my photos
-  -
-    link: /subscribe
-    label: Subscribe to my newsletter
 ---
 
 Hi! I’m Artem. I’m a web developer and passionate photographer living in Berlin, Germany. I love shooting nature, cities and dogs.

@@ -40,9 +40,9 @@ export default function($) {
 							<div class="articles-list__description">Смешные цитаты с фотофорумов</div>
 						</li>
 						<li class="articles-list__item">
-							<a href="/subscribe" class="link">Рассылка сайта</a>
+							<a href="/subscribe" class="link">Рассылка о фотографии</a>
 							<div class="articles-list__description">
-								Фотографии, статьи, новые проекты
+								Мои заметки и ссылки на лучшие статьи
 							</div>
 						</li>
 					</ul>

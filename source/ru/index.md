@@ -6,6 +6,10 @@ description: Пейзаж, городской пейзаж, путешестви
 blogTitle: 'Интересное в <a href="/blog" class="link">блоге</a>:'
 links:
   -
+    link: /subscribe
+    label: Рассылка о фотографии
+    description: Мои заметки и ссылки на лучшие статьи
+  -
     link: /learn/reading
     label: Книги о фотографии
     description: Рецензии на прочитанные мной книги
@@ -21,10 +25,6 @@ links:
     link: /learn/funquotes
     label: Фотография где
     description: Смешные цитаты с фотофорумов
-  -
-    link: /subscribe
-    label: Рассылка сайта
-    description: Фотографии, статьи, новые проекты
 links2:
   -
     link: /about

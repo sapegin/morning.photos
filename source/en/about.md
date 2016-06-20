@@ -28,7 +28,7 @@ links:
   -
     -
       link: /subscribe
-      label: Subscribe to my newsletter
+      label: Subscribe to photography newsletter
     -
       link: /buy
       label: Buy my photos
