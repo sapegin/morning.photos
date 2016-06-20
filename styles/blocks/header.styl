@@ -1,26 +1,30 @@
 .header {
-	space(2);
-	display: flex;
-	justify-content: space-between;
+	&-i {
+		space(2);
+		display: flex;
+		justify-content: space-between;
+	}
 
 	+below(740px) {
-		display: block;
-		text-align: center;
+		&-i {
+			display: block;
+			text-align: center;
+		}
 	}
-}
 
-.index {
-	.header {
+	.page_has-splash & {
+		position: relative;
+		z-index: 9999999;
+	}
+	.page_has-splash &-i {
 		position: absolute;
 		left: 0;
 		right: 0;
-		padding: spacer;
 		margin: 0;
 		max-width: none;
-		text-shadow: 0 0 3px black(.5);
 	}
-	.header-i {
-		position: relative;
-		z-index: 9999999;
+
+	.page_inverted-head & {
+		text-shadow: 0 0 2px black(.3);
 	}
 }

@@ -1,15 +1,11 @@
 ---
 layout: Subscribe
 lang: en
-title: Subscribe to my newsletter
-pageTitle: Artem Sapegin Photography Mail List
-description: New photos, ebooks and everything else I’m going to create.
+title: Subscribe to my photography newsletter
+pageTitle: Artem Sapegin’s Photography Newsletter
+description: Links to interesting articles about photography, my new photos and posts.
+note: Somewhat monthly, no spam, unsubscribe at any time.
 image: 2010-07-06_7750
 ---
 
-- New photos, ebooks and everything else I’m going to create.
-- One issue per month on average. Maybe more, most probably less.
-- No spam. I won’t sell your email.
-- You have 78¹ years to unsubscribe.
-
-<p class="note">¹ The average life expectancy in Europe according to Statista Inc.</p>
+In the newsletter I share links to interesting articles on photography, notes, not published in my blog and my new photos and posts.

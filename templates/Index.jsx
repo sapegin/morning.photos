@@ -9,11 +9,9 @@ export default function($) {
 	const photos = option('featured').map(slugify);
 	const posts = importantPosts.slice(0, 5).map(({ url, title }) => ({ link: url, label: title }));
 	return (
-		<Base {...$} pageType={['index', 'inverted-head']}>
+		<Base {...$} pageType={['index', 'inverted-head', 'has-splash']}>
 			<div class="index">
-				<div class="header-i content">
-					<PageHeader menu={option('menu')} title={__('title')} url={url} />
-				</div>
+				<PageHeader menu={option('menu')} title={__('title')} url={url} />
 				<u-featured>
 					<div class="index__gallery swiper-container js-featured-container">
 						<div class="swiper-wrapper js-featured-wrapper"></div>

@@ -6,20 +6,15 @@ import Page from './Page';
 import PhotoGrid from './components/PhotoGrid';
 import AboutTriptych from './components/AboutTriptych';
 import AboutGearList from './components/AboutGearList';
+import Splash from './components/Splash';
 
 export default function($) {
 	const { content, links, gearAlt, gear, workplaceAlt, iphoneAlt, software, about, copyrightsLabel, copyrights } = $;
 	const { typo, option, Script } = $;
 	const author = option('author');
 	return (
-		<Page {...$} pageType={['about', 'inverted-head']}>
-			<div class="about-splash">
-				<div class="about-splash-i">
-					<div class="about-splash__img js-parallax"></div>
-				</div>
-			</div>
-
-			<Script src="build/parallax.js" inline />
+		<Page {...$} pageType={['inverted-head', 'has-splash']}>
+			<Splash src="/images/about/splash.jpg" mod="about" />
 
 			<div class="about-content">
 				<div class="content">
