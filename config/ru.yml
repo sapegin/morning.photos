@@ -37,6 +37,7 @@ tags:
   title: '{total, plural, one{# пост} few{# поста} many{# постов} other{# поста}} с тегом «{tag}»'
 
 subscribe:
+  id: e0d45226cc
   url: "http://birdwatcher.us8.list-manage.com/subscribe/post"
   endpoint: "http://birdwatcher.us8.list-manage.com/subscribe/post-json"
   title: 'Подпишитесь на мою рассылку о фотографии'

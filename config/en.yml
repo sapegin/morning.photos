@@ -33,6 +33,7 @@ tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'
 
 subscribe:
+  id: 8b1db7df42
   url: "http://photos.us8.list-manage.com/subscribe/post"
   endpoint: "http://photos.us8.list-manage.com/subscribe/post-json"
   title: Subscribe to my photography newsletter

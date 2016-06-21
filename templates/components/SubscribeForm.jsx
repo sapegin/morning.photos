@@ -6,9 +6,14 @@ export default ({
 		<form action={option('subscribe.url')} method="post" class="form subscribe js-subscribe-form">
 			<div class="subscribe__form l-wrap l-space">
 				<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209" />
-				<input type="hidden" name="id" value="e0d45226cc" />
+				<input type="hidden" name="id" value={option('subscribe.id')} />
 				<div class="subscribe__honey">
-					<input type="text" name="b_de175cf2070fa3cfd7d3ad209_e0d45226cc" tabindex="-1" value="" />
+					<input
+						type="text"
+						name={`b_de175cf2070fa3cfd7d3ad209_${option('subscribe.id')}`}
+						tabindex="-1"
+						value=""
+					/>
 				</div>
 				<div class="subscribe__field-col l-left">
 					<input
