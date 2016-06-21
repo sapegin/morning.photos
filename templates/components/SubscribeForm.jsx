@@ -8,7 +8,7 @@ export default ({
 				<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209" />
 				<input type="hidden" name="id" value={option('subscribe.id')} />
 				<input type="hidden" name="SIGNUP" value={from} />
-				<div class="subscribe__honey">
+				<div class="subscribe__honey" aria-hidden="true">
 					<input
 						type="text"
 						name={`b_de175cf2070fa3cfd7d3ad209_${option('subscribe.id')}`}
