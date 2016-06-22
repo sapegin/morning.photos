@@ -1,8 +1,20 @@
 export default ({
-	option,
+	url,
+	absolutizeUrl, safe, option,
 }) => (
-	<div class="comments">
-		<a class="muut" href={`https://muut.com/i/${option('moot')}/comments`} type="dynamic">{option('moot')}</a>
-		<script src="//cdn.muut.com/1/moot.min.js"></script>
+	<div class="l-quad-space">
+		<div id="disqus_thread"></div>
+		<script>{safe(`
+			var disqus_config = function () {
+				this.page.url = ${JSON.stringify(absolutizeUrl(url))};
+				this.page.identifier = ${JSON.stringify(url)};
+			};
+			(function() {
+				var d = document, s = d.createElement('script');
+				s.src = '//${option('disqus')}.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
+		`)}</script>
 	</div>
 );

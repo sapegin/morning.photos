@@ -25,7 +25,9 @@ export default function($) {
 					<Share {...$} title={title} />
 				</article>
 
-				<Subscribe {...$} from="Blog" />
+				<div class="l-quad-space">
+					<Subscribe {...$} from="Blog" />
+				</div>
 
 				<Comments {...$} />
 			</div>
