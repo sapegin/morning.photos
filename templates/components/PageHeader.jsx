@@ -15,7 +15,7 @@ export default ({ menu, url, title }) => (
 						{itemUrl === url ? (
 							<span class="nav__label is-active">{itemTitle}</span>
 						) : (
-							<a class={cx('nav__label', { 'is-active': url.startsWith(itemUrl) })} href={itemUrl}>{itemTitle}</a>
+							<a class={cx('nav__link', { 'is-active': url.startsWith(itemUrl) })} href={itemUrl}>{itemTitle}</a>
 						)}
 					</div>
 				))}

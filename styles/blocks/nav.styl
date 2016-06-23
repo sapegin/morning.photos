@@ -6,19 +6,25 @@
 		padding: 0 .4em;
 	}
 
-	&__label {
-		+link-all-states() {
-			font-size: normal_font;
-			color: base_color;
-		}
+	&__link {
+		dark-link();
+		font-size: normal_font;
 	}
 
+	&__label {
+		font-size: normal_font;
+		cursor: default;
+	}
 	&__label.is-active {
 		font-weight: bold;
+
 	}
 }
 
-.page_inverted-head .nav__label {
-	tweak-inverted-text();
-	color: light_hover_color;
+.page_inverted-head {
+	.nav__link,
+	.nav__label {
+		tweak-inverted-text();
+		color: light_hover_color;
+	}
 }
