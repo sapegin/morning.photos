@@ -119,9 +119,7 @@ export function getMetaTags() {
 		og('og:site_name', this.getSiteName()),
 		og('og:description', description),
 		meta('twitter:card', twType),
-		meta('twitter:title', title),
-		meta('twitter:description', description),
-		meta('twitter:creator', '@' + this.option('twitter'))
+		meta('twitter:site', '@' + this.option('twitter'))
 	);
 
 	return tags;
