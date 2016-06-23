@@ -3,16 +3,16 @@ lang: ru
 layout: Books
 title: Мои книги
 pageTitle: "Электронные книги о фотографии Артёма Сапегина"
-image: /images/ebooks/curonian-spit/curonian-spit-ebook-cover.jpg
+image: /images/ebooks/curonian-spit/curonian-spit-ru-cover.jpg
 books:
   -
     id: curonian-spit
-    caption: "Куршская коса: рассказ фотографа"
+    caption: "Куршская коса: заметки фотографа"
     description: |
       Рассказ фотографа о поездке на Куршскую косу в Калининградской области.
 
       Галерея; несколько слов о съёмке каждой из 18 фотографий; эссе о том, что дала мне эта поездка как фотографу, что изменилось в моём подходе к съёмке и обработке.
-      
+
     features:
       - PDF
       - 37 страниц
