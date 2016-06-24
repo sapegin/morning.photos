@@ -38,8 +38,8 @@ tags:
 
 subscribe:
   id: e0d45226cc
-  url: "http://birdwatcher.us8.list-manage.com/subscribe/post"
-  endpoint: "http://birdwatcher.us8.list-manage.com/subscribe/post-json"
+  url: "https://birdwatcher.us8.list-manage.com/subscribe/post"
+  endpoint: "https://birdwatcher.us8.list-manage.com/subscribe/post-json"
   title: 'Подпишитесь на мою рассылку о фотографии'
   info: 'Мои заметки и ссылки на лучшие статьи о фотографии. Не слишком часто, без спама.'
   emailLabel: Ваша почта
