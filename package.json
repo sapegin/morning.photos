@@ -24,18 +24,18 @@
     "tamia-ajax-form": "~0.1.0"
   },
   "devDependencies": {
-    "babel-cli": "~6.9.0",
-    "babel-eslint": "~6.0.4",
+    "babel-cli": "~6.10.1",
+    "babel-eslint": "~6.1.0",
     "babel-plugin-transform-react-jsx": "~6.8.0",
     "babel-preset-tamia": "~6.8.0",
     "chokidar-cli": "~1.2.0",
     "classnames": "~2.2.5",
-    "eslint": "~2.10.2",
+    "eslint": "~2.13.1",
     "eslint-config-tamia": "~2.0.1",
     "exif-parser": "~0.1.9",
-    "fledermaus": "~5.0.2",
+    "fledermaus": "~5.0.3",
     "fs-extra": "~0.30.0",
-    "glob": "~7.0.3",
+    "glob": "~7.0.5",
     "lodash": "~4.13.1",
     "minimist": "~1.2.0",
     "node-iptc": "~1.0.4",
@@ -44,7 +44,7 @@
     "sharp": "~0.15.0",
     "tamia-build": "~0.4.0",
     "unist-util-visit": "~1.1.0",
-    "yamljs": "~0.2.7"
+    "yamljs": "~0.2.8"
   },
   "repository": {
     "type": "git",
