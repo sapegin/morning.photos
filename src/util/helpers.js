@@ -118,6 +118,7 @@ export function getMetaTags() {
 		og('og:url', this.absolutizeUrl(this.url)),
 		og('og:site_name', this.getSiteName()),
 		og('og:description', description),
+		og('fb:app_id', this.option('fbapp')),
 		meta('twitter:card', twType),
 		meta('twitter:site', '@' + this.option('twitter'))
 	);
