@@ -42,8 +42,10 @@ export default function($) {
 						</div>
 					}
 				</div>
-				<div class="l-quint-space">
-					<ArticlesList list={postsList} cols markImportant {...$} />
+				<div class="l-sext-space">
+					<div class="l-double-space">
+						<ArticlesList list={postsList} cols markImportant {...$} />
+					</div>
 					{links &&
 						<ArticlesList list={links} cols {...$} />
 					}
