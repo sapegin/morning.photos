@@ -11,13 +11,15 @@ export default function($) {
 			<Splash src="/images/subscribe.jpg" />
 
 			<div class="content entry-content">
-				<PageTitle {...$} />
+				<div class="content-holder">
+					<PageTitle {...$} />
 
-				<div class="text">{typo(content)}</div>
+					<div class="text">{typo(content)}</div>
 
-				<div class="l-quad-space">
-					<SubscribeForm {...$} from="Subscribe" extra={{ autofocus: true }} />
-					<div class="note">{typo(note)}</div>
+					<div class="l-quad-space">
+						<SubscribeForm {...$} from="Subscribe" extra={{ autofocus: true }} />
+						<div class="note">{typo(note)}</div>
+					</div>
 				</div>
 			</div>
 
