@@ -21,7 +21,7 @@ export default function($, children) {
 
 	return (
 		<article class={essay({ photo: isPhoto })}>
-			<div class="content">
+			<div class="content entry-content">
 				<header>
 					<h2 class={entryTitle({ 'excerpt': !isPhoto, 'excerpt-photo': isPhoto })}>
 						<a class={entryTitle('link')} href={url}>

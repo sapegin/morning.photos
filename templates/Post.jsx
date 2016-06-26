@@ -10,14 +10,14 @@ export default function($) {
 	return (
 		<Page {...$} pageType="essay">
 			<div class="content">
-				<article class="essay essay_single entry">
+				<article class="essay essay_single">
 					<header class="essay__header">
 						<h2 class="entry-title">
 							{typoTitle(title)}
 						</h2>
 					</header>
 
-					<div class="essay__content text">
+					<div class="essay__content entry-content text">
 						{typo(content)}
 					</div>
 
