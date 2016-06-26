@@ -1,4 +1,6 @@
 .articles-list {
+	space(2);
+
 	&__item {
 		space();
 		line-height: 1.5;
@@ -26,5 +28,17 @@
 	}
 	&_cols &__item {
 		grid-col(4);
+	}
+
+	+below(900px) {
+		&_cols &__item {
+			grid-col(6);
+		}
+	}
+
+	+below(502px) {
+		&_cols &__item {
+			width: 100%;
+		}
 	}
 }

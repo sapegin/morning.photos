@@ -2,28 +2,15 @@
 	space(4);
 	responsive-images();
 
+	&__photos-section,
+	&__articles-section {
+		space(6);
+	}
+
 	&__primary-photo {
 		space(2);
 		position: relative;
 		display: block;
-
-		&:hover &-title-text {
-			border-bottom: 1px solid light_hover_color;
-		}
-	}
-
-	&__primary-photo-title {
-		@extend .beta;
-		tweak-inverted-text();
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		color: light_hover_color;
-		text-shadow: 0 0 2px black(.3);
-		display: block;
-		padding: 50px 2*spacer 2*spacer;
-		background: linear-gradient(to bottom, black(0), black(0.5));
 	}
 
 	&__secondary-photos {
@@ -47,7 +34,7 @@
 		margin-top: 5px;
 	}
 
-	&__about-container {
+	&__about-section {
 		space(6);
 		grid-row();
 	}
@@ -58,5 +45,86 @@
 
 	&__about {
 		grid-col(8);
+	}
+
+	+above(741px) {
+		&__primary-photo {
+			&:link &-title-text,
+			&:visited &-title-text {
+				color: light_hover_color;
+				background-image: none;
+			}
+			&:hover &-title-text,
+			&:active &-title-text,
+			&:focus &-title-text {
+				color: light_hover_color;
+				border-bottom: 1px solid light_hover_color;
+			}
+		}
+		&__primary-photo-title {
+			beta();
+			tweak-inverted-text();
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			text-shadow: 0 0 2px black(.3);
+			display: block;
+			padding: 50px 2*spacer 2*spacer;
+			background: linear-gradient(to bottom, black(0), black(0.5));
+		}
+	}
+
+	+between(741px, 1024px) {
+		&__secondary-photo_first {
+			padding-left: 0;
+		}
+		&__secondary-photo_last {
+			padding-right: 0;
+		}
+		&__secondary-photo-title_first {
+			padding-left: 2*spacer;
+		}
+		&__secondary-photo-title_last {
+			padding-right: 2*spacer;
+		}
+	}
+
+	+below(1024px) {
+		&__primary-photo,
+		&__secondary-photos {
+			margin-side: -(2*spacer);
+		}
+	}
+
+	+below(740px) {
+		&__primary-photo-title {
+			margin-top: 5px;
+		}
+		&__primary-photo-title,
+		&__secondary-photo-title {
+			padding-side: 2*spacer;
+		}
+		&__secondary-photo {
+			padding-side: 0;
+		}
+		&__photos-section {
+			space(3);
+		}
+		&__secondary-photo {
+			space(2);
+			width: 100%;
+		}
+	}
+
+	+below(502px) {
+		&__userpic {
+			space(2);
+			width: 100%;
+		}
+
+		&__about {
+			width: 100%;
+		}
 	}
 }
