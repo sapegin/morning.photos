@@ -30,6 +30,12 @@
 		grid-col(4);
 	}
 
+	+below(1024px) {
+		&__item_important:before {
+			margin-left: -1.1em;
+		}
+	}
+
 	+below(900px) {
 		&_cols &__item {
 			grid-col(6);
