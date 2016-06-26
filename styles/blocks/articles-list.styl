@@ -1,14 +1,30 @@
 .articles-list {
 	&__item {
-		margin-bottom: (spacer/2);
+		space();
+		line-height: 1.5;
 		font-size: normal_font;
 
 		&:before {
 			display: none;
 		}
+
+		&_important:before {
+			content: "★";
+			display: block;
+			position: absolute;
+			margin-left: -1.25em;
+			color: light_color;
+		}
 	}
 
 	&__description {
 		font-size: small_font;
+	}
+
+	&_cols {
+		grid-row();
+	}
+	&_cols &__item {
+		grid-col(4);
 	}
 }

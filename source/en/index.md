@@ -3,33 +3,12 @@ lang: en
 layout: Index
 title: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs, photos"
 description: Landscapes, travel, cityscapes, nature, dogs and blog about photography.
-blogTitle: 'New posts in the <a href="/blog" class="link">blog</a>:'
-links:
-  -
-    link: /albums/landscapes
-    label: Landscapes
-  -
-    link: /albums/cityscapes
-    label: Cityscapes
-  -
-    link: /albums/travel
-    label: Travel
-  -
-    link: /albums/nature
-    label: Nature
-  -
-    link: /albums/dogs
-    label: Dogs
-links2:
-  -
-    link: /about
-    label: About me
-  -
-    link: /subscribe
-    label: Subscribe to photography newsletter
-  -
-    link: /buy
-    label: Buy my photos
+subscribeNote: Somewhat monthly, no spam, unsubscribe at any time.
+userpic: /images/about/me11.jpg
 ---
 
-Hi! I’m Artem. I’m a web developer and passionate photographer living in Berlin, Germany. I love shooting nature, cities and dogs.
+Hi! I’m Artem, a web developer and a passionate photographer living in Berlin, Germany. I shoot nature, cities and my dogs.
+
+I write about photography at [my blog](/blog), show my photos at [500px](https://500px.com/sapegin) and [Facebook](https://www.facebook.com/artemsapeginphoto/), mobile photos at [Instagram](https://www.instagram.com/sapegin/).
+
+I also write a newsletter where I share my notes and links to the best articles on photography:

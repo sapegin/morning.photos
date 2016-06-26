@@ -69,6 +69,20 @@ export function slugify(name) {
 }
 
 /**
+ * Convert URL to slug.
+ *
+ * @param {string} url
+ * @returns {string}
+ */
+export function urlToSlug(url) {
+	return url
+		.replace(/^\/photos\/\w+\//, '')
+		.replace(/\.jpg$/i, '')
+		.replace(/\-[a-z]+$/, '')
+	;
+}
+
+/**
  * Comma separated location: `Berlin, Germany`.
  *
  * @param {string} [country]

@@ -1,59 +1,74 @@
-import Base from './Base';
-import PageHeader from './components/PageHeader';
+import Page from './Page';
 import ArticlesList from './components/ArticlesList';
-import { slugify } from '../src/util/gallery';
+import Photo from './components/Photo';
+import SubscribeForm from './components/SubscribeForm';
+import { getPhotoUrl } from '../js/util/util';
 
 export default function($) {
-	const { url, content, importantPosts, links, links2, blogTitle } = $;
-	const { __, option, typo, json, Script } = $;
-	const photos = option('featured').map(slugify);
-	const posts = importantPosts.slice(0, 5).map(({ url, title }) => ({ link: url, label: title }));
+	const { content, links, photoPosts, posts, userpic, subscribeNote } = $;
+	const { Script, typo, __ } = $;
+
+	const [photo1, photo2, photo3] = photoPosts;
+	const postsList = posts.map(({ url, title, important }) => ({ link: url, label: title, important }));
+
 	return (
-		<Base {...$} pageType={['index', 'inverted-head', 'has-splash']}>
-			<div class="index">
-				<PageHeader menu={option('menu')} title={__('title')} url={url} />
-				<u-featured>
-					<div class="index__gallery swiper-container js-featured-container">
-						<div class="swiper-wrapper js-featured-wrapper"></div>
+		<Page {...$}>
+			<div class="index content">
+				<div class="l-quint-space">
+					<a href={photo1.url} class="index__primary-photo">
+						<Photo slug={photo1.firstPhoto} size="medium" />
+						<div class="index__primary-photo-title">
+							<span class="index__primary-photo-title-text">
+								{photo1.title}
+							</span>
+						</div>
+					</a>
+					{photo2 && photo3 &&
+						<div class="index__secondary-photos">
+							<a href={photo2.url} class="index__secondary-photo link link_quoted">
+								<div
+									class="index__secondary-photo-img"
+									style={`background-image:url(${getPhotoUrl(photo2.firstPhoto, 'small')})`}
+								></div>
+								<u class="index__secondary-photo-title">{photo2.title}</u>
+							</a>
+							<a href={photo3.url} class="index__secondary-photo link link_quoted">
+								<div
+									class="index__secondary-photo-img"
+									style={`background-image:url(${getPhotoUrl(photo3.firstPhoto, 'small')})`}
+								></div>
+								<u class="index__secondary-photo-title">{photo3.title}</u>
+							</a>
+						</div>
+					}
+				</div>
+				<div class="l-quint-space">
+					<ArticlesList list={postsList} cols markImportant {...$} />
+					{links &&
+						<ArticlesList list={links} cols {...$} />
+					}
+				</div>
+				<div class="index__about-container">
+					<div class="index__userpic">
+						<img
+							src={userpic}
+							alt={__('author')}
+							class="index-content__userpic-img"
+						/>
 					</div>
-				</u-featured>
-			</div>
-			<div class="index-content js-content">
-				<div class="index-content-i content">
-					<div class="index-content__text">
-						<div class="index-content__text-i">
-							<div class="index-content__blog">
-								<div class="articles-list-title articles-list-title_index">
-									{typo(blogTitle)}
-								</div>
-								<ArticlesList list={posts} {...$} />
-							</div>
-							<div class="index-content__learn">
-								<ArticlesList list={links} {...$} />
-							</div>
-							<div class="index-content__about">
-								<div class="media index-about">
-									<img
-										src="/images/userpic.jpg"
-										width="100"
-										height="100"
-										alt={__('author')}
-										class="index-content__userpic media__img media__img_rev"
-									/>
-									<div class="media__body">
-										{typo(content)}
-									</div>
-								</div>
-								<ArticlesList list={links2} {...$} />
-							</div>
+					<div class="index__about">
+						<div class="index__about-text text">
+							{typo(content)}
+						</div>
+						<div class="index__subscribe">
+							<SubscribeForm {...$} from="Index" />
+							<div class="note">{typo(subscribeNote)}</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<script>
-				var __featuredPhotos = {json(photos)};
-			</script>
+
 			<Script src="/build/main.js"/>
-		</Base>
+		</Page>
 	);
 }

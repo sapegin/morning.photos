@@ -16,12 +16,13 @@ import {
 	createTemplateRenderer,
 	helpers as defaultHelpers,
 } from 'fledermaus';
-import { getDateTimeFormat } from 'fledermaus/lib/util';
+import { getDateTimeFormat, getFirstImage } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
-import { loadPhoto, slugify } from './util/gallery';
+import { loadPhoto, slugify, urlToSlug } from './util/gallery';
 import { typo, typoTitle } from './util/typo';
+import sizes from './data/sizes';
 
 start('Building the site...');
 
@@ -192,15 +193,36 @@ documents.push(...languages.reduce((result, lang) => {
 	let feedDoc = find(documents, { url: '/feed', lang });
 	feedDoc.items = langPosts.slice(0, options.postsInFeed);
 
+	let indexDoc = find(documents, { url: '/', lang });
+	let photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
+
 	// RSS feed: photos
 	let photoFeedDoc = find(documents, { url: '/feed-photos', lang });
-	let photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
 	photoFeedDoc.items = photoPosts.slice(0, options.postsInFeed);
 
-	// Add list of important posts to the main and Learn pages
+	// Last 3 posts with horizontal photos for main page
+	indexDoc.photoPosts = photoPosts.filter(post => {
+		const firstPhoto = getFirstImage(post.content);
+		if (!firstPhoto) {
+			return false;
+		}
+		const slug = urlToSlug(firstPhoto);
+		const size = sizes[slug];
+		if (!size) {
+			return false;
+		}
+		if (size.medium.width <= size.medium.height) {
+			return false;
+		}
+		post.firstPhoto = slug;
+		return true;
+	}).slice(0, 3);
+
+	// Last 9 non-photo posts for main page
+	indexDoc.posts = filterDocuments(langPosts, { tags: tags => !tags.includes('photos') }).slice(0, 9);
+
+	// Add list of important posts to learn page
 	let importantPosts = filterDocuments(langPosts, { important: true });
-	let indexDoc = find(documents, { url: '/', lang });
-	indexDoc.importantPosts = importantPosts;
 	let learnDoc = find(documents, { url: '/learn', lang });
 	if (learnDoc) {
 		learnDoc.importantPosts = importantPosts;

@@ -56,6 +56,7 @@ export default function($) {
 				var __galleryPhotos = {json(photos)};
 			</script>
 			<Script src="/build/main.js"/>
+			<Script src="/build/gallery.js"/>
 		</Base>
 	);
 }
