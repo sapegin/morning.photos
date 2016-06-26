@@ -50,7 +50,7 @@ export default function($) {
 					}
 				</div>
 				<div class={b('articles-section')}>
-					<ArticlesList list={postsList} cols markImportant {...$} />
+					<ArticlesList list={postsList} cols {...$} />
 					{links &&
 						<ArticlesList list={links} cols {...$} />
 					}

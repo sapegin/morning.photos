@@ -2,10 +2,10 @@ import block from 'bem-cn';
 
 const b = block('articles-list');
 
-export default ({ list, cols, markImportant, typo }) => (
+export default ({ list, cols, typo }) => (
 	<ul class={b({ cols })}>
 		{list.map(link => (
-			<li class={b('item')({ important: link.important && markImportant })}>
+			<li class={b('item')({ important: link.important })}>
 				<a href={link.link} class="link">
 					{typo(link.label)}
 				</a>
