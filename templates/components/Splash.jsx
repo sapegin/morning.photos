@@ -1,10 +1,12 @@
-import cx from 'classnames';
+import block from 'bem-cn';
+
+const b = block('splash');
 
 export default ({
 	src,
 	mod,
 }) => (
-	<div class="splash">
-		<div class={cx('splash__img', mod && `splash__img_${mod}`)} style={`background-image:url(${src})`}></div>
+	<div class={b}>
+		<div class={b('img', { [mod]: !!mod })} style={`background-image:url(${src})`}></div>
 	</div>
 );

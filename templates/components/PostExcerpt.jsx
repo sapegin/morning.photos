@@ -1,5 +1,8 @@
-import cx from 'classnames';
+import block from 'bem-cn';
 import PostMeta from './PostMeta';
+
+const essay = block('essay');
+const entryTitle = block('entry-title');
 
 export default function($, children) {
 	const { title, content, excerpt, tags, url, more } = $.post;
@@ -17,20 +20,20 @@ export default function($, children) {
 	}
 
 	return (
-		<article class={cx('essay', 'entry', { essay_photo: isPhoto })}>
+		<article class={essay({ photo: isPhoto })}>
 			<div class="content">
 				<header>
-					<h2 class={cx('entry-title', 'entry-title_excerpt' + (isPhoto ? '-photo' : ''))}>
-						<a class="entry-title__link" href={url}>
+					<h2 class={entryTitle({ 'excerpt': !isPhoto, 'excerpt-photo': isPhoto })}>
+						<a class={entryTitle('link')} href={url}>
 							{isPhoto && firstPhoto &&
-								<div class="essay__featured">{safe(firstPhoto)}</div>
+								<div class={essay('featured')}>{safe(firstPhoto)}</div>
 							}
 							{typoTitle(title)}
 						</a>
 					</h2>
 				</header>
 
-				<div class="essay__content text">
+				<div class={essay('content').mix('text')}>
 					{typo(text)}
 					{more &&
 						<u-cut>

@@ -1,21 +1,26 @@
-import cx from 'classnames';
+import block from 'bem-cn';
 import map from 'lodash/map';
+
+const logo = block('logo');
+const nav = block('nav');
 
 export default ({ menu, url, title }) => (
 	<header class="header content">
 		<div class="header-i">
 			{url === '/' ? (
-				<h1 class="logo">{title}</h1>
+				<h1 class={logo}>{title}</h1>
 			) : (
-				<div class="logo"><a href="/" class="logo__link">{title}</a></div>
+				<div class={logo}>
+					<a href="/" class={logo('link')}>{title}</a>
+				</div>
 			)}
-			<nav class="nav">
+			<nav class={nav}>
 				{map(menu, (itemUrl, itemTitle) => (
-					<div class="nav__item">
+					<div class={nav('item')}>
 						{itemUrl === url ? (
-							<span class="nav__label is-active">{itemTitle}</span>
+							<span class={nav('label').is({ active: true })}>{itemTitle}</span>
 						) : (
-							<a class={cx('nav__link', { 'is-active': url.startsWith(itemUrl) })} href={itemUrl}>{itemTitle}</a>
+							<a class={nav('link').is({ active: url.startsWith(itemUrl) })} href={itemUrl}>{itemTitle}</a>
 						)}
 					</div>
 				))}

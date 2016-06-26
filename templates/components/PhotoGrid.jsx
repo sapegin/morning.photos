@@ -1,4 +1,6 @@
-import cx from 'classnames';
+import block from 'bem-cn';
+
+const b = block('photo-grid');
 
 export default function(props, children) {
 	let size;
@@ -9,17 +11,18 @@ export default function(props, children) {
 		size = children.length % 2 === 0 ? 'three-even' : 'three';
 	}
 	return (
-		<div class={cx('photo-grid', size && `photo-grid_${size}`)}>
+		<div class={b({ [size]: !!size })}>
 			{children.map(photo => {
 				if (photo) {
 					if (photo.type === 'img') {
-						photo.attrs.class = 'photo-grid__img';
-						return <div class="photo-grid__photo">{photo}</div>;
+						photo.attrs.class = b('img');
+						return <div class={b('photo')}>{photo}</div>;
 					}
-					photo.attrs.class = 'photo-grid__photo';
-					photo.children[0].attrs.class = 'photo-grid__img';
+					photo.attrs.class = b('photo');
+					photo.children[0].attrs.class = b('img');
 					return photo;
 				}
+				return null;
 			})}
 		</div>
 	);
