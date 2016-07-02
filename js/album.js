@@ -21,6 +21,7 @@ function resizeRow(elems, rowWidth) {
 
 		trackWidth += fw + margin;
 
+		// Adjust the last item by a few extra pixels to fill the row
 		if (isLast && trackWidth < containerWidth) {
 			fw += containerWidth - trackWidth;
 		}
@@ -45,7 +46,7 @@ function resize() {
 
 		rowWidth += photo.w + margin;
 
-		if (rowWidth > containerWidth && elemsCnt) {
+		if (rowWidth >= containerWidth) {
 			resizeRow(elems, rowWidth);
 			elems = [];
 			rowWidth = 0;
