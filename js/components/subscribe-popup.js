@@ -1,4 +1,5 @@
 import { Component, registerComponent, onEvent, appear, disappear } from 'tamia';
+import hasTouch from 'has-touch';
 import 'gliojs';
 
 const SHOWN_KEY = 'SubscribePopupShown';
@@ -22,6 +23,8 @@ class SubscribePopup extends Component {
 	isActive() {
 		try {
 			return (
+				// Touch device
+				!hasTouch &&
 				// Subscribed to newsletter
 				!(window.mixpanel && window.mixpanel.get_distinct_id().indexOf('@') !== -1) &&
 				// Already seen the popup
