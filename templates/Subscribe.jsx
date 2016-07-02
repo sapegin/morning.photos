@@ -1,10 +1,10 @@
 import Page from './Page';
 import PageTitle from './components/PageTitle';
-import SubscribeForm from './components/SubscribeForm';
+import SubscribeBlock from './components/SubscribeBlock';
 import Splash from './components/Splash';
 
 export default function($) {
-	const { content, note } = $;
+	const { content } = $;
 	const { typo, Script } = $;
 	return (
 		<Page {...$} pageType={['inverted-head', 'has-splash']}>
@@ -17,8 +17,7 @@ export default function($) {
 					<div class="text">{typo(content)}</div>
 
 					<div class="l-quad-space">
-						<SubscribeForm {...$} from="Subscribe" extra={{ autofocus: true }} />
-						<div class="note">{typo(note)}</div>
+						<SubscribeBlock {...$} from="Subscribe" extra={{ autofocus: true }} />
 					</div>
 				</div>
 			</div>

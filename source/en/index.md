@@ -3,7 +3,6 @@ lang: en
 layout: Index
 title: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs, photos"
 description: Landscapes, travel, cityscapes, nature, dogs and blog about photography.
-subscribeNote: Somewhat monthly, no spam, unsubscribe at any time.
 userpic: /images/about/me11.jpg
 ---
 

@@ -5,6 +5,7 @@
 		"newline-per-chained-call": 0
 	},
 	"globals": {
-		"mixpanel": false
+		"mixpanel": false,
+		"glio": false
 	}
 }

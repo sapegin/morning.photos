@@ -16,6 +16,7 @@
     "sizes": "babel-node src/sizes"
   },
   "dependencies": {
+    "gliojs": "0.0.7",
     "has-touch": "~1.0.1",
     "social-likes-next": "~1.1.0",
     "sweet-scroll": "~1.0.1",

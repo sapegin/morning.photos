@@ -1,13 +1,13 @@
 import flow from 'lodash/flow';
 import { markdownBlock } from 'fledermaus/lib/util';
 import PageWithTitle from './PageWithTitle';
-import Subscribe from './components/Subscribe';
+import SubscribeBox from './components/SubscribeBox';
 import Share from './components/Share';
 
 const image = (id, lang, type) => `/images/ebooks/${id}/${id}-${lang}-${type}.jpg`;
 
 const onClickScript = () => `
-	var form = document.querySelector('.js-subscribe-block');
+	var form = document.querySelector('.js-subscribe');
 	form.classList.remove('is-active');
 	setTimeout(function() {
 		form.classList.add('is-active');
@@ -75,7 +75,7 @@ export default function($) {
 				</div>
 			))}
 
-			<Subscribe
+			<SubscribeBox
 				{...$}
 				from="Books"
 				formTitle={__('books.formTitle')}

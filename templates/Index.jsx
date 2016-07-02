@@ -2,13 +2,13 @@ import block from 'bem-cn';
 import Page from './Page';
 import ArticlesList from './components/ArticlesList';
 import Photo from './components/Photo';
-import SubscribeForm from './components/SubscribeForm';
+import SubscribeBlock from './components/SubscribeBlock';
 import { getPhotoUrl } from '../js/util/util';
 
 const b = block('index');
 
 export default function($) {
-	const { content, links, photoPosts, posts, userpic, subscribeNote } = $;
+	const { content, links, photoPosts, posts, userpic } = $;
 	const { Script, typo, __ } = $;
 
 	const [photo1, photo2, photo3] = photoPosts;
@@ -64,8 +64,7 @@ export default function($) {
 							{typo(content)}
 						</div>
 						<div class={b('subscribe')}>
-							<SubscribeForm {...$} from="Index" />
-							<div class="note">{typo(subscribeNote)}</div>
+							<SubscribeBlock {...$} from="Index" />
 						</div>
 					</div>
 				</div>

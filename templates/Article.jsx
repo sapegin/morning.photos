@@ -1,5 +1,6 @@
 import PageWithTitle from './PageWithTitle';
 import Share from './components/Share';
+import SubscribePopup from './components/SubscribePopup';
 
 export default function($, children) {
 	const { content } = $;
@@ -12,6 +13,7 @@ export default function($, children) {
 				<Share {...$} />
 			</div>
 
+			<SubscribePopup {...$} />
 			<Script src="/build/main.js" />
 		</PageWithTitle>
 	);

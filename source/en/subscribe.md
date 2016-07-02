@@ -4,7 +4,6 @@ lang: en
 title: Subscribe to my photography newsletter
 pageTitle: Artem Sapegin’s Photography Newsletter
 description: Links to the best articles on photography, my new photos and posts.
-note: Somewhat monthly, no spam, unsubscribe at any time.
 image: 2010-07-06_7750
 ---
 

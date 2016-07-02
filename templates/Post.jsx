@@ -1,6 +1,6 @@
 import Page from './Page';
 import PostMeta from './components/PostMeta';
-import Subscribe from './components/Subscribe';
+import SubscribePopup from './components/SubscribePopup';
 import Share from './components/Share';
 import Comments from './components/Comments';
 
@@ -25,13 +25,10 @@ export default function($) {
 					<Share {...$} title={title} />
 				</article>
 
-				<div class="l-quad-space">
-					<Subscribe {...$} from="Blog" />
-				</div>
-
 				<Comments {...$} />
 			</div>
 
+			<SubscribePopup {...$} from="Blog" />
 			<Script src="/build/main.js"/>
 		</Page>
 	);

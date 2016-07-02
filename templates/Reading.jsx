@@ -3,6 +3,7 @@ import { markdownBlock } from 'fledermaus/lib/util';
 import books, { booksPubDate } from '../src/data/books';
 import PageWithTitle from './PageWithTitle';
 import Share from './components/Share';
+import SubscribePopup from './components/SubscribePopup';
 
 const rating = stars => (
 	<span>
@@ -68,6 +69,7 @@ export default function($) {
 				<Share {...$} title={pageTitle} />
 			</div>
 
+			<SubscribePopup {...$} from="Reading" />
 			<Script src="/build/main.js"/>
 		</PageWithTitle>
 	);

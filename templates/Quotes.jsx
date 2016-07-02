@@ -4,6 +4,7 @@ import { Group } from 'fledermaus/lib/components';
 import quotes from '../src/data/quotes';
 import PageWithTitle from './PageWithTitle';
 import Share from './components/Share';
+import SubscribePopup from './components/SubscribePopup';
 
 export default function($) {
 	const { content, pageTitle } = $;
@@ -47,6 +48,7 @@ export default function($) {
 				<Share {...$} title={pageTitle} />
 			</div>
 
+			<SubscribePopup {...$} from="Quotes" />
 			<Script src="/build/main.js" />
 		</PageWithTitle>
 	);
