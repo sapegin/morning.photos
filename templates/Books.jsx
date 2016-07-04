@@ -6,20 +6,22 @@ import Share from './components/Share';
 
 const image = (id, lang, type) => `/images/ebooks/${id}/${id}-${lang}-${type}.jpg`;
 
-const onClickScript = () => `
+const onClickScript = (id) => `
 	var form = document.querySelector('.js-subscribe');
 	form.classList.remove('is-active');
 	setTimeout(function() {
 		form.classList.add('is-active');
 		document.querySelector('.js-subscribe-email').focus();
-	}, 100)
+	}, 100);
+	if (window.mixpanel) { mixpanel.track('Get book button clicked', {Id: '${id}'}); }
 `.replace(/[\n\t]/g, '');
 
 export default function($) {
 	const { pageTitle, lang, books } = $;
-	const { typo, Script, __ } = $;
+	const { json, typo, Script, __ } = $;
 	return (
 		<PageWithTitle {...$}>
+			<script>mixpanel.track({json('Books page viewed')})</script>
 			{books.map(book => (
 				<div class="book">
 					<div class="book__cover">
@@ -41,7 +43,7 @@ export default function($) {
 								<a
 									href="#subscribe"
 									class="buy-button"
-									onclick={onClickScript()}
+									onclick={onClickScript(book.id)}
 									data-scroll
 								>
 									{__('books.download')}

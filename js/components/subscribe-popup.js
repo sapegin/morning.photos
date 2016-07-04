@@ -42,6 +42,9 @@ class SubscribePopup extends Component {
 
 	onShow() {
 		markPopupAsShown();
+		if (window.mixpanel) {
+			mixpanel.track('Subscribe popup shown');
+		}
 
 		appear(this.containerElem);
 

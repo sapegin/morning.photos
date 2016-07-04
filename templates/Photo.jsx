@@ -9,7 +9,7 @@ export default function($) {
 		<Base {...$} pageType="content" viewportExtra="minimal-ui">
 			<script>
 				document.documentElement.classList.add({json('is-fullscreen')});
-				// mixpanel.track({json('Photo viewed')}, {json({ Title: title, Id: slug })});
+				mixpanel.track({json('Photo viewed')}, {json({ Title: title, Id: slug })});
 			</script>
 
 			<div class="is-pocketed">
