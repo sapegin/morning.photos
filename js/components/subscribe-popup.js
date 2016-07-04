@@ -6,6 +6,10 @@ const SHOWN_KEY = 'SubscribePopupShown';
 const INIT_TIMEOUT = 20000;
 const FOCUS_TIMEOUT = 100;
 
+export function markPopupAsShown() {
+	localStorage.setItem(SHOWN_KEY, 'true');
+}
+
 class SubscribePopup extends Component {
 	static binded = 'onClose onShow onKeyDown';
 
@@ -37,7 +41,7 @@ class SubscribePopup extends Component {
 	}
 
 	onShow() {
-		localStorage.setItem(SHOWN_KEY, 'true');
+		markPopupAsShown();
 
 		appear(this.containerElem);
 
