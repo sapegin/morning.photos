@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { memoize } from 'lodash';
+import { decode } from 'utf8';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
@@ -34,14 +35,18 @@ function parseMetadata(name, { imageSize, tags }, iptc) {
 		height: imageSize.height,
 		timestamp: tags.DateTimeOriginal && tags.DateTimeOriginal * 1000,
 		exif: exifString(tags.ExposureTime, tags.FNumber, tags.FocalLength, tags.ISO),
-		artist: tags.Artist,
+		artist: utf8(tags.Artist),
 		latitude: tags.GPSLatitude,
 		longitude: tags.GPSLongitude,
 		altitude: tags.GPSAltitude,
-		title: iptc.object_name,
-		caption: iptc.caption,
-		location: locationString(iptc.country_or_primary_location_name, iptc.city, iptc.sub_location),
-		keywords: iptc.keywords || [],
+		title: utf8(iptc.object_name),
+		caption: utf8(iptc.caption),
+		location: locationString(
+			utf8(iptc.country_or_primary_location_name),
+			utf8(iptc.city),
+			utf8(iptc.sub_location)
+		),
+		keywords: iptc.keywords ? iptc.keywords.map(decode) : [],
 	};
 }
 
@@ -69,6 +74,19 @@ export function slugify(name) {
 }
 
 /**
+ * Convert binary string to UTF-8.
+ *
+ * @param {string} string
+ * @returns {string}
+ */
+export function utf8(string) {
+	if (typeof string === 'string') {
+		return decode(string);
+	}
+	return string;
+}
+
+/**
  * Convert URL to slug.
  *
  * @param {string} url
@@ -78,7 +96,7 @@ export function urlToSlug(url) {
 	return url
 		.replace(/^\/photos\/\w+\//, '')
 		.replace(/\.jpg$/i, '')
-		.replace(/\-[a-z]+$/, '')
+		.replace(/-[a-z]+$/, '')
 	;
 }
 

@@ -1,13 +1,12 @@
 import block from 'bem-cn';
 import { Group } from 'fledermaus/lib/components';
-import { typo, typoTitle } from '../../src/util/typo';
 import { getPhotoUrl } from '../../js/util/util';
 
 const b = block('photo-info');
 
 export default ({
 	url, title, caption, location, date, artist, exif, lang, slug,
-	option, absolutizeUrl, __,
+	typo, typoTitle, option, absolutizeUrl, __,
 }) => (
 	<div class={b.mix('text')}>
 		<header class={b('header')}>

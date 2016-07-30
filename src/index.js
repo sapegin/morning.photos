@@ -2,6 +2,7 @@ import find from 'lodash/find';
 import orderBy from 'lodash/orderBy';
 import values from 'lodash/values';
 import pick from 'lodash/fp/pick';
+import richtypo from 'richtypo';
 import {
 	start,
 	loadConfig,
@@ -21,7 +22,6 @@ import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
 import { loadPhoto, slugify, urlToSlug } from './util/gallery';
-import { typo, typoTitle } from './util/typo';
 import sizes from './data/sizes';
 
 start('Building the site...');
@@ -105,8 +105,8 @@ albums.forEach(album => {
 		.map(photo => (
 			{
 				...photo,
-				title: typoTitle(photo.title, photo.lang),
-				caption: typo(photo.caption, photo.lang),
+				title: richtypo.title(photo.title, photo.lang),
+				caption: richtypo.rich(photo.caption, photo.lang),
 			}
 		))
 	;

@@ -9,7 +9,7 @@ import glob from 'glob';
 import readIptc from 'node-iptc';
 import { start } from 'fledermaus';
 import { getPhotoFilename } from '../js/util/util';
-import { slugify } from '../src/util/gallery';
+import { slugify, utf8 } from '../src/util/gallery';
 
 /* eslint-disable no-console */
 
@@ -124,7 +124,7 @@ photos.forEach(photo => {
 					return;
 				}
 
-				set(sizes, [slug, 'title'], iptc.object_name || '');
+				set(sizes, [slug, 'title'], utf8(iptc.object_name) || '');
 				set(sizes, [slug, size.name], {
 					width,
 					height,
