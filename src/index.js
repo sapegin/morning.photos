@@ -37,7 +37,10 @@ const renderTemplate = createTemplateRenderer({
 	root: options.templatesFolder,
 });
 
-const helpers = { ...defaultHelpers, ...customHelpers };
+const helpers = {
+	...defaultHelpers,
+	...customHelpers,
+};
 
 let documents = loadSourceFiles(options.sourceFolder, options.sourceTypes, {
 	renderers: {
@@ -66,7 +69,10 @@ documents = orderDocuments(documents, ['-timestamp']);
 const albums = filterDocuments(documents, { layout: /^(Album|Report)$/ });
 albums.forEach(album => {
 	// Date formatter: March 2016
-	const dateFormat = getDateTimeFormat(album.lang, { year: 'numeric', month: 'long' });
+	const dateFormat = getDateTimeFormat(album.lang, {
+		year: 'numeric',
+		month: 'long',
+	});
 
 	// Convert cover to a slug
 	if (album.cover) {
@@ -131,10 +137,23 @@ albums.forEach(album => {
  * Portfolio and travel
  */
 
-let portfolioDoc = find(documents, { url: '/albums', lang: 'en' });
-portfolioDoc.albums = filterDocuments(albums, { url: /^\/albums\//, unlisted: undefined });
-let travelDoc = find(documents, { url: '/travel', lang: 'en' });
-travelDoc.albums = filterDocuments(albums, { url: /^\/travel\//, unlisted: undefined });
+let portfolioDoc = find(documents, {
+	url: '/albums',
+	lang: 'en',
+});
+portfolioDoc.albums = filterDocuments(albums, {
+	url: /^\/albums\//,
+	unlisted: undefined,
+});
+
+let travelDoc = find(documents, {
+	url: '/travel',
+	lang: 'en',
+});
+travelDoc.albums = filterDocuments(albums, {
+	url: /^\/travel\//,
+	unlisted: undefined,
+});
 
 /**
  * Blog
@@ -190,14 +209,23 @@ documents.push(...languages.reduce((result, lang) => {
 	blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
 
 	// RSS feed
-	let feedDoc = find(documents, { url: '/feed', lang });
+	let feedDoc = find(documents, {
+		url: '/feed',
+		lang,
+	});
 	feedDoc.items = langPosts.slice(0, options.postsInFeed);
 
-	let indexDoc = find(documents, { url: '/', lang });
+	let indexDoc = find(documents, {
+		url: '/',
+		lang,
+	});
 	let photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
 
 	// RSS feed: photos
-	let photoFeedDoc = find(documents, { url: '/feed-photos', lang });
+	let photoFeedDoc = find(documents, {
+		url: '/feed-photos',
+		lang,
+	});
 	photoFeedDoc.items = photoPosts.slice(0, options.postsInFeed);
 
 	// Last 3 posts with horizontal photos for main page
@@ -223,7 +251,10 @@ documents.push(...languages.reduce((result, lang) => {
 
 	// Add list of important posts to learn page
 	let importantPosts = filterDocuments(langPosts, { important: true });
-	let learnDoc = find(documents, { url: '/learn', lang });
+	let learnDoc = find(documents, {
+		url: '/learn',
+		lang,
+	});
 	if (learnDoc) {
 		learnDoc.importantPosts = importantPosts;
 	}

@@ -40,8 +40,8 @@ export function grid({ children }) {
 			return slug;
 		});
 	}
-	catch (e) {
-		return errorInlineHtml(e.message, { block: true });
+	catch (exception) {
+		return errorInlineHtml(exception.message, { block: true });
 	}
 
 	let photoIdx = 0;

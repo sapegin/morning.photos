@@ -25,8 +25,14 @@ class Subscribe extends Component {
 		markPopupAsShown();
 		if (window.mixpanel) {
 			mixpanel.identify(email);
-			mixpanel.people.set({ $email: email, $created: new Date() });
-			mixpanel.track('Subscribed', { Email: email, From: from });
+			mixpanel.people.set({
+				$email: email,
+				$created: new Date(),
+			});
+			mixpanel.track('Subscribed', {
+				Email: email,
+				From: from,
+			});
 		}
 
 		return {

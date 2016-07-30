@@ -14,7 +14,7 @@ export const loadPhoto = memoize((folder, name) => {
 	try {
 		buffer = fs.readFileSync(filepath);
 	}
-	catch (e) {
+	catch (exception) {
 		printError(`Cannot load photo ${name}.jpg, exiting...`);
 		process.exit(1);
 	}

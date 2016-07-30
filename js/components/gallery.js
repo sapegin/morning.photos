@@ -76,14 +76,22 @@ class Gallery extends Component {
 
 		// Update navigation and info pane
 		this.updateNav(swiper);
-		this.updateInfo({ ...photo, url, title, pageTitle });
+		this.updateInfo({
+			...photo,
+			url,
+			title,
+			pageTitle,
+		});
 
 		// Track page view
 		if (window.yaCounter218061) {
 			window.yaCounter218061.hit(url, title);
 		}
 		if (window.mixpanel) {
-			window.mixpanel.track('Photo viewed', { Title: title, Id: photo.slug });
+			window.mixpanel.track('Photo viewed', {
+				Title: title,
+				Id: photo.slug,
+			});
 		}
 	}
 

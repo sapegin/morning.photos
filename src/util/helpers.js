@@ -137,7 +137,8 @@ export function setPageType(...types) {
 /**
  * Return <body> classes.
  *
- * @returns {array} types
+ * @param {array} types
+ * @returns {string}
  */
 export function getBodyClasses(types) {
 	let allTypes = [...castArray(this.pageType), ...castArray(types)];

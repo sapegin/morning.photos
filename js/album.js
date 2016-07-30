@@ -72,9 +72,11 @@ let allElems = photos.map(img => {
 	let w = Number(img.getAttribute('width'));
 	let h = Number(img.getAttribute('height'));
 
-	// console.log(w, h)
-
-	let elem = { img, w, h };
+	let elem = {
+		img,
+		w,
+		h,
+	};
 	elems.push(elem);
 
 	rowWidth += w + margin;
