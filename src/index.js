@@ -111,8 +111,8 @@ albums.forEach(album => {
 		.map(photo => (
 			{
 				...photo,
-				title: richtypo.title(photo.title, photo.lang),
-				caption: richtypo.rich(photo.caption, photo.lang),
+				title: richtypo.title(photo.title || '', photo.lang),
+				caption: richtypo.rich(photo.caption || '', photo.lang),
 			}
 		))
 	;
