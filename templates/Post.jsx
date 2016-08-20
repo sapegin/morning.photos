@@ -1,12 +1,12 @@
 import Page from './Page';
 import PostMeta from './components/PostMeta';
-import SubscribePopup from './components/SubscribePopup';
+import SubscribeBox from './components/SubscribeBox';
 import Share from './components/Share';
 import Comments from './components/Comments';
 
 export default function($) {
 	const { title, content } = $;
-	const { typo, typoTitle, Script } = $;
+	const { typo, typoTitle, Script, __ } = $;
 	return (
 		<Page {...$} pageType="essay">
 			<div class="content">
@@ -25,10 +25,13 @@ export default function($) {
 					<Share {...$} title={title} />
 				</article>
 
+				<div class="l-quad-space">
+					<SubscribeBox {...$} formTitle={__('subscribe.title')} from="Blog" />
+				</div>
+
 				<Comments {...$} />
 			</div>
 
-			<SubscribePopup {...$} from="Blog" />
 			<Script src="/build/main.js"/>
 		</Page>
 	);
