@@ -1,12 +1,4 @@
 node_modules
-bower_components
-.htaccess
-.docpad.db
-htdocs/manifest.php
-payments/settings.php
-payments/data/db
-scripts/.db.json
-
 photos
 public/images/travel
 public/images/blog
@@ -16,4 +8,3 @@ public/**/*.xml
 public/build/*.js
 public/build/*.css
 data/sizes.json
-lib
