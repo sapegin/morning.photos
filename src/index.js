@@ -17,7 +17,7 @@ import {
 	createTemplateRenderer,
 	helpers as defaultHelpers,
 } from 'fledermaus';
-import { getDateTimeFormat, getFirstImage } from 'fledermaus/lib/util';
+import { getDateTimeFormat, getFirstImage, absolutizeLinks, writeFile } from 'fledermaus/lib/util';
 import * as customHelpers from './util/helpers';
 import * as customTags from './util/tags';
 import * as remarkPlugins from './util/remark';
@@ -257,6 +257,15 @@ documents.push(...languages.reduce((result, lang) => {
 	});
 	if (learnDoc) {
 		learnDoc.importantPosts = importantPosts;
+	}
+
+	// Prepare the latest Russian post for LiveJournal
+	if (lang === 'ru') {
+		const latestPost = langPosts[0];
+		const content = absolutizeLinks(latestPost.content, config[lang].url)
+			.replace(options.cutTag, '<lj-cut>')
+		;
+		writeFile('lj.html', latestPost.title + '\n\n\n' + content);
 	}
 
 	return [...result, ...langPosts, ...newDocs];
