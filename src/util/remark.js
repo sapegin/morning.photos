@@ -20,14 +20,14 @@ export function image() {
 					<figure class="entry-photo">
 						<Photo slug={slug} size="medium" class="entry-photo__img" />
 					</figure>
-				);
+				).toString();
 			}
 			else if (extra) {
 				// Very basic implementation, only single class name is supported: ![](foo.jpg){.bar}
 				extra = trim(extra.value, '{}');
 				node.value = (
 					<img src={child.url} alt={child.title} class={extra.substring(1)} />
-				);
+				).toString();
 			}
 			else {
 				node.value = (
@@ -39,7 +39,7 @@ export function image() {
 							</figcaption>
 						}
 					</figure>
-				);
+				).toString();
 			}
 		}
 	});

@@ -14,12 +14,12 @@ export default function(props, children) {
 		<div class={b({ [size]: !!size })}>
 			{children.map(photo => {
 				if (photo) {
-					if (photo.type === 'img') {
-						photo.attrs.class = b('img');
+					if (photo.nodeName === 'img') {
+						photo.attributes.class = b('img');
 						return <div class={b('photo')}>{photo}</div>;
 					}
-					photo.attrs.class = b('photo');
-					photo.children[0].attrs.class = b('img');
+					photo.attributes.class = b('photo');
+					photo.childNodes[0].attributes.class = b('img');
 					return photo;
 				}
 				return null;
