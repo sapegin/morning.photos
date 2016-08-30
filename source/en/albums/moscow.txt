@@ -1,0 +1,26 @@
+---
+title: Moscow
+layout: Album
+lang: en
+order: date-desc
+cover: 2014-09-13_2791_Artem_Sapegin
+date: Jan 1, 2020
+unlisted: true
+---
+
+Sapegin_Artem_20D_2007-04-13_294-9401
+Sapegin_Artem_20D_2007-05-02_311-1169
+Sapegin_Artem_20D_2007-05-06_312-1275
+2010-07-31_5D_8392_Artem_Sapegin
+2010-08-06_5D_9000_Artem_Sapegin
+2010-08-06_5D_9035_Artem_Sapegin
+2010-08-06_5D_9045_Artem_Sapegin
+2010-08-22_5D_9528_Artem_Sapegin
+2013-07-06_0257_Artem_Sapegin
+2013-08-17_4189_Artem_Sapegin
+2014-01-25_6210_Artem_Sapegin
+2014-01-25_6218_Artem_Sapegin
+2014-03-22_6567_Artem_Sapegin
+2014-07-16_0526_Artem_Sapegin
+2014-08-02_0643_Artem_Sapegin
+2014-09-13_2791_Artem_Sapegin
