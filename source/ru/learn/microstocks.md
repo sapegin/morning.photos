@@ -13,9 +13,9 @@ date: Jan 25, 2014
 *Микросток* (micropayment stock — микроплатёжный фотобанк) — это сайт, продающий ваши фотографии за несколько долларов. Часть дохода микросток оставляет себе, а остальное получаете вы. Одну и ту же фотографию можно продавать много раз и загружать на разные фотобанки.
 
 <div class="photo-grid photo-grid_three">
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/beautiful-woman-swimming-in-pool-gm113587558-7448650?st=a7147c6"><img class="photo-grid__img" src="/photos/small/2008-09-08-7341-small.jpg" width="328" height="219" alt="Красивая девушка (привет, жена!) плывёт в бассейне"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/rays-of-light-on-sunset-gm113587550-7349760?st=a7147c6"><img class="photo-grid__img" src="/photos/small/2008-09-08-7506-small.jpg" width="328" height="219" alt="Лучи солнца на закате"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/electricity-pylon-gm113587496-7035448?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/2008-08-20_5D_3026_Artem_Sapegin.jpg" width="328" height="219" alt="Стальная опора линии электропередач на чистом голубом небе"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/beautiful-woman-swimming-in-pool-gm113587558-7448650?st=a7147c6"><img class="photo-grid__img" src="/photos/small/2008-09-08-7341-small.jpg" width="328" height="219" alt="Красивая девушка (привет, жена!) плывёт в бассейне"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/rays-of-light-on-sunset-gm113587550-7349760?st=a7147c6"><img class="photo-grid__img" src="/photos/small/2008-09-08-7506-small.jpg" width="328" height="219" alt="Лучи солнца на закате"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/electricity-pylon-gm113587496-7035448?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/2008-08-20_5D_3026_Artem_Sapegin.jpg" width="328" height="219" alt="Стальная опора линии электропередач на чистом голубом небе"></a>
 </div>
 
 Средняя цена одной фотографии для покупателя 1—10 $, в зависимости от размера. Автор получает 20—50% с каждой продажи. При качественном и актуальном портфолио в несколько тысяч фотографий ежемесячный доход может составить довольно большую сумму. Для многих фотографов микростоки — основной источник дохода. Но и с небольшим портфолио заработать на поход в кафе с любимой девушкой или очередную фотожелезяку вполне возможно.
@@ -41,9 +41,9 @@ date: Jan 25, 2014
 Кроме фотографий на многих микростоках можно продавать векторные иллюстрации, видеоклипы, флэш-анимацию и звук.
 
 <div class="photo-grid photo-grid_three">
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/crow-silhouette-gm113586941-6120429?st=2d78363"><img class="photo-grid__img" src="/photos/small/2007-04-22-307-0754-small.jpg" width="328" height="219" alt="Силуэт вороны на ярком голубом небе"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/fire-curve-gm113586851-5995879?st=2d78363"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2007-05-27_357-5710.jpg" width="328" height="219" alt="Огонь на чёрном фоне"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/coffee-beans-texture-gm113586934-6067028?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-04-27_497-9776-2.jpg" width="328" height="219" alt="Кофейные зёрна"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/crow-silhouette-gm113586941-6120429?st=2d78363"><img class="photo-grid__img" src="/photos/small/2007-04-22-307-0754-small.jpg" width="328" height="219" alt="Силуэт вороны на ярком голубом небе"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/fire-curve-gm113586851-5995879?st=2d78363"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2007-05-27_357-5710.jpg" width="328" height="219" alt="Огонь на чёрном фоне"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/coffee-beans-texture-gm113586934-6067028?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-04-27_497-9776-2.jpg" width="328" height="219" alt="Кофейные зёрна"></a>
 </div>
 
 ## Как попасть на микросток
@@ -141,11 +141,10 @@ date: Jan 25, 2014
 - Сильные правки в редакторе делайте над 16-битными файлами в широком цветовом пространстве (Adobe RGB или ProPhoto RGB, а не sRGB).
 - Сохраняйте в JPEG только перед загрузкой на стоки. Никогда не пересохраняйте JPEG-файлы несколько раз.
 
-
 <div class="photo-grid photo-grid_three">
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/wooden-comb-gm113587076-6516485?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-06-21_527-2732.jpg" width="328" height="219" alt="Деревянная расчёска, изолированная на белом фоне"></a>
-	<a class="photo-grid__photo" href="https://www.istockphoto.com/photo/logs-stack-gm113587342-6830156"><img class="photo-grid__img" src="/images/stocks/_MG_8385.jpg" width="328" height="219" alt="Брёвна"></a>
-	<a class="photo-grid__photo" href="https://www.istockphoto.com/photo/long-haired-dachshund-winter-portrait-gm113587840-12410286"><img class="photo-grid__img" src="/images/stocks/2010-01-01_5D_3776_Artem_Sapegin.jpg" width="328" height="219" alt="Длинношёрстная такса в снегу"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/wooden-comb-gm113587076-6516485?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-06-21_527-2732.jpg" width="328" height="219" alt="Деревянная расчёска, изолированная на белом фоне"></a>
+  <a class="photo-grid__photo" href="https://www.istockphoto.com/photo/logs-stack-gm113587342-6830156"><img class="photo-grid__img" src="/images/stocks/_MG_8385.jpg" width="328" height="219" alt="Брёвна"></a>
+  <a class="photo-grid__photo" href="https://www.istockphoto.com/photo/long-haired-dachshund-winter-portrait-gm113587840-12410286"><img class="photo-grid__img" src="/images/stocks/2010-01-01_5D_3776_Artem_Sapegin.jpg" width="328" height="219" alt="Длинношёрстная такса в снегу"></a>
 </div>
 
 ## Мой микростоковый рабочий процесс
@@ -180,9 +179,9 @@ date: Jan 25, 2014
 К наименее популярным относятся домашние животные, пейзажи, цветы — такого в фотобанках и так навалом, поэтому хорошо продаются только самые оригинальные и яркие карточки.
 
 <div class="photo-grid photo-grid_three">
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/headphones-on-sheet-music-gm113587255-6690546?st=2d78363"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-06-29_536-3618.jpg" width="328" height="219" alt="Наушники, лежащие на нотах"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/snow-karting-gm113587635-8882708?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/2009-01-07_5D_1480_Artem_Sapegin.jpg" width="328" height="219" alt="Картинг на снегу"></a>
-	<a class="photo-grid__photo" href="http://www.istockphoto.com/photo/ground-coffee-in-measurement-spoon-gm160626247-15800223?st=2d78363"><img class="photo-grid__img" src="/images/stocks/2008-08-10_20D_6632_Artem_Sapegin.jpg" width="328" height="219" alt="Молотый кофе в мерной ложке"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/headphones-on-sheet-music-gm113587255-6690546?st=2d78363"><img class="photo-grid__img" src="/images/stocks/Sapegin_Artem_20D_2008-06-29_536-3618.jpg" width="328" height="219" alt="Наушники, лежащие на нотах"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/snow-karting-gm113587635-8882708?st=a7147c6"><img class="photo-grid__img" src="/images/stocks/2009-01-07_5D_1480_Artem_Sapegin.jpg" width="328" height="219" alt="Картинг на снегу"></a>
+  <a class="photo-grid__photo" href="http://www.istockphoto.com/photo/ground-coffee-in-measurement-spoon-gm160626247-15800223?st=2d78363"><img class="photo-grid__img" src="/images/stocks/2008-08-10_20D_6632_Artem_Sapegin.jpg" width="328" height="219" alt="Молотый кофе в мерной ложке"></a>
 </div>
 
 ## С какими микростоками стоит работать

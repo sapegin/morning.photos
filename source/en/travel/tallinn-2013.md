@@ -90,7 +90,6 @@ https://scontent.cdninstagram.com/t51.2885-15/e15/11242407_1450888785224445_5774
 
 Olgavladimirovna’s shooting dogs and a crowd of tourists using to point-and-shoots at the same time.
 
-
 <x-grid>
 https://scontent.cdninstagram.com/t51.2885-15/e15/11252209_777010135748632_9119905_n.jpg?ig_cache_key=NTEwNjYyOTA0NTM0NjcwMjA3.2
 https://scontent.cdninstagram.com/t51.2885-15/e15/11312258_1604589349826242_835662332_n.jpg?ig_cache_key=NTExNTg1NzgxNTIxOTc5OTI4.2

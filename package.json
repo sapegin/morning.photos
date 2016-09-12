@@ -6,13 +6,14 @@
   "license": "SEE LICENSE IN <Readme.md>",
   "private": true,
   "scripts": {
-    "test": "npm run lint",
+    "test": "npm run lint && npm run lint:md",
     "start": "tamia server --lang en",
     "start:ru": "tamia server --lang ru",
     "build": "babel-node src",
     "build:watch": "chokidar templates source config src -c 'babel-node src'",
     "bundle": "tamia bundle",
     "lint": "eslint js src",
+    "lint:md": "remark --quiet source",
     "sizes": "babel-node src/sizes"
   },
   "dependencies": {
@@ -41,6 +42,8 @@
     "minimist": "~1.2.0",
     "node-iptc": "~1.0.4",
     "num2fraction": "~1.2.2",
+    "remark-cli": "~2.0.0",
+    "remark-lint": "~5.0.1",
     "richtypo": "~1.0.1",
     "sharp": "~0.16.0",
     "tamia-build": "~0.4.0",
