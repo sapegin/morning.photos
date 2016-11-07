@@ -89,11 +89,9 @@ albums.forEach(album => {
 	// Load photos
 	let photos = photosList.map(name => {
 		let photo = loadPhoto(options.photosFolder, name);
-		/* if (!photo.timestamp) {
-			printError(`Timestamp not available for photo: ${name}`);
-		}*/
 		return {
 			...photo,
+			timestamp: photo.timestamp || 0,  // Photos without timestamp should be in the end
 			date: photo.timestamp && dateFormat.format(new Date(photo.timestamp)),
 		};
 	});
