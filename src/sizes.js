@@ -103,18 +103,24 @@ photos.forEach(photo => {
 				.clone()
 				.resize(size.width, size.height)
 				.max()
-				.quality(size.quality)
+				.jpeg(jpegOptions)
 				.sharpen(...size.sharp)
 			;
 
+			let jpegOptions = {
+				quality: size.quality,
+			};
+
 			if (!size.thumb) {
-				image = image
-					.progressive()
-					.withMetadata()
-					.withoutChromaSubsampling()
-					.trellisQuantisation()
-					.optimiseScans()
-				;
+				image = image.withMetadata();
+
+				jpegOptions = {
+					...jpegOptions,
+					progressive: true,
+					withoutChromaSubsampling: true,
+					trellisQuantisation: true,
+					optimiseScans: true,
+				};
 			}
 
 			const filepath = getPublicFilePath(photo, size.name);
