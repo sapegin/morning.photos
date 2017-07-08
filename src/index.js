@@ -257,8 +257,8 @@ documents.push(...languages.reduce((result, lang) => {
 		learnDoc.importantPosts = importantPosts;
 	}
 
-	// Prepare the latest Russian post for LiveJournal
-	if (lang === 'ru') {
+	// Prepare the latest English post for LiveJournal
+	if (lang === 'en') {
 		const latestPost = langPosts[0];
 		const content = absolutizeLinks(latestPost.content, config[lang].url)
 			.replace(options.cutTag, '<lj-cut>')
