@@ -14,14 +14,14 @@ links:
       label: artem@sapegin.ru
   -
     -
+      link: https://unsplash.com/@sapegin
+      label: Unsplash
+    -
       link: https://www.instagram.com/sapegin/
       label: Instagram
     -
-      link: https://www.facebook.com/artemsapeginphoto/
+      link: https://www.facebook.com/artemsapegin/
       label: Facebook
-    -
-      link: https://500px.com/sapegin
-      label: 500px
     -
       link: https://twitter.com/iamsapegin
       label: Twitter
@@ -29,9 +29,6 @@ links:
     -
       link: /subscribe
       label: Subscribe to photography newsletter
-    -
-      link: /buy
-      label: Buy my photos
 gear:
   -
     -

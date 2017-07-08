@@ -8,6 +8,6 @@ userpic: /images/about/me11.jpg
 
 Hi! I’m Artem, a web developer and a passionate photographer living in Berlin, Germany. I shoot nature, cities and my dogs.
 
-I write about photography at [my blog](/blog), show my photos at [500px](https://500px.com/sapegin) and [Facebook](https://www.facebook.com/artemsapeginphoto/), mobile photos at [Instagram](https://www.instagram.com/sapegin/).
+I write about photography at [my blog](/blog), show my photos at [Unsplash](https://unsplash.com/@sapegin) and [Instagram](https://www.instagram.com/sapegin/).
 
 I also write [a newsletter](/subscribe) where I share my notes and links to the best articles on photography:
