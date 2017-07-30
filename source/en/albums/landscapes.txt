@@ -6,7 +6,6 @@ order: date-desc
 cover: 2010-07-06_5D_7750_Artem_Sapegin
 date: Jan 1, 2025
 ---
-
 2016-11-13_0251_Artem_Sapegin
 2016-11-13_0341_Artem_Sapegin
 2016-11-13_0289_Artem_Sapegin
@@ -23,6 +22,7 @@ date: Jan 1, 2025
 2016-09-04_8487_Artem_Sapegin
 2015-11-22_5479_Artem_Sapegin
 2014-10-16_3986_Artem_Sapegin
+2014-10-16_3979_Artem_Sapegin
 2014-10-16_3942_Artem_Sapegin
 2014-10-13_3648_Artem_Sapegin
 2014-10-13_3505_Artem_Sapegin
