@@ -5,7 +5,7 @@ const b = block('articles-list');
 export default ({ list, cols, typo }) => (
 	<ul class={b({ cols })}>
 		{list.map(link => (
-			<li class={b('item')({ important: link.important })}>
+			<li class={b('item')}>
 				<a href={link.link} class="link">
 					{typo(link.label)}
 				</a>

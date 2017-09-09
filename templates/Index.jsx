@@ -8,11 +8,11 @@ import { getPhotoUrl } from '../js/util/util';
 const b = block('index');
 
 export default function($) {
-	const { content, links, photoPosts, posts, userpic } = $;
+	const { content, photoPosts, posts, userpic } = $;
 	const { Script, typo, __ } = $;
 
 	const [photo1, photo2, photo3] = photoPosts;
-	const postsList = posts.map(({ url, title, important }) => ({ link: url, label: title, important }));
+	const postsList = posts.map(({ url, title }) => ({ link: url, label: title }));
 
 	return (
 		<Page {...$}>
@@ -51,9 +51,6 @@ export default function($) {
 				</div>
 				<div class={b('articles-section')}>
 					<ArticlesList list={postsList} cols {...$} />
-					{links &&
-						<ArticlesList list={links} cols {...$} />
-					}
 				</div>
 				<div class={b('about-section')}>
 					<div class={b('userpic')}>

@@ -238,16 +238,6 @@ documents.push(...languages.reduce((result, lang) => {
 	// Last 9 non-photo posts for main page
 	indexDoc.posts = filterDocuments(langPosts, { tags: tags => !tags.includes('photos') }).slice(0, 9);
 
-	// Add list of important posts to learn page
-	let importantPosts = filterDocuments(langPosts, { important: true });
-	let learnDoc = find(documents, {
-		url: '/learn',
-		lang,
-	});
-	if (learnDoc) {
-		learnDoc.importantPosts = importantPosts;
-	}
-
 	// Prepare the latest English post for LiveJournal
 	if (lang === 'en') {
 		const latestPost = langPosts[0];
