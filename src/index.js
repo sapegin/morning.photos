@@ -132,7 +132,7 @@ albums.forEach(album => {
 });
 
 /**
- * Portfolio and travel
+ * Portfolio
  */
 
 let portfolioDoc = find(documents, {
@@ -141,15 +141,6 @@ let portfolioDoc = find(documents, {
 });
 portfolioDoc.albums = filterDocuments(albums, {
 	url: /^\/albums\//,
-	unlisted: undefined,
-});
-
-let travelDoc = find(documents, {
-	url: '/travel',
-	lang: 'en',
-});
-travelDoc.albums = filterDocuments(albums, {
-	url: /^\/travel\//,
 	unlisted: undefined,
 });
 
