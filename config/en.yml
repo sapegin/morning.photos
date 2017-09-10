@@ -4,7 +4,6 @@ titleLong: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, d
 titleBlog: Artem Sapegin’s Photography Blog
 author: Artem Sapegin
 twitter: iamsapegin
-disqus: morningphotos
 fbapp: 155027288234245
 
 menu:
@@ -27,7 +26,6 @@ nextPage: Previously
 share:
   facebook: Share
   twitter: Tweet
-  pinterest: Pin
 
 tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'

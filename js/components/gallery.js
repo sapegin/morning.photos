@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import hasTouch from 'has-touch';
-import socialLikes from 'social-likes-next';
 import { Component, registerComponent, onEvent, toggleState, data } from 'tamia';
 import { getPhotoUrl, stripTags } from '../util/util';
 
@@ -125,15 +124,6 @@ class Gallery extends Component {
 			const elem = this.getElem(name);
 			elem.innerHTML = value || '';
 			toggleState(elem, 'hidden', !value);
-		});
-
-		socialLikes(this.getElem('info-share'), {
-			url: photo.url,
-			title: photo.pageTitle,
-			data: {
-				// XXX
-				media: 'http://morning.photos/' + getPhotoUrl(photo.slug, 'large'),
-			},
 		});
 	}
 
