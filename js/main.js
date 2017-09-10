@@ -8,7 +8,6 @@ import 'tamia/lib/modules/richtypo';
 
 import './components/cut';
 import './components/subscribe';
-import './components/subscribe-popup';
 
 import '../styles/index.styl';
 
