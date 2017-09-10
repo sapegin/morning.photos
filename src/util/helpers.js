@@ -149,18 +149,3 @@ export function getBodyClasses(types) {
 	return ['page'].concat(allTypes).join(' ');
 }
 
-/**
- * Append partner ID to given URL.
- *
- * @param {string} url
- * @returns {string}
- */
-export function getBuyLink(url) {
-	const partners = this.option('partners');
-	for (let partner in partners) {
-		if (url.includes(partner)) {
-			return url + partners[partner];
-		}
-	}
-	return url;
-}

@@ -1,7 +1,5 @@
 import Page from './Page';
 import PostMeta from './components/PostMeta';
-import SubscribeBox from './components/SubscribeBox';
-import Share from './components/Share';
 
 export default function($) {
 	const { title, content } = $;
@@ -21,15 +19,8 @@ export default function($) {
 					</div>
 
 					<PostMeta {...$} post={$} />
-					<Share {...$} title={title} />
 				</article>
-
-				<div class="l-quad-space">
-					<SubscribeBox {...$} formTitle={__('subscribe.title')} from="Blog" />
-				</div>
 			</div>
-
-			<Script src="/build/main.js"/>
 		</Page>
 	);
 }

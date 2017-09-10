@@ -39,8 +39,7 @@ subscribe:
   id: e0d45226cc
   url: "https://birdwatcher.us8.list-manage.com/subscribe/post"
   endpoint: "https://birdwatcher.us8.list-manage.com/subscribe/post-json"
-  title: "Лучшие ссылки о фотографии в вашем почтовом ящике"
-  info: "Примерно раз в месяц, без спама, можно отписаться в любой момент."
+  info: "Несколько раз в год, без спама, можно отписаться в любой момент."
   emailLabel: Ваша почта
   button: Подписаться
   success: "Спасибо! Вам осталось подтвердить подписку, кликнув ссылку в письме, которое вы сейчас получите."

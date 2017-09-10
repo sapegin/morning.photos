@@ -34,8 +34,7 @@ subscribe:
   id: 8b1db7df42
   url: "https://photos.us8.list-manage.com/subscribe/post"
   endpoint: "https://photos.us8.list-manage.com/subscribe/post-json"
-  title: The best links on photography in your inbox
-  info: Somewhat monthly, no spam, unsubscribe at any time.
+  info: A few times a year, no spam, unsubscribe at any time.
   emailLabel: Your email
   button: Subscribe!
   success: Almost done! Please confirm your subscription by opening a link in an email we have just sent you.
