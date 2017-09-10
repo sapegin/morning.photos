@@ -21,18 +21,6 @@ class Subscribe extends Component {
 		const email = this.elem.querySelector('.js-subscribe-email').value;
 		const from = data(this.elem, 'from');
 
-		if (window.mixpanel) {
-			mixpanel.identify(email);
-			mixpanel.people.set({
-				$email: email,
-				$created: new Date(),
-			});
-			mixpanel.track('Subscribed', {
-				Email: email,
-				From: from,
-			});
-		}
-
 		return {
 			result: 'success',
 		};

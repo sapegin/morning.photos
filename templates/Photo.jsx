@@ -7,10 +7,7 @@ export default function($) {
 	const { json, option, Script, Icon } = $;
 	return (
 		<Base {...$} pageType="content" viewportExtra="minimal-ui">
-			<script>
-				document.documentElement.classList.add({json('is-fullscreen')});
-				mixpanel.track({json('Photo viewed')}, {json({ Title: title, Id: slug })});
-			</script>
+			<script>document.documentElement.classList.add({json('is-fullscreen')})</script>
 
 			<div class="is-pocketed">
 				<Photo slug={slug} size="large" alt={title + (keywords.length && `: ${keywords.join(', ')}`)} />

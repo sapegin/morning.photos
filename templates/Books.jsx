@@ -13,7 +13,6 @@ const onClickScript = (id) => `
 		form.classList.add('is-active');
 		document.querySelector('.js-subscribe-email').focus();
 	}, 100);
-	if (window.mixpanel) { mixpanel.track('Get book button clicked', {Id: '${id}'}); }
 `.replace(/[\n\t]/g, '');
 
 export default function($) {
@@ -21,7 +20,6 @@ export default function($) {
 	const { json, typo, Script, __ } = $;
 	return (
 		<PageWithTitle {...$}>
-			<script>mixpanel.track({json('Books page viewed')})</script>
 			{books.map(book => (
 				<div class="book">
 					<div class="book__cover">

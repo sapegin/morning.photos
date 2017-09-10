@@ -86,12 +86,6 @@ class Gallery extends Component {
 		if (window.yaCounter218061) {
 			window.yaCounter218061.hit(url, title);
 		}
-		if (window.mixpanel) {
-			window.mixpanel.track('Photo viewed', {
-				Title: title,
-				Id: photo.slug,
-			});
-		}
 	}
 
 	onPopState() {
