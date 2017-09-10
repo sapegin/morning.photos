@@ -1,5 +1,6 @@
 ---
 title: Travel
+description: "See also [Berlin](/albums/berlin) and [Moscow](/albums/moscow) albums."
 layout: Album
 lang: en
 order: date-desc
