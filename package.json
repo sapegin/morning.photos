@@ -48,8 +48,7 @@
     "sharp": "~0.18.2",
     "tamia-build": "~0.4.0",
     "unist-util-visit": "~1.1.3",
-    "utf8": "~2.1.2",
-    "yamljs": "~0.3.0"
+    "utf8": "~2.1.2"
   },
   "repository": {
     "type": "git",
