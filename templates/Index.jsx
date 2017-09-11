@@ -3,13 +3,14 @@ import Page from './Page';
 import ArticlesList from './components/ArticlesList';
 import Photo from './components/Photo';
 import SubscribeBlock from './components/SubscribeBlock';
+import Script from './components/Script';
 import { getPhotoUrl } from '../js/util/util';
 
 const b = block('index');
 
 export default function($) {
 	const { content, photoPosts, posts, userpic } = $;
-	const { Script, typo, __ } = $;
+	const { typo, __ } = $;
 
 	const [photo1, photo2, photo3] = photoPosts;
 	const postsList = posts.map(({ url, title }) => ({ link: url, label: title }));

@@ -1,8 +1,11 @@
+import Script from './components/Script';
+import Style from './components/Style';
+
 const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, ${extra}` : '');
 
 export default function($, children) {
 	const { lang, title, viewportExtra, pageType } = $;
-	const { getPageTitle, getMetaTags, getBodyClasses, Style, Script, __ } = $;
+	const { getPageTitle, getMetaTags, getBodyClasses, __ } = $;
 	return (
 		<html lang={lang}>
 			<head>

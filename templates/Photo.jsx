@@ -1,10 +1,11 @@
 import Base from './Base';
 import Photo from './components/Photo';
 import PhotoInfo from './components/PhotoInfo';
+import Script from './components/Script';
 
 export default function($) {
 	const { slug, title, keywords, albumUrl, albumTitle, photos } = $;
-	const { json, option, Script, Icon } = $;
+	const { json, option, Icon } = $;
 	return (
 		<Base {...$} pageType="content" viewportExtra="minimal-ui">
 			<script>document.documentElement.classList.add({json('is-fullscreen')})</script>

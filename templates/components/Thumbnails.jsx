@@ -1,6 +1,7 @@
 import Photo from './Photo';
+import Script from './Script';
 
-export default ({ photos, url, Script }) => (
+export default ({ photos, url }) => (
 	<div class="thumbnails js-thumbs">
 		{photos.map(photo => (
 			<a href={`${url}/${photo.slug}`} class="thumbnails__item">

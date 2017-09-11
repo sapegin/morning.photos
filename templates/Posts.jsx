@@ -1,9 +1,10 @@
 import Page from './Page';
 import PostExcerpt from './components/PostExcerpt';
+import Script from './components/Script';
 
 export default function($, children) {
 	const { documents, tags, nextUrl } = $;
-	const { __, option, typo, typoTitle, Script } = $;
+	const { __, option, typo, typoTitle } = $;
 
 	return (
 		<Page pageType="essay" noIndex={!!nextUrl} {...$}>

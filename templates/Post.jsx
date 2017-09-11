@@ -1,9 +1,10 @@
 import Page from './Page';
 import PostMeta from './components/PostMeta';
+import Script from './components/Script';
 
 export default function($) {
 	const { title, content } = $;
-	const { typo, typoTitle, Script, __ } = $;
+	const { typo, typoTitle, __ } = $;
 	return (
 		<Page {...$} pageType="essay">
 			<div class="content">

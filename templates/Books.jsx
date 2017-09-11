@@ -3,6 +3,7 @@ import { markdownBlock } from 'fledermaus/lib/util';
 import PageWithTitle from './PageWithTitle';
 import SubscribeBox from './components/SubscribeBox';
 import Share from './components/Share';
+import Script from './components/Script';
 
 const image = (id, lang, type) => `/images/ebooks/${id}/${id}-${lang}-${type}.jpg`;
 
@@ -17,7 +18,7 @@ const onClickScript = (id) => `
 
 export default function($) {
 	const { pageTitle, lang, books } = $;
-	const { json, typo, Script, __ } = $;
+	const { json, typo, __ } = $;
 	return (
 		<PageWithTitle {...$}>
 			{books.map(book => (

@@ -1,16 +1,17 @@
 import flow from 'lodash/flow';
 import map from 'lodash/map';
 import { markdown } from 'fledermaus/lib/util';
-import { Group } from 'fledermaus/lib/components';
 import Page from './Page';
 import PhotoGrid from './components/PhotoGrid';
 import AboutTriptych from './components/AboutTriptych';
 import AboutGearList from './components/AboutGearList';
+import Group from './components/Group';
 import Splash from './components/Splash';
+import Script from './components/Script';
 
 export default function($) {
 	const { content, links, gearAlt, gear, workplaceAlt, iphoneAlt, software, about, copyrightsLabel, copyrights } = $;
-	const { typo, option, Script } = $;
+	const { typo, option } = $;
 	const author = option('author');
 	return (
 		<Page {...$} pageType={['inverted-head', 'has-splash']}>

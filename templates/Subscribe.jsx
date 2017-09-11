@@ -2,10 +2,11 @@ import Page from './Page';
 import PageTitle from './components/PageTitle';
 import SubscribeBlock from './components/SubscribeBlock';
 import Splash from './components/Splash';
+import Script from './components/Script';
 
 export default function($) {
 	const { content } = $;
-	const { typo, Script } = $;
+	const { typo } = $;
 	return (
 		<Page {...$} pageType={['inverted-head', 'has-splash']}>
 			<Splash src="/images/subscribe.jpg" />

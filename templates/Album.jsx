@@ -1,10 +1,11 @@
 import PageWithTitle from './PageWithTitle';
 import Thumbnails from './components/Thumbnails';
 import Share from './components/Share';
+import Script from './components/Script';
 
 export default function($) {
 	const { title } = $;
-	const { Script, __ } = $;
+	const { __ } = $;
 	return (
 		<PageWithTitle {...$} pageType="album" showDescription>
 			<Thumbnails {...$} />

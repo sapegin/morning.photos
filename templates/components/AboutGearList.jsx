@@ -1,6 +1,6 @@
 import flow from 'lodash/flow';
 import { markdown } from 'fledermaus/lib/util';
-import { Group } from 'fledermaus/lib/components';
+import Group from './Group';
 
 export default ({ list, typo }) => (
 	<div class="l-row l-quad-space">

@@ -1,5 +1,5 @@
 import block from 'bem-cn';
-import { Group } from 'fledermaus/lib/components';
+import Group from './Group';
 import { getPhotoUrl } from '../../js/util/util';
 
 const b = block('photo-info');

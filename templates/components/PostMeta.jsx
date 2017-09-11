@@ -1,4 +1,4 @@
-import { Group } from 'fledermaus/lib/components';
+import Group from './Group';
 
 export default ({
 	post, tag,
