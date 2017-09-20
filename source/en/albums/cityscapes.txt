@@ -8,6 +8,7 @@ cover: 2014-09-13_2791_Artem_Sapegin
 date: Jan 1, 2020
 ---
 
+2017-09-10_1363_Artem_Sapegin
 2017-08-26_1072_Artem_Sapegin
 2017-08-22_0820_Artem_Sapegin
 2017-08-13_0797_Artem_Sapegin
