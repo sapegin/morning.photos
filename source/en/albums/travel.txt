@@ -9,6 +9,7 @@ date: Jan 1, 2015
 ---
 
 2017-09-30_1442_Artem_Sapegin
+2017-09-29_1429_Artem_Sapegin
 2016-10-15_9674_Artem_Sapegin
 2016-07-23_7911_Artem_Sapegin
 2016-04-17_6700_Artem_Sapegin
