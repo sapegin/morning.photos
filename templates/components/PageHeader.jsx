@@ -11,7 +11,9 @@ export default ({ menu, url, title }) => (
 				<h1 class={logo}>{title}</h1>
 			) : (
 				<div class={logo}>
-					<a href="/" class={logo('link')}>{title}</a>
+					<a href="/" class={logo('link')}>
+						{title}
+					</a>
 				</div>
 			)}
 			<nav class={nav}>
@@ -20,7 +22,9 @@ export default ({ menu, url, title }) => (
 						{itemUrl === url ? (
 							<span class={nav('label').is({ active: true })}>{itemTitle}</span>
 						) : (
-							<a class={nav('link').is({ active: url.startsWith(itemUrl) })} href={itemUrl}>{itemTitle}</a>
+							<a class={nav('link').is({ active: url.startsWith(itemUrl) })} href={itemUrl}>
+								{itemTitle}
+							</a>
 						)}
 					</div>
 				))}

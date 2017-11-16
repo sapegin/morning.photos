@@ -8,12 +8,13 @@ const VISIBLE_PHOTOS = 6;
 const UPDATE_INTERVAL = 3000;
 
 const urlTemplate = num => `/images/about/me${num}.jpg`;
-const imgTemplate = (url, cls = '') => `<img src="${url}" alt="" class="photo-grid__img ${cls} js-img">`;
+const imgTemplate = (url, cls = '') =>
+	`<img src="${url}" alt="" class="photo-grid__img ${cls} js-img">`;
 
 let lastPhoto;
 
 // Shuffled photo URLs
-let photos = shuffle(range(1, PHOTOS_NUMBER + 1).map(urlTemplate));
+const photos = shuffle(range(1, PHOTOS_NUMBER + 1).map(urlTemplate));
 
 function tick() {
 	const images = getRandomImg();
@@ -23,8 +24,7 @@ function tick() {
 	if (images[0].classList.contains('is-hidden')) {
 		oldImg = images[1];
 		newImg = images[0];
-	}
-	else {
+	} else {
 		oldImg = images[0];
 		newImg = images[1];
 	}
@@ -35,13 +35,13 @@ function tick() {
 	setTimeout(() => requestAnimationFrame(() => newImg.classList.remove('is-hidden')));
 
 	// Preload next photo
-	(new Image()).src = photos[0];
+	new Image().src = photos[0];
 
 	setTimeout(tick, UPDATE_INTERVAL);
 }
 
 function getRandomImg() {
-	let availableIndexes = range(VISIBLE_PHOTOS);
+	const availableIndexes = range(VISIBLE_PHOTOS);
 	availableIndexes.splice(lastPhoto, 1);
 	lastPhoto = sample(availableIndexes);
 	return placeholders[lastPhoto].querySelectorAll('.js-img');
@@ -56,6 +56,9 @@ function getNextUrl() {
 // Run
 const placeholders = toArray(document.querySelectorAll('.js-instagram'));
 placeholders.map(placeholder => {
-	placeholder.insertAdjacentHTML('afterbegin', imgTemplate(getNextUrl()) + imgTemplate('', 'is-hidden'));
+	placeholder.insertAdjacentHTML(
+		'afterbegin',
+		imgTemplate(getNextUrl()) + imgTemplate('', 'is-hidden')
+	);
 });
 setTimeout(tick, UPDATE_INTERVAL);

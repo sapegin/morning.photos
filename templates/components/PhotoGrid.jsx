@@ -6,8 +6,7 @@ export default function(props, children) {
 	let size;
 	if (children.length === 2) {
 		size = 'pair';
-	}
-	else if (children.length % 3 === 0) {
+	} else if (children.length % 3 === 0) {
 		size = children.length % 2 === 0 ? 'three-even' : 'three';
 	}
 	return (

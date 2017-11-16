@@ -10,7 +10,18 @@ import Splash from './components/Splash';
 import Script from './components/Script';
 
 export default function($) {
-	const { content, links, gearAlt, gear, workplaceAlt, iphoneAlt, software, about, copyrightsLabel, copyrights } = $;
+	const {
+		content,
+		links,
+		gearAlt,
+		gear,
+		workplaceAlt,
+		iphoneAlt,
+		software,
+		about,
+		copyrightsLabel,
+		copyrights,
+	} = $;
 	const { typo, option } = $;
 	const author = option('author');
 	return (
@@ -20,15 +31,15 @@ export default function($) {
 			<div class="about-content">
 				<div class="content">
 					<div class="l-row l-quad-space">
-						<div class="l-two-thirds text">
-							{typo(content)}
-						</div>
+						<div class="l-two-thirds text">{typo(content)}</div>
 						<div class="l-third">
 							{map(links, group => (
 								<ul class="l-double-space">
 									{map(group, link => (
 										<li>
-											<a href={link.link} class="link">{link.label}</a>
+											<a href={link.link} class="link">
+												{link.label}
+											</a>
 											{link.description && ` (${link.description})`}
 										</li>
 									))}
@@ -49,20 +60,28 @@ export default function($) {
 
 					<div class="photo-grid">
 						<div class="photo-grid__photo photo-grid__photo_two-thirds">
-							<img src="/images/about/workplace.jpg" alt={workplaceAlt} width="676" height="328"
-								class="photo-grid__img" />
+							<img
+								src="/images/about/workplace.jpg"
+								alt={workplaceAlt}
+								width="676"
+								height="328"
+								class="photo-grid__img"
+							/>
 						</div>
 						<div class="photo-grid__photo photo-grid__photo_third">
-							<img src="/images/about/iphone.jpg" alt={iphoneAlt} width="328" height="328"
-								class="photo-grid__img" />
+							<img
+								src="/images/about/iphone.jpg"
+								alt={iphoneAlt}
+								width="328"
+								height="328"
+								class="photo-grid__img"
+							/>
 						</div>
 					</div>
 
 					<AboutGearList list={software} {...$} />
 
-					<div class="note text">
-						{flow(markdown, typo)(about)}
-					</div>
+					<div class="note text">{flow(markdown, typo)(about)}</div>
 
 					<div class="note text">
 						{copyrightsLabel}{' '}

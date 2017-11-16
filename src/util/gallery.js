@@ -13,8 +13,7 @@ export const loadPhoto = memoize((folder, name) => {
 	let buffer;
 	try {
 		buffer = fs.readFileSync(filepath);
-	}
-	catch (exception) {
+	} catch (exception) {
 		printError(`Cannot load photo ${name}.jpg, exiting...`);
 		process.exit(1);
 	}
@@ -60,17 +59,16 @@ export function slugify(name) {
 	return name
 		.replace(/\.jpg$/i, '')
 		.replace(/_/g, '-')
-		.replace(/Artem-Sapegin/ig, '')
-		.replace(/Sapegin-Artem/ig, '')
-		.replace(/Olga-Flegontova/ig, '')
-		.replace(/5D/ig, '')
-		.replace(/20D/ig, '')
-		.replace(/MG/ig, '')
-		.replace(/Edit/ig, '')
-		.replace(/HDR/ig, '')
-		.replace(/--+/ig, '-')
-		.replace(/(^-|-$)/ig, '')
-	;
+		.replace(/Artem-Sapegin/gi, '')
+		.replace(/Sapegin-Artem/gi, '')
+		.replace(/Olga-Flegontova/gi, '')
+		.replace(/5D/gi, '')
+		.replace(/20D/gi, '')
+		.replace(/MG/gi, '')
+		.replace(/Edit/gi, '')
+		.replace(/HDR/gi, '')
+		.replace(/--+/gi, '-')
+		.replace(/(^-|-$)/gi, '');
 }
 
 /**
@@ -96,8 +94,7 @@ export function urlToSlug(url) {
 	return url
 		.replace(/^\/photos\/\w+\//, '')
 		.replace(/\.jpg$/i, '')
-		.replace(/-[a-z]+$/, '')
-	;
+		.replace(/-[a-z]+$/, '');
 }
 
 /**
@@ -109,11 +106,7 @@ export function urlToSlug(url) {
  * @returns {string}
  */
 function locationString(country, city, location) {
-	return asList([
-		location,
-		city,
-		country,
-	]);
+	return asList([location, city, country]);
 }
 
 /**

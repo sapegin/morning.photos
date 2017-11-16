@@ -2,12 +2,13 @@ import block from 'bem-cn';
 
 const b = block('subscribe-form');
 
-export default ({
-	from, extra, buttonLabel,
-	dateToString, option, __,
-}) => (
+export default ({ from, extra, buttonLabel, dateToString, option, __ }) => (
 	<u-subscribe data-action={option('subscribe.endpoint')} data-from={from}>
-		<form action={option('subscribe.url')} method="post" class={b.mix(['form', 'js-subscribe-form'])}>
+		<form
+			action={option('subscribe.url')}
+			method="post"
+			class={b.mix(['form', 'js-subscribe-form'])}
+		>
 			<div class={b('form').mix(['l-wrap', 'l-space'])}>
 				<input type="hidden" name="u" value="de175cf2070fa3cfd7d3ad209" />
 				<input type="hidden" name="id" value={option('subscribe.id')} />

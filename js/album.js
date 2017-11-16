@@ -3,21 +3,21 @@
 import throttle from 'lodash/throttle';
 import { toArray } from './util/util';
 
-let margin = 10;
+const margin = 10;
 
 function resizeRow(elems, rowWidth) {
-	let elemsCnt = elems.length;
-	let margins = elemsCnt * margin;
-	let albumWidthAdjusted = containerWidth - margins;
-	let overPercent = albumWidthAdjusted / (rowWidth - margins);
+	const elemsCnt = elems.length;
+	const margins = elemsCnt * margin;
+	const albumWidthAdjusted = containerWidth - margins;
+	const overPercent = albumWidthAdjusted / (rowWidth - margins);
 	let trackWidth = 0;
 
 	for (let photoIdx = 0; photoIdx < elemsCnt; photoIdx++) {
-		let photo = elems[photoIdx];
-		let img = photo.img;
+		const photo = elems[photoIdx];
+		const img = photo.img;
 		let fw = Math.floor(photo.w * overPercent);
-		let fh = Math.floor(photo.h * overPercent);
-		let isLast = photoIdx >= elemsCnt - 1;
+		const fh = Math.floor(photo.h * overPercent);
+		const isLast = photoIdx >= elemsCnt - 1;
 
 		trackWidth += fw + margin;
 
@@ -56,23 +56,23 @@ function resize() {
 	// Set original sizes for last (not full) row
 	for (photoIdx = 0, elemsCnt = elems.length; photoIdx < elemsCnt; photoIdx++) {
 		photo = elems[photoIdx];
-		let img = photo.img;
+		const img = photo.img;
 		img.width = photo.w;
 		img.height = photo.h;
 	}
 }
 
-let container = document.querySelector('.js-thumbs');
+const container = document.querySelector('.js-thumbs');
 let containerWidth = container.offsetWidth;
-let photos = toArray(container.querySelectorAll('.js-img'));
+const photos = toArray(container.querySelectorAll('.js-img'));
 let elems = [];
 let rowWidth = 0;
 
-let allElems = photos.map(img => {
-	let w = Number(img.getAttribute('width'));
-	let h = Number(img.getAttribute('height'));
+const allElems = photos.map(img => {
+	const w = Number(img.getAttribute('width'));
+	const h = Number(img.getAttribute('height'));
 
-	let elem = {
+	const elem = {
 		img,
 		w,
 		h,

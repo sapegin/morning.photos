@@ -7,9 +7,7 @@ export default function($) {
 	const { slug, size, alt = '' } = $;
 
 	if (slug.startsWith('http') || slug.startsWith('/')) {
-		return (
-			<img src={slug} alt={alt} class={$.class} />
-		);
+		return <img src={slug} alt={alt} class={$.class} />;
 	}
 
 	const realSlug = slugify(slug);

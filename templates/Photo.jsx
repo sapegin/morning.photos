@@ -11,15 +11,23 @@ export default function($) {
 			<script>document.documentElement.classList.add({json('is-fullscreen')})</script>
 
 			<div class="is-pocketed">
-				<Photo slug={slug} size="large" alt={title + (keywords.length && `: ${keywords.join(', ')}`)} />
+				<Photo
+					slug={slug}
+					size="large"
+					alt={title + (keywords.length && `: ${keywords.join(', ')}`)}
+				/>
 			</div>
 
 			<u-gallery class="lightbox" data-album-url={albumUrl}>
-				<div class="lightbox__logo logo"><a href="/" class="logo__link">{option('title')}</a></div>
+				<div class="lightbox__logo logo">
+					<a href="/" class="logo__link">
+						{option('title')}
+					</a>
+				</div>
 
 				<div class="lightbox__gallery">
 					<div class="lightbox__gallery-holder js-gallery-container swiper-container">
-						<div class="swiper-wrapper js-gallery-wrapper"></div>
+						<div class="swiper-wrapper js-gallery-wrapper" />
 					</div>
 				</div>
 
@@ -31,9 +39,7 @@ export default function($) {
 				</div>
 				<a href={albumUrl} class="lightbox__close lightbox-button">
 					<Icon name="close" />
-					<div class="lightbox__close-tooltip">
-						Back to “{albumTitle}” album
-					</div>
+					<div class="lightbox__close-tooltip">Back to “{albumTitle}” album</div>
 				</a>
 
 				<div class="lightbox__controls">
@@ -48,13 +54,11 @@ export default function($) {
 				</div>
 			</u-gallery>
 
-
 			<script>
-				var __galleryInitialSlug = {json(slug)};
-				var __galleryPhotos = {json(photos)};
+				var __galleryInitialSlug = {json(slug)}; var __galleryPhotos = {json(photos)};
 			</script>
-			<Script src="/build/main.js"/>
-			<Script src="/build/gallery.js"/>
+			<Script src="/build/main.js" />
+			<Script src="/build/gallery.js" />
 		</Base>
 	);
 }

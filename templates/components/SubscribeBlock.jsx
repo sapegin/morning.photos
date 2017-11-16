@@ -8,9 +8,7 @@ export default function($) {
 	const { __, typo, typoTitle } = $;
 	return (
 		<div class={b}>
-			{formTitle &&
-				<div class={b('title')}>{typoTitle(formTitle)}</div>
-			}
+			{formTitle && <div class={b('title')}>{typoTitle(formTitle)}</div>}
 			<div class={b('form')}>
 				<SubscribeForm {...$} />
 			</div>

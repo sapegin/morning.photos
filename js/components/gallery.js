@@ -8,11 +8,13 @@ const URL_REG_EXP = /\/([-\d]+)$/;
 // TODO: Breaks resizing
 // <img data-src="${getPhotoUrl(photo.slug, 'large')}" class="lightbox-image__saver swiper-lazy">
 
-export const slideTemplate = photo => (
-	`<div class="lightbox-image swiper-slide swiper-lazy" data-background="${getPhotoUrl(photo.slug, 'large')}">
+export const slideTemplate = photo =>
+	`<div class="lightbox-image swiper-slide swiper-lazy" data-background="${getPhotoUrl(
+		photo.slug,
+		'large'
+	)}">
 		<div class="swiper-lazy-preloader"></div>
-	</div>`
-);
+	</div>`;
 
 class Gallery extends Component {
 	static binded = 'onSlideChangeStart onPopState onKeyDown';
@@ -21,7 +23,9 @@ class Gallery extends Component {
 		this.photos = window.__galleryPhotos;
 		this.initialSlug = window.__galleryInitialSlug;
 		this.wrapperElem = this.getElem('wrapper');
-		this.siteTitle = document.querySelector('meta[property="og:site_name"]').getAttribute('content');
+		this.siteTitle = document
+			.querySelector('meta[property="og:site_name"]')
+			.getAttribute('content');
 
 		this.initSlider();
 
@@ -65,7 +69,8 @@ class Gallery extends Component {
 		const title = photo.title || '***';
 
 		// Update page title
-		const pageTitle = document.title = [stripTags(title), this.siteTitle].join(' — ');
+		const pageTitle = [stripTags(title), this.siteTitle].join(' — ');
+		document.title = pageTitle;
 
 		// Update URL
 		const url = location.href.replace(URL_REG_EXP, `/${photo.slug}`);
@@ -95,7 +100,8 @@ class Gallery extends Component {
 	}
 
 	onKeyDown(event) {
-		if (event.which === 27) {  // Escape
+		if (event.which === 27) {
+			// Escape
 			location.href = data(this.elem, 'albumUrl');
 		}
 	}

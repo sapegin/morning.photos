@@ -10,7 +10,7 @@ export default function($) {
 		<PageWithTitle {...$} pageType="album" showDescription>
 			<Thumbnails {...$} />
 			<Share {...$} title={`${title} — ${__('title')}`} />
-			<Script src="/build/main.js"/>
+			<Script src="/build/main.js" />
 		</PageWithTitle>
 	);
 }

@@ -28,7 +28,7 @@ class Subscribe extends Component {
 
 	onError(response) {
 		return {
-			message: response.msg && response.msg.replace(/^\d+\s+\-\s+/, ''),
+			message: response.msg && response.msg.replace(/^\d+\s+-\s+/, ''),
 		};
 	}
 }

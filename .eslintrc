@@ -1,11 +1,11 @@
 {
 	"extends": "tamia",
+	"parser": "babel-eslint",
 	"rules": {
 		"no-unused-vars": 0,
 		"newline-per-chained-call": 0
 	},
 	"globals": {
-		"mixpanel": false,
-		"glio": false
+		"vdo": false
 	}
 }

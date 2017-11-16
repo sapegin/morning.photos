@@ -13,9 +13,7 @@ export default function($) {
 							<h2 class="photo-grid__title">
 								<u>{album.title}</u>
 							</h2>
-							{album.byline &&
-								<div class="photo-grid__byline">{album.byline}</div>
-							}
+							{album.byline && <div class="photo-grid__byline">{album.byline}</div>}
 						</a>
 					</div>
 				))}

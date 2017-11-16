@@ -7,7 +7,8 @@ import Script from './components/Script';
 
 const image = (id, lang, type) => `/images/ebooks/${id}/${id}-${lang}-${type}.jpg`;
 
-const onClickScript = (id) => `
+const onClickScript = id =>
+	`
 	var form = document.querySelector('.js-subscribe');
 	form.classList.remove('is-active');
 	setTimeout(function() {
@@ -24,19 +25,13 @@ export default function($) {
 			{books.map(book => (
 				<div class="book">
 					<div class="book__cover">
-						<img
-							class="book__cover-image"
-							src={image(book.id, lang, 'cover')}
-							alt={book.caption}
-						/>
+						<img class="book__cover-image" src={image(book.id, lang, 'cover')} alt={book.caption} />
 					</div>
 					<div class="book__info">
 						<div class="book__description text">{flow(markdownBlock, typo)(book.description)}</div>
 						<div class="book__footer">
 							<ul class="book__features">
-								{book.features.map(feature => (
-									<li class="book__feature">{feature}</li>
-								))}
+								{book.features.map(feature => <li class="book__feature">{feature}</li>)}
 							</ul>
 							<div class="book__download">
 								<a
@@ -86,8 +81,7 @@ export default function($) {
 
 			<Share {...$} title={pageTitle} />
 
-			<Script src="/build/main.js"/>
+			<Script src="/build/main.js" />
 		</PageWithTitle>
 	);
 }
-

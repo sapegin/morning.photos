@@ -9,9 +9,7 @@ export default ({ list, cols, typo }) => (
 				<a href={link.link} class="link">
 					{typo(link.label)}
 				</a>
-				{link.description &&
-					<div class={b('description')}>{typo(link.description)}</div>
-				}
+				{link.description && <div class={b('description')}>{typo(link.description)}</div>}
 			</li>
 		))}
 	</ul>

@@ -16,14 +16,17 @@ export default function($, children) {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				{getMetaTags()}
 
-				<link rel="alternative" href="/feed.xml" title={__('titleBlog')} type="application/atom+xml" />
+				<link
+					rel="alternative"
+					href="/feed.xml"
+					title={__('titleBlog')}
+					type="application/atom+xml"
+				/>
 
 				<Style src="/build/styles.css" />
 				<Script src="/build/counters.js" inline />
 			</head>
-			<body class={getBodyClasses(pageType)}>
-				{children}
-			</body>
+			<body class={getBodyClasses(pageType)}>{children}</body>
 		</html>
 	);
 }

@@ -4,7 +4,7 @@ import sizes from '../data/sizes';
 import Photo from '../../templates/components/Photo';
 import PhotoGrid from '../../templates/components/PhotoGrid';
 
-let customRatios = {};
+const customRatios = {};
 
 function ratio(slug) {
 	if (!slug) {
@@ -25,10 +25,10 @@ export function grid({ children }) {
 		photos = files.map(file => {
 			if (file.startsWith('http') || file.startsWith('/')) {
 				// Custom ratio?
-				let m = file.match(/^(.*?) (\d+:\d+)$/);
+				const m = file.match(/^(.*?) (\d+:\d+)$/);
 				if (m) {
 					file = m[1];
-					let [width, height] = m[2].split(':');
+					const [width, height] = m[2].split(':');
 					customRatios[file] = Number(width) / Number(height);
 				}
 				return file;
@@ -39,13 +39,12 @@ export function grid({ children }) {
 			}
 			return slug;
 		});
-	}
-	catch (exception) {
+	} catch (exception) {
 		return errorInlineHtml(exception.message, { block: true });
 	}
 
 	let photoIdx = 0;
-	let rows = [];
+	const rows = [];
 	let threes = [];
 	while (photoIdx < photos.length) {
 		const slug = photos[photoIdx];
@@ -68,8 +67,7 @@ export function grid({ children }) {
 				<Photo slug={next2} size="small" />
 			);
 			photoIdx += 2;
-		}
-		else if (isPair) {
+		} else if (isPair) {
 			// Two portrait photos
 			rows.push(
 				<PhotoGrid>
@@ -78,8 +76,7 @@ export function grid({ children }) {
 				</PhotoGrid>
 			);
 			photoIdx += 1;
-		}
-		else {
+		} else {
 			// One landscape photo
 			rows.push(
 				<PhotoGrid>
@@ -107,7 +104,7 @@ export function video({ src, height = 576 }) {
 				src={src}
 				frameborder="0"
 				allowfullscreen
-			></iframe>
+			/>
 		</div>
 	);
 }

@@ -29,7 +29,7 @@ start('Building the site...');
 const config = loadConfig('config');
 const options = config.base;
 
-let renderMarkdown = createMarkdownRenderer({
+const renderMarkdown = createMarkdownRenderer({
 	customTags,
 	plugins: values(remarkPlugins),
 });
@@ -88,10 +88,10 @@ albums.forEach(album => {
 
 	// Load photos
 	let photos = photosList.map(name => {
-		let photo = loadPhoto(options.photosFolder, name);
+		const photo = loadPhoto(options.photosFolder, name);
 		return {
 			...photo,
-			timestamp: photo.timestamp || 0,  // Photos without timestamp should be in the end
+			timestamp: photo.timestamp || 0, // Photos without timestamp should be in the end
 			date: photo.timestamp && dateFormat.format(new Date(photo.timestamp)),
 		};
 	});
@@ -102,18 +102,14 @@ albums.forEach(album => {
 	}
 
 	// Album JSON
-	const json = album.photos = photos
-		.map(
-			pick(['slug', 'date', 'title', 'caption', 'location', 'exif'])
-		)
-		.map(photo => (
-			{
-				...photo,
-				title: richtypo.title(photo.title || '', photo.lang),
-				caption: richtypo.rich(photo.caption || '', photo.lang),
-			}
-		))
-	;
+	const json = photos
+		.map(pick(['slug', 'date', 'title', 'caption', 'location', 'exif']))
+		.map(photo => ({
+			...photo,
+			title: richtypo.title(photo.title || '', photo.lang),
+			caption: richtypo.rich(photo.caption || '', photo.lang),
+		}));
+	album.photos = json;
 
 	// Create document for each photo
 	photos.forEach(photo => {
@@ -135,7 +131,7 @@ albums.forEach(album => {
  * Portfolio
  */
 
-let portfolioDoc = find(documents, {
+const portfolioDoc = find(documents, {
 	url: '/albums',
 	lang: 'en',
 });
@@ -149,106 +145,118 @@ portfolioDoc.albums = filterDocuments(albums, {
  */
 
 // Group posts by language
-let posts = filterDocuments(documents, { url: /^\/blog\// });
+const posts = filterDocuments(documents, { url: /^\/blog\// });
 const postsByLanguage = groupDocuments(posts, 'lang');
 const languages = Object.keys(postsByLanguage);
 
-documents.push(...languages.reduce((result, lang) => {
-	const langPosts = postsByLanguage[lang];
-	let newDocs = [];
+documents.push(
+	...languages.reduce((result, lang) => {
+		const langPosts = postsByLanguage[lang];
+		const newDocs = [];
 
-	// Pagination
-	newDocs.push(...paginate(langPosts, {
-		sourcePathPrefix: `${lang}/blog`,
-		urlPrefix: '/blog',
-		documentsPerPage: options.postsPerPage,
-		layout: 'Posts',
-		extra: {
-			pageTitle: config[lang].titleBlog,
+		// Pagination
+		newDocs.push(
+			...paginate(langPosts, {
+				sourcePathPrefix: `${lang}/blog`,
+				urlPrefix: '/blog',
+				documentsPerPage: options.postsPerPage,
+				layout: 'Posts',
+				extra: {
+					pageTitle: config[lang].titleBlog,
+					lang,
+				},
+			})
+		);
+
+		// Tags
+		const postsByTag = groupDocuments(langPosts, 'tags');
+		const tags = Object.keys(postsByTag);
+		newDocs.push(
+			...tags.reduce((tagsResult, tag) => {
+				const tagDocs = postsByTag[tag];
+				const tagsNewDocs = paginate(tagDocs, {
+					sourcePathPrefix: `${lang}/blog/tags/${tag}`,
+					urlPrefix: `/blog/tags/${tag}`,
+					documentsPerPage: options.postsPerPage,
+					layout: 'Tag',
+					extra: {
+						total: tagDocs.length,
+						lang,
+						tag,
+					},
+				});
+				return [...tagsResult, ...tagsNewDocs];
+			}, [])
+		);
+
+		// Tags list for the blog home page
+		const blogHomepageDoc = find(newDocs, { url: '/blog' });
+		const tagsWithCount = tags.map(tag => ({
+			id: tag,
+			url: `/blog/tags/${tag}`,
+			count: postsByTag[tag].length,
+		}));
+		blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
+
+		// RSS feed
+		const feedDoc = find(documents, {
+			url: '/feed',
 			lang,
-		},
-	}));
-
-	// Tags
-	const postsByTag = groupDocuments(langPosts, 'tags');
-	const tags = Object.keys(postsByTag);
-	newDocs.push(...tags.reduce((tagsResult, tag) => {
-		let tagDocs = postsByTag[tag];
-		let tagsNewDocs = paginate(tagDocs, {
-			sourcePathPrefix: `${lang}/blog/tags/${tag}`,
-			urlPrefix: `/blog/tags/${tag}`,
-			documentsPerPage: options.postsPerPage,
-			layout: 'Tag',
-			extra: {
-				total: tagDocs.length,
-				lang,
-				tag,
-			},
 		});
-		return [...tagsResult, ...tagsNewDocs];
-	}, []));
+		feedDoc.items = langPosts.slice(0, options.postsInFeed);
 
-	// Tags list for the blog home page
-	let blogHomepageDoc = find(newDocs, { url: '/blog' });
-	let tagsWithCount = tags.map(tag => ({
-		id: tag,
-		url: `/blog/tags/${tag}`,
-		count: postsByTag[tag].length,
-	}));
-	blogHomepageDoc.tags = orderBy(tagsWithCount, ['count'], ['desc']);
+		const indexDoc = find(documents, {
+			url: '/',
+			lang,
+		});
+		const photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
 
-	// RSS feed
-	let feedDoc = find(documents, {
-		url: '/feed',
-		lang,
-	});
-	feedDoc.items = langPosts.slice(0, options.postsInFeed);
+		// RSS feed: photos
+		const photoFeedDoc = find(documents, {
+			url: '/feed-photos',
+			lang,
+		});
+		photoFeedDoc.items = photoPosts.slice(0, options.postsInFeed);
 
-	let indexDoc = find(documents, {
-		url: '/',
-		lang,
-	});
-	let photoPosts = filterDocuments(langPosts, { tags: tags => tags.includes('photos') });
+		// Last 3 posts with horizontal photos for main page
+		indexDoc.photoPosts = photoPosts
+			.filter(post => {
+				const firstPhoto = getFirstImage(post.content);
+				if (!firstPhoto) {
+					return false;
+				}
+				const slug = urlToSlug(firstPhoto);
+				const size = sizes[slug];
+				if (!size) {
+					return false;
+				}
+				if (size.medium.width <= size.medium.height) {
+					return false;
+				}
+				post.firstPhoto = slug;
+				return true;
+			})
+			.slice(0, 3);
 
-	// RSS feed: photos
-	let photoFeedDoc = find(documents, {
-		url: '/feed-photos',
-		lang,
-	});
-	photoFeedDoc.items = photoPosts.slice(0, options.postsInFeed);
+		// Last 9 non-photo posts for main page
+		indexDoc.posts = filterDocuments(langPosts, { tags: tags => !tags.includes('photos') }).slice(
+			0,
+			9
+		);
 
-	// Last 3 posts with horizontal photos for main page
-	indexDoc.photoPosts = photoPosts.filter(post => {
-		const firstPhoto = getFirstImage(post.content);
-		if (!firstPhoto) {
-			return false;
+		// Prepare the latest English post for LiveJournal
+		if (lang === 'en') {
+			const latestPost = langPosts[0];
+			const content = absolutizeLinks(latestPost.content, config[lang].url).replace(
+				options.cutTag,
+				'<lj-cut>'
+			);
+			writeFile('lj.html', latestPost.title + '\n\n\n' + content);
 		}
-		const slug = urlToSlug(firstPhoto);
-		const size = sizes[slug];
-		if (!size) {
-			return false;
-		}
-		if (size.medium.width <= size.medium.height) {
-			return false;
-		}
-		post.firstPhoto = slug;
-		return true;
-	}).slice(0, 3);
 
-	// Last 9 non-photo posts for main page
-	indexDoc.posts = filterDocuments(langPosts, { tags: tags => !tags.includes('photos') }).slice(0, 9);
-
-	// Prepare the latest English post for LiveJournal
-	if (lang === 'en') {
-		const latestPost = langPosts[0];
-		const content = absolutizeLinks(latestPost.content, config[lang].url)
-			.replace(options.cutTag, '<lj-cut>')
-		;
-		writeFile('lj.html', latestPost.title + '\n\n\n' + content);
-	}
-
-	return [...result, ...langPosts, ...newDocs];
-}, []));
+		return [...result, ...langPosts, ...newDocs];
+	}, [])
+);
 
 /**
  * Generate pages

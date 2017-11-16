@@ -37,7 +37,7 @@ export function getPhotoFilename(slug, size) {
  * @returns {string}
  */
 export function stripTags(html) {
-	let elem = document.createElement('div');
+	const elem = document.createElement('div');
 	elem.innerHTML = html;
 	return elem.textContent || '';
 }

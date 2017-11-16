@@ -1,11 +1,5 @@
 import { castArray, uniq, sample } from 'lodash';
-import {
-	og,
-	meta,
-	getFirstParagraph,
-	getFirstImage,
-	cleanHtml,
-} from 'fledermaus/lib/util';
+import { og, meta, getFirstParagraph, getFirstImage, cleanHtml } from 'fledermaus/lib/util';
 import { getPhotoUrl } from '../../js/util/util';
 import { slugify } from './gallery';
 
@@ -20,7 +14,9 @@ export { getPhotoUrl };
  * @returns {string}
  */
 export function Icon({ name }) {
-	return this.safe(this.embedFile(`icons/${name}.svg`).replace('<svg', `<svg class="icon icon_${name}"`));
+	return this.safe(
+		this.embedFile(`icons/${name}.svg`).replace('<svg', `<svg class="icon icon_${name}"`)
+	);
 }
 
 /**
@@ -58,7 +54,7 @@ export function getPageTitle({ title, suffix } = {}) {
  * @returns {Array}
  */
 export function getMetaTags() {
-	let tags = [];
+	const tags = [];
 
 	if (this.noIndex) {
 		tags.push(meta('robots', 'noindex follow'));
@@ -66,7 +62,7 @@ export function getMetaTags() {
 
 	let title = this.getPageTitle({ suffix: false }) || this.title || this.option('title');
 	let description = this.description || this.caption;
-	let content = this.content;
+	const content = this.content;
 	let image = this.image || this.cover || this.slug;
 
 	let twType = 'summary';
@@ -86,7 +82,7 @@ export function getMetaTags() {
 	}
 
 	if (content && !image) {
-		let firstImage = getFirstImage(content);
+		const firstImage = getFirstImage(content);
 		if (firstImage) {
 			image = firstImage;
 		}
@@ -101,7 +97,7 @@ export function getMetaTags() {
 
 	if (!description) {
 		if (content) {
-			let firstParagraph = getFirstParagraph(content);
+			const firstParagraph = getFirstParagraph(content);
 			if (firstParagraph) {
 				description = firstParagraph;
 			}
@@ -142,10 +138,6 @@ export function setPageType(...types) {
  */
 export function getBodyClasses(types) {
 	let allTypes = [...castArray(this.pageType), ...castArray(types)];
-	allTypes = allTypes
-		.filter(type => !!type)
-		.map(type => `page_${type}`)
-	;
+	allTypes = allTypes.filter(type => !!type).map(type => `page_${type}`);
 	return ['page'].concat(allTypes).join(' ');
 }
-

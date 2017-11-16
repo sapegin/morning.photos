@@ -23,11 +23,9 @@ export default function($, children) {
 		<article class={essay({ photo: isPhoto })}>
 			<div class="content entry-content">
 				<header>
-					<h2 class={entryTitle({ 'excerpt': !isPhoto, 'excerpt-photo': isPhoto })}>
+					<h2 class={entryTitle({ excerpt: !isPhoto, 'excerpt-photo': isPhoto })}>
 						<a class={entryTitle('link')} href={url}>
-							{isPhoto && firstPhoto &&
-								<div class={essay('featured')}>{safe(firstPhoto)}</div>
-							}
+							{isPhoto && firstPhoto && <div class={essay('featured')}>{safe(firstPhoto)}</div>}
 							{typoTitle(title)}
 						</a>
 					</h2>
@@ -35,14 +33,16 @@ export default function($, children) {
 
 				<div class={essay('content').mix('text')}>
 					{typo(text)}
-					{more &&
+					{more && (
 						<u-cut>
 							<p class="more-link">
-								<a class="more-link__link js-more-link" href={url}>{__('readMore')}</a>
+								<a class="more-link__link js-more-link" href={url}>
+									{__('readMore')}
+								</a>
 							</p>
 							<div class="js-more-content is-hidden">{typo(more)}</div>
 						</u-cut>
-					}
+					)}
 				</div>
 
 				<PostMeta {...$} />

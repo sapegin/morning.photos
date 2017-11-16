@@ -10,14 +10,10 @@ export default function($) {
 			<div class="content">
 				<article class="essay essay_single">
 					<header class="essay__header">
-						<h2 class="entry-title">
-							{typoTitle(title)}
-						</h2>
+						<h2 class="entry-title">{typoTitle(title)}</h2>
 					</header>
 
-					<div class="essay__content entry-content text">
-						{typo(content)}
-					</div>
+					<div class="essay__content entry-content text">{typo(content)}</div>
 
 					<PostMeta {...$} post={$} />
 				</article>

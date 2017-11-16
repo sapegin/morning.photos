@@ -26,14 +26,14 @@ const SIZES = [
 	},
 	{
 		name: 'medium',
-		width: 1024,  // Text page width
+		width: 1024, // Text page width
 		height: 1024,
 		quality: 90,
 		sharp: [1, 0.12, 0.62],
 	},
 	{
 		name: 'small',
-		width: 502,  // Half of text page width + 20px gap
+		width: 502, // Half of text page width + 20px gap
 		quality: 85,
 		thumb: true,
 		sharp: [1, 0.1, 0.6],
@@ -41,7 +41,7 @@ const SIZES = [
 	{
 		name: 'thumb',
 		width: null,
-		height: 270,  // Height of thumbnails row
+		height: 270, // Height of thumbnails row
 		quality: 85,
 		thumb: true,
 		sharp: [1, 0.1, 0.6],
@@ -104,8 +104,7 @@ photos.forEach(photo => {
 				.resize(size.width, size.height)
 				.max()
 				.jpeg(jpegOptions)
-				.sharpen(...size.sharp)
-			;
+				.sharpen(...size.sharp);
 
 			let jpegOptions = {
 				quality: size.quality,

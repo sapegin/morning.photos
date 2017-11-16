@@ -23,7 +23,7 @@ export default function($) {
 				</div>
 			</div>
 
-			<Script src="/build/main.js"/>
+			<Script src="/build/main.js" />
 		</Page>
 	);
 }

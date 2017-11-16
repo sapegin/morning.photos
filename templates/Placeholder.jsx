@@ -9,9 +9,9 @@ export default function($) {
 		<PageWithTitle {...$}>
 			<a href={linkUrl} class="albums-link">
 				<PhotoGrid>
-					{images.slice(0, 3).map(image => (
-						<Photo slug={image} size="small" class="album-thumbnail__img" />
-					))}
+					{images
+						.slice(0, 3)
+						.map(image => <Photo slug={image} size="small" class="album-thumbnail__img" />)}
 				</PhotoGrid>
 				<div class="albums-link__link">{typo(linkLabel)}</div>
 			</a>
