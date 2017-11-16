@@ -7,4 +7,3 @@ copyright: Artem Sapegin
 siteUrl: /blog
 imageUrl: /images/about/splash.jpg
 ---
-

@@ -115,7 +115,6 @@ copyrights:
   -
     link: http://zudochk.in/
     label: Dima Zudochkin
-
 ---
 
 My journey in photography began in 2004 with a strange desire to buy a camera. I nearly bought a digital compact camera then but decided that it’s not cool enough and settled on a film SLR. I was hooked immediately.
