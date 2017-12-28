@@ -36,7 +36,7 @@
     "eslint-config-tamia": "~4.2.3",
     "eslint-plugin-prettier": "^2.3.1",
     "exif-parser": "~0.1.9",
-    "fledermaus": "^7.0.0",
+    "fledermaus": "^7.1.0",
     "fs-extra": "~3.0.1",
     "glob": "~7.1.2",
     "lodash": "~4.17.4",
