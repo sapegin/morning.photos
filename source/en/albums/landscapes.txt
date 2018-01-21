@@ -8,6 +8,7 @@ date: Jan 1, 2025
 ---
 
 2017-11-04_2130_Artem_Sapegin
+2017-11-04_2126_Artem_Sapegin
 2017-11-04_2085_Artem_Sapegin
 2017-11-04_2012_Artem_Sapegin
 2017-11-04_2009_Artem_Sapegin
