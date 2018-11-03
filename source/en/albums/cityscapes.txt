@@ -9,6 +9,7 @@ date: Jan 1, 2020
 ---
 
 2018-10-11_3883_Artem_Sapegin
+2018-10-09_3830_Artem_Sapegin
 2018-03-04_3057_Artem_Sapegin
 2017-10-24_1597_Artem_Sapegin
 2017-09-29_1371_Artem_Sapegin
