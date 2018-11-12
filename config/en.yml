@@ -31,7 +31,7 @@ tags:
   title: '{total, plural, =1{One post} other{# posts}} tagged “{tag}”'
 
 subscribe:
-  id: 8b1db7df42
+  id: e0d45226cc
   url: "https://photos.us8.list-manage.com/subscribe/post"
   endpoint: "https://photos.us8.list-manage.com/subscribe/post-json"
   info: A few times a year, no spam, unsubscribe at any time.

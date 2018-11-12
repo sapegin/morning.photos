@@ -3,8 +3,8 @@ layout: Subscribe
 lang: en
 title: Subscribe to my photography newsletter
 pageTitle: Artem Sapegin’s Photography Newsletter
-description: Links to the best articles on photography, my new photos and posts.
+description: My new photos and blog posts.
 image: 2010-07-06_7750
 ---
 
-In the newsletter I share links to the best articles on photography, notes, not published in my blog and my new photos and posts. Something [like this](http://eepurl.com/b8Fz69).
+In the newsletter I share my new photos and posts, before I publish them on the blog, and occasionally some interesting links. Something [like this](https://us8.campaign-archive.com/?u=de175cf2070fa3cfd7d3ad209&id=b49b7eea2c).
