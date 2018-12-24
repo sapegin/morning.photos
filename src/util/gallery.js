@@ -7,24 +7,27 @@ import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
 import { printError } from 'fledermaus/lib/util';
 
-export const loadPhoto = memoize((folder, name) => {
-	const filepath = path.resolve(folder, `${name}.jpg`);
+export const loadPhoto = memoize(
+	(folder, name) => {
+		const filepath = path.resolve(folder, `${name}.jpg`);
 
-	let buffer;
-	try {
-		buffer = fs.readFileSync(filepath);
-	} catch (exception) {
-		printError(`Cannot load photo ${name}.jpg, exiting...`);
-		process.exit(1);
-	}
+		let buffer;
+		try {
+			buffer = fs.readFileSync(filepath);
+		} catch (exception) {
+			printError(`Cannot load photo ${name}.jpg, exiting...`);
+			process.exit(1);
+		}
 
-	const parser = exifParser.create(buffer);
-	const exif = parser.parse();
+		const parser = exifParser.create(buffer);
+		const exif = parser.parse();
 
-	const iptc = readIptc(buffer);
+		const iptc = readIptc(buffer);
 
-	return parseMetadata(name, exif, iptc);
-}, (folder, name) => `${folder}/${name}`);
+		return parseMetadata(name, exif, iptc);
+	},
+	(folder, name) => `${folder}/${name}`
+);
 
 function parseMetadata(name, { imageSize, tags }, iptc) {
 	return {

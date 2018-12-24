@@ -124,7 +124,7 @@ export function getMetaTags() {
 
 /**
  * Sets page type (used when generation <body> classes).
- * @param {string} types...
+ * @param {string} ...types
  */
 export function setPageType(...types) {
 	this.pageType = uniq(castArray(this.pageType).concat(types));

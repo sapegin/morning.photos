@@ -8,39 +8,27 @@ gearAlt: Чем снимает Артём Сапегин
 workplaceAlt: Рабочее место Артёма Сапегина
 iphoneAlt: Обработка фотографии в VSCO Cam на айфоне
 links:
-  -
-    -
-      link: mailto:artem@sapegin.ru
+  - - link: mailto:artem@sapegin.ru
       label: artem@sapegin.ru
-  -
-    -
-      link: https://unsplash.com/@sapegin
+  - - link: https://unsplash.com/@sapegin
       label: Ансплеш
-    -
-      link: https://www.instagram.com/sapegin/
+    - link: https://www.instagram.com/sapegin/
       label: Инстаграм
-    -
-      link: https://www.facebook.com/artemsapegin/
+    - link: https://www.facebook.com/artemsapegin/
       label: Фейсбук
-    -
-      link: https://twitter.com/sapegin
+    - link: https://twitter.com/sapegin
       label: Твитер
-  -
-    -
-      link: /subscribe
+  - - link: /subscribe
       label: Подпишитесь на рассылку о фотографии
 gear:
-  -
-    -
-      current:
+  - - current:
         - Canon EOS&nbsp;6D
         - iPhone&nbsp;6
       obsolete:
         - Canon EOS&nbsp;5D
         - Canon EOS&nbsp;20D
         - Canon EOS&nbsp;300V
-    -
-      current:
+    - current:
         - Canon <nobr>EF 17-40/4L</nobr>
         - Canon <nobr>EF 70-200/4L</nobr>
         - Canon <nobr>EF 50/1.4</nobr>
@@ -48,9 +36,7 @@ gear:
       obsolete:
         - Sigma <nobr>70-300/4-5.6</nobr>
         - Canon <nobr>EF 28-90/4-5.6</nobr>
-  -
-    -
-      current:
+  - - current:
         - Штатив Sirui <nobr>T-2204X</nobr> <nobr>+ голова</nobr> <nobr>K-20X</nobr> <nobr>+ [L-bracket](http://www.sunwayfoto.com/e_goodsDetail.aspx?gId=1217)</nobr>
         - поляризационный фильтр
         - нейтральный фильтр ND8
@@ -60,9 +46,7 @@ gear:
         - штатив Manfrotto 728B со&nbsp;сломанными ногами
         - штатив Slik U&nbsp;7700
         - Фотоальбом Epson P-2000
-  -
-    -
-      current:
+  - - current:
         - 'Рюкзак [Dakine Sequence](http://birdwatcher.ru/blog/2117 "Обзор фоторюкзака Dakine Sequence у меня в блоге")'
         - сумка National Geographic 2345 bag
         - ремень Lowepro Transporter
@@ -71,23 +55,17 @@ gear:
         - рюкзак Lowepro Mini Trekker Classic
         - рюкзак Lowepro Rover&nbsp;AW&nbsp;II
 software:
-  -
-    -
-      current:
+  - - current:
         - |
           MacBook Pro 15",<br>
           Adobe Lightroom CC + [500px](https://500px.com/lightroom "Публикация фотографий на 500px из Лайтрума"),<br>
           Adobe Photoshop CC + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Панелька для создания яркостных масок")
-  -
-    -
-      current:
+  - - current:
         - 'On iPhone: [Instagram](https://www.instagram.com/sapegin/)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
         - '[PhotoPills](http://www.photopills.com/ "Направление солнца и время закатов и рассветов и многое друге")'
         - '[HERE Maps](https://pages.here.com/app/ "Офлайновая карта с возможностью отмечать интересные места")'
-  -
-    -
-      obsolete:
+  - - obsolete:
         - Adobe Bridge
         - LR/Mogrify 2
         - Imagenomic Noiseware
@@ -95,25 +73,19 @@ software:
         - PTLens
         - GeoSetter
         - The Photographer’s Ephemeris
-copyrightsLabel: "Фотографии на этой странице:"
+copyrightsLabel: 'Фотографии на этой странице:'
 copyrights:
-  -
-    link: http://svetlyak.ru/
+  - link: http://svetlyak.ru/
     label: Александр Артёменко
-  -
-    link: http://zudochk.in/
+  - link: http://zudochk.in/
     label: Дима Зудочкин
-  -
-    link: http://koobassoff.deviantart.com/gallery/
+  - link: http://koobassoff.deviantart.com/gallery/
     label: Сергей Кубасов
-  -
-    link: https://www.facebook.com/patil.a.chetan
+  - link: https://www.facebook.com/patil.a.chetan
     label: Четан Патил
-  -
-    link: http://www.fourlittlepaws.com/
+  - link: http://www.fourlittlepaws.com/
     label: Юля Титовец
-  -
-    link: https://www.facebook.com/oflegontova
+  - link: https://www.facebook.com/oflegontova
     label: Ольга Флегонтова
 ---
 

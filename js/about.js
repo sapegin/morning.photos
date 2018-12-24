@@ -55,7 +55,7 @@ function getNextUrl() {
 
 // Run
 const placeholders = toArray(document.querySelectorAll('.js-instagram'));
-placeholders.map(placeholder => {
+placeholders.forEach(placeholder => {
 	placeholder.insertAdjacentHTML(
 		'afterbegin',
 		imgTemplate(getNextUrl()) + imgTemplate('', 'is-hidden')

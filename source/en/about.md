@@ -8,39 +8,27 @@ gearAlt: Artem Sapegin’s photography kit
 workplaceAlt: Artem Sapegin’s workplace
 iphoneAlt: Photo processing in VSCO Cam on iPhone
 links:
-  -
-    -
-      link: mailto:artem@sapegin.ru
+  - - link: mailto:artem@sapegin.ru
       label: artem@sapegin.ru
-  -
-    -
-      link: https://unsplash.com/@sapegin
+  - - link: https://unsplash.com/@sapegin
       label: Unsplash
-    -
-      link: https://www.instagram.com/sapegin/
+    - link: https://www.instagram.com/sapegin/
       label: Instagram
-    -
-      link: https://www.facebook.com/artemsapegin/
+    - link: https://www.facebook.com/artemsapegin/
       label: Facebook
-    -
-      link: https://twitter.com/iamsapegin
+    - link: https://twitter.com/iamsapegin
       label: Twitter
-  -
-    -
-      link: /subscribe
+  - - link: /subscribe
       label: Subscribe to photography newsletter
 gear:
-  -
-    -
-      current:
+  - - current:
         - Canon EOS&nbsp;6D
         - iPhone&nbsp;6
       obsolete:
         - Canon EOS&nbsp;5D
         - Canon EOS&nbsp;20D
         - Canon EOS&nbsp;300V
-    -
-      current:
+    - current:
         - Canon <nobr>EF 17-40/4L</nobr>
         - Canon <nobr>EF 70-200/4L</nobr>
         - Canon <nobr>EF 50/1.4</nobr>
@@ -48,9 +36,7 @@ gear:
       obsolete:
         - Sigma <nobr>70-300/4-5.6</nobr>
         - Canon <nobr>EF 28-90/4-5.6</nobr>
-  -
-    -
-      current:
+  - - current:
         - Sirui <nobr>T-2204X</nobr> tripod <nobr>+ K-20X</nobr> ball head <nobr>+ [L-bracket](http://www.sunwayfoto.com/e_goodsDetail.aspx?gId=1217)</nobr>
         - polarizer
         - ND8 neutral density filter
@@ -60,9 +46,7 @@ gear:
         - Manfrotto 728B tripod with broken legs
         - Slik U&nbsp;7700 tripod
         - Epson P-2000 photo storage
-  -
-    -
-      current:
+  - - current:
         - Dakine Sequence backpack
         - National Geographic 2345 bag
         - Lowepro Transporter camera strap
@@ -71,23 +55,17 @@ gear:
         - Lowepro Mini Trekker Classic backpack
         - Lowepro Rover&nbsp;AW&nbsp;II backpack
 software:
-  -
-    -
-      current:
+  - - current:
         - |
           MacBook Pro 15",<br>
           Adobe Lightroom CC + [500px](https://500px.com/lightroom "Export photos to 500px"),<br>
           Adobe Photoshop CC + [TKActions Panel](http://goodlight.us/writing/actionspanel/panel.html "Luminosity masks panel")
-  -
-    -
-      current:
+  - - current:
         - 'On iPhone: [Instagram](https://www.instagram.com/sapegin/)'
         - '[VSCO Cam](http://vsco.co/vscocam)'
         - '[PhotoPills](http://www.photopills.com/ "The best photo shoot planner for iPhone")'
         - '[HERE Maps](https://pages.here.com/app/ "The best offline map for iPhone")'
-  -
-    -
-      obsolete:
+  - - obsolete:
         - Adobe Bridge
         - LR/Mogrify 2
         - Imagenomic Noiseware
@@ -95,25 +73,19 @@ software:
         - PTLens
         - GeoSetter
         - The Photographer’s Ephemeris
-copyrightsLabel: "Photos on this page:"
+copyrightsLabel: 'Photos on this page:'
 copyrights:
-  -
-    link: http://svetlyak.ru/
+  - link: http://svetlyak.ru/
     label: Alexander Artemenko
-  -
-    link: https://www.facebook.com/oflegontova
+  - link: https://www.facebook.com/oflegontova
     label: Olga Flegontova
-  -
-    link: http://koobassoff.deviantart.com/gallery/
+  - link: http://koobassoff.deviantart.com/gallery/
     label: Sergey Kubasov
-  -
-    link: https://www.facebook.com/patil.a.chetan
+  - link: https://www.facebook.com/patil.a.chetan
     label: Chetan Patil
-  -
-    link: http://www.fourlittlepaws.com/
+  - link: http://www.fourlittlepaws.com/
     label: Yulia Titovets
-  -
-    link: http://zudochk.in/
+  - link: http://zudochk.in/
     label: Dima Zudochkin
 ---
 

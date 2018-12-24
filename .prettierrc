@@ -3,13 +3,24 @@
   "singleQuote": true,
   "trailingComma": "es5",
   "useTabs": true,
-  "proseWrap": false,
-  "overrides": [{
-    "files": "*.md",
-    "options": {
-      "printWidth": 70,
-      "useTabs": false,
-      "trailingComma": "none"
+  "proseWrap": "never",
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "useTabs": false,
+        "trailingComma": "none"
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "useTabs": false,
+        "trailingComma": "none",
+        "proseWrap": "never"
+      }
     }
-  }]
+  ]
 }

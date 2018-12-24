@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: Index
-title: "Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs, photos"
+title: 'Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs, photos'
 description: Landscapes, travel, cityscapes, nature, dogs and blog about photography.
 userpic: /images/about/me11.jpg
 ---
