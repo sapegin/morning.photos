@@ -1,0 +1,81 @@
+---
+layout: About
+lang: en
+pageTitle: 'Artem Sapegin: about the photographer and his photo equipment'
+image: /images/about/equipment.jpg
+numPhotos: 34
+about: 'About the site: works on <a href="https://www.gatsbyjs.org/">Gatsby</a>, <a href="https://emotion.sh/">Emotion</a> and <a href="http://sapegin.github.io/tamia/">Tâmia</a>; icons&nbsp;— <a href="http://genn.org/">Genn Osipenko</a>; hosting&nbsp;— <a href="https://www.netlify.com/">Netlify</a>.'
+links:
+  - - href: mailto:artem@sapegin.ru
+      label: artem@sapegin.ru
+  - - href: https://unsplash.com/@sapegin
+      label: Unsplash
+    - href: https://www.instagram.com/sapegin/
+      label: Instagram
+    - href: https://www.facebook.com/artemsapegin/
+      label: Facebook
+    - href: https://twitter.com/iamsapegin
+      label: Twitter
+  - - href: /subscribe
+      label: Subscribe to photography newsletter
+gear:
+  - - current:
+        - Canon EOS&nbsp;6D
+        - iPhone&nbsp;8
+      obsolete:
+        - Canon EOS&nbsp;5D
+        - Canon EOS&nbsp;20D
+        - Canon EOS&nbsp;300V
+    - current:
+        - Canon <nobr>EF 17-40/4L</nobr>
+        - Canon <nobr>EF 70-200/4L</nobr>
+        - Canon <nobr>EF 50/1.4</nobr>
+        - Sigma <nobr>70-200/2.8 EX DG OS HSM</nobr>
+      obsolete:
+        - Sigma <nobr>70-300/4-5.6</nobr>
+        - Canon <nobr>EF 28-90/4-5.6</nobr>
+  - - current:
+        - Sirui <nobr>T-2204X</nobr> tripod <nobr>+ K-20X</nobr> ball head <nobr>+ <a href="http://www.sunwayfoto.com/e_goodsDetail.aspx?gId=1217">L-bracket</a></nobr>
+        - polarizers
+        - ND8 neutral density filter
+        - remote release with a timer
+      obsolete:
+        - Benro A-197 tripod + KB-2 ball head
+        - Manfrotto 728B tripod with broken legs
+        - Slik U&nbsp;7700 tripod
+  - - current:
+        - Dakine Sequence backpack
+        - <a href="https://www.peakdesign.com/products/slide-lite">Peak Design Slide Light</a> camera strap
+      obsolete:
+        - Countless number of photo backpacks
+software:
+  - - current:
+        - |
+          MacBook Pro 15",<br>
+          Adobe Lightroom Classic,<br>
+          Adobe Photoshop + <a href="https://arcpanel.averin.photo/" title="Luminosity masks panel">ARCPanel</a>
+  - - current:
+        - 'On iPhone: <a href="https://www.instagram.com/sapegin/">Instagram</a>'
+        - '<a href="http://vsco.co/vscocam">VSCO Cam</a>'
+        - '<a href="http://www.photopills.com/" title="The best photo shoot planner for iPhone">PhotoPills</a>'
+        - '<a href="https://maps.me/" title="The best offline map for iPhone">Maps.me</a>'
+copyrights:
+  - href: http://svetlyak.ru/
+    label: Alexander Artemenko
+  - href: https://www.facebook.com/oflegontova
+    label: Olga Flegontova
+  - href: http://koobassoff.deviantart.com/gallery/
+    label: Sergey Kubasov
+  - href: https://www.facebook.com/patil.a.chetan
+    label: Chetan Patil
+  - href: http://www.fourlittlepaws.com/
+    label: Yulia Titovets
+  - href: http://zudochk.in/
+    label: Dima Zudochkin
+---
+
+My journey in photography began in 2004 with a strange desire to buy a camera. I nearly bought a digital compact camera then but decided that it’s not cool enough and settled on a film SLR. I was hooked immediately.
+
+I’m making photos when I’m not working as a web developer.
+
+I love to shoot nature, cities and dogs.

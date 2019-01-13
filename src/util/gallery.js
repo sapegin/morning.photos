@@ -1,46 +1,71 @@
 import fs from 'fs';
 import path from 'path';
-import { memoize } from 'lodash';
+import flatCache from 'flat-cache';
 import { decode } from 'utf8';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
-import { printError } from 'fledermaus/lib/util';
+import getImageColors from 'get-image-colors';
 
-export const loadPhoto = memoize(
-	(folder, name) => {
-		const filepath = path.resolve(folder, `${name}.jpg`);
+const photosFolder = path.resolve(__dirname, '../../photos');
 
-		let buffer;
-		try {
-			buffer = fs.readFileSync(filepath);
-		} catch (exception) {
-			printError(`Cannot load photo ${name}.jpg, exiting...`);
-			process.exit(1);
-		}
+// Read file cache
+const cache = flatCache.load('photos.json', path.resolve(__dirname, '../../data'));
 
-		const parser = exifParser.create(buffer);
-		const exif = parser.parse();
+// Save file cache on exit
+process.on('exit', () => {
+	cache.save(true);
+});
 
-		const iptc = readIptc(buffer);
+export const loadPhoto = async name => {
+	const cached = cache.getKey(name);
+	if (cached) {
+		return cached;
+	}
 
-		return parseMetadata(name, exif, iptc);
-	},
-	(folder, name) => `${folder}/${name}`
-);
+	console.log(`Loading photo ${name}...`);
 
-function parseMetadata(name, { imageSize, tags }, iptc) {
+	const photo = await loadPhotoReal(photosFolder, name);
+	cache.setKey(name, photo);
+	return photo;
+};
+
+export const loadPhotoReal = async (folder, name) => {
+	const filepath = path.resolve(folder, `${name}.jpg`);
+
+	let buffer;
+	try {
+		buffer = fs.readFileSync(filepath);
+	} catch (exception) {
+		// eslint-ignore-next-line no-console
+		console.error(`\n\nCannot load photo ${filepath}, exiting...\n\n`);
+		process.exit(1);
+	}
+
+	const { mtimeMs } = fs.statSync(filepath);
+
+	const parser = exifParser.create(buffer);
+	const { imageSize, tags } = parser.parse();
+
+	const iptc = readIptc(buffer);
+
+	const colors = await getImageColors(buffer, 'image/jpeg');
+	const color = colors[0].hex();
+
+	return parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color });
+};
+
+function parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color }) {
 	return {
 		name,
+		color,
 		slug: slugify(name),
 		width: imageSize.width,
 		height: imageSize.height,
+		modified: Math.floor(mtimeMs),
 		timestamp: tags.DateTimeOriginal && tags.DateTimeOriginal * 1000,
 		exif: exifString(tags.ExposureTime, tags.FNumber, tags.FocalLength, tags.ISO),
 		artist: utf8(tags.Artist),
-		latitude: tags.GPSLatitude,
-		longitude: tags.GPSLongitude,
-		altitude: tags.GPSAltitude,
 		title: utf8(iptc.object_name),
 		caption: utf8(iptc.caption),
 		location: locationString(
@@ -48,7 +73,7 @@ function parseMetadata(name, { imageSize, tags }, iptc) {
 			utf8(iptc.city),
 			utf8(iptc.sub_location)
 		),
-		keywords: iptc.keywords ? iptc.keywords.map(decode) : [],
+		keywords: iptc.keywords ? iptc.keywords.map(utf8) : [],
 	};
 }
 
@@ -64,7 +89,6 @@ export function slugify(name) {
 		.replace(/_/g, '-')
 		.replace(/Artem-Sapegin/gi, '')
 		.replace(/Sapegin-Artem/gi, '')
-		.replace(/Olga-Flegontova/gi, '')
 		.replace(/5D/gi, '')
 		.replace(/20D/gi, '')
 		.replace(/MG/gi, '')
@@ -82,7 +106,11 @@ export function slugify(name) {
  */
 export function utf8(string) {
 	if (typeof string === 'string') {
-		return decode(string);
+		try {
+			return decode(string);
+		} catch (err) {
+			return '';
+		}
 	}
 	return string;
 }

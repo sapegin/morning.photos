@@ -1,11 +1,18 @@
 {
-  "extends": "tamia",
-  "parser": "babel-eslint",
-  "rules": {
-    "no-unused-vars": 0,
-    "newline-per-chained-call": 0
-  },
-  "globals": {
-    "vdo": false
-  }
+	"parser": "babel-eslint",
+	"extends": [
+    "tamia/react",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+	"plugins": ["import", "flowtype"],
+	"settings": {
+		"react": {
+			"version": "16.6"
+		}
+	},
+	"rules": {
+    "react/prop-types": 0,
+    "flowtype/define-flow-type": 1
+	}
 }
