@@ -2,9 +2,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Provider from './Provider';
 import theme from '../theme';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { lang, title, description, twitter } = config.siteMetadata;
+const { lang, title, description, twitter } = config;
 
 const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, ${extra}` : '');
 

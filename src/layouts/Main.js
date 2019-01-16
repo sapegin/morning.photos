@@ -1,26 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from '@emotion/styled';
 import Group from 'react-group';
-import { Box, Row, Column, Text, TextContent, Html, themeGet } from 'tamia';
+import { Box, Row, Column, Text, TextContent, themeGet } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Page from './Page';
-import Photo from '../components/Photo';
+import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
 import SubscriptionForm from '../components/SubscriptionForm';
-import { getPhotoUrl } from '../util/photos';
-import config from '../../gatsby-config';
-
-const { excerptSeparator } = config.siteMetadata;
+import { getPhotoUrl, getPhotoNameFromUrl } from '../util/photos';
 
 // Split posts into:
-// 1. Posts with a main horizontal photo (up to three)
+// 1. Photo posts with a main horizontal photo (up to three)
 // 2. Rest of the posts
 const splitPostsIntoPhotosAndNot = posts =>
 	posts.reduce(
 		(result, post) => {
+			const { tags } = post.frontmatter;
 			const { width, height } = post.fields.coverSize || {};
-			if (width > height && result.photos.length < 3) {
+			if (width > height && tags.includes('photos') && result.photos.length < 3) {
 				result.photos.push(post);
 			} else {
 				result.rest.push(post);
@@ -68,7 +67,7 @@ const SecondaryPhoto = styled.div`
 	background-position: center center;
 	background-size: cover;
 	background-color: ${themeGet('colors.lighter')};
-	background-image: url(${props => getPhotoUrl(props.name, 'blog')});
+	background-image: url(${props => getPhotoUrl(getPhotoNameFromUrl(props.src), 'blog')});
 `;
 
 const PostHeading = styled(Text)`
@@ -80,19 +79,13 @@ const PostHeading = styled(Text)`
 	}
 `;
 
-const Avatar = styled.img`
-	max-width: 100%;
-	width: auto;
-	height: auto;
-`;
-
 export default ({
 	data: {
-		markdownRemark: {
-			html,
+		mdx: {
+			code: { body },
 			frontmatter: { title },
 		},
-		allMarkdownRemark: { edges },
+		allMdx: { edges },
 	},
 	location: { pathname },
 }) => {
@@ -106,14 +99,14 @@ export default ({
 		<Page title={title} url={pathname} textFullWidth>
 			<PrimaryPhotoContainer mb="m">
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
-					<Photo name={primaryPhoto.fields.cover} size="blog" />
+					<Image src={primaryPhoto.fields.cover} size="blog" />
 					<PrimaryPhotoHeading size="l">{primaryPhoto.frontmatter.title}</PrimaryPhotoHeading>
 				</PrimaryPhotoLink>
 			</PrimaryPhotoContainer>
 			<PhotoGrid columns={2} mb="l">
 				{secondaryPhotos.map(({ fields: { slug, cover }, frontmatter: { title } }) => (
-					<Link href={slug}>
-						<SecondaryPhoto name={cover} />
+					<Link key={slug} href={slug}>
+						<SecondaryPhoto src={cover} />
 						<PostHeading size="m" mt="s">
 							{title}
 						</PostHeading>
@@ -126,14 +119,16 @@ export default ({
 				</Text>{' '}
 				<Group separator=", " inline>
 					{rest.map(({ fields: { slug }, frontmatter: { title } }) => (
-						<Link href={slug}>{title}</Link>
+						<Link key={slug} href={slug}>
+							{title}
+						</Link>
 					))}
 				</Group>
 			</Box>
 			<Row>
 				<Column width={[1, 3 / 4]}>
-					<Box mb="m">
-						<TextContent as={Html}>{html}</TextContent>
+					<Box as={TextContent} mb="m">
+						<MDXRenderer>{body}</MDXRenderer>
 					</Box>
 					<Box mb="l">
 						<SubscriptionForm from="Index" />
@@ -141,7 +136,7 @@ export default ({
 				</Column>
 				<Column width={[1, 1 / 4]}>
 					<Box mb="l">
-						<Avatar src="/images/about/me11.jpg" alt="Photo of Artem Sapegin" />
+						<Image src="/images/about/me11.jpg" alt="Photo of Artem Sapegin" />
 					</Box>
 				</Column>
 			</Row>
@@ -151,13 +146,15 @@ export default ({
 
 export const pageQuery = graphql`
 	query MainPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 			}
-			html
+			code {
+				body
+			}
 		}
-		allMarkdownRemark(
+		allMdx(
 			filter: { fileAbsolutePath: { regex: "/blog/.*/" } }
 			sort: { fields: [frontmatter___date], order: DESC }
 			limit: 8
@@ -174,6 +171,7 @@ export const pageQuery = graphql`
 					}
 					frontmatter {
 						title
+						tags
 					}
 				}
 			}

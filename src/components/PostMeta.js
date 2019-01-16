@@ -3,9 +3,9 @@ import React from 'react';
 import Group from 'react-group';
 import { Row, Column, Text, VisuallyHidden } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { tagNames } = config.siteMetadata;
+const { tagNames } = config;
 
 type Props = {
 	/* Date in format YYYY-MM-DD */

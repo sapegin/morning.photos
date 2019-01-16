@@ -2,9 +2,9 @@
 import React from 'react';
 import { Row, Column } from 'tamia';
 import NavLink from './NavLink';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { menu } = config.siteMetadata;
+const { menu } = config;
 
 const getVariation = (url, currentUrl = '') => {
 	if (url === currentUrl) {

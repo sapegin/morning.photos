@@ -4,9 +4,9 @@ import Gallery from 'react-photo-gallery';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Photo from '../components/Photo';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { title: siteTitle } = config.siteMetadata;
+const { title: siteTitle } = config;
 
 const MARGIN = 4;
 

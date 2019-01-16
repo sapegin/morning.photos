@@ -18,10 +18,10 @@ const AlbumHeading = styled(Heading)`
 
 export default ({
 	data: {
-		markdownRemark: {
+		mdx: {
 			frontmatter: { title },
 		},
-		allMarkdownRemark: { edges },
+		allMdx: { edges },
 	},
 	location: { pathname },
 }) => {
@@ -44,12 +44,12 @@ export default ({
 
 export const pageQuery = graphql`
 	query AlbumsPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 			}
 		}
-		allMarkdownRemark(
+		allMdx(
 			filter: { fileAbsolutePath: { regex: "/albums/.*\\.md/" } }
 			sort: { fields: [frontmatter___position], order: ASC }
 		) {

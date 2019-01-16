@@ -5,7 +5,6 @@ module.exports = {
 	description: 'Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs',
 	email: 'artem@sapegin.me',
 	twitter: '@iamsapegin',
-	excerptSeparator: 'more', // <!--more-->
 	menu: [
 		{
 			title: 'Blog',

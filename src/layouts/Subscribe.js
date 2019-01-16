@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { TextContent, Box, Html } from 'tamia';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { TextContent, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 import SubscriptionForm from '../components/SubscriptionForm';
 
 const TextPage = ({
 	data: {
-		markdownRemark: {
+		mdx: {
 			frontmatter: { title, pageTitle },
-			html,
+			code: { body },
 		},
 	},
 	location: { pathname },
@@ -21,8 +22,8 @@ const TextPage = ({
 			splash="subscribe.jpg"
 			inverted
 		>
-			<Box mb="l">
-				<TextContent as={Html}>{html}</TextContent>
+			<Box as={TextContent} mb="l">
+				<MDXRenderer>{body}</MDXRenderer>
 			</Box>
 			<Box mb="xl">
 				<SubscriptionForm from="Subscribe" />
@@ -35,12 +36,14 @@ export default TextPage;
 
 export const pageQuery = graphql`
 	query SubscribePage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle
 			}
-			html
+			code {
+				body
+			}
 		}
 	}
 `;

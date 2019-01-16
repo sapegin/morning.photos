@@ -2,9 +2,9 @@
 import React from 'react';
 import { VisuallyHidden, Text, themeGet } from 'tamia';
 import styled from '@emotion/styled';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { userId, listId, actionUrl } = config.siteMetadata.subscribe;
+const { userId, listId, actionUrl } = config.subscribe;
 
 const noop = () => {};
 

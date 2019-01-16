@@ -1,11 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { promisify } from 'util';
 import flatCache from 'flat-cache';
 import { decode } from 'utf8';
+import imageSize from 'image-size';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
 import getImageColors from 'get-image-colors';
+
+const getImageSize = promisify(imageSize);
 
 const photosFolder = path.resolve(__dirname, '../../photos');
 
@@ -33,14 +37,7 @@ export const loadPhoto = async name => {
 export const loadPhotoReal = async (folder, name) => {
 	const filepath = path.resolve(folder, `${name}.jpg`);
 
-	let buffer;
-	try {
-		buffer = fs.readFileSync(filepath);
-	} catch (exception) {
-		// eslint-ignore-next-line no-console
-		console.error(`\n\nCannot load photo ${filepath}, exiting...\n\n`);
-		process.exit(1);
-	}
+	const buffer = readImage(filepath);
 
 	const { mtimeMs } = fs.statSync(filepath);
 
@@ -54,6 +51,25 @@ export const loadPhotoReal = async (folder, name) => {
 
 	return parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color });
 };
+
+export const loadImage = async filepath => {
+	const { width, height } = await getImageSize(filepath);
+	return {
+		width,
+		height,
+	};
+};
+
+function readImage(filepath) {
+	try {
+		return fs.readFileSync(filepath);
+	} catch (err) {
+		// eslint-ignore-next-line no-console
+		console.error(`\n\nCannot load photo ${filepath}, exiting...\n\n`);
+		process.exit(1);
+	}
+	return undefined;
+}
 
 function parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color }) {
 	return {

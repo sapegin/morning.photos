@@ -26,6 +26,10 @@ const theme = getTheme({
 		base: 400,
 		heading: 300,
 	},
+	lineHeights: {
+		heading: 1.3,
+	},
+
 	colors: {
 		bg: '#fff',
 		base: '#222',

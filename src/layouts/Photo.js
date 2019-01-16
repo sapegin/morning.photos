@@ -15,9 +15,9 @@ import Photo from '../components/Photo';
 import useKeyPress from '../util/useKeyPress';
 import useMounted from '../util/useMounted';
 import useSwipe from '../util/useSwipe';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { title: siteTitle } = config.siteMetadata;
+const { title: siteTitle } = config;
 
 const easeInOutQuart = 'cubic-bezier(0.77, 0, 0.175, 1)';
 const easeOutQuad = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';

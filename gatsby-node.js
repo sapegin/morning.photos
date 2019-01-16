@@ -4,10 +4,12 @@ require = require('esm')(module);
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const {
+	stripFrontmatter,
 	getAlbumFromNames,
 	getLines,
 	getFirstImage,
 	getPhotoNameFromUrl,
+	loadImage,
 	loadPhoto,
 } = require('./src/util/node');
 
@@ -19,7 +21,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) => {
-	if (node.internal.type === 'MarkdownRemark') {
+	if (node.internal.type === 'Mdx') {
 		// Add slug without trailing slash
 		const slug = createFilePath({ node, getNode }).slice(0, -1);
 		createNodeField({
@@ -28,16 +30,20 @@ exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) =
 			value: slug || '/',
 		});
 
-		// Add main photo
-		const firstImageSrc = getFirstImage(node.rawMarkdownBody);
-		const name = getPhotoNameFromUrl(firstImageSrc);
-		if (name) {
-			const { width, height } = await loadPhoto(name);
+		// Add cover photo URL
+		const firstImageSrc = getFirstImage(node.rawBody);
+		if (firstImageSrc) {
 			createNodeField({
 				node,
 				name: 'cover',
-				value: name,
+				value: firstImageSrc,
 			});
+
+			// Add cover photo dimensions
+			const name = getPhotoNameFromUrl(firstImageSrc);
+			const { width, height } = name
+				? await loadPhoto(name)
+				: await loadImage(path.join(__dirname, 'static', firstImageSrc));
 			createNodeField({
 				node,
 				name: 'coverSize',
@@ -51,14 +57,14 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 	return new Promise((resolve, reject) => {
 		graphql(`
 			{
-				allMarkdownRemark(
+				allMdx(
 					# Make sure that the New album will be the last and we'll
 					# have all the photos available
 					sort: { fields: [frontmatter___position], order: DESC }
 				) {
 					edges {
 						node {
-							rawMarkdownBody
+							rawBody
 							frontmatter {
 								layout
 								title
@@ -79,10 +85,10 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
 			const allPhotoNames = [];
 
-			result.data.allMarkdownRemark.edges.forEach(
+			result.data.allMdx.edges.forEach(
 				async ({
 					node: {
-						rawMarkdownBody,
+						rawBody,
 						frontmatter: { layout, title, order },
 						fields: { slug },
 					},
@@ -91,7 +97,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
 					// Add photos data to album pages
 					if (slug.startsWith('/albums/')) {
-						const names = getLines(rawMarkdownBody);
+						const names = getLines(stripFrontmatter(rawBody));
 						allPhotoNames.push(...names);
 
 						const photos = await getAlbumFromNames(names.length > 0 ? names : allPhotoNames, {

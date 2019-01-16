@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'lodash/shuffle';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Box, Row, Column, Text, Html } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
@@ -57,9 +58,9 @@ const List = ({ items }) => (
 
 const AboutPage = ({
 	data: {
-		markdownRemark: {
+		mdx: {
 			frontmatter: { title, pageTitle, numPhotos, about, links, gear, software, copyrights },
-			html,
+			code: { body },
 		},
 	},
 	location: { pathname },
@@ -76,8 +77,8 @@ const AboutPage = ({
 		>
 			<Row>
 				<Column width={[1, 2 / 3]}>
-					<Box mb="l">
-						<TextContent as={Html}>{html}</TextContent>
+					<Box as={TextContent} mb="l">
+						<MDXRenderer>{body}</MDXRenderer>
 					</Box>
 				</Column>
 				<Column width={[1, 1 / 3]}>
@@ -139,7 +140,7 @@ export default AboutPage;
 
 export const pageQuery = graphql`
 	query AboutPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle
@@ -161,7 +162,9 @@ export const pageQuery = graphql`
 					label
 				}
 			}
-			html
+			code {
+				body
+			}
 		}
 	}
 `;

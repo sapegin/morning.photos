@@ -1,73 +1,143 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Box } from 'tamia';
-import { renderAst } from '../markdown';
-import Page from './Page';
-import PostExcerpt from '../components/PostExcerpt';
-import config from '../../gatsby-config';
+import styled from '@emotion/styled';
+import { Box, Row, Column, Heading, Text, themeGet } from 'tamia';
+import { QuotedLink } from 'tamia-gatsby-link';
+import PageWithTitle from './PageWithTitle';
+import Image from '../components/Image';
+import config from '../../config';
 
-const { excerptSeparator } = config.siteMetadata;
+const { tagNames } = config;
 
-const isExcerpt = node =>
-	node.type === 'comment' && node.value.trim().toLowerCase() === excerptSeparator;
+const PostContainer = styled(Box)`
+	margin-left: -${themeGet('page.xPadding')};
+	margin-right: -${themeGet('page.xPadding')};
+	text-align: ${props => props.align};
 
-const hasMore = ast => !!ast.children.find(isExcerpt);
+	@media (min-width: 32rem) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+`;
 
-const getExcerptAst = ast => {
-	const index = ast.children.findIndex(isExcerpt);
-	return {
-		...ast,
-		children: ast.children.slice(0, index > 0 ? index + 1 : ast.children.length),
-	};
+const TextPostContainer = styled(Box)`
+	margin-left: -${themeGet('page.xPadding')};
+	margin-right: -${themeGet('page.xPadding')};
+	padding: ${themeGet('space.l')} ${themeGet('page.xPadding')};
+	text-align: ${props => props.align};
+	border: 2px solid ${themeGet('colors.base')};
+`;
+
+const PostHeaderStyle = styled.header`
+	margin-top: -0.4rem;
+	padding: 0 ${themeGet('page.xPadding')};
+
+	@media (min-width: 32rem) {
+		padding: 0;
+	}
+`;
+
+const PostHeader = ({ title, tags }) => (
+	<PostHeaderStyle>
+		<Heading level={3} mb="s" as="h2">
+			<u>{title}</u>
+		</Heading>
+		<Text as="p" size="xs" weight="bold">
+			{tagNames[tags[0]]}
+		</Text>
+	</PostHeaderStyle>
+);
+
+const renderPost = ({ slug, cover, width, height, ...post }, isLeftSide) => {
+	// Panoramic
+	if (width >= height * 1.8) {
+		return (
+			<PostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
+				<QuotedLink href={slug}>
+					<Box mb="m">
+						<Image src={cover} />
+					</Box>
+					<PostHeader {...post} />
+				</QuotedLink>
+			</PostContainer>
+		);
+	}
+
+	// Horizontal
+	if (width >= height) {
+		const columns = [
+			<Column key="image" width={[1, 5 / 6]}>
+				<Image src={cover} />
+			</Column>,
+			<Column key="header" width={[1, 1 / 6]}>
+				<PostHeader {...post} />
+			</Column>,
+		];
+		return (
+			<PostContainer key={slug} mb="xl">
+				<Row as={QuotedLink} key={slug} narrow href={slug}>
+					{isLeftSide ? columns.reverse() : columns}
+				</Row>
+			</PostContainer>
+		);
+	}
+
+	// Just text heading
+	return (
+		<TextPostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
+			<QuotedLink href={slug}>
+				<PostHeader {...post} />
+			</QuotedLink>
+		</TextPostContainer>
+	);
 };
 
 export default ({
 	data: {
-		markdownRemark: {
-			frontmatter: { title },
+		mdx: {
+			frontmatter: { title, pageTitle },
 		},
-		allMarkdownRemark: { edges },
+		allMdx: { edges },
 	},
 	location: { pathname },
 }) => {
-	const posts = edges.map(x => x.node);
+	const posts = edges.map(({ node }) => ({
+		...node.fields,
+		...node.fields.coverSize,
+		...node.frontmatter,
+	}));
 	return (
-		<Page title={title} url={pathname}>
-			{posts.map(({ htmlAst, fields, frontmatter }) => (
-				<Box
-					key={fields.slug}
-					as={PostExcerpt}
-					mb="l"
-					{...fields}
-					{...frontmatter}
-					hasMore={hasMore(htmlAst)}
-				>
-					{renderAst(getExcerptAst(htmlAst))}
-				</Box>
-			))}
-		</Page>
+		<PageWithTitle title={title} pageTitle={pageTitle} url={pathname} textFullWidth>
+			{posts.map((post, index) => renderPost(post, !(index % 2)))}
+		</PageWithTitle>
 	);
 };
 
 export const pageQuery = graphql`
 	query PostsPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 			}
 		}
-		allMarkdownRemark(
+		allMdx(
 			filter: { fileAbsolutePath: { regex: "/blog/.*/" } }
 			sort: { fields: [frontmatter___date], order: DESC }
 		) {
 			edges {
 				node {
-					htmlAst
 					fields {
 						slug
+						cover
+						coverSize {
+							width
+							height
+						}
 					}
 					frontmatter {
 						title
+						pageTitle
+						tags
 						date(formatString: "MMMM DD, YYYY")
 						datetime: date(formatString: "YYYY-MM-DD")
 					}

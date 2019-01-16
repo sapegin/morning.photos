@@ -1,19 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Box } from 'tamia';
-import { renderAst } from '../markdown';
 import PageWithTitle from './PageWithTitle';
 import PostMeta from '../components/PostMeta';
 import SubscriptionBox from '../components/SubscriptionBox';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { titleBlog } = config.siteMetadata;
+const { titleBlog } = config;
 
 export default ({
 	data: {
-		markdownRemark: {
+		mdx: {
 			frontmatter: { title, tags = [], date, datetime },
-			htmlAst,
+			code: { body },
 		},
 	},
 	location: { pathname },
@@ -21,8 +21,8 @@ export default ({
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${titleBlog}`}>
 			<Box mb="xl">
-				<Box mb="l">
-					<TextContent>{renderAst(htmlAst)}</TextContent>
+				<Box as={TextContent} mb="l">
+					<MDXRenderer>{body}</MDXRenderer>
 				</Box>
 				<Box mb="l">
 					<PostMeta date={date} datetime={datetime} tags={tags} />
@@ -37,14 +37,16 @@ export default ({
 
 export const pageQuery = graphql`
 	query PostPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				tags
 				date(formatString: "MMMM DD, YYYY")
 				datetime: date(formatString: "YYYY-MM-DD")
 			}
-			htmlAst
+			code {
+				body
+			}
 		}
 	}
 `;

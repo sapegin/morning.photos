@@ -5,12 +5,14 @@ import { loadPhoto } from './gallery';
 const DATE_FORMAT = 'MMMM, YYYY';
 const PHOTO_PROTOCOL = 'photo://';
 
-export { loadPhoto } from './gallery';
+export { loadPhoto, loadImage } from './gallery';
+
+export const stripFrontmatter = markdown => markdown.replace(/[+-]{3}[\s\S]*[+-]{3}/, '');
 
 export const getLines = text => text.split('\n').filter(Boolean);
 
 export const getFirstImage = markdown => {
-	const match = markdown.match(/!\[[^\]]*\]\(([^)]*)\)/);
+	const match = markdown.match(/!\[[^\]]*\]\(([^)'"\s]*)\)/);
 	return match && match[1];
 };
 

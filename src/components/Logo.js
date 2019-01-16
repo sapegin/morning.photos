@@ -2,9 +2,9 @@
 import React from 'react';
 import { Text } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
-import config from '../../gatsby-config';
+import config from '../../config';
 
-const { title } = config.siteMetadata;
+const { title } = config;
 
 type Props = {
 	homepage: boolean,

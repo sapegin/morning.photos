@@ -1,22 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { TextContent, Box, Html } from 'tamia';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { TextContent } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 
 const SubscribeThankYouPage = ({
 	data: {
-		markdownRemark: {
+		mdx: {
 			frontmatter: { title },
-			html,
+			code: { body },
 		},
 	},
 	location: { pathname },
 }) => {
 	return (
 		<PageWithTitle url={pathname} title={title}>
-			<Box mb="l">
-				<TextContent as={Html}>{html}</TextContent>
-			</Box>
+			<TextContent>
+				<MDXRenderer>{body}</MDXRenderer>
+			</TextContent>
 		</PageWithTitle>
 	);
 };
@@ -25,11 +26,13 @@ export default SubscribeThankYouPage;
 
 export const pageQuery = graphql`
 	query SubscribeThankYouPage($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 			}
-			html
+			code {
+				body
+			}
 		}
 	}
 `;

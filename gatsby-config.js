@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-global-assign
+require = require('esm')(module);
+
 module.exports = {
 	siteMetadata: require('./config'),
 	plugins: [
@@ -13,9 +16,14 @@ module.exports = {
 			},
 		},
 		{
-			resolve: 'gatsby-transformer-remark',
+			resolve: 'gatsby-mdx',
 			options: {
-				plugins: ['gatsby-remark-photo'],
+				extensions: ['.mdx', '.md'],
+				mdPlugins: [require('./src/remark/photo')],
+				globalScope: `
+					import { Photo } from '${__dirname}/src/markdown'
+					export default { Photo }
+					`,
 			},
 		},
 		'gatsby-plugin-netlify',
