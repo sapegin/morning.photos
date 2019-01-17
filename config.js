@@ -24,12 +24,13 @@ module.exports = {
 		},
 	],
 	tagNames: {
-		photos: 'My Photos',
-		photography: 'Photography',
-		life: 'Life',
-		dogs: 'Dogs',
+		backstage: 'Behind the camera',
 		books: 'Books',
+		dogs: 'Dogs',
+		life: 'Life',
 		masters: 'Masters',
+		photography: 'Photography',
+		photos: 'My Photos',
 	},
 	subscribe: {
 		userId: 'de175cf2070fa3cfd7d3ad209',

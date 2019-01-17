@@ -48,7 +48,8 @@ const theme = getTheme({
 		base: '0.15em',
 	},
 	breakpoints: {
-		small: '32rem', // ~512px
+		small: '32rem', // 512px
+		huge: '64rem', // 1024px
 	},
 });
 

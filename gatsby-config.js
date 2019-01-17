@@ -21,8 +21,8 @@ module.exports = {
 				extensions: ['.mdx', '.md'],
 				mdPlugins: [require('./src/remark/photo')],
 				globalScope: `
-					import { Photo } from '${__dirname}/src/markdown'
-					export default { Photo }
+					import { Photo, Video, Grid } from '${__dirname}/src/markdown'
+					export default { Photo, Video, Grid }
 					`,
 			},
 		},

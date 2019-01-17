@@ -10,9 +10,12 @@ Replace photo Markdown image tags with a custom tag:
 <Photo name="pizza" alt="Pizza" />
 */
 
-const hasOnlyImagesNodes = node =>
+const hasOnlyPhotos = node =>
 	node.children.every(child => {
-		return child.type === 'image' || (child.type === 'text' && child.value.trim() === '');
+		return (
+			(child.type === 'image' && isPhotoUrl(child.url)) ||
+			(child.type === 'text' && child.value.trim() === '')
+		);
 	});
 
 module.exports = function attacher() {
@@ -20,10 +23,10 @@ module.exports = function attacher() {
 		// Collect all image tags
 		const allPhotoTags = [];
 		visit(tree, 'paragraph', node => {
-			if (!hasOnlyImagesNodes(node)) {
+			if (!hasOnlyPhotos(node)) {
 				return;
 			}
-			allPhotoTags.push(...node.children.filter(({ url }) => isPhotoUrl(url)));
+			allPhotoTags.push(...node.children);
 		});
 
 		// Load all photos
@@ -33,21 +36,19 @@ module.exports = function attacher() {
 
 		// Replace image tags with a component
 		visit(tree, 'paragraph', node => {
-			if (!hasOnlyImagesNodes(node)) {
+			if (!hasOnlyPhotos(node)) {
 				return;
 			}
 
-			const photos = node.children
-				.filter(({ url }) => isPhotoUrl(url))
-				.map(({ url, alt, title }) => {
-					alt = alt || '';
-					title = title || '';
+			const photos = node.children.map(({ url, alt, title }) => {
+				alt = alt || '';
+				title = title || '';
 
-					const name = getPhotoNameFromUrl(url);
-					const { width, height, color } = allPhotos.find(photo => photo.name === name);
+				const name = getPhotoNameFromUrl(url);
+				const { width, height, color } = allPhotos.find(photo => photo.name === name);
 
-					return `<Photo name="${name}" alt="${alt}" title="${title}" width={${width}} height={${height}} color="${color}" />`;
-				});
+				return `<Photo name="${name}" alt="${alt}" title="${title}" width={${width}} height={${height}} color="${color}" />`;
+			});
 
 			node.value = photos.join('\n');
 			node.type = 'html';
