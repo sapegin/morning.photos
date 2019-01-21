@@ -6,10 +6,6 @@ import config from '../../config';
 
 const { lang, title, description, twitter } = config;
 
-const viewport = extra => 'width=device-width, initial-scale=1.0' + (extra ? `, ${extra}` : '');
-
-// <meta charset="utf-8" />
-
 /*<link
 rel="alternative"
 href="/feed.xml"
@@ -17,7 +13,7 @@ title={__('titleBlog')}
 type="application/atom+xml"
 />*/
 
-const Base = ({ viewportExtra, children }) => (
+const Base = ({ children }) => (
 	<>
 		<Helmet>
 			<html lang={lang} />
@@ -27,7 +23,7 @@ const Base = ({ viewportExtra, children }) => (
 			<meta property="og:title" content={title} />
 			<meta name="twitter:creator" content={twitter} />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
-			<meta name="viewport" content={viewport(viewportExtra)} />
+			<link rel="preconnect" href="https://res.cloudinary.com" />
 		</Helmet>
 		<Provider>{children}</Provider>
 	</>

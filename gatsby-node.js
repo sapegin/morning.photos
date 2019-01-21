@@ -15,6 +15,8 @@ const {
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
 
+const get = (l, i) => l[i] || {};
+
 exports.onCreateWebpackConfig = ({ actions }) => {
 	// Turn off source maps
 	actions.setWebpackConfig({ devtool: false });
@@ -112,14 +114,20 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 								component: template('Photo'),
 								context: {
 									...photo,
-									prev: (photos[index - 1] || {}).slug,
-									next: (photos[index + 1] || {}).slug,
 									album: title,
+									prev: get(photos, index - 1).slug,
+									next: get(photos, index + 1).slug,
+									prefetch: [
+										get(photos, index + 1).name,
+										get(photos, index + 2).name,
+										get(photos, index + 3).name,
+									].filter(Boolean),
 								},
 							});
 						});
 
 						extraContext.photos = photos;
+						extraContext.prefetch = [get(photos, 0).name, get(photos, 1).name, get(photos, 2).name];
 					}
 
 					// Create a page for a Markdown document

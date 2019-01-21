@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import PhotoInfo from '../components/PhotoInfo';
 import Inverted from '../components/Inverted';
 import Photo from '../components/Photo';
+import { getPhotoUrl } from '../util/photos';
 import useKeyPress from '../util/useKeyPress';
 import useMounted from '../util/useMounted';
 import useSwipe from '../util/useSwipe';
@@ -205,11 +206,18 @@ const Body = ({ slug, name, title, photoTitle, color, prev, next, album, navigat
 	);
 };
 
-export default ({ pageContext: { title, ...props }, navigate }) => {
+export default ({ pageContext: { title, prefetch, ...props }, navigate }) => {
 	const photoTitle = title || '***';
 	return (
 		<Base>
-			<Helmet title={`${photoTitle} — ${siteTitle}`} />
+			<Helmet>
+				<title>
+					{photoTitle} — {siteTitle}
+				</title>
+				{prefetch.map(name => (
+					<link key={name} rel="prefetch" href={getPhotoUrl(name, 'gallery')} />
+				))}
+			</Helmet>
 			<Body title={title} photoTitle={photoTitle} navigate={navigate} {...props} />
 			<Box py="s">
 				<Footer />

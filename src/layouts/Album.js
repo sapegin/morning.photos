@@ -1,9 +1,11 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import Gallery from 'react-photo-gallery';
+import Helmet from 'react-helmet';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Photo from '../components/Photo';
+import { getPhotoUrl } from '../util/photos';
 import config from '../../config';
 
 const { title: siteTitle } = config;
@@ -36,9 +38,14 @@ const getPhotosForGallery = photos =>
 		color,
 	}));
 
-export default ({ pageContext: { title, photos }, location: { pathname } }) => {
+export default ({ pageContext: { title, photos, prefetch }, location: { pathname } }) => {
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${siteTitle}`} fullWidth>
+			<Helmet>
+				{prefetch.map(name => (
+					<link key={name} rel="prefetch" href={getPhotoUrl(name, 'gallery')} />
+				))}
+			</Helmet>
 			<Gallery
 				photos={getPhotosForGallery(photos)}
 				margin={MARGIN}
