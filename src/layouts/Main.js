@@ -99,7 +99,11 @@ export default ({
 		<Page title={title} url={pathname} textFullWidth>
 			<PrimaryPhotoContainer mb="m">
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
-					<Image src={primaryPhoto.fields.cover} size="blog" />
+					<Image
+						src={primaryPhoto.fields.cover}
+						intrinsicSize={primaryPhoto.fields.coverSize}
+						size="blog"
+					/>
 					<PrimaryPhotoHeading size="l">{primaryPhoto.frontmatter.title}</PrimaryPhotoHeading>
 				</PrimaryPhotoLink>
 			</PrimaryPhotoContainer>

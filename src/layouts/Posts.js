@@ -48,14 +48,14 @@ const PostHeader = ({ title, tags }) => (
 	</PostHeaderStyle>
 );
 
-const renderPost = ({ slug, cover, width, height, ...post }, isLeftSide) => {
+const renderPost = ({ slug, cover, coverSize, width, height, ...post }, isLeftSide) => {
 	// Panoramic
 	if (width >= height * 1.8) {
 		return (
 			<PostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
 				<QuotedLink href={slug}>
 					<Box mb="m">
-						<Image src={cover} />
+						<Image src={cover} intrinsicSize={coverSize} />
 					</Box>
 					<PostHeader {...post} />
 				</QuotedLink>
@@ -67,7 +67,7 @@ const renderPost = ({ slug, cover, width, height, ...post }, isLeftSide) => {
 	if (width >= height) {
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
-				<Image src={cover} />
+				<Image src={cover} intrinsicSize={coverSize} />
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>
 				<PostHeader {...post} />

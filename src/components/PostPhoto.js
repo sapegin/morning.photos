@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Text } from 'tamia';
-import { getPhotoUrl } from '../util/photos';
+import Photo from '../components/Photo';
 
 const Figure = styled.figure`
 	width: 1024px;
@@ -14,12 +14,12 @@ type Props = {
 	caption: ?string,
 };
 
-export default ({ name, caption }: Props) => (
+export default ({ name, alt, title, width, height }: Props) => (
 	<Figure>
-		<img src={getPhotoUrl(name, 'blog')} alt="" />
-		{caption && (
+		<Photo name={name} alt={alt} intrinsicSize={{ width, height }} size="blog" />
+		{title && (
 			<Text as="figcaption" size="s" mt="s">
-				{caption}
+				{title}
 			</Text>
 		)}
 	</Figure>

@@ -10,6 +10,27 @@ const Image = styled('img', {
 	background-color: ${props => props.color};
 `;
 
+const IntrinsicImage = styled(Image)`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+`;
+
+const Container = styled('div', {
+	shouldForwardProp: props => !['width', 'height'].includes(props),
+})`
+	width: ${props => props.width && `${props.width}px`};
+	height: ${props => props.height && `${props.height}px`};
+`;
+
+const ImageContainer = styled('div', {
+	shouldForwardProp: props => !['width', 'height'].includes(props),
+})`
+	position: relative;
+	padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+`;
+
 type Props = {
 	name: string,
 	size: Size,
@@ -18,8 +39,22 @@ type Props = {
 	height?: number,
 	color?: string,
 	css?: string,
+	intrinsicSize: ?{
+		width?: number,
+		height?: number,
+	},
 };
 
-export default ({ name, size, alt = '', ...props }: Props) => (
-	<Image src={getPhotoUrl(name, size)} alt={alt} {...props} />
-);
+export default ({ name, size, alt = '', intrinsicSize, width, height, ...props }: Props) => {
+	const src = getPhotoUrl(name, size);
+	if (intrinsicSize) {
+		return (
+			<Container width={width} height={height}>
+				<ImageContainer {...intrinsicSize}>
+					<IntrinsicImage src={src} alt={alt} {...props} />
+				</ImageContainer>
+			</Container>
+		);
+	}
+	return <Image src={src} alt={alt} width={width} height={height} {...props} />;
+};
