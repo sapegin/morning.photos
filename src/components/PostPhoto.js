@@ -11,12 +11,16 @@ const Figure = styled.figure`
 
 type Props = {
 	name: string,
-	caption: ?string,
+	width: number,
+	height: number,
+	alt?: string,
+	title?: string,
+	color?: string,
 };
 
-export default ({ name, alt, title, width, height }: Props) => (
+export default ({ name, alt, title, width, height, color }: Props) => (
 	<Figure>
-		<Photo name={name} alt={alt} intrinsicSize={{ width, height }} size="blog" />
+		<Photo name={name} alt={alt} intrinsicSize={{ width, height }} color={color} size="blog" />
 		{title && (
 			<Text as="figcaption" size="s" mt="s">
 				{title}
