@@ -109,6 +109,7 @@ export function slugify(name) {
 		.replace(/20D/gi, '')
 		.replace(/MG/gi, '')
 		.replace(/Edit/gi, '')
+		.replace(/Pano/gi, '')
 		.replace(/HDR/gi, '')
 		.replace(/--+/gi, '-')
 		.replace(/(^-|-$)/gi, '');
