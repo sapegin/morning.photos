@@ -59,7 +59,7 @@ export default ({
 	height,
 	...props
 }: Props) => {
-	const src = getPhotoUrl(name, modified, size);
+	const src = getPhotoUrl(name, modified, size || width);
 	if (intrinsicSize) {
 		return (
 			<Container width={width} height={height} color={color}>

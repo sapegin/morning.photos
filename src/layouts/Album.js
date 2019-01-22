@@ -20,7 +20,6 @@ const ImageComponent = ({ photo }) => (
 			`}
 			name={photo.src}
 			modified={photo.modified}
-			size="thumbnail"
 			width={photo.width}
 			height={photo.height}
 			alt={photo.title}
