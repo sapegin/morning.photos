@@ -12,7 +12,8 @@ const SIZES = {
 
 const getAutoTranformation = width => {
 	const roundedWidth = 100 * Math.ceil(width / 100);
-	return `c_scale,dpr_auto,f_auto,q_auto:good,w_${roundedWidth}`;
+	const quality = roundedWidth >= 500 ? 'best' : 'good';
+	return `c_scale,dpr_auto,f_auto,q_auto:${quality},w_${roundedWidth}`;
 };
 
 export type Size = $Keys<typeof SIZES>;
