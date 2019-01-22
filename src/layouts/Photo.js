@@ -139,10 +139,14 @@ const Lightbox = styled.div`
 	text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
 `;
 
+const Spinner = styled(Icon)`
+	position: absolute;
+	color: ${themeGet('colors.bg')};
+`;
+
 const Image = ({ deltaX, ...props }) => (
 	<Photo
 		css={css`
-			display: block;
 			max-width: 100vw;
 			height: auto;
 			max-height: 100vh;
@@ -159,7 +163,6 @@ const Body = ({
 	modified,
 	title,
 	photoTitle,
-	color,
 	prev,
 	next,
 	album,
@@ -208,14 +211,8 @@ const Body = ({
 			</Inverted>
 			<main role="main">
 				<Lightbox>
-					<Image
-						name={name}
-						modified={modified}
-						size="gallery"
-						alt={title}
-						color={color}
-						deltaX={delta}
-					/>
+					<Spinner icon="camera" />
+					<Image name={name} modified={modified} size="gallery" alt={title} deltaX={delta} />
 				</Lightbox>
 				<Box mb="l" mt="m">
 					<PhotoInfo title={photoTitle} {...props} />
