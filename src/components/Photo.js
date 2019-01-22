@@ -6,6 +6,7 @@ import { getPhotoUrl, type Size } from '../util/photos';
 const Image = styled('img', {
 	shouldForwardProp: prop => ['src', 'width', 'height', 'alt'].includes(prop),
 })`
+	display: block;
 	max-width: 100%;
 	background-color: ${props => props.color};
 `;

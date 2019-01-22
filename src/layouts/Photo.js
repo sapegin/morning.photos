@@ -153,7 +153,19 @@ const Image = ({ deltaX, ...props }) => (
 	/>
 );
 
-const Body = ({ slug, name, title, photoTitle, color, prev, next, album, navigate, ...props }) => {
+const Body = ({
+	slug,
+	name,
+	modified,
+	title,
+	photoTitle,
+	color,
+	prev,
+	next,
+	album,
+	navigate,
+	...props
+}) => {
 	const albumSlug = getAlbumSlug(slug);
 	const hasLoaded = useMounted();
 
@@ -196,7 +208,14 @@ const Body = ({ slug, name, title, photoTitle, color, prev, next, album, navigat
 			</Inverted>
 			<main role="main">
 				<Lightbox>
-					<Image name={name} size="gallery" alt={title} color={color} deltaX={delta} />
+					<Image
+						name={name}
+						modified={modified}
+						size="gallery"
+						alt={title}
+						color={color}
+						deltaX={delta}
+					/>
 				</Lightbox>
 				<Box mb="l" mt="m">
 					<PhotoInfo title={photoTitle} {...props} />
@@ -214,8 +233,8 @@ export default ({ pageContext: { title, prefetch, ...props }, navigate }) => {
 				<title>
 					{photoTitle} — {siteTitle}
 				</title>
-				{prefetch.map(name => (
-					<link key={name} rel="prefetch" href={getPhotoUrl(name, 'gallery')} />
+				{prefetch.map(({ name, modified }) => (
+					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
 			</Helmet>
 			<Body title={title} photoTitle={photoTitle} navigate={navigate} {...props} />
