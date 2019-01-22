@@ -6,7 +6,7 @@ const PhotoGrid = styled(Grid)`
 	margin-left: -${themeGet('page.xPadding')};
 	margin-right: -${themeGet('page.xPadding')};
 
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		margin-left: 0;
 		margin-right: 0;
 	}

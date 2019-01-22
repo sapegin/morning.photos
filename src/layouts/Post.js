@@ -11,7 +11,7 @@ import config from '../../config';
 const { titleBlog } = config;
 
 const PostContent = styled(TextContent)`
-	& p img {
+	& p > img {
 		width: 100vw;
 		max-width: 1024px;
 	}

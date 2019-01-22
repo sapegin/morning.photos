@@ -35,7 +35,7 @@ const PrimaryPhotoContainer = styled(Box)`
 	margin-left: -${themeGet('page.xPadding')};
 	margin-right: -${themeGet('page.xPadding')};
 
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -67,14 +67,14 @@ const SecondaryPhoto = styled.div`
 	background-position: center center;
 	background-size: cover;
 	background-color: ${themeGet('colors.lighter')};
-	background-image: url(${props => getPhotoUrl(getPhotoNameFromUrl(props.src), 'blog')});
+	background-image: url(${props =>
+		getPhotoUrl(getPhotoNameFromUrl(props.src), props.modified, 'blog')});
 `;
 
 const PostHeading = styled(Text)`
 	padding: 0 ${themeGet('page.xPadding')};
 
-	/* Should match PhotoGrid */
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		padding: 0;
 	}
 `;
@@ -101,6 +101,7 @@ export default ({
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
 					<Image
 						src={primaryPhoto.fields.cover}
+						modified={primaryPhoto.fields.coverModified}
 						intrinsicSize={primaryPhoto.fields.coverSize}
 						size="blog"
 					/>
@@ -108,14 +109,16 @@ export default ({
 				</PrimaryPhotoLink>
 			</PrimaryPhotoContainer>
 			<PhotoGrid columns={2} mb="l">
-				{secondaryPhotos.map(({ fields: { slug, cover }, frontmatter: { title } }) => (
-					<Link key={slug} href={slug}>
-						<SecondaryPhoto src={cover} />
-						<PostHeading size="m" mt="s">
-							{title}
-						</PostHeading>
-					</Link>
-				))}
+				{secondaryPhotos.map(
+					({ fields: { slug, cover, coverModified }, frontmatter: { title } }) => (
+						<Link key={slug} href={slug}>
+							<SecondaryPhoto src={cover} modified={coverModified} />
+							<PostHeading size="m" mt="s">
+								{title}
+							</PostHeading>
+						</Link>
+					)
+				)}
 			</PhotoGrid>
 			<Box as={Text} mb="xl" size="s">
 				<Text weight="bold" as="strong" size="s">
@@ -168,6 +171,7 @@ export const pageQuery = graphql`
 					fields {
 						slug
 						cover
+						coverModified
 						coverSize {
 							width
 							height

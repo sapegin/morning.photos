@@ -14,7 +14,7 @@ const PostContainer = styled(Box)`
 	margin-right: -${themeGet('page.xPadding')};
 	text-align: ${props => props.align};
 
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -32,7 +32,7 @@ const PostHeaderStyle = styled.header`
 	margin-top: -0.4rem;
 	padding: 0 ${themeGet('page.xPadding')};
 
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		padding: 0;
 	}
 `;
@@ -48,14 +48,17 @@ const PostHeader = ({ title, tags }) => (
 	</PostHeaderStyle>
 );
 
-const renderPost = ({ slug, cover, coverSize, width, height, ...post }, isLeftSide) => {
+const renderPost = (
+	{ slug, cover, coverModified, coverSize, width, height, ...post },
+	isLeftSide
+) => {
 	// Panoramic
 	if (width >= height * 1.8) {
 		return (
 			<PostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
 				<QuotedLink href={slug}>
 					<Box mb="m">
-						<Image src={cover} intrinsicSize={coverSize} />
+						<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
 					</Box>
 					<PostHeader {...post} />
 				</QuotedLink>
@@ -67,7 +70,7 @@ const renderPost = ({ slug, cover, coverSize, width, height, ...post }, isLeftSi
 	if (width >= height) {
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
-				<Image src={cover} intrinsicSize={coverSize} />
+				<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>
 				<PostHeader {...post} />
@@ -129,6 +132,7 @@ export const pageQuery = graphql`
 					fields {
 						slug
 						cover
+						coverModified
 						coverSize {
 							width
 							height

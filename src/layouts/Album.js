@@ -19,6 +19,7 @@ const ImageComponent = ({ photo }) => (
 				margin: ${MARGIN}px;
 			`}
 			name={photo.src}
+			modified={photo.modified}
 			size="thumbnail"
 			width={photo.width}
 			height={photo.height}
@@ -29,8 +30,9 @@ const ImageComponent = ({ photo }) => (
 );
 
 const getPhotosForGallery = photos =>
-	photos.map(({ name, width, height, slug, title, color }) => ({
+	photos.map(({ name, width, height, slug, modified, title, color }) => ({
 		src: name,
+		modified,
 		width,
 		height,
 		slug,
@@ -42,8 +44,8 @@ export default ({ pageContext: { title, photos, prefetch }, location: { pathname
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${siteTitle}`} fullWidth>
 			<Helmet>
-				{prefetch.map(name => (
-					<link key={name} rel="prefetch" href={getPhotoUrl(name, 'gallery')} />
+				{prefetch.map(({ name, modified }) => (
+					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
 			</Helmet>
 			<Gallery

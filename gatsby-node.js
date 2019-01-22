@@ -17,6 +17,21 @@ const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
 
 const get = (l, i) => l[i] || {};
 
+const getPrefetchPhotos = (photos, start) => [
+	{
+		name: get(photos, start).name,
+		modified: get(photos, start).modified,
+	},
+	{
+		name: get(photos, start + 1).name,
+		modified: get(photos, start + 1).modified,
+	},
+	{
+		name: get(photos, start + 2).name,
+		modified: get(photos, start + 2).modified,
+	},
+];
+
 exports.onCreateWebpackConfig = ({ actions }) => {
 	// Turn off source maps
 	actions.setWebpackConfig({ devtool: false });
@@ -41,11 +56,16 @@ exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) =
 				value: firstImageSrc,
 			});
 
-			// Add cover photo dimensions
+			// Add cover photo modification time and dimensions
 			const name = getPhotoNameFromUrl(firstImageSrc);
-			const { width, height } = name
+			const { modified, width, height } = name
 				? await loadPhoto(name)
 				: await loadImage(path.join(__dirname, 'static', firstImageSrc));
+			createNodeField({
+				node,
+				name: 'coverModified',
+				value: modified,
+			});
 			createNodeField({
 				node,
 				name: 'coverSize',
@@ -117,17 +137,13 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 									album: title,
 									prev: get(photos, index - 1).slug,
 									next: get(photos, index + 1).slug,
-									prefetch: [
-										get(photos, index + 1).name,
-										get(photos, index + 2).name,
-										get(photos, index + 3).name,
-									].filter(Boolean),
+									prefetch: getPrefetchPhotos(photos, index + 1).filter(Boolean),
 								},
 							});
 						});
 
 						extraContext.photos = photos;
-						extraContext.prefetch = [get(photos, 0).name, get(photos, 1).name, get(photos, 2).name];
+						extraContext.prefetch = getPrefetchPhotos(photos, 0);
 					}
 
 					// Create a page for a Markdown document

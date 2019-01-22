@@ -22,7 +22,7 @@ const Container = styled('div', {
 })`
 	width: ${props => props.width && `${props.width}px`};
 	height: ${props => props.height && `${props.height}px`};
-	background-color: ${props => props.color};
+	background-color: ${props => props.color || props.theme.colors.lighter};
 `;
 
 const ImageContainer = styled('div', {
@@ -35,6 +35,7 @@ const ImageContainer = styled('div', {
 type Props = {
 	name: string,
 	size: Size,
+	modified: number,
 	alt?: string,
 	width?: number,
 	height?: number,
@@ -46,8 +47,18 @@ type Props = {
 	},
 };
 
-export default ({ name, size, alt = '', intrinsicSize, color, width, height, ...props }: Props) => {
-	const src = getPhotoUrl(name, size);
+export default ({
+	name,
+	size,
+	alt = '',
+	modified,
+	intrinsicSize,
+	color,
+	width,
+	height,
+	...props
+}: Props) => {
+	const src = getPhotoUrl(name, modified, size);
 	if (intrinsicSize) {
 		return (
 			<Container width={width} height={height} color={color}>

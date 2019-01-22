@@ -10,8 +10,7 @@ import PageWithTitle from './PageWithTitle';
 const AlbumHeading = styled(Heading)`
 	padding: 0 ${themeGet('page.xPadding')};
 
-	/* Should match PhotoGrid */
-	@media (min-width: 32rem) {
+	@media (min-width: ${themeGet('breakpoints.small')}) {
 		padding: 0;
 	}
 `;
@@ -31,7 +30,12 @@ export default ({
 			<PhotoGrid>
 				{albums.map(({ fields, frontmatter }) => (
 					<Box key={fields.slug} mb="l" as={Link} to={fields.slug}>
-						<Photo name={frontmatter.cover} size="thumbnail" />
+						<Photo
+							name={frontmatter.cover}
+							modified={frontmatter.coverModified}
+							size="thumbnail"
+							intrinsicSize={{ width: 3, height: 2 }}
+						/>
 						<AlbumHeading level={3} as="h2" mt="s">
 							{frontmatter.title}
 						</AlbumHeading>
@@ -61,6 +65,7 @@ export const pageQuery = graphql`
 					frontmatter {
 						title
 						cover
+						coverModified
 					}
 				}
 			}

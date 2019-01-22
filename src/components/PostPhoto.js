@@ -13,14 +13,22 @@ type Props = {
 	name: string,
 	width: number,
 	height: number,
+	modified: number,
 	alt?: string,
 	title?: string,
 	color?: string,
 };
 
-export default ({ name, alt, title, width, height, color }: Props) => (
+export default ({ name, alt, title, width, height, modified, color }: Props) => (
 	<Figure>
-		<Photo name={name} alt={alt} intrinsicSize={{ width, height }} color={color} size="blog" />
+		<Photo
+			name={name}
+			alt={alt}
+			intrinsicSize={{ width, height }}
+			modified={modified}
+			color={color}
+			size="blog"
+		/>
 		{title && (
 			<Text as="figcaption" size="s" mt="s">
 				{title}
