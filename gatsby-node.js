@@ -111,7 +111,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 				async ({
 					node: {
 						rawBody,
-						frontmatter: { layout, title, order },
+						frontmatter: { layout, title, order, limit },
 						fields: { slug },
 					},
 				}) => {
@@ -125,6 +125,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 						const photos = await getAlbumFromNames(names.length > 0 ? names : allPhotoNames, {
 							slug,
 							order,
+							limit,
 						});
 
 						// Create pages for all photos in an album
