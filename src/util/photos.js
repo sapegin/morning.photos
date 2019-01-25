@@ -5,8 +5,8 @@ const PHOTO_PROTOCOL = 'photo://';
 const URL_PREFIX = 'https://res.cloudinary.com/morningphotos/image/upload';
 
 const SIZES = {
-	blog: 'dpr_auto,f_auto,q_auto:best,e_sharpen:70,w_1024,c_fit',
-	gallery: 'dpr_auto,f_auto,q_auto:best,e_sharpen:70,w_1600,h_1200,c_fit',
+	blog: 'dpr_auto,f_auto,q_auto:best,e_sharpen:90,w_1024,c_fit',
+	gallery: 'dpr_auto,f_auto,q_auto:best,e_sharpen:80,w_1600,h_1200,c_fit',
 	thumbnail: 'dpr_auto,f_auto,q_auto:good,w_600,c_fit',
 };
 
@@ -20,7 +20,7 @@ export type Size = $Keys<typeof SIZES>;
 
 export const getPhotoUrl = (
 	name: string,
-	timestamp: number,
+	timestamp: number = 1,
 	size: $Keys<typeof SIZES> | number
 ) => {
 	const tranformation = SIZES[size] || getAutoTranformation(size);
