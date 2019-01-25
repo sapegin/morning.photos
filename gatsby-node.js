@@ -161,13 +161,13 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 					// Add prev / next links to blog posts
 					if (slug.startsWith('/blog/')) {
 						const prev = pages[index - 1];
-						if (prev) {
+						if (prev && prev.node.fields.slug.startsWith('/blog/')) {
 							extraContext.prev = prev.node.fields.slug;
 							extraContext.prevTitle = prev.node.frontmatter.title;
 						}
 
 						const next = pages[index + 1];
-						if (next) {
+						if (next && next.node.fields.slug.startsWith('/blog/')) {
 							extraContext.next = next.node.fields.slug;
 							extraContext.nextTitle = next.node.frontmatter.title;
 						}
