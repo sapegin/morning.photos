@@ -14,7 +14,7 @@ const theme = getTheme({
 	page: {
 		maxWidth: null,
 		contentMaxWidth: '64rem', // 1024px
-		textMaxWidth: '40rem',
+		textMaxWidth: '50rem',
 		xPadding: '1rem',
 		yPadding: '0.5rem',
 	},

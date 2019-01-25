@@ -11,6 +11,7 @@ const {
 	getPhotoNameFromUrl,
 	loadImage,
 	loadPhoto,
+	typo,
 } = require('./src/util/node');
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
@@ -39,12 +40,18 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) => {
 	if (node.internal.type === 'Mdx') {
-		// Add slug without trailing slash
-		const slug = createFilePath({ node, getNode }).slice(0, -1);
+		const slug = createFilePath({ node, getNode, trailingSlash: false });
+
+		// Typography
+		if (!slug.startsWith('/albums/')) {
+			node.rawBody = typo(node.rawBody);
+		}
+
+		// Add slug
 		createNodeField({
 			node,
 			name: 'slug',
-			value: slug || '/',
+			value: slug,
 		});
 
 		// Add cover photo URL

@@ -1,13 +1,24 @@
 import orderBy from 'lodash/orderBy';
 import format from 'date-fns/format';
+import richtypo from 'richtypo';
+import rules from 'richtypo-rules-en';
 import { loadPhoto } from './gallery';
 
 const DATE_FORMAT = 'MMMM, YYYY';
 const PHOTO_PROTOCOL = 'photo://';
+const FRONTMATTER_REGEXP = /[+-]{3}[\s\S]*[+-]{3}/;
 
 export { loadPhoto, loadImage } from './gallery';
 
-export const stripFrontmatter = markdown => markdown.replace(/[+-]{3}[\s\S]*[+-]{3}/, '');
+export const stripFrontmatter = markdown => markdown.replace(FRONTMATTER_REGEXP, '');
+
+export const splitFrontmatter = markdown => {
+	const rest = stripFrontmatter(markdown);
+	return {
+		frontmatter: markdown.substring(0, markdown.length - rest.length),
+		rest,
+	};
+};
 
 export const getLines = text => text.split('\n').filter(Boolean);
 
@@ -41,4 +52,9 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug }) => {
 		orderby === 'manual' ? photos : orderBy(photos, [orderby || 'timestamp'], ['desc']);
 
 	return limit ? sortedPhotos.slice(0, limit) : sortedPhotos;
+};
+
+export const typo = markdown => {
+	const { frontmatter, rest } = splitFrontmatter(markdown);
+	return frontmatter + richtypo(rules, rest);
 };
