@@ -89,7 +89,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 				allMdx(
 					# Make sure that the New album will be the last and we'll
 					# have all the photos available
-					sort: { fields: [frontmatter___position], order: DESC }
+					sort: { fields: [frontmatter___position, frontmatter___date], order: DESC }
 				) {
 					edges {
 						node {
@@ -114,14 +114,18 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
 			const allPhotoNames = [];
 
-			result.data.allMdx.edges.forEach(
-				async ({
-					node: {
-						rawBody,
-						frontmatter: { layout, title, order, limit },
-						fields: { slug },
+			const pages = result.data.allMdx.edges;
+			pages.forEach(
+				async (
+					{
+						node: {
+							rawBody,
+							frontmatter: { layout, title, order, limit },
+							fields: { slug },
+						},
 					},
-				}) => {
+					index
+				) => {
 					const extraContext = {};
 
 					// Add photos data to album pages
@@ -152,6 +156,21 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
 						extraContext.photos = photos;
 						extraContext.prefetch = getPrefetchPhotos(photos, 0);
+					}
+
+					// Add prev / next links to blog posts
+					if (slug.startsWith('/blog/')) {
+						const prev = pages[index - 1];
+						if (prev) {
+							extraContext.prev = prev.node.fields.slug;
+							extraContext.prevTitle = prev.node.frontmatter.title;
+						}
+
+						const next = pages[index + 1];
+						if (next) {
+							extraContext.next = next.node.fields.slug;
+							extraContext.nextTitle = next.node.frontmatter.title;
+						}
 					}
 
 					// Create a page for a Markdown document

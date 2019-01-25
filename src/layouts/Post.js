@@ -6,6 +6,7 @@ import { TextContent, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 import PostMeta from '../components/PostMeta';
 import SubscriptionBox from '../components/SubscriptionBox';
+import PrevNext from '../components/PrevNext';
 import config from '../../config';
 
 const { titleBlog } = config;
@@ -18,6 +19,7 @@ const PostContent = styled(TextContent)`
 `;
 
 export default ({
+	pageContext,
 	data: {
 		mdx: {
 			frontmatter: { title, tags = [], date, datetime },
@@ -38,6 +40,9 @@ export default ({
 			</Box>
 			<Box mb="xl">
 				<SubscriptionBox from="Blog" />
+			</Box>
+			<Box mb="xl">
+				<PrevNext {...pageContext} />
 			</Box>
 		</PageWithTitle>
 	);
