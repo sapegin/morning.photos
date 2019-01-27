@@ -67,14 +67,7 @@ const AboutPage = ({
 }) => {
 	const indices = getPhotoIndexFactory(numPhotos);
 	return (
-		<Page
-			url={pathname}
-			title={title}
-			pageTitle={pageTitle}
-			splash="about.jpg"
-			inverted
-			textFullWidth
-		>
+		<Page url={pathname} title={title} pageTitle={pageTitle} splash="about.jpg" inverted>
 			<Row>
 				<Column width={[1, 2 / 3]}>
 					<Box as={TextContent} mb="l">

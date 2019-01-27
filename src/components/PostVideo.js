@@ -6,11 +6,6 @@ import { themeGet } from 'tamia';
 // Based on
 // http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
 
-const Sizer = styled.div`
-	width: 1024px;
-	max-width: 100vw;
-`;
-
 const Container = styled.div`
 	position: relative;
 	height: 0;
@@ -43,9 +38,7 @@ type Props = {
 };
 
 export default ({ src, height = 576 }: Props) => (
-	<Sizer>
-		<Container>
-			<Iframe width="1024" height={height} src={src} frameBorder="0" allowFullScreen />
-		</Container>
-	</Sizer>
+	<Container>
+		<Iframe width="1024" height={height} src={src} frameBorder="0" allowFullScreen />
+	</Container>
 );

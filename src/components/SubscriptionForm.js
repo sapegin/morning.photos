@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { VisuallyHidden, Text, themeGet } from 'tamia';
+import { VisuallyHidden, themeGet } from 'tamia';
 import styled from '@emotion/styled';
 import config from '../../config';
 
@@ -104,8 +104,5 @@ export default ({ from }: Props) => (
 				<SubmitButton type="submit">Subscribe</SubmitButton>
 			</Column>
 		</Form>
-		<Text size="xs" mt="s">
-			A few times a year, no spam, unsubscribe at any time.
-		</Text>
 	</>
 );

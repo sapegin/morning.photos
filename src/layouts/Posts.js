@@ -21,8 +21,6 @@ const PostContainer = styled(Box)`
 `;
 
 const TextPostContainer = styled(Box)`
-	margin-left: -${themeGet('page.xPadding')};
-	margin-right: -${themeGet('page.xPadding')};
 	padding: ${themeGet('space.l')} ${themeGet('page.xPadding')};
 	text-align: ${props => props.align};
 	border: 2px solid ${themeGet('colors.base')};
@@ -70,7 +68,9 @@ const renderPost = (
 	if (width >= height) {
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
-				<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
+				<Box mb={isLeftSide || 'm'} mt={isLeftSide && 'm'}>
+					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
+				</Box>
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>
 				<PostHeader {...post} />
@@ -110,7 +110,7 @@ export default ({
 		...node.frontmatter,
 	}));
 	return (
-		<PageWithTitle title={title} pageTitle={pageTitle} url={pathname} textFullWidth>
+		<PageWithTitle title={title} pageTitle={pageTitle} url={pathname}>
 			{posts.map((post, index) => renderPost(post, !(index % 2)))}
 		</PageWithTitle>
 	);

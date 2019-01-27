@@ -1,44 +1,45 @@
 import React from 'react';
-import { Box, themeGet } from 'tamia';
+import { themeGet } from 'tamia';
 import styled from '@emotion/styled';
 import PhotoGrid from './components/PhotoGrid';
 import PostPhoto from './components/PostPhoto';
 import PostVideo from './components/PostVideo';
 import Image from './components/Image';
 
-export const Photo = props => (
-	<Box mb="m">
-		<PostPhoto {...props} />
-	</Box>
-);
-
-export const Video = props => (
-	<Box mb="l">
-		<PostVideo {...props} />
-	</Box>
-);
-
-const GridContainer = styled.div`
-	width: 100vw;
-	max-width: 1024px;
-
-	margin-bottom: ${themeGet('space.m')};
+const Container = styled.div`
+	margin-bottom: ${themeGet('space.l')};
 
 	& + & {
 		margin-top: -${themeGet('space.m')};
 	}
+
+	figure > img {
+		margin-bottom: 0;
+	}
 `;
+
+export const Photo = props => (
+	<Container>
+		<PostPhoto {...props} />
+	</Container>
+);
+
+export const Video = props => (
+	<Container>
+		<PostVideo {...props} />
+	</Container>
+);
 
 export const Grid = ({ children }) => {
 	const files = children.split(/\s+/);
 	return (
-		<GridContainer>
+		<Container>
 			<PhotoGrid columns={files.length === 2 ? 2 : undefined}>
 				{files.map(url => (
 					<Image src={url} size="blog" />
 				))}
 			</PhotoGrid>
-		</GridContainer>
+		</Container>
 	);
 };
 

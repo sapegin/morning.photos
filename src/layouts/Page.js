@@ -2,7 +2,7 @@
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Page as PageBase, Box, Container, TextContainer } from 'tamia';
+import { Page as PageBase, Box, Container } from 'tamia';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Splash from '../components/Splash';
@@ -16,27 +16,10 @@ type Props = {
 	splash: string,
 	inverted: boolean,
 	fullWidth: boolean,
-	textFullWidth: boolean,
 };
 
-const Main = ({ children }) => (
-	<TextContainer as="main" role="main">
-		{children}
-	</TextContainer>
-);
-
-const Page = ({
-	children,
-	url,
-	title,
-	pageTitle,
-	splash,
-	inverted,
-	fullWidth,
-	textFullWidth,
-}: Props) => {
+const Page = ({ children, url, title, pageTitle, splash, inverted, fullWidth }: Props) => {
 	const PageWrapper = fullWidth ? React.Fragment : Container;
-	const TextWrapper = fullWidth || textFullWidth ? React.Fragment : Main;
 	return (
 		<Base>
 			<PageWrapper>
@@ -51,9 +34,9 @@ const Page = ({
 							<Header url={url} />
 						)}
 					</Box>
-					<TextWrapper>
-						<Box mb="l">{children}</Box>
-					</TextWrapper>
+					<Box as="main" role="main" mb="l">
+						{children}
+					</Box>
 					<PageBase.Footer as="div">
 						<Footer />
 					</PageBase.Footer>

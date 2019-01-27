@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import { TextContent, Box } from 'tamia';
+import { TextContent, Text, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 import SubscriptionForm from '../components/SubscriptionForm';
 
@@ -27,6 +27,9 @@ const TextPage = ({
 			</Box>
 			<Box mb="xl">
 				<SubscriptionForm from="Subscribe" />
+				<Text size="xs" mt="s">
+					A few times a year, no spam, unsubscribe at any time.
+				</Text>
 			</Box>
 		</PageWithTitle>
 	);

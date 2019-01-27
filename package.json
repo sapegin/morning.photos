@@ -34,7 +34,7 @@
     "react-helmet": "^5.2.0",
     "react-photo-gallery": "^6.3.0",
     "rehype-react": "^3.1.0",
-    "tamia": "^4.0.0-alpha.33",
+    "tamia": "^4.0.0-alpha.40",
     "tamia-gatsby-link": "^1.0.1"
   },
   "devDependencies": {

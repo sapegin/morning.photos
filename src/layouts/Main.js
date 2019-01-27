@@ -96,7 +96,7 @@ export default ({
 	} = splitPostsIntoPhotosAndNot(posts);
 
 	return (
-		<Page title={title} url={pathname} textFullWidth>
+		<Page title={title} url={pathname}>
 			<PrimaryPhotoContainer mb="m">
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
 					<Image

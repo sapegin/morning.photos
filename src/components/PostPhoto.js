@@ -1,16 +1,10 @@
 // @flow
 import React from 'react';
-import styled from '@emotion/styled';
 import { Text } from 'tamia';
-import Photo from '../components/Photo';
-
-const Figure = styled.figure`
-	width: 1024px;
-	max-width: 100vw;
-`;
+import Image from '../components/Image';
 
 type Props = {
-	name: string,
+	src: string,
 	width: number,
 	height: number,
 	modified: number,
@@ -19,10 +13,10 @@ type Props = {
 	color?: string,
 };
 
-export default ({ name, alt, title, width, height, modified, color }: Props) => (
-	<Figure>
-		<Photo
-			name={name}
+export default ({ src, alt, title, width, height, modified, color }: Props) => (
+	<figure>
+		<Image
+			src={src}
 			alt={alt}
 			intrinsicSize={{ width, height }}
 			modified={modified}
@@ -34,5 +28,5 @@ export default ({ name, alt, title, width, height, modified, color }: Props) => 
 				{title}
 			</Text>
 		)}
-	</Figure>
+	</figure>
 );

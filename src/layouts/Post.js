@@ -1,22 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import styled from '@emotion/styled';
 import { TextContent, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 import PostMeta from '../components/PostMeta';
-import SubscriptionBox from '../components/SubscriptionBox';
+import PostFooter from '../components/PostFooter';
 import PrevNext from '../components/PrevNext';
 import config from '../../config';
 
 const { titleBlog } = config;
-
-const PostContent = styled(TextContent)`
-	& p > img {
-		width: 100vw;
-		max-width: 1024px;
-	}
-`;
 
 export default ({
 	pageContext,
@@ -31,7 +23,7 @@ export default ({
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${titleBlog}`}>
 			<Box mb="xl">
-				<Box as={PostContent} mb="l">
+				<Box as={TextContent} mb="l">
 					<MDXRenderer>{body}</MDXRenderer>
 				</Box>
 				<Box mb="l">
@@ -39,7 +31,7 @@ export default ({
 				</Box>
 			</Box>
 			<Box mb="xl">
-				<SubscriptionBox from="Blog" />
+				<PostFooter />
 			</Box>
 			<Box mb="xl">
 				<PrevNext {...pageContext} />

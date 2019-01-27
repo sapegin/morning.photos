@@ -26,7 +26,7 @@ export default ({
 }) => {
 	const albums = edges.map(x => x.node);
 	return (
-		<PageWithTitle title={title} url={pathname} textFullWidth>
+		<PageWithTitle title={title} url={pathname}>
 			<PhotoGrid>
 				{albums.map(({ fields, frontmatter }) => (
 					<Box key={fields.slug} mb="l" as={Link} to={fields.slug}>

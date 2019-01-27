@@ -7,15 +7,22 @@ Replace photo Markdown image tags with a custom tag:
 
 ![Pizza](photo://pizza)
 ->
-<Photo name="pizza" alt="Pizza" />
+<Photo src="photo://pizza" alt="Pizza" />
 */
 
 const hasOnlyPhotos = node =>
+	node.children &&
 	node.children.every(child => {
 		return (
 			(child.type === 'image' && isPhotoUrl(child.url)) ||
 			(child.type === 'text' && child.value.trim() === '')
 		);
+	});
+
+const hasOnlyImages = node =>
+	node.children &&
+	node.children.every(child => {
+		return child.type === 'image' || (child.type === 'text' && child.value.trim() === '');
 	});
 
 module.exports = function attacher() {
@@ -36,23 +43,33 @@ module.exports = function attacher() {
 
 		// Replace image tags with a component
 		visit(tree, 'paragraph', node => {
-			if (!hasOnlyPhotos(node)) {
-				return;
+			// Replace photos with a custom Photo component
+			if (hasOnlyPhotos(node)) {
+				const photos = node.children.map(({ url, alt, title }) => {
+					alt = alt || '';
+					title = title || '';
+					const name = getPhotoNameFromUrl(url);
+					const { width, height, modified, color } = allPhotos.find(photo => photo.name === name);
+					return `<Photo src="${url}" alt="${alt}" title="${title}" width={${width}} height={${height}} modified={${modified}} color="${color}" />`;
+				});
+
+				node.value = photos.join('\n');
+				node.type = 'html';
+				node.children = null;
 			}
 
-			const photos = node.children.map(({ url, alt, title }) => {
-				alt = alt || '';
-				title = title || '';
+			// Remove paragraphs around images
+			if (hasOnlyImages(node)) {
+				const images = node.children.map(({ url, alt, title }) => {
+					alt = alt || '';
+					title = title || '';
+					return `<Photo src="${url}" alt="${alt}" title="${title}" />`;
+				});
 
-				const name = getPhotoNameFromUrl(url);
-				const { width, height, modified, color } = allPhotos.find(photo => photo.name === name);
-
-				return `<Photo name="${name}" alt="${alt}" title="${title}" width={${width}} height={${height}} modified={${modified}} color="${color}" />`;
-			});
-
-			node.value = photos.join('\n');
-			node.type = 'html';
-			node.children = null;
+				node.value = images.join('\n');
+				node.type = 'html';
+				node.children = null;
+			}
 		});
 
 		next();

@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
+import { themeGet } from 'tamia';
 import { getPhotoUrl, type Size } from '../util/photos';
 
 const Image = styled('img', {
@@ -30,7 +31,16 @@ const ImageContainer = styled('div', {
 	shouldForwardProp: props => !['width', 'height'].includes(props),
 })`
 	position: relative;
-	padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+	padding-bottom: ${props =>
+		`calc(${(props.height / props.width) * 100}% + ${props.theme.page.xPadding})`};
+	margin-left: -${themeGet('page.xPadding')};
+	margin-right: -${themeGet('page.xPadding')};
+
+	@media (min-width: ${themeGet('page.contentMaxWidth')}) {
+		padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+		margin-left: auto;
+		margin-right: auto;
+	}
 `;
 
 type Props = {
@@ -60,6 +70,7 @@ export default ({
 	...props
 }: Props) => {
 	const src = getPhotoUrl(name, modified, size || width);
+
 	if (intrinsicSize) {
 		return (
 			<Container width={width} height={height} color={color}>

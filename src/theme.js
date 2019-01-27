@@ -3,7 +3,6 @@ import getTheme from 'tamia/lib/theme';
 const font = 'Helvetica Neue, Arial, sans-serif';
 
 const theme = getTheme({
-	// baseFontSize: '1.125em', // 18px
 	fontSizes: {
 		xxl: '3rem',
 		xl: '2rem',
