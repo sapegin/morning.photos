@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import Group from 'react-group';
+// import Group from 'react-group';
 import { Row, Column, Text, VisuallyHidden } from 'tamia';
-import { Link } from 'tamia-gatsby-link';
-import config from '../../config';
+// import { Link } from 'tamia-gatsby-link';
+// import config from '../../config';
 
-const { tagNames } = config;
+// const { tagNames } = config;
 
 type Props = {
 	/* Date in format YYYY-MM-DD */
@@ -16,14 +16,14 @@ type Props = {
 	currentTag: string,
 };
 
-export default ({ datetime, date, tags, currentTag }: Props) => (
+export default ({ datetime, date /*, tags, currentTag */ }: Props) => (
 	<Text size="xs" as="footer">
 		<Row narrow alignItems="baseline">
 			<Column as="small">
 				<VisuallyHidden as="span">Published on</VisuallyHidden>
 				<time dateTime={datetime}>{date}</time>
 			</Column>
-			<Column as="small">
+			{/* <Column as="small">
 				<VisuallyHidden as="strong">Tags:</VisuallyHidden>
 				<Group separator=", " inline>
 					{tags.map(id =>
@@ -38,7 +38,7 @@ export default ({ datetime, date, tags, currentTag }: Props) => (
 						)
 					)}
 				</Group>
-			</Column>
+			</Column> */}
 		</Row>
 	</Text>
 );
