@@ -68,12 +68,14 @@ const renderPost = (
 	if (width >= height) {
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
-				<Box mb={isLeftSide || 'm'} mt={isLeftSide && 'm'}>
+				<Box mb={isLeftSide || 'm'}>
 					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
 				</Box>
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>
-				<PostHeader {...post} />
+				<Box mb={isLeftSide && 'm'}>
+					<PostHeader {...post} />
+				</Box>
 			</Column>,
 		];
 		return (
