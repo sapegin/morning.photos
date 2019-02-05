@@ -3,25 +3,21 @@ import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Text, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
+import Metatags from '../components/Metatags';
 import SubscriptionForm from '../components/SubscriptionForm';
 
 const TextPage = ({
 	data: {
 		mdx: {
-			frontmatter: { title, pageTitle },
+			frontmatter: { title, pageTitle, cover },
 			code: { body },
 		},
 	},
 	location: { pathname },
 }) => {
 	return (
-		<PageWithTitle
-			url={pathname}
-			title={title}
-			pageTitle={pageTitle}
-			splash="subscribe.jpg"
-			inverted
-		>
+		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
+			<Metatags slug={pathname} title={title} image={cover} />
 			<Box as={TextContent} mb="l">
 				<MDXRenderer>{body}</MDXRenderer>
 			</Box>
@@ -43,6 +39,7 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				pageTitle
+				cover
 			}
 			code {
 				body

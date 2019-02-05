@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { Box, Row, Column, Heading, Text, themeGet } from 'tamia';
 import { QuotedLink } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
+import Metatags from '../components/Metatags';
 import Image from '../components/Image';
 import config from '../../config';
 
@@ -113,6 +114,7 @@ export default ({
 	}));
 	return (
 		<PageWithTitle title={title} pageTitle={pageTitle} url={pathname}>
+			<Metatags slug={pathname} title={pageTitle} />
 			{posts.map((post, index) => renderPost(post, !(index % 2)))}
 		</PageWithTitle>
 	);
@@ -123,6 +125,7 @@ export const pageQuery = graphql`
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
+				pageTitle
 			}
 		}
 		allMdx(

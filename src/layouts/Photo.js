@@ -6,6 +6,7 @@ import { css } from '@emotion/core';
 import { Box, VisuallyHidden, themeGet } from 'tamia';
 import { Link, QuotedLink } from 'tamia-gatsby-link';
 import Base from './Base';
+import Metatags from '../components/Metatags';
 import Icon from '../components/Icon';
 import Logo from '../components/Logo';
 import Footer from '../components/Footer';
@@ -222,10 +223,21 @@ const Body = ({
 	);
 };
 
-export default ({ pageContext: { title, prefetch, ...props }, navigate }) => {
+export default ({
+	pageContext: { title, prefetch, ...props },
+	location: { pathname },
+	navigate,
+}) => {
 	const photoTitle = title || '***';
 	return (
 		<Base>
+			<Metatags
+				slug={pathname}
+				title={title}
+				description={props.caption}
+				image={props.name}
+				imageModified={props.modified}
+			/>
 			<Helmet>
 				<title>
 					{photoTitle} — {siteTitle}

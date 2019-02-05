@@ -6,6 +6,7 @@ import PageWithTitle from './PageWithTitle';
 import PostMeta from '../components/PostMeta';
 import PostFooter from '../components/PostFooter';
 import PrevNext from '../components/PrevNext';
+import Metatags from '../components/Metatags';
 import config from '../../config';
 
 const { titleBlog } = config;
@@ -15,13 +16,22 @@ export default ({
 	data: {
 		mdx: {
 			frontmatter: { title, tags = [], date, datetime },
+			fields: { slug, cover, coverModified },
 			code: { body },
+			excerpt,
 		},
 	},
 	location: { pathname },
 }) => {
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${titleBlog}`}>
+			<Metatags
+				slug={slug}
+				title={title}
+				description={excerpt}
+				image={cover}
+				imageModified={coverModified}
+			/>
 			<Box mb="xl">
 				<Box as={TextContent} mb="l">
 					<MDXRenderer>{body}</MDXRenderer>
@@ -49,9 +59,15 @@ export const pageQuery = graphql`
 				date(formatString: "MMMM DD, YYYY")
 				datetime: date(formatString: "YYYY-MM-DD")
 			}
+			fields {
+				slug
+				cover
+				coverModified
+			}
 			code {
 				body
 			}
+			excerpt
 		}
 	}
 `;

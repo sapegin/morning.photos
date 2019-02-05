@@ -6,10 +6,11 @@ import Group from 'react-group';
 import { Box, Row, Column, Text, TextContent, themeGet } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Page from './Page';
+import Metatags from '../components/Metatags';
 import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
 import SubscriptionForm from '../components/SubscriptionForm';
-import { getPhotoUrl, getPhotoNameFromUrl } from '../util/photos';
+import { getPhotoUrl } from '../util/photos';
 
 // Split posts into:
 // 1. Photo posts with a main horizontal photo (up to three)
@@ -67,8 +68,7 @@ const SecondaryPhoto = styled.div`
 	background-position: center center;
 	background-size: cover;
 	background-color: ${themeGet('colors.lighter')};
-	background-image: url(${props =>
-		getPhotoUrl(getPhotoNameFromUrl(props.src), props.modified, 'blog')});
+	background-image: url(${props => getPhotoUrl(props.src, props.modified, 'blog')});
 `;
 
 const PostHeading = styled(Text)`
@@ -97,6 +97,12 @@ export default ({
 
 	return (
 		<Page title={title} url={pathname}>
+			<Metatags
+				slug="/"
+				title={title}
+				image={primaryPhoto.fields.cover}
+				imageModified={primaryPhoto.fields.coverModified}
+			/>
 			<PrimaryPhotoContainer mb="m">
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
 					<Image

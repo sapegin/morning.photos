@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { Box, Heading, themeGet } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
+import Metatags from '../components/Metatags';
 import Photo from '../components/Photo';
 import PhotoGrid from '../components/PhotoGrid';
 import PageWithTitle from './PageWithTitle';
@@ -18,7 +19,7 @@ const AlbumHeading = styled(Heading)`
 export default ({
 	data: {
 		mdx: {
-			frontmatter: { title },
+			frontmatter: { title, pageTitle },
 		},
 		allMdx: { edges },
 	},
@@ -26,7 +27,8 @@ export default ({
 }) => {
 	const albums = edges.map(x => x.node);
 	return (
-		<PageWithTitle title={title} url={pathname}>
+		<PageWithTitle title={title} url={pathname} pageTitle={pageTitle}>
+			<Metatags slug={pathname} title={pageTitle} />
 			<PhotoGrid>
 				{albums.map(({ fields, frontmatter }) => (
 					<Box key={fields.slug} mb="l" as={Link} to={fields.slug}>
@@ -51,6 +53,7 @@ export const pageQuery = graphql`
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
+				pageTitle
 			}
 		}
 		allMdx(

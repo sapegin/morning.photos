@@ -27,7 +27,7 @@ const Page = ({ children, url, title, pageTitle, splash, inverted, fullWidth }: 
 					<Helmet title={pageTitle || title} />
 					<Box mb="m">
 						{splash ? (
-							<Splash src={`/images/splashes/${splash}`} inverted={inverted}>
+							<Splash src={splash} inverted={inverted}>
 								<Header url={url} />
 							</Splash>
 						) : (

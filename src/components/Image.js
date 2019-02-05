@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Photo from '../components/Photo';
-import { isPhotoUrl, getPhotoNameFromUrl } from '../util/photos';
 
 const ImageStyle = styled.img`
 	max-width: 100%;
@@ -10,10 +9,10 @@ const ImageStyle = styled.img`
 `;
 
 const Image = ({ src, size, ...props }) =>
-	isPhotoUrl(src) ? (
-		<Photo name={getPhotoNameFromUrl(src)} size={size} {...props} />
-	) : (
+	src.startsWith('/') ? (
 		<ImageStyle src={src} {...props} />
+	) : (
+		<Photo name={src} size={size} {...props} />
 	);
 
 Image.defaultProps = {

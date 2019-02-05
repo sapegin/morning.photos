@@ -1,14 +1,13 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import Gallery from 'react-photo-gallery';
 import Helmet from 'react-helmet';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
+import Metatags from '../components/Metatags';
 import Photo from '../components/Photo';
 import { getPhotoUrl } from '../util/photos';
-import config from '../../config';
-
-const { title: siteTitle } = config;
 
 const MARGIN = 4;
 
@@ -39,11 +38,25 @@ const getPhotosForGallery = photos =>
 		color,
 	}));
 
-export default ({ pageContext: { title, photos, prefetch }, location: { pathname } }) => {
+export default ({
+	data: {
+		mdx: {
+			frontmatter: { title, pageTitle },
+		},
+	},
+	pageContext: { photos },
+	location: { pathname },
+}) => {
 	return (
-		<PageWithTitle url={pathname} title={title} pageTitle={`${title} — ${siteTitle}`} fullWidth>
+		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} fullWidth>
+			<Metatags
+				slug={pathname}
+				title={pageTitle}
+				image={photos[0].name}
+				imageModified={photos[0].modified}
+			/>
 			<Helmet>
-				{prefetch.map(({ name, modified }) => (
+				{photos.slice(0, 3).map(({ name, modified }) => (
 					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
 			</Helmet>
@@ -55,3 +68,14 @@ export default ({ pageContext: { title, photos, prefetch }, location: { pathname
 		</PageWithTitle>
 	);
 };
+
+export const pageQuery = graphql`
+	query AlbumPage($slug: String!) {
+		mdx(fields: { slug: { eq: $slug } }) {
+			frontmatter {
+				title
+				pageTitle
+			}
+		}
+	}
+`;

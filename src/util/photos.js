@@ -1,7 +1,5 @@
 // @flow
 
-const PHOTO_PROTOCOL = 'photo://';
-
 const URL_PREFIX = 'https://res.cloudinary.com/morningphotos/image/upload';
 
 const SIZES = {
@@ -26,7 +24,3 @@ export const getPhotoUrl = (
 	const tranformation = SIZES[size] || getAutoTranformation(size);
 	return `${URL_PREFIX}/${tranformation}/v${Math.floor(timestamp)}/photos/${name}.jpg`;
 };
-
-export const isPhotoUrl = url => url && url.startsWith(PHOTO_PROTOCOL);
-
-export const getPhotoNameFromUrl = url => url.substring(PHOTO_PROTOCOL.length);

@@ -27,10 +27,6 @@ const getPrefetchPhotos = (photos, start) => [
 		name: get(photos, start + 1).name,
 		modified: get(photos, start + 1).modified,
 	},
-	{
-		name: get(photos, start + 2).name,
-		modified: get(photos, start + 2).modified,
-	},
 ];
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -57,14 +53,14 @@ exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) =
 		// Add cover photo URL
 		const firstImageSrc = getFirstImage(node.rawBody);
 		if (firstImageSrc) {
+			const name = getPhotoNameFromUrl(firstImageSrc);
 			createNodeField({
 				node,
 				name: 'cover',
-				value: firstImageSrc,
+				value: name || firstImageSrc,
 			});
 
 			// Add cover photo modification time and dimensions
-			const name = getPhotoNameFromUrl(firstImageSrc);
 			const { modified, width, height } = name
 				? await loadPhoto(name)
 				: await loadImage(path.join(__dirname, 'static', firstImageSrc));
@@ -155,7 +151,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 						});
 
 						extraContext.photos = photos;
-						extraContext.prefetch = getPrefetchPhotos(photos, 0);
 					}
 
 					// Add prev / next links to blog posts

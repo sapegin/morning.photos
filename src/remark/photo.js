@@ -50,7 +50,7 @@ module.exports = function attacher() {
 					title = title || '';
 					const name = getPhotoNameFromUrl(url);
 					const { width, height, modified, color } = allPhotos.find(photo => photo.name === name);
-					return `<Photo src="${url}" alt="${alt}" title="${title}" width={${width}} height={${height}} modified={${modified}} color="${color}" />`;
+					return `<Photo src="${name}" alt="${alt}" title="${title}" width={${width}} height={${height}} modified={${modified}} color="${color}" />`;
 				});
 
 				node.value = photos.join('\n');

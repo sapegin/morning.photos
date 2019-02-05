@@ -5,7 +5,8 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Box, Row, Column, Text, Html } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
-import Page from './Page';
+import PageWithTitle from './PageWithTitle';
+import Metatags from '../components/Metatags';
 import Grid from '../components/Grid';
 import PhotoGrid from '../components/PhotoGrid';
 import Image from '../components/GridImage';
@@ -29,22 +30,28 @@ const Links = ({ items }) =>
 
 const List = ({ items }) => (
 	<Grid>
-		{items.map(column => (
-			<TextContent>
-				{column.map(group => (
-					<Box mb="m">
+		{items.map((column, columnIndex) => (
+			<TextContent key={columnIndex}>
+				{column.map((group, groupIndex) => (
+					<Box key={groupIndex} mb="m">
 						{group.current && (
-							<Box as={Group} mb="s" separator=", ">
-								{group.current.map(item => (
-									<Html as="span">{item}</Html>
-								))}
+							<Box as={Text} mb="s">
+								<Group separator=", " inline>
+									{group.current.map(item => (
+										<Html key={item} as="span">
+											{item}
+										</Html>
+									))}
+								</Group>
 							</Box>
 						)}
 						{group.obsolete && (
 							<Text size="xs">
-								<Group separator=", ">
+								<Group separator=", " inline>
 									{group.obsolete.map(item => (
-										<Html as="del">{item}</Html>
+										<Html key={item} as="del">
+											{item}
+										</Html>
 									))}
 								</Group>
 							</Text>
@@ -59,7 +66,7 @@ const List = ({ items }) => (
 const AboutPage = ({
 	data: {
 		mdx: {
-			frontmatter: { title, pageTitle, numPhotos, about, links, gear, software, copyrights },
+			frontmatter: { title, pageTitle, cover, numPhotos, about, links, gear, software, copyrights },
 			code: { body },
 		},
 	},
@@ -67,7 +74,8 @@ const AboutPage = ({
 }) => {
 	const indices = getPhotoIndexFactory(numPhotos);
 	return (
-		<Page url={pathname} title={title} pageTitle={pageTitle} splash="about.jpg" inverted>
+		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
+			<Metatags slug={pathname} title={title} image={cover} />
 			<Row>
 				<Column width={[1, 2 / 3]}>
 					<Box as={TextContent} mb="l">
@@ -112,20 +120,24 @@ const AboutPage = ({
 			<Box mb="l">
 				<List items={software} />
 			</Box>
-			<Box as={Text} mb="m" size="s">
-				<TextContent as={Html}>{about}</TextContent>
+			<Box as={TextContent} mb="m">
+				<Html as={Text} size="s">
+					{about}
+				</Html>
 			</Box>
-			<Box as={Text} mb="l" size="s">
-				<TextContent>
+			<Box as={TextContent} mb="l">
+				<Text size="s">
 					Photos on this page:{' '}
 					<Group separator=", " inline>
 						{copyrights.map(item => (
-							<Link href={item.link}>{item.label}</Link>
+							<Link key={item.href} href={item.href}>
+								{item.label}
+							</Link>
 						))}
 					</Group>
-				</TextContent>
+				</Text>
 			</Box>
-		</Page>
+		</PageWithTitle>
 	);
 };
 
@@ -137,6 +149,7 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				pageTitle
+				cover
 				numPhotos
 				about
 				links {

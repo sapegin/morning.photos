@@ -18,9 +18,6 @@ const Base = ({ children }) => (
 		<Helmet>
 			<html lang={lang} />
 			<meta name="theme-color" content={theme.colors.primary} />
-			<meta name="description" content={description} />
-			<meta property="og:type" content="website" />
-			<meta property="og:title" content={title} />
 			<meta name="twitter:creator" content={twitter} />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<link rel="preconnect" href="https://res.cloudinary.com" />
