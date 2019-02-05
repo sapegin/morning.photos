@@ -130,7 +130,7 @@ export default ({
 				<Text weight="bold" as="strong" size="s">
 					More from the blog:
 				</Text>{' '}
-				<Group separator=", " inline>
+				<Group separator=", ">
 					{rest.map(({ fields: { slug }, frontmatter: { title } }) => (
 						<Link key={slug} href={slug}>
 							{title}

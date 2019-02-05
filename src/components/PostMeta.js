@@ -25,7 +25,7 @@ export default ({ datetime, date /*, tags, currentTag */ }: Props) => (
 			</Column>
 			{/* <Column as="small">
 				<VisuallyHidden as="strong">Tags:</VisuallyHidden>
-				<Group separator=", " inline>
+				<Group separator=", ">
 					{tags.map(id =>
 						id === currentTag ? (
 							<Text key={id} as="b" size="xs" weight="bold" aria-current="page">

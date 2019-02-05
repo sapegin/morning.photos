@@ -36,7 +36,7 @@ const List = ({ items }) => (
 					<Box key={groupIndex} mb="m">
 						{group.current && (
 							<Box as={Text} mb="s">
-								<Group separator=", " inline>
+								<Group separator=", ">
 									{group.current.map(item => (
 										<Html key={item} as="span">
 											{item}
@@ -47,7 +47,7 @@ const List = ({ items }) => (
 						)}
 						{group.obsolete && (
 							<Text size="xs">
-								<Group separator=", " inline>
+								<Group separator=", ">
 									{group.obsolete.map(item => (
 										<Html key={item} as="del">
 											{item}
@@ -128,7 +128,7 @@ const AboutPage = ({
 			<Box as={TextContent} mb="l">
 				<Text size="s">
 					Photos on this page:{' '}
-					<Group separator=", " inline>
+					<Group separator=", ">
 						{copyrights.map(item => (
 							<Link key={item.href} href={item.href}>
 								{item.label}

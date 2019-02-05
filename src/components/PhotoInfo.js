@@ -12,7 +12,7 @@ export default ({ title, caption, location, formattedDate, exif }) => {
 				{caption && <Text size="m">{caption}</Text>}
 			</Box>
 			<Text size="xs">
-				<Group separator=", " is="span">
+				<Group separator=", ">
 					{location}
 					{formattedDate}
 					{exif}
