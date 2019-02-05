@@ -6,7 +6,7 @@ import config from '../../config';
 const {
 	title: siteTitle,
 	titleBlog,
-	url,
+	siteUrl,
 	description: defaultDescription,
 	twitter,
 	fbappid,
@@ -23,7 +23,8 @@ export default ({
 	const isBlog = slug.startsWith('/blog/');
 	const isBlogPost = slug.startsWith('/blog');
 	const imageUrl =
-		image && (image.startsWith('/') ? `${url}${image}` : getPhotoUrl(image, imageModified, 'blog'));
+		image &&
+		(image.startsWith('/') ? `${siteUrl}${image}` : getPhotoUrl(image, imageModified, 'blog'));
 	return (
 		<Helmet>
 			{noIndex && <meta name="robots" content="noindex follow" />}
@@ -31,7 +32,7 @@ export default ({
 			{imageUrl && <meta property="og:image" content={imageUrl} />}
 			<meta property="og:type" content={isBlogPost ? 'article' : 'website'} />
 			<meta property="og:title" content={title} />
-			<meta property="og:url" content={`${url}${slug}`} />
+			<meta property="og:url" content={`${siteUrl}${slug}`} />
 			<meta property="og:site_name" content={isBlog ? titleBlog : siteTitle} />
 			<meta property="og:description" content={description} />
 			<meta property="fb:app_id" content={fbappid} />

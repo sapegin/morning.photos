@@ -3,7 +3,7 @@ module.exports = {
 	title: 'Artem Sapegin Photography',
 	titleBlog: 'Artem Sapegin’s Photography Blog',
 	description: 'Artem Sapegin Photography: landscapes, travel, cityscapes, nature, dogs',
-	url: 'http://morning.photos',
+	siteUrl: 'http://morning.photos',
 	email: 'artem@sapegin.me',
 	twitter: '@iamsapegin',
 	fbappid: '155027288234245',
