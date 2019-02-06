@@ -54,7 +54,7 @@ const renderPost = (
 	// Panoramic
 	if (width >= height * 1.8) {
 		return (
-			<PostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
+			<PostContainer key={slug} mb="xl" align={isLeftSide ? undefined : 'right'}>
 				<QuotedLink href={slug}>
 					<Box mb="m">
 						<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
@@ -69,12 +69,12 @@ const renderPost = (
 	if (width >= height) {
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
-				<Box mb={isLeftSide || 'm'}>
+				<Box mb={isLeftSide ? undefined : 'm'}>
 					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
 				</Box>
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>
-				<Box mb={isLeftSide && 'm'}>
+				<Box mb={isLeftSide ? 'm' : undefined}>
 					<PostHeader {...post} />
 				</Box>
 			</Column>,
@@ -90,7 +90,7 @@ const renderPost = (
 
 	// Just text heading
 	return (
-		<TextPostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
+		<TextPostContainer key={slug} mb="xl" align={isLeftSide ? undefined : 'right'}>
 			<QuotedLink href={slug}>
 				<PostHeader {...post} />
 			</QuotedLink>
