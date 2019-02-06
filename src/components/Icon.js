@@ -22,7 +22,7 @@ const ICONS = {
 };
 
 const Icon = ({ icon, ...props }) => {
-	const { path, width, height } = ICONS[icon];
+	const { path, width, height, children } = ICONS[icon];
 	return (
 		<IconBase
 			{...props}
@@ -33,7 +33,9 @@ const Icon = ({ icon, ...props }) => {
 			}}
 			width={width}
 			height={height}
-		/>
+		>
+			{children}
+		</IconBase>
 	);
 };
 
