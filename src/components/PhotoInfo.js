@@ -1,8 +1,8 @@
 import React from 'react';
 import Group from 'react-group';
-import { Box, Heading, Text } from 'tamia';
+import { Box, Heading, Text, VisuallyHidden } from 'tamia';
 
-export default ({ title, caption, location, formattedDate, exif }) => {
+export default ({ title, caption, location, formattedDate, exif, keywords }) => {
 	return (
 		<>
 			<Box mb="m">
@@ -18,6 +18,7 @@ export default ({ title, caption, location, formattedDate, exif }) => {
 					{exif}
 				</Group>
 			</Text>
+			<VisuallyHidden>Keywords: {keywords.join(', ')}</VisuallyHidden>
 		</>
 	);
 };
