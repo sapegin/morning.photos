@@ -14,6 +14,8 @@ const {
 	typo,
 } = require('./src/util/node');
 
+const POSTS_PER_PAGE = 20;
+
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
 
 const get = (l, i) => l[i] || {};
@@ -151,6 +153,25 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 						});
 
 						extraContext.photos = photos;
+					}
+
+					// Create blog list pages
+					if (slug === '/blog') {
+						const posts = pages.filter(page => page.node.fields.slug.startsWith('/blog/'));
+						const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+						Array.from({ length: numPages }).forEach((_, page) => {
+							createPage({
+								path: page === 0 ? slug : `${slug}/${page + 1}`,
+								component: template(layout),
+								context: {
+									slug,
+									limit: POSTS_PER_PAGE,
+									skip: page * POSTS_PER_PAGE,
+									nextPage: page + 1 < numPages && `${slug}/${page + 2}`,
+								},
+							});
+						});
+						return;
 					}
 
 					// Add prev / next links to blog posts

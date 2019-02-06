@@ -105,6 +105,7 @@ export default ({
 		},
 		allMdx: { edges },
 	},
+	pageContext: { nextPage },
 	location: { pathname },
 }) => {
 	const posts = edges.map(({ node }) => ({
@@ -116,12 +117,19 @@ export default ({
 		<PageWithTitle title={title} pageTitle={pageTitle} url={pathname}>
 			<Metatags slug={pathname} title={pageTitle} />
 			{posts.map((post, index) => renderPost(post, !(index % 2)))}
+			{nextPage && (
+				<Box mb="l" as="footer">
+					<QuotedLink to={nextPage}>
+						↓ <u>Previously</u>
+					</QuotedLink>
+				</Box>
+			)}
 		</PageWithTitle>
 	);
 };
 
 export const pageQuery = graphql`
-	query PostsPage($slug: String!) {
+	query PostsPage($slug: String!, $skip: Int!, $limit: Int!) {
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
@@ -131,6 +139,8 @@ export const pageQuery = graphql`
 		allMdx(
 			filter: { fileAbsolutePath: { regex: "/blog/.*/" } }
 			sort: { fields: [frontmatter___date], order: DESC }
+			limit: $limit
+			skip: $skip
 		) {
 			edges {
 				node {
