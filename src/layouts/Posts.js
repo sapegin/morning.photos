@@ -57,7 +57,7 @@ const renderPost = (
 			<PostContainer key={slug} mb="xl" align={isLeftSide || 'right'}>
 				<QuotedLink href={slug}>
 					<Box mb="m">
-						<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
+						<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
 					</Box>
 					<PostHeader {...post} />
 				</QuotedLink>
@@ -70,7 +70,7 @@ const renderPost = (
 		const columns = [
 			<Column key="image" width={[1, 5 / 6]}>
 				<Box mb={isLeftSide || 'm'}>
-					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} />
+					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
 				</Box>
 			</Column>,
 			<Column key="header" width={[1, 1 / 6]}>

@@ -6,7 +6,7 @@ import SubscriptionForm from './SubscriptionForm';
 export default () => (
 	<Row narrow alignItems="baseline" justifyContent="center">
 		<Column width={[1, 1, 'auto']} align="center">
-			<Text as="h3" size="l" mb="s">
+			<Text as="h2" size="l" mb="s">
 				Never miss a post
 			</Text>
 		</Column>

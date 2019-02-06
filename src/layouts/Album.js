@@ -11,7 +11,7 @@ import { getPhotoUrl } from '../util/photos';
 
 const MARGIN = 4;
 
-const ImageComponent = ({ photo }) => (
+const Image = ({ photo }) => (
 	<Link to={photo.slug}>
 		<Photo
 			css={css`
@@ -21,7 +21,7 @@ const ImageComponent = ({ photo }) => (
 			modified={photo.modified}
 			width={photo.width}
 			height={photo.height}
-			alt={photo.title}
+			alt={photo.title || 'Untitled'}
 			color={photo.color}
 		/>
 	</Link>
@@ -60,11 +60,7 @@ export default ({
 					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
 			</Helmet>
-			<Gallery
-				photos={getPhotosForGallery(photos)}
-				margin={MARGIN}
-				ImageComponent={ImageComponent}
-			/>
+			<Gallery photos={getPhotosForGallery(photos)} margin={MARGIN} ImageComponent={Image} />
 		</PageWithTitle>
 	);
 };

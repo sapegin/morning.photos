@@ -76,13 +76,29 @@ const HeaderContainer = styled.header`
 	height: 100vh;
 	z-index: 1;
 	color: ${themeGet('colors.base')};
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		height: 2.5em;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+		transform: translateY(-2.5em);
+		transition: transform 0.5s 0.5s ${easeInOutQuart};
+	}
 
 	.Photo__link {
 		/* Disable transition on page load or when :focus-withing not supported */
 		transform: ${props => props.hasLoaded || 'none'};
 	}
 	&:hover .Photo__link,
-	&:focus-within .Photo__link {
+	&:focus-within .Photo__link,
+	&:hover:before {
 		transform: none;
 		transition: transform 0.2s ${easeOutQuad};
 	}
@@ -135,9 +151,6 @@ const Lightbox = styled.div`
 	align-items: center;
 	justify-content: center;
 	background-color: ${themeGet('colors.base')};
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
 `;
 
 const Spinner = styled(Icon)`
@@ -228,7 +241,7 @@ export default ({
 	location: { pathname },
 	navigate,
 }) => {
-	const photoTitle = title || '***';
+	const photoTitle = title || 'Untitled';
 	return (
 		<Base>
 			<Metatags
