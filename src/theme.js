@@ -61,6 +61,6 @@ export const inverted = {
 		bg: theme.colors.base,
 		base: theme.colors.bg,
 		primary: theme.colors.bg,
-		hover: theme.colors.lighter,
+		hover: '#e95d4e',
 	},
 };
