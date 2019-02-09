@@ -31,14 +31,9 @@ const Card = ({ photo }) => (
 );
 
 const getPhotosForGallery = photos =>
-	photos.map(({ name, width, height, slug, modified, title, color }) => ({
+	photos.map(({ name, ...rest }) => ({
 		src: name,
-		modified,
-		width,
-		height,
-		slug,
-		title,
-		color,
+		...rest,
 	}));
 
 export default ({
