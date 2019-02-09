@@ -2,7 +2,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { Box, VisuallyHidden, themeGet } from 'tamia';
 import { Link, QuotedLink } from 'tamia-gatsby-link';
 import Base from './Base';
@@ -12,7 +11,6 @@ import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 import PhotoInfo from '../components/PhotoInfo';
 import Inverted from '../components/Inverted';
-import Photo from '../components/Photo';
 import { getPhotoUrl } from '../util/photos';
 import useKeyPress from '../util/useKeyPress';
 import useMounted from '../util/useMounted';
@@ -158,18 +156,13 @@ const Spinner = styled(Icon)`
 	color: ${themeGet('colors.bg')};
 `;
 
-const Image = ({ deltaX, ...props }) => (
-	<Photo
-		css={css`
-			max-width: 100vw;
-			height: auto;
-			max-height: 100vh;
-			transform: translateX(${deltaX}px);
-			transition: ${deltaX || `transform 0.2s ${easeInOutQuart}`};
-		`}
-		{...props}
-	/>
-);
+const Image = styled.img`
+	max-width: 100vw;
+	height: auto;
+	max-height: 100vh;
+	transform: translateX(${props => props.deltaX}px);
+	transition: ${props => props.deltaX || `transform 0.2s ${props.easeInOutQuart}`};
+`;
 
 const Body = ({
 	slug,
@@ -226,7 +219,7 @@ const Body = ({
 			<main role="main">
 				<Lightbox>
 					<Spinner icon="camera" />
-					<Image name={name} modified={modified} size="gallery" alt={title} deltaX={delta} />
+					<Image src={getPhotoUrl(name, modified, 'gallery')} alt={title} deltaX={delta} />
 				</Lightbox>
 				<Box mb="l" mt="m">
 					<PhotoInfo title={photoTitle} {...props} />

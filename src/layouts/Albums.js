@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { Box, Heading, themeGet } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Metatags from '../components/Metatags';
-import Photo from '../components/Photo';
+import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
 import PageWithTitle from './PageWithTitle';
 
@@ -32,8 +32,8 @@ export default ({
 			<PhotoGrid>
 				{albums.map(({ fields, frontmatter }) => (
 					<Box key={fields.slug} mb="l" as={Link} to={fields.slug}>
-						<Photo
-							name={frontmatter.cover}
+						<Image
+							src={frontmatter.cover}
 							modified={frontmatter.coverModified}
 							size="thumbnail"
 							intrinsicSize={{ width: 3, height: 2 }}
