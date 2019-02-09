@@ -13,7 +13,7 @@ const Container = styled.div`
 		margin-top: -${themeGet('space.m')};
 	}
 
-	figure > img {
+	img {
 		margin-bottom: 0;
 	}
 `;
@@ -36,7 +36,7 @@ export const Grid = ({ children }) => {
 		<Container>
 			<PhotoGrid columns={files.length === 2 ? 2 : undefined}>
 				{files.map(url => (
-					<Image src={url} size="blog" />
+					<Image key={url} src={url.replace('photo://', '')} size="blog" />
 				))}
 			</PhotoGrid>
 		</Container>

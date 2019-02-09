@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'lodash/shuffle';
+import canUseDOM from 'can-use-dom';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Box, Row, Column, Text, Html } from 'tamia';
 import Group from 'react-group';
@@ -17,7 +18,15 @@ const getPhotoIndexFactory = max => {
 };
 
 const Photos = ({ indices, alt }) =>
-	indices.map(index => <Image key={index} src={`/images/about/me${index}.jpg`} alt={alt} />);
+	indices.map(index => (
+		<Image
+			key={index}
+			src={canUseDOM ? `/images/about/me${index}.jpg` : undefined}
+			alt={alt}
+			responsive={false}
+			intrinsicSize={{ width: 1, height: 1 }}
+		/>
+	));
 
 const Links = ({ items }) =>
 	items.map(group =>
@@ -96,6 +105,7 @@ const AboutPage = ({
 					alt="Artem Sapegin’s photography kit"
 					width="1024"
 					height="524"
+					responsive={false}
 				/>
 			</Box>
 			<Box mb="l">
@@ -109,12 +119,14 @@ const AboutPage = ({
 					alt="Artem Sapegin’s workplace"
 					width="676"
 					height="328"
+					responsive={false}
 				/>
 				<Image
 					src="/images/about/iphone.jpg"
 					alt="Photo edition in VSCO Cam on iPhone"
 					width="328"
 					height="328"
+					responsive={false}
 				/>
 			</Box>
 			<Box mb="l">

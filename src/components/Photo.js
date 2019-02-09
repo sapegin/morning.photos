@@ -4,22 +4,7 @@ import styled from '@emotion/styled';
 import { themeGet } from 'tamia';
 import { getPhotoUrl, type Size } from '../util/photos';
 
-const Image = styled('img', {
-	shouldForwardProp: prop => ['src', 'width', 'height', 'alt'].includes(prop),
-})`
-	display: block;
-	max-width: 100%;
-	background-color: ${props => props.color};
-`;
-
-const IntrinsicImage = styled.img`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-`;
-
-const Container = styled('div', {
+const IntrinsicImageContainer = styled('div', {
 	shouldForwardProp: props => !['width', 'height', 'color'].includes(props),
 })`
 	width: ${props => props.width && `${props.width}px`};
@@ -27,7 +12,14 @@ const Container = styled('div', {
 	background-color: ${props => props.color || props.theme.colors.lighter};
 `;
 
-const ImageContainer = styled('div', {
+const IntrinsicImageWrapper = styled('div', {
+	shouldForwardProp: props => !['width', 'height'].includes(props),
+})`
+	position: relative;
+	padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+`;
+
+const ResponsiveIntrinsicImageWrapper = styled('div', {
 	shouldForwardProp: props => !['width', 'height'].includes(props),
 })`
 	position: relative;
@@ -43,42 +35,67 @@ const ImageContainer = styled('div', {
 	}
 `;
 
+const IntrinsicImage = styled.img`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+`;
+
+const PlainImage = styled('img', {
+	shouldForwardProp: prop => ['src', 'width', 'height', 'alt'].includes(prop),
+})`
+	display: block;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	background-color: ${props => props.color};
+`;
+
 type Props = {
-	name: string,
-	size: Size,
-	modified: number,
+	src?: string,
+	name?: string,
+	size?: Size,
+	modified?: number,
 	alt?: string,
 	width?: number,
 	height?: number,
 	color?: string,
 	css?: string,
+	responsive: boolean,
 	intrinsicSize: ?{
 		width?: number,
 		height?: number,
 	},
 };
 
-export default ({
+const Image = ({
+	src = '',
 	name,
-	size,
+	size = 'blog',
 	alt = '',
 	modified,
 	intrinsicSize,
 	color,
 	width,
 	height,
+	responsive = true,
 	...props
 }: Props) => {
-	const src = getPhotoUrl(name, modified, size || width);
-
+	const url = src.startsWith('/') ? src : getPhotoUrl(name || src, modified, size || width);
+	const Wrapper = responsive ? ResponsiveIntrinsicImageWrapper : IntrinsicImageWrapper;
 	if (intrinsicSize) {
 		return (
-			<Container width={width} height={height} color={color}>
-				<ImageContainer {...intrinsicSize}>
-					<IntrinsicImage src={src} alt={alt} {...props} />
-				</ImageContainer>
-			</Container>
+			<IntrinsicImageContainer width={width} height={height} color={color}>
+				<Wrapper {...intrinsicSize}>
+					{url && <IntrinsicImage src={url} alt={alt} {...props} />}
+				</Wrapper>
+			</IntrinsicImageContainer>
 		);
 	}
-	return <Image src={src} alt={alt} width={width} height={height} color={color} {...props} />;
+	return (
+		url && <PlainImage src={url} alt={alt} width={width} height={height} color={color} {...props} />
+	);
 };
+
+export default Image;

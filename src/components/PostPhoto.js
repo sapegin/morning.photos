@@ -18,7 +18,7 @@ export default ({ src, alt, title, width, height, modified, color }: Props) => (
 		<Image
 			src={src}
 			alt={alt}
-			intrinsicSize={{ width, height }}
+			intrinsicSize={width && { width, height }}
 			modified={modified}
 			color={color}
 			size="blog"
