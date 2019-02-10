@@ -109,14 +109,14 @@ const NavLink = ({ to, icon, children }) => (
 	</Link>
 );
 
-const Header = ({ prev, next, albumSlug, albumTitle, ...props }) => (
+const Header = ({ name, prev, next, albumSlug, albumTitle, ...props }) => (
 	<HeaderContainer role="banner" {...props}>
 		<TopLinkContainer position="top-left" className="Photo__link">
 			<Logo />
 		</TopLinkContainer>
 		<nav>
 			<TopLinkContainer position="top-right" className="Photo__link">
-				<QuotedLink to={albumSlug}>
+				<QuotedLink to={albumSlug} state={{ fromPhoto: name }}>
 					<Box as="span" p="s" aria-hidden="true">
 						←
 					</Box>
@@ -208,6 +208,7 @@ const Body = ({
 		<>
 			<Inverted>
 				<Header
+					name={name}
 					prev={prev}
 					next={next}
 					albumSlug={albumSlug}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Gallery from 'react-photo-gallery';
@@ -18,21 +18,30 @@ const Image = styled('img', {
 	background-color: ${props => props.color};
 `;
 
-const Card = ({ photo }) => (
-	<Link to={photo.slug}>
-		<Image
-			src={getPhotoUrl(photo.src, photo.modified, photo.width)}
-			width={photo.width}
-			height={photo.height}
-			alt={photo.title || 'Untitled'}
-			color={photo.color}
-		/>
-	</Link>
-);
+const Card = ({ photo }) => {
+	const linkRef = useRef();
+	useEffect(() => {
+		if (photo.focus) {
+			linkRef.current.focus();
+		}
+	}, []);
+	return (
+		<Link to={photo.slug} ref={ref => (linkRef.current = ref)}>
+			<Image
+				src={getPhotoUrl(photo.src, photo.modified, photo.width)}
+				width={photo.width}
+				height={photo.height}
+				alt={photo.title || 'Untitled'}
+				color={photo.color}
+			/>
+		</Link>
+	);
+};
 
-const getPhotosForGallery = photos =>
+const getPhotosForGallery = (photos, focus) =>
 	photos.map(({ name, ...rest }) => ({
 		src: name,
+		focus: name === focus,
 		...rest,
 	}));
 
@@ -43,7 +52,7 @@ export default ({
 		},
 	},
 	pageContext: { photos },
-	location: { pathname },
+	location: { pathname, state },
 }) => {
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} fullWidth>
@@ -58,7 +67,11 @@ export default ({
 					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
 			</Helmet>
-			<Gallery photos={getPhotosForGallery(photos)} margin={MARGIN} ImageComponent={Card} />
+			<Gallery
+				photos={getPhotosForGallery(photos, state && state.fromPhoto)}
+				margin={MARGIN}
+				ImageComponent={Card}
+			/>
 		</PageWithTitle>
 	);
 };
