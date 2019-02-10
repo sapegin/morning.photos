@@ -19,6 +19,7 @@ export default ({
 	image,
 	imageModified,
 	noIndex,
+	children,
 }) => {
 	const isBlog = slug.startsWith('/blog/');
 	const isBlogPost = slug.startsWith('/blog');
@@ -39,6 +40,7 @@ export default ({
 			{imageUrl && <meta name="twitter:card" content="summary_large_image" />}
 			{imageUrl && <meta name="twitter:image" content={imageUrl} />}
 			<meta name="twitter:site" content={twitter} />
+			{children}
 		</Helmet>
 	);
 };

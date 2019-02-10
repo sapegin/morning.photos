@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Gallery from 'react-photo-gallery';
-import Helmet from 'react-helmet';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Metatags from '../components/Metatags';
@@ -61,12 +60,11 @@ export default ({
 				title={pageTitle}
 				image={photos[0].name}
 				imageModified={photos[0].modified}
-			/>
-			<Helmet>
+			>
 				{photos.slice(0, 3).map(({ name, modified }) => (
 					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
 				))}
-			</Helmet>
+			</Metatags>
 			<Gallery
 				photos={getPhotosForGallery(photos, state && state.fromPhoto)}
 				margin={MARGIN}
