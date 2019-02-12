@@ -5,24 +5,23 @@ import { themeGet } from 'tamia';
 import { getPhotoUrl, type Size } from '../util/photos';
 
 const IntrinsicImageContainer = styled('div', {
-	shouldForwardProp: props => !['width', 'height', 'color'].includes(props),
+	shouldForwardProp: props => !['width', 'height'].includes(props),
 })`
 	width: ${props => props.width && `${props.width}px`};
 	height: ${props => props.height && `${props.height}px`};
-	background-color: ${props => props.color || props.theme.colors.lighter};
 `;
 
 const IntrinsicImageWrapper = styled('div', {
-	shouldForwardProp: props => !['width', 'height'].includes(props),
+	shouldForwardProp: props => !['width', 'height', 'color'].includes(props),
 })`
 	position: relative;
 	padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+	background-color: ${props => props.color || props.theme.colors.lighter};
 `;
 
-const ResponsiveIntrinsicImageWrapper = styled('div', {
+const ResponsiveIntrinsicImageWrapper = styled(IntrinsicImageWrapper, {
 	shouldForwardProp: props => !['width', 'height'].includes(props),
 })`
-	position: relative;
 	padding-bottom: ${props =>
 		`calc(${(props.height / props.width) * 100}% + ${props.theme.page.xPadding})`};
 	margin-left: -${themeGet('page.xPadding')};
@@ -84,8 +83,8 @@ const Image = ({
 	const Wrapper = responsive ? ResponsiveIntrinsicImageWrapper : IntrinsicImageWrapper;
 	if (intrinsicSize) {
 		return (
-			<IntrinsicImageContainer width={width} height={height} color={color}>
-				<Wrapper {...intrinsicSize}>
+			<IntrinsicImageContainer width={width} height={height}>
+				<Wrapper color={color} {...intrinsicSize}>
 					{url && <IntrinsicImage src={url} alt={alt} {...props} />}
 				</Wrapper>
 			</IntrinsicImageContainer>

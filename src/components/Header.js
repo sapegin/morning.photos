@@ -10,10 +10,10 @@ type Props = {
 
 export default ({ url }: Props) => (
 	<Row as="header" role="banner">
-		<Column width={[1, null, 'auto']} mb="s" align="center">
+		<Column width={[1, null, 'auto']} pb="s" align="center">
 			<Logo homepage={url === '/'} />
 		</Column>
-		<Column width={[1, null, 'auto']} mb="s" push="right">
+		<Column width={[1, null, 'auto']} pb="s" push="right">
 			<Nav url={url} />
 		</Column>
 	</Row>

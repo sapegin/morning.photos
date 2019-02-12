@@ -9,9 +9,9 @@ export default function useSwipe(events) {
 	const [delta, setDelta] = useState(0);
 
 	function handleTouchStart(e) {
-		window.addEventListener('touchmove', handleTouchMove);
+		/*window.addEventListener('touchmove', handleTouchMove);
 		window.addEventListener('touchend', handleTouchEnd);
-		window.addEventListener('touchcancel', handleTouchEnd);
+		window.addEventListener('touchcancel', handleTouchEnd);*/
 
 		initialX = e.touches[0].pageX;
 	}
@@ -22,9 +22,9 @@ export default function useSwipe(events) {
 	}
 
 	function handleTouchEnd() {
-		window.removeEventListener('touchmove', handleTouchMove);
+		/*window.removeEventListener('touchmove', handleTouchMove);
 		window.removeEventListener('touchend', handleTouchEnd);
-		window.removeEventListener('touchcancel', handleTouchEnd);
+		window.removeEventListener('touchcancel', handleTouchEnd);*/
 
 		if (lastX < TRESHOLD) {
 			events.left();

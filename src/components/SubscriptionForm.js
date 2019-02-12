@@ -23,6 +23,7 @@ const Column = styled.div`
 
 const EmailInput = styled.input`
 	width: 100%;
+	height: 2em;
 	padding: ${themeGet('space.s')};
 	background-color: ${themeGet('colors.bg')};
 	color: ${themeGet('colors.base')};
@@ -30,6 +31,7 @@ const EmailInput = styled.input`
 	border-radius: ${themeGet('radii.base')} ${themeGet('radii.base')} 0 0;
 	font-size: ${themeGet('fontSizes.l')};
 	font-family: ${themeGet('fonts.base')};
+	appearance: none;
 
 	&:focus {
 		outline: 0;
@@ -43,6 +45,7 @@ const EmailInput = styled.input`
 
 const SubmitButton = styled.button`
 	width: 100%;
+	height: 2em;
 	padding: ${themeGet('space.s')} ${themeGet('space.m')};
 	background-color: ${themeGet('colors.base')};
 	color: ${themeGet('colors.bg')};

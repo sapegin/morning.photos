@@ -30,30 +30,28 @@ const splitPostsIntoPhotosAndNot = posts =>
 		{ photos: [], rest: [] }
 	);
 
-const PrimaryPhotoContainer = styled(Box)`
-	position: relative;
-	background-color: ${themeGet('colors.lighter')};
-	margin-left: -${themeGet('page.xPadding')};
-	margin-right: -${themeGet('page.xPadding')};
+const PrimaryPhotoHeading = styled(Text)`
+	margin-top: ${themeGet('space.s')};
 
 	@media (min-width: ${themeGet('breakpoints.small')}) {
-		margin-left: 0;
-		margin-right: 0;
+		position: absolute;
+		bottom: 0;
+		left: -${themeGet('page.xPadding')};
+		right: -${themeGet('page.xPadding')};
+		padding: 50px ${themeGet('page.xPadding')} ${themeGet('page.xPadding')};
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
+		color: ${themeGet('colors.bg')};
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+		font-size: ${themeGet('fontSizes.l')};
 	}
-`;
 
-const PrimaryPhotoHeading = styled(Text)`
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
-	padding: 50px ${themeGet('page.xPadding')} ${themeGet('page.xPadding')};
-	line-height: 1;
-	color: ${themeGet('colors.bg')};
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+	@media (min-width: ${themeGet('page.contentMaxWidth')}) {
+		left: 0;
+		right: 0;
+	}
 `;
 
 const PrimaryPhotoLink = styled(Link)`
@@ -71,7 +69,7 @@ const SecondaryPhoto = styled.div`
 	background-image: url(${props => getPhotoUrl(props.src, props.modified, 'blog')});
 `;
 
-const PostHeading = styled(Text)`
+const SecondaryPhotoHeading = styled(Text)`
 	padding: 0 ${themeGet('page.xPadding')};
 
 	@media (min-width: ${themeGet('breakpoints.small')}) {
@@ -103,7 +101,7 @@ export default ({
 				image={primaryPhoto.fields.cover}
 				imageModified={primaryPhoto.fields.coverModified}
 			/>
-			<PrimaryPhotoContainer mb="m">
+			<Box position="relative" mb="m">
 				<PrimaryPhotoLink href={primaryPhoto.fields.slug}>
 					<Image
 						src={primaryPhoto.fields.cover}
@@ -111,17 +109,17 @@ export default ({
 						intrinsicSize={primaryPhoto.fields.coverSize}
 						size="blog"
 					/>
-					<PrimaryPhotoHeading size="l">{primaryPhoto.frontmatter.title}</PrimaryPhotoHeading>
+					<PrimaryPhotoHeading as="div">{primaryPhoto.frontmatter.title}</PrimaryPhotoHeading>
 				</PrimaryPhotoLink>
-			</PrimaryPhotoContainer>
+			</Box>
 			<PhotoGrid columns={2} mb="l">
 				{secondaryPhotos.map(
 					({ fields: { slug, cover, coverModified }, frontmatter: { title } }) => (
 						<Link key={slug} href={slug}>
 							<SecondaryPhoto src={cover} modified={coverModified} />
-							<PostHeading size="m" mt="s">
+							<SecondaryPhotoHeading size="m" mt="s">
 								{title}
-							</PostHeading>
+							</SecondaryPhotoHeading>
 						</Link>
 					)
 				)}

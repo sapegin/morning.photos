@@ -37,6 +37,7 @@ export default ({
 							modified={frontmatter.coverModified}
 							size="thumbnail"
 							intrinsicSize={{ width: 3, height: 2 }}
+							responsive={false}
 						/>
 						<AlbumHeading level={3} as="h2" mt="s">
 							{frontmatter.title}

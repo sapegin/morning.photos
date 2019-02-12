@@ -10,42 +10,71 @@ import config from '../../config';
 
 const { tagNames } = config;
 
-const PostContainer = styled(Box)`
+const PostContainer = styled(Box, {
+	shouldForwardProp: props => !['align'].includes(props),
+})`
 	margin-left: -${themeGet('page.xPadding')};
 	margin-right: -${themeGet('page.xPadding')};
-	text-align: ${props => props.align};
+	overflow: hidden;
 
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${themeGet('breakpoints.huge')}) {
 		margin-left: 0;
 		margin-right: 0;
+		text-align: ${props => props.align};
 	}
 `;
 
-const TextPostContainer = styled(Box)`
-	padding: ${themeGet('space.l')} ${themeGet('page.xPadding')};
-	text-align: ${props => props.align};
-	border: 2px solid ${themeGet('colors.base')};
+const TextPostContainer = styled(Box, {
+	shouldForwardProp: props => !['align'].includes(props),
+})`
+	@media (min-width: ${themeGet('breakpoints.huge')}) {
+		padding: ${themeGet('space.l')} ${themeGet('page.xPadding')};
+		border: 2px solid ${themeGet('colors.base')};
+		text-align: ${props => props.align};
+	}
 `;
 
-const PostHeaderStyle = styled.header`
-	margin-top: -0.4rem;
+const PostHeaderContainer = styled.header`
 	padding: 0 ${themeGet('page.xPadding')};
 
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${themeGet('breakpoints.huge')}) {
+		margin-top: -0.35rem;
 		padding: 0;
 	}
 `;
 
-const PostHeader = ({ title, tags }) => (
-	<PostHeaderStyle>
+const PostHeaderBody = ({ title, tags }) => (
+	<>
 		<Heading level={3} mb="s" as="h2">
 			<u>{title}</u>
 		</Heading>
 		<Text as="p" size="xs" weight="bold">
 			{tagNames[tags[0]]}
 		</Text>
-	</PostHeaderStyle>
+	</>
 );
+
+const PostHeader = ({ title, tags }) => (
+	<PostHeaderContainer>
+		<PostHeaderBody title={title} tags={tags} />
+	</PostHeaderContainer>
+);
+
+const PostImageColumn = styled(Column, {
+	shouldForwardProp: props => !['isLeftSide'].includes(props),
+})`
+	@media (min-width: ${themeGet('breakpoints.huge')}) {
+		order: ${props => props.isLeftSide && '1'};
+	}
+`;
+
+const PostHeaderColumn = styled(Column)`
+	padding-top: ${themeGet('space.m')};
+
+	@media (min-width: ${themeGet('breakpoints.huge')}) {
+		padding-top: 0;
+	}
+`;
 
 const renderPost = (
 	{ slug, cover, coverModified, coverSize, width, height, ...post },
@@ -57,7 +86,13 @@ const renderPost = (
 			<PostContainer key={slug} mb="xl" align={isLeftSide ? undefined : 'right'}>
 				<QuotedLink href={slug}>
 					<Box mb="m">
-						<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
+						<Image
+							src={cover}
+							modified={coverModified}
+							intrinsicSize={coverSize}
+							alt=""
+							responsive={false}
+						/>
 					</Box>
 					<PostHeader {...post} />
 				</QuotedLink>
@@ -67,22 +102,21 @@ const renderPost = (
 
 	// Horizontal
 	if (width >= height) {
-		const columns = [
-			<Column key="image" width={[1, 5 / 6]}>
-				<Box mb={isLeftSide ? undefined : 'm'}>
-					<Image src={cover} modified={coverModified} intrinsicSize={coverSize} alt="" />
-				</Box>
-			</Column>,
-			<Column key="header" width={[1, 1 / 6]}>
-				<Box mb={isLeftSide ? 'm' : undefined}>
-					<PostHeader {...post} />
-				</Box>
-			</Column>,
-		];
 		return (
 			<PostContainer key={slug} mb="xl">
 				<Row as={QuotedLink} key={slug} narrow href={slug}>
-					{isLeftSide ? columns.reverse() : columns}
+					<PostImageColumn width={[1, null, null, null, 5 / 6]} isLeftSide={isLeftSide}>
+						<Image
+							src={cover}
+							modified={coverModified}
+							intrinsicSize={coverSize}
+							alt=""
+							responsive={false}
+						/>
+					</PostImageColumn>
+					<PostHeaderColumn width={[1, null, null, null, 1 / 6]}>
+						<PostHeader {...post} />
+					</PostHeaderColumn>
 				</Row>
 			</PostContainer>
 		);
@@ -92,7 +126,7 @@ const renderPost = (
 	return (
 		<TextPostContainer key={slug} mb="xl" align={isLeftSide ? undefined : 'right'}>
 			<QuotedLink href={slug}>
-				<PostHeader {...post} />
+				<PostHeaderBody {...post} />
 			</QuotedLink>
 		</TextPostContainer>
 	);
