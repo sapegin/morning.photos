@@ -120,15 +120,15 @@ const AboutPage = ({
 					span="double"
 					src="/images/about/workplace.jpg"
 					alt="Artem Sapegin’s workplace"
-					width="676"
-					height="328"
+					width="677"
+					height="331"
 					responsive={false}
 				/>
 				<Image
 					src="/images/about/iphone.jpg"
 					alt="Photo edition in VSCO Cam on iPhone"
-					width="328"
-					height="328"
+					width="331"
+					height="331"
 					responsive={false}
 				/>
 			</Box>
