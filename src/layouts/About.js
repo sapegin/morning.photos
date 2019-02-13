@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'lodash/shuffle';
-import canUseDOM from 'can-use-dom';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Box, Row, Column, Text, Html } from 'tamia';
 import Group from 'react-group';
@@ -17,16 +16,20 @@ const getPhotoIndexFactory = max => {
 	return num => indices.splice(0, num);
 };
 
-const Photos = ({ indices, alt }) =>
-	indices.map(index => (
-		<Image
-			key={index}
-			src={canUseDOM ? `/images/about/me${index}.jpg` : undefined}
-			alt={alt}
-			responsive={false}
-			intrinsicSize={{ width: 1, height: 1 }}
-		/>
-	));
+// Never rerender photos to avoid downloading two different images on SSR and client
+const Photos = React.memo(
+	({ indices, alt }) =>
+		indices.map(index => (
+			<Image
+				key={index}
+				src={`/images/about/me${index}.jpg`}
+				alt={alt}
+				responsive={false}
+				intrinsicSize={{ width: 1, height: 1 }}
+			/>
+		)),
+	() => false
+);
 
 const Links = ({ items }) =>
 	items.map(group =>
