@@ -12,8 +12,8 @@
     "posttest": "npm run format",
     "lint:js": "eslint . --cache --fix",
     "lint:css": "stylelint 'src/**/*.js'",
-    "lint:md": "remark --quiet content",
-    "format": "prettier --write '**/*.{js,md}'",
+    "lint:md": "remark --quiet \"content/**/*.mdx\"",
+    "format": "prettier --write '**/*.{js,md,mdx}'",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
   },
@@ -87,7 +87,7 @@
     "url": "git+ssh://git@bitbucket.org/sapegin/birdwatcher.git"
   },
   "lint-staged": {
-    "*.{js,md}": [
+    "*.{js,md,mdx}": [
       "prettier --write",
       "git add"
     ],

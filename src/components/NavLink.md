@@ -5,11 +5,15 @@
 Current page:
 
 ```jsx
-<NavLink href="/" variation="page">Blog</NavLink>
+<NavLink href="/" variation="page">
+  Blog
+</NavLink>
 ```
 
 Current section:
 
 ```jsx
-<NavLink href="/" variation="section">Blog</NavLink>
+<NavLink href="/" variation="section">
+  Blog
+</NavLink>
 ```

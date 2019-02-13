@@ -64,6 +64,7 @@ const SubmitButton = styled.button`
 		cursor: pointer;
 	}
 
+	/* stylelint-disable-next-line no-descending-specificity */
 	&::-moz-focus-inner {
 		border: 0;
 	}

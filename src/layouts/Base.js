@@ -4,14 +4,7 @@ import Provider from './Provider';
 import theme from '../theme';
 import config from '../../config';
 
-const { lang, title, description, twitter } = config;
-
-/*<link
-rel="alternative"
-href="/feed.xml"
-title={__('titleBlog')}
-type="application/atom+xml"
-/>*/
+const { lang, twitter } = config;
 
 const Base = ({ children }) => (
 	<>

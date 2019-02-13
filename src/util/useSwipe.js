@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+/* eslint-disable */
+
 const TRESHOLD = 200;
 
 export default function useSwipe(events) {

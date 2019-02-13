@@ -9,6 +9,8 @@ import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
 import getImageColors from 'get-image-colors';
 
+/* eslint-disable no-console  */
+
 const getImageSize = promisify(imageSize);
 
 const photosFolder = path.resolve(__dirname, '../../photos');
