@@ -1,12 +1,11 @@
 import orderBy from 'lodash/orderBy';
 import format from 'date-fns/format';
-import richtypo from 'richtypo';
-import rules from 'richtypo-rules-en';
 import { loadPhoto } from './gallery';
 
 const DATE_FORMAT = 'MMMM, YYYY';
 const PHOTO_PROTOCOL = 'photo://';
 const FRONTMATTER_REGEXP = /[+-]{3}[\s\S]*[+-]{3}/;
+const IMAGES_REGEXP = /!\[[^\]]*\]\(([^)'"\s]*)\)/g;
 
 export { loadPhoto, loadImage } from './gallery';
 
@@ -22,8 +21,18 @@ export const splitFrontmatter = markdown => {
 
 export const getLines = text => text.split('\n').filter(Boolean);
 
+export const getImages = markdown => {
+	const images = [];
+	let match = IMAGES_REGEXP.exec(markdown);
+	while (match != null) {
+		images.push(match[1]);
+		match = IMAGES_REGEXP.exec(markdown);
+	}
+	return images;
+};
+
 export const getFirstImage = markdown => {
-	const match = markdown.match(/!\[[^\]]*\]\(([^)'"\s]*)\)/);
+	const match = IMAGES_REGEXP.exec(markdown);
 	return match && match[1];
 };
 
@@ -55,6 +64,15 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug }) => {
 };
 
 export const typo = markdown => {
+	console.log(process.versions.node, parseInt(process.versions.node));
+
+	// Skip typography enhancement on older Node versions
+	if (parseInt(process.versions.node) < 8) {
+		return markdown;
+	}
+
+	const richtypo = require('richtypo');
+	const rules = require('richtypo-rules-en');
 	const { frontmatter, rest } = splitFrontmatter(markdown);
 	return frontmatter + richtypo(rules, rest);
 };

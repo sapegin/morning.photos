@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+// eslint-disable-next-line no-global-assign
+require = require('esm')(module);
+
+const fs = require('fs');
+const execSync = require('child_process').execSync;
+const downloadPhotos = require('./download-email-photos.js').default;
+
+// Topmost opened in iA Writer file
+const sourceFile = execSync(
+	`osascript -e 'tell application "iA Writer" to set filepath to file of document 1' -e 'POSIX path of filepath'`
+)
+	.toString()
+	.trim();
+
+const markdown = fs.readFileSync(sourceFile, 'utf8');
+downloadPhotos(markdown);
