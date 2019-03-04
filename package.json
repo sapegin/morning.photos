@@ -35,7 +35,6 @@
     "react-group": "^3.0.0",
     "react-helmet": "^5.2.0",
     "react-photo-gallery": "^6.3.1",
-    "rehype-react": "^3.1.0",
     "tamia": "^4.0.0-alpha.43",
     "tamia-gatsby-link": "^1.0.2"
   },
@@ -82,10 +81,6 @@
     "stylelint-processor-styled-components": "^1.5.2",
     "unist-util-visit": "~1.4.0",
     "utf8": "~3.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/sapegin/birdwatcher.git"
   },
   "lint-staged": {
     "*.{js,md,mdx}": [
