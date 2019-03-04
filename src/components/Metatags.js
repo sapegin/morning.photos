@@ -21,8 +21,8 @@ export default ({
 	noIndex,
 	children,
 }) => {
-	const isBlog = slug.startsWith('/blog/');
-	const isBlogPost = slug.startsWith('/blog');
+	const isBlog = slug.startsWith('/blog');
+	const isBlogPost = slug.startsWith('/blog/');
 	const imageUrl =
 		image &&
 		(image.startsWith('/') ? `${siteUrl}${image}` : getPhotoUrl(image, imageModified, 'blog'));
