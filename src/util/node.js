@@ -64,8 +64,6 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug }) => {
 };
 
 export const typo = markdown => {
-	console.log(process.versions.node, parseInt(process.versions.node));
-
 	// Skip typography enhancement on older Node versions
 	if (parseInt(process.versions.node) < 8) {
 		return markdown;
