@@ -1,12 +1,6 @@
-// @flow
 import React from 'react';
 import { VisuallyHidden, themeGet } from 'tamia';
 import styled from '@emotion/styled';
-import config from '../../config';
-
-const { userId, listId, actionUrl } = config.subscribe;
-
-const noop = () => {};
 
 const Form = styled.form`
 	display: flex;
@@ -74,27 +68,17 @@ const SubmitButton = styled.button`
 	}
 `;
 
-const Honey = () => (
-	<VisuallyHidden aria-hidden="true">
-		<input type="text" name={`b_${userId}_${listId}`} tabIndex="-1" value="" onChange={noop} />
-	</VisuallyHidden>
-);
-
-type Props = {
-	from: string,
-};
-
-export default ({ from }: Props) => (
+export default () => (
 	<>
-		<Form method="post" action={actionUrl} target="_blank">
-			<input type="hidden" name="u" value={userId} />
-			<input type="hidden" name="id" value={listId} />
-			<input type="hidden" name="SIGNUP" value={from} />
-			<Honey />
+		<Form
+			method="post"
+			action="https://buttondown.email/api/emails/embed-subscribe/sapegin"
+			target="_blank"
+		>
 			<Column as="label">
 				<VisuallyHidden>Your email:</VisuallyHidden>
 				<EmailInput
-					name="MERGE0"
+					name="email"
 					type="email"
 					required
 					autocomplete="home email"

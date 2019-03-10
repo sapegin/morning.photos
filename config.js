@@ -34,9 +34,4 @@ module.exports = {
 		photography: 'Photography',
 		photos: 'My Photos',
 	},
-	subscribe: {
-		userId: 'de175cf2070fa3cfd7d3ad209',
-		listId: 'e0d45226cc',
-		actionUrl: 'https://photos.us8.list-manage.com/subscribe/post',
-	},
 };
