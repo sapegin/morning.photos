@@ -70,11 +70,7 @@ const SubmitButton = styled.button`
 
 export default () => (
 	<>
-		<Form
-			method="post"
-			action="https://buttondown.email/api/emails/embed-subscribe/sapegin"
-			target="_blank"
-		>
+		<Form method="post" action="https://buttondown.email/api/emails/embed-subscribe/sapegin">
 			<Column as="label">
 				<VisuallyHidden>Your email:</VisuallyHidden>
 				<EmailInput
