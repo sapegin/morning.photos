@@ -23,6 +23,7 @@ export const getLines = text => text.split('\n').filter(Boolean);
 
 export const getImages = markdown => {
 	const images = [];
+	IMAGES_REGEXP.lastIndex = 0;
 	let match = IMAGES_REGEXP.exec(markdown);
 	while (match != null) {
 		images.push(match[1]);
