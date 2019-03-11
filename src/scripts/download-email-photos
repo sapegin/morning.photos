@@ -4,8 +4,12 @@
 require = require('esm')(module);
 
 const fs = require('fs');
+const path = require('path');
 const execSync = require('child_process').execSync;
+const opn = require('opn');
 const downloadPhotos = require('./download-email-photos.js').default;
+
+const DOWNLOAD_DIR = path.resolve(__dirname, '../../newsletter');
 
 // Topmost opened in iA Writer file
 const sourceFile = execSync(
@@ -15,4 +19,6 @@ const sourceFile = execSync(
 	.trim();
 
 const markdown = fs.readFileSync(sourceFile, 'utf8');
-downloadPhotos(markdown);
+downloadPhotos(markdown, DOWNLOAD_DIR);
+
+opn(DOWNLOAD_DIR);

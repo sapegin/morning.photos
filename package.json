@@ -69,6 +69,7 @@
     "lodash": "~4.17.11",
     "node-iptc": "~1.0.5",
     "num2fraction": "~1.2.2",
+    "opn": "^5.4.0",
     "prettier": "^1.16.4",
     "react-styleguidist": "^9.0.0-beta4",
     "remark-cli": "~6.0.1",
