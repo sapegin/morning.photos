@@ -167,7 +167,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 									slug,
 									limit: POSTS_PER_PAGE,
 									skip: page * POSTS_PER_PAGE,
-									nextPage: page + 1 < numPages && `${slug}/${page + 2}`,
+									nextPage: page + 1 < numPages ? `${slug}/${page + 2}` : undefined,
 								},
 							});
 						});
