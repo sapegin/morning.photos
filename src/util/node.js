@@ -32,8 +32,7 @@ export const getImages = markdown => {
 };
 
 export const getFirstImage = markdown => {
-	const match = IMAGES_REGEXP.exec(markdown);
-	return match && match[1];
+	return getImages(markdown)[0];
 };
 
 export const isPhotoUrl = url => url && url.startsWith(PHOTO_PROTOCOL);
