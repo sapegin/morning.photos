@@ -9,7 +9,6 @@ import Page from './Page';
 import Metatags from '../components/Metatags';
 import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
-import SubscriptionForm from '../components/SubscriptionForm';
 import { getPhotoUrl } from '../util/photos';
 
 // Split posts into:
@@ -138,11 +137,8 @@ export default ({
 			</Box>
 			<Row>
 				<Column width={[1, 3 / 4]}>
-					<Box as={TextContent} mb="m">
+					<Box as={TextContent} mb="l">
 						<MDXRenderer>{body}</MDXRenderer>
-					</Box>
-					<Box mb="l">
-						<SubscriptionForm from="Index" />
 					</Box>
 				</Column>
 				<Column width={[1, 1 / 4]}>
