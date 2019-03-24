@@ -61,5 +61,12 @@ module.exports = {
 		},
 		'gatsby-plugin-netlify',
 		'gatsby-plugin-flow',
+		{
+			resolve: 'gatsby-plugin-fathom',
+			options: {
+				trackingUrl: 'stats.sapegin.me',
+				siteId: 'DQKGK',
+			},
+		},
 	],
 };
