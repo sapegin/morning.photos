@@ -32,17 +32,13 @@ export const getImages = markdown => {
 	return images;
 };
 
-export const getFirstImage = markdown => {
-	return getImages(markdown)[0];
-};
-
 export const isPhotoUrl = url => url && url.startsWith(PHOTO_PROTOCOL);
 
 export const getPhotoNameFromUrl = url => {
 	return isPhotoUrl(url) && url.substring(PHOTO_PROTOCOL.length);
 };
 
-export const getAlbumFromNames = async (names, { orderby, limit, slug }) => {
+export const getAlbumFromNames = async (names, { orderby, limit, slug, filter }) => {
 	// Load photos
 	const photos = await Promise.all(
 		names.map(async name => {
@@ -56,9 +52,13 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug }) => {
 		})
 	);
 
+	const filteredPhotos = filter ? filter(photos) : photos;
+
 	// Sort photos: manual, date-asc, date-desc
 	const sortedPhotos =
-		orderby === 'manual' ? photos : orderBy(photos, [orderby || 'timestamp'], ['desc']);
+		orderby === 'manual'
+			? filteredPhotos
+			: orderBy(filteredPhotos, [orderby || 'timestamp'], ['desc']);
 
 	return limit ? sortedPhotos.slice(0, limit) : sortedPhotos;
 };

@@ -69,7 +69,7 @@ type Props = {
 
 const Image = ({
 	src = '',
-	size = 'blog',
+	size = 'medium',
 	alt = '',
 	modified,
 	intrinsicSize,

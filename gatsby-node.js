@@ -3,18 +3,7 @@ require = require('esm')(module);
 
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const {
-	stripFrontmatter,
-	getAlbumFromNames,
-	getLines,
-	getFirstImage,
-	getPhotoNameFromUrl,
-	loadImage,
-	loadPhoto,
-	typo,
-} = require('./src/util/node');
-
-const POSTS_PER_PAGE = 20;
+const { stripFrontmatter, getAlbumFromNames, getLines, typo } = require('./src/util/node');
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
 
@@ -31,12 +20,14 @@ const getPrefetchPhotos = (photos, start) => [
 	},
 ];
 
+const getHorizontalPhotos = photos => photos.filter(({ width, height }) => width > height);
+
 exports.onCreateWebpackConfig = ({ actions }) => {
 	// Turn off source maps
 	actions.setWebpackConfig({ devtool: false });
 };
 
-exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) => {
+exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 	if (node.internal.type === 'Mdx') {
 		const slug = createFilePath({ node, getNode, trailingSlash: false });
 
@@ -51,32 +42,6 @@ exports.onCreateNode = async ({ node, getNode, actions: { createNodeField } }) =
 			name: 'slug',
 			value: slug,
 		});
-
-		// Add cover photo URL
-		const firstImageSrc = getFirstImage(node.rawBody);
-		if (firstImageSrc) {
-			const name = getPhotoNameFromUrl(firstImageSrc);
-			createNodeField({
-				node,
-				name: 'cover',
-				value: name || firstImageSrc,
-			});
-
-			// Add cover photo modification time and dimensions
-			const { modified, width, height } = name
-				? await loadPhoto(name)
-				: await loadImage(path.join(__dirname, 'static', firstImageSrc));
-			createNodeField({
-				node,
-				name: 'coverModified',
-				value: modified,
-			});
-			createNodeField({
-				node,
-				name: 'coverSize',
-				value: { width, height },
-			});
-		}
 	}
 };
 
@@ -87,7 +52,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 				allMdx(
 					# Make sure that the New album will be the last and we'll
 					# have all the photos available
-					sort: { fields: [frontmatter___position, frontmatter___date], order: DESC }
+					sort: { fields: [frontmatter___position], order: DESC }
 				) {
 					edges {
 						node {
@@ -105,25 +70,21 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 					}
 				}
 			}
-		`).then(result => {
-			if (result.errors) {
-				reject(result.errors);
+		`).then(({ errors, data: { allMdx: { edges: pages } } }) => {
+			if (errors) {
+				reject(errors);
 			}
 
 			const allPhotoNames = [];
 
-			const pages = result.data.allMdx.edges;
 			pages.forEach(
-				async (
-					{
-						node: {
-							rawBody,
-							frontmatter: { layout, title, order, limit },
-							fields: { slug },
-						},
+				async ({
+					node: {
+						rawBody,
+						frontmatter: { layout, title, order, limit },
+						fields: { slug },
 					},
-					index
-				) => {
+				}) => {
 					const extraContext = {};
 
 					// Add photos data to album pages
@@ -155,38 +116,14 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 						extraContext.photos = photos;
 					}
 
-					// Create blog list pages
-					if (slug === '/blog') {
-						const posts = pages.filter(page => page.node.fields.slug.startsWith('/blog/'));
-						const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-						Array.from({ length: numPages }).forEach((_, page) => {
-							createPage({
-								path: page === 0 ? slug : `${slug}/${page + 1}`,
-								component: template(layout),
-								context: {
-									slug,
-									limit: POSTS_PER_PAGE,
-									skip: page * POSTS_PER_PAGE,
-									nextPage: page + 1 < numPages ? `${slug}/${page + 2}` : undefined,
-								},
-							});
+					// Add recent photos to the main page
+					if (slug === '/') {
+						extraContext.photos = await getAlbumFromNames(allPhotoNames, {
+							slug: '/albums/new',
+							order: 'modified',
+							limit: 4,
+							filter: getHorizontalPhotos,
 						});
-						return;
-					}
-
-					// Add prev / next links to blog posts
-					if (slug.startsWith('/blog/')) {
-						const prev = pages[index - 1];
-						if (prev && prev.node.fields.slug.startsWith('/blog/')) {
-							extraContext.prev = prev.node.fields.slug;
-							extraContext.prevTitle = prev.node.frontmatter.title;
-						}
-
-						const next = pages[index + 1];
-						if (next && next.node.fields.slug.startsWith('/blog/')) {
-							extraContext.next = next.node.fields.slug;
-							extraContext.nextTitle = next.node.frontmatter.title;
-						}
 					}
 
 					// Create a page for a Markdown document
