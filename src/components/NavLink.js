@@ -1,13 +1,12 @@
 // @flow
 import { Link } from 'tamia-gatsby-link';
-import { themeGet } from 'tamia';
 import styled from '@emotion/styled';
 
 const NavLink = styled(Link)`
 	&& {
-		font-size: ${themeGet('fontSizes.s')};
-		font-weight: ${props => props.variation !== 'default' && 'bold'};
-		text-decoration: ${props => props.variation === 'page' && 'none'};
+		font-size: ${p => p.theme.fontSizes.s};
+		font-weight: ${p => p.variation !== 'default' && 'bold'};
+		text-decoration: ${p => p.variation === 'page' && 'none'};
 	}
 `;
 

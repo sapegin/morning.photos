@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-import { Box, VisuallyHidden, themeGet } from 'tamia';
+import { Box, VisuallyHidden } from 'tamia';
 import { Link, QuotedLink } from 'tamia-gatsby-link';
 import Base from './Base';
 import Metatags from '../components/Metatags';
@@ -28,22 +28,22 @@ const getAlbumSlug = slug => slug.replace(/\/[^/]+$/, '');
 const LinkContainer = styled.div`
 	position: absolute;
 	transition: transform 0.5s 0.5s ${easeInOutQuart};
-	left: ${props => props.position.endsWith('left') && 0};
-	right: ${props => props.position.endsWith('right') && 0};
+	left: ${p => p.position.endsWith('left') && 0};
+	right: ${p => p.position.endsWith('right') && 0};
 
 	/* Hide only when the device has hover and the browser supports focus-within */
 	@media (hover: hover) {
 		:not(*):focus-within,
 		& {
-			transform: ${props => props.position === 'left' && 'translateX(-110%)'};
-			transform: ${props => props.position === 'right' && 'translateX(110%)'};
-			transform: ${props => props.position.startsWith('top') && 'translateY(-110%)'};
+			transform: ${p => p.position === 'left' && 'translateX(-110%)'};
+			transform: ${p => p.position === 'right' && 'translateX(110%)'};
+			transform: ${p => p.position.startsWith('top') && 'translateY(-110%)'};
 		}
 	}
 `;
 
 const TopLinkContainer = styled(LinkContainer)`
-	padding: ${themeGet('space.s')} ${themeGet('space.m')};
+	padding: ${p => p.theme.space.s} ${p => p.theme.space.m};
 	top: 0;
 	z-index: 1;
 `;
@@ -51,7 +51,7 @@ const TopLinkContainer = styled(LinkContainer)`
 const NavLinkContainer = styled(LinkContainer)`
 	display: none;
 
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${p => p.theme.breakpoints.small}) {
 		display: flex;
 		align-items: center;
 		top: 0;
@@ -60,7 +60,7 @@ const NavLinkContainer = styled(LinkContainer)`
 `;
 
 const BackLinkLabel = styled(VisuallyHidden)`
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${p => p.theme.breakpoints.small}) {
 		all: inherit;
 	}
 `;
@@ -73,7 +73,7 @@ const HeaderContainer = styled.header`
 	right: 0;
 	height: 100vh;
 	z-index: 1;
-	color: ${themeGet('colors.base')};
+	color: ${p => p.theme.colors.base};
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-shadow: 0 0 0.2ex rgba(0, 0, 0, 0.3);
@@ -92,7 +92,7 @@ const HeaderContainer = styled.header`
 
 	.Photo__link {
 		/* Disable transition on page load or when :focus-withing not supported */
-		transform: ${props => props.hasLoaded || 'none'};
+		transform: ${p => p.hasLoaded || 'none'};
 	}
 	&:hover .Photo__link,
 	&:focus-within .Photo__link,
@@ -143,25 +143,25 @@ const Header = ({ name, prev, next, albumSlug, albumTitle, ...props }) => (
 
 const Lightbox = styled.div`
 	height: 100vh;
-	margin: 0 -${themeGet('space.m')};
+	margin: 0 -${p => p.theme.space.m};
 	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: ${themeGet('colors.base')};
+	background-color: ${p => p.theme.colors.base};
 `;
 
 const Spinner = styled(Icon)`
 	position: absolute;
-	color: ${themeGet('colors.bg')};
+	color: ${p => p.theme.colors.bg};
 `;
 
 const Image = styled.img`
 	max-width: 100vw;
 	height: auto;
 	max-height: 100vh;
-	transform: translateX(${props => props.deltaX}px);
-	transition: ${props => props.deltaX || `transform 0.2s ${props.easeInOutQuart}`};
+	transform: translateX(${p => p.deltaX}px);
+	transition: ${p => p.deltaX || `transform 0.2s ${p.easeInOutQuart}`};
 `;
 
 const Body = ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { VisuallyHidden, themeGet } from 'tamia';
+import { VisuallyHidden } from 'tamia';
 import styled from '@emotion/styled';
 
 const Form = styled.form`
@@ -10,7 +10,7 @@ const Form = styled.form`
 const Column = styled.div`
 	width: 100%;
 
-	@media (min-width: ${themeGet('breakpoints.medium')}) {
+	@media (min-width: ${p => p.theme.breakpoints.medium}) {
 		width: auto;
 	}
 `;
@@ -18,43 +18,43 @@ const Column = styled.div`
 const EmailInput = styled.input`
 	width: 100%;
 	height: 2em;
-	padding: ${themeGet('space.s')};
-	background-color: ${themeGet('colors.bg')};
-	color: ${themeGet('colors.base')};
-	border: 2px solid ${themeGet('colors.primary')};
-	border-radius: ${themeGet('radii.base')} ${themeGet('radii.base')} 0 0;
-	font-size: ${themeGet('fontSizes.l')};
-	font-family: ${themeGet('fonts.base')};
+	padding: ${p => p.theme.space.s};
+	background-color: ${p => p.theme.colors.bg};
+	color: ${p => p.theme.colors.base};
+	border: 2px solid ${p => p.theme.colors.primary};
+	border-radius: ${p => p.theme.radii.base} ${p => p.theme.radii.base} 0 0;
+	font-size: ${p => p.theme.fontSizes.l};
+	font-family: ${p => p.theme.fonts.base};
 	appearance: none;
 
 	&:focus {
 		outline: 0;
-		border-color: ${themeGet('colors.hover')};
+		border-color: ${p => p.theme.colors.hover};
 	}
 
-	@media (min-width: ${themeGet('breakpoints.medium')}) {
-		border-radius: ${themeGet('radii.base')} 0 0 ${themeGet('radii.base')};
+	@media (min-width: ${p => p.theme.breakpoints.medium}) {
+		border-radius: ${p => p.theme.radii.base} 0 0 ${p => p.theme.radii.base};
 	}
 `;
 
 const SubmitButton = styled.button`
 	width: 100%;
 	height: 2em;
-	padding: ${themeGet('space.s')} ${themeGet('space.m')};
-	background-color: ${themeGet('colors.base')};
-	color: ${themeGet('colors.bg')};
-	border: 2px solid ${themeGet('colors.primary')};
-	border-radius: 0 0 ${themeGet('radii.base')} ${themeGet('radii.base')};
-	font-size: ${themeGet('fontSizes.l')};
-	font-family: ${themeGet('fonts.base')};
+	padding: ${p => p.theme.space.s} ${p => p.theme.space.m};
+	background-color: ${p => p.theme.colors.base};
+	color: ${p => p.theme.colors.bg};
+	border: 2px solid ${p => p.theme.colors.primary};
+	border-radius: 0 0 ${p => p.theme.radii.base} ${p => p.theme.radii.base};
+	font-size: ${p => p.theme.fontSizes.l};
+	font-family: ${p => p.theme.fonts.base};
 	user-select: none;
 
 	&:hover,
 	&:active,
 	&:focus {
 		outline: 0;
-		background-color: ${themeGet('colors.hover')};
-		border-color: ${themeGet('colors.hover')};
+		background-color: ${p => p.theme.colors.hover};
+		border-color: ${p => p.theme.colors.hover};
 		cursor: pointer;
 	}
 
@@ -63,8 +63,8 @@ const SubmitButton = styled.button`
 		border: 0;
 	}
 
-	@media (min-width: ${themeGet('breakpoints.medium')}) {
-		border-radius: 0 ${themeGet('radii.base')} ${themeGet('radii.base')} 0;
+	@media (min-width: ${p => p.theme.breakpoints.medium}) {
+		border-radius: 0 ${p => p.theme.radii.base} ${p => p.theme.radii.base} 0;
 	}
 `;
 

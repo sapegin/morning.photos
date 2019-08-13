@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
-import { Box, Heading, themeGet } from 'tamia';
+import { Box, Heading } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Metatags from '../components/Metatags';
 import Image from '../components/Image';
@@ -9,9 +9,9 @@ import PhotoGrid from '../components/PhotoGrid';
 import PageWithTitle from './PageWithTitle';
 
 const AlbumHeading = styled(Heading)`
-	padding: 0 ${themeGet('page.xPadding')};
+	padding: 0 ${p => p.theme.page.xPadding};
 
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${p => p.theme.breakpoints.small}) {
 		padding: 0;
 	}
 `;

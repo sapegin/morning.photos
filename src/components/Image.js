@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { themeGet } from 'tamia';
 import { getPhotoUrl, type Size } from '../util/photos';
 
 const IntrinsicImageContainer = styled('div', {
@@ -15,20 +14,19 @@ const IntrinsicImageWrapper = styled('div', {
 	shouldForwardProp: props => !['width', 'height', 'color'].includes(props),
 })`
 	position: relative;
-	padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
-	background-color: ${props => props.color || props.theme.colors.lighter};
+	padding-bottom: ${p => `${(p.height / p.width) * 100}%`};
+	background-color: ${p => p.color || p.theme.colors.lighter};
 `;
 
 const ResponsiveIntrinsicImageWrapper = styled(IntrinsicImageWrapper, {
 	shouldForwardProp: props => !['width', 'height'].includes(props),
 })`
-	padding-bottom: ${props =>
-		`calc(${(props.height / props.width) * 100}% + ${props.theme.page.xPadding})`};
-	margin-left: -${themeGet('page.xPadding')};
-	margin-right: -${themeGet('page.xPadding')};
+	padding-bottom: ${p => `calc(${(p.height / p.width) * 100}% + ${p.theme.page.xPadding})`};
+	margin-left: -${p => p.theme.page.xPadding};
+	margin-right: -${p => p.theme.page.xPadding};
 
-	@media (min-width: ${themeGet('page.contentMaxWidth')}) {
-		padding-bottom: ${props => `${(props.height / props.width) * 100}%`};
+	@media (min-width: ${p => p.theme.page.contentMaxWidth}) {
+		padding-bottom: ${p => `${(p.height / p.width) * 100}%`};
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -48,7 +46,7 @@ const PlainImage = styled('img', {
 	max-width: 100%;
 	width: auto;
 	height: auto;
-	background-color: ${props => props.color};
+	background-color: ${p => p.color};
 `;
 
 type Props = {

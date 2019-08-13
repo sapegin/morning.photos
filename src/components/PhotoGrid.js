@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import { themeGet } from 'tamia';
 import Grid from './Grid';
 
 const PhotoGrid = styled(Grid)`
-	margin-left: -${themeGet('page.xPadding')};
-	margin-right: -${themeGet('page.xPadding')};
+	margin-left: -${p => p.page.xPadding};
+	margin-right: -${p => p.page.xPadding};
 
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${p => p.breakpoints.small}) {
 		margin-left: 0;
 		margin-right: 0;
 	}

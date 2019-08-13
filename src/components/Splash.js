@@ -1,6 +1,5 @@
 // @flow
 import React, { type Node } from 'react';
-import { themeGet } from 'tamia';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Inverted from './Inverted';
@@ -26,7 +25,7 @@ const Image = styled.div`
 	height: inherit;
 	min-height: 100px;
 	max-height: 400px;
-	background-color: ${themeGet('colors.bg')};
+	background-color: ${p => p.theme.colors.bg};
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;

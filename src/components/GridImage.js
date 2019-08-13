@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { themeGet } from 'tamia';
 import Image from './Image';
 
 const spansSmall = {
@@ -12,7 +11,7 @@ const spansMedium = {
 
 const GridImage = styled(Image)`
 	grid-column: ${({ span }) => spansSmall[span]};
-	@media (min-width: ${themeGet('breakpoints.small')}) {
+	@media (min-width: ${p => p.theme.breakpoints.small}) {
 		grid-column: ${({ span }) => spansMedium[span]};
 	}
 `;
