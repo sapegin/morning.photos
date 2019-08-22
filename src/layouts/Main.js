@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Box, Row, Column, TextContent } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Page from './Page';

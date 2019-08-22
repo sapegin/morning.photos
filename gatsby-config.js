@@ -5,7 +5,7 @@ module.exports = {
 	siteMetadata: require('./config'),
 	plugins: [
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-emotion',
+		'gatsby-plugin-styled-components',
 		'gatsby-plugin-lodash',
 		'gatsby-plugin-remove-trailing-slashes',
 		{

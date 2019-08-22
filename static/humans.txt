@@ -13,7 +13,7 @@
 /* POWERED BY */
 
   Gatsby: https://www.gatsbyjs.org/
-	Emotion: https://emotion.sh/
+	styled-components: https://www.styled-components.com/
   Tâmia: https://tamiadev.github.io/tamia/
 
   -_-_-_-_-_-_-_,------,

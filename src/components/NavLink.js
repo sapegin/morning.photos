@@ -1,6 +1,6 @@
 // @flow
 import { Link } from 'tamia-gatsby-link';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const NavLink = styled(Link)`
 	&& {

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Box, VisuallyHidden } from 'tamia';
 import { Link, QuotedLink } from 'tamia-gatsby-link';
 import Base from './Base';

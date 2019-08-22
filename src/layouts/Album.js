@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Gallery from 'react-photo-gallery';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';

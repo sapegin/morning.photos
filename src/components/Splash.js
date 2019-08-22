@@ -1,7 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import styled, { css } from 'styled-components';
 import Inverted from './Inverted';
 
 const Container = styled.div`

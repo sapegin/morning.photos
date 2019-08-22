@@ -1,6 +1,6 @@
 import React from 'react';
 import { VisuallyHidden } from 'tamia';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const Form = styled.form`
 	display: flex;

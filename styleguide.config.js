@@ -1,9 +1,6 @@
 const path = require('path');
 const babelConfig = {
-	plugins: [
-		require.resolve('@babel/plugin-proposal-class-properties'),
-		require.resolve('babel-plugin-emotion'),
-	],
+	plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
 	presets: [
 		require.resolve('@babel/preset-env'),
 		[require.resolve('@babel/preset-react'), { development: true }],
