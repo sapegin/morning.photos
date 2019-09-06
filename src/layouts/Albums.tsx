@@ -20,13 +20,13 @@ const BoxLink = Box.withComponent(Link);
 
 type Props = {
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: {
 				title: string;
 				pageTitle: string;
 			};
 		};
-		allMdx: {
+		allMarkdownRemark: {
 			edges: {
 				node: {
 					fields: {
@@ -48,10 +48,10 @@ type Props = {
 
 export default function AlbumsPage({
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: { title, pageTitle },
 		},
-		allMdx: { edges },
+		allMarkdownRemark: { edges },
 	},
 	location: { pathname },
 }: Props) {
@@ -81,13 +81,13 @@ export default function AlbumsPage({
 
 export const pageQuery = graphql`
 	query AlbumsPage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle
 			}
 		}
-		allMdx(
+		allMarkdownRemark(
 			filter: { fileAbsolutePath: { regex: "/albums/.*\\.md/" } }
 			sort: { fields: [frontmatter___position], order: ASC }
 		) {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'lodash/shuffle';
-// @ts-ignore
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Flex, Box, Text } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
@@ -105,7 +103,7 @@ const List = ({ items }: ListProps) => (
 
 type Props = {
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: {
 				title: string;
 				pageTitle: string;
@@ -117,9 +115,7 @@ type Props = {
 				software: ListGroup[][];
 				copyrights: Item[];
 			};
-			code: {
-				body: string;
-			};
+			html: string;
 		};
 	};
 	location: {
@@ -129,9 +125,9 @@ type Props = {
 
 export default function AboutPage({
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: { title, pageTitle, cover, numPhotos, about, links, gear, software, copyrights },
-			code: { body },
+			html,
 		},
 	},
 	location: { pathname },
@@ -142,9 +138,7 @@ export default function AboutPage({
 			<Metatags slug={pathname} title={title} image={cover} />
 			<Flex>
 				<Box width={[1, 2 / 3]}>
-					<Box as={TextContent} mb="l">
-						<MDXRenderer>{body}</MDXRenderer>
-					</Box>
+					<Box as={TextContent} mb="l" dangerouslySetInnerHTML={{ __html: html }} />
 				</Box>
 				<Box width={[1, 1 / 3]}>
 					<Box as="ul" mb="l">
@@ -209,7 +203,7 @@ export default function AboutPage({
 
 export const pageQuery = graphql`
 	query AboutPage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle
@@ -232,9 +226,7 @@ export const pageQuery = graphql`
 					label
 				}
 			}
-			code {
-				body
-			}
+			html
 		}
 	}
 `;

@@ -1,7 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// @ts-ignore
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
 import { Flex, Box, TextContent, VisuallyHidden } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
@@ -28,10 +26,8 @@ const SecondaryPhoto = styled.div<SecondaryPhotoProps>`
 
 type Props = {
 	data: {
-		mdx: {
-			code: {
-				body: string;
-			};
+		markdownRemark: {
+			html: string;
 			frontmatter: {
 				title: string;
 			};
@@ -47,8 +43,8 @@ type Props = {
 
 export default function MainPage({
 	data: {
-		mdx: {
-			code: { body },
+		markdownRemark: {
+			html,
 			frontmatter: { title },
 		},
 	},
@@ -89,9 +85,7 @@ export default function MainPage({
 							{/* TODO: Color background */}
 							<Image src="/images/about/me11.jpg" alt="Artem Sapegin" />
 						</Box>
-						<Box width={[1, 1 / 2]}>
-							<MDXRenderer>{body}</MDXRenderer>
-						</Box>
+						<Box width={[1, 1 / 2]} dangerouslySetInnerHTML={{ __html: html }} />
 					</Flex>
 				</Box>
 			</PhotoGrid>
@@ -101,12 +95,9 @@ export default function MainPage({
 
 export const pageQuery = graphql`
 	query MainPage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
-			}
-			code {
-				body
 			}
 		}
 	}

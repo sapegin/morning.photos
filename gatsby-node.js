@@ -1,6 +1,6 @@
 import path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
-import { stripFrontmatter, getAlbumFromNames, getLines, typo } from './src/util/node';
+import { getAlbumFromNames, getLines, typo } from './src/util/node';
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
 
@@ -25,12 +25,12 @@ export function onCreateWebpackConfig({ actions }) {
 }
 
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
-	if (node.internal.type === 'Mdx') {
+	if (node.internal.type === 'MarkdownRemark') {
 		const slug = createFilePath({ node, getNode, trailingSlash: false });
 
 		// Typography
 		if (!slug.startsWith('/albums/')) {
-			node.rawBody = typo(node.rawBody);
+			node.internal.content = typo(node.internal.content);
 		}
 
 		// Add slug
@@ -46,14 +46,13 @@ export function createPages({ graphql, actions: { createPage } }) {
 	return new Promise((resolve, reject) => {
 		graphql(`
 			{
-				allMdx(
+				allMarkdownRemark(
 					# Make sure that the New album will be the last and we'll
 					# have all the photos available
 					sort: { fields: [frontmatter___position], order: DESC }
 				) {
 					edges {
 						node {
-							rawBody
 							frontmatter {
 								layout
 								title
@@ -63,11 +62,12 @@ export function createPages({ graphql, actions: { createPage } }) {
 							fields {
 								slug
 							}
+							rawMarkdownBody
 						}
 					}
 				}
 			}
-		`).then(({ errors, data: { allMdx: { edges: pages } } }) => {
+		`).then(({ errors, data: { allMarkdownRemark: { edges: pages } } }) => {
 			if (errors) {
 				reject(errors);
 			}
@@ -77,16 +77,16 @@ export function createPages({ graphql, actions: { createPage } }) {
 			pages.forEach(
 				async ({
 					node: {
-						rawBody,
 						frontmatter: { layout, title, order, limit },
 						fields: { slug },
+						rawMarkdownBody,
 					},
 				}) => {
 					const extraContext = {};
 
 					// Add photos data to album pages
 					if (slug.startsWith('/albums/')) {
-						const names = getLines(stripFrontmatter(rawBody));
+						const names = getLines(rawMarkdownBody);
 						allPhotoNames.push(...names);
 
 						const photos = await getAlbumFromNames(names.length > 0 ? names : allPhotoNames, {

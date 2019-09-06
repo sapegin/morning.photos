@@ -13,10 +13,7 @@ module.exports = {
 			},
 		},
 		{
-			resolve: 'gatsby-mdx',
-			options: {
-				extensions: ['.mdx', '.md'],
-			},
+			resolve: 'gatsby-transformer-remark',
 		},
 		/*
 		TODO: Show latest photos
@@ -28,7 +25,7 @@ module.exports = {
 						serialize: require('gatsby-mdx/feed').feeds[0].serialize,
 						query: `
 							{
-								allMdx(
+								allMarkdownRemark(
 									filter: { fileAbsolutePath: { regex: "/blog/.* /" } }
 									sort: { fields: [frontmatter___date], order: DESC },
 									limit: 20,

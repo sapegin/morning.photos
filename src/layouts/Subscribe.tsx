@@ -1,7 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// @ts-ignore
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent, Text, Box } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 import Metatags from '../components/Metatags';
@@ -9,10 +7,8 @@ import SubscriptionForm from '../components/SubscriptionForm';
 
 type Props = {
 	data: {
-		mdx: {
-			code: {
-				body: string;
-			};
+		markdownRemark: {
+			html: string;
 			frontmatter: {
 				title: string;
 				pageTitle: string;
@@ -27,8 +23,8 @@ type Props = {
 
 export function SubscribePage({
 	data: {
-		mdx: {
-			code: { body },
+		markdownRemark: {
+			html,
 			frontmatter: { title, pageTitle, cover },
 		},
 	},
@@ -37,9 +33,7 @@ export function SubscribePage({
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
 			<Metatags slug={pathname} title={title} image={cover} />
-			<Box as={TextContent} mb="l">
-				<MDXRenderer>{body}</MDXRenderer>
-			</Box>
+			<Box as={TextContent} mb="l" dangerouslySetInnerHTML={{ __html: html }} />
 			<Box mb="xl">
 				<SubscriptionForm />
 				<Text size="xs" mt="s">
@@ -52,15 +46,13 @@ export function SubscribePage({
 
 export const pageQuery = graphql`
 	query SubscribePage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle
 				cover
 			}
-			code {
-				body
-			}
+			html
 		}
 	}
 `;

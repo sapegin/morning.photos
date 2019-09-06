@@ -56,7 +56,7 @@ const getPhotosForGallery = (photos: Photo[], focus?: string) =>
 
 type Props = {
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: {
 				title: string;
 				pageTitle: string;
@@ -76,7 +76,7 @@ type Props = {
 
 export default function AlbumPage({
 	data: {
-		mdx: {
+		markdownRemark: {
 			frontmatter: { title, pageTitle },
 		},
 	},
@@ -106,7 +106,7 @@ export default function AlbumPage({
 
 export const pageQuery = graphql`
 	query AlbumPage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				pageTitle

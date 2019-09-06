@@ -13,9 +13,9 @@
     "posttest": "npm run format",
     "typecheck": "tsc",
     "lint:css": "stylelint 'src/**/*.tsx'",
-    "lint:md": "remark --quiet \"content/**/*.mdx\"",
+    "lint:md": "remark --quiet \"content/**/*.md\"",
     "lint:js": "eslint . --cache --fix --ext .js,.tsx",
-    "format": "prettier --write \"**/*.{js,tsx,mdx}\"",
+    "format": "prettier --write \"**/*.{js,tsx,md}\"",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
   },
@@ -39,8 +39,6 @@
     "tamia-gatsby-link": "^1.0.6"
   },
   "devDependencies": {
-    "@mdx-js/mdx": "^0.17.0",
-    "@mdx-js/tag": "^0.17.0",
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
     "@types/react-helmet": "^5.0.9",
@@ -56,7 +54,6 @@
     "exif-parser": "~0.1.12",
     "fs-extra": "~7.0.1",
     "gatsby": "2.13.77",
-    "gatsby-mdx": "^0.3.6",
     "gatsby-plugin-fathom": "^1.1.0",
     "gatsby-plugin-feed": "^2.3.7",
     "gatsby-plugin-lodash": "^3.1.4",
@@ -66,6 +63,7 @@
     "gatsby-plugin-styled-components": "^3.1.2",
     "gatsby-plugin-typescript": "^2.1.4",
     "gatsby-source-filesystem": "^2.1.14",
+    "gatsby-transformer-remark": "^2.6.21",
     "get-image-colors": "^2.0.0",
     "glob": "~7.1.4",
     "husky": "^3.0.4",
@@ -91,7 +89,7 @@
     "utf8": "~3.0.0"
   },
   "lint-staged": {
-    "*.{js,tsx,md,mdx}": [
+    "*.{js,tsx,md,md}": [
       "prettier --write",
       "git add"
     ],

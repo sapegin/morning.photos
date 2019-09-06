@@ -1,16 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// @ts-ignore
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { TextContent } from 'tamia';
 import PageWithTitle from './PageWithTitle';
 
 type Props = {
 	data: {
-		mdx: {
-			code: {
-				body: string;
-			};
+		markdownRemark: {
+			html: string;
 			frontmatter: {
 				title: string;
 			};
@@ -23,8 +19,8 @@ type Props = {
 
 export default function SubscribeThankYouPage({
 	data: {
-		mdx: {
-			code: { body },
+		markdownRemark: {
+			html,
 			frontmatter: { title },
 		},
 	},
@@ -32,22 +28,18 @@ export default function SubscribeThankYouPage({
 }: Props) {
 	return (
 		<PageWithTitle url={pathname} title={title}>
-			<TextContent>
-				<MDXRenderer>{body}</MDXRenderer>
-			</TextContent>
+			<TextContent dangerouslySetInnerHTML={{ __html: html }} />
 		</PageWithTitle>
 	);
 }
 
 export const pageQuery = graphql`
 	query SubscribeThankYouPage($slug: String!) {
-		mdx(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 			}
-			code {
-				body
-			}
+			html
 		}
 	}
 `;

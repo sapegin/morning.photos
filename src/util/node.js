@@ -4,20 +4,9 @@ import { loadPhoto } from './gallery';
 
 const DATE_FORMAT = 'MMMM, YYYY';
 const PHOTO_PROTOCOL = 'photo://';
-const FRONTMATTER_REGEXP = /[+-]{3}[\s\S]*[+-]{3}/;
 const IMAGES_REGEXP = /!\[[^\]]*\]\(([^)'"\s]*)\)/g;
 
 export { loadPhoto, loadImage } from './gallery';
-
-export const stripFrontmatter = markdown => markdown.replace(FRONTMATTER_REGEXP, '');
-
-export const splitFrontmatter = markdown => {
-	const rest = stripFrontmatter(markdown);
-	return {
-		frontmatter: markdown.substring(0, markdown.length - rest.length),
-		rest,
-	};
-};
 
 export const getLines = text => text.split('\n').filter(Boolean);
 
@@ -71,6 +60,5 @@ export const typo = markdown => {
 
 	const richtypo = require('richtypo').default;
 	const rules = require('richtypo-rules-en').default;
-	const { frontmatter, rest } = splitFrontmatter(markdown);
-	return frontmatter + richtypo(rules, rest);
+	return richtypo(rules, markdown);
 };
