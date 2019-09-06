@@ -6,18 +6,4 @@ module.exports = {
 	email: 'artem@sapegin.me',
 	twitter: '@iamsapegin',
 	fbappid: '155027288234245',
-	menu: [
-		{
-			title: 'Portfolio',
-			href: '/albums',
-		},
-		{
-			title: 'Subscribe',
-			href: '/subscribe',
-		},
-		{
-			title: 'About me',
-			href: '/about',
-		},
-	],
 };

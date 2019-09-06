@@ -1,11 +1,8 @@
-// eslint-disable-next-line no-global-assign
-require = require('esm')(module);
+import path from 'path';
+import { createFilePath } from 'gatsby-source-filesystem';
+import { stripFrontmatter, getAlbumFromNames, getLines, typo } from './src/util/node';
 
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const { stripFrontmatter, getAlbumFromNames, getLines, typo } = require('./src/util/node');
-
-const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.js`);
+const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
 
 const get = (l, i) => l[i] || {};
 
@@ -22,12 +19,12 @@ const getPrefetchPhotos = (photos, start) => [
 
 const getHorizontalPhotos = photos => photos.filter(({ width, height }) => width > height);
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+export function onCreateWebpackConfig({ actions }) {
 	// Turn off source maps
 	actions.setWebpackConfig({ devtool: false });
-};
+}
 
-exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 	if (node.internal.type === 'Mdx') {
 		const slug = createFilePath({ node, getNode, trailingSlash: false });
 
@@ -43,9 +40,9 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 			value: slug,
 		});
 	}
-};
+}
 
-exports.createPages = ({ graphql, actions: { createPage } }) => {
+export function createPages({ graphql, actions: { createPage } }) {
 	return new Promise((resolve, reject) => {
 		graphql(`
 			{
@@ -142,4 +139,4 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 			resolve();
 		});
 	});
-};
+}

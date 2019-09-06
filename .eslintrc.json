@@ -1,18 +1,13 @@
 {
-	"parser": "babel-eslint",
-	"extends": [
-    "tamia/react",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+  "extends": [
+    "tamia/typescript-react"
   ],
-	"plugins": ["import", "flowtype"],
-	"settings": {
-		"react": {
-			"version": "16.6"
-		}
-	},
-	"rules": {
-    "react/prop-types": 0,
-    "flowtype/define-flow-type": 1
-	}
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": 0
+      }
+    }
+  ]
 }

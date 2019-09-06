@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-global-assign
-require = require('esm')(module);
-
 module.exports = {
 	siteMetadata: require('./config'),
 	plugins: [
@@ -57,7 +54,7 @@ module.exports = {
 			},
 		},*/
 		'gatsby-plugin-netlify',
-		'gatsby-plugin-flow',
+		'gatsby-plugin-typescript',
 		{
 			resolve: 'gatsby-plugin-fathom',
 			options: {
