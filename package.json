@@ -33,7 +33,7 @@
     "react-dom": "16.10.2",
     "react-group": "^3.0.2",
     "react-helmet": "^5.2.1",
-    "react-photo-gallery": "^6.3.1",
+    "react-photo-gallery": "^8.0.0",
     "styled-components": "^4.4.0",
     "tamia": "^5.0.20",
     "tamia-gatsby-link": "^1.0.6"

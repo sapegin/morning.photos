@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Gallery_, { GalleryI } from 'react-photo-gallery';
@@ -26,6 +26,7 @@ const Image = styled('img')`
 type CardProps = {
 	photo: GalleryPhoto;
 };
+
 const Card = ({ photo }: CardProps) => {
 	const linkRef = useRef<HTMLAnchorElement>();
 	useEffect(() => {
@@ -83,6 +84,7 @@ export default function AlbumPage({
 	pageContext: { photos },
 	location: { pathname, state },
 }: Props) {
+	const renderImage = useCallback(({ photo, key }) => <Card key={key} photo={photo} />, []);
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} fullWidth>
 			<Metatags
@@ -98,7 +100,7 @@ export default function AlbumPage({
 			<Gallery
 				photos={getPhotosForGallery(photos, state && state.fromPhoto)}
 				margin={MARGIN}
-				ImageComponent={Card}
+				renderImage={renderImage}
 			/>
 		</PageWithTitle>
 	);
