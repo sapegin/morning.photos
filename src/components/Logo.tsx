@@ -10,7 +10,7 @@ type Props = {
 
 export default function Logo({ homepage }: Props) {
 	return (
-		<Text variant="bold" as={homepage ? 'h1' : 'p'}>
+		<Text as={homepage ? 'h1' : 'div'} variant="bold" display="inline-block">
 			{homepage ? TITLE : <Link href="/">{TITLE}</Link>}
 		</Text>
 	);

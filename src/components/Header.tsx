@@ -8,12 +8,12 @@ type Props = {
 };
 
 export default ({ url }: Props) => (
-	<Flex as="header" role="banner">
-		<Box width={[1, null, 'auto']} pb="s" alignItems="center">
+	<Box as="header" role="banner" display={['block', null, 'flex']}>
+		<Flex pb="s" justifyContent="center">
 			<Logo homepage={url === '/'} />
-		</Box>
-		<Box width={[1, null, 'auto']} pb="s" ml="auto">
+		</Flex>
+		<Box pb="s" ml="auto">
 			<Nav url={url} />
 		</Box>
-	</Flex>
+	</Box>
 );

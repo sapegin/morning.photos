@@ -23,14 +23,12 @@ const fontSizes = {
 	xxl: '3rem',
 	xl: '2rem',
 	l: '1.6rem',
-	s: '0.9375rem', // 15 px
-	xs: '0.875rem', // 14 px
+	s: '0.875rem', // 14 px
 };
 const colors = {
 	bg: '#fff',
 	base: '#222',
 	light: '#ccc',
-	lighter: '#efefef',
 	primary: '#222',
 	hover: '#de3a1e',
 	lightHover: '#fff',
@@ -66,6 +64,7 @@ const headingBaseStyles = {
 };
 const textBaseStyles = {
 	color: colors.base,
+	fontSize: fontSizes.base,
 	fontFamily: fonts.base,
 	fontWeight: fontWeights.base,
 	lineHeight: lineHeights.base,
@@ -73,7 +72,7 @@ const textBaseStyles = {
 };
 
 const theme = {
-	baseFontSize: '1.125em',
+	baseFontSize: '1em',
 	blockMarginBottom: space.m,
 	headingMarginTop: space.l,
 	listMargin: '1.3em',
@@ -94,7 +93,6 @@ const theme = {
 	radii,
 	breakpoints,
 	headingStyles: {
-		// TODO
 		1: {
 			...headingBaseStyles,
 			fontSize: fontSizes.xxl,
@@ -109,26 +107,17 @@ const theme = {
 		},
 	},
 	textStyles: {
-		// TODO
 		base: {
 			...textBaseStyles,
+		},
+		small: {
+			...textBaseStyles,
+			fontSize: fontSizes.s,
 		},
 		bold: {
 			...textBaseStyles,
 			fontWeight: fontWeights.bold,
 		},
-		// small: {
-		// 	...textBaseStyles,
-		// 	fontSize: fontSizes.s,
-		// },
-		// xsmall: {
-		// 	...textBaseStyles,
-		// 	fontSize: fontSizes.xs,
-		// },
-		// italic: {
-		// 	...textBaseStyles,
-		// 	fontStyle: 'italic',
-		// },
 	},
 } as const;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'lodash/shuffle';
-import { TextContent, Flex, Box, Text } from 'tamia';
+import { TextContent, Box, Stack, Text } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
@@ -34,9 +34,7 @@ const Photos = React.memo(
 	({ indices, alt }: PhotosProps) => (
 		<>
 			{indices.map(index => (
-				// TODO: Right type of image?
 				<Image
-					span="full"
 					key={index}
 					src={`/images/about/me${index}.jpg`}
 					alt={alt}
@@ -55,7 +53,7 @@ type LinksProps = {
 };
 
 const Links = ({ items }: LinksProps) => (
-	<>
+	<ul>
 		{items.map(group =>
 			group.map(({ href, label }, index) => (
 				<Box key={href} as="li" mb={index === group.length - 1 ? 'm' : undefined}>
@@ -63,7 +61,7 @@ const Links = ({ items }: LinksProps) => (
 				</Box>
 			))
 		)}
-	</>
+	</ul>
 );
 
 type ListProps = {
@@ -86,7 +84,7 @@ const List = ({ items }: ListProps) => (
 							</Box>
 						)}
 						{group.obsolete && (
-							<Text size="xs">
+							<Text variant="small">
 								<Group separator=", ">
 									{group.obsolete.map(item => (
 										<del key={item} dangerouslySetInnerHTML={{ __html: item }} />
@@ -136,16 +134,10 @@ export default function AboutPage({
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
 			<Metatags slug={pathname} title={title} image={cover} />
-			<Flex>
-				<Box width={[1, 2 / 3]}>
-					<Box as={TextContent} mb="l" dangerouslySetInnerHTML={{ __html: html }} />
-				</Box>
-				<Box width={[1, 1 / 3]}>
-					<Box as="ul" mb="l">
-						<Links items={links} />
-					</Box>
-				</Box>
-			</Flex>
+			<Stack gridColumnGap="l" mb="l" gridTemplateColumns={['1fr', null, '2fr 1fr']}>
+				<TextContent dangerouslySetInnerHTML={{ __html: html }} />
+				<Links items={links} />
+			</Stack>
 			<Box as={PhotoGrid} mb="l">
 				<Photos indices={indices(3)} alt="" />
 				<Image
@@ -171,9 +163,8 @@ export default function AboutPage({
 					responsive={false}
 				/>
 				<Image
-					span="double"
 					src="/images/about/iphone.jpg"
-					alt="Photo edition in VSCO Cam on iPhone"
+					alt="Photo editing in VSCO Cam on iPhone"
 					width={331}
 					height={331}
 					responsive={false}
@@ -183,10 +174,10 @@ export default function AboutPage({
 				<List items={software} />
 			</Box>
 			<Box as={TextContent} mb="m">
-				<Text size="s" dangerouslySetInnerHTML={{ __html: about }} />
+				<Text variant="small" dangerouslySetInnerHTML={{ __html: about }} />
 			</Box>
 			<Box as={TextContent} mb="l">
-				<Text size="s">
+				<Text variant="small">
 					Photos on this page:{' '}
 					<Group separator=", ">
 						{copyrights.map(item => (

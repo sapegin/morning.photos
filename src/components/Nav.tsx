@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Box } from 'tamia';
+import { Stack, Text } from 'tamia';
 import NavLink from './NavLink';
 
 const MENU = [
@@ -33,9 +33,9 @@ type Props = {
 
 export default ({ url }: Props) => (
 	<nav>
-		<Stack as="ul" gridGap="m" justifyContent="center">
+		<Stack as="ul" gridGap="m" justifyContent="center" gridAutoFlow="column">
 			{MENU.map(({ title, href }) => (
-				<Box key={href} as="li">
+				<Text key={href} as="li">
 					<NavLink
 						href={href}
 						variation={getVariation(href, url)}
@@ -43,7 +43,7 @@ export default ({ url }: Props) => (
 					>
 						{title}
 					</NavLink>
-				</Box>
+				</Text>
 			))}
 		</Stack>
 	</nav>

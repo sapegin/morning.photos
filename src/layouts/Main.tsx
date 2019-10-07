@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Flex, Box, TextContent, VisuallyHidden } from 'tamia';
+import { Stack, Box, TextContent, VisuallyHidden } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Page from './Page';
 import Metatags from '../components/Metatags';
@@ -44,8 +44,8 @@ type Props = {
 export default function MainPage({
 	data: {
 		markdownRemark: {
-			html,
 			frontmatter: { title },
+			html,
 		},
 	},
 	pageContext: { photos },
@@ -79,15 +79,11 @@ export default function MainPage({
 						<VisuallyHidden>{title}</VisuallyHidden>
 					</Link>
 				))}
-				<Box as={TextContent} mb="l">
-					<Flex gap="m">
-						<Box width={[1, 1 / 2]}>
-							{/* TODO: Color background */}
-							<Image src="/images/about/me11.jpg" alt="Artem Sapegin" />
-						</Box>
-						<Box width={[1, 1 / 2]} dangerouslySetInnerHTML={{ __html: html }} />
-					</Flex>
-				</Box>
+				<Stack as={TextContent} gridColumnGap="m" gridTemplateColumns={['1fr', null, '1fr 1fr']}>
+					{/* TODO: Color background */}
+					<Image src="/images/about/me11.jpg" alt="Artem Sapegin" />
+					<Box px={['m', null, 0]} dangerouslySetInnerHTML={{ __html: html }} />
+				</Stack>
 			</PhotoGrid>
 		</Page>
 	);
@@ -99,6 +95,7 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 			}
+			html
 		}
 	}
 `;

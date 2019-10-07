@@ -1,25 +1,31 @@
 import styled from 'styled-components';
 import Image from './Image';
 
-type Span = 'full' | 'double';
+type Span = 'single' | 'double' | 'full';
 type Props = {
-	span: Span;
+	span?: Span;
 };
 
 const spansSmall = {
-	full: '1 / -1',
+	single: undefined,
 	double: 'span 1',
+	full: '1 / -1',
 };
 const spansMedium = {
-	full: undefined,
+	single: undefined,
 	double: 'span 2',
+	full: undefined,
 };
 
 const GridImage = styled(Image)<Props>`
-	grid-column: ${({ span }) => spansSmall[span]};
+	grid-column: ${({ span }) => span && spansSmall[span]};
 	@media (min-width: ${p => p.theme.breakpoints[0]}) {
-		grid-column: ${({ span }) => spansMedium[span]};
+		grid-column: ${({ span }) => span && spansMedium[span]};
 	}
 `;
+
+GridImage.defaultProps = {
+	span: 'single',
+};
 
 export default GridImage;

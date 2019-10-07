@@ -25,9 +25,9 @@ export default function PhotoInfo({
 				<Heading level={1} mb="s">
 					{title}
 				</Heading>
-				{caption && <Text size="m">{caption}</Text>}
+				{caption && <Text>{caption}</Text>}
 			</Box>
-			<Text size="xs">
+			<Text variant="small">
 				<Group separator=", ">
 					{location}
 					{formattedDate}

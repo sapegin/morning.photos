@@ -20,7 +20,7 @@ const IntrinsicImageContainer = styled('div')<OptionalSizeProps>`
 const IntrinsicImageWrapper = styled('div')<SizeProps>`
 	position: relative;
 	padding-bottom: ${p => `${(p.height / p.width) * 100}%`};
-	background-color: ${p => p.color || p.theme.colors.lighter};
+	background-color: ${p => p.color || p.theme.colors.light};
 `;
 
 const ResponsiveIntrinsicImageWrapper = styled(IntrinsicImageWrapper)`

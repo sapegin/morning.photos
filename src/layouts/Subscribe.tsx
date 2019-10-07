@@ -21,7 +21,7 @@ type Props = {
 	};
 };
 
-export function SubscribePage({
+export default function SubscribePage({
 	data: {
 		markdownRemark: {
 			html,
@@ -36,7 +36,7 @@ export function SubscribePage({
 			<Box as={TextContent} mb="l" dangerouslySetInnerHTML={{ __html: html }} />
 			<Box mb="xl">
 				<SubscriptionForm />
-				<Text size="xs" mt="s">
+				<Text variant="small" mt="s">
 					A few times a year, no spam, unsubscribe at any time.
 				</Text>
 			</Box>

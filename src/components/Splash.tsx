@@ -2,6 +2,9 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import Inverted from './Inverted';
 
+// TODO: Smaller max height on narrow screens
+// TODO: Think about art direction
+
 type ContainerProps = {
 	inverted?: boolean;
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Box, Heading } from 'tamia';
-import { Link } from 'tamia-gatsby-link';
+import { QuotedLink } from 'tamia-gatsby-link';
 import Metatags from '../components/Metatags';
 import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
@@ -16,7 +16,7 @@ const AlbumHeading = styled(Heading)`
 	}
 `;
 
-const BoxLink = Box.withComponent(Link);
+const BoxLink = Box.withComponent(QuotedLink);
 
 type Props = {
 	data: {
@@ -70,7 +70,7 @@ export default function AlbumsPage({
 							responsive={false}
 						/>
 						<AlbumHeading level={3} as="h2" mt="s">
-							{frontmatter.title}
+							<u>{frontmatter.title}</u>
 						</AlbumHeading>
 					</BoxLink>
 				))}
