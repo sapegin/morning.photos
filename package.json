@@ -29,6 +29,7 @@
     "not dead"
   ],
   "dependencies": {
+    "open": "^6.4.0",
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "react-group": "^3.0.2",
@@ -71,7 +72,6 @@
     "lodash": "~4.17.15",
     "node-iptc": "~1.0.5",
     "num2fraction": "~1.2.2",
-    "opn": "^5.4.0",
     "prettier": "^1.18.2",
     "react-styleguidist": "^9.1.16",
     "remark-cli": "~7.0.0",

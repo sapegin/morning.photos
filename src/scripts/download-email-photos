@@ -6,7 +6,7 @@ require = require('esm')(module);
 const fs = require('fs');
 const path = require('path');
 const execSync = require('child_process').execSync;
-const opn = require('opn');
+const open = require('open');
 const downloadPhotos = require('./download-email-photos.js').default;
 
 const DOWNLOAD_DIR = path.resolve(__dirname, '../../newsletter');
@@ -21,4 +21,4 @@ const sourceFile = execSync(
 const markdown = fs.readFileSync(sourceFile, 'utf8');
 downloadPhotos(markdown, DOWNLOAD_DIR);
 
-opn(DOWNLOAD_DIR);
+open(DOWNLOAD_DIR);
