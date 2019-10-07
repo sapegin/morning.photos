@@ -44,7 +44,7 @@ type Props = {
 export default function MainPage({
 	data: {
 		markdownRemark: {
-			frontmatter: { title },
+			frontmatter: { title: pageTitle },
 			html,
 		},
 	},
@@ -53,10 +53,10 @@ export default function MainPage({
 }: Props) {
 	const [primaryPhoto, ...secondaryPhotos] = photos;
 	return (
-		<Page title={title} url={pathname}>
+		<Page title={pageTitle} url={pathname}>
 			<Metatags
 				slug="/"
-				title={title}
+				title={pageTitle}
 				image={primaryPhoto.name}
 				imageModified={primaryPhoto.modified}
 			/>

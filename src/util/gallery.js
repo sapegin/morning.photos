@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 import { decode } from 'utf8';
-import imageSize from 'image-size';
+import imageSizeNonPromise from 'image-size';
 import exifParser from 'exif-parser';
 import readIptc from 'node-iptc';
 import num2fraction from 'num2fraction';
@@ -11,7 +11,7 @@ import { cacheGet, cacheSet } from './cache';
 
 /* eslint-disable no-console  */
 
-const getImageSize = promisify(imageSize);
+const getImageSize = promisify(imageSizeNonPromise);
 
 const photosFolder = path.resolve(__dirname, '../../photos');
 
