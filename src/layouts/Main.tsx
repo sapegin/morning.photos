@@ -80,8 +80,7 @@ export default function MainPage({
 					</Link>
 				))}
 				<Stack as={TextContent} gridColumnGap="m" gridTemplateColumns={['1fr', null, '1fr 1fr']}>
-					{/* TODO: Color background */}
-					<Image src="/images/about/me11.jpg" alt="Artem Sapegin" />
+					<Image src="/images/about/me11.jpg" alt="Artem Sapegin" color="#a57680" />
 					<Box px={['m', null, 0]} dangerouslySetInnerHTML={{ __html: html }} />
 				</Stack>
 			</PhotoGrid>
