@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Box, VisuallyHidden } from 'tamia';
 import { Link, QuotedLink } from 'tamia-gatsby-link';
@@ -120,6 +120,21 @@ const NavLink = ({ to, icon, children }: NavLinkProps) => (
 	</Link>
 );
 
+type TopLinkProps = {
+	name: string;
+	albumSlug: string;
+	albumTitle: string;
+};
+const TopLink = ({ name, albumSlug, albumTitle }: TopLinkProps) => (
+	// @ts-ignore
+	<QuotedLink href={albumSlug} state={{ fromPhoto: name }}>
+		<Box as="span" p="s" aria-hidden="true">
+			←
+		</Box>
+		<BackLinkLabel as="u">Back to the {albumTitle.toLowerCase()} album</BackLinkLabel>
+	</QuotedLink>
+);
+
 type HeaderProps = {
 	name: string;
 	prev: string;
@@ -130,19 +145,14 @@ type HeaderProps = {
 	onTouchStart: (event: TouchEvent) => void;
 };
 
-const Header = ({ name, prev, next, albumSlug, albumTitle, hasLoaded }: HeaderProps) => (
+const Header = ({ prev, next, hasLoaded, ...props }: HeaderProps) => (
 	<HeaderContainer role="banner" hasLoaded={hasLoaded}>
 		<TopLinkContainer position="top-left" className="Photo__link">
 			<Logo />
 		</TopLinkContainer>
 		<nav>
 			<TopLinkContainer position="top-right" className="Photo__link">
-				<QuotedLink href={albumSlug} state={{ fromPhoto: name }}>
-					<Box as="span" p="s" aria-hidden="true">
-						←
-					</Box>
-					<BackLinkLabel as="u">Back to the {albumTitle.toLowerCase()} album</BackLinkLabel>
-				</QuotedLink>
+				<TopLink {...props} />
 			</TopLinkContainer>
 			{prev && (
 				<NavLinkContainer position="left" className="Photo__link">

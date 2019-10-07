@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-// @ts-ignore
-import Gallery from 'react-photo-gallery';
+import Gallery_, { GalleryI } from 'react-photo-gallery';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Metatags from '../components/Metatags';
@@ -13,6 +12,8 @@ type GalleryPhoto = Photo & {
 	src: string;
 	focus: boolean;
 };
+
+const Gallery = (Gallery_ as unknown) as GalleryI<GalleryPhoto>;
 
 const MARGIN = 4;
 
@@ -25,7 +26,6 @@ const Image = styled('img')`
 type CardProps = {
 	photo: GalleryPhoto;
 };
-
 const Card = ({ photo }: CardProps) => {
 	const linkRef = useRef<HTMLAnchorElement>();
 	useEffect(() => {
