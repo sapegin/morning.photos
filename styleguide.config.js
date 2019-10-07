@@ -4,7 +4,7 @@ const babelConfig = {
 	presets: [
 		require.resolve('@babel/preset-env'),
 		[require.resolve('@babel/preset-react'), { development: true }],
-		require.resolve('@babel/preset-flow'),
+		require.resolve('@babel/preset-typescript'),
 	],
 	cacheDirectory: true,
 };

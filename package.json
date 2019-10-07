@@ -49,7 +49,6 @@
     "download": "^7.1.0",
     "eslint": "~6.5.1",
     "eslint-config-tamia": "~7.0.1",
-    "eslint-plugin-flowtype": "^3.2.1",
     "esm": "^3.2.4",
     "exif-parser": "~0.1.12",
     "fs-extra": "~8.1.0",
