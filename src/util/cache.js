@@ -17,8 +17,11 @@ export const cacheSet = (key, value) => {
 };
 
 // Save file cache on exit
-onDeath(() => {
+onDeath(signal => {
 	if (hasChanged) {
 		fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, '  '));
+	}
+	if (signal === 'SIGINT') {
+		process.exit();
 	}
 });
