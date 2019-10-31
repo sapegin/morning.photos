@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import onDeath from 'death';
 
 const CACHE_FILE = path.resolve(__dirname, '../../data/photos.json');
 
@@ -16,7 +17,7 @@ export const cacheSet = (key, value) => {
 };
 
 // Save file cache on exit
-process.on('exit', () => {
+onDeath(() => {
 	if (hasChanged) {
 		fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, '  '));
 	}

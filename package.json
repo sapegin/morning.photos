@@ -29,6 +29,7 @@
     "not dead"
   ],
   "dependencies": {
+    "death": "^1.1.0",
     "open": "^6.4.0",
     "react": "16.10.2",
     "react-dom": "16.10.2",
