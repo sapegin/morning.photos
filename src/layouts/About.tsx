@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import shuffle from 'lodash/shuffle';
+import shuffle from 'array-shuffle';
 import { TextContent, Box, Stack, Text } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
