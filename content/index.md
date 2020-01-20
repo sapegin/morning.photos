@@ -8,4 +8,4 @@ position: 0
 
 Hi! I’m Artem, a web developer and a passionate photographer living in Berlin, Germany. I shoot nature, cities and my dogs.
 
-Follow me at [Instagram](https://www.instagram.com/sapegin/) and [Unsplash](https://unsplash.com/@sapegin), and subscribe to [my newsletter](/subscribe) where I share my new photos.
+Follow me on [Instagram](https://www.instagram.com/sapegin/) and [Unsplash](https://unsplash.com/@sapegin), where I share my new photos.

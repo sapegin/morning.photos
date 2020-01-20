@@ -14,12 +14,8 @@ links:
       label: Unsplash
     - href: https://www.instagram.com/sapegin/
       label: Instagram
-    - href: https://www.facebook.com/artemsapegin/
-      label: Facebook
     - href: https://twitter.com/iamsapegin
       label: Twitter
-    - href: /subscribe
-      label: Newsletter
 gear:
   - - current:
         - Canon EOS&nbsp;6D
