@@ -8736,5 +8736,199 @@
       "flower",
       "peony\rpeony\rpeony"
     ]
+  },
+  "2020-06-25_2400_Artem_Sapegin": {
+    "name": "2020-06-25_2400_Artem_Sapegin",
+    "color": "#d4d4d4",
+    "slug": "2020-06-25-2400",
+    "width": 3488,
+    "height": 4883,
+    "modified": 1593186127817,
+    "timestamp": 1593077416000,
+    "exif": "1 sec, f/8, 91mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "BW",
+      "b&w",
+      "black and white",
+      "forest",
+      "nature",
+      "woods"
+    ]
+  },
+  "2020-06-25_2397_Artem_Sapegin": {
+    "name": "2020-06-25_2397_Artem_Sapegin",
+    "color": "#3f3731",
+    "slug": "2020-06-25-2397",
+    "width": 5472,
+    "height": 3648,
+    "modified": 1593186136468,
+    "timestamp": 1593076974000,
+    "exif": "1.3 sec, f/16, 100mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Hooded crow feather in forest",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "Corvus cornix",
+      "Hooded crow",
+      "bird",
+      "cone",
+      "crow",
+      "feather",
+      "forest",
+      "hoodie",
+      "leaf",
+      "leaves",
+      "nature",
+      "woods"
+    ]
+  },
+  "2020-06-22_2305_Artem_Sapegin": {
+    "name": "2020-06-22_2305_Artem_Sapegin",
+    "color": "#f8dfdd",
+    "slug": "2020-06-22-2305",
+    "width": 4189,
+    "height": 3351,
+    "modified": 1593186137472,
+    "timestamp": 1592845027000,
+    "exif": "1 sec, f/5.6, 200mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Peony close up",
+    "location": "Berlin, Germany",
+    "keywords": [
+      "close up",
+      "close-up",
+      "closeup",
+      "flower",
+      "peony"
+    ]
+  },
+  "2020-06-07_2001_Artem_Sapegin": {
+    "name": "2020-06-07_2001_Artem_Sapegin",
+    "color": "#30331c",
+    "slug": "2020-06-07-2001",
+    "width": 5472,
+    "height": 3648,
+    "modified": 1593186144165,
+    "timestamp": 1591532019000,
+    "exif": "2 sec, f/16, 159mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Leaves on a mossy fallen tree",
+    "location": "Tegeler Forst, Berlin, Germany",
+    "keywords": [
+      "anophyte",
+      "leaf",
+      "leaves",
+      "moss",
+      "nature",
+      "tree"
+    ]
+  },
+  "2020-06-06_1881_Artem_Sapegin": {
+    "name": "2020-06-06_1881_Artem_Sapegin",
+    "color": "#393f2a",
+    "slug": "2020-06-06-1881",
+    "width": 5143,
+    "height": 3429,
+    "modified": 1593186146844,
+    "timestamp": 1591449154000,
+    "exif": "1 sec, f/20, 40mm, ISO 400",
+    "artist": "Artem Sapegin",
+    "title": "Ferns",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "fern",
+      "forest",
+      "nature",
+      "plant",
+      "woods"
+    ]
+  },
+  "2020-05-24_1673_Artem_Sapegin-Pano": {
+    "name": "2020-05-24_1673_Artem_Sapegin-Pano",
+    "color": "#494d27",
+    "slug": "2020-05-24-1673",
+    "width": 14677,
+    "height": 3687,
+    "modified": 1593186154723,
+    "timestamp": 1590321337000,
+    "exif": "1.6 sec, f/16, 35mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Spring forest panorama",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "forest",
+      "landscape",
+      "nature",
+      "pano",
+      "panorama",
+      "panoramic",
+      "spring",
+      "tree",
+      "woods"
+    ]
+  },
+  "2020-05-24_1600_Artem_Sapegin": {
+    "name": "2020-05-24_1600_Artem_Sapegin",
+    "color": "#433b33",
+    "slug": "2020-05-24-1600",
+    "width": 5472,
+    "height": 3648,
+    "modified": 1593186150841,
+    "timestamp": 1590316269000,
+    "exif": "1.3 sec, f/20, 176mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Eaten fallen tree",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "tree"
+    ]
+  },
+  "2020-05-14_1267_Artem_Sapegin": {
+    "name": "2020-05-14_1267_Artem_Sapegin",
+    "color": "#435135",
+    "slug": "2020-05-14-1267",
+    "width": 3420,
+    "height": 4275,
+    "modified": 1593186137025,
+    "timestamp": 1589456754000,
+    "exif": "1/13 sec, f/11, 73mm, ISO 200",
+    "artist": "Artem Sapegin",
+    "location": "",
+    "keywords": []
+  },
+  "2020-05-14_1236_Artem_Sapegin": {
+    "name": "2020-05-14_1236_Artem_Sapegin",
+    "color": "#afb796",
+    "slug": "2020-05-14-1236",
+    "width": 3623,
+    "height": 5072,
+    "modified": 1593186134810,
+    "timestamp": 1589454893000,
+    "exif": "3/5 sec, f/11, 73mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "location": "",
+    "keywords": []
+  },
+  "2020-06-07_1978_Artem_Sapegin": {
+    "name": "2020-06-07_1978_Artem_Sapegin",
+    "color": "#463d32",
+    "slug": "2020-06-07-1978",
+    "width": 3605,
+    "height": 5047,
+    "modified": 1593186879723,
+    "timestamp": 1591529860000,
+    "exif": "4 sec, f/20, 78mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Fallen birch",
+    "location": "Tegeler Forst, Berlin, Germany",
+    "keywords": [
+      "birch",
+      "forest",
+      "nature",
+      "tree",
+      "woods"
+    ]
   }
 }
