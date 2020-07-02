@@ -13,12 +13,5 @@ module.exports = {
 		'gatsby-transformer-remark',
 		'gatsby-plugin-netlify',
 		'gatsby-plugin-typescript',
-		{
-			resolve: 'gatsby-plugin-fathom',
-			options: {
-				trackingUrl: 'stats.sapegin.me',
-				siteId: 'DQKGK',
-			},
-		},
 	],
 };
