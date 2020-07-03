@@ -13,5 +13,12 @@ module.exports = {
 		'gatsby-transformer-remark',
 		'gatsby-plugin-netlify',
 		'gatsby-plugin-typescript',
+		{
+			resolve: 'gatsby-plugin-goatcounter',
+			options: {
+				code: 'morning-photos',
+				allowLocal: false,
+			},
+		},
 	],
 };
