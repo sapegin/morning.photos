@@ -9290,5 +9290,57 @@
       "flower",
       "pearlbrush"
     ]
+  },
+  "2020-07-11_3013_Artem_Sapegin": {
+    "name": "2020-07-11_3013_Artem_Sapegin",
+    "color": "#615238",
+    "slug": "2020-07-11-3013",
+    "width": 4960,
+    "height": 3543,
+    "modified": 1594568543464,
+    "timestamp": 1594456714000,
+    "exif": "8 sec, f/22, 131mm, ISO 400",
+    "artist": "Artem Sapegin",
+    "title": "Raindrops on a leaf",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "close up",
+      "close-up",
+      "closeup",
+      "forest",
+      "leaf",
+      "leaves",
+      "macro",
+      "nature",
+      "rain drop",
+      "raindrop",
+      "water",
+      "woods"
+    ]
+  },
+  "2020-07-11_2977_Artem_Sapegin": {
+    "name": "2020-07-11_2977_Artem_Sapegin",
+    "color": "#3c4134",
+    "slug": "2020-07-11-2977",
+    "width": 3648,
+    "height": 5107,
+    "modified": 1594568541993,
+    "timestamp": 1594453721000,
+    "exif": "30 sec, f/14, 135mm, ISO 100",
+    "artist": "Artem Sapegin",
+    "title": "Mossy tree",
+    "location": "Bucher Forst, Berlin, Germany",
+    "keywords": [
+      "anophyte",
+      "bark",
+      "close up",
+      "close-up",
+      "closeup",
+      "forest",
+      "moss",
+      "nature",
+      "tree",
+      "woods"
+    ]
   }
 }
