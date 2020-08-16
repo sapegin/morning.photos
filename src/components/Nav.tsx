@@ -8,6 +8,10 @@ const MENU = [
 		href: '/albums',
 	},
 	{
+		title: 'Series',
+		href: '/series',
+	},
+	{
 		title: 'About me',
 		href: '/about',
 	},

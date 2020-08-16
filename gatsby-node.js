@@ -6,6 +6,10 @@ const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
 
 const get = (l, i) => l[i] || {};
 
+const isAlbumsPage = slug => slug === '/albums' || slug === '/series';
+
+const isAlbumOrPhotoPage = slug => slug.startsWith('/albums/') || slug.startsWith('/series/');
+
 const getPrefetchPhotos = (photos, start) => [
 	{
 		name: get(photos, start).name,
@@ -35,7 +39,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 		});
 
 		// Typography
-		if (!slug.startsWith('/albums/')) {
+		if (!isAlbumOrPhotoPage(slug)) {
 			node.internal.content = typo(node.internal.content);
 		}
 
@@ -97,7 +101,7 @@ export async function createPages({ graphql, actions: { createPage } }) {
 				const extraContext = {};
 
 				// Add photos data to album pages
-				if (slug.startsWith('/albums/')) {
+				if (isAlbumOrPhotoPage(slug)) {
 					const names = getLines(rawMarkdownBody);
 					allPhotoNames.push(...names);
 
@@ -125,6 +129,10 @@ export async function createPages({ graphql, actions: { createPage } }) {
 					);
 
 					extraContext.photos = photos;
+				}
+
+				if (isAlbumsPage(slug)) {
+					extraContext.childrenRegExp = `${slug}/.*\\.md/`;
 				}
 
 				// Add recent photos to the main page

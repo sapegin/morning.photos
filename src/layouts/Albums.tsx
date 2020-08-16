@@ -80,7 +80,7 @@ export default function AlbumsPage({
 }
 
 export const pageQuery = graphql`
-	query AlbumsPage($slug: String!) {
+	query AlbumsPage($slug: String!, $childrenRegExp: String!) {
 		markdownRemark(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
 			}
 		}
 		allMarkdownRemark(
-			filter: { fileAbsolutePath: { regex: "/albums/.*\\.md/" } }
+			filter: { fileAbsolutePath: { regex: $childrenRegExp } }
 			sort: { fields: [frontmatter___position], order: ASC }
 		) {
 			edges {

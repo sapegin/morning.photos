@@ -1,8 +1,8 @@
 ---
 layout: Albums
 lang: en
-title: Portfolio
-pageTitle: Artem Sapegin photography portfolio
+title: Series
+pageTitle: Artem Sapegin photo series
 description: Landscapes, travel, cityscapes, nature and dogs photos.
-image: 2014-10-13_3505
+image: IMG_3016
 ---

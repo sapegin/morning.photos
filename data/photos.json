@@ -1110,31 +1110,6 @@
       "tower"
     ]
   },
-  "2017-09-30_1448_Artem_Sapegin": {
-    "name": "2017-09-30_1448_Artem_Sapegin",
-    "color": "#3b3b3b",
-    "slug": "2017-09-30-1448",
-    "width": 5444,
-    "height": 3629,
-    "modified": 1517165638000,
-    "timestamp": 1506801505000,
-    "exif": "1/100 sec, f/4, 50mm, ISO 1250",
-    "artist": "Artem Sapegin",
-    "title": "Storm clouds over Aicante",
-    "location": "Alicante, Spain",
-    "keywords": [
-      "Alicante",
-      "BW",
-      "Spain",
-      "b&w",
-      "black and white",
-      "city",
-      "cityscape",
-      "cloudscape",
-      "evening",
-      "storm"
-    ]
-  },
   "2017-08-08_0781_Artem_Sapegin": {
     "name": "2017-08-08_0781_Artem_Sapegin",
     "color": "#252e42",
@@ -1186,33 +1161,6 @@
       "long exposure",
       "sky",
       "skyscraper"
-    ]
-  },
-  "2017-08-13_0797_Artem_Sapegin": {
-    "name": "2017-08-13_0797_Artem_Sapegin",
-    "color": "#8099bb",
-    "slug": "2017-08-13-0797",
-    "width": 4732,
-    "height": 3155,
-    "modified": 1515334192000,
-    "timestamp": 1502658419000,
-    "exif": "150 sec, f/13, 40mm, ISO 100",
-    "artist": "Artem Sapegin",
-    "title": "Berliner Dom",
-    "location": "Berlin, Germany",
-    "keywords": [
-      "Berlin",
-      "Berlin Cathedral",
-      "Berlin tv tower",
-      "Berliner Dom",
-      "Fernsehturm Berliin",
-      "Germany",
-      "cathedral",
-      "church",
-      "dusk",
-      "evening",
-      "long exposure",
-      "sunset"
     ]
   },
   "2017-08-22_0820_Artem_Sapegin": {
@@ -1498,17 +1446,6 @@
     "location": "Russia",
     "keywords": []
   },
-  "F0026-0005": {
-    "name": "F0026-0005",
-    "color": "#1f1d2b",
-    "slug": "F0026-0005",
-    "width": 3985,
-    "height": 2571,
-    "modified": 1515340524000,
-    "exif": "",
-    "location": "Erdenevo, Russia",
-    "keywords": []
-  },
   "F0041-0006": {
     "name": "F0041-0006",
     "color": "#bfb6b7",
@@ -1518,50 +1455,6 @@
     "modified": 1515340527000,
     "exif": "",
     "location": "Domodedovo, Russia",
-    "keywords": []
-  },
-  "F0044-0012": {
-    "name": "F0044-0012",
-    "color": "#d9d9d9",
-    "slug": "F0044-0012",
-    "width": 4272,
-    "height": 2818,
-    "modified": 1515340531000,
-    "exif": "",
-    "location": "Moscow, Russia",
-    "keywords": []
-  },
-  "F0067-0003": {
-    "name": "F0067-0003",
-    "color": "#a0aa92",
-    "slug": "F0067-0003",
-    "width": 4380,
-    "height": 2920,
-    "modified": 1515340532000,
-    "exif": "",
-    "location": "Russia",
-    "keywords": []
-  },
-  "F0083-0005": {
-    "name": "F0083-0005",
-    "color": "#c4c3be",
-    "slug": "F0083-0005",
-    "width": 4224,
-    "height": 2816,
-    "modified": 1515340533000,
-    "exif": "",
-    "location": "Russia",
-    "keywords": []
-  },
-  "F0097-0002": {
-    "name": "F0097-0002",
-    "color": "#cec9c1",
-    "slug": "F0097-0002",
-    "width": 4314,
-    "height": 2157,
-    "modified": 1515340539000,
-    "exif": "",
-    "location": "Russia",
     "keywords": []
   },
   "2013-11-03_5145_Artem_Sapegin": {
@@ -1639,20 +1532,6 @@
       "Holland",
       "Netherlands"
     ]
-  },
-  "2016-04-17_6700_Artem_Sapegin": {
-    "name": "2016-04-17_6700_Artem_Sapegin",
-    "color": "#151515",
-    "slug": "2016-04-17-6700",
-    "width": 5282,
-    "height": 3521,
-    "modified": 1515334506000,
-    "timestamp": 1460894832000,
-    "exif": "1/500 sec, f/18, 50mm, ISO 400",
-    "artist": "Artem Sapegin",
-    "title": "Sun rays in Amsterdam",
-    "location": "Amsterdam, Netherlands",
-    "keywords": []
   },
   "2014-08-15_1671_Artem_Sapegin": {
     "name": "2014-08-15_1671_Artem_Sapegin",
@@ -5971,34 +5850,6 @@
       "twilight"
     ]
   },
-  "2018-09-15_3642_Artem_Sapegin": {
-    "name": "2018-09-15_3642_Artem_Sapegin",
-    "color": "#404040",
-    "slug": "2018-09-15-3642",
-    "width": 5435,
-    "height": 3112,
-    "modified": 1544987532000,
-    "timestamp": 1537037258000,
-    "exif": "1/4000 sec, f/5, 50mm, ISO 400",
-    "artist": "Artem Sapegin",
-    "location": "Alicante, Spain",
-    "keywords": [
-      "Alicante",
-      "BW",
-      "",
-      "",
-      "Mediterranean Sea",
-      "",
-      "Spain",
-      "b&w",
-      "black and white",
-      "boat",
-      "evening",
-      "sailboat",
-      "sailing boat",
-      "sea"
-    ]
-  },
   "2019-02-24_5165_Artem_Sapegin": {
     "name": "2019-02-24_5165_Artem_Sapegin",
     "color": "#392c26",
@@ -6023,28 +5874,6 @@
       "nature",
       "oak",
       "tree"
-    ]
-  },
-  "2018-10-21_4001_Artem_Sapegin": {
-    "name": "2018-10-21_4001_Artem_Sapegin",
-    "color": "#d5d5d5",
-    "slug": "2018-10-21-4001",
-    "width": 4196,
-    "height": 3357,
-    "modified": 1540738264000,
-    "timestamp": 1540115997000,
-    "exif": "1/30 sec, f/8, 39mm, ISO 100",
-    "artist": "Artem Sapegin",
-    "title": "Tee in fog",
-    "location": "Bucher Forst, Berlin, Germany",
-    "keywords": [
-      "field",
-      "fog",
-      "forest",
-      "morning",
-      "silhouette",
-      "tree",
-      "woods"
     ]
   },
   "2018-12-02_4553_Artem_Sapegin": {
@@ -9342,5 +9171,335 @@
       "tree",
       "woods"
     ]
+  },
+  "C0EED77A-6A96-4A56-9C97-74C1C98126BD": {
+    "name": "C0EED77A-6A96-4A56-9C97-74C1C98126BD",
+    "color": "#aeb3c9",
+    "slug": "C0EED77A-6A96-4A56-9C97-74C1C98126BD",
+    "width": 2897,
+    "height": 3639,
+    "modified": 1591190157801,
+    "timestamp": 1545642389000,
+    "exif": "1/592 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with fv5 preset",
+    "location": "",
+    "keywords": []
+  },
+  "69D774B8-DC8A-4BDB-8C3D-DD240B8F59C4": {
+    "name": "69D774B8-DC8A-4BDB-8C3D-DD240B8F59C4",
+    "color": "#c18b55",
+    "slug": "69D774B8-DC8A-4BDB-8C3D-DD240B8F59C4",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1595667441000,
+    "timestamp": 1557432602000,
+    "exif": "1/3690 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with au5 preset",
+    "location": "",
+    "keywords": []
+  },
+  "CF1D25ED-9310-4B53-A0D0-2B7B6F6BEA8F": {
+    "name": "CF1D25ED-9310-4B53-A0D0-2B7B6F6BEA8F",
+    "color": "#190e0d",
+    "slug": "CF1D25ED-9310-4B53-A0D0-2B7B6F6BEA8F",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1591192545584,
+    "timestamp": 1572455839000,
+    "exif": "1/4 sec, f/1.8, 3.99mm, ISO 100",
+    "caption": "Processed with VSCO with fs4 preset",
+    "location": "",
+    "keywords": []
+  },
+  "F3B7A20B-6A62-4C22-A9AC-E9B2F3671C07": {
+    "name": "F3B7A20B-6A62-4C22-A9AC-E9B2F3671C07",
+    "color": "#0d0f10",
+    "slug": "F3B7A20B-6A62-4C22-A9AC-E9B2F3671C07",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1591190086672,
+    "timestamp": 1538426238000,
+    "exif": "1/30 sec, f/1.8, 3.99mm, ISO 500",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_1149": {
+    "name": "IMG_1149",
+    "color": "#090909",
+    "slug": "I-1149",
+    "width": 2934,
+    "height": 3912,
+    "modified": 1591719614345,
+    "timestamp": 1584088887000,
+    "exif": "1/50000 sec, f/1.8, 3.99mm, ISO 20",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_2039": {
+    "name": "IMG_2039",
+    "color": "#0c0a08",
+    "slug": "I-2039",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591192932927,
+    "timestamp": 1545750330000,
+    "exif": "1/15 sec, f/1.8, 3.99mm, ISO 80",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_8742": {
+    "name": "IMG_8742",
+    "color": "#222128",
+    "slug": "I-8742",
+    "width": 3264,
+    "height": 2448,
+    "modified": 1591193061065,
+    "timestamp": 1490469168000,
+    "exif": "1/17 sec, f/2.2, 4.15mm, ISO 2000",
+    "location": "",
+    "keywords": []
+  },
+  "0AFE70C6-A0A8-4778-BA50-ABF99A37CAD5": {
+    "name": "0AFE70C6-A0A8-4778-BA50-ABF99A37CAD5",
+    "color": "#6c787d",
+    "slug": "0AFE70C6-A0A8-4778-BA50-ABF99A37CAD5",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190235992,
+    "timestamp": 1555161319000,
+    "exif": "1/271 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with fp8 preset",
+    "location": "",
+    "keywords": []
+  },
+  "2B81F63C-AD3C-40E4-95EB-56C08E4CB153": {
+    "name": "2B81F63C-AD3C-40E4-95EB-56C08E4CB153",
+    "color": "#24211c",
+    "slug": "2B81F63C-AD3C-40E4-95EB-56C08E4CB153",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1591192684348,
+    "timestamp": 1590080377000,
+    "exif": "1/225 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "78E92B63-8AA3-4109-9EDB-DF84CC4A7B1C": {
+    "name": "78E92B63-8AA3-4109-9EDB-DF84CC4A7B1C",
+    "color": "#131517",
+    "slug": "78E92B63-8AA3-4109-9EDB-DF84CC4A7B1C",
+    "width": 4032,
+    "height": 3024,
+    "modified": 1591192485081,
+    "timestamp": 1569310355000,
+    "exif": "1/960 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "578ED594-8E4C-4CFD-BFE2-0E4E7B2FA252": {
+    "name": "578ED594-8E4C-4CFD-BFE2-0E4E7B2FA252",
+    "color": "#151715",
+    "slug": "578ED594-8E4C-4CFD-BFE2-0E4E7B2FA252",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190247050,
+    "timestamp": 1555161363000,
+    "exif": "1/2558 sec, f/1.8, 3.99mm, ISO 25",
+    "caption": "Processed with VSCO with fp8 preset",
+    "location": "",
+    "keywords": []
+  },
+  "D3BAF29F-8AF3-4B08-BFD8-0820532CA697": {
+    "name": "D3BAF29F-8AF3-4B08-BFD8-0820532CA697",
+    "color": "#afbbb6",
+    "slug": "D3BAF29F-8AF3-4B08-BFD8-0820532CA697",
+    "width": 3024,
+    "height": 3614,
+    "modified": 1591192449943,
+    "timestamp": 1567431384000,
+    "exif": "1/3690 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "EC5F9844-2FD5-4271-AABC-6F302C525CDB": {
+    "name": "EC5F9844-2FD5-4271-AABC-6F302C525CDB",
+    "color": "#3c3c3a",
+    "slug": "EC5F9844-2FD5-4271-AABC-6F302C525CDB",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190255947,
+    "timestamp": 1555165063000,
+    "exif": "1/564 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with fp8 preset",
+    "location": "",
+    "keywords": []
+  },
+  "D1CA039C-C760-476C-9503-636E9415312A": {
+    "name": "D1CA039C-C760-476C-9503-636E9415312A",
+    "color": "#1f1e1e",
+    "slug": "D1CA039C-C760-476C-9503-636E9415312A",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190204854,
+    "timestamp": 1551027015000,
+    "exif": "1/102 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "D3549E3F-4F70-4857-A159-CAC8D9D033EC-D7BB770B-E520-4DB1-B995-1D5DB6CCE782": {
+    "name": "D3549E3F-4F70-4857-A159-CAC8D9D033EC-D7BB770B-E520-4DB1-B995-1D5DB6CCE782",
+    "color": "#d1d0c8",
+    "slug": "D3549E3F-4F70-4857-A159-CAC8D9D033EC-D7BB770B-E520-4DB1-B995-1DB6CCE782",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1597513510705,
+    "timestamp": 1596307125000,
+    "exif": "1/1919 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with av4 preset",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_1740": {
+    "name": "IMG_1740",
+    "color": "#1f2e38",
+    "slug": "I-1740",
+    "width": 3647,
+    "height": 3024,
+    "modified": 1591192899923,
+    "timestamp": 1585903806000,
+    "exif": "1/120 sec, f/1.8, 3.99mm, ISO 25",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_3016": {
+    "name": "IMG_3016",
+    "color": "#22242b",
+    "slug": "I-3016",
+    "width": 3858,
+    "height": 2893,
+    "modified": 1591192875590,
+    "timestamp": 1591127578000,
+    "exif": "1/120 sec, f/1.8, 3.99mm, ISO 50",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_3464": {
+    "name": "IMG_3464",
+    "color": "#b5babe",
+    "slug": "I-3464",
+    "width": 3024,
+    "height": 3780,
+    "modified": 1597513425815,
+    "timestamp": 1593161716000,
+    "exif": "1/4000 sec, f/1.8, 3.99mm, ISO 25",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_4192": {
+    "name": "IMG_4192",
+    "color": "#1c2639",
+    "slug": "I-4192",
+    "width": 3728,
+    "height": 2982,
+    "modified": 1597513445026,
+    "timestamp": 1597136682000,
+    "exif": "1/120 sec, f/1.8, 3.99mm, ISO 32",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_2095": {
+    "name": "IMG_2095",
+    "color": "#e1dbd4",
+    "slug": "I-2095",
+    "width": 2834,
+    "height": 3542,
+    "modified": 1591192887559,
+    "timestamp": 1587569010000,
+    "exif": "1/2200 sec, f/1.8, 3.99mm, ISO 20",
+    "location": "",
+    "keywords": []
+  },
+  "3DD5D763-CBCF-4A12-84A1-591228FA4929": {
+    "name": "3DD5D763-CBCF-4A12-84A1-591228FA4929",
+    "color": "#375a8e",
+    "slug": "3DD763-CBCF-4A12-84A1-591228FA4929",
+    "width": 2871,
+    "height": 3606,
+    "modified": 1591192468050,
+    "timestamp": 1557509240000,
+    "exif": "1/1548 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with 6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "816A1AB7-B6AF-4C74-B79F-D23BA63FFD31": {
+    "name": "816A1AB7-B6AF-4C74-B79F-D23BA63FFD31",
+    "color": "#202020",
+    "slug": "816A1AB7-B6AF-4C74-B79F-D23BA63FFD31",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1591190128854,
+    "timestamp": 1540839809000,
+    "exif": "1/4 sec, f/1.8, 3.99mm, ISO 100",
+    "caption": "Processed with VSCO with b5 preset",
+    "location": "",
+    "keywords": []
+  },
+  "IMG_6495": {
+    "name": "IMG_6495",
+    "color": "#0f2134",
+    "slug": "I-6495",
+    "width": 2557,
+    "height": 3213,
+    "modified": 1591192399758,
+    "timestamp": 1556027105000,
+    "exif": "1/4808 sec, f/1.8, 3.99mm, ISO 25",
+    "caption": "Processed with VSCO with a6 preset",
+    "location": "",
+    "keywords": []
+  },
+  "B8494E6E-7C78-4B74-9007-487BA79A27C1": {
+    "name": "B8494E6E-7C78-4B74-9007-487BA79A27C1",
+    "color": "#c1a68d",
+    "slug": "B8494E6E-7C78-4B74-9007-487BA79A27C1",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190113046,
+    "timestamp": 1538288314000,
+    "exif": "1/24 sec, f/1.8, 3.99mm, ISO 40",
+    "caption": "Processed with VSCO with u5 preset",
+    "location": "",
+    "keywords": []
+  },
+  "03866D96-B71F-4D16-B5C6-DC321F38E5B2-9B55FBB0-EA74-4869-9DC5-C231F83431AC": {
+    "name": "03866D96-B71F-4D16-B5C6-DC321F38E5B2-9B55FBB0-EA74-4869-9DC5-C231F83431AC",
+    "color": "#aea296",
+    "slug": "03866D96-B71F-4D16-B5C6-DC321F38E5B2-9B55FBB0-EA74-4869-9DC5-C231F83431AC",
+    "width": 3024,
+    "height": 3799,
+    "modified": 1597513495323,
+    "timestamp": 1597234435000,
+    "exif": "1/960 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with kc25 preset",
+    "location": "",
+    "keywords": []
+  },
+  "9F46E4F7-C503-49E8-986B-EFA23BA805F9": {
+    "name": "9F46E4F7-C503-49E8-986B-EFA23BA805F9",
+    "color": "#ceb495",
+    "slug": "9F46E4F7-C503-49E8-986B-EFA23BA805F9",
+    "width": 3024,
+    "height": 4032,
+    "modified": 1591190142519,
+    "timestamp": 1539678810000,
+    "exif": "1/571 sec, f/1.8, 3.99mm, ISO 20",
+    "caption": "Processed with VSCO with au5 preset",
+    "location": "",
+    "keywords": []
   }
 }
