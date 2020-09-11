@@ -1,4 +1,5 @@
 import path from 'path';
+import { uniq } from 'lodash';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { getAlbumFromNames, getLines, typo } from './src/util/node';
 
@@ -105,7 +106,7 @@ export async function createPages({ graphql, actions: { createPage } }) {
 					const names = getLines(rawMarkdownBody);
 					allPhotoNames.push(...names);
 
-					const photos = await getAlbumFromNames(names.length > 0 ? names : allPhotoNames, {
+					const photos = await getAlbumFromNames(names.length > 0 ? names : uniq(allPhotoNames), {
 						slug,
 						order,
 						limit,
@@ -137,7 +138,7 @@ export async function createPages({ graphql, actions: { createPage } }) {
 
 				// Add recent photos to the main page
 				if (slug === '/') {
-					extraContext.photos = await getAlbumFromNames(allPhotoNames, {
+					extraContext.photos = await getAlbumFromNames(uniq(allPhotoNames), {
 						slug: '/albums/new',
 						order: 'modified',
 						limit: 4,
