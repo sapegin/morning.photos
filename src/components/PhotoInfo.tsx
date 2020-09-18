@@ -7,18 +7,10 @@ type Props = {
 	caption?: string;
 	location?: string;
 	formattedDate?: string;
-	exif?: string;
 	keywords: string[];
 };
 
-export default function PhotoInfo({
-	title,
-	caption,
-	location,
-	formattedDate,
-	exif,
-	keywords,
-}: Props) {
+export default function PhotoInfo({ title, caption, location, formattedDate, keywords }: Props) {
 	return (
 		<>
 			<Box mb="m">
@@ -31,7 +23,6 @@ export default function PhotoInfo({
 				<Group separator=", ">
 					{location}
 					{formattedDate}
-					{exif}
 				</Group>
 			</Text>
 			<VisuallyHidden>Keywords: {keywords.join(', ')}</VisuallyHidden>

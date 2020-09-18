@@ -1,7 +1,9 @@
 import path from 'path';
 import { uniq } from 'lodash';
 import { createFilePath } from 'gatsby-source-filesystem';
-import { getAlbumFromNames, getLines, typo } from './src/util/node';
+import richtypo from 'richtypo';
+import rules from 'richtypo-rules-en';
+import { getAlbumFromNames, getLines } from './src/util/node';
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
 
@@ -32,7 +34,11 @@ export function onCreateWebpackConfig({ actions }) {
 }
 
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
-	if (node.internal.type === 'MarkdownRemark') {
+	if (
+		node.internal.type === 'MarkdownRemark' &&
+		// Don't process the same document twice
+		!(node.fields && node.fields.slug)
+	) {
 		const slug = createFilePath({
 			node,
 			getNode,
@@ -41,7 +47,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 
 		// Typography
 		if (!isAlbumOrPhotoPage(slug)) {
-			node.internal.content = typo(node.internal.content);
+			node.internal.content = richtypo(rules, node.internal.content);
 		}
 
 		// Add slug

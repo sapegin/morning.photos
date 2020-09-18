@@ -1,19 +1,16 @@
 import fs from 'fs';
 import path from 'path';
-import { promisify } from 'util';
-import { decode } from 'utf8';
-import imageSizeNonPromise from 'image-size';
-import exifParser from 'exif-parser';
-import readIptc from 'node-iptc';
-import num2fraction from 'num2fraction';
+import exifr from 'exifr';
 import getImageColors from 'get-image-colors';
+import probe from 'probe-image-size';
 import { cacheGet, cacheSet } from './cache';
 
 /* eslint-disable no-console  */
 
-const getImageSize = promisify(imageSizeNonPromise);
-
 const photosFolder = path.resolve(__dirname, '../../photos');
+
+// Keep Promises here to prevent loading the same photo multiple times
+const pendingPhotos = {};
 
 /**
  * Join non-empty array items with a comma.
@@ -48,23 +45,6 @@ export function slugify(name) {
 }
 
 /**
- * Convert binary string to UTF-8.
- *
- * @param {string} string
- * @returns {string}
- */
-export function utf8(string) {
-	if (typeof string === 'string') {
-		try {
-			return decode(string);
-		} catch (err) {
-			return '';
-		}
-	}
-	return string;
-}
-
-/**
  * Convert URL to slug.
  *
  * @param {string} url
@@ -78,45 +58,28 @@ export function urlToSlug(url) {
 }
 
 /**
- * Comma separated location: `Berlin, Germany`.
+ * Cleanup photo caption
  *
- * @param {string} [country]
- * @param {string} [city]
- * @param {string} [location]
+ * @param {string} caption
  * @returns {string}
  */
-function locationString(country, city, location) {
-	return asList([location, city, country]);
-}
-
-/**
- * Convert exposure time to human readable format.
- *
- * @param {number} exposureTime
- * @returns {string}
- */
-function formatExposure(exposureTime) {
-	if (exposureTime < 1) {
-		return num2fraction(exposureTime);
+function captionString(caption = '') {
+	if (caption.startsWith('Processed with VSCO')) {
+		return '';
 	}
-	return String(exposureTime);
+
+	return caption;
 }
 
 /**
- * Short exposure info: 30 sec, f/18, 118mm, ISO 100
- * @param {number} [exposureTime]
- * @param {number} [aperture]
- * @param {number} [focalLength]
- * @param {number} [iso]
+ * Return dominant color of an image
+ *
+ * @param {Buffer} buffer
  * @returns {string}
  */
-function exifString(exposureTime, aperture, focalLength, iso) {
-	return asList([
-		exposureTime && `${formatExposure(exposureTime)} sec`,
-		aperture && `f/${aperture}`,
-		focalLength && `${focalLength}mm`,
-		iso && `ISO ${iso}`,
-	]);
+async function dominantColor(buffer) {
+	const colors = await getImageColors(buffer, { type: 'image/jpeg', count: 1 });
+	return colors[0].hex();
 }
 
 function readImage(filepath) {
@@ -130,44 +93,40 @@ function readImage(filepath) {
 	return undefined;
 }
 
-function parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color }) {
+function enhanceMetadata({ name, width, height, mtimeMs, color, exif = {} }) {
 	return {
 		name,
 		color,
+		width,
+		height,
 		slug: slugify(name),
-		width: imageSize.width,
-		height: imageSize.height,
 		modified: Math.floor(mtimeMs),
-		timestamp: tags.DateTimeOriginal && tags.DateTimeOriginal * 1000,
-		exif: exifString(tags.ExposureTime, tags.FNumber, tags.FocalLength, tags.ISO),
-		artist: utf8(tags.Artist),
-		title: utf8(iptc.object_name),
-		caption: utf8(iptc.caption),
-		location: locationString(
-			utf8(iptc.country_or_primary_location_name),
-			utf8(iptc.city),
-			utf8(iptc.sub_location)
-		),
-		keywords: iptc.keywords ? iptc.keywords.map(utf8) : [],
+		timestamp: exif.DateTimeOriginal && Date.parse(exif.DateTimeOriginal),
+		title: exif.ObjectName || '',
+		caption: captionString(exif.Caption),
+		location: asList([exif.Country, exif.City, exif.Sublocation]),
+		keywords: exif.Keywords || [],
 	};
 }
 
-export const loadPhotoReal = async (folder, name) => {
-	const filepath = path.resolve(folder, `${name}.jpg`);
+const loadPhotoReal = async name => {
+	const filepath = path.resolve(photosFolder, `${name}.jpg`);
 
-	const buffer = readImage(filepath);
+	const buffer = await readImage(filepath);
 
 	const { mtimeMs } = fs.statSync(filepath);
 
-	const parser = exifParser.create(buffer);
-	const { imageSize, tags } = parser.parse();
+	const { width, height } = probe.sync(buffer);
 
-	const iptc = readIptc(buffer);
+	const exif = await exifr.parse(buffer, {
+		iptc: true,
+		exif: true,
+		gps: false,
+	});
 
-	const colors = await getImageColors(buffer, 'image/jpeg');
-	const color = colors[0].hex();
+	const color = dominantColor(buffer);
 
-	return parseMetadata({ name, mtimeMs, imageSize, tags, iptc, color });
+	return enhanceMetadata({ name, mtimeMs, width, height, exif, color });
 };
 
 export const loadPhoto = async name => {
@@ -176,17 +135,16 @@ export const loadPhoto = async name => {
 		return cached;
 	}
 
+	if (pendingPhotos[name]) {
+		return pendingPhotos[name];
+	}
+
 	console.log(`Loading photo ${name}...`);
 
-	const photo = await loadPhotoReal(photosFolder, name);
+	const promise = loadPhotoReal(name);
+	pendingPhotos[name] = promise;
+
+	const photo = await promise;
 	cacheSet(name, photo);
 	return photo;
-};
-
-export const loadImage = async filepath => {
-	const { width, height } = await getImageSize(filepath);
-	return {
-		width,
-		height,
-	};
 };

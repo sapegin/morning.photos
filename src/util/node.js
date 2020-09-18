@@ -1,12 +1,8 @@
 import orderBy from 'lodash/orderBy';
-import richtypo from 'richtypo';
-import rules from 'richtypo-rules-en';
 import { loadPhoto } from './gallery';
 
 const PHOTO_PROTOCOL = 'photo://';
 const IMAGES_REGEXP = /!\[[^\]]*\]\(([^)'"\s]*)\)/g;
-
-export { loadPhoto, loadImage } from './gallery';
 
 const formatDate = timestamp =>
 	new Intl.DateTimeFormat('en', {
@@ -41,7 +37,8 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug, filter })
 			return {
 				...photo,
 				slug: `${slug}/${photo.slug}`,
-				timestamp: photo.timestamp || 0, // Photos without timestamp should be in the end
+				// Photos without timestamp should be in the end
+				timestamp: photo.timestamp || 0,
 				formattedDate: photo.timestamp && formatDate(photo.timestamp),
 			};
 		})
@@ -56,8 +53,4 @@ export const getAlbumFromNames = async (names, { orderby, limit, slug, filter })
 			: orderBy(filteredPhotos, [orderby || 'timestamp'], ['desc']);
 
 	return limit ? sortedPhotos.slice(0, limit) : sortedPhotos;
-};
-
-export const typo = markdown => {
-	return richtypo(rules, markdown);
 };

@@ -45,10 +45,10 @@ position: 30
 2019-09-22_6624_Artem_Sapegin
 2019-09-22_6606_Artem_Sapegin
 2019-09-22_6569_Artem_Sapegin
-2019-08-27_6499_Artem_Sapegin-2
-2019-08-18_6469_Artem_Sapegin-2
-2019-08-18_6464_Artem_Sapegin-2
-2019-08-18_6416_Artem_Sapegin-2
+2019-08-27_6499_Artem_Sapegin
+2019-08-18_6469_Artem_Sapegin
+2019-08-18_6464_Artem_Sapegin
+2019-08-18_6416_Artem_Sapegin
 2019-07-27_6319_Artem_Sapegin
 2019-05-29_6145_Artem_Sapegin
 2019-05-29_6133_Artem_Sapegin

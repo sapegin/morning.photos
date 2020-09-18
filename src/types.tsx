@@ -6,7 +6,6 @@ export type Photo = {
 	location?: string;
 	modified: number;
 	formattedDate?: string;
-	exif?: string;
 	keywords: string[];
 	width: number;
 	height: number;

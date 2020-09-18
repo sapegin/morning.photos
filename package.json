@@ -51,7 +51,7 @@
     "eslint": "~6.8.0",
     "eslint-config-tamia": "~7.1.1",
     "esm": "^3.2.4",
-    "exif-parser": "~0.1.12",
+    "exifr": "^5.0.6",
     "fs-extra": "~8.1.0",
     "gatsby": "2.19.2",
     "gatsby-plugin-goatcounter": "^0.3.1",
@@ -64,12 +64,10 @@
     "get-image-colors": "^2.0.0",
     "glob": "~7.1.6",
     "husky": "^4.0.10",
-    "image-size": "^0.8.3",
     "lint-staged": "^9.5.0",
     "lodash": "~4.17.19",
-    "node-iptc": "~1.0.5",
-    "num2fraction": "~1.2.2",
     "prettier": "^1.19.1",
+    "probe-image-size": "^5.0.0",
     "react-styleguidist": "^10.6.0",
     "remark-cli": "~7.0.1",
     "remark-lint": "~6.0.5",
@@ -81,8 +79,7 @@
     "stylelint-processor-styled-components": "^1.9.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5",
-    "unist-util-visit": "~2.0.1",
-    "utf8": "~3.0.0"
+    "unist-util-visit": "~2.0.1"
   },
   "lint-staged": {
     "*.{js,tsx,md,md}": [
