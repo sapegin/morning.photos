@@ -76,6 +76,6 @@ copyrights:
     label: Nenad Severović
 ---
 
-I’ve been making photos since 2004. I can describe myself as ~~an award-losing photographer~~ a passinate amateur. I work full time as a web developer and go out with a camera when I’m not at work and not sleeping. I occasionally combine photography with my other hobbies — walking dogs and drinking coffee.
+I’ve been making photos since 2004. I can describe myself as ~~an award-losing photographer~~ a passionate amateur. I work full time as a web developer and go out with a camera when I’m not at work and not sleeping. I occasionally combine photography with my other hobbies — walking dogs and drinking coffee.
 
-I love to shoot nature, cities and dogs. I equally enjoy making quick snaps with my iPhone, and wating for minute-long exposures with a big camera mounted on a tripod. I prefer quiet colors and subtle editing to oversaturated HDR-looking style that is popular on photo sharing sites.
+I love to shoot nature, cities, and dogs. I equally enjoy making quick snaps with my iPhone, and waiting for minute-long exposures with a big camera mounted on a tripod. I prefer quiet colors and subtle editing to the oversaturated HDR-looking style that is popular on photo-sharing sites.
