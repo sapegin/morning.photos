@@ -1,8 +1,6 @@
 import path from 'path';
 import { uniq } from 'lodash';
 import { createFilePath } from 'gatsby-source-filesystem';
-import richtypo from 'richtypo';
-import rules from 'richtypo-rules-en';
 import { getAlbumFromNames, getLines } from './src/util/node';
 
 const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
@@ -44,11 +42,6 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 			getNode,
 			trailingSlash: false,
 		});
-
-		// Typography
-		if (!isAlbumOrPhotoPage(slug)) {
-			node.internal.content = richtypo(rules, node.internal.content);
-		}
 
 		// Add slug
 		createNodeField({

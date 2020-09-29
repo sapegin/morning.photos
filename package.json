@@ -73,8 +73,6 @@
     "react-styleguidist": "^10.6.0",
     "remark-cli": "~7.0.1",
     "remark-lint": "~6.0.5",
-    "richtypo": "^4.0.7",
-    "richtypo-rules-en": "^4.0.4",
     "stylelint": "^13.0.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
