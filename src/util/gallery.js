@@ -131,7 +131,7 @@ const loadPhotoReal = async name => {
 		gps: false,
 	});
 
-	const color = dominantColor(buffer);
+	const color = await dominantColor(buffer);
 
 	return enhanceMetadata({ name, mtimeMs, width, height, exif, color });
 };
