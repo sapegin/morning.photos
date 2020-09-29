@@ -4,6 +4,7 @@ import exifr from 'exifr';
 import getImageColors from 'get-image-colors';
 import probe from 'probe-image-size';
 import { cacheGet, cacheSet } from './cache';
+import { uploadPhoto } from './upload';
 
 /* eslint-disable no-console  */
 
@@ -111,6 +112,12 @@ function enhanceMetadata({ name, width, height, mtimeMs, color, exif = {} }) {
 
 const loadPhotoReal = async name => {
 	const filepath = path.resolve(photosFolder, `${name}.jpg`);
+
+	try {
+		await uploadPhoto(filepath);
+	} catch (err) {
+		console.log(`Cannot upload ${name} to Cloudinary`, err);
+	}
 
 	const buffer = await readImage(filepath);
 
