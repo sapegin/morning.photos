@@ -9,9 +9,15 @@ const cloudinary = require('cloudinary').v2;
 
 module.exports.uploadPhoto = filepath => {
 	return new Promise((resolve, reject) => {
+		if (!process.env.CLOUDINARY_URL) {
+			reject('CLOUDINARY_URL environmental variable is required for upload');
+			return;
+		}
+
 		const { size } = fs.statSync(filepath);
 		if (size > 10_000_000) {
 			reject('File is larger than 10 MB');
+			return;
 		}
 
 		cloudinary.uploader.upload(
