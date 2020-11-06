@@ -9102,5 +9102,211 @@
       "rain drop",
       "raindrop"
     ]
+  },
+  "2020-10-10_4618_Artem_Sapegin": {
+    "name": "2020-10-10_4618_Artem_Sapegin",
+    "color": "#313131",
+    "width": 5316,
+    "height": 3544,
+    "slug": "2020-10-10-4618",
+    "modified": 1604665057675,
+    "timestamp": 1602337559000,
+    "title": "Windows",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "BW",
+      "b&w",
+      "black and white",
+      "city",
+      "house",
+      "tree",
+      "window"
+    ]
+  },
+  "2020-04-12_9981_Artem_Sapegin": {
+    "name": "2020-04-12_9981_Artem_Sapegin",
+    "color": "#5b4428",
+    "width": 4560,
+    "height": 3648,
+    "slug": "2020-04-12-9981",
+    "modified": 1603537124736,
+    "timestamp": 1586711266000,
+    "title": "Tsiri",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "animal",
+      "backlight",
+      "backlighting",
+      "backlit",
+      "contre-jour",
+      "dog",
+      "feathered saluki",
+      "persian greyhound",
+      "saluki",
+      "sighthound"
+    ]
+  },
+  "2020-10-31_5338_Artem_Sapegin": {
+    "name": "2020-10-31_5338_Artem_Sapegin",
+    "color": "#0c3960",
+    "width": 4248,
+    "height": 3398,
+    "slug": "2020-10-31-5338",
+    "modified": 1604665034403,
+    "timestamp": 1604130207000,
+    "title": "Two swans on a dawn lake",
+    "caption": "",
+    "location": "Germany, Berlin, Grunewald",
+    "keywords": [
+      "Cygnus olor",
+      "Mute Swan",
+      "autumn",
+      "bird",
+      "dawn",
+      "fall",
+      "lake",
+      "morning",
+      "swan",
+      "tree"
+    ]
+  },
+  "2020-10-17_4761_Artem_Sapegin": {
+    "name": "2020-10-17_4761_Artem_Sapegin",
+    "color": "#1b1d19",
+    "width": 4555,
+    "height": 3644,
+    "slug": "2020-10-17-4761",
+    "modified": 1604665051495,
+    "timestamp": 1602937589000,
+    "title": "Parking entrance",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "barrier",
+      "parking"
+    ]
+  },
+  "2020-10-26_5225_Artem_Sapegin": {
+    "name": "2020-10-26_5225_Artem_Sapegin",
+    "color": "#746b46",
+    "width": 4486,
+    "height": 3589,
+    "slug": "2020-10-26-5225",
+    "modified": 1604665034945,
+    "timestamp": 1603699644000,
+    "title": "Fly agaric",
+    "caption": "",
+    "location": "Germany, Berlin, Schönfließ",
+    "keywords": [
+      "Amanita muscaria",
+      "Fly agaric",
+      "Fly amanita",
+      "close up",
+      "close-up",
+      "closeup",
+      "forest",
+      "fungi",
+      "fungus",
+      "mushroom",
+      "nature",
+      "toadstool",
+      "woods"
+    ]
+  },
+  "2020-10-01_4201_Artem_Sapegin": {
+    "name": "2020-10-01_4201_Artem_Sapegin",
+    "color": "#51687d",
+    "width": 5290,
+    "height": 3527,
+    "slug": "2020-10-01-4201",
+    "modified": 1603537128601,
+    "timestamp": 1601536134000,
+    "title": "",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "fog",
+      "railway"
+    ]
+  },
+  "2020-10-26_5195_Artem_Sapegin": {
+    "name": "2020-10-26_5195_Artem_Sapegin",
+    "color": "#1a1d2a",
+    "width": 4959,
+    "height": 3542,
+    "slug": "2020-10-26-5195",
+    "modified": 1604665052014,
+    "timestamp": 1603697076000,
+    "title": "Sunrise at railroad",
+    "caption": "",
+    "location": "Germany, Berlin, Schönfließ",
+    "keywords": [
+      "dawn",
+      "railroad station",
+      "railway",
+      "railway station",
+      "sun",
+      "sunrise",
+      "train station"
+    ]
+  },
+  "2020-04-12_9814_Artem_Sapegin": {
+    "name": "2020-04-12_9814_Artem_Sapegin",
+    "color": "#a49368",
+    "width": 4560,
+    "height": 3648,
+    "slug": "2020-04-12-9814",
+    "modified": 1603537126742,
+    "timestamp": 1586710520000,
+    "title": "Dessi",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "animal",
+      "backlight",
+      "backlighting",
+      "backlit",
+      "contre-jour",
+      "dachshund",
+      "dog",
+      "long-haired dachshund",
+      "standard dachshund",
+      "teckel",
+      "wiener dog"
+    ]
+  },
+  "2020-10-01_4139_Artem_Sapegin": {
+    "name": "2020-10-01_4139_Artem_Sapegin",
+    "color": "#404040",
+    "width": 4683,
+    "height": 3345,
+    "slug": "2020-10-01-4139",
+    "modified": 1604665053298,
+    "timestamp": 1601534291000,
+    "title": "",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "BW",
+      "b&w",
+      "black and white",
+      "fog",
+      "railway"
+    ]
+  },
+  "2020-10-03_4463_Artem_Sapegin": {
+    "name": "2020-10-03_4463_Artem_Sapegin",
+    "color": "#505358",
+    "width": 4889,
+    "height": 3492,
+    "slug": "2020-10-03-4463",
+    "modified": 1604665050356,
+    "timestamp": 1601736721000,
+    "title": "Woman walking past Café Moskau mosaic wall",
+    "caption": "",
+    "location": "Germany, Berlin, Café Moskau",
+    "keywords": []
   }
 }

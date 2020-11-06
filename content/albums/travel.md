@@ -8,6 +8,12 @@ coverModified: 20130802
 position: 40
 ---
 
+2020-10-26_5195_Artem_Sapegin
+2020-10-17_4761_Artem_Sapegin
+2020-10-10_4618_Artem_Sapegin
+2020-10-03_4463_Artem_Sapegin
+2020-10-01_4201_Artem_Sapegin
+2020-10-01_4139_Artem_Sapegin
 2020-09-12_3660_Artem_Sapegin
 2020-08-23_3479_Artem_Sapegin
 2020-08-23_3435_Artem_Sapegin
