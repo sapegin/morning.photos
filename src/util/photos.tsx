@@ -2,7 +2,7 @@ const URL_PREFIX = 'https://res.cloudinary.com/morningphotos/image/upload';
 
 const SIZES = {
 	medium: 'dpr_auto,f_auto,q_auto:best,e_sharpen:80,w_1024,c_fit',
-	gallery: 'dpr_auto,f_auto,q_auto:best,e_sharpen:70,w_1600,h_1200,c_fit',
+	gallery: 'dpr_auto,f_auto,q_auto:best,e_sharpen:70,w_2400,h_1800,c_fit',
 	thumbnail: 'dpr_auto,f_auto,q_auto:good,w_600,c_fit',
 } as const;
 
