@@ -9710,5 +9710,111 @@
     "caption": "",
     "location": "",
     "keywords": []
+  },
+  "2020-10-01_4164_Artem_Sapegin": {
+    "name": "2020-10-01_4164_Artem_Sapegin",
+    "color": "#384a62",
+    "width": 3404,
+    "height": 3404,
+    "slug": "2020-10-01-4164",
+    "modified": 1606743098445,
+    "timestamp": 1601534996000,
+    "title": "Morning cyclists",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "bicycle",
+      "bike",
+      "bridge",
+      "fog",
+      "morning",
+      "street"
+    ]
+  },
+  "2020-11-27_6720_Artem_Sapegin": {
+    "name": "2020-11-27_6720_Artem_Sapegin",
+    "color": "#646b6e",
+    "width": 5393,
+    "height": 3595,
+    "slug": "2020-11-27-6720",
+    "modified": 1606743096367,
+    "timestamp": 1606471080000,
+    "title": "Autumn forest",
+    "caption": "",
+    "location": "Germany, Berlin, Bucher Forst",
+    "keywords": [
+      "autumn",
+      "fall",
+      "forest",
+      "morning",
+      "tree",
+      "woods"
+    ]
+  },
+  "2020-10-01_4156_Artem_Sapegin": {
+    "name": "2020-10-01_4156_Artem_Sapegin",
+    "color": "#6984a1",
+    "width": 5438,
+    "height": 3625,
+    "slug": "2020-10-01-4156",
+    "modified": 1606743099193,
+    "timestamp": 1601534550000,
+    "title": "Railroad in fog",
+    "caption": "",
+    "location": "Germany, Berlin",
+    "keywords": [
+      "fog",
+      "morning",
+      "railway"
+    ]
+  },
+  "2020-11-27_6717_Artem_Sapegin": {
+    "name": "2020-11-27_6717_Artem_Sapegin",
+    "color": "#324c6b",
+    "width": 5107,
+    "height": 3648,
+    "slug": "2020-11-27-6717",
+    "modified": 1606743092870,
+    "timestamp": 1606470611000,
+    "title": "Autumn aspen leaf",
+    "caption": "",
+    "location": "Germany, Berlin, Bucher Forst",
+    "keywords": [
+      "aspen",
+      "autumn",
+      "close up",
+      "close-up",
+      "closeup",
+      "dew",
+      "drop",
+      "fall",
+      "leaf",
+      "leaves",
+      "rain drop",
+      "raindrop",
+      "tree"
+    ]
+  },
+  "2020-11-23_6703_Artem_Sapegin": {
+    "name": "2020-11-23_6703_Artem_Sapegin",
+    "color": "#43362c",
+    "width": 5472,
+    "height": 3648,
+    "slug": "2020-11-23-6703",
+    "modified": 1606743109723,
+    "timestamp": 1606132937000,
+    "title": "Autumn birches",
+    "caption": "",
+    "location": "Germany, Berlin, Tiergarten",
+    "keywords": [
+      "autumn",
+      "birch",
+      "fall",
+      "forest",
+      "leaf",
+      "leaves",
+      "tree",
+      "woods"
+    ]
   }
 }
