@@ -3,7 +3,7 @@ title: Cityscapes
 pageTitle: "Cityscape photos by Artem Sapegin"
 layout: Album
 lang: en
-cover: 2014-09-13_2791_Artem_Sapegin
+cover: 2018-10-09_3830_Artem_Sapegin
 coverModified: 20140913
 position: 30
 ---
