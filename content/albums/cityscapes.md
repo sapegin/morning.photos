@@ -11,7 +11,6 @@ position: 30
 2021-03-10_1568_Artem_Sapegin
 2021-03-08_1475_Artem_Sapegin
 2021-02-16_8751_Artem_Sapegin
-2021-02-16_8751_Artem_Sapegin
 2021-02-07_8329_Artem_Sapegin-Pano
 2021-02-07_8318_Artem_Sapegin
 2021-02-07_8302_Artem_Sapegin
