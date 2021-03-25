@@ -4,61 +4,18 @@ lang: en
 title: About me
 pageTitle: 'Artem Sapegin: about the photographer'
 cover: /images/splashes/about.jpg
-image: /images/about/equipment.jpg
-numPhotos: 34
-about: 'About the site: works on <a href="https://www.gatsbyjs.org/">Gatsby</a>, <a href="https://www.styled-components.com/">styled-components</a> and <a href="http://sapegin.github.io/tamia/">Tâmia</a>; hosted on <a href="https://www.netlify.com/">Netlify</a>.'
+image: /images/splashes/about.jpg
+numPhotos: 36
+about: 'About the site: works on <a href="https://www.gatsbyjs.org/">Gatsby</a>, and <a href="http://sapegin.github.io/tamia/">Tâmia</a>; hosted on <a href="https://www.netlify.com/">Netlify</a>.'
 links:
   - - href: mailto:artem@sapegin.ru
       label: artem@sapegin.ru
-  - - href: https://unsplash.com/@sapegin
-      label: Unsplash
-    - href: https://www.instagram.com/sapegin/
+  - - href: https://www.instagram.com/sapegin/
       label: Instagram
+    - href: https://unsplash.com/@sapegin
+      label: Unsplash
     - href: https://twitter.com/iamsapegin
       label: Twitter
-gear:
-  - - current:
-        - Canon EOS&nbsp;6D
-        - iPhone&nbsp;8
-      obsolete:
-        - Canon EOS&nbsp;5D
-        - Canon EOS&nbsp;20D
-        - Canon EOS&nbsp;300V
-    - current:
-        - Canon <nobr>EF 17-40/4L</nobr>
-        - Canon <nobr>EF 70-200/4L</nobr>
-        - Canon <nobr>EF 50/1.4</nobr>
-        - Sigma <nobr>70-200/2.8 EX DG OS HSM</nobr>
-      obsolete:
-        - Sigma <nobr>70-300/4-5.6</nobr>
-        - Canon <nobr>EF 28-90/4-5.6</nobr>
-  - - current:
-        - Sirui <nobr>T-2204X</nobr> tripod <nobr>+ K-20X</nobr> ball head <nobr>+ <a href="http://www.sunwayfoto.com/e_goodsDetail.aspx?gId=1217">L-bracket</a></nobr>
-        - polarizers
-        - ND8 neutral density filter
-        - remote release with a timer
-      obsolete:
-        - Benro A-197 tripod + KB-2 ball head
-        - Manfrotto 728B tripod with broken legs
-        - Slik U&nbsp;7700 tripod
-  - - current:
-        - Dakine Sequence backpack
-        - <a href="https://www.peakdesign.com/products/slide-lite">Peak Design Slide Light</a> camera strap
-      obsolete:
-        - Countless photo backpacks
-software:
-  - - current:
-        - |
-          MacBook Pro 15",<br>
-          Adobe Lightroom Classic,<br>
-          Adobe Photoshop + <a href="https://arcpanel.averin.photo/" title="Luminosity masks panel">ARCPanel</a>
-  - - current:
-        - 'On iPhone: <a href="https://www.instagram.com/sapegin/">Instagram</a>'
-        - '<a href="https://vsco.co/store/app">VSCO&nbsp;Cam</a>'
-        - '<a href="https://itunes.apple.com/us/app/adobe-lightroom-cc/id878783582?mt=8">Lightroom&nbsp;CC</a>'
-        - '<a href="https://itunes.apple.com/us/app/black-b-w-film-emulator/id939009354?mt=8">Black</a>'
-        - '<a href="https://www.photopills.com/" title="The best photo shoot planner for iPhone">PhotoPills</a>'
-        - '<a href="https://maps.me/" title="The best offline map for iPhone">Maps.me</a>'
 copyrights:
   - href: http://svetlyak.ru/
     label: Alexander Artemenko
@@ -76,6 +33,6 @@ copyrights:
     label: Nenad Severović
 ---
 
-I’ve been making photos since 2004. I&nbsp;can describe myself as ~~an award-losing photographer~~ a&nbsp;passionate amateur. I&nbsp;work full time as&nbsp;a&nbsp;web developer and&nbsp;go&nbsp;out with a&nbsp;camera when I’m not at&nbsp;work, and not sleeping. I occasionally combine photography with my&nbsp;other hobbies&hairsp;—&hairsp;walking dogs and drinking coffee.
+I’ve been making photos since 2004. I&nbsp;can describe myself as ~~an award-losing photographer~~ a&nbsp;passionate amateur. I&nbsp;work as&nbsp;a&nbsp;developer and&nbsp;go&nbsp;out with a&nbsp;camera in&nbsp;my&nbsp;free time.
 
-I love to shoot nature, cities, and&nbsp;dogs. I&nbsp;equally enjoy making quick snaps with my&nbsp;iPhone, and&nbsp;waiting for&nbsp;minute-long exposures with a&nbsp;big&nbsp;camera mounted on&nbsp;a&nbsp;tripod. I&nbsp;prefer quiet colors and&nbsp;subtle editing to&nbsp;the&nbsp;oversaturated <abbr>HDR</abbr>-looking style that is&nbsp;popular on&nbsp;photo-sharing sites.
+I love to shoot nature, cities, and&nbsp;sometimes people or&nbsp;animals. I&nbsp;equally enjoy making quick snaps with my&nbsp;iPhone, and&nbsp;waiting for&nbsp;minute-long exposures with a&nbsp;big&nbsp;camera on&nbsp;a&nbsp;tripod. I&nbsp;love dawn and&nbsp;mornings, and always have my&nbsp;reusable coffee mug or&nbsp;a&nbsp;thermos full of&nbsp;fresh coffee with&nbsp;me. I&nbsp;prefer quiet colors and&nbsp;subtle editing. However, I&nbsp;don’t try to&nbsp;portrait the world as&nbsp;it&nbsp;is, I’m&nbsp;more interested in&nbsp;representing the&nbsp;world as&nbsp;I&nbsp;see and&nbsp;feel&nbsp;it&nbsp;— full of beauty, magic and&nbsp;unicorns.
