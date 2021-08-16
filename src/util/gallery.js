@@ -37,7 +37,7 @@ export function slugify(name) {
 		.replace(/Sapegin-Artem/gi, '')
 		.replace(/5D/gi, '')
 		.replace(/20D/gi, '')
-		.replace(/MG/gi, '')
+		.replace(/I?MG/gi, '')
 		.replace(/Edit/gi, '')
 		.replace(/Pano/gi, '')
 		.replace(/HDR/gi, '')
