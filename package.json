@@ -37,7 +37,7 @@
     "react-helmet": "^5.2.1",
     "react-photo-gallery": "^8.0.0",
     "styled-components": "^5.0.0",
-    "tamia": "^5.2.0",
+    "tamia": "^5.11.4",
     "tamia-gatsby-link": "^1.0.6"
   },
   "devDependencies": {

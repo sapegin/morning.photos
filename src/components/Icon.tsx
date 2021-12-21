@@ -40,14 +40,14 @@ export default function Icon({ icon, ...props }: Props) {
 	return (
 		<IconBase
 			{...props}
-			icon={{
-				path,
+			viewBox={{
 				width,
 				height,
 			}}
 			width={width}
 			height={height}
 		>
+			<path d={path} />
 			{children}
 		</IconBase>
 	);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shuffle from 'array-shuffle';
-import { TextContent, Box, Stack, Text } from 'tamia';
+import { TextContent, Box, Grid, Text } from 'tamia';
 import Group from 'react-group';
 import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
@@ -93,10 +93,10 @@ export default function AboutPage({
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
 			<Metatags slug={pathname} title={title} image={cover} />
-			<Stack gridColumnGap="l" mb="l" gridTemplateColumns={['1fr', null, '2fr 1fr']}>
+			<Grid gridColumnGap="l" mb="l" gridTemplateColumns={['1fr', null, '2fr 1fr']}>
 				<TextContent dangerouslySetInnerHTML={{ __html: html }} />
 				<Links items={links} />
-			</Stack>
+			</Grid>
 			<Box as={PhotoGrid} mb="l">
 				<Photos indices={indices(3)} alt="" />
 				<Image

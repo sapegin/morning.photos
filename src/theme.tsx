@@ -31,6 +31,7 @@ const colors = {
 	light: '#ccc',
 	primary: '#222',
 	hover: '#de3a1e',
+	focus: '#de3a1e',
 	lightHover: '#fff',
 	darkHover: '#555',
 	link: '#222',
@@ -38,6 +39,12 @@ const colors = {
 	photoBackground: '#1a1a1a',
 	selection: 'rgba(255, 230, 15, 0.5)',
 	selectionAlpha: 'rgba(255,237,117,0.25)',
+};
+const shadows = {
+	cover: '0 0 0.5rem rgba(0, 0, 0, 0.15)',
+};
+const borders = {
+	focus: '3px solid',
 };
 const fontWeights = {
 	base: 400,
@@ -76,6 +83,7 @@ const theme = {
 	blockMarginBottom: space.m,
 	headingMarginTop: space.l,
 	listMargin: '1.3em',
+	focusOutlineOffset: '2px',
 	page: {
 		maxWidth: null,
 		contentMaxWidth: '64rem', // 1024px
@@ -90,6 +98,8 @@ const theme = {
 	lineHeights,
 	letterSpacings,
 	colors,
+	shadows,
+	borders,
 	radii,
 	breakpoints,
 	headingStyles: {
