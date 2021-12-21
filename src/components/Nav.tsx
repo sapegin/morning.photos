@@ -12,6 +12,10 @@ const MENU = [
 		href: '/series',
 	},
 	{
+		title: 'Zine',
+		href: '/zine',
+	},
+	{
 		title: 'About me',
 		href: '/about',
 	},
