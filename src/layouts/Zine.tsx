@@ -11,6 +11,8 @@ type Zine = {
 	video: string;
 	description: string;
 	meta: string;
+	price: string;
+	soldout: boolean;
 };
 
 type Props = {
@@ -39,6 +41,7 @@ export default function ZinePage({
 	},
 	location: { pathname },
 }: Props) {
+	console.log(zines);
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
 			<Metatags slug={pathname} title={title} image={cover} />
@@ -53,6 +56,10 @@ export default function ZinePage({
 									<Text dangerouslySetInnerHTML={{ __html: zine.description }} />
 									<Text variant="small" dangerouslySetInnerHTML={{ __html: zine.meta }} />
 								</TextContent>
+								{zine.price && !zine.soldout && (
+									<Text variant="bold">{zine.price} (excluding shipping)</Text>
+								)}
+								{zine.soldout && <Text variant="bold">Sold out</Text>}
 								<iframe
 									width="560"
 									height="315"
@@ -93,6 +100,8 @@ export const pageQuery = graphql`
 					video
 					description
 					meta
+					price
+					soldout
 				}
 			}
 			html
