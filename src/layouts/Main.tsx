@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Stack, Box, TextContent, VisuallyHidden } from 'tamia';
+import { Grid, Box, TextContent, VisuallyHidden } from 'tamia';
 import { Link } from 'tamia-gatsby-link';
 import Page from './Page';
 import Metatags from '../components/Metatags';
@@ -79,10 +79,10 @@ export default function MainPage({
 						<VisuallyHidden>{title}</VisuallyHidden>
 					</Link>
 				))}
-				<Stack as={TextContent} gridColumnGap="m" gridTemplateColumns={['1fr', null, '1fr 1fr']}>
+				<Grid as={TextContent} gridColumnGap="m" gridTemplateColumns={['1fr', null, '1fr 1fr']}>
 					<Image src="/images/about/me11.jpg" alt="Artem Sapegin" color="#a57680" />
 					<Box px={['m', null, 0]} dangerouslySetInnerHTML={{ __html: html }} />
-				</Stack>
+				</Grid>
 			</PhotoGrid>
 		</Page>
 	);

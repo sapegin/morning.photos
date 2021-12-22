@@ -17,11 +17,19 @@ type Props = {
 	fullWidth?: boolean;
 };
 
+const PageWrapper = ({ fullWidth, children }: Pick<Props, 'fullWidth' | 'children'>) =>
+	fullWidth ? (
+		<Box py="s" px="m">
+			{children}
+		</Box>
+	) : (
+		<Container>{children}</Container>
+	);
+
 const Page = ({ children, url, title, pageTitle, splash, inverted, fullWidth }: Props) => {
-	const PageWrapper = fullWidth ? React.Fragment : Container;
 	return (
 		<Base>
-			<PageWrapper>
+			<PageWrapper fullWidth={fullWidth}>
 				<PageBase>
 					<Helmet title={pageTitle || title} />
 					<Box mb="m">

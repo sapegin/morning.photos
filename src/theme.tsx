@@ -88,8 +88,10 @@ const theme = {
 		maxWidth: null,
 		contentMaxWidth: '64rem', // 1024px
 		textMaxWidth: '50rem',
-		xPadding: space.m,
-		yPadding: space.s,
+		bodyPaddingX: 0,
+		bodyPaddingY: 0,
+		contentPaddingX: space.m,
+		contentPaddingY: space.s,
 	},
 	fonts,
 	space,
