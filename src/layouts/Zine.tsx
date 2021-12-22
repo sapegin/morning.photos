@@ -57,7 +57,7 @@ export default function ZinePage({
 									<Text variant="small" dangerouslySetInnerHTML={{ __html: zine.meta }} />
 								</TextContent>
 								{zine.price && !zine.soldout && (
-									<Text variant="bold">{zine.price} (excluding shipping)</Text>
+									<Text variant="bold">Price: {zine.price} (excluding shipping)</Text>
 								)}
 								{zine.soldout && <Text variant="bold">Sold out</Text>}
 								<iframe
