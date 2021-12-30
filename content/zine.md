@@ -13,8 +13,7 @@ zines:
       meta: Summer 2020, 60 pages, A5, limited edition of 26 copies, printed on 150 gsm  uncoated paper by <a href="https://mixam.co.uk/">Mixam</a>).
       price: "10€"
       soldout: false
+      shop: https://www.etsy.com/listing/1136847346/from-dawn-till-coffee-photography-zine-1
 ---
 
 This is a zine with my photos that I publish to share my work and reflect on my photography, kind of a better Instagram. I’m planning to publish a new issue about once a year, each dedicated to a particular theme.
-
-I may still have a few copies left, please [contact me](artem@sapegin.ru) if you’re interested.

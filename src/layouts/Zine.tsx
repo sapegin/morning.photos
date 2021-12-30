@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Box, Grid, Stack, Heading, Text, TextContent } from 'tamia';
+import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Metatags from '../components/Metatags';
 import Image from '../components/GridImage';
@@ -13,6 +14,7 @@ type Zine = {
 	meta: string;
 	price: string;
 	soldout: boolean;
+	shop: string;
 };
 
 type Props = {
@@ -57,7 +59,11 @@ export default function ZinePage({
 									<Text variant="small" dangerouslySetInnerHTML={{ __html: zine.meta }} />
 								</TextContent>
 								{zine.price && !zine.soldout && (
-									<Text variant="bold">Price: {zine.price} (excluding shipping)</Text>
+									<Text variant="bold">
+										<Link href={zine.shop} target="_blank" rel="noopener">
+											Buy for {zine.price} (excluding shipping)
+										</Link>
+									</Text>
 								)}
 								{zine.soldout && <Text variant="bold">Sold out</Text>}
 								<iframe
@@ -102,6 +108,7 @@ export const pageQuery = graphql`
 					meta
 					price
 					soldout
+					shop
 				}
 			}
 			html
