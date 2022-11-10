@@ -70,7 +70,7 @@
     "lodash": "~4.17.21",
     "prettier": "^1.19.1",
     "probe-image-size": "^5.0.0",
-    "react-styleguidist": "^10.6.0",
+    "react-styleguidist": "^13.0.0",
     "remark-cli": "~7.0.1",
     "remark-lint": "~6.0.5",
     "stylelint": "^13.0.0",
