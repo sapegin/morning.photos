@@ -55,7 +55,7 @@
     "esm": "^3.2.4",
     "exifr": "^5.0.6",
     "fs-extra": "^8.1.0",
-    "gatsby": "2.19.2",
+    "gatsby": "5.0.1",
     "gatsby-plugin-goatcounter": "^0.3.1",
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-react-helmet": "^3.1.21",
