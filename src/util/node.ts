@@ -1,18 +1,14 @@
 import orderBy from 'lodash/orderBy';
+import { Order } from '../types/Order';
+import { Photo } from '../types/Photo';
 import { loadPhoto } from './gallery';
 
 const PHOTO_PROTOCOL = 'photo://';
 const IMAGES_REGEXP = /!\[[^\]]*\]\(([^)'"\s]*)\)/g;
 
-const formatDate = timestamp =>
-	new Intl.DateTimeFormat('en', {
-		year: 'numeric',
-		month: 'long',
-	}).format(timestamp);
+export const getLines = (text: string) => text.split('\n').filter(Boolean);
 
-export const getLines = text => text.split('\n').filter(Boolean);
-
-export const getImages = markdown => {
+export const getImages = (markdown: string) => {
 	const images = [];
 	IMAGES_REGEXP.lastIndex = 0;
 	let match = IMAGES_REGEXP.exec(markdown);
@@ -23,23 +19,28 @@ export const getImages = markdown => {
 	return images;
 };
 
-export const isPhotoUrl = url => url && url.startsWith(PHOTO_PROTOCOL);
+export const isPhotoUrl = (url: string) => url && url.startsWith(PHOTO_PROTOCOL);
 
-export const getPhotoNameFromUrl = url => {
+export const getPhotoNameFromUrl = (url: string) => {
 	return isPhotoUrl(url) && url.substring(PHOTO_PROTOCOL.length);
 };
 
-export const getAlbumFromNames = async (names, { orderby, limit, slug, filter }) => {
+export const getAlbumFromNames = async (
+	names: string[],
+	{
+		orderby,
+		limit,
+		slug,
+		filter,
+	}: { orderby: Order; limit?: number; slug: string; filter?: (photos: Photo[]) => Photo[] }
+) => {
 	// Load photos
-	const photos = await Promise.all(
-		names.map(async name => {
+	const photos: Photo[] = await Promise.all(
+		names.map(async (name) => {
 			const photo = await loadPhoto(name);
 			return {
 				...photo,
 				slug: `${slug}/${photo.slug}`,
-				// Photos without timestamp should be in the end
-				timestamp: photo.timestamp || 0,
-				formattedDate: photo.timestamp && formatDate(photo.timestamp),
 			};
 		})
 	);

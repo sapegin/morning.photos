@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import PhotoInfo from '../components/PhotoInfo';
 import { getPhotoUrl } from '../util/photos';
 import useKeyPress from '../util/useKeyPress';
-import { Photo } from '../types';
+import { Photo } from '../types/Photo';
 
 // /albums/dogs/2010-09-24-0212 → /albums/dogs
 const getAlbumSlug = (slug: string) => slug.replace(/\/[^/]+$/, '');

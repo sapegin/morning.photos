@@ -6,7 +6,7 @@ import { Link } from 'tamia-gatsby-link';
 import PageWithTitle from './PageWithTitle';
 import Metatags from '../components/Metatags';
 import { getPhotoUrl } from '../util/photos';
-import { Photo } from '../types';
+import { Photo } from '../types/Photo';
 
 type GalleryPhoto = Photo & {
 	src: string;

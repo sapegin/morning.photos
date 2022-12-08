@@ -1,13 +1,11 @@
-/* eslint-disable @typescript-eslint/camelcase */
-
-const fs = require('fs-extra');
-const cloudinary = require('cloudinary').v2;
+import fs from 'fs-extra';
+import cloudinary from 'cloudinary';
 
 // These functions require CLOUDINARY_URL environment variable, like:
 // CLOUDINARY_URL=cloudinary://XXX:YYY@ZZZ
 // You can find it in the Cloudinary console: https://cloudinary.com/console/
 
-module.exports.uploadPhoto = filepath => {
+export function uploadPhoto(filepath: string) {
 	return new Promise((resolve, reject) => {
 		if (!process.env.CLOUDINARY_URL) {
 			reject('CLOUDINARY_URL environmental variable is required for upload');
@@ -20,7 +18,7 @@ module.exports.uploadPhoto = filepath => {
 			return;
 		}
 
-		cloudinary.uploader.upload(
+		cloudinary.v2.uploader.upload(
 			filepath,
 			{
 				folder: 'photos/',
@@ -36,4 +34,4 @@ module.exports.uploadPhoto = filepath => {
 			}
 		);
 	});
-};
+}

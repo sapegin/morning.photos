@@ -12,25 +12,26 @@ type SizeProps = {
 	height: number;
 };
 
-const IntrinsicImageContainer = styled('div')<OptionalSizeProps>`
-	width: ${props => props.width && `${props.width}px`};
-	height: ${props => props.height && `${props.height}px`};
+const IntrinsicImageContainer = styled.div<OptionalSizeProps>`
+	width: ${(props) => props.width && `${props.width}px`};
+	height: ${(props) => props.height && `${props.height}px`};
 `;
 
-const IntrinsicImageWrapper = styled('div')<SizeProps>`
+const IntrinsicImageWrapper = styled.div<SizeProps>`
 	overflow: hidden;
 	position: relative;
-	padding-bottom: ${p => `${(p.height / p.width) * 100}%`};
-	background-color: ${p => p.color || p.theme.colors.light};
+	padding-bottom: ${(p) => `${(p.height / p.width) * 100}%`};
+	background-color: ${(p) => p.color || p.theme.colors.light};
 `;
 
 const ResponsiveIntrinsicImageWrapper = styled(IntrinsicImageWrapper)`
-	padding-bottom: ${p => `calc(${(p.height / p.width) * 100}% + ${p.theme.page.xPadding})`};
-	margin-left: -${p => p.theme.page.xPadding};
-	margin-right: -${p => p.theme.page.xPadding};
+	padding-bottom: ${(p) =>
+		`calc(${(p.height / p.width) * 100}% + ${p.theme.page.contentPaddingX})`};
+	margin-left: -${(p) => p.theme.page.contentPaddingX};
+	margin-right: -${(p) => p.theme.page.contentPaddingX};
 
-	@media (min-width: ${p => p.theme.page.contentMaxWidth}) {
-		padding-bottom: ${p => `${(p.height / p.width) * 100}%`};
+	@media (min-width: ${(p) => p.theme.page.contentMaxWidth}) {
+		padding-bottom: ${(p) => `${(p.height / p.width) * 100}%`};
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -48,7 +49,7 @@ const PlainImage = styled('img')`
 	max-width: 100%;
 	width: auto;
 	height: auto;
-	background-color: ${p => p.color};
+	background-color: ${(p) => p.color};
 `;
 
 type Props = {

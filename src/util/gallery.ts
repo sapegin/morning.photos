@@ -5,31 +5,43 @@ import getImageColors from 'get-image-colors';
 import probe from 'probe-image-size';
 import { cacheGet, cacheSet } from './cache';
 import { uploadPhoto } from './upload';
+import { Photo } from '../types/Photo';
 
 /* eslint-disable no-console  */
+
+// HACK: exifr returns any
+interface Exif {
+	DateTimeOriginal?: string;
+	ObjectName?: string;
+	Caption?: string;
+	Country?: string;
+	City?: string;
+	Sublocation?: string;
+	Keywords?: string[];
+}
 
 const photosFolder = path.resolve(__dirname, '../../photos');
 
 // Keep Promises here to prevent loading the same photo multiple times
-const pendingPhotos = {};
+const pendingPhotos: Record<string, Promise<Photo>> = {};
+
+const formatDate = (timestamp: number) =>
+	new Intl.DateTimeFormat('en', {
+		year: 'numeric',
+		month: 'long',
+	}).format(timestamp);
 
 /**
  * Join non-empty array items with a comma.
- *
- * @param {Array} array
- * @returns {string}
  */
-function asList(array) {
-	return array.filter(value => !!value).join(', ');
+function asList(array: (string | undefined | null)[]) {
+	return array.filter((value) => !!value).join(', ');
 }
 
 /**
  * Convert file name to slug.
- *
- * @param {string} name
- * @returns {string}
  */
-export function slugify(name) {
+export function slugify(name: string) {
 	return name
 		.replace(/\.jpg$/i, '')
 		.replace(/_/g, '-')
@@ -47,11 +59,8 @@ export function slugify(name) {
 
 /**
  * Convert URL to slug.
- *
- * @param {string} url
- * @returns {string}
  */
-export function urlToSlug(url) {
+export function urlToSlug(url: string) {
 	return url
 		.replace(/^\/photos\/\w+\//, '')
 		.replace(/\.jpg$/i, '')
@@ -60,9 +69,6 @@ export function urlToSlug(url) {
 
 /**
  * Cleanup photo caption
- *
- * @param {string} caption
- * @returns {string}
  */
 function captionString(caption = '') {
 	if (caption.startsWith('Processed with VSCO')) {
@@ -74,16 +80,14 @@ function captionString(caption = '') {
 
 /**
  * Return dominant color of an image
- *
- * @param {Buffer} buffer
- * @returns {string}
  */
-async function dominantColor(buffer) {
+async function dominantColor(buffer: Buffer) {
 	const colors = await getImageColors(buffer, { type: 'image/jpeg', count: 1 });
 	return colors[0].hex();
 }
 
-function readImage(filepath) {
+// eslint-disable-next-line consistent-return
+function readImage(filepath: string) {
 	try {
 		return fs.readFileSync(filepath);
 	} catch (err) {
@@ -91,10 +95,25 @@ function readImage(filepath) {
 		console.error(`\n\nCannot load photo ${filepath}, exiting...\n\n`);
 		process.exit(1);
 	}
-	return undefined;
 }
 
-function enhanceMetadata({ name, width, height, mtimeMs, color, exif = {} }) {
+function enhanceMetadata({
+	name,
+	width,
+	height,
+	mtimeMs,
+	color,
+	exif = {},
+}: {
+	name: string;
+	width: number;
+	height: number;
+	mtimeMs: number;
+	color: string;
+	exif?: Exif;
+}): Photo {
+	const timestamp = (exif.DateTimeOriginal && Date.parse(exif.DateTimeOriginal)) || undefined;
+
 	return {
 		name,
 		color,
@@ -102,7 +121,8 @@ function enhanceMetadata({ name, width, height, mtimeMs, color, exif = {} }) {
 		height,
 		slug: slugify(name),
 		modified: Math.floor(mtimeMs),
-		timestamp: exif.DateTimeOriginal && Date.parse(exif.DateTimeOriginal),
+		timestamp: timestamp || 0,
+		formattedDate: timestamp ? formatDate(timestamp) : undefined,
 		title: exif.ObjectName || '',
 		caption: captionString(exif.Caption),
 		location: asList([exif.Country, exif.City, exif.Sublocation]),
@@ -110,7 +130,7 @@ function enhanceMetadata({ name, width, height, mtimeMs, color, exif = {} }) {
 	};
 }
 
-const loadPhotoReal = async name => {
+const loadPhotoReal = async (name: string) => {
 	const filepath = path.resolve(photosFolder, `${name}.jpg`);
 
 	try {
@@ -119,13 +139,13 @@ const loadPhotoReal = async name => {
 		console.log(`Cannot upload ${name} to Cloudinary`, err);
 	}
 
-	const buffer = await readImage(filepath);
+	const buffer = readImage(filepath);
 
 	const { mtimeMs } = fs.statSync(filepath);
 
-	const { width, height } = probe.sync(buffer);
+	const { width, height } = probe.sync(buffer) || { width: 0, height: 0 };
 
-	const exif = await exifr.parse(buffer, {
+	const exif: Exif = await exifr.parse(buffer, {
 		iptc: true,
 		exif: true,
 		gps: false,
@@ -136,13 +156,13 @@ const loadPhotoReal = async name => {
 	return enhanceMetadata({ name, mtimeMs, width, height, exif, color });
 };
 
-export const loadPhoto = async name => {
+export const loadPhoto = async (name: string) => {
 	const cached = cacheGet(name);
 	if (cached) {
 		return cached;
 	}
 
-	if (pendingPhotos[name]) {
+	if (name in pendingPhotos) {
 		return pendingPhotos[name];
 	}
 

@@ -8,7 +8,7 @@ import Metatags from '../components/Metatags';
 import Image from '../components/Image';
 import PhotoGrid from '../components/PhotoGrid';
 import { getPhotoUrl } from '../util/photos';
-import { Photo } from '../types';
+import { Photo } from '../types/Photo';
 
 type SecondaryPhotoProps = {
 	src: string;
