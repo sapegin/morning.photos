@@ -1,37 +1,36 @@
+import type { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { uniq } from 'lodash';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { getAlbumFromNames, getLines } from './src/util/node';
 
-const template = layout => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
+const template = (layout: string) => path.resolve(`src/layouts/${layout || 'Page'}.tsx`);
 
-const get = (l, i) => l[i] || {};
+const isAlbumsPage = (slug: string) => slug === '/albums' || slug === '/series';
 
-const isAlbumsPage = slug => slug === '/albums' || slug === '/series';
+const isAlbumOrPhotoPage = (slug: string) => slug.startsWith('/albums/') || slug.startsWith('/series/');
 
-const isAlbumOrPhotoPage = slug => slug.startsWith('/albums/') || slug.startsWith('/series/');
-
-const getPrefetchPhotos = (photos, start) => [
+const getPrefetchPhotos = (photos, start: number) => [
 	{
-		name: get(photos, start).name,
-		modified: get(photos, start).modified,
+		name: photos[start]?.name,
+		modified: photos[start]?.modified,
 	},
 	{
-		name: get(photos, start + 1).name,
-		modified: get(photos, start + 1).modified,
+		name: photos[start + 1]?.name,
+		modified: photos[start + 1]?.modified,
 	},
 ];
 
 const getHorizontalPhotos = photos => photos.filter(({ width, height }) => width > height);
 
-export function onCreateWebpackConfig({ actions }) {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions })=> {
 	// Turn off source maps
 	actions.setWebpackConfig({
 		devtool: false,
 	});
 }
 
-export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions: { createNodeField } })=> {
 	if (
 		node.internal.type === 'MarkdownRemark' &&
 		// Don't process the same document twice
@@ -52,7 +51,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 	}
 }
 
-export async function createPages({ graphql, actions: { createPage } }) {
+export const  createPages : GatsbyNode['createPages'] = async ({ graphql, actions: { createPage } }) => {
 	const {
 		errors,
 		data: {
@@ -87,7 +86,7 @@ export async function createPages({ graphql, actions: { createPage } }) {
 		throw errors;
 	}
 
-	const allPhotoNames = [];
+	const allPhotoNames: string[] = [];
 
 	await Promise.all(
 		pages.map(
@@ -120,8 +119,8 @@ export async function createPages({ graphql, actions: { createPage } }) {
 								context: {
 									...photo,
 									album: title,
-									prev: get(photos, index - 1).slug,
-									next: get(photos, index + 1).slug,
+									prev: photos[index - 1]?.slug,
+									next: photos[index + 1]?.slug,
 									prefetch: getPrefetchPhotos(photos, index + 1).filter(Boolean),
 								},
 							})

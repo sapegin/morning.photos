@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { Page as PageBase, Box, Container } from 'tamia';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,8 +9,6 @@ import Base from './Base';
 type Props = {
 	children: React.ReactNode;
 	url: string;
-	title: string;
-	pageTitle?: string;
 	splash?: string;
 	inverted?: boolean;
 	fullWidth?: boolean;
@@ -26,12 +23,11 @@ const PageWrapper = ({ fullWidth, children }: Pick<Props, 'fullWidth' | 'childre
 		<Container>{children}</Container>
 	);
 
-const Page = ({ children, url, title, pageTitle, splash, inverted, fullWidth }: Props) => {
+const Page = ({ children, url, splash, inverted, fullWidth }: Props) => {
 	return (
 		<Base>
 			<PageWrapper fullWidth={fullWidth}>
 				<PageBase>
-					<Helmet title={pageTitle || title} />
 					<Box mb="m">
 						{splash ? (
 							<Splash src={splash} inverted={inverted}>

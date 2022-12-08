@@ -20,8 +20,8 @@ const SecondaryPhoto = styled.div<SecondaryPhotoProps>`
 	padding-bottom: 66.66%; /* Always 3:2 aspect ratio*/
 	background-position: center center;
 	background-size: cover;
-	background-color: ${props => props.color};
-	background-image: url(${props => getPhotoUrl(props.src, props.modified, 'medium')});
+	background-color: ${(props) => props.color};
+	background-image: url(${(props) => getPhotoUrl(props.src, props.modified, 'medium')});
 `;
 
 type Props = {
@@ -54,12 +54,6 @@ export default function MainPage({
 	const [primaryPhoto, ...secondaryPhotos] = photos;
 	return (
 		<Page title={pageTitle} url={pathname}>
-			<Metatags
-				slug="/"
-				title={pageTitle}
-				image={primaryPhoto.name}
-				imageModified={primaryPhoto.modified}
-			/>
 			<Box position="relative" mb="m">
 				<Link href={primaryPhoto.slug}>
 					<Image
@@ -87,6 +81,25 @@ export default function MainPage({
 		</Page>
 	);
 }
+
+export const Head = ({
+	data: {
+		markdownRemark: {
+			frontmatter: { title },
+		},
+	},
+	pageContext: { photos },
+}: Props) => {
+	const [primaryPhoto] = photos;
+	return (
+		<Metatags
+			slug="/"
+			pageTitle={title}
+			image={primaryPhoto.name}
+			imageModified={primaryPhoto.modified}
+		/>
+	);
+};
 
 export const pageQuery = graphql`
 	query MainPage($slug: String!) {

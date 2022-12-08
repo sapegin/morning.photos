@@ -1,5 +1,4 @@
 import React, { ComponentProps } from 'react';
-import { Helmet } from 'react-helmet';
 import { Box, Flex, Stack, Text, VisuallyHidden } from 'tamia';
 import { QuotedLink } from 'tamia-gatsby-link';
 import Base from './Base';
@@ -154,27 +153,10 @@ type Props = {
 	navigate: (path: string) => void;
 };
 
-export default function PhotoPage({
-	pageContext: { title, prefetch, ...props },
-	location: { pathname },
-	navigate,
-}: Props) {
+export default function PhotoPage({ pageContext: { title, prefetch, ...props }, navigate }: Props) {
 	const photoTitle = title || 'Untitled';
 	return (
 		<Base>
-			<Metatags
-				slug={pathname}
-				title={title}
-				description={props.caption}
-				image={props.name}
-				imageModified={props.modified}
-			/>
-			<Helmet>
-				<title>{photoTitle} — Artem Sapegin Photography</title>
-				{prefetch.map(({ name, modified }) => (
-					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
-				))}
-			</Helmet>
 			<Body title={title} photoTitle={photoTitle} navigate={navigate} {...props} />
 			<Box py="s" px="m">
 				<Footer />
@@ -182,3 +164,23 @@ export default function PhotoPage({
 		</Base>
 	);
 }
+
+export const Head = ({
+	pageContext: { title, caption, name, modified, prefetch },
+	location: { pathname },
+}: Props) => {
+	const photoTitle = title || 'Untitled';
+	return (
+		<Metatags
+			slug={pathname}
+			title={photoTitle}
+			description={caption}
+			image={name}
+			imageModified={modified}
+		>
+			{prefetch.map(({ name, modified }) => (
+				<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
+			))}
+		</Metatags>
+	);
+};

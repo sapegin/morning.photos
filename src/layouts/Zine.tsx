@@ -46,10 +46,9 @@ export default function ZinePage({
 	console.log(zines);
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} splash={cover} inverted>
-			<Metatags slug={pathname} title={title} image={cover} />
 			<Stack gap="l">
 				<TextContent dangerouslySetInnerHTML={{ __html: html }} />
-				{zines.map(zine => (
+				{zines.map((zine) => (
 					<Stack gap="m" key={title}>
 						<Heading level={2}>{zine.title}</Heading>
 						<Grid gridColumnGap="l" mb="l" gridTemplateColumns={['1fr', null, '2fr 1fr']}>
@@ -92,6 +91,17 @@ export default function ZinePage({
 		</PageWithTitle>
 	);
 }
+
+export const Head = ({
+	data: {
+		markdownRemark: {
+			frontmatter: { pageTitle, cover },
+		},
+	},
+	location: { pathname },
+}: Props) => {
+	return <Metatags slug={pathname} pageTitle={pageTitle} image={cover} />;
+};
 
 export const pageQuery = graphql`
 	query ZinePage($slug: String!) {

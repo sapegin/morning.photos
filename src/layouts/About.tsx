@@ -29,7 +29,7 @@ const getPhotoIndexFactory = (max: number) => {
 const Photos = React.memo(
 	({ indices, alt }: PhotosProps) => (
 		<>
-			{indices.map(index => (
+			{indices.map((index) => (
 				<Image
 					key={index}
 					src={`/images/about/me${index}.jpg`}
@@ -50,7 +50,7 @@ type LinksProps = {
 
 const Links = ({ items }: LinksProps) => (
 	<ul>
-		{items.map(group =>
+		{items.map((group) =>
 			group.map(({ href, label }, index) => (
 				<Box key={href} as="li" mb={index === group.length - 1 ? 'm' : undefined}>
 					<Link href={href}>{label}</Link>
@@ -123,7 +123,7 @@ export default function AboutPage({
 				<Text variant="small">
 					Photos on this page:{' '}
 					<Group separator=", ">
-						{copyrights.map(item => (
+						{copyrights.map((item) => (
 							<Link key={item.href} href={item.href}>
 								{item.label}
 							</Link>
@@ -134,6 +134,17 @@ export default function AboutPage({
 		</PageWithTitle>
 	);
 }
+
+export const Head = ({
+	data: {
+		markdownRemark: {
+			frontmatter: { pageTitle, cover },
+		},
+	},
+	location: { pathname },
+}: Props) => {
+	return <Metatags slug={pathname} pageTitle={pageTitle} image={cover} />;
+};
 
 export const pageQuery = graphql`
 	query AboutPage($slug: String!) {

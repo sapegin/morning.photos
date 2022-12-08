@@ -13,14 +13,14 @@ type GalleryPhoto = Photo & {
 	focus: boolean;
 };
 
-const Gallery = (Gallery_ as unknown) as GalleryI<GalleryPhoto>;
+const Gallery = Gallery_ as unknown as GalleryI<GalleryPhoto>;
 
 const MARGIN = 4;
 
 const Image = styled('img')`
 	display: block;
 	margin: ${MARGIN}px;
-	background-color: ${props => props.color};
+	background-color: ${(props) => props.color};
 `;
 
 type CardProps = {
@@ -36,7 +36,7 @@ const Card = ({ photo }: CardProps) => {
 	}, []);
 	return (
 		// @ts-ignore
-		<Link href={photo.slug} ref={ref => (linkRef.current = ref)}>
+		<Link href={photo.slug} ref={(ref) => (linkRef.current = ref)}>
 			<Image
 				src={getPhotoUrl(photo.src, photo.modified, photo.width)}
 				width={photo.width}
@@ -87,16 +87,6 @@ export default function AlbumPage({
 	const renderImage = useCallback(({ photo, key }) => <Card key={key} photo={photo} />, []);
 	return (
 		<PageWithTitle url={pathname} title={title} pageTitle={pageTitle} fullWidth>
-			<Metatags
-				slug={pathname}
-				title={pageTitle}
-				image={photos[0].name}
-				imageModified={photos[0].modified}
-			>
-				{photos.slice(0, 3).map(({ name, modified }) => (
-					<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
-				))}
-			</Metatags>
 			<Gallery
 				photos={getPhotosForGallery(photos, state && state.fromPhoto)}
 				margin={MARGIN}
@@ -105,6 +95,29 @@ export default function AlbumPage({
 		</PageWithTitle>
 	);
 }
+
+export const Head = ({
+	data: {
+		markdownRemark: {
+			frontmatter: { pageTitle },
+		},
+	},
+	pageContext: { photos },
+	location: { pathname },
+}: Props) => {
+	return (
+		<Metatags
+			slug={pathname}
+			pageTitle={pageTitle}
+			image={photos[0].name}
+			imageModified={photos[0].modified}
+		>
+			{photos.slice(0, 3).map(({ name, modified }) => (
+				<link key={name} rel="prefetch" href={getPhotoUrl(name, modified, 'gallery')} />
+			))}
+		</Metatags>
+	);
+};
 
 export const pageQuery = graphql`
 	query AlbumPage($slug: String!) {
