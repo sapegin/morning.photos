@@ -119,7 +119,7 @@ const Body = ({
 			<Header name={name} prev={prev} next={next} albumSlug={albumSlug} albumTitle={album} />
 			<main role="main">
 				<Flex height="100vh" overflow="hidden" alignItems="center" justifyContent="center">
-					<Box as={Icon} icon="camera" position="absolute" zIndex={-1} />
+					<Icon icon="camera" position="absolute" zIndex={-1} />
 					<Box
 						as="img"
 						height="auto"

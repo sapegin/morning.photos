@@ -36,7 +36,7 @@
     "react-group": "^3.0.2",
     "react-photo-gallery": "^8.0.0",
     "styled-components": "~5.3.6",
-    "tamia": "^5.13.1",
+    "tamia": "^6.0.17",
     "tamia-gatsby-link": "^1.0.6"
   },
   "devDependencies": {

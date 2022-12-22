@@ -1,5 +1,6 @@
 const baseFont = 'Helvetica Neue, Arial, sans-serif';
 const space = {
+	0: 0,
 	xxs: '0.125rem', // 2px
 	xs: '0.25rem', // 4px
 	s: '0.5rem', // 8px
@@ -8,6 +9,14 @@ const space = {
 	xl: '4rem', // 64px
 	xxl: '8rem', // 128px
 	xxxl: '16rem', // 256px
+	'-xxs': '0.125rem', // -2px
+	'-xs': '0.25rem', // -4px
+	'-s': '0.5rem', // -8px
+	'-m': '1rem', // -16px
+	'-l': '2rem', // -32px
+	'-xl': '4rem', // -64px
+	'-xxl': '8rem', // -128px
+	'-xxxl': '16rem', // -256px
 };
 const breakpoints = [
 	'32rem', // 512px

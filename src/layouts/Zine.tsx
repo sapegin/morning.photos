@@ -75,7 +75,7 @@ export default function ZinePage({
 									allowFullScreen
 								></iframe>
 							</Stack>
-							<Box boxShadow="cover">
+							<Box sx={{ boxShadow: 'cover' }}>
 								<Image
 									src={zine.cover}
 									alt={`${zine.title} cover`}
