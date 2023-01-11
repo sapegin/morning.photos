@@ -62,7 +62,7 @@
     "gatsby-plugin-netlify": "^5.0.1",
     "gatsby-plugin-styled-components": "^5.20.0",
     "gatsby-source-filesystem": "^4.0.0",
-    "gatsby-transformer-remark": "^4.0.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "get-image-colors": "~4.0.1",
     "glob": "~7.1.6",
     "husky": "^4.0.10",
