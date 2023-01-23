@@ -47,7 +47,7 @@ export const getAlbumFromNames = async (
 
 	const filteredPhotos = filter ? filter(photos) : photos;
 
-	// Sort photos: manual, date-asc, date-desc
+	// Sort photos
 	const sortedPhotos =
 		orderby === 'manual'
 			? filteredPhotos
