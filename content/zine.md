@@ -12,7 +12,7 @@ zines:
       description: Photos of winter 2020/2021 in Berlin — landscapes, cityscapes, street.
       meta: Summer 2020, 60 pages, A5, limited edition of 26 copies, printed on 150 gsm  uncoated paper by <a href="https://mixam.co.uk/">Mixam</a>).
       price: "10€"
-      soldout: false
+      soldout: true
       shop: https://www.etsy.com/listing/1136847346/from-dawn-till-coffee-photography-zine-1
 ---
 
