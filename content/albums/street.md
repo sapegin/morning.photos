@@ -45,7 +45,6 @@ position: 45
 2009-09-21_5D_1772_Artem_Sapegin
 2009-09-18_5D_1265_Artem_Sapegin
 2009-09-18_5D_1193_Artem_Sapegin
-2008-09-08_5D_7370_Artem_Sapegin
 Sapegin_Artem_20D_2007-07-11_400-0063
 Sapegin_Artem_20D_2007-05-27_358-5830
 Sapegin_Artem_20D_2007-04-23_308-0886

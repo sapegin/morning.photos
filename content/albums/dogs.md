@@ -36,7 +36,6 @@ position: 50
 2013-07-31_2844_Artem_Sapegin
 2013-07-29_1366_Artem_Sapegin
 2013-07-28_1205_Artem_Sapegin
-2013-07-13_0301_Artem_Sapegin
 2013-06-29_0116_Artem_Sapegin
 2013-03-03_5D_5374_Artem_Sapegin
 2012-12-09_5D_3758_Artem_Sapegin
