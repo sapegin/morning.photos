@@ -12,6 +12,8 @@ links:
       label: artem@sapegin.ru
     - href: https://twitter.com/iamsapegin
       label: Twitter
+    - href: https://mastodon.cloud/@sapegin
+      label: Mastodon
     - href: https://tacohuaco.co/
       label: Tacohuaco
 copyrights:
