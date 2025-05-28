@@ -1,4 +1,3 @@
-.cache/
-public/
-content/albums/
-content/series/
+.astro/
+dist/
+public/counter/count.min.js

@@ -1,15 +1,10 @@
 {
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "es2015",
-		"jsx": "react",
-		"moduleResolution": "node",
-		"noEmit": true,
-		"strict": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": true,
-		"baseUrl": "src"
-	},
-	"include": ["./src/**/*", "./gatsby-*", "./src/styled.d.ts"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "jsx": "preserve",
+    "strictNullChecks": true,
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src/", "scripts/"]
 }
