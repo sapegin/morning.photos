@@ -199,7 +199,7 @@ for (const filepath of photoFiles) {
 
 	if (metadata) {
 		// Skip we already have the photo on the site
-		// continue;
+		continue;
 	}
 
 	console.log(`👉 Reading ${name}…`);
@@ -231,7 +231,7 @@ for (const filepath of photoFiles) {
 	console.log(`🛸 Uploading ${name}…`);
 
 	// Upload to Cloudinary
-	// await uploadPhoto(filepath);
+	await uploadPhoto(filepath);
 
 	console.log(`💾 Saving ${name}…`);
 
