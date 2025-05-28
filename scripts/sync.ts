@@ -114,14 +114,15 @@ function parseExifDate(dateString?: string) {
 		'$1-$2-$3'
 	);
 
-	return Date.parse(dateStringCorrected) ?? undefined;
+	const parsedDate = Date.parse(dateStringCorrected);
+	return parsedDate ? new Date(parsedDate) : undefined;
 }
 
 /**
  * Format date as a human-readable string:
  * 1601459608000 → 'September 2020'
  */
-function formatDate(timestamp: number) {
+function formatDate(timestamp: Date) {
 	return new Intl.DateTimeFormat('en', {
 		year: 'numeric',
 		month: 'long',
@@ -156,16 +157,16 @@ function enhanceMetadata({
 	color: string;
 	exif: ExifReader.Tags;
 }): Photo {
-	const timestamp = parseExifDate(exif.DateTimeOriginal?.description);
+	const date = parseExifDate(exif.DateTimeOriginal?.description);
 	return {
 		name,
 		slug,
 		color,
 		width,
 		height,
-		modified: Math.floor(mtimeMs),
-		timestamp: timestamp ?? 0,
-		formattedDate: timestamp ? formatDate(timestamp) : undefined,
+		modified: new Date(mtimeMs),
+		timestamp: date,
+		formattedDate: date ? formatDate(date) : undefined,
 		title: exif['Object Name']?.description ?? '',
 		caption: exif['Caption/Abstract']?.description ?? '',
 		location: asList([
