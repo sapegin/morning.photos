@@ -1,6 +1,4 @@
 import { Fragment } from 'react';
-import { Box } from './Box';
-import { Grid } from './Grid';
 import { Link } from './Link';
 import { Text } from './Text';
 import { Stack } from './Stack';
@@ -58,13 +56,12 @@ export function Menu({ current }: Props) {
 								href={href}
 								css={{
 									whiteSpace: 'nowrap',
-									textShadow: isCurrent(href, current)
-										? `2px 2px color-mix(in hsl, token(colors.primary), transparent 70%)`
-										: undefined,
 									// HACK: Increase specificity to override Link styles (Astro production
 									// build imports CSS in a different order)
 									'&&': {
-										textDecoration: 'none',
+										textDecoration: isCurrent(href, current)
+											? 'underline'
+											: 'none',
 									},
 									_hover: {
 										textDecoration: 'underline',

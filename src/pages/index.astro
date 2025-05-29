@@ -1,0 +1,163 @@
+---
+import _ from 'lodash';
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { MainPage } from '../templates/MainPage';
+import type { Resource } from '../types/Resource';
+import { blogEntryToPost } from '../util/blogEntryToPost';
+
+const NUM_RECENT_POSTS = 7;
+
+const blogEntries = await getCollection(
+	'blog',
+	({ data }) => data.draft !== true
+);
+const blogPosts = _.sortBy(
+	blogEntries.map((x) => blogEntryToPost(x)),
+	(x) => -x.date
+).slice(0, NUM_RECENT_POSTS);
+
+const books: Resource[] = [
+	{
+		title: 'Washing your code',
+		description: 'Clean code for frontend developers',
+		url: '/book/',
+		image: 'washing-your-code',
+	},
+	{
+		title: 'SurviveJS: Maintenance',
+		description: 'JavaScript open source project maintenance (co-author)',
+		url: 'https://survivejs.com/maintenance/',
+		image: 'survivejs-maintenance',
+	},
+];
+
+const writing: Resource[] = [
+	{
+		title: 'Jest cheat sheet',
+		description: 'Everything you need to write Jest tests',
+		url: 'https://github.com/sapegin/jest-cheat-sheet',
+	},
+	{
+		title: 'Vitest cheat sheet',
+		description: 'Everything you need to write Vitest tests',
+		url: 'https://github.com/sapegin/vitest-cheat-sheet',
+	},
+	{
+		title: 'Frontend pull request checklist',
+		description:
+			'Or how to get looks-good-to-me on your pull request seven times faster',
+		url: 'https://github.com/sapegin/frontend-pull-request-checklist',
+	},
+];
+
+const projects: Resource[] = [
+	{
+		title: 'Squirrelsong',
+		description: 'Dark and light themes for web developers',
+		url: '/squirrelsong/',
+		badges: ['Color scheme'],
+	},
+	{
+		title: 'Blank Sky',
+		description: 'Beautiful twilight sky inspired new tab page',
+		url: 'https://sky.morning.photos',
+		badges: ['Browser extension'],
+	},
+	{
+		title: 'Emoji Console Log',
+		description: 'Insert `console.log()` statements with a random emoji',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.emoji-console-log',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'Just Blame',
+		description: 'Git Blame annotations, inspired by JetBrains editors',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.just-blame',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'Mini Markdown',
+		description: 'A minimalist kit for comfortable Markdown writing',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.mini-markdown',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'New File Now',
+		description: 'Create new files from the command palette',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.new-file-now',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'Notebox',
+		description: 'Take quick notes in the panel',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.notebox',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'Todo Tomorrow',
+		description: 'Highlight TODO, HACK, FIXME, and so on comments',
+		url: 'https://marketplace.visualstudio.com/items?itemName=sapegin.todo-tomorrow',
+		badges: ['VSCode extension'],
+	},
+	{
+		title: 'Named CSS colors',
+		description: 'All named CSS colors on one page',
+		url: 'https://sapegin.github.io/csscolors/',
+		badges: ['Web'],
+	},
+	{
+		title: 'Coffee timer',
+		description: 'Pour-over coffee recipe and timer',
+		url: 'https://coffee.morning.photos',
+		badges: ['Web'],
+	},
+	{
+		title: 'React Styleguidist',
+		description: 'React component development environment',
+		url: 'https://react-styleguidist.js.org/',
+		badges: ['Open source'],
+	},
+	{
+		title: 'Mrm',
+		description: 'Codemods for your project config files',
+		url: 'https://mrm.js.org/',
+		badges: ['Open source'],
+	},
+	{
+		title: 'React Group',
+		description: 'Render React children with a separator',
+		url: 'https://github.com/sapegin/react-group',
+		badges: ['Open source'],
+	},
+	{
+		title: 'Richtypo',
+		description: 'Typography enhancer for Node.js',
+		url: 'https://github.com/sapegin/richtypo.js',
+		badges: ['Open source'],
+	},
+	{
+		title: 'Textlint rules',
+		description: 'Check and fix your tech writing with Textlint',
+		url: 'https://www.npmjs.com/search?q=maintainer%3Asapegin%20keywords%3Atextlint',
+		badges: ['Open source'],
+	},
+	{
+		title: 'git-friendly',
+		description: 'Scripts for a better Git workflow (maintainer)',
+		url: 'https://github.com/jamiew/git-friendly',
+		badges: ['Open source'],
+	},
+];
+---
+
+<Layout
+	url="/"
+	component={MainPage}
+	props={{
+		blogPosts,
+		books,
+		writing,
+		projects,
+	}}
+/>

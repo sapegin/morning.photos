@@ -1,3 +1,5 @@
+import type { Photo } from '../types/Photo';
+
 const URL_PREFIX = 'https://res.cloudinary.com/morningphotos/image/upload';
 
 const SIZES = {
@@ -14,10 +16,14 @@ const getAutoTransformation = (width: number): string => {
 	return `dpr_auto,f_auto,q_auto:${quality},w_${roundedWidth},c_fit`;
 };
 
-export function getPhotoUrl(name: string, timestamp?: number, size?: Size): string;
-export function getPhotoUrl(name: string, timestamp?: number, size?: number): string;
-export function getPhotoUrl(name: any, timestamp = 1, size: any): any {
+/**
+ * Return photo URL on Cloudinary.
+ */
+export function getPhotoUrl(photo: Photo, size?: Size): string {
+	const timestamp = photo?.timestamp ? photo.timestamp.getTime() : 0;
 	const transformation =
-		typeof size === 'number' ? getAutoTransformation(size) : SIZES[size as Size];
-	return `${URL_PREFIX}/${transformation}/v${Math.floor(timestamp)}/photos/${name}.jpg`;
+		typeof size === 'number'
+			? getAutoTransformation(size)
+			: SIZES[size as Size];
+	return `${URL_PREFIX}/${transformation}/v${timestamp}/photos/${photo.name}.jpg`;
 }
