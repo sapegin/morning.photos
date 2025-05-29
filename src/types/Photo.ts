@@ -4,10 +4,11 @@ export interface Photo {
 	slug: string;
 	caption?: string;
 	location?: string;
-	modified: number;
-	timestamp: number;
+	modified: Date;
+	timestamp?: Date;
 	formattedDate?: string;
 	keywords: string[];
+	rating: number;
 	width: number;
 	height: number;
 	color: string;

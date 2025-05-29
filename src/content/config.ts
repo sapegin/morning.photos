@@ -14,6 +14,7 @@ const photos = defineCollection({
 		timestamp: z.coerce.date().optional(),
 		formattedDate: z.string().optional(),
 		keywords: z.array(z.string()),
+		rating: z.number(),
 		width: z.number(),
 		height: z.number(),
 		color: z.string(),
