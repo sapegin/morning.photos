@@ -177,6 +177,7 @@ function enhanceMetadata({
 		keywords: Array.isArray(exif.Keywords)
 			? exif.Keywords.map((x) => x.description)
 			: [],
+		rating: exif.Rating?.value ? Number(exif.Rating?.value) : 0,
 	};
 }
 
@@ -227,7 +228,7 @@ for (const filepath of photoFiles) {
 		color,
 	});
 
-	console.log('🐴 photo', photo);
+	// console.log('🐴 photo', photo);
 
 	console.log(`🛸 Uploading ${name}…`);
 
