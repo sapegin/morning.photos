@@ -1,3 +1,0 @@
-```js
-<Header url="/blog" />
-```

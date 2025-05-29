@@ -1,19 +1,37 @@
-import React from 'react';
-import { Flex, Box } from 'tamia';
-import Logo from './Logo';
-import Nav from './Nav';
+import { Box } from './Box';
+import { Logo } from './Logo';
+import { Menu } from './Menu';
+import { Stack } from './Stack';
 
 type Props = {
 	url: string;
 };
 
-export default ({ url }: Props) => (
-	<Box as="header" role="banner" display={['block', null, 'flex']}>
-		<Flex pb="s" justifyContent="center">
-			<Logo homepage={url === '/'} />
-		</Flex>
-		<Box pb="s" ml="auto">
-			<Nav url={url} />
+export function Header({ url }: Props) {
+	return (
+		<Box as="header">
+			<Box
+				as="a"
+				href="#content"
+				css={{
+					position: 'absolute',
+					top: '-100%',
+					padding: 'm',
+					backgroundColor: 'text',
+					color: 'background',
+					textDecoration: 'none',
+					_focus: {
+						top: 0,
+						outline: 0,
+					},
+				}}
+			>
+				Skip to content
+			</Box>
+			<Stack direction="row" justifyContent="space-between">
+				<Logo />
+				<Menu current={url} />
+			</Stack>
 		</Box>
-	</Box>
-);
+	);
+}

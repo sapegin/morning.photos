@@ -1,17 +1,31 @@
-import React from 'react';
-import { Text } from 'tamia';
-import { Link } from 'tamia-gatsby-link';
+import { Link } from './Link';
+import { Text } from './Text';
 
-const TITLE = 'Artem Sapegin Photography';
-
-type Props = {
-	homepage?: boolean;
-};
-
-export default function Logo({ homepage }: Props) {
+export function Logo() {
 	return (
-		<Text as={homepage ? 'h1' : 'div'} variant="bold" display="inline-block">
-			{homepage ? TITLE : <Link href="/">{TITLE}</Link>}
+		<Text variant="menu">
+			<Link
+				href="/"
+				display="inline-flex"
+				flexDirection="column"
+				css={{
+					display: 'inline-block',
+					fontWeight: 'bold',
+					textDecoration: 'none',
+					background: `linear-gradient(token(colors.gradient), token(colors.primary))`,
+					backgroundClip: 'text',
+					WebkitTextFillColor: 'transparent',
+					transitionDuration: 'hover',
+					transitionTimingFunction: 'hover',
+					transitionProperty: 'all',
+					_hover: {
+						color: 'primary',
+						textDecoration: 'underline',
+					},
+				}}
+			>
+				Morning.photos
+			</Link>
 		</Text>
 	);
 }

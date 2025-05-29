@@ -8,19 +8,10 @@ export const colors = {
 	secondary: '#75757c',
 	light: '#94949e',
 	border: '#3a3d40',
-	primary: '#577290',
-	accent: '#be4b83',
+	primary: '#806488',
+	accent: '#c25341',
 	selection: '#faebaf',
-	codeBlack: '#565a67',
-	codeGray: '#6c7693',
-	codeGreen: '#00805e',
-	codeOrange: '#ad5528',
-	codeBlue: '#0f73a7',
-	codePurple: '#7859a6',
-	codeRed: '#b71818',
-	coffeeText: '#754c06',
-	coffeeBackground: '#fbc024',
-	coffeeHover: '#3a3d40',
+	gradient: '#646fc8',
 };
 
 const colorsDark = {
@@ -32,16 +23,7 @@ const colorsDark = {
 	primary: '#89abd2',
 	accent: '#db76a7',
 	selection: '#61656b',
-	codeBlack: '#9397a5',
-	codeGray: '#a7adbe',
-	codeGreen: '#09b987',
-	codeOrange: '#dbaf57',
-	codeBlue: '#46a7ec',
-	codePurple: '#ac92d3',
-	codeRed: '#f96c78',
-	coffeeText: '#754c06',
-	coffeeBackground: '#fbc024',
-	coffeeHover: '#2e3033',
+	gradient: '#806488',
 };
 
 export const lineHeights = {

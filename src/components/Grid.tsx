@@ -1,31 +1,10 @@
-import styled, { css } from 'styled-components';
-import { Box } from 'tamia';
+import { type ElementType } from 'react';
+import { grid, type GridProperties } from '../../styled-system/patterns/grid';
+import { createBox, type BoxProps } from './Box';
 
-type Props = {
-	columns?: number;
-};
+export type GridProps<C extends ElementType> = Omit<BoxProps<C>, 'className'> &
+	GridProperties;
 
-const Grid = styled(Box)<Props>`
-	display: grid;
-	gap: ${p => p.theme.space.m};
-
-	grid-auto-flow: dense;
-	grid-template-columns: 1fr;
-	@media (min-width: ${p => p.theme.breakpoints[0]}) {
-		grid-template-columns: 1fr 1fr;
-	}
-	${p =>
-		p.columns &&
-		p.columns > 2 &&
-		css`
-			@media (min-width: ${p.theme.breakpoints[1]}) {
-				grid-template-columns: 1fr 1fr 1fr;
-			}
-		`}
-`;
-
-Grid.defaultProps = {
-	columns: 3,
-};
-
-export default Grid;
+export function Grid<C extends ElementType>({ auto, ...props }: GridProps<C>) {
+	return createBox({ ...props, className: grid({ auto }) });
+}
