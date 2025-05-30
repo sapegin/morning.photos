@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Link } from './Link';
 import { Text } from './Text';
 import { Stack } from './Stack';
@@ -47,31 +46,31 @@ export function Menu({ current }: Props) {
 				direction="row"
 				columnGap="m"
 				rowGap={{ tablet: 'm' }}
+				flexWrap="wrap"
 				justifyItems="center"
+				justifyContent="center"
 			>
 				{ITEMS.map(({ title, href }) => (
-					<Fragment key={href}>
-						<Text as="li" variant="menu">
-							<Link
-								href={href}
-								css={{
-									whiteSpace: 'nowrap',
-									// HACK: Increase specificity to override Link styles (Astro production
-									// build imports CSS in a different order)
-									'&&': {
-										textDecoration: isCurrent(href, current)
-											? 'underline'
-											: 'none',
-									},
-									_hover: {
-										textDecoration: 'underline',
-									},
-								}}
-							>
-								{title}
-							</Link>
-						</Text>
-					</Fragment>
+					<Text key={href} as="li" variant="menu">
+						<Link
+							href={href}
+							css={{
+								whiteSpace: 'nowrap',
+								// HACK: Increase specificity to override Link styles (Astro production
+								// build imports CSS in a different order)
+								'&&': {
+									textDecoration: isCurrent(href, current)
+										? 'underline'
+										: 'none',
+								},
+								_hover: {
+									textDecoration: 'underline',
+								},
+							}}
+						>
+							{title}
+						</Link>
+					</Text>
 				))}
 			</Stack>
 		</nav>

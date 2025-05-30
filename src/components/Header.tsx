@@ -28,7 +28,12 @@ export function Header({ url }: Props) {
 			>
 				Skip to content
 			</Box>
-			<Stack direction="row" justifyContent="space-between">
+			<Stack
+				direction={{ base: 'column', tablet: 'row' }}
+				justifyContent="space-between"
+				alignItems="center"
+				gap="s"
+			>
 				<Logo />
 				<Menu current={url} />
 			</Stack>
