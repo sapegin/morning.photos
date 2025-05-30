@@ -4,9 +4,6 @@
 // CLOUDINARY_URL=cloudinary://XXX:YYY@ZZZ
 // You can find it in the Cloudinary console: https://cloudinary.com/console/
 
-// TODO: Update metadata on file change
-// TODO: Reupload files on file change
-
 import path from 'node:path';
 import fs from 'fs-extra';
 import { globSync } from 'glob';
@@ -39,10 +36,17 @@ function readImage(filepath: string) {
 /**
  * Load a photo JSON file from an Astro collection folder.
  */
-function readMetadata(slug: string) {
+function readMetadata(slug: string): Photo | undefined {
 	const filepath = path.join(DEST_DIR, `${slug}.json`);
 	if (fs.existsSync(filepath)) {
-		return fs.readJSONSync(filepath, 'utf8');
+		const json = fs.readJSONSync(filepath, 'utf8');
+		return {
+			...json,
+			modified: new Date(Date.parse(json.modified)),
+			timestamp: json.timestamp
+				? new Date(Date.parse(json.timestamp))
+				: undefined,
+		};
 	} else {
 		return undefined;
 	}
@@ -198,9 +202,10 @@ for (const filepath of photoFiles) {
 	const slug = slugify(name);
 
 	const metadata = readMetadata(slug);
+	const { mtimeMs } = fs.statSync(filepath);
 
-	if (metadata) {
-		// Skip we already have the photo on the site
+	if (metadata && metadata.modified.getTime() >= mtimeMs) {
+		// Skip if we already have the photo on the site and it wasn’t changed
 		continue;
 	}
 
@@ -208,9 +213,7 @@ for (const filepath of photoFiles) {
 
 	const buffer = readImage(filepath);
 
-	console.log(`🪩 Processing ${name}…`);
-
-	const { mtimeMs } = fs.statSync(filepath);
+	console.log(`🪩  Processing ${name}…`);
 
 	const { width, height } = probe.sync(buffer) ?? { width: 0, height: 0 };
 
@@ -228,8 +231,6 @@ for (const filepath of photoFiles) {
 		color,
 	});
 
-	// console.log('🐴 photo', photo);
-
 	console.log(`🛸 Uploading ${name}…`);
 
 	// Upload to Cloudinary
@@ -244,4 +245,4 @@ for (const filepath of photoFiles) {
 }
 
 console.log();
-console.log(`[PHOTOS] ${count} photos added`);
+console.log(`[PHOTOS] ${count} photos updated`);

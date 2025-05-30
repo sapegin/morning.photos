@@ -4,12 +4,20 @@
   "color": "#2d2a2a",
   "width": 1719,
   "height": 2160,
-  "modified": "2025-05-29T07:15:18.000Z",
+  "modified": "2025-05-30T15:26:40.000Z",
   "timestamp": "2020-08-12T10:13:55.000Z",
   "formattedDate": "August 2020",
-  "title": "",
+  "title": "U-Bahn train on Eberswalder Straße station",
   "caption": "",
   "location": "Germany",
-  "keywords": [],
+  "keywords": [
+    "city",
+    "cityscape",
+    "railroad station",
+    "railway station",
+    "train",
+    "train station",
+    "transportation"
+  ],
   "rating": 0
 }

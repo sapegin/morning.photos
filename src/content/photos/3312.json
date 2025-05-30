@@ -1,10 +1,10 @@
 {
   "name": "IMG_3312",
   "slug": "3312",
-  "color": "#7a936f",
+  "color": "#7a9370",
   "width": 1728,
   "height": 2160,
-  "modified": "2025-05-27T10:39:00.000Z",
+  "modified": "2025-05-30T15:27:46.000Z",
   "timestamp": "2025-05-01T14:34:50.000Z",
   "formattedDate": "May 2025",
   "title": "",
@@ -17,5 +17,5 @@
     "tree",
     "wall"
   ],
-  "rating": 0
+  "rating": 5
 }

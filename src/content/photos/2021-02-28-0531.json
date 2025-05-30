@@ -4,7 +4,7 @@
   "color": "#acbdc5",
   "width": 3240,
   "height": 2160,
-  "modified": "2025-05-29T07:15:50.000Z",
+  "modified": "2025-05-30T15:27:07.000Z",
   "timestamp": "2021-02-28T07:56:41.000Z",
   "formattedDate": "February 2021",
   "title": "Berlin Brandenburg Airport",
@@ -19,5 +19,5 @@
     "morning",
     "plane"
   ],
-  "rating": 0
+  "rating": 5
 }
