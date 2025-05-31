@@ -1,0 +1,31 @@
+---
+title: What we do in the shadows
+pageTitle: 'What we do in the shadows photo series by Artem Sapegin'
+cover: 2019-04-28_5887_Artem_Sapegin
+position: 20
+---
+
+- 03866D96-B71F-4D16-B5C6-DC321F38E5B2-9B55FBB0-EA74-4869-9DC5-C231F83431AC
+- 2013-07-27_0560_Artem_Sapegin
+- 2019-04-28_5887_Artem_Sapegin
+- 2021-03-08_1475_Artem_Sapegin
+- 2021-07-27_3862_Artem_Sapegin
+- 2021-07-27_3868_Artem_Sapegin
+- 2021-07-29_4407_Artem_Sapegin
+- 2021-07-30_4525_Artem_Sapegin
+- 2021-10-28_7986_Artem_Sapegin
+- 2022-08-12_3042_Artem_Sapegin
+- 69D774B8-DC8A-4BDB-8C3D-DD240B8F59C4
+- B8494E6E-7C78-4B74-9007-487BA79A27C1
+- CF1D25ED-9310-4B53-A0D0-2B7B6F6BEA8F
+- F3B7A20B-6A62-4C22-A9AC-E9B2F3671C07
+- IMG_2039
+- IMG_5176
+- IMG_5385
+- IMG_8035
+- IMG_8679
+- IMG_8742
+- IMG_9637
+- IMG_4883
+- IMG_5622
+- IMG_6738

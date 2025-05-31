@@ -1,9 +1,11 @@
 ---
+import _ from 'lodash';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { GalleryPage } from '../../templates/GalleryPage';
 import type { Photo } from '../../types/Photo';
-import _ from 'lodash';
+
+// @todo: Report missing photos
 
 type Props = {
 	page: CollectionEntry<'series'>;
