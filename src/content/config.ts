@@ -21,6 +21,18 @@ const photos = defineCollection({
 	}) satisfies z.ZodType<Photo>,
 });
 
+// Series
+const series = defineCollection({
+	type: 'content',
+	schema: z.object({
+		title: z.string(),
+		pageTitle: z.string(),
+		description: z.string().optional(),
+		cover: z.string(),
+		position: z.number(),
+	}),
+});
+
 // Blog posts
 const blog = defineCollection({
 	type: 'content',
@@ -51,6 +63,7 @@ const zines = defineCollection({
 
 export const collections = {
 	photos,
+	series,
 	blog,
 	zines,
 };
