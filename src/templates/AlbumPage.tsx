@@ -12,7 +12,7 @@ type Props = {
 	photos: Photo[];
 };
 
-export function GalleryPage({ url, title, photos }: Props) {
+export function AlbumPage({ url, title, photos }: Props) {
 	// Group by aspect ratio, but keep all horizontal photos in a single group
 	const photosByAspectRatio = _.groupBy(photos, (x) => {
 		const aspectRatio = x.width / x.height;

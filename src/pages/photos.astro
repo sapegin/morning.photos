@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { GalleryPage } from '../templates/GalleryPage';
+import { AlbumPage } from '../templates/AlbumPage';
 
 const entries = await getCollection('photos');
 
@@ -21,6 +21,6 @@ const sortedFiveStarPhotos = _.orderBy(fiveStarPhotos, ['timestamp'], ['desc']);
 	title="Photos"
 	pageTitle="Favorite photos by Artem Sapegin"
 	description="Artem Sapegin’s favorite photos: landscapes, travel, cityscapes, nature, street"
-	component={GalleryPage}
+	component={AlbumPage}
 	props={{ photos: sortedFiveStarPhotos }}
 />
