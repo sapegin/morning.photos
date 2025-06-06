@@ -4,12 +4,15 @@
   "color": "#51687d",
   "width": 3240,
   "height": 2160,
-  "modified": "2025-05-30T15:26:46.000Z",
+  "modified": "2025-06-06T07:54:50.000Z",
   "timestamp": "2020-10-01T07:08:54.000Z",
   "formattedDate": "October 2020",
   "title": "S-Bahn train in fog",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "fog",
+    "train"
+  ],
   "rating": 5
 }

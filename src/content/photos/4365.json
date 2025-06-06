@@ -4,12 +4,16 @@
   "color": "#3d4451",
   "width": 2880,
   "height": 2160,
-  "modified": "2025-05-30T15:27:18.000Z",
+  "modified": "2025-06-05T07:32:27.000Z",
   "timestamp": "2021-09-05T12:38:47.000Z",
   "formattedDate": "September 2021",
   "title": "",
   "caption": "",
   "location": "Germany",
-  "keywords": [],
+  "keywords": [
+    "bicycle",
+    "bike",
+    "wall"
+  ],
   "rating": 0
 }

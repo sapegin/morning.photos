@@ -4,12 +4,15 @@
   "color": "#41413f",
   "width": 1620,
   "height": 2160,
-  "modified": "2025-06-01T14:33:25.000Z",
+  "modified": "2025-06-06T07:54:38.000Z",
   "timestamp": "2019-04-13T12:17:43.000Z",
   "formattedDate": "April 2019",
   "title": "",
   "caption": "",
   "location": "Netherlands",
-  "keywords": [],
+  "keywords": [
+    "light",
+    "shadow"
+  ],
   "rating": 0
 }

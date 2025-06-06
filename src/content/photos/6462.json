@@ -4,12 +4,21 @@
   "color": "#1a2431",
   "width": 2880,
   "height": 2160,
-  "modified": "2025-05-30T15:26:43.000Z",
+  "modified": "2025-06-06T07:54:50.000Z",
   "timestamp": "2020-10-26T05:46:47.000Z",
   "formattedDate": "October 2020",
-  "title": "",
+  "title": "S-Bahn station before sunrise",
   "caption": "",
   "location": "Mühlenbecker Land, Germany",
-  "keywords": [],
+  "keywords": [
+    "clock",
+    "dawn",
+    "dusk",
+    "railroad station",
+    "railway station",
+    "sunrise",
+    "train",
+    "train station"
+  ],
   "rating": 5
 }
