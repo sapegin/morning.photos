@@ -1,5 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 import type { Photo } from '../types/Photo';
+import type { Album } from '../types/Album';
 
 // Photos
 const photos = defineCollection({
@@ -30,7 +31,7 @@ const series = defineCollection({
 		description: z.string().optional(),
 		cover: z.string(),
 		position: z.number(),
-	}),
+	}) satisfies z.ZodType<Album>,
 });
 
 // Blog posts
