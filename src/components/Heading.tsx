@@ -13,15 +13,13 @@ const heading = cva({
 	variants: {
 		level: {
 			1: {
-				fontSize: 'l',
-				textAlign: 'center',
-				textTransform: 'uppercase',
-			},
-			2: {
 				fontSize: 'xxl',
 			},
-			3: {
+			2: {
 				fontSize: 'xl',
+			},
+			3: {
+				fontSize: 'l',
 			},
 		},
 	},
