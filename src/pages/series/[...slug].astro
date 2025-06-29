@@ -4,9 +4,6 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { AlbumPage } from '../../templates/AlbumPage';
 import type { Photo } from '../../types/Photo';
-import { undefined } from 'astro:schema';
-
-// @todo: Report missing photos
 
 type Props = {
 	album: CollectionEntry<'series'>;
