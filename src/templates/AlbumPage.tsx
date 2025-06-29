@@ -45,6 +45,7 @@ export function AlbumPage({ url, title, description, photos }: Props) {
 						{sortedPhotos.map((pair) => (
 							<Grid
 								key={pair[0].name}
+								id={pair[0].name}
 								rowGap="xl"
 								columnGap="m"
 								alignItems="center"
@@ -62,21 +63,13 @@ export function AlbumPage({ url, title, description, photos }: Props) {
 									tablet: 'm',
 								}}
 							>
-								{pair.length === 1 ? (
+								{pair.map((photo, index) => (
 									<Photograph
-										key={pair[0].name}
-										id={pair[0].name}
-										photo={pair[0]}
+										key={photo.name}
+										id={index > 0 ? photo.name : undefined}
+										photo={photo}
 									/>
-								) : (
-									pair.map((photo) => (
-										<Photograph
-											key={photo.name}
-											id={photo.name}
-											photo={photo}
-										/>
-									))
-								)}
+								))}
 							</Grid>
 						))}
 					</Stack>

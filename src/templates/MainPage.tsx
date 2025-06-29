@@ -54,43 +54,51 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 		<Stack as="section" gap="m">
 			{photo1 && (
 				<Expander>
-					<Thumbnail
-						photo={photo1}
-						size="medium"
-						alt="Saxon Switzerland forest, Germany"
-					/>
+					<Link href={`/photos/#${photo1.name}`}>
+						<Thumbnail
+							photo={photo1}
+							size="medium"
+							alt="Saxon Switzerland forest, Germany"
+						/>
+					</Link>
 				</Expander>
 			)}
 			<Expander>
 				<Grid gap="m" auto="narrow">
 					{photo2 && (
-						<Frame aspectRatio="65/90">
-							<Thumbnail
-								photo={photo2}
-								size="medium"
-								alt="Dawn in Berlin, Germany"
-							/>
-						</Frame>
+						<Link href={`/photos/#${photo2.name}`}>
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo2}
+									size="medium"
+									alt="Dawn in Berlin, Germany"
+								/>
+							</Frame>
+						</Link>
 					)}
 					<Box display={{ base: 'none', tablet: 'block' }}>
 						{photo3 && (
-							<Frame aspectRatio="65/90">
-								<Thumbnail
-									photo={photo3}
-									size="medium"
-									alt="Snowstorm in Berlin, Germany"
-								/>
-							</Frame>
+							<Link href={`/photos/#${photo3.name}`}>
+								<Frame aspectRatio="65/90">
+									<Thumbnail
+										photo={photo3}
+										size="medium"
+										alt="Snowstorm in Berlin, Germany"
+									/>
+								</Frame>
+							</Link>
 						)}
 					</Box>
 					{photo4 && (
-						<Frame aspectRatio="65/90">
-							<Thumbnail
-								photo={photo4}
-								size="medium"
-								alt="Sunrise in Rome, Italy"
-							/>
-						</Frame>
+						<Link href={`/photos/#${photo4.name}`}>
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo4}
+									size="medium"
+									alt="Sunrise in Rome, Italy"
+								/>
+							</Frame>
+						</Link>
 					)}
 				</Grid>
 			</Expander>
@@ -108,43 +116,51 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 			<Me />
 			{photo4 && (
 				<Expander>
-					<Thumbnail
-						photo={photo4}
-						size="medium"
-						alt="Saxon Switzerland forest, Germany"
-					/>
+					<Link href={`/photos/#${photo4.name}`}>
+						<Thumbnail
+							photo={photo4}
+							size="medium"
+							alt="Saxon Switzerland forest, Germany"
+						/>
+					</Link>
 				</Expander>
 			)}
 			<Expander>
 				<Grid gap="m" auto="narrow">
 					{photo1 && (
-						<Frame aspectRatio="65/90">
-							<Thumbnail
-								photo={photo1}
-								size="medium"
-								alt="View from the top floor of Pressehaus, Berlin, Germany"
-							/>
-						</Frame>
+						<Link href={`/series/gol/#${photo1.name}`}>
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo1}
+									size="medium"
+									alt="View from the top floor of Pressehaus, Berlin, Germany"
+								/>
+							</Frame>
+						</Link>
 					)}
 					<Box display={{ base: 'none', tablet: 'block' }}>
 						{photo2 && (
-							<Frame aspectRatio="65/90">
-								<Thumbnail
-									photo={photo2}
-									size="medium"
-									alt="Peeled advertisement posters, Berlin, Germany"
-								/>
-							</Frame>
+							<Link href={`/series/moire/#${photo2.name}`}>
+								<Frame aspectRatio="65/90">
+									<Thumbnail
+										photo={photo2}
+										size="medium"
+										alt="Peeled advertisement posters, Berlin, Germany"
+									/>
+								</Frame>
+							</Link>
 						)}
 					</Box>
 					{photo3 && (
-						<Frame aspectRatio="65/90">
-							<Thumbnail
-								photo={photo3}
-								size="medium"
-								alt="Birds chasing an airplane, Berlin, Germany"
-							/>
-						</Frame>
+						<Link href={`/series/sfop/#${photo3.name}`}>
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo3}
+									size="medium"
+									alt="Birds chasing an airplane, Berlin, Germany"
+								/>
+							</Frame>
+						</Link>
 					)}
 				</Grid>
 			</Expander>
