@@ -1,6 +1,6 @@
 import { css } from '../../styled-system/css';
 import type { Photo } from '../types/Photo';
-import { getPhotoUrl } from '../util/getPhotoUrl';
+import { getPhotoUrl, type Size } from '../util/getPhotoUrl';
 
 /**
  * Render a Photo object.
@@ -8,13 +8,21 @@ import { getPhotoUrl } from '../util/getPhotoUrl';
  * - Lazy loaded
  * - Fallback to dominant color
  */
-export function Thumbnail({ photo }: { photo: Photo }) {
+export function Thumbnail({
+	photo,
+	size = 'thumbnail',
+	alt,
+}: {
+	photo: Photo;
+	size?: Size;
+	alt?: string;
+}) {
 	return (
 		<img
-			src={getPhotoUrl(photo, 'thumbnail')}
+			src={getPhotoUrl(photo, size)}
 			width={photo.width}
 			height={photo.height}
-			alt=""
+			alt={alt ?? ''}
 			loading="lazy"
 			className={css({
 				width: '100%',

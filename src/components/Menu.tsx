@@ -13,6 +13,10 @@ interface Item {
 
 const ITEMS: Item[] = [
 	{
+		title: 'About',
+		href: '/',
+	},
+	{
 		title: 'Photos',
 		href: '/photos/',
 	},
@@ -28,13 +32,13 @@ const ITEMS: Item[] = [
 		title: 'Zine',
 		href: '/zine/',
 	},
-	{
-		title: 'About',
-		href: '/about/',
-	},
 ];
 
 function isCurrent(href: string, current: string) {
+	if (href === '/') {
+		return href === current;
+	}
+
 	return current.startsWith(href);
 }
 

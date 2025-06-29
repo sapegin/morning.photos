@@ -1,176 +1,207 @@
+import { VisuallyHidden } from '../components/VisuallyHidden';
 import { Box } from '../components/Box';
+import { BuyMeCoffee } from '../components/BuyMeCoffee';
 import { Expander } from '../components/Expander';
+import { Frame } from '../components/Frame';
 import { Grid } from '../components/Grid';
-import { Heading } from '../components/Heading';
 import { Image } from '../components/Image';
 import { Link } from '../components/Link';
-import { LinkWithIcon } from '../components/LinkWithIcon';
-import { PostList } from '../components/PostList';
+import { Markdown } from '../components/Markdown';
 import { Stack } from '../components/Stack';
-import { Text } from '../components/Text';
-import { ME_BLUESKY_URL, ME_GITHUB_URL, ME_MASTODON_URL } from '../constants';
-import type { Post } from '../types/Post';
+import { Subscription } from '../components/Subscription';
+import { TextContent } from '../components/TextContent';
+import { Thumbnail } from '../components/Thumbnail';
+import type { Photo } from '../types/Photo';
+import type { Resource } from '../types/Resource';
 import { Page } from './Page';
 
 type Props = {
 	url: string;
-	blogPosts: Post[];
+	title: string;
+	text: string;
+	photos: Photo[];
+	links: Resource[][];
 };
 
-function Intro() {
+function findPhoto(photos: Photo[], name: string) {
+	return photos.find((x) => x.name === name);
+}
+
+function Links({ links }: Pick<Props, 'links'>) {
 	return (
-		<Stack as="section" gap="m">
-			<Stack gap="m">
-				<Text variant="intro">
-					<LinkWithIcon icon="mail" href="mailto:artem@sapegin.ru">
-						Write to me
-					</LinkWithIcon>
-					,{' '}
-					<LinkWithIcon icon="comment" href={`${ME_GITHUB_URL}/ama`}>
-						ask me anything
-					</LinkWithIcon>
-					,
-					<br />
-					follow me on{' '}
-					<LinkWithIcon icon="mastodon" href={ME_MASTODON_URL} rel="me">
-						Mastodon
-					</LinkWithIcon>
-					,{' '}
-					<LinkWithIcon icon="bluesky" href={ME_BLUESKY_URL}>
-						Bluesky
-					</LinkWithIcon>
-					,{' '}
-					<LinkWithIcon icon="github" href={ME_GITHUB_URL}>
-						GitHub
-					</LinkWithIcon>
-					, or{' '}
-					<LinkWithIcon icon="devto" href="https://dev.to/sapegin">
-						Dev.to
-					</LinkWithIcon>
-					,<br />
-					or keep reading about me:
-				</Text>
-			</Stack>
-		</Stack>
+		<ul>
+			{links.map((group) =>
+				group.map(({ url, title }, index) => (
+					<Box
+						key={url}
+						as="li"
+						mb={index === group.length - 1 ? 'm' : undefined}
+					>
+						<Link href={url}>{title}</Link>
+					</Box>
+				))
+			)}
+		</ul>
 	);
 }
 
-function Writing({ blogPosts }: Pick<Props, 'blogPosts'>) {
+function Photos({ photos }: Pick<Props, 'photos'>) {
+	const photo1 = findPhoto(photos, '2021-11-06_8253_Artem_Sapegin');
+	const photo2 = findPhoto(photos, '2021-03-08_1475_Artem_Sapegin');
+	const photo3 = findPhoto(photos, '2021-02-07_8254_Artem_Sapegin');
+	const photo4 = findPhoto(photos, '2021-07-30_4525_Artem_Sapegin');
 	return (
 		<Stack as="section" gap="m">
-			<Heading level={2}>I write about frontend development</Heading>
-			<Stack gap="l">
-				<Stack gap="m">
-					<Heading level={3}>Recent blog posts</Heading>
-					<PostList posts={blogPosts} showDates />
-				</Stack>
-			</Stack>
-		</Stack>
-	);
-}
-
-function Photography() {
-	return (
-		<Stack as="section" gap="m">
-			<Heading level={2}>I make photos of trees, buildings, and things</Heading>
-			<Expander>
-				<Image
-					src="/images/photos-1.avif"
-					alt="Saxon Switzerland forest, Germany"
-					width={900}
-					height={505}
-				/>
-			</Expander>
+			{photo1 && (
+				<Expander>
+					<Thumbnail
+						photo={photo1}
+						size="medium"
+						alt="Saxon Switzerland forest, Germany"
+					/>
+				</Expander>
+			)}
 			<Expander>
 				<Grid gap="m" auto="narrow">
-					<Image
-						src="/images/photos-2.avif"
-						alt="Dawn in Berlin, Germany"
-						width={600}
-						height={840}
-					/>
+					{photo2 && (
+						<Frame aspectRatio="65/90">
+							<Thumbnail
+								photo={photo2}
+								size="medium"
+								alt="Dawn in Berlin, Germany"
+							/>
+						</Frame>
+					)}
 					<Box display={{ base: 'none', tablet: 'block' }}>
-						<Image
-							src="/images/photos-3.avif"
-							alt="Foggy Berliner Dom, Germany"
-							width={600}
-							height={840}
-						/>
+						{photo3 && (
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo3}
+									size="medium"
+									alt="Snowstorm in Berlin, Germany"
+								/>
+							</Frame>
+						)}
 					</Box>
-					<Image
-						src="/images/photos-4.avif"
-						alt="Sunrise in Rome, Italy"
-						width={600}
-						height={840}
-					/>
+					{photo4 && (
+						<Frame aspectRatio="65/90">
+							<Thumbnail
+								photo={photo4}
+								size="medium"
+								alt="Sunrise in Rome, Italy"
+							/>
+						</Frame>
+					)}
 				</Grid>
 			</Expander>
-			<Text>
-				See{' '}
-				<Link href="/photos/">more of my photos and my photography zine</Link>.
-			</Text>
+		</Stack>
+	);
+}
+
+function Photos2({ photos }: Pick<Props, 'photos'>) {
+	const photo1 = findPhoto(photos, 'IMG_7743');
+	const photo2 = findPhoto(photos, 'IMG_5445');
+	const photo3 = findPhoto(photos, 'IMG_8108');
+	const photo4 = findPhoto(photos, '2023-12-30_1325_Artem_Sapegin');
+	return (
+		<Stack as="section" gap="m">
+			<Expander>
+				<Grid gap="m" auto="narrow">
+					{photo1 && (
+						<Frame aspectRatio="65/90">
+							<Thumbnail
+								photo={photo1}
+								size="medium"
+								alt="View from the top floor of Pressehaus, Berlin, Germany"
+							/>
+						</Frame>
+					)}
+					<Box display={{ base: 'none', tablet: 'block' }}>
+						{photo2 && (
+							<Frame aspectRatio="65/90">
+								<Thumbnail
+									photo={photo2}
+									size="medium"
+									alt="Peeled advertisement posters, Berlin, Germany"
+								/>
+							</Frame>
+						)}
+					</Box>
+					{photo3 && (
+						<Frame aspectRatio="65/90">
+							<Thumbnail
+								photo={photo3}
+								size="medium"
+								alt="Birds chasing an airplane, Berlin, Germany"
+							/>
+						</Frame>
+					)}
+				</Grid>
+			</Expander>
+			{photo4 && (
+				<Expander>
+					<Thumbnail
+						photo={photo4}
+						size="medium"
+						alt="Saxon Switzerland forest, Germany"
+					/>
+				</Expander>
+			)}
 		</Stack>
 	);
 }
 
 function Me() {
 	return (
-		<Stack as="section" gap="m">
-			<Heading level={2}>I may (or may not) look like this</Heading>
-			<Expander>
-				<Grid gap="m" auto="narrow">
+		<Expander>
+			<Grid gap="m" auto="narrow">
+				<Image
+					src="/images/me-1.avif"
+					alt="Artem Sapegin is making a photo"
+					width={700}
+					height={700}
+				/>
+				<Box display={{ base: 'none', tablet: 'block' }}>
 					<Image
-						src="/images/me-1.avif"
-						alt="Artem Sapegin is making a photo"
+						src="/images/me-2.avif"
+						alt="Artem Sapegin is drinking coffee"
 						width={700}
 						height={700}
 					/>
-					<Box display={{ base: 'none', tablet: 'block' }}>
-						<Image
-							src="/images/me-2.avif"
-							alt="Artem Sapegin is drinking coffee"
-							width={700}
-							height={700}
-						/>
-					</Box>
-					<Image
-						src="/images/me-3.avif"
-						alt="Artem Sapegin is making a photo"
-						width={700}
-						height={700}
-					/>
-				</Grid>
-			</Expander>
-		</Stack>
+				</Box>
+				<Image
+					src="/images/me-3.avif"
+					alt="Artem Sapegin is making a photo"
+					width={700}
+					height={700}
+				/>
+			</Grid>
+		</Expander>
 	);
 }
 
-function BestViewed() {
-	return (
-		<Stack as="section" gap="s" textAlign="center">
-			<Text>This page is best viewed in:</Text>
-			<Box
-				as="img"
-				src="/images/netscape.gif"
-				alt="Netscape Navigator"
-				title="Netscape Navigator"
-				mx="auto"
-				width={60}
-				height={60}
-				loading="lazy"
-			/>
-		</Stack>
-	);
-}
-
-export function MainPage({ url, blogPosts }: Props) {
+export function MainPage({ url, title, text, photos, links }: Props) {
 	return (
 		<Page url={url}>
-			<Intro />
-			<Writing blogPosts={blogPosts} />
-			<Photography />
-			<Me />
-			<BestViewed />
+			<Stack gap="xl">
+				<VisuallyHidden as="h1">{title}</VisuallyHidden>
+				<Photos photos={photos} />
+				<Stack gap="l">
+					<Grid
+						gridColumnGap="l"
+						gridTemplateColumns={{ base: '1fr', desktop: '2fr 1fr' }}
+					>
+						<TextContent>
+							<Markdown text={text} />
+						</TextContent>
+						<Links links={links} />
+					</Grid>
+					<Photos2 photos={photos} />
+					<Me />
+					<BuyMeCoffee />
+				</Stack>
+				<Subscription />
+			</Stack>
 		</Page>
 	);
 }

@@ -19,8 +19,8 @@ export function BuyMeCoffee() {
 					gap="s"
 					alignItems="center"
 				>
-					<Box mt={-12}>
-						<IconCoffee variant="coffee" />
+					<Box mt={-6}>
+						<IconCoffee />
 					</Box>
 					<Box>Buy me a coffee</Box>
 				</Stack>

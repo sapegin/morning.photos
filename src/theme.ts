@@ -12,6 +12,9 @@ export const colors = {
 	accent: '#c25341',
 	selection: '#faebaf',
 	gradient: '#646fc8',
+	coffeeText: '#754c06',
+	coffeeBackground: '#fbc024',
+	coffeeHover: '#3a3d40',
 };
 
 const colorsDark = {
@@ -24,6 +27,9 @@ const colorsDark = {
 	accent: '#db76a7',
 	selection: '#61656b',
 	gradient: '#806488',
+	coffeeText: '#754c06',
+	coffeeBackground: '#fbc024',
+	coffeeHover: '#2e3033',
 };
 
 export const lineHeights = {
