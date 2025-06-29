@@ -1,31 +1,33 @@
-import { Link } from './Link';
+import { css } from '../../styled-system/css';
 import { Text } from './Text';
 
 export function Logo() {
 	return (
 		<Text variant="menu">
-			<Link
+			<a
 				href="/"
-				display="inline-flex"
-				flexDirection="column"
-				css={{
+				className={css({
 					display: 'inline-block',
 					fontWeight: 'bold',
 					textDecoration: 'none',
-					background: `linear-gradient(token(colors.gradient), token(colors.primary))`,
+					color: 'primary',
+					background: `linear-gradient(token(colors.gradient1), token(colors.gradient2))`,
 					backgroundClip: 'text',
 					WebkitTextFillColor: 'transparent',
 					transitionDuration: 'hover',
 					transitionTimingFunction: 'hover',
 					transitionProperty: 'all',
 					_hover: {
-						color: 'primary',
+						background:
+							'linear-gradient(token(colors.accent), token(colors.primary))',
+						backgroundClip: 'text',
+						WebkitTextFillColor: 'transparent',
 						textDecoration: 'underline',
 					},
-				}}
+				})}
 			>
 				Morning.photos
-			</Link>
+			</a>
 		</Text>
 	);
 }
