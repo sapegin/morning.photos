@@ -156,22 +156,22 @@ function Me() {
 		<Expander>
 			<Grid gap="m" auto="narrow">
 				<Image
-					src="/images/me-1.avif"
-					alt="Artem Sapegin is making a photo"
+					src="/images/about/me-1.avif"
+					alt="Artem Sapegin is making a photo with a toy camera"
 					width={700}
 					height={700}
 				/>
 				<Box display={{ base: 'none', tablet: 'block' }}>
 					<Image
-						src="/images/me-2.avif"
-						alt="Artem Sapegin is drinking coffee"
+						src="/images/about/me-2.avif"
+						alt="Artem Sapegin is making a photo with a phone"
 						width={700}
 						height={700}
 					/>
 				</Box>
 				<Image
-					src="/images/me-3.avif"
-					alt="Artem Sapegin is making a photo"
+					src="/images/about/me-3.avif"
+					alt="Artem Sapegin is making a photo in a forest"
 					width={700}
 					height={700}
 				/>
