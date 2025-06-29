@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "start": "astro dev",
-    "prebuild": "npm run sync",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
