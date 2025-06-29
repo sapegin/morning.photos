@@ -24,10 +24,10 @@ const ITEMS: Item[] = [
 		title: 'Series',
 		href: '/series/',
 	},
-	{
-		title: 'Blog',
-		href: '/blog/',
-	},
+	// {
+	// 	title: 'Blog',
+	// 	href: '/blog/',
+	// },
 	{
 		title: 'Zine',
 		href: '/zine/',
