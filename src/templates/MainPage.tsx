@@ -161,6 +161,7 @@ function Me() {
 					alt="Artem Sapegin is making a photo with a toy camera"
 					width={700}
 					height={700}
+					style={{ backgroundColor: '#69716e' }}
 				/>
 				<Box display={{ base: 'none', tablet: 'block' }}>
 					<Image
@@ -168,6 +169,7 @@ function Me() {
 						alt="Artem Sapegin is making a photo with a phone"
 						width={700}
 						height={700}
+						style={{ backgroundColor: '#978b7f' }}
 					/>
 				</Box>
 				<Image
@@ -175,6 +177,7 @@ function Me() {
 					alt="Artem Sapegin is making a photo in a forest"
 					width={700}
 					height={700}
+					style={{ backgroundColor: '#615c45' }}
 				/>
 			</Grid>
 		</Expander>
