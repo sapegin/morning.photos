@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { Flex } from '../components/Flex';
 import { FullWidth } from '../components/FullWidth';
 import { Photograph } from '../components/Photograph';
 import { Stack } from '../components/Stack';
@@ -7,6 +6,7 @@ import { type Photo } from '../types/Photo';
 import { PageWithTitle } from './PageWithTitle';
 import { Markdown } from '../components/Markdown';
 import { TextContent } from '../components/TextContent';
+import { Grid } from '../components/Grid';
 
 type Props = {
 	url: string;
@@ -42,34 +42,43 @@ export function AlbumPage({ url, title, description, photos }: Props) {
 				)}
 				<FullWidth>
 					<Stack gap={{ base: 'xl', desktop: 'xxl' }}>
-						{sortedPhotos.map((pair) =>
-							pair.length === 1 ? (
-								<Flex
-									key={pair[0].name}
-									id={pair[0].name}
-									justifyContent="center"
-								>
-									<Photograph photo={pair[0]} />
-								</Flex>
-							) : (
-								<Stack
-									key={pair[0].name}
-									direction={{ base: 'column', tablet: 'row' }}
-									gap={{ base: 'xl', tablet: 'm' }}
-									justifyContent="center"
-								>
-									{pair.map((photo) => (
-										<Flex
+						{sortedPhotos.map((pair) => (
+							<Grid
+								key={pair[0].name}
+								rowGap="xl"
+								columnGap="m"
+								alignItems="center"
+								justifyItems="center"
+								gridTemplateColumns={{
+									base: '1fr',
+									tablet: 'repeat(auto-fit, minmax(320px,1fr))',
+								}}
+								height={{
+									base: 'auto',
+									tablet: 'min(900px, calc(100vh - (token(spacing.m) * 2)))',
+								}}
+								margin={{
+									base: 0,
+									tablet: 'm',
+								}}
+							>
+								{pair.length === 1 ? (
+									<Photograph
+										key={pair[0].name}
+										id={pair[0].name}
+										photo={pair[0]}
+									/>
+								) : (
+									pair.map((photo) => (
+										<Photograph
 											key={photo.name}
 											id={photo.name}
-											justifyContent="center"
-										>
-											<Photograph photo={photo} />
-										</Flex>
-									))}
-								</Stack>
-							)
-						)}
+											photo={photo}
+										/>
+									))
+								)}
+							</Grid>
+						))}
 					</Stack>
 				</FullWidth>
 			</Stack>
