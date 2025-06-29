@@ -1,9 +1,7 @@
 import { Stack } from './Stack';
 import { Heading } from './Heading';
 import { TextTypo } from './TextTypo';
-
-const SUBSTACK_ID = 'lofisunshine';
-const IFRAME_URL = `https://${SUBSTACK_ID}.substack.com/embed`;
+import { SubscriptionForm } from './SubscriptionForm';
 
 export function Subscription() {
 	return (
@@ -19,13 +17,7 @@ export function Subscription() {
 					<i>No spam, not-too-often, unsubscribe at any time.</i>
 				</>
 			</TextTypo>
-			<iframe
-				title="Newsletter form"
-				src={IFRAME_URL}
-				width="100%"
-				height="320"
-				loading="lazy"
-			/>
+			<SubscriptionForm />
 		</Stack>
 	);
 }

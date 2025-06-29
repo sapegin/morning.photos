@@ -8,12 +8,12 @@ import { Image } from '../components/Image';
 import { Link } from '../components/Link';
 import { Markdown } from '../components/Markdown';
 import { Stack } from '../components/Stack';
-import { Subscription } from '../components/Subscription';
 import { TextContent } from '../components/TextContent';
 import { Thumbnail } from '../components/Thumbnail';
 import type { Photo } from '../types/Photo';
 import type { Resource } from '../types/Resource';
 import { Page } from './Page';
+import { SubscriptionForm } from '../components/SubscriptionForm';
 
 type Props = {
 	url: string;
@@ -105,6 +105,16 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 	const photo4 = findPhoto(photos, '2023-12-30_1325_Artem_Sapegin');
 	return (
 		<Stack as="section" gap="m">
+			<Me />
+			{photo4 && (
+				<Expander>
+					<Thumbnail
+						photo={photo4}
+						size="medium"
+						alt="Saxon Switzerland forest, Germany"
+					/>
+				</Expander>
+			)}
 			<Expander>
 				<Grid gap="m" auto="narrow">
 					{photo1 && (
@@ -138,15 +148,6 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 					)}
 				</Grid>
 			</Expander>
-			{photo4 && (
-				<Expander>
-					<Thumbnail
-						photo={photo4}
-						size="medium"
-						alt="Saxon Switzerland forest, Germany"
-					/>
-				</Expander>
-			)}
 		</Stack>
 	);
 }
@@ -197,10 +198,20 @@ export function MainPage({ url, title, text, photos, links }: Props) {
 						<Links links={links} />
 					</Grid>
 					<Photos2 photos={photos} />
-					<Me />
+					<TextContent>
+						Have a look at my <Link href="/photos/">photo portfolio</Link>,{' '}
+						<Link href="/photos/">series</Link>,{' '}
+						<Link href="/photos/">my photography zine</Link>. Subscribe to{' '}
+						<Link href="https://lofisunshine.substack.com/">my Substack</Link>{' '}
+						or{' '}
+						<Link href="https://buymeacoffee.com/sapegin">
+							buy me a cup of coffee
+						</Link>
+						.
+					</TextContent>
+					<SubscriptionForm />
 					<BuyMeCoffee />
 				</Stack>
-				<Subscription />
 			</Stack>
 		</Page>
 	);
