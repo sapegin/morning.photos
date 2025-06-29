@@ -19,12 +19,17 @@ export async function getStaticPaths() {
 
 	return seriesEntries.map((album) => {
 		// Convert Markdown list to an array of photo names
-		const photoNames = album.body
-			.split('\n')
-			.map((x) => x.replace(/^-\s*/, ''));
+		const photoNames = album.body.split('\n').map((x) =>
+			x
+				// Remove Markdown list marker
+				.replace(/^-\s*/, '')
+				// Unescape characters
+				.replaceAll('\\', '')
+		);
+
 		// Keep only photos from the current series
 		const photos = allPhotos.filter((x) => photoNames.includes(x.name));
-		// Sort by data
+		// Sort by capture date
 		const sortedPhotos = _.orderBy(photos, ['timestamp'], ['desc']);
 		return {
 			params: { slug: album.slug },
