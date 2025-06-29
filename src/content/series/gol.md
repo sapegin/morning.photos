@@ -1,7 +1,7 @@
 ---
 title: Geometry of light
 pageTitle: 'Geometry of light photo series by Artem Sapegin'
-description: 'Light can be part of a photo’s composition just like any physical object – and it can completely transform a scene. This photo series explores those transformations.'
+description: 'Sometimes, light can completely transform a scene and become the photo’s subject – like any physical object. This photo series explores those transformations.'
 cover: IMG_3016
 position: 10
 ---
