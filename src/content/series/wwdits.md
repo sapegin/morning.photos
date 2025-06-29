@@ -7,7 +7,6 @@ position: 20
 ---
 
 - \_R001865
-- 2013-07-27_0560_Artem_Sapegin
 - 2019-04-28_5887_Artem_Sapegin
 - 2021-07-27_3862_Artem_Sapegin
 - 2021-07-30_4525_Artem_Sapegin
