@@ -23,7 +23,7 @@ export function AlbumsPage({ url, title, albums }: Props) {
 	return (
 		<PageWithTitle url={url} title={title}>
 			<FullWidth>
-				<Grid auto="wide" gap={{ base: 'xl', desktop: 'xxl' }}>
+				<Grid auto="wide" columnGap="l" rowGap={{ base: 'l', desktop: 'xl' }}>
 					{albums.map((album) => (
 						<QuotedLink key={album.url} mb="l" href={album.url}>
 							{album.cover && (
