@@ -19,7 +19,7 @@ export function BuyMeCoffee() {
 					gap="s"
 					alignItems="center"
 				>
-					<Box mt={-6}>
+					<Box mt={-12}>
 						<IconCoffee />
 					</Box>
 					<Box>Buy me a coffee</Box>

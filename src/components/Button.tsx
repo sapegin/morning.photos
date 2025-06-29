@@ -51,8 +51,10 @@ const button = cva({
 			coffee: {
 				background: 'coffeeBackground',
 				color: 'coffeeText',
+				pt: 's',
 				py: 'm',
 				fontSize: 'l',
+				lineHeight: '1',
 				borderRadius: 'button',
 				_hover: {
 					color: 'coffeeHover',
