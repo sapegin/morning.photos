@@ -1,7 +1,5 @@
 import { type Config } from '@pandacss/dev';
 
-// TODO: Update dark colors
-
 export const colors = {
 	background: '#fff',
 	text: '#3a3d40',
@@ -12,23 +10,23 @@ export const colors = {
 	accent: '#c25341',
 	selection: '#faebaf',
 	gradient1: '#89abd2',
-	gradient2: '#806488',
+	gradient2: '#72597d',
 	coffeeText: '#754c06',
 	coffeeBackground: '#fbc024',
 	coffeeHover: '#3a3d40',
 };
 
 const colorsDark = {
-	background: '#2e3033',
+	background: '#313131',
 	text: '#e3e6e8',
 	secondary: '#94949e',
 	light: '#94949e',
 	border: '#dbe2e9',
-	primary: '#89abd2',
-	accent: '#db76a7',
+	primary: '#b28bbd',
+	accent: '#dc7f71',
 	selection: '#61656b',
 	gradient1: '#89abd2',
-	gradient2: '#806488',
+	gradient2: '#b28bbd',
 	coffeeText: '#754c06',
 	coffeeBackground: '#fbc024',
 	coffeeHover: '#2e3033',
