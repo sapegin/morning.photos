@@ -39,7 +39,7 @@ const getTitle = ({
 		<Metatags {...Astro.props} />
 	</head>
 	<body>
-		<Page {...Astro.props.props} {...Astro.props}>
+		<Page {...Astro.props} {...Astro.props.props}>
 			<slot />
 		</Page>
 		{

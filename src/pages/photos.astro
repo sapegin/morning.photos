@@ -22,5 +22,5 @@ const sortedFiveStarPhotos = _.orderBy(fiveStarPhotos, ['timestamp'], ['desc']);
 	pageTitle="Favorite photos by Artem Sapegin"
 	description="Artem Sapegin’s favorite photos: landscapes, travel, cityscapes, nature, street"
 	component={AlbumPage}
-	props={{ photos: sortedFiveStarPhotos }}
+	props={{ photos: sortedFiveStarPhotos, description: '' }}
 />

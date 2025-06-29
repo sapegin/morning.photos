@@ -5,14 +5,17 @@ import { Photograph } from '../components/Photograph';
 import { Stack } from '../components/Stack';
 import { type Photo } from '../types/Photo';
 import { PageWithTitle } from './PageWithTitle';
+import { Markdown } from '../components/Markdown';
+import { TextContent } from '../components/TextContent';
 
 type Props = {
 	url: string;
 	title: string;
+	description?: string;
 	photos: Photo[];
 };
 
-export function AlbumPage({ url, title, photos }: Props) {
+export function AlbumPage({ url, title, description, photos }: Props) {
 	// Group by aspect ratio, but keep all horizontal photos in a single group
 	const photosByAspectRatio = _.groupBy(photos, (x) => {
 		const aspectRatio = x.width / x.height;
@@ -31,38 +34,45 @@ export function AlbumPage({ url, title, photos }: Props) {
 
 	return (
 		<PageWithTitle url={url} title={title}>
-			<FullWidth>
-				<Stack gap={{ base: 'xl', desktop: 'xxl' }}>
-					{sortedPhotos.map((pair) =>
-						pair.length === 1 ? (
-							<Flex
-								key={pair[0].name}
-								id={pair[0].name}
-								justifyContent="center"
-							>
-								<Photograph photo={pair[0]} />
-							</Flex>
-						) : (
-							<Stack
-								key={pair[0].name}
-								direction={{ base: 'column', tablet: 'row' }}
-								gap={{ base: 'xl', tablet: 'm' }}
-								justifyContent="center"
-							>
-								{pair.map((photo) => (
-									<Flex
-										key={photo.name}
-										id={photo.name}
-										justifyContent="center"
-									>
-										<Photograph photo={photo} />
-									</Flex>
-								))}
-							</Stack>
-						)
-					)}
-				</Stack>
-			</FullWidth>
+			<Stack gap={{ base: 'l', desktop: 'xl' }}>
+				{description && (
+					<TextContent>
+						<Markdown text={description} forceBlock />
+					</TextContent>
+				)}
+				<FullWidth>
+					<Stack gap={{ base: 'xl', desktop: 'xxl' }}>
+						{sortedPhotos.map((pair) =>
+							pair.length === 1 ? (
+								<Flex
+									key={pair[0].name}
+									id={pair[0].name}
+									justifyContent="center"
+								>
+									<Photograph photo={pair[0]} />
+								</Flex>
+							) : (
+								<Stack
+									key={pair[0].name}
+									direction={{ base: 'column', tablet: 'row' }}
+									gap={{ base: 'xl', tablet: 'm' }}
+									justifyContent="center"
+								>
+									{pair.map((photo) => (
+										<Flex
+											key={photo.name}
+											id={photo.name}
+											justifyContent="center"
+										>
+											<Photograph photo={photo} />
+										</Flex>
+									))}
+								</Stack>
+							)
+						)}
+					</Stack>
+				</FullWidth>
+			</Stack>
 		</PageWithTitle>
 	);
 }
