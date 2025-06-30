@@ -54,7 +54,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 		<Stack as="section" gap="m">
 			{photo1 && (
 				<Expander>
-					<Link href={`/photos/#${photo1.name}`}>
+					<Link href={`/photos/#${photo1.name}`} display="block">
 						<Thumbnail
 							photo={photo1}
 							size="medium"
@@ -66,7 +66,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 			<Expander>
 				<Grid gap="m" auto="narrow">
 					{photo2 && (
-						<Link href={`/photos/#${photo2.name}`}>
+						<Link href={`/photos/#${photo2.name}`} display="block">
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo2}
@@ -78,7 +78,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 					)}
 					<Box display={{ base: 'none', tablet: 'block' }}>
 						{photo3 && (
-							<Link href={`/photos/#${photo3.name}`}>
+							<Link href={`/photos/#${photo3.name}`} display="block">
 								<Frame aspectRatio="65/90">
 									<Thumbnail
 										photo={photo3}
@@ -90,7 +90,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 						)}
 					</Box>
 					{photo4 && (
-						<Link href={`/photos/#${photo4.name}`}>
+						<Link href={`/photos/#${photo4.name}`} display="block">
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo4}
@@ -116,7 +116,7 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 			<Me />
 			{photo4 && (
 				<Expander>
-					<Link href={`/photos/#${photo4.name}`}>
+					<Link href={`/photos/#${photo4.name}`} display="block">
 						<Thumbnail
 							photo={photo4}
 							size="medium"
@@ -128,7 +128,7 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 			<Expander>
 				<Grid gap="m" auto="narrow">
 					{photo1 && (
-						<Link href={`/series/gol/#${photo1.name}`}>
+						<Link href={`/series/gol/#${photo1.name}`} display="block">
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo1}
@@ -140,7 +140,7 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 					)}
 					<Box display={{ base: 'none', tablet: 'block' }}>
 						{photo2 && (
-							<Link href={`/series/moire/#${photo2.name}`}>
+							<Link href={`/series/moire/#${photo2.name}`} display="block">
 								<Frame aspectRatio="65/90">
 									<Thumbnail
 										photo={photo2}
@@ -152,7 +152,7 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 						)}
 					</Box>
 					{photo3 && (
-						<Link href={`/series/sfop/#${photo3.name}`}>
+						<Link href={`/series/sfop/#${photo3.name}`} display="block">
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo3}
