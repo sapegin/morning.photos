@@ -24,6 +24,11 @@ export function Logo() {
 						WebkitTextFillColor: 'transparent',
 						textDecoration: 'underline',
 					},
+					_focusVisible: {
+						outline: 'focus',
+						outlineOffset: 'token(borderWidths.focusOutlineOffset)',
+						borderRadius: '0.05em',
+					},
 				})}
 			>
 				Morning.photos
