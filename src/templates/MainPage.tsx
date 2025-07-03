@@ -1,6 +1,5 @@
 import { VisuallyHidden } from '../components/VisuallyHidden';
 import { Box } from '../components/Box';
-import { BuyMeCoffee } from '../components/BuyMeCoffee';
 import { Expander } from '../components/Expander';
 import { Frame } from '../components/Frame';
 import { Grid } from '../components/Grid';
@@ -13,7 +12,7 @@ import { Thumbnail } from '../components/Thumbnail';
 import type { Photo } from '../types/Photo';
 import type { Resource } from '../types/Resource';
 import { Page } from './Page';
-import { SubscriptionForm } from '../components/SubscriptionForm';
+import { Support } from '../components/Support';
 
 type Props = {
 	url: string;
@@ -228,8 +227,7 @@ export function MainPage({ url, title, text, photos, links }: Props) {
 						</Link>
 						.
 					</TextContent>
-					<SubscriptionForm />
-					<BuyMeCoffee />
+					<Support />
 				</Stack>
 			</Stack>
 		</Page>

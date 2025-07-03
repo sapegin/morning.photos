@@ -5,13 +5,13 @@ import { Button } from '../components/Button';
 import { Expander } from '../components/Expander';
 import { Heading } from '../components/Heading';
 import { Stack } from '../components/Stack';
-import { Subscription } from '../components/Subscription';
 import { Text } from '../components/Text';
 import { TextContent } from '../components/TextContent';
 import { TextTypo } from '../components/TextTypo';
 import { Video } from '../components/Video';
 import { PageWithTitle } from './PageWithTitle';
 import { Markdown } from '../components/Markdown';
+import { Support } from '../components/Support';
 
 type Issue = CollectionEntry<'zines'>;
 
@@ -84,7 +84,7 @@ export function ZinePage({ url, title, issues }: Props) {
 						</Stack>
 					);
 				})}
-				<Subscription />
+				<Support />
 			</Stack>
 		</PageWithTitle>
 	);
