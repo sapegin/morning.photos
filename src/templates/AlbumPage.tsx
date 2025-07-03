@@ -7,6 +7,8 @@ import { PageWithTitle } from './PageWithTitle';
 import { Markdown } from '../components/Markdown';
 import { TextContent } from '../components/TextContent';
 import { Grid } from '../components/Grid';
+import { BuyMeCoffee } from '../components/BuyMeCoffee';
+import { SubscriptionForm } from '../components/SubscriptionForm';
 
 type Props = {
 	url: string;
@@ -74,6 +76,10 @@ export function AlbumPage({ url, title, description, photos }: Props) {
 						))}
 					</Stack>
 				</FullWidth>
+				<Stack gap="l">
+					<SubscriptionForm />
+					<BuyMeCoffee />
+				</Stack>
 			</Stack>
 		</PageWithTitle>
 	);
