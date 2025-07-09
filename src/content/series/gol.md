@@ -6,6 +6,7 @@ cover: IMG_3016
 position: 10
 ---
 
+- 2025-05-12_2408_Artem_Sapegin
 - IMG_0770
 - IMG_1740
 - IMG_3016
