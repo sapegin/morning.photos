@@ -13,6 +13,11 @@ export function Photograph({ photo, id }: { photo: Photo; id?: string }) {
 		<img
 			id={id}
 			src={getPhotoUrl(photo, 'medium')}
+			srcSet={[
+				`${getPhotoUrl(photo, 'small')} 828w`,
+				`${getPhotoUrl(photo, 'medium')} 1024w`,
+			].join(', ')}
+			sizes={[`(max-width: 414px) 100vw`, `1024px`].join(', ')}
 			width={photo.width}
 			height={photo.height}
 			alt={photo.title ? `${photo.title} (${photo.location})` : photo.location}
