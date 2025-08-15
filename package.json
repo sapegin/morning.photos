@@ -1,7 +1,7 @@
 {
   "name": "morning-photos",
   "description": "Artem Sapegin Photography",
-  "author": "Artem Sapegin <artem@sapegin.ru> (https://sapegin.me/)",
+  "author": "Artem Sapegin <artem@sapegin.me> (https://sapegin.me/)",
   "license": "SEE LICENSE IN <Readme.md>",
   "private": true,
   "scripts": {
