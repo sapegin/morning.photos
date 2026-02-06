@@ -1,6 +1,6 @@
 import { css } from '../../styled-system/css';
 import type { Photo } from '../types/Photo';
-import { getPhotoUrl, type Size } from '../util/getPhotoUrl';
+import { getPhotoUrl, type PhotoSize } from '../util/getPhotoUrl';
 
 /**
  * Render a Photo object.
@@ -14,7 +14,7 @@ export function Thumbnail({
 	alt,
 }: {
 	photo: Photo;
-	size?: Size;
+	size?: PhotoSize;
 	alt?: string;
 }) {
 	return (

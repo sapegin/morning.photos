@@ -56,7 +56,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 					<Link href={`/photos/#${photo1.name}`} display="block">
 						<Thumbnail
 							photo={photo1}
-							size="medium"
+							size="full"
 							alt="Saxon Switzerland forest, Germany"
 						/>
 					</Link>
@@ -67,11 +67,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 					{photo2 && (
 						<Link href={`/photos/#${photo2.name}`} display="block">
 							<Frame aspectRatio="65/90">
-								<Thumbnail
-									photo={photo2}
-									size="medium"
-									alt="Dawn in Berlin, Germany"
-								/>
+								<Thumbnail photo={photo2} alt="Dawn in Berlin, Germany" />
 							</Frame>
 						</Link>
 					)}
@@ -81,7 +77,6 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 								<Frame aspectRatio="65/90">
 									<Thumbnail
 										photo={photo3}
-										size="medium"
 										alt="Snowstorm in Berlin, Germany"
 									/>
 								</Frame>
@@ -91,11 +86,7 @@ function Photos({ photos }: Pick<Props, 'photos'>) {
 					{photo4 && (
 						<Link href={`/photos/#${photo4.name}`} display="block">
 							<Frame aspectRatio="65/90">
-								<Thumbnail
-									photo={photo4}
-									size="medium"
-									alt="Sunrise in Rome, Italy"
-								/>
+								<Thumbnail photo={photo4} alt="Sunrise in Rome, Italy" />
 							</Frame>
 						</Link>
 					)}
@@ -118,8 +109,8 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 					<Link href={`/photos/#${photo4.name}`} display="block">
 						<Thumbnail
 							photo={photo4}
-							size="medium"
-							alt="Saxon Switzerland forest, Germany"
+							size="full"
+							alt="Mall near Valencia, Spain"
 						/>
 					</Link>
 				</Expander>
@@ -131,7 +122,6 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo1}
-									size="medium"
 									alt="View from the top floor of Pressehaus, Berlin, Germany"
 								/>
 							</Frame>
@@ -143,7 +133,6 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 								<Frame aspectRatio="65/90">
 									<Thumbnail
 										photo={photo2}
-										size="medium"
 										alt="Peeled advertisement posters, Berlin, Germany"
 									/>
 								</Frame>
@@ -155,7 +144,6 @@ function Photos2({ photos }: Pick<Props, 'photos'>) {
 							<Frame aspectRatio="65/90">
 								<Thumbnail
 									photo={photo3}
-									size="medium"
 									alt="Birds chasing an airplane, Berlin, Germany"
 								/>
 							</Frame>

@@ -15,6 +15,10 @@ const PHOTO_DIR = path.join(
 const DEST_DIR = 'src/content/photos';
 const PUBLIC_PHOTO_DIR = 'public/photos';
 const AVIF_QUALITY = 80;
+const AVIF_QUALITY_STEP = 10;
+const AVIF_MIN_QUALITY = 40;
+const MAX_FILE_SIZE = 500_000;
+const THUMBNAIL_WIDTH = 752;
 
 /**
  * Load an image, or crash on error.
@@ -113,10 +117,29 @@ async function getDominantColor(buffer: Buffer) {
 /**
  * Convert an image to AVIF and save it to the public folder.
  */
+async function writeAvif(
+	pipeline: sharp.Sharp,
+	outputPath: string,
+	quality: number
+) {
+	await pipeline.avif({ quality }).toFile(outputPath);
+	const { size } = fs.statSync(outputPath);
+	if (size > MAX_FILE_SIZE && quality - AVIF_QUALITY_STEP >= AVIF_MIN_QUALITY) {
+		await writeAvif(pipeline, outputPath, quality - AVIF_QUALITY_STEP);
+	}
+}
+
 async function convertToAvif(buffer: Buffer, slug: string) {
-	const outputPath = path.join(PUBLIC_PHOTO_DIR, `${slug}.avif`);
-	await sharp(buffer).avif({ quality: AVIF_QUALITY }).toFile(outputPath);
-	return outputPath;
+	await writeAvif(
+		sharp(buffer),
+		path.join(PUBLIC_PHOTO_DIR, `${slug}.avif`),
+		AVIF_QUALITY
+	);
+	await writeAvif(
+		sharp(buffer).resize({ width: THUMBNAIL_WIDTH }),
+		path.join(PUBLIC_PHOTO_DIR, `${slug}_thumb.avif`),
+		AVIF_QUALITY
+	);
 }
 
 /**
