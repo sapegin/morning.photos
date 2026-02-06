@@ -1,19 +1,22 @@
 {
   "name": "IMG_8060",
   "slug": "8060",
-  "color": "#cab2b8",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-06-05T07:32:40.000Z",
+  "color": "#f8f8f8",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:25:21.000Z",
   "timestamp": "2024-02-09T09:17:48.000Z",
   "formattedDate": "February 2024",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
   "keywords": [
+    "moire-series",
     "poster",
     "street art",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }

@@ -1,10 +1,10 @@
 {
   "name": "IMG_7990",
   "slug": "7990",
-  "color": "#c9c6bd",
-  "width": 1620,
-  "height": 2160,
-  "modified": "2025-06-05T07:32:40.000Z",
+  "color": "#d8d8d8",
+  "width": 1536,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:21.000Z",
   "timestamp": "2024-02-03T10:43:23.000Z",
   "formattedDate": "February 2024",
   "title": "",
@@ -12,8 +12,11 @@
   "location": "Berlin, Germany",
   "keywords": [
     "advertisement",
+    "moire-series",
     "poster",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }

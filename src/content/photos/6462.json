@@ -1,10 +1,10 @@
 {
   "name": "IMG_6462",
   "slug": "6462",
-  "color": "#1a2431",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:00.000Z",
+  "color": "#080818",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:21:47.000Z",
   "timestamp": "2020-10-26T05:46:47.000Z",
   "formattedDate": "October 2020",
   "title": "S-Bahn station before sunrise",
@@ -18,7 +18,9 @@
     "railway station",
     "sunrise",
     "train",
-    "train station"
+    "train station",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

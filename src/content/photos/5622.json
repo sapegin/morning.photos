@@ -1,10 +1,10 @@
 {
   "name": "IMG_5622",
   "slug": "5622",
-  "color": "#242637",
-  "width": 1728,
-  "height": 2160,
-  "modified": "2025-06-06T07:54:58.000Z",
+  "color": "#080808",
+  "width": 1638,
+  "height": 2048,
+  "modified": "2026-01-29T09:24:36.000Z",
   "timestamp": "2021-11-07T05:21:02.000Z",
   "formattedDate": "November 2021",
   "title": "",
@@ -19,7 +19,9 @@
     "hill",
     "house",
     "night",
-    "river"
+    "river",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

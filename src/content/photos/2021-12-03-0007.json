@@ -1,10 +1,10 @@
 {
   "name": "2021-12-03_0007_Artem_Sapegin",
   "slug": "2021-12-03-0007",
-  "color": "#363c51",
-  "width": 3840,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:19.000Z",
+  "color": "#282828",
+  "width": 2048,
+  "height": 1152,
+  "modified": "2026-01-29T09:25:00.000Z",
   "timestamp": "2021-12-03T17:11:22.000Z",
   "formattedDate": "December 2021",
   "title": "",
@@ -16,7 +16,9 @@
     "cityscape",
     "night",
     "river",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

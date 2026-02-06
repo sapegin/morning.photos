@@ -1,15 +1,20 @@
 {
   "name": "IMG_2643",
   "slug": "2643",
-  "color": "#706f7e",
-  "width": 2925,
-  "height": 2089,
-  "modified": "2025-06-05T07:32:43.000Z",
+  "color": "#686878",
+  "width": 2048,
+  "height": 1463,
+  "modified": "2026-01-29T09:25:30.000Z",
   "timestamp": "2025-03-09T17:10:14.000Z",
   "formattedDate": "March 2025",
   "title": "",
   "caption": "",
   "location": "Valencia, Spain",
-  "keywords": [],
+  "keywords": [
+    "moire-series",
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
+  ],
   "rating": 0
 }

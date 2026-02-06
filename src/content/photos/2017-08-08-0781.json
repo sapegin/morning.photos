@@ -1,10 +1,10 @@
 {
   "name": "2017-08-08_0781_Artem_Sapegin",
   "slug": "2017-08-08-0781",
-  "color": "#2f3a50",
-  "width": 3024,
-  "height": 2160,
-  "modified": "2025-07-09T17:03:29.000Z",
+  "color": "#283858",
+  "width": 2048,
+  "height": 1463,
+  "modified": "2026-01-29T09:15:27.000Z",
   "timestamp": "2017-08-08T19:25:10.000Z",
   "formattedDate": "August 2017",
   "title": "Fernsehturm in twilight",
@@ -20,7 +20,9 @@
     "dark",
     "evening",
     "tower",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 4
 }

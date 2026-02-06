@@ -1,10 +1,10 @@
 {
   "name": "2023-02-12_7918_Artem_Sapegin",
   "slug": "2023-02-12-7918",
-  "color": "#282e31",
-  "width": 1543,
-  "height": 2160,
-  "modified": "2025-06-01T14:33:46.000Z",
+  "color": "#182828",
+  "width": 1463,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:11.000Z",
   "timestamp": "2023-02-12T17:49:01.000Z",
   "formattedDate": "February 2023",
   "title": "Rural road after sunset",
@@ -16,7 +16,9 @@
     "evening",
     "hill",
     "mountain",
-    "sunset"
+    "sunset",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

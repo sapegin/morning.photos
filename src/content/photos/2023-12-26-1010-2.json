@@ -1,10 +1,10 @@
 {
   "name": "2023-12-26_1010_Artem_Sapegin-2",
   "slug": "2023-12-26-1010-2",
-  "color": "#879cbe",
-  "width": 3840,
-  "height": 2124,
-  "modified": "2025-07-09T17:03:29.000Z",
+  "color": "#a8b8d8",
+  "width": 2048,
+  "height": 1133,
+  "modified": "2026-01-29T09:25:19.000Z",
   "timestamp": "2023-12-26T17:14:21.000Z",
   "formattedDate": "December 2023",
   "title": "",
@@ -14,7 +14,9 @@
     "antenna",
     "bird",
     "city",
-    "sky"
+    "sky",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 4
 }

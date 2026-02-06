@@ -1,10 +1,10 @@
 {
   "name": "IMG_4365",
   "slug": "4365",
-  "color": "#3d4451",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:06.000Z",
+  "color": "#282828",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:24:33.000Z",
   "timestamp": "2021-09-05T12:38:47.000Z",
   "formattedDate": "September 2021",
   "title": "",
@@ -13,7 +13,10 @@
   "keywords": [
     "bicycle",
     "bike",
-    "wall"
+    "moire-series",
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }

@@ -1,15 +1,19 @@
 {
   "name": "IMG_1740",
   "slug": "1740",
-  "color": "#2f3b46",
-  "width": 2605,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:53.000Z",
+  "color": "#081818",
+  "width": 2048,
+  "height": 1698,
+  "modified": "2026-01-29T09:21:14.000Z",
   "timestamp": "2020-04-03T06:50:06.000Z",
   "formattedDate": "April 2020",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "geometry-of-light",
+    "shadow",
+    "§Series"
+  ],
   "rating": 1
 }

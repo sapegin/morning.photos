@@ -1,10 +1,10 @@
 {
   "name": "IMG_4309",
   "slug": "4309",
-  "color": "#373434",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:05.000Z",
+  "color": "#181818",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:24:32.000Z",
   "timestamp": "2021-08-28T15:15:22.000Z",
   "formattedDate": "August 2021",
   "title": "",
@@ -12,9 +12,12 @@
   "location": "Berlin, Germany",
   "keywords": [
     "advertisement",
+    "moire-series",
     "poster",
     "reflection",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }

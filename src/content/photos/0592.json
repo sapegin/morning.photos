@@ -1,10 +1,10 @@
 {
   "name": "IMG_0592",
   "slug": "0592",
-  "color": "#264872",
-  "width": 1728,
-  "height": 2160,
-  "modified": "2025-05-30T15:27:46.000Z",
+  "color": "#385888",
+  "width": 1638,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:27.000Z",
   "timestamp": "2024-09-25T10:39:08.000Z",
   "formattedDate": "September 2024",
   "title": "Airplane piercing a cloud",
@@ -17,7 +17,9 @@
     "blue",
     "cloud",
     "plane",
-    "sky"
+    "sky",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 5
 }

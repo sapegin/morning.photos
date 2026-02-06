@@ -1,18 +1,20 @@
 {
   "name": "IMG_4586",
   "slug": "4586",
-  "color": "#41413f",
-  "width": 1620,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:47.000Z",
+  "color": "#181818",
+  "width": 1536,
+  "height": 2048,
+  "modified": "2026-01-29T09:18:44.000Z",
   "timestamp": "2019-04-13T12:17:43.000Z",
   "formattedDate": "April 2019",
   "title": "",
   "caption": "",
   "location": "Amsterdam, Netherlands",
   "keywords": [
+    "geometry-of-light",
     "light",
-    "shadow"
+    "shadow",
+    "§Series"
   ],
   "rating": 0
 }

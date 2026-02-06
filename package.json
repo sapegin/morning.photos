@@ -17,12 +17,13 @@
     "pretest": "npm run lint",
     "test": "astro check",
     "sync": "tsx -r dotenv/config scripts/sync.ts",
+    "sync:local": "tsx scripts/sync-local.ts",
     "posttest": "npm run format",
     "prepare": "husky; panda codegen"
   },
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "browserslist": [
     ">1%",
@@ -58,6 +59,7 @@
     "rehype-pretty-code": "^0.14.1",
     "richtypo": "^7.0.1",
     "sanitize-html": "^2.17.0",
+    "sharp": "0.34.5",
     "strip-json-comments": "^5.0.2",
     "tamia": "^7.1.11",
     "unist-util-visit": "^5.0.0"

@@ -1,10 +1,10 @@
 {
   "name": "IMG_2480",
   "slug": "2480",
-  "color": "#3d556d",
-  "width": 2700,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:21.000Z",
+  "color": "#080818",
+  "width": 2048,
+  "height": 1638,
+  "modified": "2026-01-29T09:25:07.000Z",
   "timestamp": "2022-10-16T06:50:00.000Z",
   "formattedDate": "October 2022",
   "title": "",
@@ -16,7 +16,9 @@
     "airplane",
     "antenna",
     "plane",
-    "roof"
+    "roof",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 0
 }

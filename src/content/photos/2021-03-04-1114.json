@@ -1,10 +1,10 @@
 {
   "name": "2021-03-04_1114_Artem_Sapegin",
   "slug": "2021-03-04-1114",
-  "color": "#b2a39d",
-  "width": 2700,
-  "height": 2160,
-  "modified": "2025-05-30T15:27:07.000Z",
+  "color": "#d8d8d8",
+  "width": 2048,
+  "height": 1638,
+  "modified": "2026-01-29T09:23:03.000Z",
   "timestamp": "2021-03-04T04:58:03.000Z",
   "formattedDate": "March 2021",
   "title": "Sunrise seagulls",
@@ -17,8 +17,10 @@
     "gull",
     "seagull",
     "silhouette",
+    "sky-full-of-parrots",
     "sunrise",
-    "sunset"
+    "sunset",
+    "§Series"
   ],
   "rating": 5
 }

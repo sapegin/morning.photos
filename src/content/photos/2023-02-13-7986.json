@@ -1,10 +1,10 @@
 {
   "name": "2023-02-13_7986_Artem_Sapegin",
   "slug": "2023-02-13-7986",
-  "color": "#231f20",
-  "width": 3456,
-  "height": 2160,
-  "modified": "2025-05-30T15:27:42.000Z",
+  "color": "#181818",
+  "width": 2048,
+  "height": 1280,
+  "modified": "2026-01-29T09:25:11.000Z",
   "timestamp": "2023-02-13T15:41:49.000Z",
   "formattedDate": "February 2023",
   "title": "",
@@ -18,7 +18,9 @@
     "flying",
     "light",
     "pigeon",
-    "shadow"
+    "shadow",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 5
 }

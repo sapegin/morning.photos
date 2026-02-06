@@ -1,10 +1,10 @@
 {
   "name": "2023-12-30_1331_Artem_Sapegin",
   "slug": "2023-12-30-1331",
-  "color": "#685c73",
-  "width": 3840,
-  "height": 1920,
-  "modified": "2025-07-09T17:01:27.000Z",
+  "color": "#585878",
+  "width": 2048,
+  "height": 1024,
+  "modified": "2026-01-29T09:25:19.000Z",
   "timestamp": "2023-12-30T18:08:58.000Z",
   "formattedDate": "December 2023",
   "title": "",
@@ -18,7 +18,9 @@
     "night",
     "sky",
     "sunset",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

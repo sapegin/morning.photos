@@ -1,15 +1,19 @@
 {
   "name": "IMG_4192",
   "slug": "4192",
-  "color": "#303e57",
-  "width": 2700,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:56.000Z",
+  "color": "#182838",
+  "width": 2048,
+  "height": 1638,
+  "modified": "2026-01-29T09:21:33.000Z",
   "timestamp": "2020-08-11T07:04:42.000Z",
   "formattedDate": "August 2020",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "geometry-of-light",
+    "shadow",
+    "§Series"
+  ],
   "rating": 1
 }

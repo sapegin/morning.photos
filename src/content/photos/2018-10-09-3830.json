@@ -1,10 +1,10 @@
 {
   "name": "2018-10-09_3830_Artem_Sapegin",
   "slug": "2018-10-09-3830",
-  "color": "#644c62",
-  "width": 3240,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:46.000Z",
+  "color": "#382838",
+  "width": 2048,
+  "height": 1365,
+  "modified": "2026-01-29T09:18:42.000Z",
   "timestamp": "2018-10-08T22:49:13.000Z",
   "formattedDate": "October 2018",
   "title": "",
@@ -32,7 +32,9 @@
     "sailing boat",
     "skyline",
     "skyscraper",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

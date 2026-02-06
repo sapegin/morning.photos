@@ -1,10 +1,10 @@
 {
   "name": "2019-09-25_6891_Artem_Sapegin",
   "slug": "2019-09-25-6891",
-  "color": "#28354f",
-  "width": 3530,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:54.000Z",
+  "color": "#082838",
+  "width": 2048,
+  "height": 1253,
+  "modified": "2026-01-29T09:21:16.000Z",
   "timestamp": "2019-09-25T10:40:01.000Z",
   "formattedDate": "September 2019",
   "title": "Brooklyn Bridge at sunrise",
@@ -20,7 +20,9 @@
     "city",
     "cityscape",
     "river",
-    "skyscraper"
+    "skyscraper",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

@@ -1,10 +1,10 @@
 {
   "name": "IMG_8108",
   "slug": "8108",
-  "color": "#3a5a7d",
-  "width": 1728,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:03.000Z",
+  "color": "#082848",
+  "width": 1638,
+  "height": 2048,
+  "modified": "2026-01-29T09:22:30.000Z",
   "timestamp": "2021-01-10T11:16:37.000Z",
   "formattedDate": "January 2021",
   "title": "Cloud chasers",
@@ -16,7 +16,9 @@
     "airplane",
     "bird",
     "cloud",
-    "plane"
+    "plane",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 5
 }

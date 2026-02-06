@@ -1,19 +1,18 @@
 {
   "name": "IMG_9045",
   "slug": "9045",
-  "color": "#d0c4bd",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-06-05T07:32:29.000Z",
-  "timestamp": "2022-04-23T14:00:13.000Z",
-  "formattedDate": "April 2022",
+  "color": "#080818",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:22:31.000Z",
+  "timestamp": "2021-01-30T06:42:26.000Z",
+  "formattedDate": "January 2021",
   "title": "",
   "caption": "",
-  "location": "Germany",
+  "location": "Berlin, Germany",
   "keywords": [
-    "advertisement",
-    "poster",
-    "wall"
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
-  "rating": 4
+  "rating": 0
 }

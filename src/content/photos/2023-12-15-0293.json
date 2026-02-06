@@ -1,10 +1,10 @@
 {
   "name": "2023-12-15_0293_Artem_Sapegin",
   "slug": "2023-12-15-0293",
-  "color": "#374463",
-  "width": 3456,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:27.000Z",
+  "color": "#182848",
+  "width": 2048,
+  "height": 1280,
+  "modified": "2026-01-29T09:25:18.000Z",
   "timestamp": "2023-12-15T17:45:57.000Z",
   "formattedDate": "December 2023",
   "title": "New moon behind street light",
@@ -19,7 +19,9 @@
     "night",
     "sky",
     "street light",
-    "sunset"
+    "sunset",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

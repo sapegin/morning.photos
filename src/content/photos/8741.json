@@ -1,10 +1,10 @@
 {
   "name": "IMG_8741",
   "slug": "8741",
-  "color": "#aeb3bb",
-  "width": 1728,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:31.000Z",
+  "color": "#e8e8e8",
+  "width": 1638,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:24.000Z",
   "timestamp": "2024-03-18T14:05:20.000Z",
   "formattedDate": "March 2024",
   "title": "",
@@ -16,7 +16,9 @@
     "airplane",
     "cloud",
     "plane",
-    "sky"
+    "sky",
+    "sky-full-of-parrots",
+    "§Series"
   ],
   "rating": 0
 }

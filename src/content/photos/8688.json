@@ -1,10 +1,10 @@
 {
   "name": "IMG_8688",
   "slug": "8688",
-  "color": "#0e2e63",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:04.000Z",
+  "color": "#080808",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:22:30.000Z",
   "timestamp": "2021-01-23T16:36:59.000Z",
   "formattedDate": "January 2021",
   "title": "",
@@ -15,7 +15,10 @@
     "Berlin tv tower",
     "Fernsehturm Berliin",
     "Germany",
-    "bird"
+    "bird",
+    "sky-full-of-parrots",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

@@ -4,7 +4,8 @@
     "lib": ["ESNext"],
     "jsx": "preserve",
     "strictNullChecks": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true
   },
   "include": ["src/", "scripts/"]
 }

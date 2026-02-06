@@ -1,18 +1,20 @@
 {
   "name": "IMG_3016",
   "slug": "3016",
-  "color": "#272830",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:55.000Z",
+  "color": "#181818",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:21:17.000Z",
   "timestamp": "2020-06-02T17:52:58.000Z",
   "formattedDate": "June 2020",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
   "keywords": [
+    "geometry-of-light",
     "light",
-    "shadow"
+    "shadow",
+    "§Series"
   ],
   "rating": 0
 }

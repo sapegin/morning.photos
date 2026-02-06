@@ -1,10 +1,10 @@
 {
   "name": "2018-10-03_3739_Artem_Sapegin",
   "slug": "2018-10-03-3739",
-  "color": "#2f2739",
-  "width": 3840,
-  "height": 1920,
-  "modified": "2025-07-09T17:00:49.000Z",
+  "color": "#282848",
+  "width": 2048,
+  "height": 1024,
+  "modified": "2026-01-29T09:18:22.000Z",
   "timestamp": "2018-10-02T23:01:45.000Z",
   "formattedDate": "October 2018",
   "title": "Boston at night",
@@ -23,7 +23,9 @@
     "ocean",
     "skyline",
     "skyscraper",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

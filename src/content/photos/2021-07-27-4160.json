@@ -1,10 +1,10 @@
 {
   "name": "2021-07-27_4160_Artem_Sapegin-Pano",
   "slug": "2021-07-27-4160",
-  "color": "#385d95",
-  "width": 3840,
-  "height": 1458,
-  "modified": "2025-07-09T17:01:15.000Z",
+  "color": "#3868b8",
+  "width": 2048,
+  "height": 777,
+  "modified": "2026-01-29T09:24:59.000Z",
   "timestamp": "2021-07-27T17:54:21.000Z",
   "formattedDate": "July 2021",
   "title": "Rome at night",
@@ -19,7 +19,9 @@
     "hill",
     "night",
     "skyline",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

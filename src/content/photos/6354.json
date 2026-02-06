@@ -1,15 +1,18 @@
 {
   "name": "IMG_6354",
   "slug": "6354",
-  "color": "#333033",
-  "width": 2700,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:26.000Z",
+  "color": "#181828",
+  "width": 2048,
+  "height": 1638,
+  "modified": "2026-01-29T09:25:17.000Z",
   "timestamp": "2023-09-29T07:09:10.000Z",
   "formattedDate": "September 2023",
   "title": "Shadows on a staircase",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "geometry-of-light",
+    "§Series"
+  ],
   "rating": 0
 }

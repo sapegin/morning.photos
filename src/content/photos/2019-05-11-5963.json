@@ -1,10 +1,10 @@
 {
   "name": "2019-05-11_5963_Artem_Sapegin",
   "slug": "2019-05-11-5963",
-  "color": "#191f33",
-  "width": 3240,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:52.000Z",
+  "color": "#080808",
+  "width": 2048,
+  "height": 1365,
+  "modified": "2026-01-29T09:21:01.000Z",
   "timestamp": "2019-05-11T03:16:18.000Z",
   "formattedDate": "May 2019",
   "title": "Night at Giudecca",
@@ -26,7 +26,9 @@
     "morning",
     "night",
     "street light",
-    "sunrise"
+    "sunrise",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

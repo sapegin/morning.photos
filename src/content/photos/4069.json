@@ -1,18 +1,20 @@
 {
   "name": "IMG_4069",
   "slug": "4069",
-  "color": "#bcbbb2",
-  "width": 1719,
-  "height": 2160,
-  "modified": "2025-07-09T17:00:56.000Z",
+  "color": "#d8d8d8",
+  "width": 1630,
+  "height": 2048,
+  "modified": "2026-01-29T09:21:30.000Z",
   "timestamp": "2020-08-01T16:38:45.000Z",
   "formattedDate": "August 2020",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
   "keywords": [
+    "geometry-of-light",
     "light",
-    "shadow"
+    "shadow",
+    "§Series"
   ],
   "rating": 0
 }

@@ -1,15 +1,20 @@
 {
   "name": "IMG_4533",
   "slug": "4533",
-  "color": "#b0b0b2",
-  "width": 1728,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:23.000Z",
+  "color": "#e8e8e8",
+  "width": 1638,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:13.000Z",
   "timestamp": "2023-04-01T13:55:53.000Z",
   "formattedDate": "April 2023",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "moire-series",
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
+  ],
   "rating": 4
 }

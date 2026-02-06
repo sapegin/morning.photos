@@ -1,10 +1,10 @@
 {
   "name": "2023-12-20_0800_Artem_Sapegin",
   "slug": "2023-12-20-0800",
-  "color": "#5575b9",
-  "width": 1440,
-  "height": 2160,
-  "modified": "2025-06-06T07:55:06.000Z",
+  "color": "#5878c8",
+  "width": 1365,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:19.000Z",
   "timestamp": "2023-12-20T17:38:43.000Z",
   "formattedDate": "December 2023",
   "title": "New moon rision over Mediterranean Sea",
@@ -24,7 +24,9 @@
     "nature",
     "sea",
     "sunset",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

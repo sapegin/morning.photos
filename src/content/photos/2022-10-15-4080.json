@@ -1,10 +1,10 @@
 {
   "name": "2022-10-15_4080_Artem_Sapegin",
   "slug": "2022-10-15-4080",
-  "color": "#5d5897",
-  "width": 3838,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:23.000Z",
+  "color": "#6868a8",
+  "width": 2048,
+  "height": 1153,
+  "modified": "2026-01-29T09:25:15.000Z",
   "timestamp": "2022-10-15T05:48:42.000Z",
   "formattedDate": "October 2022",
   "title": "",
@@ -18,7 +18,9 @@
     "fog",
     "night",
     "tower",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

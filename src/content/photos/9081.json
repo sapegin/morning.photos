@@ -1,15 +1,20 @@
 {
   "name": "IMG_9081",
   "slug": "9081",
-  "color": "#576a67",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:17.000Z",
+  "color": "#586868",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:25:03.000Z",
   "timestamp": "2022-04-25T12:53:36.000Z",
   "formattedDate": "April 2022",
   "title": "",
   "caption": "",
   "location": "Berlin, Germany",
-  "keywords": [],
+  "keywords": [
+    "moire-series",
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
+  ],
   "rating": 0
 }

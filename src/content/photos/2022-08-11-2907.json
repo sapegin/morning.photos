@@ -1,10 +1,10 @@
 {
   "name": "2022-08-11_2907_Artem_Sapegin",
   "slug": "2022-08-11-2907",
-  "color": "#2e5383",
-  "width": 3838,
-  "height": 2160,
-  "modified": "2025-06-01T14:33:48.000Z",
+  "color": "#282838",
+  "width": 2048,
+  "height": 1153,
+  "modified": "2026-01-29T09:25:11.000Z",
   "timestamp": "2022-08-11T14:54:02.000Z",
   "formattedDate": "August 2022",
   "title": "Bird swimming between reflections in water",
@@ -16,7 +16,9 @@
     "bird",
     "coot",
     "reflection",
-    "water"
+    "sky-full-of-parrots",
+    "water",
+    "§Series"
   ],
   "rating": 5
 }

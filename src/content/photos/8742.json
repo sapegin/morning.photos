@@ -1,10 +1,10 @@
 {
   "name": "IMG_8742",
   "slug": "8742",
-  "color": "#27262f",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-06-06T07:54:36.000Z",
+  "color": "#181808",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:13:46.000Z",
   "timestamp": "2017-03-25T18:12:48.000Z",
   "formattedDate": "March 2017",
   "title": "",
@@ -16,7 +16,9 @@
     "night",
     "sunset",
     "tree",
-    "window"
+    "when-the-moon-goes-to-bed",
+    "window",
+    "§Series"
   ],
   "rating": 0
 }

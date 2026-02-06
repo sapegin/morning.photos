@@ -1,10 +1,10 @@
 {
   "name": "IMG_6886",
   "slug": "6886",
-  "color": "#394144",
-  "width": 1620,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:27.000Z",
+  "color": "#081818",
+  "width": 1536,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:18.000Z",
   "timestamp": "2023-11-28T10:28:32.000Z",
   "formattedDate": "November 2023",
   "title": "",
@@ -12,8 +12,11 @@
   "location": "Berlin, Germany",
   "keywords": [
     "advertisement",
+    "moire-series",
     "poster",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }

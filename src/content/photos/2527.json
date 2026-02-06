@@ -1,10 +1,10 @@
 {
   "name": "IMG_2527",
   "slug": "2527",
-  "color": "#bcac9b",
-  "width": 1620,
-  "height": 2160,
-  "modified": "2025-06-06T07:55:04.000Z",
+  "color": "#d8d8c8",
+  "width": 1536,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:08.000Z",
   "timestamp": "2022-10-16T16:55:37.000Z",
   "formattedDate": "October 2022",
   "title": "",
@@ -15,8 +15,11 @@
     "bench",
     "chair",
     "furniture",
+    "moire-series",
     "poster",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 3
 }

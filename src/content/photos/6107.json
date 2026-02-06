@@ -1,10 +1,10 @@
 {
   "name": "IMG_6107",
   "slug": "6107",
-  "color": "#444448",
-  "width": 2880,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:01.000Z",
+  "color": "#282828",
+  "width": 2048,
+  "height": 1536,
+  "modified": "2026-01-29T09:21:34.000Z",
   "timestamp": "2020-10-19T07:04:10.000Z",
   "formattedDate": "October 2020",
   "title": "",
@@ -15,8 +15,10 @@
     "café",
     "chair",
     "furniture",
+    "geometry-of-light",
     "shadow",
-    "stool"
+    "stool",
+    "§Series"
   ],
   "rating": 0
 }

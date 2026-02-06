@@ -1,10 +1,10 @@
 {
   "name": "2017-09-30_1449_Artem_Sapegin",
   "slug": "2017-09-30-1449",
-  "color": "#325d78",
-  "width": 3840,
-  "height": 2160,
-  "modified": "2025-07-09T17:03:29.000Z",
+  "color": "#285878",
+  "width": 2048,
+  "height": 1152,
+  "modified": "2026-01-29T09:18:36.000Z",
   "timestamp": "2017-09-30T17:59:21.000Z",
   "formattedDate": "September 2017",
   "title": "",
@@ -12,7 +12,9 @@
   "location": "Alicante, Spain",
   "keywords": [
     "Alicante",
-    "Spain"
+    "Spain",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 4
 }

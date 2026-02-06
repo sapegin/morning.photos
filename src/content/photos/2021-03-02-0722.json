@@ -1,10 +1,10 @@
 {
   "name": "2021-03-02_0722_Artem_Sapegin",
   "slug": "2021-03-02-0722",
-  "color": "#483b4a",
-  "width": 3024,
-  "height": 2160,
-  "modified": "2025-07-09T17:01:08.000Z",
+  "color": "#080808",
+  "width": 2048,
+  "height": 1463,
+  "modified": "2026-01-29T09:23:54.000Z",
   "timestamp": "2021-03-02T16:06:11.000Z",
   "formattedDate": "March 2021",
   "title": "Evening in Odessa",
@@ -18,7 +18,9 @@
     "lighting",
     "street light",
     "sunset",
-    "twilight"
+    "twilight",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 0
 }

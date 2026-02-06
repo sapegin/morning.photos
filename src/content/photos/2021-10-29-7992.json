@@ -1,10 +1,10 @@
 {
   "name": "2021-10-29_7992_Artem_Sapegin",
   "slug": "2021-10-29-7992",
-  "color": "#302c52",
-  "width": 3240,
-  "height": 2160,
-  "modified": "2025-06-06T07:54:53.000Z",
+  "color": "#282848",
+  "width": 2048,
+  "height": 1365,
+  "modified": "2026-01-29T09:24:35.000Z",
   "timestamp": "2021-10-29T06:01:11.000Z",
   "formattedDate": "October 2021",
   "title": "",
@@ -18,7 +18,9 @@
     "nature",
     "night",
     "spruce",
-    "tree"
+    "tree",
+    "when-the-moon-goes-to-bed",
+    "§Series"
   ],
   "rating": 5
 }

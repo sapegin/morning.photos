@@ -1,10 +1,10 @@
 {
   "name": "IMG_7963",
   "slug": "7963",
-  "color": "#504f56",
-  "width": 1620,
-  "height": 2160,
-  "modified": "2025-06-05T07:32:39.000Z",
+  "color": "#282828",
+  "width": 1536,
+  "height": 2048,
+  "modified": "2026-01-29T09:25:20.000Z",
   "timestamp": "2024-01-30T11:15:50.000Z",
   "formattedDate": "January 2024",
   "title": "",
@@ -12,8 +12,11 @@
   "location": "Berlin, Germany",
   "keywords": [
     "advertisement",
+    "moire-series",
     "poster",
-    "wall"
+    "wall",
+    "what-we-do-in-the-shadows",
+    "§Series"
   ],
   "rating": 0
 }
