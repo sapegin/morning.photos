@@ -28,7 +28,7 @@ const series = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		pageTitle: z.string(),
-		description: z.string().optional(),
+		keyword: z.string(),
 		cover: z.string(),
 		position: z.number(),
 	}) satisfies z.ZodType<Album>,
