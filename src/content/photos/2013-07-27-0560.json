@@ -4,12 +4,12 @@
   "color": "#080808",
   "width": 1365,
   "height": 2048,
-  "modified": "2026-01-29T09:13:29.000Z",
+  "modified": "2026-02-17T12:24:07.000Z",
   "timestamp": "2013-07-27T20:57:23.000Z",
   "formattedDate": "July 2013",
   "title": "Tallinn Old Town at night",
   "caption": "",
-  "location": "Tallinn, Estonia",
+  "location": "",
   "keywords": [
     "Estonia",
     "Old Town",
@@ -24,8 +24,7 @@
     "street light",
     "twilight",
     "vertical",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 4
 }

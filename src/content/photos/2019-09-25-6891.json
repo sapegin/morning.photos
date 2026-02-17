@@ -4,12 +4,12 @@
   "color": "#082838",
   "width": 2048,
   "height": 1253,
-  "modified": "2026-01-29T09:21:16.000Z",
+  "modified": "2026-02-17T12:24:57.000Z",
   "timestamp": "2019-09-25T10:40:01.000Z",
   "formattedDate": "September 2019",
   "title": "Brooklyn Bridge at sunrise",
   "caption": "",
-  "location": "New York City, United States",
+  "location": "",
   "keywords": [
     "Brooklyn Bridge",
     "East River",
@@ -21,8 +21,7 @@
     "cityscape",
     "river",
     "skyscraper",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 0
 }

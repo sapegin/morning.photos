@@ -4,12 +4,12 @@
   "color": "#081818",
   "width": 2048,
   "height": 1365,
-  "modified": "2026-01-29T09:18:49.000Z",
+  "modified": "2026-02-17T12:24:41.000Z",
   "timestamp": "2018-10-09T22:51:56.000Z",
   "formattedDate": "October 2018",
   "title": "Boston at night",
   "caption": "View from the 50th floor of The Prudential Tower",
-  "location": "Boston, United States",
+  "location": "",
   "keywords": [
     "200 Clarendon Street",
     "Boston",
@@ -26,8 +26,7 @@
     "skyscraper",
     "street light",
     "twilight",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 0
 }

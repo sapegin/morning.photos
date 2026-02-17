@@ -4,12 +4,12 @@
   "color": "#182828",
   "width": 2048,
   "height": 1153,
-  "modified": "2026-01-29T09:25:02.000Z",
+  "modified": "2026-02-17T12:26:14.000Z",
   "timestamp": "2021-10-16T04:07:23.000Z",
   "formattedDate": "October 2021",
   "title": "Night in Prague",
   "caption": "",
-  "location": "Prague, Czech Republic",
+  "location": "",
   "keywords": [
     "Vltava river",
     "castle",
@@ -19,8 +19,7 @@
     "river",
     "street light",
     "twilight",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 0
 }

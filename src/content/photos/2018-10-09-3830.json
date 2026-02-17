@@ -4,12 +4,12 @@
   "color": "#382838",
   "width": 2048,
   "height": 1365,
-  "modified": "2026-01-29T09:18:42.000Z",
+  "modified": "2026-02-17T12:24:41.000Z",
   "timestamp": "2018-10-08T22:49:13.000Z",
   "formattedDate": "October 2018",
   "title": "",
   "caption": "",
-  "location": "Boston, United States",
+  "location": "",
   "keywords": [
     "200 Clarendon Street",
     "Berkeley Building",
@@ -33,8 +33,7 @@
     "skyline",
     "skyscraper",
     "twilight",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 0
 }

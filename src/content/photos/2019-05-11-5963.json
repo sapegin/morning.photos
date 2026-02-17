@@ -4,12 +4,12 @@
   "color": "#080808",
   "width": 2048,
   "height": 1365,
-  "modified": "2026-01-29T09:21:01.000Z",
+  "modified": "2026-02-17T12:24:47.000Z",
   "timestamp": "2019-05-11T03:16:18.000Z",
   "formattedDate": "May 2019",
   "title": "Night at Giudecca",
   "caption": "",
-  "location": "Giudecca, Italy",
+  "location": "",
   "keywords": [
     "Giudecca",
     "Italy",
@@ -27,8 +27,7 @@
     "night",
     "street light",
     "sunrise",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
   "rating": 0
 }

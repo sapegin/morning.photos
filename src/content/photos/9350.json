@@ -4,12 +4,12 @@
   "color": "#080808",
   "width": 1630,
   "height": 2048,
-  "modified": "2026-01-29T09:04:15.000Z",
+  "modified": "2026-02-17T12:24:56.000Z",
   "timestamp": "2019-10-30T16:17:19.000Z",
   "formattedDate": "October 2019",
   "title": "",
   "caption": "",
-  "location": "Berlin, Germany",
+  "location": "",
   "keywords": [
     "2. Who: Human",
     "city",
@@ -18,7 +18,9 @@
     "man",
     "night",
     "street light",
-    "walking"
+    "the-wrong-side-of-berlin",
+    "walking",
+    "what-we-do-in-the-shadows"
   ],
   "rating": 0
 }

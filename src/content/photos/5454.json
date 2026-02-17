@@ -4,12 +4,12 @@
   "color": "#284878",
   "width": 1631,
   "height": 2048,
-  "modified": "2026-01-29T09:18:46.000Z",
+  "modified": "2026-02-17T12:24:44.000Z",
   "timestamp": "2019-05-10T15:27:20.000Z",
   "formattedDate": "May 2019",
   "title": "",
   "caption": "",
-  "location": "Venice, Italy",
+  "location": "",
   "keywords": [
     "bird",
     "city",
@@ -17,8 +17,7 @@
     "moon",
     "seagull",
     "sky-full-of-parrots",
-    "tower",
-    "§Series"
+    "tower"
   ],
   "rating": 0
 }

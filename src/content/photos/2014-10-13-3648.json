@@ -4,12 +4,12 @@
   "color": "#080808",
   "width": 2048,
   "height": 1024,
-  "modified": "2026-01-29T09:15:16.000Z",
+  "modified": "2026-02-17T12:24:10.000Z",
   "timestamp": "2014-10-13T16:41:26.000Z",
   "formattedDate": "October 2014",
   "title": "Lake Bled in twilight",
   "caption": "From a viewpoint at Ojstrica hill",
-  "location": "Bled, Slovenia",
+  "location": "",
   "keywords": [
     "Bled",
     "Bled Island",
@@ -27,8 +27,7 @@
     "lake",
     "long exposure",
     "when-the-moon-goes-to-bed",
-    "woods",
-    "§Series"
+    "woods"
   ],
   "rating": 5
 }

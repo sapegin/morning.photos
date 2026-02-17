@@ -4,12 +4,12 @@
   "color": "#6868a8",
   "width": 2048,
   "height": 1153,
-  "modified": "2026-01-29T09:25:15.000Z",
+  "modified": "2026-02-17T12:26:59.000Z",
   "timestamp": "2022-10-15T05:48:42.000Z",
   "formattedDate": "October 2022",
   "title": "",
   "caption": "",
-  "location": "Paris, France",
+  "location": "",
   "keywords": [
     "Eiffel Tower",
     "city",
@@ -19,8 +19,7 @@
     "night",
     "tower",
     "twilight",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
-  "rating": 0
+  "rating": 3
 }

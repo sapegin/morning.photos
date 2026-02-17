@@ -4,12 +4,12 @@
   "color": "#282828",
   "width": 2048,
   "height": 1152,
-  "modified": "2026-01-29T09:25:00.000Z",
+  "modified": "2026-02-17T12:26:42.000Z",
   "timestamp": "2021-12-03T17:11:22.000Z",
   "formattedDate": "December 2021",
   "title": "",
   "caption": "",
-  "location": "Paris, France",
+  "location": "",
   "keywords": [
     "bridge",
     "city",
@@ -17,8 +17,7 @@
     "night",
     "river",
     "twilight",
-    "when-the-moon-goes-to-bed",
-    "§Series"
+    "when-the-moon-goes-to-bed"
   ],
-  "rating": 0
+  "rating": 3
 }

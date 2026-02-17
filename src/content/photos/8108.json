@@ -4,12 +4,12 @@
   "color": "#082848",
   "width": 1638,
   "height": 2048,
-  "modified": "2026-01-29T09:22:30.000Z",
+  "modified": "2026-02-17T12:25:24.000Z",
   "timestamp": "2021-01-10T11:16:37.000Z",
   "formattedDate": "January 2021",
   "title": "Cloud chasers",
   "caption": "",
-  "location": "Berlin, Germany",
+  "location": "",
   "keywords": [
     "aeroplane",
     "aircraft",
@@ -17,8 +17,7 @@
     "bird",
     "cloud",
     "plane",
-    "sky-full-of-parrots",
-    "§Series"
+    "sky-full-of-parrots"
   ],
   "rating": 5
 }
