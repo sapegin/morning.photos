@@ -16,8 +16,7 @@
     "format": "prettier --log-level warn --write \"**/*.{js,ts,tsx,astro,md}\"",
     "pretest": "npm run lint",
     "test": "astro check",
-    "sync": "tsx -r dotenv/config scripts/sync.ts",
-    "sync:local": "tsx scripts/sync-local.ts",
+    "sync": "tsx scripts/sync.ts",
     "posttest": "npm run format",
     "prepare": "husky; panda codegen"
   },

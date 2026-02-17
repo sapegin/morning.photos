@@ -1,32 +1,31 @@
-// Upload all photos to Cloudinary and creates JSON files with metadata for
-// Astro collections
-// Requires CLOUDINARY_URL environment variable, like:
-// CLOUDINARY_URL=cloudinary://XXX:YYY@ZZZ
-// You can find it in the Cloudinary console: https://cloudinary.com/console/
+// Upload all photos from iCloud Photos folder, convert them to AVIF,
+// and create JSON files with metadata for Astro collections
 
 import path from 'node:path';
-import fs from 'fs-extra';
-import { globSync } from 'glob';
-import cloudinary from 'cloudinary';
+import os from 'node:os';
+import fs from 'node:fs';
 import ExifReader from 'exifreader';
-import getImageColors from 'get-image-colors';
-import probe from 'probe-image-size';
+import sharp from 'sharp';
 import type { Photo } from '../src/types/Photo';
 
-const PHOTO_DIR = 'photos';
+const PHOTO_DIR = path.join(
+	os.homedir(),
+	'Library/Mobile Documents/com~apple~CloudDocs/Pictures/photos'
+);
 const DEST_DIR = 'src/content/photos';
-
-if (!process.env.CLOUDINARY_URL) {
-	console.error('CLOUDINARY_URL environmental variable is required');
-	process.exit(1);
-}
+const PUBLIC_PHOTO_DIR = 'public/photos';
+const AVIF_QUALITY = 80;
+const AVIF_QUALITY_STEP = 10;
+const AVIF_MIN_QUALITY = 40;
+const MAX_FILE_SIZE = 500_000;
+const THUMBNAIL_WIDTH = 752;
 
 /**
  * Load an image, or crash on error.
  */
 function readImage(filepath: string) {
 	try {
-		return fs.readFileSync(filepath);
+		return Buffer.from(fs.readFileSync(filepath));
 	} catch {
 		console.error(`Cannot load photo ${filepath}, exiting…`);
 		process.exit(1);
@@ -39,7 +38,7 @@ function readImage(filepath: string) {
 function readMetadata(slug: string): Photo | undefined {
 	const filepath = path.join(DEST_DIR, `${slug}.json`);
 	if (fs.existsSync(filepath)) {
-		const json = fs.readJSONSync(filepath, 'utf8');
+		const json = JSON.parse(fs.readFileSync(filepath));
 		return {
 			...json,
 			modified: new Date(Date.parse(json.modified)),
@@ -50,35 +49,6 @@ function readMetadata(slug: string): Photo | undefined {
 	} else {
 		return undefined;
 	}
-}
-
-/**
- * Upload an image at a given path to Cloudinary.
- */
-export function uploadPhoto(filepath: string) {
-	return new Promise((resolve, reject) => {
-		const { size } = fs.statSync(filepath);
-		if (size > 10_000_000) {
-			reject('File is larger than 10 MB');
-			return;
-		}
-
-		cloudinary.v2.uploader.upload(
-			filepath,
-			{
-				folder: 'photos/',
-				use_filename: true,
-				unique_filename: false,
-				resource_type: 'auto',
-			},
-			(error, result) => {
-				if (error) {
-					reject(error);
-				}
-				resolve(result);
-			}
-		);
-	});
 }
 
 /**
@@ -137,8 +107,39 @@ function formatDate(timestamp: Date) {
  * Return dominant color of an image.
  */
 async function getDominantColor(buffer: Buffer) {
-	const colors = await getImageColors(buffer, { type: 'image/jpeg', count: 1 });
-	return colors[0].hex();
+	const { dominant } = await sharp(buffer).stats();
+	const hex = [dominant.r, dominant.g, dominant.b]
+		.map((c) => c.toString(16).padStart(2, '0'))
+		.join('');
+	return `#${hex}`;
+}
+
+/**
+ * Convert an image to AVIF and save it to the public folder.
+ */
+async function writeAvif(
+	pipeline: sharp.Sharp,
+	outputPath: string,
+	quality: number
+) {
+	await pipeline.avif({ quality }).toFile(outputPath);
+	const { size } = fs.statSync(outputPath);
+	if (size > MAX_FILE_SIZE && quality - AVIF_QUALITY_STEP >= AVIF_MIN_QUALITY) {
+		await writeAvif(pipeline, outputPath, quality - AVIF_QUALITY_STEP);
+	}
+}
+
+async function convertToAvif(buffer: Buffer, slug: string) {
+	await writeAvif(
+		sharp(buffer),
+		path.join(PUBLIC_PHOTO_DIR, `${slug}.avif`),
+		AVIF_QUALITY
+	);
+	await writeAvif(
+		sharp(buffer).resize({ width: THUMBNAIL_WIDTH }),
+		path.join(PUBLIC_PHOTO_DIR, `${slug}_thumb.avif`),
+		AVIF_QUALITY
+	);
 }
 
 /**
@@ -188,9 +189,10 @@ function enhanceMetadata({
 console.log();
 console.log('[PHOTOS] Gathering photos...');
 
-fs.ensureDirSync(DEST_DIR);
+fs.mkdirSync(DEST_DIR, { recursive: true });
+fs.mkdirSync(PUBLIC_PHOTO_DIR, { recursive: true });
 
-const photoFiles = globSync(`${PHOTO_DIR}/*.jpg`);
+const photoFiles = fs.globSync(`${PHOTO_DIR}/*.jpg`);
 
 console.log();
 console.log('[PHOTOS] Loading photos...');
@@ -205,17 +207,16 @@ for (const filepath of photoFiles) {
 	const { mtimeMs } = fs.statSync(filepath);
 
 	if (metadata && metadata.modified.getTime() >= mtimeMs) {
-		// Skip if we already have the photo on the site and it wasn’t changed
 		continue;
 	}
 
-	console.log(`👉 Reading ${name}…`);
+	console.log(`👉 ${name}…`);
 
 	const buffer = readImage(filepath);
 
-	console.log(`🪩  Processing ${name}…`);
-
-	const { width, height } = probe.sync(buffer) ?? { width: 0, height: 0 };
+	const sharpMeta = await sharp(buffer).metadata();
+	const width = sharpMeta.width ?? 0;
+	const height = sharpMeta.height ?? 0;
 
 	const exif = ExifReader.load(buffer);
 
@@ -231,15 +232,12 @@ for (const filepath of photoFiles) {
 		color,
 	});
 
-	console.log(`🛸 Uploading ${name}…`);
+	await convertToAvif(buffer, slug);
 
-	// Upload to Cloudinary
-	await uploadPhoto(filepath);
-
-	console.log(`💾 Saving ${name}…`);
-
-	// And save as an Astro collection item
-	fs.writeJSONSync(path.join(DEST_DIR, `${slug}.json`), photo, { spaces: 2 });
+	fs.writeFileSync(
+		path.join(DEST_DIR, `${slug}.json`),
+		JSON.stringify(photo, null, 2)
+	);
 
 	count++;
 }
