@@ -187,7 +187,7 @@ function enhanceMetadata({
 }
 
 console.log();
-console.log('[PHOTOS] Gathering photos...');
+console.log('[PHOTOS] Gathering photos…');
 
 fs.mkdirSync(DEST_DIR, { recursive: true });
 fs.mkdirSync(PUBLIC_PHOTO_DIR, { recursive: true });
@@ -195,7 +195,10 @@ fs.mkdirSync(PUBLIC_PHOTO_DIR, { recursive: true });
 const photoFiles = fs.globSync(`${PHOTO_DIR}/*.jpg`);
 
 console.log();
-console.log('[PHOTOS] Loading photos...');
+console.log(`[PHOTOS] ${photoFiles.length} photos found`);
+
+console.log();
+console.log('[PHOTOS] Updating photos…');
 
 let count = 0;
 
