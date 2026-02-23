@@ -38,7 +38,7 @@ function readImage(filepath: string) {
 function readMetadata(slug: string): Photo | undefined {
 	const filepath = path.join(DEST_DIR, `${slug}.json`);
 	if (fs.existsSync(filepath)) {
-		const json = JSON.parse(fs.readFileSync(filepath));
+		const json = JSON.parse(fs.readFileSync(filepath).toString());
 		return {
 			...json,
 			modified: new Date(Date.parse(json.modified)),
