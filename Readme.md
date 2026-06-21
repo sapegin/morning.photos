@@ -1,5 +1,7 @@
 # [Artem Sapegin’s photography site version 2025](https://morning.photos/)
 
+**[Repository moved](https://github.com/sapegin/sapegin.me)**
+
 [![Node.js CI status](https://github.com/sapegin/morning.photos/workflows/Node.js%20CI/badge.svg)](https://github.com/sapegin/morning.photos/actions) [![Netlify Status](https://api.netlify.com/api/v1/badges/2f9e1773-89f3-49a9-aa07-367687293d09/deploy-status)](https://app.netlify.com/sites/morning/deploys)
 
 ## Running locally
